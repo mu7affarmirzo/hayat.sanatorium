@@ -11,6 +11,7 @@ import {
 } from '@mui/material';
 import { BookUserIcon, CloseIcon, SearchAltIcon } from 'assets/icons/icons';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 interface IFormInput {
     phone: string;
     email: string;
@@ -38,6 +39,7 @@ const currencies = [
 const SearchPatientsView = () => {
     const { register, handleSubmit } = useForm<IFormInput>();
     const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
+
     return (
         <Grid className=" " container>
             <Grid item xs={12} md={12}>

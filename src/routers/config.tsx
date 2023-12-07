@@ -1,9 +1,10 @@
 import { ReactElement } from 'react';
-import { Navigate } from 'react-router-dom';
-import LoginView from '../views/auth';
-import SearchPatients from 'views/registration/searchPatients';
 import MyPatients from 'views/myPatients';
 import Registration from 'views/registration';
+import AddMedicalHistory from 'views/registration/addMedicalHistory';
+
+import LoginView from '../views/auth';
+import FrontPage from 'views/registration/frontPage';
 
 type IRouting = {
     path: string;
@@ -25,24 +26,19 @@ export const RoutingData: MyGroupType = {
     ],
     Admin: [
         {
-            path: '/',
-            component: <Navigate to="/registration" replace />,
-            global: true,
-        },
-        {
             path: '/registration',
             component: <Registration />,
-            global: true,
-        },
-        {
-            path: '/searchpatients',
-            component: <SearchPatients />,
             global: true,
         },
         {
             path: '/mypatients',
             component: <MyPatients />,
             global: true,
+        },
+        {
+            path: '/addMedicalHistory',
+            component: <AddMedicalHistory />,
+            global: false,
         },
     ],
 };

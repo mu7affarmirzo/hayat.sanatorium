@@ -1,12 +1,14 @@
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import AppRouting from 'routers/AppRouting';
-
+import { ModalsProvider } from 'components/Modals';
 function App() {
     return (
-        <BrowserRouter>
-            <AppRouting />
-        </BrowserRouter>
+        <ModalsProvider>
+            <BrowserRouter>
+                <AppRouting />
+            </BrowserRouter>
+        </ModalsProvider>
     );
 }
 

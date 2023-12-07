@@ -51,6 +51,7 @@ const Headers: FC<HeaderProps> = ({ setChangeTopTab, activeTab }) => {
         //@ts-ignore
         navigate(NavBarDropdowns[activeTab]?.path);
     }, [anchorEl]);
+
     useEffect(() => {
         changeHeaderTab();
     }, [changeHeaderTab]);

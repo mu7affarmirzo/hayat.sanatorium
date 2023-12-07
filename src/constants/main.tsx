@@ -1,4 +1,3 @@
-import { AirplaneIcon } from 'assets/icons/icons';
 import { SvgProps } from '../types/types';
 
 interface INav {
@@ -26,8 +25,34 @@ export const NavBarDropdowns: Array<INav> = [
         path: '/registration',
         dropdown: [
             {
+                text: 'Титульная страница',
+                sideBarText: 'Титульная страница',
                 active: true,
-                path: '/searchpatients',
+                path: '/frontPage',
+            },
+            {
+                text: 'Счета и документы',
+                sideBarText: 'Счета и документы',
+                active: true,
+                path: '/frontPage',
+            },
+            {
+                text: 'Расписание лечения',
+                sideBarText: 'Расписание лечения',
+                active: true,
+                path: '/frontPage',
+            },
+            {
+                text: 'Основной лист назначений',
+                sideBarText: 'Основной лист назначений',
+                active: true,
+                path: '/frontPage',
+            },
+            {
+                text: 'Журнал изменений',
+                sideBarText: 'Журнал изменений',
+                active: true,
+                path: '/frontPage',
             },
         ],
     },
@@ -37,7 +62,6 @@ export const NavBarDropdowns: Array<INav> = [
         path: '/mypatients',
         dropdown: [
             {
-                icon: AirplaneIcon,
                 text: 'Ожидаемый заезд',
                 sideBarText: 'Ожидаемый заезд',
                 active: true,
@@ -51,7 +75,6 @@ export const NavBarDropdowns: Array<INav> = [
         path: '/mypatients',
         dropdown: [
             {
-                icon: AirplaneIcon,
                 text: 'Ожидаемый заезд',
                 sideBarText: 'Ожидаемый заезд',
                 active: true,
@@ -65,7 +88,6 @@ export const NavBarDropdowns: Array<INav> = [
         path: '/registration',
         dropdown: [
             {
-                icon: AirplaneIcon,
                 text: 'Ожидаемый заезд',
                 sideBarText: 'Ожидаемый заезд',
                 active: true,

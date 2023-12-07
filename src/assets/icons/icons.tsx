@@ -198,7 +198,7 @@ export const FileIcon = (props: SvgProps) => {
         >
             <path
                 d="M19 9V17.8C19 18.9201 19 19.4802 18.782 19.908C18.5903 20.2843 18.2843 20.5903 17.908 20.782C17.4802 21 16.9201 21 15.8 21H8.2C7.07989 21 6.51984 21 6.09202 20.782C5.71569 20.5903 5.40973 20.2843 5.21799 19.908C5 19.4802 5 18.9201 5 17.8V6.2C5 5.07989 5 4.51984 5.21799 4.09202C5.40973 3.71569 5.71569 3.40973 6.09202 3.21799C6.51984 3 7.0799 3 8.2 3H13M19 9L13 3M19 9H14C13.4477 9 13 8.55228 13 8V3"
-                stroke="black"
+                stroke={props.stroke ? props.stroke : 'black'}
                 strokeOpacity="0.38"
                 strokeWidth="1.5"
                 strokeLinecap="round"
@@ -1083,6 +1083,178 @@ export const BookUserIcon = (props: SvgProps) => {
             <path
                 d="M3.75 14.25V4.65C3.75 3.80992 3.75 3.38988 3.91349 3.06901C4.0573 2.78677 4.28677 2.5573 4.56901 2.41349C4.88988 2.25 5.30992 2.25 6.15 2.25H11.85C12.6901 2.25 13.1101 2.25 13.431 2.41349C13.7132 2.5573 13.9427 2.78677 14.0865 3.06901C14.25 3.38988 14.25 3.80992 14.25 4.65V12.75H5.25C4.42157 12.75 3.75 13.4216 3.75 14.25ZM3.75 14.25C3.75 15.0784 4.42157 15.75 5.25 15.75H14.25M13.5 12.75V15.75M11.25 10.125C11.0373 9.26916 10.1108 8.625 9 8.625C7.88925 8.625 6.96273 9.26916 6.75 10.125M9 5.625H9.0075M9.75 5.625C9.75 6.03921 9.41421 6.375 9 6.375C8.58579 6.375 8.25 6.03921 8.25 5.625C8.25 5.21079 8.58579 4.875 9 4.875C9.41421 4.875 9.75 5.21079 9.75 5.625Z"
                 stroke="white"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </svg>
+    );
+};
+export const VuesaxLinearPrinterIcon = (props: SvgProps) => {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 18 18"
+            fill="none"
+        >
+            <path
+                d="M5.4375 5.25H12.5625V3.75C12.5625 2.25 12 1.5 10.3125 1.5H7.6875C6 1.5 5.4375 2.25 5.4375 3.75V5.25Z"
+                stroke="white"
+                strokeWidth="1.5"
+                strokeMiterlimit="10"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+            <path
+                d="M12 11.25V14.25C12 15.75 11.25 16.5 9.75 16.5H8.25C6.75 16.5 6 15.75 6 14.25V11.25H12Z"
+                stroke="white"
+                strokeWidth="1.5"
+                strokeMiterlimit="10"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+            <path
+                d="M15.75 7.5V11.25C15.75 12.75 15 13.5 13.5 13.5H12V11.25H6V13.5H4.5C3 13.5 2.25 12.75 2.25 11.25V7.5C2.25 6 3 5.25 4.5 5.25H13.5C15 5.25 15.75 6 15.75 7.5Z"
+                stroke="white"
+                strokeWidth="1.5"
+                strokeMiterlimit="10"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+            <path
+                d="M12.75 11.25H11.8425H5.25"
+                stroke="white"
+                strokeWidth="1.5"
+                strokeMiterlimit="10"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+            <path
+                d="M5.25 8.25H7.5"
+                stroke="white"
+                strokeWidth="1.5"
+                strokeMiterlimit="10"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </svg>
+    );
+};
+export const CoinsAltIcon = (props: SvgProps) => {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+        >
+            <path
+                d="M14 10.5C14 11.8807 11.7614 13 9 13C6.23858 13 4 11.8807 4 10.5M14 10.5C14 9.11929 11.7614 8 9 8C6.23858 8 4 9.11929 4 10.5M14 10.5V14.5M4 10.5V14.5M20 5.5C20 4.11929 17.7614 3 15 3C13.0209 3 11.3104 3.57493 10.5 4.40897M20 5.5C20 6.42535 18.9945 7.23328 17.5 7.66554M20 5.5V14C20 14.7403 18.9945 15.3866 17.5 15.7324M20 10C20 10.7567 18.9495 11.4152 17.3999 11.755M14 14.5C14 15.8807 11.7614 17 9 17C6.23858 17 4 15.8807 4 14.5M14 14.5V18.5C14 19.8807 11.7614 21 9 21C6.23858 21 4 19.8807 4 18.5V14.5"
+                stroke={props.stroke ? props.stroke : 'black'}
+                strokeOpacity="0.87"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </svg>
+    );
+};
+export const FilePlusAltIcon = (props: SvgProps) => {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="21"
+            height="20"
+            viewBox="0 0 21 20"
+            fill="none"
+        >
+            <path
+                d="M14.5 15.8333H17.8333M16.1667 14.1667V17.5M11.1667 2.5H7.16667C6.23325 2.5 5.76654 2.5 5.41002 2.68166C5.09641 2.84144 4.84144 3.09641 4.68166 3.41002C4.5 3.76654 4.5 4.23325 4.5 5.16667V14.8333C4.5 15.7668 4.5 16.2335 4.68166 16.59C4.84144 16.9036 5.09641 17.1586 5.41002 17.3183C5.76654 17.5 6.23325 17.5 7.16667 17.5H10.3333M11.1667 2.5L16.1667 7.5M11.1667 2.5V6.16667C11.1667 6.63338 11.1667 6.86673 11.2575 7.04499C11.3374 7.20179 11.4649 7.32928 11.6217 7.40917C11.7999 7.5 12.0333 7.5 12.5 7.5H16.1667M16.1667 7.5V10M7.83333 14.1667H10.3333M7.83333 10.8333H12.8333M7.83333 7.5H8.66667"
+                stroke="white"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </svg>
+    );
+};
+
+export const FileAltIcon = (props: SvgProps) => {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="21"
+            height="20"
+            viewBox="0 0 21 20"
+            fill="none"
+        >
+            <path
+                d="M7.83333 5.83333H7.16667C6.23325 5.83333 5.76654 5.83333 5.41002 6.01499C5.09641 6.17478 4.84144 6.42975 4.68166 6.74335C4.5 7.09987 4.5 7.56658 4.5 8.5V14.8333C4.5 15.7668 4.5 16.2335 4.68166 16.59C4.84144 16.9036 5.09641 17.1586 5.41002 17.3183C5.76654 17.5 6.23325 17.5 7.16667 17.5H10.1667C11.1001 17.5 11.5668 17.5 11.9233 17.3183C12.2369 17.1586 12.4919 16.9036 12.6517 16.59C12.8333 16.2335 12.8333 15.7668 12.8333 14.8333V14.1667M16.1667 6.66667V11.5C16.1667 12.4334 16.1667 12.9001 15.985 13.2567C15.8252 13.5703 15.5703 13.8252 15.2567 13.985C14.9001 14.1667 14.4334 14.1667 13.5 14.1667H10.5C9.56658 14.1667 9.09987 14.1667 8.74335 13.985C8.42975 13.8252 8.17478 13.5703 8.01499 13.2567C7.83333 12.9001 7.83333 12.4334 7.83333 11.5V5.16667C7.83333 4.23325 7.83333 3.76654 8.01499 3.41002C8.17478 3.09641 8.42975 2.84144 8.74335 2.68166C9.09987 2.5 9.56658 2.5 10.5 2.5H12M16.1667 6.66667L12 2.5M16.1667 6.66667H13.3333C12.8666 6.66667 12.6333 6.66667 12.455 6.57584C12.2982 6.49594 12.1707 6.36846 12.0908 6.21166C12 6.0334 12 5.80004 12 5.33333V2.5"
+                stroke="white"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </svg>
+    );
+};
+export const ArrowDropSownIcon = (props: SvgProps) => {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="25"
+            height="24"
+            viewBox="0 0 25 24"
+            fill="none"
+        >
+            <rect
+                x="0.333984"
+                width="24"
+                height="24"
+                rx="12"
+                fill="black"
+                fill-opacity="0.08"
+            />
+            <path
+                d="M7.33398 10L12.334 15L17.334 10H7.33398Z"
+                fill="black"
+                fillOpacity="0.54"
+            />
+        </svg>
+    );
+};
+export const CloseCircleIcon = (props: SvgProps) => {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+        >
+            <path
+                d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"
+                stroke="black"
+                strokeOpacity="0.87"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+            <path
+                d="M9.16992 14.83L14.8299 9.17001"
+                stroke="black"
+                strokeOpacity="0.87"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+            <path
+                d="M14.8299 14.83L9.16992 9.17001"
+                stroke="black"
+                strokeOpacity="0.87"
                 strokeWidth="1.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
