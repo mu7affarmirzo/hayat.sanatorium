@@ -13,17 +13,14 @@
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
-    padding: 0;
 }
 .ag-header {
     background-color: #64b6f7;
     height: 40px;
-    padding: 0;
 }
 .ag-header-viewport .ag-header-group-cell {
     font-weight: normal;
     font-size: 22px;
-    padding: 0;
 }
 
 .ag-header-viewport .ag-header-cell {

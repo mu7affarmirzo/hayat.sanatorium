@@ -5,10 +5,10 @@ import { LocalizationProvider } from '@mui/x-date-pickers';
 import booked from './booked';
 import addMedicalHistory from './addMedicalHistory';
 const content: TabsItem[] = [
-    {
-        title: 'Поиск пациентов',
-        component: searchPatients,
-    },
+    // {
+    //     title: 'Поиск пациентов',
+    //     component: searchPatients,
+    // },
     {
         title: 'Забронированные',
         component: booked,

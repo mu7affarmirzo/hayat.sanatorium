@@ -20,8 +20,8 @@ interface INav {
 }
 export const NavBarDropdowns: Array<INav> = [
     {
-        button: 'Регистрация',
-        title: 'Регистрация',
+        button: 'Забронированные',
+        title: 'Забронированные',
         path: '/registration',
         dropdown: [
             {

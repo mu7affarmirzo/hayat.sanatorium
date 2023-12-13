@@ -1,5 +1,6 @@
 import { Box, Button, Typography } from '@mui/material';
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 import { SvgProps } from 'types/types';
 
 interface BookingProps {
@@ -26,24 +27,26 @@ const BookingTabBtn: FC<BookingProps> = (props) => {
                      : 'bg-[#F5F5F5]  text-gray-700'
              }`}
         >
-            {Icon ? (
-                <Icon
-                    color="red"
-                    stroke={activeTab === index ? '#fff' : '#000'}
-                    fill={activeTab === index ? '#fff' : '#000'}
-                />
-            ) : null}
+            <Link to={'/registration/'}>
+                {Icon ? (
+                    <Icon
+                        color="red"
+                        stroke={activeTab === index ? '#fff' : '#000'}
+                        fill={activeTab === index ? '#fff' : '#000'}
+                    />
+                ) : null}
 
-            <Box className="flex , flex-col , box-border ">
-                <Typography className="text-sm , text-start">
-                    {title}
-                </Typography>
-                {subTitle && (
-                    <Typography className=" text-xs , text-start , opacity-50 ">
-                        {subTitle}
+                <Box className="flex , flex-col , box-border ">
+                    <Typography className="text-sm , text-start">
+                        {title}
                     </Typography>
-                )}
-            </Box>
+                    {subTitle && (
+                        <Typography className=" text-xs , text-start , opacity-50 ">
+                            {subTitle}
+                        </Typography>
+                    )}
+                </Box>
+            </Link>
         </Button>
     );
 };

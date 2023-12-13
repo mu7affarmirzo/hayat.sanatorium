@@ -538,7 +538,7 @@ export const SearchAltIcon = (props: SvgProps) => {
             <path
                 d="M12.5044 12.4809L15.75 15.75M14.25 8.25C14.25 11.5637 11.5637 14.25 8.25 14.25C4.93629 14.25 2.25 11.5637 2.25 8.25C2.25 4.93629 4.93629 2.25 8.25 2.25C11.5637 2.25 14.25 4.93629 14.25 8.25Z"
                 stroke={props.stroke || '#fff'}
-                strokeOpacity="0.87"
+                strokeOpacity={props.strokeOpasity || '0.87'}
                 strokeWidth="1.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"

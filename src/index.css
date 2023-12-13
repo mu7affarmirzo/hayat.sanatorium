@@ -1,3 +1,9 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat4';
+}
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
@@ -13,3 +19,16 @@ code {
 }
 @import '~ag-grid-community/styles/ag-grid.css';
 @import '~ag-grid-community/styles/ag-theme-alpine.css';
+
+.swiper-button-prev,
+.swiper-rtl .swiper-button-next {
+    position: absolute;
+    top: var(--swiper-navigation-top-offset, 80%);
+}
+.swiper-nav-btns {
+    position: absolute;
+    /* bottom: 10px; */
+}
+span.MuiSlider-root.MuiSlider-colorPrimary.MuiSlider-sizeSmall.css-53tbrc-MuiSlider-root {
+    padding: 0px;
+}

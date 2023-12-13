@@ -13,7 +13,7 @@ const AutocompleteInput = (props: propsType) => {
         <Box
             className={`${
                 containerStyle ? containerStyle : 'flex-row w-[100%]'
-            } flex  gap-1 z-[100] `}
+            } flex  gap-1 z-[100]  `}
         >
             {lable ? (
                 <Box className={` ${lableStyle} text-[#8d8c8c]`}>

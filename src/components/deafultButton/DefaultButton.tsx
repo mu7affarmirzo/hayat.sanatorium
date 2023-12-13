@@ -6,14 +6,16 @@ type propsType = {
     icon?: any;
     variant?: any;
     onClick?: any;
+    disabled?: boolean;
 };
 const DefaultButton = (props: propsType) => {
-    let { style, title, icon, variant, onClick } = props;
+    let { style, title, icon, variant, onClick, disabled } = props;
     return (
         <Button
             onClick={onClick}
             variant={variant ? variant : 'contained'}
             startIcon={icon}
+            disabled={disabled}
             className={`${
                 style ? style : ' bg-[#2196F3] h-[46px] text-[#fff]'
             }  text-[14px]  capitalize`}

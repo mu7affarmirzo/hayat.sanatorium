@@ -9,7 +9,7 @@ import AutocompleteInput from 'components/autocompleteInput/AutocompleteInput';
 import DefaulCheckbox from 'components/checkbox/DefaulCheckbox';
 import DefaultInput from 'components/defaultInput/DefaultInput';
 import ReceptionTable from 'components/receptionTable/ReceptionTable';
-import { useState } from 'react';
+import { rowData } from '../FrontPageView';
 type propsType = {
     avtoCaplektData: any;
     register: any;
@@ -17,7 +17,7 @@ type propsType = {
     phonePush?: any;
 };
 const PhonePushForm = (props: propsType) => {
-    let { phonePush, avtoCaplektData, register, rowData } = props;
+    let { phonePush, avtoCaplektData, register } = props;
 
     return (
         <Box className="flex flex-col ">

@@ -4,17 +4,17 @@ import AutocompleteInput from 'components/autocompleteInput/AutocompleteInput';
 import { ConnectionCol } from 'components/columnDefs/ConnectionCol';
 import DefaultText from 'components/defaultText/DefaultText';
 import ReceptionTable from 'components/receptionTable/ReceptionTable';
-import SearchInput from 'components/search/SearchInput';
+
 import { useEscapeKey } from 'hooks/useEscapeKey';
 import { useCallback } from 'react';
 import { rowData } from 'views/registration/frontPage/FrontPageView';
-import { CreatePaymentNowContainer } from './Modals.styles';
+import { CallMeLaterModalContainer } from './Modals.styles';
 import { useAppModals } from './ModalsProvider';
 
-const AddingConnectionModal = () => {
+const ProfessionalRouteModal = () => {
     const appModals = useAppModals();
     const onCloseModal = useCallback(() => {
-        appModals?.hide('createPayment');
+        appModals?.hide('professionalRoute');
     }, [appModals]);
 
     useEscapeKey({
@@ -31,24 +31,24 @@ const AddingConnectionModal = () => {
     ];
 
     return (
-        <CreatePaymentNowContainer
+        <CallMeLaterModalContainer
             className={
-                appModals?.state.createPayment.active &&
-                !appModals?.state.createPayment.neverWork
+                appModals?.state.professionalRoute.active &&
+                !appModals?.state.professionalRoute.neverWork
                     ? 'active'
-                    : 'none '
+                    : 'none'
             }
         >
-            <Box className="container bg-[#fff]  ">
+            <Box className="container bg-[#fff]">
                 <Grid container className="p-[20px]">
                     <Grid
                         item
                         xs={12}
                         md={12}
-                        className="  flex justify-between items-center  "
+                        className="  flex justify-between items-center "
                     >
-                        <DefaultText style="  text-[px]  font-normal text-[#000] ">
-                            Создание платежа
+                        <DefaultText style="  text-[20px]  font-normal text-[#000] ">
+                            Создание профмаршрута
                         </DefaultText>
                         <IconButton
                             className="border  w-[35px] h-[35px] border-[#000] p-[5px] "
@@ -61,35 +61,36 @@ const AddingConnectionModal = () => {
                         item
                         xs={12}
                         md={12}
-                        className="mt-[10px] bg-[#F5F5F5] p-[4px]"
+                        className="mt-[10px] bg-[#F5F5F5] p-[4px] flex items-center justify-between"
                     >
-                        <DefaultText style={'text-[20px] text-[#000]'}>
-                            Профессия
+                        <DefaultText style={'text-[16px] text-[#8d8c8c]'}>
+                            Программа профосмотра
                         </DefaultText>
                         <AutocompleteInput
-                            containerStyle="w-[100%] bg-[#fff]"
+                            containerStyle="w-[80%] bg-[#fff]"
                             inputStyle="w-[100%]"
                             data={top100Films}
                         />
                     </Grid>
+
                     <Grid
                         item
                         xs={12}
                         md={12}
-                        className="mt-[10px] bg-[#F5F5F5] p-[4px]"
+                        className=" bg-[#F5F5F5] p-[4px] flex"
                     >
-                        <SearchInput placeholder="Искать в таблице" />
-                    </Grid>
-                    <Grid
-                        item
-                        xs={12}
-                        md={12}
-                        className=" bg-[#F5F5F5] p-[4px]"
-                    >
-                        <ReceptionTable
-                            columnDefs={ConnectionCol}
-                            rowData={rowData}
-                        />
+                        <Box className=" bg-[#F5F5F5] p-[4px] w-[40%]">
+                            <ReceptionTable
+                                columnDefs={ConnectionCol}
+                                rowData={rowData}
+                            />
+                        </Box>
+                        <Box className=" bg-[#F5F5F5] p-[4px] w-[60%] ">
+                            <ReceptionTable
+                                columnDefs={ConnectionCol}
+                                rowData={rowData}
+                            />
+                        </Box>
                     </Grid>
                     <Grid
                         item
@@ -115,7 +116,7 @@ const AddingConnectionModal = () => {
             </Box>
 
             <div className="cancel_window" onClick={onCloseModal} />
-        </CreatePaymentNowContainer>
+        </CallMeLaterModalContainer>
     );
 };
-export default AddingConnectionModal;
+export default ProfessionalRouteModal;

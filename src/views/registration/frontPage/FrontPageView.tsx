@@ -1,3 +1,4 @@
+import React, { Suspense } from 'react';
 import { Box, Grid, TextField, Typography } from '@mui/material';
 import { ArrowDropSownIcon } from 'assets/icons/icons';
 import { useAppModals } from 'components/Modals';
@@ -10,9 +11,15 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import DocumentationForm from './components/DocumentationForm';
 import HomeAddressForm from './components/HomeAddressForm';
 import HospitalStayForm from './components/HospitalStayForm';
-import PatientForm from './components/PatientForm';
 import PhonePushForm from './components/PhonePushForm';
 import TravelPackageForm from './components/TravelPackageForm';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import RadioForm from 'components/RadioForm';
+import DiagnostikaItem from './components/DiagnostikaItem';
+import TagsBox from './components/TagsBox';
+import DefaulCheckbox from 'components/checkbox/DefaulCheckbox';
+const PatientForm = React.lazy(() => import('./components/PatientForm'));
 interface IFormInput {
     lastName: string;
     name: string;
@@ -29,7 +36,6 @@ const polData = [
         name: '[Ж] Женский',
     },
 ];
-
 export const rowData = [
     {
         number: '137',
@@ -124,6 +130,46 @@ const top100Films = [
 ];
 type propsType = {};
 
+const radioForm = [
+    {
+        id: 0,
+        value: 'gentle',
+        label: 'Щадящий',
+    },
+    {
+        id: 1,
+        value: 'bed',
+        label: 'Постельный',
+    },
+    {
+        id: 2,
+        value: 'tonic',
+        label: 'Тонизирующий',
+    },
+    {
+        id: 3,
+        value: 'coaching',
+        label: 'Тренирующий',
+    },
+];
+const radioForm2 = [
+    {
+        id: 0,
+        value: 'shown',
+        label: 'Показан',
+    },
+    {
+        id: 1,
+        value: 'notShown',
+        label: 'Не показан',
+    },
+    {
+        id: 2,
+        value: 'contraindicated',
+        label: 'Противопоказан',
+    },
+];
+
 const FrontPageView = (props: propsType) => {
     const { register, handleSubmit } = useForm<IFormInput>();
     const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
@@ -161,6 +207,7 @@ const FrontPageView = (props: propsType) => {
                         style="h-[40px] bg-[#4CAF50] mr-[10px]"
                     />
                     <DefaultButton
+                        onClick={() => appModals?.show('professionalRoute')}
                         title="Создать профосмотр"
                         style="h-[40px] bg-[#4CAF50] mr-[10px]"
                     />
@@ -186,79 +233,179 @@ const FrontPageView = (props: propsType) => {
         );
     };
 
-    const TagsBox = () => {
+    const ModeHandler = () => {
         return (
-            <Box className="flex py-[8px] px-[10px] border  mt-[10px] items-center">
-                <AutocompleteInput
-                    lable="Профессия"
-                    data={top100Films}
-                    containerStyle={'w-[100%]  flex-col '}
-                    inputStyle="w-[100%]"
-                    lableStyle="text-[#000]"
-                />
+            <Box className="flex justify-between">
+                <Box className=" border  w-[35%] px-[10px] py-[8px]">
+                    <DefaultText style={'text-[14px] text-[#000]'}>
+                        Режим
+                    </DefaultText>
+                    <Box className="flex">
+                        <Box className="w-[60%] ">
+                            <RadioForm data={radioForm} />
+                        </Box>
+                        <Box className=" mt-[5px]">
+                            <DefaultButton
+                                title="Добавить причину"
+                                style=" bg-[#4CAF50] "
+                            />
+                        </Box>
+                    </Box>
+                </Box>
+                <Box className=" border  w-[64.5%] px-[10px] py-[8px] ">
+                    <DefaultText style={'text-[14px] text-[#000]'}>
+                        Режим
+                    </DefaultText>
+                    <Box className="flex  justify-between">
+                        <Box className="w-[60%] ">
+                            <RadioForm data={radioForm2} />
+                        </Box>
+                        <Box className=" mt-[5px]">
+                            <DefaultButton
+                                title="Добавить причину"
+                                style=" bg-[#4CAF50] "
+                            />
+                        </Box>
+                    </Box>
+                    <Box className="mt-[10px]">
+                        <TextField
+                            id="filled-multiline-static"
+                            multiline
+                            rows={1}
+                            className="w-[100%] bg-[white] "
+                        />
+                    </Box>
+                </Box>
             </Box>
         );
     };
 
+    const DiagnostHandler = () => {
+        return (
+            <>
+                <DiagnostikaItem
+                    title="Диагноз с места отбора"
+                    text="Диагноз не задан."
+                    btnTitle="Добавить диагноз"
+                    onClick={() => appModals?.show('choosingDiagnosis')}
+                />
+                <DiagnostikaItem
+                    title="Диагноз стационара при поступлении"
+                    text="Диагноз не определен"
+                />
+                <DiagnostikaItem
+                    title="Диагноз стационара при выписке"
+                    text="Диагноз не определен"
+                />
+            </>
+        );
+    };
+
     return (
-        <Grid container className=" felx">
-            <Grid item xs={12} md={12} className=" flex ">
-                <Box className="flex w-[50%] justify-end  items-center ">
-                    <Typography>История болезни №</Typography>
-                    <Box className=" w-[60px] h-[30px] ml-[10px] ">
-                        <input className=" bg-[#fff] w-full h-full border-none outline-none  " />
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <Grid container className=" felx">
+                <Grid item xs={12} md={12} className=" flex ">
+                    <Box className="flex w-[50%] justify-end  items-center ">
+                        <Typography>История болезни №</Typography>
+                        <Box className=" w-[60px] h-[30px] ml-[10px] ">
+                            <input className=" bg-[#fff] w-full h-full border-none outline-none  " />
+                        </Box>
                     </Box>
-                </Box>
-                <Box className=" flex w-[50%] justify-end  items-center ">
-                    <DefaultButton title="новая" />
-                </Box>
-            </Grid>
-            <Grid item xs={12} md={12} className="bg-[white] m-[5px] border">
-                <form
-                    className="flex   p-[5px] bg-[white]  justify-between  min-h-[calc(100vh-420px)]  h-[calc(100vh-420px)] overflow-scroll  "
-                    onSubmit={handleSubmit(onSubmit)}
+                    <Box className=" flex w-[50%] justify-end  items-center ">
+                        <DefaultButton title="новая" />
+                    </Box>
+                </Grid>
+                <Grid
+                    item
+                    xs={12}
+                    md={12}
+                    className="bg-[white] m-[5px] border min-h-[calc(100vh-280px)]  h-[calc(100vh-280px)] overflow-scroll  p-[5px]"
                 >
-                    <div className="w-[35%]  ">
-                        <Box className="border p-[5px]">
-                            <PatientForm
-                                polData={polData}
+                    <form
+                        className="flex   bg-[white]  justify-between  "
+                        onSubmit={handleSubmit(onSubmit)}
+                    >
+                        <div className="w-[35%]  ">
+                            <Box className="border p-[5px]">
+                                <Suspense fallback={<>Loading...</>}>
+                                    <PatientForm
+                                        polData={polData}
+                                        avtoCaplektData={top100Films}
+                                        register={register}
+                                    />
+                                    <HomeAddressForm
+                                        avtoCaplektData={top100Films}
+                                        register={register}
+                                    />
+                                    <PhonePushForm
+                                        phonePush={PhonePush}
+                                        avtoCaplektData={top100Films}
+                                        register={register}
+                                        rowData={rowData}
+                                    />
+                                </Suspense>
+                            </Box>
+                            <DocumentationForm
                                 avtoCaplektData={top100Films}
                                 register={register}
                             />
-                            <HomeAddressForm
-                                avtoCaplektData={top100Films}
-                                register={register}
-                            />
-                            <PhonePushForm
-                                phonePush={PhonePush}
+                        </div>
+                        <Box className="w-[64%]">
+                            <TravelPackageForm
                                 avtoCaplektData={top100Films}
                                 register={register}
                                 rowData={rowData}
                             />
+                            <HospitalStayForm
+                                avtoCaplektData={top100Films}
+                                register={register}
+                            />
+                            <Comment />
+                            <HarmFactors />
+                            <TagsBox data={top100Films} lable="Метки" />
                         </Box>
-                        <DocumentationForm
-                            avtoCaplektData={top100Films}
-                            register={register}
-                        />
-                    </div>
-                    <Box className="w-[64%]">
-                        <TravelPackageForm
-                            avtoCaplektData={top100Films}
-                            register={register}
-                            rowData={rowData}
-                        />
-                        <HospitalStayForm
-                            avtoCaplektData={top100Films}
-                            register={register}
-                        />
-                        <Comment />
-                        <HarmFactors />
-                        <TagsBox />
+                    </form>
+                    <FrontFooter />
+                    <ModeHandler />
+                    <DiagnostHandler />
+                    <Box className="flex justify-between">
+                        <Box className="w-[35%]">
+                            <TagsBox data={top100Films} lable="Факторы риска" />
+                        </Box>
+                        <Box className="w-[64.5%]">
+                            <TagsBox data={top100Films} lable="Метки" />
+                        </Box>
                     </Box>
-                </form>
-                <FrontFooter />
+                    <Box className="border my-[5px] px-[10px] py-[8px]">
+                        <DefaulCheckbox
+                            label="нет"
+                            leftLable="Аллергия:"
+                            style="w-[350px]"
+                        />
+                        <DefaulCheckbox
+                            label="нет"
+                            leftLable="Метеолабильность:"
+                            style="w-[350px]"
+                        />
+                        <DefaulCheckbox
+                            label="нет"
+                            leftLable="Непереносимость продуктов!"
+                            style="w-[350px]"
+                        />
+                        <DefaulCheckbox
+                            label="нет"
+                            leftLable="Нарушения стула:"
+                            style="w-[350px]"
+                        />
+                        <DefaulCheckbox
+                            label="нет"
+                            leftLable="Получает постоянно медикаменты:"
+                            style="w-[350px]"
+                        />
+                    </Box>
+                </Grid>
             </Grid>
-        </Grid>
+        </LocalizationProvider>
     );
 };
 

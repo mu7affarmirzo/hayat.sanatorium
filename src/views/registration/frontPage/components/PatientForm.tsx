@@ -2,7 +2,7 @@ import { Box, Button, Typography } from '@mui/material';
 import { ActiveDotIcon, NoActiveDotIcon } from 'assets/icons/icons';
 import AutocompleteInput from 'components/autocompleteInput/AutocompleteInput';
 import DefaultInput from 'components/defaultInput/DefaultInput';
-import { useState } from 'react';
+import { memo, useState } from 'react';
 type propsType = {
     polData: any;
     avtoCaplektData: any;
@@ -11,6 +11,7 @@ type propsType = {
 const PatientForm = (props: propsType) => {
     let { polData, avtoCaplektData, register } = props;
     const [activeBtn, setActiveBtn] = useState(0);
+
     return (
         <Box className="flex flex-col ">
             <Typography>Пациент</Typography>
@@ -98,4 +99,4 @@ const PatientForm = (props: propsType) => {
     );
 };
 
-export default PatientForm;
+export default memo(PatientForm);

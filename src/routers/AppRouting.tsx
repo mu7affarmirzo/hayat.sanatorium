@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect } from 'react';
 import { RoutingData } from './config';
-
 import { Navigate, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
 import Header from 'components/header/header';
@@ -47,7 +46,27 @@ const AppRouting = () => {
                                                 key={i}
                                                 path={item.path}
                                                 element={item.component}
-                                            />
+                                            >
+                                                {item?.paths?.map(
+                                                    (
+                                                        route: any,
+                                                        index: number
+                                                    ) => {
+                                                        return (
+                                                            <Route
+                                                                path={
+                                                                    route?.path
+                                                                }
+                                                                key={index.toString()}
+                                                                element={
+                                                                    <route.element />
+                                                                }
+                                                            />
+                                                        );
+                                                    }
+                                                )}
+                                            </Route>
+
                                             {item.global && (
                                                 <Route
                                                     path="*"
