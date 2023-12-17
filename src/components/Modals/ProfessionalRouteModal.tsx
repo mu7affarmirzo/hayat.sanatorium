@@ -7,9 +7,10 @@ import ReceptionTable from 'components/receptionTable/ReceptionTable';
 
 import { useEscapeKey } from 'hooks/useEscapeKey';
 import { useCallback } from 'react';
-import { rowData } from 'views/registration/frontPage/FrontPageView';
+import { rowData } from 'views/booked/frontPage/FrontPageView';
 import { CallMeLaterModalContainer } from './Modals.styles';
 import { useAppModals } from './ModalsProvider';
+import DefaulCheckbox from 'components/checkbox/DefaultCheckbox';
 
 const ProfessionalRouteModal = () => {
     const appModals = useAppModals();
@@ -79,17 +80,72 @@ const ProfessionalRouteModal = () => {
                         md={12}
                         className=" bg-[#F5F5F5] p-[4px] flex"
                     >
-                        <Box className=" bg-[#F5F5F5] p-[4px] w-[40%]">
-                            <ReceptionTable
-                                columnDefs={ConnectionCol}
-                                rowData={rowData}
-                            />
+                        <Box className=" bg-[#F5F5F5] p-[4px] w-[40%] flex flex-col gap-1 items-center overflow-hidden">
+                            <DefaultText>Факторы</DefaultText>
+                            <Box className="flex flex-col items-start justify-start max-h-[400px] h-[400px] overflow-scroll w-[100%]">
+                                <Box className="flex bg-[#64B6F7] w-full border items-center z-0">
+                                    <Box className="w-[30px] h-[30px]"></Box>
+                                    <Box className=" border-l-[1px] border-r-[1px] border-[#605e5e] w-[30px] h-[30px] flex justify-center items-center">
+                                        <DefaulCheckbox style="z-[100]" />
+                                    </Box>
+                                    <Box className=" w-[20%] ">
+                                        <DefaultText
+                                            style={
+                                                'text-[14px] text-[#000] ml-[10px]'
+                                            }
+                                        >
+                                            Код
+                                        </DefaultText>
+                                    </Box>
+                                    <Box className="border-l-[1px] border-[#605e5e]  w-[25%]">
+                                        <DefaultText
+                                            style={
+                                                'text-[14px] text-[#000] ml-[10px]'
+                                            }
+                                        >
+                                            Название
+                                        </DefaultText>
+                                    </Box>
+                                </Box>
+                            </Box>
                         </Box>
-                        <Box className=" bg-[#F5F5F5] p-[4px] w-[60%] ">
-                            <ReceptionTable
-                                columnDefs={ConnectionCol}
-                                rowData={rowData}
-                            />
+                        <Box className=" bg-[#F5F5F5] p-[4px] w-[60%] flex flex-col gap-1 items-center overflow-hidden ">
+                            <DefaultText>Назначения</DefaultText>
+                            <Box className="flex flex-col items-start justify-start max-h-[400px] h-[400px] overflow-scroll w-[100%]">
+                                <Box className="flex bg-[#64B6F7] w-full border items-center z-0">
+                                    <Box className="w-[30px] h-[30px]"></Box>
+                                    <Box className=" border-l-[1px] border-r-[1px] border-[#605e5e] w-[30px] h-[30px] flex justify-center items-center">
+                                        <DefaulCheckbox style="z-[100]" />
+                                    </Box>
+                                    <Box className="w-[20%]">
+                                        <DefaultText
+                                            style={
+                                                'text-[14px] text-[#000] ml-[10px]'
+                                            }
+                                        >
+                                            Название
+                                        </DefaultText>
+                                    </Box>
+                                    <Box className="border-l-[1px] border-[#605e5e] w-[25%] ">
+                                        <DefaultText
+                                            style={
+                                                'text-[14px] text-[#000] ml-[10px]'
+                                            }
+                                        >
+                                            Услуга
+                                        </DefaultText>
+                                    </Box>
+                                    <Box className="border-l-[1px] border-[#605e5e] w-[25%]">
+                                        <DefaultText
+                                            style={
+                                                'text-[14px] text-[#000] ml-[10px]'
+                                            }
+                                        >
+                                            Обязательно
+                                        </DefaultText>
+                                    </Box>
+                                </Box>
+                            </Box>
                         </Box>
                     </Grid>
                     <Grid
@@ -98,12 +154,7 @@ const ProfessionalRouteModal = () => {
                         md={12}
                         className=" px-[20px] py-[10px]  flex justify-end "
                     >
-                        <Button
-                            variant="contained"
-                            className=" bg-[#4CAF50] h-[46px] text-[#fff] text-[14px]  capitalize "
-                        >
-                            Добавить
-                        </Button>
+                        <Button variant="contained">OK</Button>
                         <Button
                             onClick={() => onCloseModal()}
                             variant="contained"

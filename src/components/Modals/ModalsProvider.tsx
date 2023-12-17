@@ -9,6 +9,7 @@ import {
 import AddingConnectionModal from './AddingConnectionModal';
 import ProfessionalRouteModal from './ProfessionalRouteModal';
 import ChoosingDiagnosisModal from './ChoosingDiagnosisModal';
+import AddReasonModal from './AddReasonModal';
 
 const ModalsContext = createContext<ModalsContextType | null>(null);
 
@@ -26,6 +27,10 @@ const initialState = {
         neverWork: false,
     },
     choosingDiagnosis: {
+        active: false,
+        neverWork: false,
+    },
+    add_reason: {
         active: false,
         neverWork: false,
     },
@@ -64,6 +69,7 @@ export const ModalsProvider: FC<ModalsProviderType> = ({ children }) => {
             <AddingConnectionModal />
             <ProfessionalRouteModal />
             <ChoosingDiagnosisModal />
+            <AddReasonModal />
             {children}
         </ModalsContext.Provider>
     );

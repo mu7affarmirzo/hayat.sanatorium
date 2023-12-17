@@ -2,7 +2,8 @@ export type MVisibleType =
     | 'createPayment'
     | 'advertising'
     | 'professionalRoute'
-    | 'choosingDiagnosis';
+    | 'choosingDiagnosis'
+    | 'add_reason';
 
 export type ModalsState = {
     [key in MVisibleType]: {

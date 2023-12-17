@@ -7,7 +7,7 @@ import ReceptionTable from 'components/receptionTable/ReceptionTable';
 import SearchInput from 'components/search/SearchInput';
 import { useEscapeKey } from 'hooks/useEscapeKey';
 import { useCallback } from 'react';
-import { rowData } from 'views/registration/frontPage/FrontPageView';
+import { rowData } from 'views/booked/frontPage/FrontPageView';
 import { CreatePaymentNowContainer } from './Modals.styles';
 import { useAppModals } from './ModalsProvider';
 

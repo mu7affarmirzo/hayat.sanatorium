@@ -1,8 +1,9 @@
-import React, { useCallback, useEffect } from 'react';
-import { RoutingData } from './config';
+import Layout from 'components/layout';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
-import Header from 'components/header/header';
+import LoginView from 'views/auth/LoginView';
+import PrivateRoute from './privateRoute';
+import ROUTES from './router';
 
 export const MainContainer = styled.div`
     display: flex;
@@ -10,104 +11,83 @@ export const MainContainer = styled.div`
 
 const AppRouting = () => {
     const token = true;
-    const [changeTopTab, setChangeTopTab] = React.useState<number>(0);
-    const [role, setChangeRole] = React.useState<string>('NoAuth');
+    const isSignedIn = token;
 
-    const changeHeaderTab = useCallback((index: number) => {
-        setChangeTopTab(index);
-    }, []);
+    // const [role, setChangeRole] = React.useState<string>('NoAuth');
 
-    const logOutHandler = useCallback(() => {
-        setChangeRole(token ? 'Admin' : 'NoAuth');
-        if (!RoutingData[role]) {
-            throw new Error(`This type "${role}" of role is not defined `);
-        }
-    }, [token, role]);
+    // const changeHeaderTab = useCallback((index: number) => {
+    //     setChangeTopTab(index);
+    // }, []);
 
-    useEffect(() => {
-        logOutHandler();
-    }, [logOutHandler]);
+    // const logOutHandler = useCallback(() => {
+    //     setChangeRole(token ? 'Admin' : 'NoAuth');
+    //     if (!RoutingData[role]) {
+    //         throw new Error(`This type "${role}" of role is not defined `);
+    //     }
+    // }, [token, role]);
+
+    // useEffect(() => {
+    //     logOutHandler();
+    // }, [logOutHandler]);
 
     return (
         <>
-            {role !== 'NoAuth' ? (
-                <>
-                    <Header
-                        setChangeTopTab={changeHeaderTab}
-                        activeTab={changeTopTab}
-                    />
-                    <MainContainer className="overflow-hidden relative min-h-[calc(100vh-76px)] ">
-                        <div className="w-[100vw] h-full ">
-                            <Routes>
-                                {RoutingData[role].map((item, i) => {
-                                    return (
-                                        <React.Fragment key={i}>
-                                            <Route
-                                                key={i}
-                                                path={item.path}
-                                                element={item.component}
-                                            >
-                                                {item?.paths?.map(
-                                                    (
-                                                        route: any,
-                                                        index: number
-                                                    ) => {
-                                                        return (
-                                                            <Route
-                                                                path={
-                                                                    route?.path
-                                                                }
-                                                                key={index.toString()}
-                                                                element={
-                                                                    <route.element />
-                                                                }
-                                                            />
-                                                        );
-                                                    }
-                                                )}
-                                            </Route>
-
-                                            {item.global && (
-                                                <Route
-                                                    path="*"
-                                                    element={
-                                                        <Navigate
-                                                            to={item.path}
-                                                            replace
-                                                        />
-                                                    }
-                                                />
-                                            )}
-                                        </React.Fragment>
-                                    );
-                                })}
-                            </Routes>
-                        </div>
-                    </MainContainer>
-                </>
-            ) : (
-                <Routes>
-                    {RoutingData[role].map((item, i) => {
-                        return (
-                            <React.Fragment key={i}>
-                                <Route
-                                    key={i}
-                                    path={item.path}
-                                    element={item.component}
-                                />
-                                {item.global && (
+            <Routes>
+                <Route
+                    path="*"
+                    element={
+                        <Navigate
+                            to={isSignedIn ? 'dashboard' : 'login'}
+                            replace
+                        />
+                    }
+                />
+                {!isSignedIn ? (
+                    <Route path="/login" element={<LoginView />} />
+                ) : (
+                    <Route
+                        path="dashboard"
+                        element={
+                            <PrivateRoute isSignedIn={isSignedIn}>
+                                <Layout />
+                            </PrivateRoute>
+                        }
+                    >
+                        <Route
+                            path="*"
+                            index
+                            element={
+                                <Navigate to="/dashboard/booked" replace />
+                            }
+                        />
+                        {ROUTES.dashboard.map((item) => {
+                            return (
+                                <Route key={item.name} path={item.name}>
                                     <Route
                                         path="*"
+                                        index
                                         element={
-                                            <Navigate to={item.path} replace />
+                                            <Navigate
+                                                to={`/dashboard/${`${item.name}/${item.defaultPath}`}`}
+                                                replace
+                                            />
                                         }
                                     />
-                                )}
-                            </React.Fragment>
-                        );
-                    })}
-                </Routes>
-            )}
+                                    {item.paths.map((route) => {
+                                        return (
+                                            <Route
+                                                path={route.path}
+                                                key={item.name}
+                                                element={<route.element />}
+                                            />
+                                        );
+                                    })}
+                                </Route>
+                            );
+                        })}
+                    </Route>
+                )}
+            </Routes>
         </>
     );
 };

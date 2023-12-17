@@ -1,13 +1,12 @@
-import { Outlet } from 'react-router-dom';
-
 import Header from 'components/header/header';
+import { Outlet } from 'react-router-dom';
 
 const Layout = () => {
     return (
         <div className={`flex flex-col max-h-screen over `}>
-            {/* <Header /> */}
+            <Header />
             <div
-                className={`w-full flex relative justify-start min-h-full  ${'max-h-[calc(100vh-92px)]'}`}
+                className={`w-full  ${'max-h-[calc(100vh-150px)]'}  px-3 relative overflow-hidden`}
             >
                 <Outlet />
             </div>

@@ -1,31 +1,54 @@
-import { lazy } from 'react';
-const FrontPage = lazy(() => import('views/registration/frontPage'));
+import booked from 'views/booked/booked';
+import addMedicalHistory from 'views/booked/addMedicalHistory';
+import dispatching from 'views/dispatching';
+import events from 'views/events';
+import patients from 'views/patients';
+
 const ROUTES = {
     dashboard: [
         {
-            name: 'registration',
-            defaultPath: 'registration',
+            name: 'booked',
+            defaultPath: 'booked',
             paths: [
                 {
-                    path: 'frontPage',
-                    element: FrontPage,
+                    path: 'booked',
+                    element: booked,
+                },
+                {
+                    path: 'organ-affairs',
+                    element: addMedicalHistory,
                 },
             ],
         },
         {
-            name: 'mypatients',
-            defaultPath: 'search-solution',
-            paths: [],
+            name: 'patients',
+            defaultPath: 'patients',
+            paths: [
+                {
+                    path: 'patients',
+                    element: patients,
+                },
+            ],
         },
         {
-            name: 'addMedicalHistory',
-            defaultPath: 'list-of-users',
-            paths: [],
+            name: 'events',
+            defaultPath: 'events',
+            paths: [
+                {
+                    path: 'events',
+                    element: events,
+                },
+            ],
         },
         {
-            name: 'stats',
-            defaultPath: 'dashboard',
-            paths: [],
+            name: 'dispatching',
+            defaultPath: 'dispatching',
+            paths: [
+                {
+                    path: 'dispatching',
+                    element: dispatching,
+                },
+            ],
         },
     ],
 };

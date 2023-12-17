@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from '@mui/material';
 import { FC } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { SvgProps } from 'types/types';
 
 interface BookingProps {
@@ -27,7 +27,7 @@ const BookingTabBtn: FC<BookingProps> = (props) => {
                      : 'bg-[#F5F5F5]  text-gray-700'
              }`}
         >
-            <Link to={'/registration/'}>
+            <Box>
                 {Icon ? (
                     <Icon
                         color="red"
@@ -46,7 +46,7 @@ const BookingTabBtn: FC<BookingProps> = (props) => {
                         </Typography>
                     )}
                 </Box>
-            </Link>
+            </Box>
         </Button>
     );
 };

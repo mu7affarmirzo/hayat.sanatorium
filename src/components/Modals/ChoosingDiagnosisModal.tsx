@@ -1,15 +1,31 @@
 import { Box, Button, Grid, IconButton, Typography } from '@mui/material';
 import { CloseCircleIcon } from 'assets/icons/icons';
-import { ColDef, ColGroupDef } from 'ag-grid-community';
-import AgGridChiled from 'components/agGridChiled/AgGridChiled';
 import DefaultText from 'components/defaultText/DefaultText';
 import SearchInput from 'components/search/SearchInput';
 import { useEscapeKey } from 'hooks/useEscapeKey';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { CreatePaymentNowContainer } from './Modals.styles';
 import { useAppModals } from './ModalsProvider';
-import ReceptionTable from 'components/receptionTable/ReceptionTable';
 
+import ICDItem from 'components/ICDItem';
+import OftenUsed from 'components/OftenUsed';
+import { useForm } from 'react-hook-form';
+const btnData = [
+    {
+        id: 0,
+        title: 'МКБ-10',
+    },
+    {
+        id: 1,
+        title: 'Часто используемые',
+    },
+];
+interface IFormInput {
+    lastName: string;
+    name: string;
+    surName: string;
+    appeal: string;
+}
 const ChoosingDiagnosisModal = () => {
     const appModals = useAppModals();
     const onCloseModal = useCallback(() => {
@@ -19,41 +35,9 @@ const ChoosingDiagnosisModal = () => {
     useEscapeKey({
         callback: onCloseModal,
     });
+    const [activeTab, setActiveTab] = useState<number>(0);
+    const { register, handleSubmit } = useForm<IFormInput>();
 
-    const [rowData, setRowData] = useState();
-    const [columnDefs, setColumnDefs] = useState<(ColDef | ColGroupDef)[]>([
-        {
-            headerName: 'Athlete',
-            children: [
-                { field: 'athlete', minWidth: 170, rowGroup: true },
-                { field: 'age', rowGroup: true },
-                { field: 'country' },
-            ],
-        },
-        {
-            headerName: 'Event',
-            children: [
-                { field: 'year' },
-                { field: 'date' },
-                { field: 'sport' },
-            ],
-        },
-        {
-            headerName: 'Medals',
-            children: [
-                { field: 'gold' },
-                { field: 'silver' },
-                { field: 'bronze' },
-                { field: 'total' },
-            ],
-        },
-    ]);
-
-    const onGridReady = useCallback(() => {
-        fetch('https://www.ag-grid.com/example-assets/olympic-winners.json')
-            .then((resp) => resp.json())
-            .then((data) => setRowData(data));
-    }, []);
     return (
         <CreatePaymentNowContainer
             className={
@@ -82,7 +66,7 @@ const ChoosingDiagnosisModal = () => {
                         </IconButton>
                     </Grid>
                     <Box className="w-[100%] flex justify-between bg-[#F5F5F5] border border-[rgba(0, 0, 0, 0.23)]">
-                        <Box className="w-[60%]">
+                        <Box className="w-[60%] overflow-hidden">
                             <Grid
                                 item
                                 xs={12}
@@ -92,23 +76,45 @@ const ChoosingDiagnosisModal = () => {
                                 <DefaultText style={'text-[20px] text-[#000]'}>
                                     Диагнозы:
                                 </DefaultText>
-                                <SearchInput placeholder="Искать в таблице" />
                             </Grid>
+                            <Box className="flex p-[5px]">
+                                {btnData.map((item) => {
+                                    return (
+                                        <Button
+                                            onClick={() =>
+                                                setActiveTab(item.id)
+                                            }
+                                            className={` flex  flex-row  gap-2 h-[48px]  px-[20px]
+                                                   rounded-tl-lg  rounded-tr-lg  rounded-none  normal-case   box-border  ${
+                                                       activeTab === item.id
+                                                           ? 'bg-[#3397FF] text-gray-100'
+                                                           : 'bg-[#fff]  text-gray-700'
+                                                   }`}
+                                        >
+                                            <Box className="flex , flex-col , box-border ">
+                                                <Typography className="text-sm , text-start">
+                                                    {item.title}
+                                                </Typography>
+                                            </Box>
+                                        </Button>
+                                    );
+                                })}
+                            </Box>
 
                             <Grid
                                 item
                                 xs={12}
                                 md={12}
-                                className=" bg-[#F5F5F5] p-[4px]"
+                                className=" bg-[#F5F5F5] p-[4px] max-w-[100%] w-[100%]  max-h-[400px]  h-[400px] overflow-scroll "
                             >
-                                <ReceptionTable
-                                    columnDefs={columnDefs}
-                                    rowData={rowData}
-                                    height="h-[50vh]"
-                                    onGridReady={onGridReady}
-                                />
+                                {activeTab === 0 ? (
+                                    <ICDItem register={register} />
+                                ) : (
+                                    <OftenUsed />
+                                )}
                             </Grid>
                         </Box>
+
                         <Box className="w-[40%]  flex flex-col pt-[14px]  ">
                             <DefaultText style={'text-[20px] text-[#000] '}>
                                 Рекомендованные назначения
@@ -131,6 +137,15 @@ const ChoosingDiagnosisModal = () => {
                                 </Box>
                             </Grid>
                         </Box>
+                    </Box>
+                    <Box className="h-[90px] w-[100%] bg-[#F5F5F5] flex flex-col gap-1 pt-[10px] px-[5px] mt-[10px]">
+                        <DefaultText style={'text-[#20px] text-[#000]'}>
+                            Выбранные диагнозы
+                        </DefaultText>
+                        <DefaultText>
+                            Чтобы добавить диагноз отметьте галочкой нужный код
+                            МКБ
+                        </DefaultText>
                     </Box>
                     <Grid
                         item

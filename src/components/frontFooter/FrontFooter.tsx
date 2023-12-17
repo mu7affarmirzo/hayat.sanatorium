@@ -4,7 +4,7 @@ import DefaultButton from 'components/deafultButton/DefaultButton';
 import DefaultText from 'components/defaultText/DefaultText';
 import ReceptionTable from 'components/receptionTable/ReceptionTable';
 
-import { rowData } from 'views/registration/frontPage/FrontPageView';
+import { rowData } from 'views/booked/frontPage/FrontPageView';
 
 const FrontFooter = () => {
     return (
