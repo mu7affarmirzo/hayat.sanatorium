@@ -12,29 +12,50 @@ export const ConnectionCol: ColDef[] = [
             padding: '0 ',
         },
     },
+
     {
-        headerName: 'Код',
-        field: 'number',
-        width: 120,
-        cellStyle: {
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: ' start ',
-            border: '.5px solid #e0e0e0',
-            paddingLeft: '10px',
-        },
-    },
-    {
-        headerName: 'Название',
-        field: 'name',
-        width: 1200,
+        headerName: 'Группа/Квота',
+        field: 'group',
+        width: 130,
         editable: true,
         cellStyle: {
             display: 'flex',
             alignItems: 'center',
             justifyContent: ' start ',
             border: '.5px solid #e0e0e0',
-            paddingLeft: '10px',
+        },
+    },
+    {
+        headerName: 'Дата заезда',
+        field: 'arrivalData',
+        width: 130,
+        cellStyle: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: ' start ',
+            border: '.5px solid #e0e0e0',
+        },
+    },
+    {
+        headerName: 'Дата заезда',
+        field: 'arrivalData',
+        width: 130,
+        cellStyle: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: ' start ',
+            border: '.5px solid #e0e0e0',
+        },
+    },
+    {
+        headerName: 'Дата заезда',
+        field: 'arrivalData',
+        width: 130,
+        cellStyle: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: ' start ',
+            border: '.5px solid #e0e0e0',
         },
     },
 ];

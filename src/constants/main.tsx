@@ -1,97 +1,95 @@
 import { SvgProps } from '../types/types';
 
 interface INav {
-    button: string;
+    name?: string;
     title: string;
     path?: string;
+    mainPath?: string;
     firtsItemTitle?: string;
     lastItemTitle?: string;
     lastItemPath?: string;
     lastItemIcon?: (props: SvgProps) => JSX.Element;
 
-    dropdown?: Array<{
-        icon?: (props: SvgProps) => JSX.Element;
-        text?: string;
-        sideBarText?: string;
-        active?: boolean;
-        path: string;
-        top?: boolean;
+    subMenu?: Array<{
+        sectionName?: string;
+        sectionItems?: Array<any>;
     }>;
 }
 export const NavBarDropdowns: Array<INav> = [
     {
-        button: 'Забронированные',
+        name: 'Забронированные',
         title: 'Забронированные',
-        path: '/registration',
-        dropdown: [
+        path: '/dashboard/booked/booked',
+        mainPath: 'booked',
+        subMenu: [
             {
-                text: 'Титульная страница',
-                sideBarText: 'Титульная страница',
-                active: true,
-                path: '/frontPage',
-            },
-            {
-                text: 'Счета и документы',
-                sideBarText: 'Счета и документы',
-                active: true,
-                path: '/frontPage',
-            },
-            {
-                text: 'Расписание лечения',
-                sideBarText: 'Расписание лечения',
-                active: true,
-                path: '/frontPage',
-            },
-            {
-                text: 'Основной лист назначений',
-                sideBarText: 'Основной лист назначений',
-                active: true,
-                path: '/frontPage',
-            },
-            {
-                text: 'Журнал изменений',
-                sideBarText: 'Журнал изменений',
-                active: true,
-                path: '/frontPage',
+                sectionName: 'Забронированные',
+                sectionItems: [
+                    {
+                        name: 'Забронированные',
+                        mainPath: '/booked',
+                        path: '/dashboard/booked/booked',
+                    },
+                    {
+                        name: 'Новая ИБ',
+                        mainPath: '/organ-affairs',
+                        path: '/dashboard/booked/organ-affairs',
+                    },
+                ],
             },
         ],
     },
     {
-        button: 'Пациенты',
+        name: 'Пациенты',
         title: 'Пациенты',
-        path: '/mypatients',
-        dropdown: [
+        path: '/dashboard/patients/patients',
+        mainPath: 'patients',
+        subMenu: [
             {
-                text: 'Ожидаемый заезд',
-                sideBarText: 'Ожидаемый заезд',
-                active: true,
-                path: '/mypatients',
+                sectionName: 'Пациенты',
+                sectionItems: [
+                    {
+                        name: 'Пациенты',
+                        mainPath: '/patients',
+                        path: '/dashboard/patients/patients',
+                    },
+                ],
             },
         ],
     },
     {
-        button: 'События',
+        name: 'События',
         title: 'События',
-        path: '/mypatients',
-        dropdown: [
+        path: '/dashboard/events/events',
+        mainPath: 'patients',
+        subMenu: [
             {
-                text: 'Ожидаемый заезд',
-                sideBarText: 'Ожидаемый заезд',
-                active: true,
-                path: '/searchpatients',
+                sectionName: 'События',
+                sectionItems: [
+                    {
+                        name: 'События',
+                        mainPath: '/events',
+                        path: '/dashboard/events/events',
+                    },
+                ],
             },
         ],
     },
     {
-        button: 'Диспетчеризация',
+        name: 'Диспетчеризация',
         title: 'Диспетчеризация',
-        path: '/registration',
-        dropdown: [
+        path: '/dashboard/dispatching/dispatching',
+        mainPath: 'dispatching',
+        subMenu: [
             {
-                text: 'Ожидаемый заезд',
-                sideBarText: 'Ожидаемый заезд',
-                active: true,
-                path: '/searchpatients',
+                sectionName: 'Диспетчеризация',
+                sectionItems: [
+                    {
+                        name: 'Диспетчеризация',
+                        mainPath: '/dispatching',
+                        path: '/dashboard/dispatching/dispatching',
+                    },
+                ],
             },
         ],
     },

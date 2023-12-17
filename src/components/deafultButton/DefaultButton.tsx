@@ -18,7 +18,9 @@ const DefaultButton = (props: propsType) => {
             disabled={disabled}
             className={`${
                 style ? style : ' bg-[#2196F3] h-[46px] text-[#fff]'
-            }  text-[14px]  capitalize`}
+            } ${
+                disabled ? 'opacity-50' : 'opacity-100'
+            } text-[14px]  capitalize`}
         >
             {title}
         </Button>
