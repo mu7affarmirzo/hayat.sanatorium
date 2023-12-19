@@ -15,12 +15,10 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
     '& .MuiInputBase-input': {
         borderRadius: 4,
         position: 'relative',
-        backgroundColor: '#2196F3',
-
         color: '#fff',
         fontSize: 16,
         padding: 0,
-
+        height: '100%',
         fontFamily: [
             '-apple-system',
             'BlinkMacSystemFont',
@@ -43,6 +41,8 @@ type propsType = {
     data?: any;
     defaultValue?: string;
     style?: string;
+    selectStyle?: string;
+    itemStyle?: string;
 };
 const SelectButton = (props: propsType) => {
     const [age, setAge] = useState('');
@@ -53,8 +53,10 @@ const SelectButton = (props: propsType) => {
     return (
         <div
             className={`${
-                props.style ? props.style : 'max-h-[46px] h-[46px]'
-            } min-w-[150px]  bg-[#2196F3]  flex px-[10px] items-center mr-[10px] rounded-[4px]`}
+                props.style
+                    ? props.style
+                    : 'max-h-[46px] h-[46px] bg-[#2196F3] '
+            }   flex pr-[10px] pl-[15px] items-center mr-[10px] rounded-[4px] min-w-[120px] `}
         >
             {props.icon ? <Box className="mr-[10px]"> {props.icon}</Box> : null}
 
@@ -66,13 +68,31 @@ const SelectButton = (props: propsType) => {
                 displayEmpty
                 inputProps={{ 'aria-label': 'Without label' }}
                 input={<BootstrapInput />}
-                className="py-[10px] cursor-pointer"
+                className={`${props?.selectStyle} py-[10px] cursor-pointer  `}
             >
                 <MenuItem value="">
-                    <p className=" ">{props.defaultValue}</p>
+                    <p
+                        className={`${
+                            props.itemStyle ? props.itemStyle : 'text-[#fff]'
+                        } `}
+                    >
+                        {props.defaultValue}
+                    </p>
                 </MenuItem>
                 {props.data.map((item: any) => {
-                    return <MenuItem value={item.title}>{item.title}</MenuItem>;
+                    return (
+                        <MenuItem value={item.title}>
+                            <p
+                                className={` ${
+                                    props.itemStyle
+                                        ? props.itemStyle
+                                        : 'text-[#fff]'
+                                } `}
+                            >
+                                {item.title}
+                            </p>
+                        </MenuItem>
+                    );
                 })}
             </Select>
         </div>

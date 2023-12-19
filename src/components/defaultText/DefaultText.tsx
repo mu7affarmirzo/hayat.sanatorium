@@ -9,7 +9,9 @@ const DefaultText = ({
 }): JSX.Element => {
     return (
         <Typography
-            className={`${style ? style : 'text-[14px] text-[#8d8c8c]'} `}
+            className={`${
+                style ? style : 'text-[14px] text-[#8d8c8c] font-normal'
+            } `}
         >
             {children}
         </Typography>

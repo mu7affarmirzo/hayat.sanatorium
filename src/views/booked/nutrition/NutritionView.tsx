@@ -7,7 +7,7 @@ import ReceptionTable from 'components/receptionTable/ReceptionTable';
 import { rowData } from '../frontPage/FrontPageView';
 import DefaultText from 'components/defaultText/DefaultText';
 import NutritionItem from 'components/NutritionItem/NutritionItem';
-import ReceptionTableGroup from 'components/ReceptionTableGroup/ReceptionTableGroup';
+
 const data = [
     {
         id: 1,

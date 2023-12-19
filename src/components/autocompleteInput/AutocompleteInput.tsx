@@ -24,11 +24,10 @@ const AutocompleteInput = (props: propsType) => {
             ) : null}
 
             <Autocomplete
-                id="combo-box-demo"
-                options={data}
                 size="small"
+                options={data}
                 renderInput={(params) => <TextField {...params} />}
-                className={`${inputStyle ? inputStyle : ' w-[70%] '}`}
+                className={`${inputStyle ? inputStyle : ' w-[70%] '} `}
             />
         </Box>
     );

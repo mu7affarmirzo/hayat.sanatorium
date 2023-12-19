@@ -8,6 +8,7 @@ import frontPage from '../frontPage';
 import invoicesDocuments from '../invoicesDocuments';
 import mainAssignmentSheet from '../mainAssignmentSheet';
 import nutrition from '../nutrition';
+import consultationTechniques from '../consultationTechniques';
 
 const content: TabsItem[] = [
     {
@@ -21,6 +22,10 @@ const content: TabsItem[] = [
     {
         title: 'Питание',
         component: nutrition,
+    },
+    {
+        title: 'Консультации и повторные приемы',
+        component: consultationTechniques,
     },
     {
         title: 'Основной лист назначений',

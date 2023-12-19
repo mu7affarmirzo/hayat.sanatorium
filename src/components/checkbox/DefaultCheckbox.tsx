@@ -4,18 +4,20 @@ type propsType = {
     style?: string;
     label?: string;
     leftLable?: string;
+    checkboxStyle?: any;
 };
 const DefaultCheckbox = (props: propsType) => {
-    let { style, label, leftLable } = props;
+    let { style, label, leftLable, checkboxStyle } = props;
     return (
-        <Box className={`${style} flex items-center justify-between`}>
+        <Box className={`${style} flex items-center justify-between `}>
             {leftLable ? (
                 <DefaultText style={'text-[#000] text-[14px]'}>
                     {leftLable}
                 </DefaultText>
             ) : null}
             <FormControlLabel
-                control={<Checkbox defaultChecked />}
+                sx={{ padding: 0 }}
+                control={<Checkbox defaultChecked sx={props.checkboxStyle} />}
                 label={label}
                 className="text-[#8d8c8c] p-0 m-0"
             />

@@ -48,7 +48,7 @@ const AddingConnectionModal = () => {
                         className="  flex justify-between items-center  "
                     >
                         <DefaultText style="  text-[px]  font-normal text-[#000] ">
-                            Создание платежа
+                            Добавление связи
                         </DefaultText>
                         <IconButton
                             className="border  w-[35px] h-[35px] border-[#000] p-[5px] "

@@ -1,78 +1,148 @@
+'use strict';
+import { ColDef } from 'ag-grid-community';
+
+import 'ag-grid-enterprise';
 import { AgGridReact } from 'ag-grid-react';
-import { ColDef, FirstDataRenderedEvent } from 'ag-grid-community';
+import { useRef, useState } from 'react';
+
+import { CloseIcon } from 'assets/icons/icons';
+import { getData, rowData2 } from './data';
 import './style.css';
-import { useCallback, useRef, useState } from 'react';
-const models = [
-    'Mercedes-AMG C63',
-    'BMW M2',
-    'Audi TT Roadster',
-    'Mazda MX-5',
-    'BMW M3',
-    'Porsche 718 Boxster',
-    'Porsche 718 Cayman',
-];
-const colors = ['Red', 'Black', 'Green', 'White', 'Blue'];
-const countries = ['UK', 'Spain', 'France', 'Ireland', 'USA'];
-type propsType = {
-    columnDefs?: ColDef[];
-    rowData?: any;
-    height?: string;
-};
-export function getData(): any[] {
-    const rowData = [];
-    for (let i = 0; i < 200; i++) {
-        const item = {
-            id: i + 1,
-            group: 'Group ' + (Math.floor(i / 20) + 1),
-            model: models[Math.floor(Math.random() * models.length)],
-            color: colors[Math.floor(Math.random() * colors.length)],
-            country: countries[Math.floor(Math.random() * countries.length)],
-            year: 2018 - Math.floor(Math.random() * 20),
-            price: 20000 + Math.floor(Math.random() * 100) * 100,
-        };
-        rowData.push(item);
-    }
-    return rowData;
-}
-const ReceptionTableGroup = (props: propsType) => {
-    const onFirstDataRendered = useCallback(
-        (params: FirstDataRenderedEvent) => {
-            params.api.expandAll();
-        },
-        []
+function MyRoomType(params: any) {
+    return (
+        <div className="flex  items-center justify-center  w-[100%] h-[100%] cursor-pointer  bordert ">
+            <div className="w-[5px] h-[15px]  flex justify-center items-center bg-[#4CAF50] mx-[1.5px]"></div>
+            <div className="w-[5px] h-[15px]  flex justify-center items-center bg-[#4CAF50] mx-[1.5px]"></div>
+            <div className="w-[5px] h-[15px]  flex justify-center items-center bg-[#4CAF50] mx-[1.5px]"></div>
+            <div className="w-[5px] h-[15px]  flex justify-center items-center bg-[#4CAF50] mx-[1.5px]"></div>
+        </div>
     );
+}
+const ReceptionTableGroup = () => {
     const gridRef = useRef<AgGridReact>(null);
+
     const [rowData, setRowData] = useState<any[]>(getData());
     const [columnDefs, setColumnDefs] = useState<ColDef[]>([
         { field: 'group', rowGroup: true, hide: true },
-        { field: 'id', pinned: 'left', width: 70 },
-        { field: 'model', width: 180 },
-        { field: 'color', width: 100 },
         {
+            field: '',
+            width: 30,
+        },
+        {
+            field: '',
+            width: 70,
+            cellRenderer: MyRoomType,
+            cellStyle: {
+                display: 'flex',
+                alignItems: 'center',
+                border: '.5px solid #e0e0e0',
+            },
+        },
+        {
+            headerName: 'Назначение',
+            field: 'model',
+            width: 500,
+            cellStyle: {
+                display: 'flex',
+                alignItems: 'center',
+                border: '.5px solid #e0e0e0',
+            },
+        },
+        {
+            headerName: 'К врачу',
+            field: 'color',
+            width: 130,
+            cellStyle: {
+                display: 'flex',
+                alignItems: 'center',
+                border: '.5px solid #e0e0e0',
+            },
+        },
+        {
+            headerName: 'Cito?',
+            field: 'color',
+            width: 100,
+            cellStyle: {
+                display: 'flex',
+                alignItems: 'center',
+                border: '.5px solid #e0e0e0',
+            },
+        },
+        {
+            headerName: 'Назначил',
             field: 'price',
             valueFormatter: "'$' + value.toLocaleString()",
-            width: 100,
+            width: 130,
+            cellStyle: {
+                display: 'flex',
+                alignItems: 'center',
+                border: '.5px solid #e0e0e0',
+            },
         },
-        { field: 'year', width: 100 },
-        { field: 'country', width: 120 },
+        {
+            headerName: 'Дата',
+            field: 'year',
+            width: 90,
+            cellStyle: {
+                display: 'flex',
+                alignItems: 'center',
+                border: '.5px solid #e0e0e0',
+            },
+        },
+        {
+            headerName: 'Способ оплаты',
+            field: 'country',
+            width: 150,
+            cellStyle: {
+                display: 'flex',
+                alignItems: 'center',
+                border: '.5px solid #e0e0e0',
+            },
+        },
+        {
+            headerName: 'Цена',
+            field: 'country',
+            width: 110,
+            cellStyle: {
+                display: 'flex',
+                alignItems: 'center',
+                border: '.5px solid #e0e0e0',
+            },
+        },
+        {
+            headerName: 'Комментарий (цель исследования/',
+            field: 'country',
+            width: 250,
+            cellStyle: {
+                display: 'flex',
+                alignItems: 'center',
+                border: '.5px solid #e0e0e0',
+            },
+        },
     ]);
 
+    // const onFirstDataRendered = useCallback(
+    //     (params: FirstDataRenderedEvent) => {
+    //         params.api.expandAll();
+    //     },
+    //     []
+    // );
+
     return (
-        <div className={`${props.height ? props.height : 'h-[15vh]'}  w-full `}>
+        <div className={` h-[300px] w-full `}>
             <div
                 style={{ height: '100%', width: '100%' }}
                 className="ag-theme-alpine"
             >
                 <AgGridReact
                     ref={gridRef}
-                    rowData={rowData}
+                    rowData={rowData2}
                     columnDefs={columnDefs}
                     groupDisplayType={'groupRows'}
-                    onFirstDataRendered={onFirstDataRendered}
+                    // onFirstDataRendered={onFirstDataRendered}
                 />
             </div>
         </div>
     );
 };
-
 export default ReceptionTableGroup;
