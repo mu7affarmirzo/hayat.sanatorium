@@ -20,7 +20,6 @@ const ReceptionTable = (props: propsType) => {
                     suppressRowClickSelection
                     columnDefs={props?.columnDefs}
                     rowData={props.rowData}
-                    rowHeight={40}
                     enableRangeSelection
                     animateRows
                 />

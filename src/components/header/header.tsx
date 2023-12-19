@@ -68,7 +68,7 @@ const Headers = () => {
                                             navigate(item.path);
                                         }}
                                         className={`  rounded-none  px-[20px] h-[100%] text-sm   font-semibold  align-middle   cursor-pointer  normal-case ${
-                                            isActiveNav(item.path) === true
+                                            isActiveNav(item.mainPath)
                                                 ? 'bg-blue-400 text-gray-100'
                                                 : 'bg-white  text-gray-700'
                                         } `}

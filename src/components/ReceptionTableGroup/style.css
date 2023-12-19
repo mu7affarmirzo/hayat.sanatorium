@@ -21,24 +21,11 @@
     background-color: #64b6f7;
     height: 40px;
 }
-.ag-theme-alpine .ag-header-group-cell {
-    font-weight: normal;
-    font-size: 22px;
-
-    padding: 0;
+.ag-ltr .ag-cell {
+    display: flex;
+    justify-content: start;
+    align-items: center;
 }
-
-.ag-theme-alpine .ag-header-cell {
-    font-family: Roboto;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 0.15px;
-    border-left: 1px solid var(--Light, rgba(0, 0, 0, 0.1));
-    border-right: 1px solid var(--Light, rgba(0, 0, 0, 0.1));
-    padding: 10px;
-}
-.ag-cell-wrapper {
-    padding: 0 10px;
+.ag-icon-tree-closed::before {
+    content: var(--ag-icon-font-code-tree-open, '\f132');
 }

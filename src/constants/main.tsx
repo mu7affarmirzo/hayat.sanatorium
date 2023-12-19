@@ -61,7 +61,7 @@ export const NavBarDropdowns: Array<INav> = [
         name: 'События',
         title: 'События',
         path: '/dashboard/events/events',
-        mainPath: 'patients',
+        mainPath: 'events',
         subMenu: [
             {
                 sectionName: 'События',

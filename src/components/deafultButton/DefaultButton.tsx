@@ -20,7 +20,7 @@ const DefaultButton = (props: propsType) => {
                 style ? style : ' bg-[#2196F3] h-[46px] text-[#fff]'
             } ${
                 disabled ? 'opacity-50' : 'opacity-100'
-            } text-[14px]  capitalize`}
+            } text-[14px]  capitalize text-[#fff]`}
         >
             {title}
         </Button>
