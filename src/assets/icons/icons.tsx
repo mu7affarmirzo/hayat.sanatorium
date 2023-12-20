@@ -1101,7 +1101,7 @@ export const VuesaxLinearPrinterIcon = (props: SvgProps) => {
         >
             <path
                 d="M5.4375 5.25H12.5625V3.75C12.5625 2.25 12 1.5 10.3125 1.5H7.6875C6 1.5 5.4375 2.25 5.4375 3.75V5.25Z"
-                stroke="white"
+                stroke={props.stroke ? props.stroke : 'white'}
                 strokeWidth="1.5"
                 strokeMiterlimit="10"
                 strokeLinecap="round"
@@ -1109,7 +1109,7 @@ export const VuesaxLinearPrinterIcon = (props: SvgProps) => {
             />
             <path
                 d="M12 11.25V14.25C12 15.75 11.25 16.5 9.75 16.5H8.25C6.75 16.5 6 15.75 6 14.25V11.25H12Z"
-                stroke="white"
+                stroke={props.stroke ? props.stroke : 'white'}
                 strokeWidth="1.5"
                 strokeMiterlimit="10"
                 strokeLinecap="round"
@@ -1117,7 +1117,7 @@ export const VuesaxLinearPrinterIcon = (props: SvgProps) => {
             />
             <path
                 d="M15.75 7.5V11.25C15.75 12.75 15 13.5 13.5 13.5H12V11.25H6V13.5H4.5C3 13.5 2.25 12.75 2.25 11.25V7.5C2.25 6 3 5.25 4.5 5.25H13.5C15 5.25 15.75 6 15.75 7.5Z"
-                stroke="white"
+                stroke={props.stroke ? props.stroke : 'white'}
                 strokeWidth="1.5"
                 strokeMiterlimit="10"
                 strokeLinecap="round"
@@ -1125,7 +1125,7 @@ export const VuesaxLinearPrinterIcon = (props: SvgProps) => {
             />
             <path
                 d="M12.75 11.25H11.8425H5.25"
-                stroke="white"
+                stroke={props.stroke ? props.stroke : 'white'}
                 strokeWidth="1.5"
                 strokeMiterlimit="10"
                 strokeLinecap="round"
@@ -1133,9 +1133,37 @@ export const VuesaxLinearPrinterIcon = (props: SvgProps) => {
             />
             <path
                 d="M5.25 8.25H7.5"
-                stroke="white"
+                stroke={props.stroke ? props.stroke : 'white'}
                 strokeWidth="1.5"
                 strokeMiterlimit="10"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </svg>
+    );
+};
+export const VuesaxLinearSave2Icon = (props: SvgProps) => {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="23"
+            height="22"
+            viewBox="0 0 23 22"
+            fill="none"
+        >
+            <path
+                d="M15.0013 8.24039V18.6537C15.0013 19.9829 14.048 20.5421 12.8838 19.9004L9.28131 17.8929C8.89631 17.6821 8.27296 17.6821 7.88796 17.8929L4.28547 19.9004C3.1213 20.5421 2.16797 19.9829 2.16797 18.6537V8.24039C2.16797 6.67289 3.45129 5.38957 5.01879 5.38957H12.1505C13.718 5.38957 15.0013 6.67289 15.0013 8.24039Z"
+                stroke="black"
+                strokeOpacity="0.54"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+            <path
+                d="M20.5013 4.68383V15.0972C20.5013 16.4263 19.548 16.9855 18.3838 16.3438L15.0013 14.4555V8.2405C15.0013 6.673 13.718 5.38968 12.1505 5.38968H7.66797V4.68383C7.66797 3.11633 8.95129 1.83301 10.5188 1.83301H17.6505C19.218 1.83301 20.5013 3.11633 20.5013 4.68383Z"
+                stroke="black"
+                strokeOpacity="0.54"
+                strokeWidth="1.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
             />
