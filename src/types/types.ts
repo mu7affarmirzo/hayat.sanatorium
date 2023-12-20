@@ -8,6 +8,7 @@ export interface SvgProps {
     stroke?: string;
     fill?: string;
     strokeOpasity?: string;
+    style?: any;
 }
 export interface RoomsTypePriceView {
     id: number;

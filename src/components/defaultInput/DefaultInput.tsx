@@ -1,5 +1,4 @@
 import { Box, IconButton, OutlinedInput, Typography } from '@mui/material';
-import { FilePlusAltIcon } from 'assets/icons/icons';
 type propsType = {
     register: any;
     inputType: string;

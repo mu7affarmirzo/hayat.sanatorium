@@ -6,6 +6,7 @@ type propsType = {
     containerStyle?: string;
     inputStyle?: string;
     lableStyle?: string;
+    placeholder?: string;
 };
 const AutocompleteInput = (props: propsType) => {
     let { data, lable, containerStyle, inputStyle, lableStyle } = props;
@@ -24,7 +25,10 @@ const AutocompleteInput = (props: propsType) => {
             ) : null}
 
             <Autocomplete
+                placeholder={props.placeholder}
                 size="small"
+                id="free-solo-2-demo"
+                disableClearable
                 options={data}
                 renderInput={(params) => <TextField {...params} />}
                 className={`${inputStyle ? inputStyle : ' w-[70%] '} `}
