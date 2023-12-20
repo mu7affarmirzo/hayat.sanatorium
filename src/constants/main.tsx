@@ -49,9 +49,19 @@ export const NavBarDropdowns: Array<INav> = [
                 sectionName: 'Пациенты',
                 sectionItems: [
                     {
-                        name: 'Пациенты',
+                        name: 'Мои пациенты',
                         mainPath: '/patients',
                         path: '/dashboard/patients/patients',
+                    },
+                    {
+                        name: 'Счета',
+                        mainPath: '/accounts',
+                        path: '/dashboard/patients/accounts',
+                    },
+                    {
+                        name: 'Поиск пациентов',
+                        mainPath: '/search-patients',
+                        path: '/dashboard/patients/search-patients',
                     },
                 ],
             },
