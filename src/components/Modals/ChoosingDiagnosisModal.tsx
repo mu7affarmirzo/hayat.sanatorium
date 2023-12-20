@@ -6,7 +6,6 @@ import { useEscapeKey } from 'hooks/useEscapeKey';
 import { useCallback, useState } from 'react';
 import { CreatePaymentNowContainer } from './Modals.styles';
 import { useAppModals } from './ModalsProvider';
-
 import ICDItem from 'components/ICDItem';
 import OftenUsed from 'components/OftenUsed';
 import { useForm } from 'react-hook-form';
@@ -55,7 +54,7 @@ const ChoosingDiagnosisModal = () => {
                         md={12}
                         className="  flex justify-between items-center  "
                     >
-                        <DefaultText style="  text-[px]  font-normal text-[#000] ">
+                        <DefaultText style="  text-[20px]  font-normal text-[#000] ">
                             Выбор диагноза
                         </DefaultText>
                         <IconButton

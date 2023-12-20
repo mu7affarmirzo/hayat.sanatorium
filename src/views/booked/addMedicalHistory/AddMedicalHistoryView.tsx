@@ -9,6 +9,9 @@ import invoicesDocuments from '../invoicesDocuments';
 import mainAssignmentSheet from '../mainAssignmentSheet';
 import nutrition from '../nutrition';
 import consultationTechniques from '../consultationTechniques';
+import researchSummaryTable from '../researchSummaryTable';
+import measuredParameters from '../measuredParameters';
+import treatmentSchedule from '../treatmentSchedule';
 
 const content: TabsItem[] = [
     {
@@ -30,6 +33,19 @@ const content: TabsItem[] = [
     {
         title: 'Основной лист назначений',
         component: mainAssignmentSheet,
+    },
+    {
+        title: 'Сводная таблица исследований',
+        component: researchSummaryTable,
+    },
+    {
+        title: 'Измеряемые параметры',
+        component: measuredParameters,
+    },
+
+    {
+        title: 'Расписание лечения',
+        component: treatmentSchedule,
     },
     {
         title: 'Журнал изменений',

@@ -10,6 +10,10 @@ import AddingConnectionModal from './AddingConnectionModal';
 import ProfessionalRouteModal from './ProfessionalRouteModal';
 import ChoosingDiagnosisModal from './ChoosingDiagnosisModal';
 import AddReasonModal from './AddReasonModal';
+import SelectingDestinationsModal from './SelectingDestinationsModal';
+import AddConsultationsModal from './AddConsultationsModal';
+import CreateDestinationsModal from './CreateDestinationsModal';
+import SelectStudiesMoodal from './SelectStudiesMoodal';
 
 const ModalsContext = createContext<ModalsContextType | null>(null);
 
@@ -31,6 +35,22 @@ const initialState = {
         neverWork: false,
     },
     add_reason: {
+        active: false,
+        neverWork: false,
+    },
+    selecting_destination: {
+        active: false,
+        neverWork: false,
+    },
+    add_consultations: {
+        active: false,
+        neverWork: false,
+    },
+    create_destinations: {
+        active: false,
+        neverWork: false,
+    },
+    select_studies: {
         active: false,
         neverWork: false,
     },
@@ -70,6 +90,10 @@ export const ModalsProvider: FC<ModalsProviderType> = ({ children }) => {
             <ProfessionalRouteModal />
             <ChoosingDiagnosisModal />
             <AddReasonModal />
+            <SelectingDestinationsModal />
+            <AddConsultationsModal />
+            <CreateDestinationsModal />
+            <SelectStudiesMoodal />
             {children}
         </ModalsContext.Provider>
     );

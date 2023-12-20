@@ -47,7 +47,7 @@ const AddingConnectionModal = () => {
                         md={12}
                         className="  flex justify-between items-center  "
                     >
-                        <DefaultText style="  text-[px]  font-normal text-[#000] ">
+                        <DefaultText style="  text-[20px]  font-normal text-[#000] ">
                             Добавление связи
                         </DefaultText>
                         <IconButton

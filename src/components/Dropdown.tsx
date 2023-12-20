@@ -15,14 +15,17 @@ const Dropdown = ({ title, children }: any) => {
 
     return (
         <div className="">
-            <div className="flex items-center ">
+            <div className="flex items-center py-[10px]  ">
                 <div
                     onClick={() => setIsOpen(!isOpen)}
-                    className="flex  mr-[5px]  cursor-pointer  "
+                    className="flex  cursor-pointer  "
                 >
                     {isOpen ? <CaretRightDownIcon /> : <CaretRightIcon />}
                 </div>
-                <DefaulCheckbox label={title} />
+                <DefaulCheckbox
+                    label={title}
+                    checkboxStyle={{ padding: '0px', marginRight: '5px' }}
+                />
             </div>
 
             {isOpen && <div>{children}</div>}
@@ -41,7 +44,7 @@ const CollapsibleTable = () => {
     };
 
     return (
-        <div className="">
+        <div>
             <Dropdown title="Полулюкс">
                 <div className="pl-[20px]">
                     <Dropdown title="Инструментальные исследования">

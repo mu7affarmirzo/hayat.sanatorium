@@ -3,7 +3,11 @@ export type MVisibleType =
     | 'advertising'
     | 'professionalRoute'
     | 'choosingDiagnosis'
-    | 'add_reason';
+    | 'add_reason'
+    | 'selecting_destination'
+    | 'add_consultations'
+    | 'create_destinations'
+    | 'select_studies';
 
 export type ModalsState = {
     [key in MVisibleType]: {
