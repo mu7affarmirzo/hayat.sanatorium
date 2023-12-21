@@ -5,6 +5,9 @@ import events from "views/events";
 import patients from "views/patients";
 import accounts from "views/patients/accounts";
 import searchPatient from "views/patients/searchPatient";
+import doctorOnDuty from "views/patients/doctorOnDuty";
+import nurseOnDuty from "views/patients/nurseOnDuty";
+import contactAndAccount from "views/patients/contactAndAccount";
 
 const ROUTES = {
   dashboard: [
@@ -27,12 +30,24 @@ const ROUTES = {
       defaultPath: "patients",
       paths: [
         {
+          path: "doctor-duty",
+          element: doctorOnDuty,
+        },
+        {
+          path: "nurse-duty",
+          element: nurseOnDuty,
+        },
+        {
           path: "patients",
           element: patients,
         },
         {
           path: "accounts",
           element: accounts,
+        },
+        {
+          path: "contact-account",
+          element: contactAndAccount,
         },
         {
           path: "search-patients",
