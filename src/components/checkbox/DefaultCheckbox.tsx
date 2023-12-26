@@ -11,7 +11,7 @@ const DefaultCheckbox = (props: propsType) => {
     return (
         <Box className={`${style} flex items-center justify-between `}>
             {leftLable ? (
-                <DefaultText style={'text-[#000] text-[14px]'}>
+                <DefaultText style={`${style} text-[#000] text-[14px]`}>
                     {leftLable}
                 </DefaultText>
             ) : null}

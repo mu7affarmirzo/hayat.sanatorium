@@ -325,3 +325,104 @@ export const BookedPatientSearch: ColDef[] = [
         },
     },
 ]
+
+export const BookedPatientDoctorDuty: ColDef[] = [
+    {
+        headerName: '',
+        field: '',
+        width: 30,
+        cellStyle: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: ' start ',
+            border: '.5px solid " "',
+            paddingLeft: '10px',
+        },
+    },
+    {
+        headerName: '№',
+        field: 'number',
+        width: 120,
+        cellStyle: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: ' end',
+            border: '.5px solid #e0e0e0',
+            paddingLeft: '10px',
+        },
+    },
+    {
+        headerName: 'Пациент',
+        field: 'name',
+        width: 550,
+        cellStyle: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: ' start ',
+            border: '.5px solid #e0e0e0',
+            paddingLeft: '10px',
+            color: '#0B79D0'
+        },
+    },
+    {
+        headerName: 'Возраст',
+        field: 'Age',
+        width: 100,
+        cellStyle: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: ' end ',
+            border: '.5px solid #e0e0e0',
+            paddingLeft: '10px',
+        },
+    },
+    {
+        headerName: 'Комната',
+        field: 'roomNumber',
+        width: 150,
+        cellStyle: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: ' end ',
+            border: '.5px solid #e0e0e0',
+            paddingLeft: '10px',
+        },
+    },
+    {
+        headerName: 'Основной диагноз',
+        field: 'mainDiagnos',
+        width: 550,
+        cellStyle: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: ' start ',
+            border: '.5px solid #e0e0e0',
+            paddingLeft: '10px',
+        },
+    },
+    {
+        headerName: 'Дата приезда',
+        field: 'dateArrival',
+        width: 140,
+        cellStyle: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: ' end ',
+            border: '.5px solid #e0e0e0',
+            paddingLeft: '10px',
+        },
+    },
+    {
+        headerName: 'Дата отъезда',
+        field: 'dateLeave',
+        width: 140,
+        cellStyle: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: ' end ',
+            border: '.5px solid #e0e0e0',
+            paddingLeft: '10px',
+        },
+    },
+]
+
