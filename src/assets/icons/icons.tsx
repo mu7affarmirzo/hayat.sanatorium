@@ -1441,28 +1441,28 @@ export const VuesaxLinear = (props: SvgProps) => {
             <path
                 d="M8.25 15.75H5.7C2.7 15.75 1.5 14.4 1.5 11.025V6.975C1.5 3.6 2.7 2.25 5.7 2.25H8.7"
                 stroke="white"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
             />
             <path
                 d="M13.5 7.5H11.25C9.5625 7.5 9 6.84375 9 4.875V2.25L13.5 7.5Z"
                 stroke="white"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
             />
             <path
                 d="M13.9225 13.8109L11.4609 10.9391"
                 stroke="white"
-                stroke-miterlimit="10"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeMiterlimit="10"
+                strokeLinecap="round"
+                strokeLinejoin="round"
             />
             <path
                 d="M13.9225 10.9391L11.4609 13.8109"
                 stroke="white"
-                stroke-miterlimit="10"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeMiterlimit="10"
+                strokeLinecap="round"
+                strokeLinejoin="round"
             />
             <rect
                 x="9.75"
@@ -1471,6 +1471,98 @@ export const VuesaxLinear = (props: SvgProps) => {
                 height="6.75"
                 rx="1.5"
                 stroke="white"
+            />
+        </svg>
+    );
+};
+export const File4Icon = (props: SvgProps) => {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+        >
+            <path
+                d="M10 5V8.03077C10 8.72006 10 9.06471 9.87544 9.32799C9.76587 9.55957 9.59103 9.74786 9.37599 9.86585C9.13152 10 8.81149 10 8.17143 10H3.82857C3.18851 10 2.86848 10 2.62401 9.86585C2.40897 9.74786 2.23413 9.55957 2.12456 9.32799C2 9.06471 2 8.72006 2 8.03077V5"
+                stroke="black"
+                strokeOpacity="0.87"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+            <path
+                d="M22 5V8.03077C22 8.72006 22 9.06471 21.8754 9.32799C21.7659 9.55957 21.591 9.74786 21.376 9.86585C21.1315 10 20.8115 10 20.1714 10H15.8286C15.1885 10 14.8685 10 14.624 9.86585C14.409 9.74786 14.2341 9.55957 14.1246 9.32799C14 9.06471 14 8.72006 14 8.03077V5"
+                stroke="black"
+                strokeOpacity="0.87"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+            <path
+                d="M2 19L2 15.9692C2 15.2799 2 14.9353 2.12456 14.672C2.23413 14.4404 2.40897 14.2521 2.62401 14.1341C2.86848 14 3.18851 14 3.82857 14L8.17143 14C8.81149 14 9.13152 14 9.37599 14.1341C9.59103 14.2521 9.76587 14.4404 9.87544 14.672C10 14.9353 10 15.2799 10 15.9692L10 19"
+                stroke="black"
+                strokeOpacity="0.87"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+            <path
+                d="M14 19L14 15.9692C14 15.2799 14 14.9353 14.1246 14.672C14.2341 14.4404 14.409 14.2521 14.624 14.1341C14.8685 14 15.1885 14 15.8286 14L20.1714 14C20.8115 14 21.1315 14 21.376 14.1341C21.591 14.2521 21.7659 14.4404 21.8754 14.672C22 14.9353 22 15.2799 22 15.9692L22 19"
+                stroke="black"
+                strokeOpacity="0.87"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </svg>
+    );
+};
+export const File2Icon = (props: SvgProps) => {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+        >
+            <path
+                d="M19 3V6.3C19 7.42011 19 7.98016 18.782 8.40798C18.5903 8.78431 18.2843 9.09027 17.908 9.28201C17.4802 9.5 16.9201 9.5 15.8 9.5H8.2C7.07989 9.5 6.51984 9.5 6.09202 9.28201C5.71569 9.09027 5.40973 8.78431 5.21799 8.40798C5 7.98016 5 7.42011 5 6.3V3"
+                stroke="black"
+                strokeOpacity="0.87"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+            <path
+                d="M5 21L5 17.7C5 16.5799 5 16.0198 5.21799 15.592C5.40973 15.2157 5.7157 14.9097 6.09202 14.718C6.51984 14.5 7.0799 14.5 8.2 14.5L15.8 14.5C16.9201 14.5 17.4802 14.5 17.908 14.718C18.2843 14.9097 18.5903 15.2157 18.782 15.592C19 16.0198 19 16.5799 19 17.7L19 21"
+                stroke="black"
+                strokeOpacity="0.87"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </svg>
+    );
+};
+export const FileNewIcon = (props: SvgProps) => {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+        >
+            <path
+                d="M19 9V17.8C19 18.9201 19 19.4802 18.782 19.908C18.5903 20.2843 18.2843 20.5903 17.908 20.782C17.4802 21 16.9201 21 15.8 21H8.2C7.07989 21 6.51984 21 6.09202 20.782C5.71569 20.5903 5.40973 20.2843 5.21799 19.908C5 19.4802 5 18.9201 5 17.8V6.2C5 5.07989 5 4.51984 5.21799 4.09202C5.40973 3.71569 5.71569 3.40973 6.09202 3.21799C6.51984 3 7.0799 3 8.2 3H13M19 9L13 3M19 9H14C13.4477 9 13 8.55228 13 8V3"
+                stroke="black"
+                strokeOpacity="0.87"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
             />
         </svg>
     );

@@ -15,13 +15,13 @@ const HeaderBookingScreenTabs = ({ content }: any) => {
     return (
         <Box className=" w-full ">
             <Box className="flex  flex-row  gap-1  border-b-[1px] border-[rgba(0, 0, 0, 1)]  ">
-                {content.map((item: any, index: number) => {
+                {content?.map((item: any, index: number) => {
                     return (
                         <Box
                             key={index}
                             className="flex w-full  h-full  pt-3 px-3 relative"
                         >
-                            {item.sectionItems.map((navPath: any) => {
+                            {item?.sectionItems?.map((navPath: any) => {
                                 return (
                                     <Button
                                         onClick={() => {
