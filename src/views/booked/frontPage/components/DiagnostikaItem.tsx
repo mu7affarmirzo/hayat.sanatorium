@@ -53,9 +53,8 @@ const DiagnostikaItem = (props: propsType) => {
                 </Box>
             ) : null}
             <Box
-                className={`flex items-center  w-[100%] ${
-                    props.outline ? 'mt-[10px] ' : 'mt-[0px]'
-                }  `}
+                className={`flex items-center  w-[100%] ${props.outline ? 'mt-[10px] ' : 'mt-[0px]'
+                    }  `}
             >
                 {props.text ? (
                     <DefaultText style={'text-[#000] text-[14px]'}>
