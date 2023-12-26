@@ -78,6 +78,11 @@ export const NavBarDropdowns: Array<INav> = [
                         mainPath: '/search-patients',
                         path: '/dashboard/patients/search-patients',
                     },
+                    {
+                        name: '919/2022 Холматов У.',
+                        mainPath: '/add-patients',
+                        path: '/dashboard/patients/add-patients',
+                    },
                 ],
             },
         ],

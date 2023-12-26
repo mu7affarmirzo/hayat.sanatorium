@@ -8,6 +8,7 @@ import searchPatient from "views/patients/searchPatient";
 import doctorOnDuty from "views/patients/doctorOnDuty";
 import nurseOnDuty from "views/patients/nurseOnDuty";
 import contactAndAccount from "views/patients/contactAndAccount";
+import addPatients from "views/patients/addPatients";
 
 const ROUTES = {
   dashboard: [
@@ -52,6 +53,10 @@ const ROUTES = {
         {
           path: "search-patients",
           element: searchPatient,
+        },
+        {
+          path: "add-patients",
+          element: addPatients,
         },
       ],
     },
