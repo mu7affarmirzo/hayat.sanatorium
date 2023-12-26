@@ -38,7 +38,7 @@ const BookingScreenTabs: FC<TabsProps> = ({ content }) => {
                     );
                 })}
             </Box>
-            <Box className="w-full ">
+            <Box className="w-full  ">
                 {content.map((item, index) => {
                     if (index === activeTab) {
                         return <item.component key={index} />;

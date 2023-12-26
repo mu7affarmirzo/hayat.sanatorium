@@ -1,9 +1,37 @@
 import { Box } from '@mui/material';
-import { useAppModals } from 'components/Modals';
 import DefaultText from 'components/defaultText/DefaultText';
+import MeasuredParametersItem from './MeasuredParametersItem';
+import BookingScreenTabs, { TabsItem } from 'components/bookingTabs';
+import { CloseIcon } from 'assets/icons/icons';
 
 const MeasuredParametersView = () => {
-    const appModals = useAppModals();
+    const content: TabsItem[] = [
+        {
+            title: 'Артериальное давление',
+            component: MeasuredParametersItem,
+            icon: CloseIcon,
+        },
+        {
+            title: 'Глюкоза крови (глюкометр)',
+            component: MeasuredParametersItem,
+            icon: CloseIcon,
+        },
+        {
+            title: 'Пульс',
+            component: MeasuredParametersItem,
+            icon: CloseIcon,
+        },
+        {
+            title: 'Сатурация',
+            component: MeasuredParametersItem,
+            icon: CloseIcon,
+        },
+        {
+            title: 'Температура',
+            component: MeasuredParametersItem,
+            icon: CloseIcon,
+        },
+    ];
 
     return (
         <Box className=" h-[calc(100vh-225px)]  p-[10px] overflow-hidden ">
@@ -12,7 +40,9 @@ const MeasuredParametersView = () => {
                     Сводная таблица исследований
                 </DefaultText>
             </Box>
-            <Box className="h-[calc(100vh-280px)]  border border-[rgba(0, 0, 0, 0.23)] flex justify-between p-[5px] bg-[#fff]"></Box>
+            <Box className="h-[calc(100vh-280px)] max-h-[calc(100vh-280px)] bg-[#fff] pt-[5px]">
+                <BookingScreenTabs content={content} />
+            </Box>
         </Box>
     );
 };

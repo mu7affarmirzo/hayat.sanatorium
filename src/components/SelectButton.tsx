@@ -53,10 +53,8 @@ const SelectButton = (props: propsType) => {
     return (
         <div
             className={`${
-                props.style
-                    ? props.style
-                    : 'max-h-[46px] h-[46px] bg-[#2196F3] '
-            }   flex pr-[10px] pl-[15px] items-center mr-[10px] rounded-[4px] min-w-[120px]  `}
+                props.style ? props.style : 'max-h-[46px] h-[46px]  '
+            }   flex pr-[10px] pl-[15px] items-center mr-[10px] rounded-[4px] min-w-[120px] bg-[#2196F3] `}
         >
             {props.icon ? <Box className="mr-[10px]"> {props.icon}</Box> : null}
 

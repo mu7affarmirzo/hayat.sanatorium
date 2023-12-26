@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Button, IconButton, Typography } from '@mui/material';
 import { FC } from 'react';
 // import { Link } from 'react-router-dom';
 import { SvgProps } from 'types/types';
@@ -27,16 +27,8 @@ const BookingTabBtn: FC<BookingProps> = (props) => {
                      : 'bg-[#F5F5F5]  text-gray-700'
              }`}
         >
-            <Box>
-                {Icon ? (
-                    <Icon
-                        color="red"
-                        stroke={activeTab === index ? '#fff' : '#000'}
-                        fill={activeTab === index ? '#fff' : '#000'}
-                    />
-                ) : null}
-
-                <Box className="flex , flex-col , box-border ">
+            <Box className="flex justify-between items-center">
+                <Box className="flex  flex-col  box-border ">
                     <Typography className="text-sm , text-start">
                         {title}
                     </Typography>
@@ -46,6 +38,15 @@ const BookingTabBtn: FC<BookingProps> = (props) => {
                         </Typography>
                     )}
                 </Box>
+                {Icon ? (
+                    <IconButton className="bg-[#F79E98] z-[1000] w-[30px] h-[30px] rounded-full flex justify-center items-center ml-[10px]">
+                        <Icon
+                            color="red"
+                            stroke={activeTab === index ? '#fff' : '#000'}
+                            fill={activeTab === index ? '#fff' : '#000'}
+                        />
+                    </IconButton>
+                ) : null}
             </Box>
         </Button>
     );

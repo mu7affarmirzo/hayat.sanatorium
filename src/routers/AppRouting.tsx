@@ -13,23 +13,6 @@ const AppRouting = () => {
     const token = true;
     const isSignedIn = token;
 
-    // const [role, setChangeRole] = React.useState<string>('NoAuth');
-
-    // const changeHeaderTab = useCallback((index: number) => {
-    //     setChangeTopTab(index);
-    // }, []);
-
-    // const logOutHandler = useCallback(() => {
-    //     setChangeRole(token ? 'Admin' : 'NoAuth');
-    //     if (!RoutingData[role]) {
-    //         throw new Error(`This type "${role}" of role is not defined `);
-    //     }
-    // }, [token, role]);
-
-    // useEffect(() => {
-    //     logOutHandler();
-    // }, [logOutHandler]);
-
     return (
         <>
             <Routes>
