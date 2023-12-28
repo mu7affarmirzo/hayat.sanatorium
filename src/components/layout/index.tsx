@@ -6,7 +6,7 @@ const Layout = () => {
         <div className={`flex flex-col max-h-screen over `}>
             <Header />
             <div
-                className={`w-full  ${'max-h-[calc(100vh-145px)]'}  px-3 relative overflow-hidden`}
+                className={`w-full  ${'max-h-[calc(100vh-85px)]'}  pt-3 px-3  relative overflow-hidden`}
             >
                 <Outlet />
             </div>

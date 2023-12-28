@@ -120,7 +120,7 @@ const Headers = () => {
                     </>
                 </RightSection>
             </HeaderContainer>
-            <HeaderBookingScreenTabs content={subNavList} />
+            {/* <HeaderBookingScreenTabs content={subNavList} /> */}
         </div>
     );
 };
