@@ -5,13 +5,13 @@ import MuiAccordionSummary, {
 } from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
-import { ArrowDropSownIcon } from 'assets/icons/icons';
+import { CaretRightDownIcon2 } from 'assets/icons/icons';
 import * as React from 'react';
 
 const Accordion = styled((props: AccordionProps) => (
     <MuiAccordion disableGutters elevation={0} square {...props} />
-))(({ theme }) => ({
-    border: `1px solid ${theme.palette.divider}`,
+))(() => ({
+    cursor: 'pointer',
     '&:not(:last-child)': {
         borderBottom: 0,
     },
@@ -23,22 +23,22 @@ const Accordion = styled((props: AccordionProps) => (
 const AccordionSummary = styled((props: AccordionSummaryProps) => (
     <MuiAccordionSummary
         expandIcon={
-            <ArrowDropSownIcon style={{ transform: 'rotate(-90deg)' }} />
+            <CaretRightDownIcon2 style={{ transform: 'rotate(320deg)' }} />
         }
         {...props}
     />
 ))(({ theme }) => ({
     flexDirection: 'row-reverse',
     '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
-        transform: 'rotate(90deg)',
+        transform: 'rotate(40deg)',
     },
     '& .MuiAccordionSummary-content': {
         marginLeft: theme.spacing(1),
     },
 }));
 
-const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
-    padding: '5px 10px',
+const AccordionDetails = styled(MuiAccordionDetails)(({}) => ({
+    padding: 0,
 }));
 
 type propsType = {
@@ -46,10 +46,12 @@ type propsType = {
     title?: string;
     childrenStyle?: any;
     topBoxStyle?: any;
+    onClick?: () => void;
+    activBtnType?: string;
 };
 
-export default function CustomizedAccordions(props: propsType) {
-    const [expanded, setExpanded] = React.useState<string | false>('panel1');
+export default function SaidBarCustomizedAccordions(props: propsType) {
+    const [expanded, setExpanded] = React.useState<string | false>('');
 
     const handleChange =
         (panel: string) =>
@@ -58,10 +60,10 @@ export default function CustomizedAccordions(props: propsType) {
         };
 
     return (
-        <div className="w-[100%] relative">
+        <div className="w-[100%] relative" onClick={props.onClick}>
             <Accordion
-                expanded={expanded === 'panel1'}
-                onChange={handleChange('panel1')}
+                expanded={expanded === 'panel'}
+                onChange={handleChange('panel')}
             >
                 <AccordionSummary
                     aria-controls="panel1d-content"
@@ -72,7 +74,9 @@ export default function CustomizedAccordions(props: propsType) {
                             : { background: '#e8e6e6' }
                     }
                 >
-                    <Typography>{props?.title}</Typography>
+                    <Typography className=" p-0  m-0 text-[12px]">
+                        {props?.title}
+                    </Typography>
                 </AccordionSummary>
                 <AccordionDetails sx={props.childrenStyle}>
                     {props?.children}

@@ -15,7 +15,7 @@ const content: TabsItem[] = [
 ];
 const BookedView = () => {
     return (
-        <div className=" w-full  h-full  pt-3 px-3 relative">
+        <div className=" w-full  h-full  relative">
             <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <BookingScreenTabs content={content} />
             </LocalizationProvider>

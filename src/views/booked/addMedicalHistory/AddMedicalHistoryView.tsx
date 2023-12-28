@@ -17,6 +17,11 @@ const content: TabsItem[] = [
     {
         title: 'Титульная страница',
         component: frontPage,
+        chiled: [
+            { id: 0, title: 'Диагнозы' },
+            { id: 2, title: 'Особые отметки' },
+        ],
+        activBtnType: 'panel1',
     },
     {
         title: 'Документы',
@@ -29,10 +34,48 @@ const content: TabsItem[] = [
     {
         title: 'Консультации и повторные приемы',
         component: consultationTechniques,
+        activBtnType: 'panel1',
+        chiled: [
+            {
+                id: 0,
+                title: 'Прием дежурного врача',
+            },
+            {
+                id: 1,
+                title: 'Жалобы/анамнез',
+            },
+            {
+                id: 2,
+                title: 'Объективные данные',
+            },
+            {
+                id: 3,
+                title: 'Диагноз',
+            },
+            {
+                id: 4,
+                title: 'Заключение',
+            },
+            {
+                id: 5,
+                title: 'Назначения',
+            },
+        ],
     },
     {
         title: 'Основной лист назначений',
         component: mainAssignmentSheet,
+        activBtnType: 'panel1',
+        chiled: [
+            {
+                id: 0,
+                title: 'Консультации и исследования',
+            },
+            {
+                id: 1,
+                title: 'Лечебные процедуры',
+            },
+        ],
     },
     {
         title: 'Сводная таблица исследований',
@@ -41,6 +84,30 @@ const content: TabsItem[] = [
     {
         title: 'Измеряемые параметры',
         component: measuredParameters,
+        activBtnType: 'panel1',
+        chiled: [
+            {
+                id: 0,
+                title: 'Артериальное давление',
+            },
+            {
+                id: 1,
+                title: 'Глюкоза крови (глюкометр)',
+            },
+            {
+                id: 3,
+                title: 'Пульс',
+            },
+            {
+                id: 4,
+                title: 'Сатурация',
+            },
+
+            {
+                id: 5,
+                title: 'Температура',
+            },
+        ],
     },
 
     {

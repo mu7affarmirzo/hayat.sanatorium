@@ -19,25 +19,9 @@ export const NavBarDropdowns: Array<INav> = [
     {
         name: 'Забронированные',
         title: 'Забронированные',
-        path: '/dashboard/booked/booked',
+        path: '/dashboard/booked',
         mainPath: 'booked',
-        subMenu: [
-            {
-                sectionName: 'Забронированные',
-                sectionItems: [
-                    {
-                        name: 'Забронированные',
-                        mainPath: '/booked',
-                        path: '/dashboard/booked/booked',
-                    },
-                    {
-                        name: 'Новая ИБ',
-                        mainPath: '/organ-affairs',
-                        path: '/dashboard/booked/organ-affairs',
-                    },
-                ],
-            },
-        ],
+        subMenu: [],
     },
     {
         name: 'Пациенты',
@@ -92,35 +76,13 @@ export const NavBarDropdowns: Array<INav> = [
         title: 'События',
         path: '/dashboard/events/events',
         mainPath: 'events',
-        subMenu: [
-            {
-                sectionName: 'События',
-                sectionItems: [
-                    {
-                        name: 'События',
-                        mainPath: '/events',
-                        path: '/dashboard/events/events',
-                    },
-                ],
-            },
-        ],
+        subMenu: [],
     },
     {
         name: 'Диспетчеризация',
         title: 'Диспетчеризация',
         path: '/dashboard/dispatching/dispatching',
         mainPath: 'dispatching',
-        subMenu: [
-            {
-                sectionName: 'Диспетчеризация',
-                sectionItems: [
-                    {
-                        name: 'Диспетчеризация',
-                        mainPath: '/dispatching',
-                        path: '/dashboard/dispatching/dispatching',
-                    },
-                ],
-            },
-        ],
+        subMenu: [],
     },
 ];

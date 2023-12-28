@@ -7,6 +7,8 @@ export type TabsItem = {
     subTitle?: string;
     icon?: any;
     component: React.FC;
+    chiled?: any;
+    activBtnType?: any;
 };
 
 interface TabsProps {
@@ -22,7 +24,7 @@ const SideBar: FC<TabsProps> = ({ content }) => {
 
     return (
         <Box className="flex flex-row  min-h-[calc(100vh-76px)] border w-[100vw] h-full ">
-            <Box className="flex min-h-[calc(100vh-76px)] flex-col  gap-1  w-[280px] ">
+            <Box className="flex min-h-[calc(100vh-76px)] flex-col  gap-1  w-[280px] p-[5px]">
                 {content.map((item, index) => {
                     return (
                         <Box key={index}>
@@ -33,6 +35,8 @@ const SideBar: FC<TabsProps> = ({ content }) => {
                                 subTitle={item?.subTitle}
                                 activeTab={activeTab}
                                 onClick={() => handleActiveTab(index)}
+                                chiled={item.chiled}
+                                activBtnType={item.activBtnType}
                             />
                         </Box>
                     );

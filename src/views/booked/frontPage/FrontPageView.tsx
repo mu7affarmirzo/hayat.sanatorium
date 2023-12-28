@@ -1,5 +1,11 @@
-import React, { Suspense } from 'react';
-import { Box, Grid, TextField, Typography } from '@mui/material';
+import React, { Suspense, useEffect } from 'react';
+import {
+    Box,
+    CircularProgress,
+    Grid,
+    TextField,
+    Typography,
+} from '@mui/material';
 import { ArrowDropSownIcon } from 'assets/icons/icons';
 import { useAppModals } from 'components/Modals';
 import AutocompleteInput from 'components/autocompleteInput/AutocompleteInput';
@@ -183,7 +189,7 @@ const radioForm2 = [
     },
 ];
 
-const FrontPageView = (props: propsType) => {
+const FrontPageView = () => {
     const { register, handleSubmit } = useForm<IFormInput>();
     const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
     const appModals = useAppModals();

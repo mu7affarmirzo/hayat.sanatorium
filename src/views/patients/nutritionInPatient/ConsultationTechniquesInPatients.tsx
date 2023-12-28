@@ -201,20 +201,134 @@ const ConsultationTechniquesInPatients = () => {
                 <DiagnostikaItem
                     title="Status praesens objectivus"
                     children={
-                        <DiagnosticCeckboxItem
-                            lable="Общее состояние:"
-                            children={
-                                <Box className="flex">
-                                    <DefaultCheckbox label='удовлетворительное,' />
-                                    <DefaultCheckbox label='относительное удовлетворительное,' />
-                                    <DefaultCheckbox label='средней тяжести,' />
-                                    <DefaultCheckbox label='тяжёлое' />
-                                </Box>
-                            }
-                            description=" "
-                            style=" flex flex-col w-[100%] border p-[5px] rounded-[4px] "
-                            titleStyle="w-[100%] border p-[10px] rounded-[4px]"
-                        />
+                        <Grid item className=''>
+                            <DiagnosticCeckboxItem
+                                lable="Общее состояние:"
+                                children={
+                                    <Box className="flex">
+                                        <DefaultCheckbox label='удовлетворительное,' />
+                                        <DefaultCheckbox label='относительное удовлетворительное,' />
+                                        <DefaultCheckbox label='средней тяжести,' />
+                                        <DefaultCheckbox label='тяжёлое' />
+                                    </Box>
+                                }
+                                description=" "
+                                style=" flex flex-col w-[100%] border p-[5px] rounded-[4px] "
+                                titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+                            />
+                            <DiagnosticCeckboxItem
+                                lable="Пигментация:"
+                                children={
+                                    <DefaultCheckbox label='нет,' />
+                                }
+                                description=" "
+                                titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+                            />
+                            <DiagnosticCeckboxItem
+                                lable="Депигментация:"
+                                children={
+                                    <DefaultCheckbox label='нет,' />
+                                }
+                                description=" "
+                                titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+                            />
+                            <DiagnosticCeckboxItem
+                                lable="Высыпания:"
+                                children={
+                                    <DefaultCheckbox label='нет,' />
+                                }
+                                description=" "
+                                titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+                            />
+                            <DiagnosticCeckboxItem
+                                lable="Сосудистые изменения:"
+                                children={
+                                    <DefaultCheckbox label='нет,' />
+                                }
+                                description=" "
+                                titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+                            />
+                            <DiagnosticCeckboxItem
+                                lable="Кровоизлияния:"
+                                children={
+                                    <DefaultCheckbox label='нет,' />
+                                }
+                                description=" "
+                                titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+                            />
+                            <DiagnosticCeckboxItem
+                                lable="Рубцы"
+                                children={
+                                    <DefaultCheckbox label='нет,' />
+                                }
+                                description=" "
+                                titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+                            />
+                            <DiagnosticCeckboxItem
+                                lable="Трофические изменения:"
+                                children={
+                                    <DefaultCheckbox label='нет,' />
+                                }
+                                description=" "
+                                titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+                            />
+                            <DiagnosticCeckboxItem
+                                lable="Видимые опухоли:"
+                                children={
+                                    <DefaultCheckbox label='нет,' />
+                                }
+                                description=" "
+                                titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+                            />
+                            <DiagnosticCeckboxItem
+                                lable="Влажность кожи:"
+                                children={
+                                    <Box className="flex">
+                                        <DefaultCheckbox label='обычная,' />
+                                        <DefaultCheckbox label='влажная,' />
+                                        <DefaultCheckbox label='сухая,' />
+                                    </Box>
+                                }
+                                description=" "
+                                titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+                            />
+                            <DiagnosticCeckboxItem
+                                lable="Влажность кожи:"
+                                children={
+                                    <Box className="flex">
+                                        <DefaultCheckbox label='в норме,' />
+                                        <DefaultCheckbox label='снижет,' />
+                                    </Box>
+                                }
+                                description=" "
+                                titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+                            />
+                            <DiagnosticCeckboxItem
+                                lable="Подкожно-жировая клетчатка:"
+                                children={
+                                    <Box className="flex">
+                                        <DefaultCheckbox style='w-[100%]' label='развита умеренно,' />
+                                        <DefaultCheckbox style='w-[100%]' label='развита слабо,' />
+                                        <DefaultCheckbox style='w-[100%]' label='развита чрезмерно,' />
+                                    </Box>
+                                }
+                                description=" "
+                                titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+                                boxStyle=' w-[55%]'
+                            />
+                            <Box className="">
+                                <Typography>
+                                    Рост
+                                </Typography>
+                                <DefaultText
+                                    style={" border"}
+                                    children={"158"}
+                                />
+                                <Typography>
+                                    см,
+                                </Typography>
+                            </Box>
+                        </Grid>
                     }
                 />
                 <DiagnostikaItem

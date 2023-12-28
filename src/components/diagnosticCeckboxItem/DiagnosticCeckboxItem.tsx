@@ -23,7 +23,7 @@ const DiagnosticCeckboxItem = ({ style, titleStyle, lable, children, description
                         {lable}
                     </DefaultText>
                 </Box>
-                <Box>
+                <Box className=" w-[100%]">
                     {children}
                 </Box>
             </Box>
