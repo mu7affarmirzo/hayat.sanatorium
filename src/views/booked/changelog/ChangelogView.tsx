@@ -1,26 +1,30 @@
-import { Box } from '@mui/material';
-import SelectButton from 'components/SelectButton';
-import { ChangelolCol } from 'components/columnDefs/ChangelogCol';
-import DefaultText from 'components/defaultText/DefaultText';
-import ReceptionTableGroup from 'components/receptionTableGroup/ReceptionTableGroup';
-import SearchInput from 'components/search/SearchInput';
-import { useState } from 'react';
+/* eslint-disable react/style-prop-object */
+import { Box } from "@mui/material";
+import SelectButton from "components/SelectButton";
+import { ChangelolCol } from "components/columnDefs/ChangelogCol";
+import DefaultText from "components/defaultText/DefaultText";
+import ReceptionTableGroup from "components/ReceptionTableGroup/ReceptionTable";
+import SearchInput from "components/search/SearchInput";
+import { useState } from "react";
 const data = [
     {
         id: 1,
-        title: 'Добавить параметр',
+        title: "Добавить параметр",
     },
     {
         id: 2,
-        title: 'Добавить параметр',
+        title: "Добавить параметр",
     },
 ];
+
 const ChangelogView = () => {
     const [sliderValue, setSliderValue] = useState<number>(0);
+
     function valuetext(value: number) {
         setSliderValue(value);
         return `${value}`;
     }
+
     return (
         <Box className=" h-[calc(100vh-225px)]  p-[10px] overflow-hidden bg-[#F5F5F5] ">
             <Box className="flex  items-center justify-between">

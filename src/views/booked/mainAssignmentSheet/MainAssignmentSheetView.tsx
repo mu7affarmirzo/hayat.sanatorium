@@ -1,60 +1,60 @@
-import { Box, Typography } from '@mui/material';
-import Button from '@mui/material/Button';
-import Menu, { MenuProps } from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import { alpha, styled } from '@mui/material/styles';
+import { Box, Typography } from "@mui/material";
+import Button from "@mui/material/Button";
+import Menu, { MenuProps } from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import { alpha, styled } from "@mui/material/styles";
 import {
     CaretRightIcon,
     FilePencilAltIcon,
     VialIcon,
-} from 'assets/icons/icons';
-import HealingProcedures from 'components/HealingProcedures';
-import { useAppModals } from 'components/Modals';
-import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
-import { ConsultingResearchCol } from 'components/columnDefs/ConsultingResearchCol';
-import { HealingProceduresCol } from 'components/columnDefs/HealingProceduresCol';
-import { TreatmentProgramsCOl } from 'components/columnDefs/TreatmentProgramsCal';
-import DefaultButton from 'components/deafultButton/DefaultButton';
-import DefaultText from 'components/defaultText/DefaultText';
-import ReceptionTable from 'components/receptionTable/ReceptionTable';
-import ReceptionTableGroup from 'components/receptionTableGroup/ReceptionTableGroup';
-import React from 'react';
-import { rowData } from '../frontPage/FrontPageView';
+} from "assets/icons/icons";
+import HealingProcedures from "components/HealingProcedures";
+import { useAppModals } from "components/Modals";
+import DefaultCheckbox from "components/checkbox/DefaultCheckbox";
+import { ConsultingResearchCol } from "components/columnDefs/ConsultingResearchCol";
+import { HealingProceduresCol } from "components/columnDefs/HealingProceduresCol";
+import { TreatmentProgramsCOl } from "components/columnDefs/TreatmentProgramsCal";
+import DefaultButton from "components/deafultButton/DefaultButton";
+import DefaultText from "components/defaultText/DefaultText";
+import ReceptionTable from "components/receptionTable/ReceptionTable";
+import ReceptionTableGroup from "components/ReceptionTableGroup/ReceptionTable";
+import React from "react";
+import { rowData } from "../frontPage/FrontPageView";
 
 const StyledMenu = styled((props: MenuProps) => (
     <Menu
         elevation={0}
         anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'right',
+            vertical: "bottom",
+            horizontal: "right",
         }}
         transformOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
+            vertical: "top",
+            horizontal: "right",
         }}
         {...props}
     />
 ))(({ theme }) => ({
-    '& .MuiPaper-root': {
+    "& .MuiPaper-root": {
         borderRadius: 6,
         marginTop: theme.spacing(1),
         minWidth: 180,
         color:
-            theme.palette.mode === 'light'
-                ? 'rgb(55, 65, 81)'
+            theme.palette.mode === "light"
+                ? "rgb(55, 65, 81)"
                 : theme.palette.grey[300],
         boxShadow:
-            'rgb(255, 255, 255) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px',
-        '& .MuiMenu-list': {
-            padding: '4px 0',
+            "rgb(255, 255, 255) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px",
+        "& .MuiMenu-list": {
+            padding: "4px 0",
         },
-        '& .MuiMenuItem-root': {
-            '& .MuiSvgIcon-root': {
+        "& .MuiMenuItem-root": {
+            "& .MuiSvgIcon-root": {
                 fontSize: 18,
                 color: theme.palette.text.secondary,
                 marginRight: theme.spacing(1.5),
             },
-            '&:active': {
+            "&:active": {
                 backgroundColor: alpha(
                     theme.palette.primary.main,
                     theme.palette.action.selectedOpacity
@@ -78,19 +78,19 @@ const PositionedMenu = () => {
         <div>
             <Button
                 id="demo-positioned-button"
-                aria-controls={open ? 'demo-positioned-menu' : undefined}
+                aria-controls={open ? "demo-positioned-menu" : undefined}
                 aria-haspopup="true"
-                aria-expanded={open ? 'true' : undefined}
+                aria-expanded={open ? "true" : undefined}
                 onClick={handleClick}
                 sx={{
-                    color: '#000',
-                    textTransform: 'capitalize',
-                    width: '180px',
-                    background: '#fff',
+                    color: "#000",
+                    textTransform: "capitalize",
+                    width: "180px",
+                    background: "#fff",
                 }}
             >
                 Мой приём
-                <CaretRightIcon style={{ marginLeft: '15px' }} />
+                <CaretRightIcon style={{ marginLeft: "15px" }} />
             </Button>
 
             <StyledMenu
@@ -98,29 +98,29 @@ const PositionedMenu = () => {
                 aria-labelledby="demo-positioned-button"
                 anchorEl={anchorEl}
                 MenuListProps={{
-                    'aria-labelledby': 'demo-positioned-menu',
+                    "aria-labelledby": "demo-positioned-menu",
                 }}
                 open={open}
                 onClose={handleClose}
                 anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'right',
+                    vertical: "bottom",
+                    horizontal: "right",
                 }}
                 transformOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'left',
+                    vertical: "bottom",
+                    horizontal: "left",
                 }}
             >
-                <MenuItem sx={{ width: '400px' }} onClick={handleClose}>
+                <MenuItem sx={{ width: "400px" }} onClick={handleClose}>
                     Заключительный прием лечащего врача
                 </MenuItem>
-                <MenuItem sx={{ width: '400px' }} onClick={handleClose}>
+                <MenuItem sx={{ width: "400px" }} onClick={handleClose}>
                     Осмотр дежурного врача при поступлении
                 </MenuItem>
-                <MenuItem sx={{ width: '400px' }} onClick={handleClose}>
+                <MenuItem sx={{ width: "400px" }} onClick={handleClose}>
                     Повторный приём лечащего врача
                 </MenuItem>
-                <MenuItem sx={{ width: '300px' }} onClick={handleClose}>
+                <MenuItem sx={{ width: "300px" }} onClick={handleClose}>
                     Прием дежурного врача
                 </MenuItem>
             </StyledMenu>
@@ -139,7 +139,7 @@ const AddHandler = () => {
     };
     const appModals = useAppModals();
     const openModal = () => {
-        appModals?.show('selecting_destination');
+        appModals?.show("selecting_destination");
         setAnchorEl(null);
     };
 
@@ -147,9 +147,9 @@ const AddHandler = () => {
         <>
             <Button
                 id="demo-customized-button"
-                aria-controls={open ? 'demo-customized-menu' : undefined}
+                aria-controls={open ? "demo-customized-menu" : undefined}
                 aria-haspopup="true"
-                aria-expanded={open ? 'true' : undefined}
+                aria-expanded={open ? "true" : undefined}
                 variant="contained"
                 disableElevation
                 onClick={handleClick}
@@ -160,29 +160,29 @@ const AddHandler = () => {
             <StyledMenu
                 id="demo-customized-menu"
                 MenuListProps={{
-                    'aria-labelledby': 'demo-customized-button',
+                    "aria-labelledby": "demo-customized-button",
                 }}
                 anchorEl={anchorEl}
                 open={open}
                 onClose={handleClose}
                 anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'left',
+                    vertical: "bottom",
+                    horizontal: "left",
                 }}
                 transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'left',
+                    vertical: "top",
+                    horizontal: "left",
                 }}
             >
                 <MenuItem onClick={handleClose}>
-                    <FilePencilAltIcon style={{ marginRight: '10px' }} />
+                    <FilePencilAltIcon style={{ marginRight: "10px" }} />
                     Консультацию
                 </MenuItem>
                 <MenuItem onClick={openModal}>
-                    <VialIcon style={{ marginRight: '10px' }} />
+                    <VialIcon style={{ marginRight: "10px" }} />
                     Исследование
                 </MenuItem>
-                <MenuItem sx={{ borderTop: '1px solid #888787' }}>
+                <MenuItem sx={{ borderTop: "1px solid #888787" }}>
                     <PositionedMenu />
                 </MenuItem>
             </StyledMenu>
@@ -196,14 +196,14 @@ const MainAssignmentSheetView = () => {
     return (
         <Box className="border border-[rgba(0, 0, 0, 0.23)] h-[calc(100vh-225px)]  p-[10px] overflow-hidden ">
             <Box className=" flex h-[35px] items-start  justify-between   ">
-                <DefaultText style={'text-[#000] text-[14px]'}>
+                <DefaultText style={"text-[#000] text-[14px]"}>
                     Основной лист назначений
                 </DefaultText>
             </Box>
             <Box className="bg-[#fff] w-full p-[5px] overflow-scroll max-h-[calc(100vh-230px)] h-[calc(100vh-280px)] border  ">
                 <Box className="border p-[3px] ">
                     <Typography
-                        className={'text-[#000] text-[14px] font-medium '}
+                        className={"text-[#000] text-[14px] font-medium "}
                     >
                         Лечебные программы
                     </Typography>
@@ -213,7 +213,7 @@ const MainAssignmentSheetView = () => {
                                 title="Назначить из лечебной программы"
                                 style="bg-[#4CAF50] h-[40px]"
                                 onClick={() =>
-                                    appModals?.show('selecting_destination')
+                                    appModals?.show("selecting_destination")
                                 }
                             />
                             <DefaultButton
@@ -235,7 +235,7 @@ const MainAssignmentSheetView = () => {
                 </Box>
                 <Box className="border p-[3px]  mt-[5px]">
                     <Typography
-                        className={'text-[#000] text-[14px] font-medium '}
+                        className={"text-[#000] text-[14px] font-medium "}
                     >
                         Консультации и исследования
                     </Typography>
@@ -272,7 +272,7 @@ const MainAssignmentSheetView = () => {
                 </Box>
                 <Box className="border p-[3px]  mt-[5px]">
                     <Typography
-                        className={'text-[#000] text-[14px] font-medium '}
+                        className={"text-[#000] text-[14px] font-medium "}
                     >
                         Лечебные процедуры
                     </Typography>
@@ -283,7 +283,7 @@ const MainAssignmentSheetView = () => {
                                 title="Добавить"
                                 style="h-[35px] bg-[#4CAF50] mr-[5px]"
                                 onClick={() =>
-                                    appModals?.show('selecting_destination')
+                                    appModals?.show("selecting_destination")
                                 }
                             />
                             <DefaultButton
@@ -322,7 +322,7 @@ const MainAssignmentSheetView = () => {
                         </Box>
                     </Box>
                     <Box className="flex w-[100%] justify-between">
-                        <Box className={'w-[calc(100%-500px)]'}>
+                        <Box className={"w-[calc(100%-500px)]"}>
                             <ReceptionTableGroup
                                 columnDefs={HealingProceduresCol}
                             />

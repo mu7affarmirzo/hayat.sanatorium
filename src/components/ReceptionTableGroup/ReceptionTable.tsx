@@ -1,10 +1,10 @@
-'use strict';
-import { ColDef } from 'ag-grid-community';
-import 'ag-grid-enterprise';
-import { AgGridReact } from 'ag-grid-react';
-import { useRef, useState } from 'react';
-import { rowData2 } from './data';
-import './style.css';
+import { ColDef } from "ag-grid-community";
+import "ag-grid-enterprise";
+import { AgGridReact } from "ag-grid-react";
+import { useRef } from "react";
+import { rowData2 } from "./MockData";
+
+import "./style.css";
 type propsType = {
     columnDefs?: ColDef[];
     rowData?: any;
@@ -21,16 +21,16 @@ const ReceptionTableGroup = (props: propsType) => {
     // );
 
     return (
-        <div className={`${props.height ? props.height : 'h-[15vh]'}  w-full `}>
+        <div className={`${props.height ? props.height : "h-[15vh]"}  w-full `}>
             <div
-                style={{ height: '100%', width: '100%' }}
+                style={{ height: "100%", width: "100%" }}
                 className="ag-theme-alpine"
             >
                 <AgGridReact
                     ref={gridRef}
                     rowData={rowData2}
                     columnDefs={props.columnDefs}
-                    groupDisplayType={'groupRows'}
+                    groupDisplayType={"groupRows"}
 
                     // onFirstDataRendered={onFirstDataRendered}
                 />

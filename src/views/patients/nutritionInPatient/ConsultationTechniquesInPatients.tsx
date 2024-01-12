@@ -1,44 +1,43 @@
-import { Box, Grid, Typography } from '@mui/material'
-import { useAppModals } from 'components/Modals';
-import SelectButton from 'components/SelectButton';
-import AutocompleteInput from 'components/autocompleteInput/AutocompleteInput';
-import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
-import DefaultButton from 'components/deafultButton/DefaultButton';
-import DefaultText from 'components/defaultText/DefaultText';
-import DiagnosticCeckboxItem from 'components/diagnosticCeckboxItem/DiagnosticCeckboxItem';
+import { Box, Grid, Typography } from "@mui/material";
+import { useAppModals } from "components/Modals";
+import SelectButton from "components/SelectButton";
+import AutocompleteInput from "components/autocompleteInput/AutocompleteInput";
+import DefaultCheckbox from "components/checkbox/DefaultCheckbox";
+import DefaultButton from "components/deafultButton/DefaultButton";
+import DefaultText from "components/defaultText/DefaultText";
+import DiagnosticCeckboxItem from "components/diagnosticCeckboxItem/DiagnosticCeckboxItem";
 
-import React from 'react'
-import DiagnostikaItem from 'views/booked/frontPage/components/DiagnostikaItem';
+import React from "react";
+import DiagnostikaItem from "views/booked/frontPage/components/DiagnostikaItem";
 
 const data = [
     {
         id: 1,
-        title: 'Осмотр дежурного врача при поступлении',
+        title: "Осмотр дежурного врача при поступлении",
     },
     {
         id: 2,
-        title: 'Прием дежурного врача',
+        title: "Прием дежурного врача",
     },
 ];
 const top100Films = [
-    { label: 'The Shawshank Redemption', year: 1994 },
-    { label: 'The Godfather', year: 1972 },
-    { label: 'The Godfather: Part II', year: 1974 },
-    { label: 'The Dark Knight', year: 2008 },
-    { label: '12 Angry Men', year: 1957 },
+    { label: "The Shawshank Redemption", year: 1994 },
+    { label: "The Godfather", year: 1972 },
+    { label: "The Godfather: Part II", year: 1974 },
+    { label: "The Dark Knight", year: 2008 },
+    { label: "12 Angry Men", year: 1957 },
     { label: "Schindler's List", year: 1993 },
-    { label: 'Pulp Fiction', year: 1994 },
+    { label: "Pulp Fiction", year: 1994 },
 ];
 
 const ConsultationTechniquesInPatients = () => {
-
     const appModals = useAppModals();
 
     return (
         <Box className="border border-[rgba(0, 0, 0, 0.23)] h-[calc(100vh-220px)]  p-[10px] overflow-hidden">
             <Box className=" flex h-[60px] items-center justify-between  ">
                 <Box className="">
-                    <DefaultText style={'text-[#000] '}>
+                    <DefaultText style={"text-[#000] "}>
                         Прием дежурного врача, Очилов Ибрагим Азамович
                     </DefaultText>
                 </Box>
@@ -48,7 +47,7 @@ const ConsultationTechniquesInPatients = () => {
                         data={top100Films}
                         lableStyle="text-[#000]"
                         containerStyle={
-                            'w-[20%]  flex-row items-center  h-[35px] mr-[10px]'
+                            "w-[20%]  flex-row items-center  h-[35px] mr-[10px]"
                         }
                         inputStyle="w-[100%]"
                     />
@@ -101,70 +100,56 @@ const ConsultationTechniquesInPatients = () => {
                                 <DefaultCheckbox
                                     label="на протяжении максимального срока инкубации: не было"
                                     checkboxStyle={{
-                                        padding: '0px',
+                                        padding: "0px",
                                     }}
                                     style="text-[#2196F3]"
                                 />
                             </Grid>
                             <DiagnostikaItem
                                 message=" "
-                                style="border-[0px] py-[0px] px-[0px]"
+                                style="border-0 p-0"
                                 titleStyle="mb-[0px] text-[#5d5c5c] mt-[5px]"
                                 messageStyle="min-h-[80px]"
                             />
                             <DiagnosticCeckboxItem
                                 lable="Контакт с больными гриппом, ОРВИ:"
-                                children={
-                                    <DefaultCheckbox label='нет,' />
-                                }
+                                children={<DefaultCheckbox label="нет," />}
                                 description=" "
                                 titleStyle="w-[100%] border p-[10px] rounded-[4px]"
                             />
                             <DiagnosticCeckboxItem
                                 lable="Выезд за пределы населенного пункта за 2 месяца ДО настоящего заболевания:"
-                                children={
-                                    <DefaultCheckbox label='нет,' />
-                                }
+                                children={<DefaultCheckbox label="нет," />}
                                 description=" "
                                 titleStyle="w-[100%] border p-[10px] rounded-[4px]"
                             />
                             <DiagnosticCeckboxItem
                                 lable="Перенесенные инфекционные заболевания:"
-                                children={
-                                    <DefaultCheckbox label='нет,' />
-                                }
+                                children={<DefaultCheckbox label="нет," />}
                                 description=" "
                                 titleStyle="w-[100%] border p-[10px] rounded-[4px]"
                             />
                             <DiagnosticCeckboxItem
                                 lable="Нахождение на стационарном лечении:"
-                                children={
-                                    <DefaultCheckbox label='нет,' />
-                                }
+                                children={<DefaultCheckbox label="нет," />}
                                 description=" "
                                 titleStyle="w-[100%] border p-[10px] rounded-[4px]"
                             />
                             <DiagnosticCeckboxItem
                                 lable="Получение гемотрансфузий (крови и ее компонентов):"
-                                children={
-                                    <DefaultCheckbox label='нет,' />
-                                }
+                                children={<DefaultCheckbox label="нет," />}
                                 description=" "
                                 titleStyle="w-[100%] border p-[10px] rounded-[4px]"
                             />
                             <DiagnosticCeckboxItem
                                 lable="Оперативные и массивные вмешательства за последние 6 месяцев:"
-                                children={
-                                    <DefaultCheckbox label='нет,' />
-                                }
+                                children={<DefaultCheckbox label="нет," />}
                                 description=" "
                                 titleStyle="w-[100%] border p-[10px] rounded-[4px]"
                             />
                             <DiagnosticCeckboxItem
                                 lable="Посещение стоматолога за последние 6 месяцев:"
-                                children={
-                                    <DefaultCheckbox label='нет,' />
-                                }
+                                children={<DefaultCheckbox label="нет," />}
                                 description=" "
                                 titleStyle="w-[100%] border p-[10px] rounded-[4px]"
                             />
@@ -178,12 +163,12 @@ const ConsultationTechniquesInPatients = () => {
                                 lable="Дополнительная информация:"
                                 children={
                                     <Box className="flex">
-                                        <DefaultCheckbox label='педикюр,' />
-                                        <DefaultCheckbox label='маникюр,' />
-                                        <DefaultCheckbox label='татуировка,' />
-                                        <DefaultCheckbox label='пирсинг,' />
-                                        <DefaultCheckbox label='иглоукалывание,' />
-                                        <DefaultCheckbox label='иглоукалывание,' />
+                                        <DefaultCheckbox label="педикюр," />
+                                        <DefaultCheckbox label="маникюр," />
+                                        <DefaultCheckbox label="татуировка," />
+                                        <DefaultCheckbox label="пирсинг," />
+                                        <DefaultCheckbox label="иглоукалывание," />
+                                        <DefaultCheckbox label="иглоукалывание," />
                                     </Box>
                                 }
                                 description=" "
@@ -193,23 +178,50 @@ const ConsultationTechniquesInPatients = () => {
                     }
                 />
                 <DiagnostikaItem
-                    message=" "
-                    style="border-[0px] py-[0px] px-[0px]"
-                    titleStyle="mb-[0px] text-[#5d5c5c]"
-                    messageStyle="min-h-[80px]"
+                    title="Конно—мышечная система"
+                    titleStyle="mb-[0px]"
+                    children={
+                        <Grid item>
+                            <DiagnosticCeckboxItem
+                                lable="Деформации:"
+                                children={<DefaultCheckbox label="нет," />}
+                                description=" "
+                                titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+                            />
+                            <DiagnosticCeckboxItem
+                                lable="Контрактуры:"
+                                children={<DefaultCheckbox label="нет," />}
+                                description=" "
+                                titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+                            />
+                            <DiagnosticCeckboxItem
+                                lable="Ограничения движений:"
+                                children={<DefaultCheckbox label="нет," />}
+                                description=" "
+                                titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+                            />
+
+                            <DiagnostikaItem
+                                message=" "
+                                style="border-0 p-0"
+                                titleStyle="mb-[0px] text-[#5d5c5c] mt-[5px]"
+                                messageStyle="min-h-[80px]"
+                            />
+                        </Grid>
+                    }
                 />
                 <DiagnostikaItem
                     title="Status praesens objectivus"
                     children={
-                        <Grid item className=''>
+                        <Grid item className="">
                             <DiagnosticCeckboxItem
                                 lable="Общее состояние:"
                                 children={
                                     <Box className="flex">
-                                        <DefaultCheckbox label='удовлетворительное,' />
-                                        <DefaultCheckbox label='относительное удовлетворительное,' />
-                                        <DefaultCheckbox label='средней тяжести,' />
-                                        <DefaultCheckbox label='тяжёлое' />
+                                        <DefaultCheckbox label="удовлетворительное," />
+                                        <DefaultCheckbox label="относительное удовлетворительное," />
+                                        <DefaultCheckbox label="средней тяжести," />
+                                        <DefaultCheckbox label="тяжёлое" />
                                     </Box>
                                 }
                                 description=" "
@@ -218,65 +230,49 @@ const ConsultationTechniquesInPatients = () => {
                             />
                             <DiagnosticCeckboxItem
                                 lable="Пигментация:"
-                                children={
-                                    <DefaultCheckbox label='нет,' />
-                                }
+                                children={<DefaultCheckbox label="нет," />}
                                 description=" "
                                 titleStyle="w-[100%] border p-[10px] rounded-[4px]"
                             />
                             <DiagnosticCeckboxItem
                                 lable="Депигментация:"
-                                children={
-                                    <DefaultCheckbox label='нет,' />
-                                }
+                                children={<DefaultCheckbox label="нет," />}
                                 description=" "
                                 titleStyle="w-[100%] border p-[10px] rounded-[4px]"
                             />
                             <DiagnosticCeckboxItem
                                 lable="Высыпания:"
-                                children={
-                                    <DefaultCheckbox label='нет,' />
-                                }
+                                children={<DefaultCheckbox label="нет," />}
                                 description=" "
                                 titleStyle="w-[100%] border p-[10px] rounded-[4px]"
                             />
                             <DiagnosticCeckboxItem
                                 lable="Сосудистые изменения:"
-                                children={
-                                    <DefaultCheckbox label='нет,' />
-                                }
+                                children={<DefaultCheckbox label="нет," />}
                                 description=" "
                                 titleStyle="w-[100%] border p-[10px] rounded-[4px]"
                             />
                             <DiagnosticCeckboxItem
                                 lable="Кровоизлияния:"
-                                children={
-                                    <DefaultCheckbox label='нет,' />
-                                }
+                                children={<DefaultCheckbox label="нет," />}
                                 description=" "
                                 titleStyle="w-[100%] border p-[10px] rounded-[4px]"
                             />
                             <DiagnosticCeckboxItem
                                 lable="Рубцы"
-                                children={
-                                    <DefaultCheckbox label='нет,' />
-                                }
+                                children={<DefaultCheckbox label="нет," />}
                                 description=" "
                                 titleStyle="w-[100%] border p-[10px] rounded-[4px]"
                             />
                             <DiagnosticCeckboxItem
                                 lable="Трофические изменения:"
-                                children={
-                                    <DefaultCheckbox label='нет,' />
-                                }
+                                children={<DefaultCheckbox label="нет," />}
                                 description=" "
                                 titleStyle="w-[100%] border p-[10px] rounded-[4px]"
                             />
                             <DiagnosticCeckboxItem
                                 lable="Видимые опухоли:"
-                                children={
-                                    <DefaultCheckbox label='нет,' />
-                                }
+                                children={<DefaultCheckbox label="нет," />}
                                 description=" "
                                 titleStyle="w-[100%] border p-[10px] rounded-[4px]"
                             />
@@ -284,9 +280,9 @@ const ConsultationTechniquesInPatients = () => {
                                 lable="Влажность кожи:"
                                 children={
                                     <Box className="flex">
-                                        <DefaultCheckbox label='обычная,' />
-                                        <DefaultCheckbox label='влажная,' />
-                                        <DefaultCheckbox label='сухая,' />
+                                        <DefaultCheckbox label="обычная," />
+                                        <DefaultCheckbox label="влажная," />
+                                        <DefaultCheckbox label="сухая," />
                                     </Box>
                                 }
                                 description=" "
@@ -296,8 +292,8 @@ const ConsultationTechniquesInPatients = () => {
                                 lable="Влажность кожи:"
                                 children={
                                     <Box className="flex">
-                                        <DefaultCheckbox label='в норме,' />
-                                        <DefaultCheckbox label='снижет,' />
+                                        <DefaultCheckbox label="в норме," />
+                                        <DefaultCheckbox label="снижет," />
                                     </Box>
                                 }
                                 description=" "
@@ -307,26 +303,31 @@ const ConsultationTechniquesInPatients = () => {
                                 lable="Подкожно-жировая клетчатка:"
                                 children={
                                     <Box className="flex">
-                                        <DefaultCheckbox style='w-[100%]' label='развита умеренно,' />
-                                        <DefaultCheckbox style='w-[100%]' label='развита слабо,' />
-                                        <DefaultCheckbox style='w-[100%]' label='развита чрезмерно,' />
+                                        <DefaultCheckbox
+                                            style="w-[100%]"
+                                            label="развита умеренно,"
+                                        />
+                                        <DefaultCheckbox
+                                            style="w-[100%]"
+                                            label="развита слабо,"
+                                        />
+                                        <DefaultCheckbox
+                                            style="w-[100%]"
+                                            label="развита чрезмерно,"
+                                        />
                                     </Box>
                                 }
                                 description=" "
                                 titleStyle="w-[100%] border p-[10px] rounded-[4px]"
-                                boxStyle=' w-[55%]'
+                                boxStyle=" w-[55%]"
                             />
                             <Box className="">
-                                <Typography>
-                                    Рост
-                                </Typography>
+                                <Typography>Рост</Typography>
                                 <DefaultText
                                     style={" border"}
                                     children={"158"}
                                 />
-                                <Typography>
-                                    см,
-                                </Typography>
+                                <Typography>см,</Typography>
                             </Box>
                         </Grid>
                     }
@@ -337,7 +338,7 @@ const ConsultationTechniquesInPatients = () => {
                     btnTitle="Назначить из лечебной программы"
                     btnStyle="ml-[0px] mb-[10px]"
                     disabled={true}
-                    onClick={() => appModals?.show('choosingDiagnosis')}
+                    onClick={() => appModals?.show("choosingDiagnosis")}
                     children={
                         <>
                             <DiagnostikaItem
@@ -345,7 +346,7 @@ const ConsultationTechniquesInPatients = () => {
                                 text="Дополнительные консультации и исследования не требуются"
                                 btnTitle="Добавить"
                                 onClick={() =>
-                                    appModals?.show('choosingDiagnosis')
+                                    appModals?.show("choosingDiagnosis")
                                 }
                             />
                             <DiagnostikaItem
@@ -353,7 +354,7 @@ const ConsultationTechniquesInPatients = () => {
                                 text="Дополнительные лечебные процедуры не требуются"
                                 btnTitle="Добавить"
                                 onClick={() =>
-                                    appModals?.show('choosingDiagnosis')
+                                    appModals?.show("choosingDiagnosis")
                                 }
                             />
                             <DiagnostikaItem
@@ -361,7 +362,7 @@ const ConsultationTechniquesInPatients = () => {
                                 text="Дополнительные медикаменты не требуются"
                                 btnTitle="Добавить"
                                 onClick={() =>
-                                    appModals?.show('choosingDiagnosis')
+                                    appModals?.show("choosingDiagnosis")
                                 }
                             />
                         </>
@@ -369,8 +370,7 @@ const ConsultationTechniquesInPatients = () => {
                 />
             </Box>
         </Box>
+    );
+};
 
-    )
-}
-
-export default ConsultationTechniquesInPatients
+export default ConsultationTechniquesInPatients;
