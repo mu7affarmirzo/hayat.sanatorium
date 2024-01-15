@@ -7,9 +7,11 @@ type propsType = {
     inputStyle?: string;
     lableStyle?: string;
     placeholder?: string;
+    multiple?: boolean;
 };
 const AutocompleteInput = (props: propsType) => {
-    let { data, lable, containerStyle, inputStyle, lableStyle } = props;
+    let { data, lable, containerStyle, inputStyle, lableStyle, multiple } =
+        props;
     return (
         <Box
             className={`${
@@ -23,16 +25,29 @@ const AutocompleteInput = (props: propsType) => {
                     </Typography>
                 </Box>
             ) : null}
-
-            <Autocomplete
-                placeholder={props.placeholder}
-                size="small"
-                id="free-solo-2-demo"
-                disableClearable
-                options={data}
-                renderInput={(params) => <TextField {...params} />}
-                className={`${inputStyle ? inputStyle : ' w-[70%] '} `}
-            />
+            {multiple ? (
+                <Autocomplete
+                    multiple
+                    id="size-small-outlined-multi"
+                    size="small"
+                    options={data}
+                    getOptionLabel={(option) => option.title}
+                    defaultValue={[data[1]]}
+                    renderInput={(params) => <TextField {...params} />}
+                    className={`${inputStyle ? inputStyle : ' w-[70%] '} `}
+                    limitTags={3}
+                />
+            ) : (
+                <Autocomplete
+                    placeholder={props.placeholder}
+                    size="small"
+                    id="free-solo-2-demo"
+                    disableClearable
+                    options={data}
+                    renderInput={(params) => <TextField {...params} />}
+                    className={`${inputStyle ? inputStyle : ' w-[70%] '} `}
+                />
+            )}
         </Box>
     );
 };

@@ -1,11 +1,4 @@
-import React, { Suspense, useEffect } from 'react';
-import {
-    Box,
-    CircularProgress,
-    Grid,
-    TextField,
-    Typography,
-} from '@mui/material';
+import { Box, Grid, TextField, Typography } from '@mui/material';
 import { ArrowDropSownIcon } from 'assets/icons/icons';
 import { useAppModals } from 'components/Modals';
 import AutocompleteInput from 'components/autocompleteInput/AutocompleteInput';
@@ -14,19 +7,23 @@ import DefaultButton from 'components/deafultButton/DefaultButton';
 import DefaultText from 'components/defaultText/DefaultText';
 import FrontFooter from 'components/frontFooter/FrontFooter';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import DocumentationForm from './components/DocumentationForm';
-import HomeAddressForm from './components/HomeAddressForm';
-import HospitalStayForm from './components/HospitalStayForm';
-import PhonePushForm from './components/PhonePushForm';
-import TravelPackageForm from './components/TravelPackageForm';
+
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import RadioForm from 'components/RadioForm';
-import DiagnostikaItem from './components/DiagnostikaItem';
-import TagsBox from './components/TagsBox';
+
 import DefaulCheckbox from 'components/checkbox/DefaultCheckbox';
+import DiagnostikaItem from 'views/booked/frontPage/components/DiagnostikaItem';
+import DocumentationForm from 'views/booked/frontPage/components/DocumentationForm';
+import HomeAddressForm from 'views/booked/frontPage/components/HomeAddressForm';
+import HospitalStayForm from 'views/booked/frontPage/components/HospitalStayForm';
+import PatientForm from 'views/booked/frontPage/components/PatientForm';
+import PhonePushForm from 'views/booked/frontPage/components/PhonePushForm';
+import TagsBox from 'views/booked/frontPage/components/TagsBox';
+import StaySanatorium from 'views/dispatching/components/StaySanatorium';
 import CustomizedAccordions from 'components/CustomizedAccordions';
-const PatientForm = React.lazy(() => import('./components/PatientForm'));
+import PhoneAddForm from 'views/dispatching/components/PhoneAddForm';
+
 interface IFormInput {
     lastName: string;
     name: string;
@@ -135,19 +132,6 @@ const top100Films = [
     { label: "Schindler's List", year: 1993 },
     { label: 'Pulp Fiction', year: 1994 },
 ];
-const top100FilmsChack = [
-    { title: 'The Shawshank Redemption', year: 1994 },
-    { title: 'The Godfather', year: 1972 },
-    { title: 'The Godfather: Part II', year: 1974 },
-    { title: 'The Dark Knight', year: 2008 },
-    { title: '12 Angry Men', year: 1957 },
-    { title: "Schindler's List", year: 1993 },
-    { title: 'Pulp Fiction', year: 1994 },
-    {
-        title: 'The Lord of the Rings: The Return of the King',
-        year: 2003,
-    },
-];
 
 const radioForm = [
     {
@@ -189,7 +173,7 @@ const radioForm2 = [
     },
 ];
 
-const FrontPageView = () => {
+const DispatchFrontPage = () => {
     const { register, handleSubmit } = useForm<IFormInput>();
     const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
     const appModals = useAppModals();
@@ -334,8 +318,11 @@ const FrontPageView = () => {
                             <input className=" bg-[#fff] w-full h-full border-none outline-none  " />
                         </Box>
                     </Box>
-                    <Box className=" flex w-[50%] justify-end  items-center ">
-                        <DefaultButton title="новая" />
+                    <Box className=" flex w-[50%] justify-end  items-center pr-[10px] py-[5px] ">
+                        <DefaultButton
+                            title="ИБ открыта"
+                            style="bg-[#2196F3] w-[100px] h-[40px] text-[#fff] text-[14px] p-[0]"
+                        />
                     </Box>
                 </Grid>
                 <Grid
@@ -350,23 +337,21 @@ const FrontPageView = () => {
                     >
                         <div className="w-[35%]  ">
                             <Box className="border p-[5px]">
-                                <Suspense fallback={<>Loading...</>}>
-                                    <PatientForm
-                                        polData={polData}
-                                        avtoCaplektData={top100Films}
-                                        register={register}
-                                    />
-                                    <HomeAddressForm
-                                        avtoCaplektData={top100Films}
-                                        register={register}
-                                    />
-                                    <PhonePushForm
-                                        phonePush={PhonePush}
-                                        avtoCaplektData={top100Films}
-                                        register={register}
-                                        rowData={rowData}
-                                    />
-                                </Suspense>
+                                <PatientForm
+                                    polData={polData}
+                                    avtoCaplektData={top100Films}
+                                    register={register}
+                                />
+                                <HomeAddressForm
+                                    avtoCaplektData={top100Films}
+                                    register={register}
+                                />
+                                <PhoneAddForm
+                                    phonePush={PhonePush}
+                                    avtoCaplektData={top100Films}
+                                    register={register}
+                                    rowData={rowData}
+                                />
                             </Box>
                             <DocumentationForm
                                 avtoCaplektData={top100Films}
@@ -374,22 +359,18 @@ const FrontPageView = () => {
                             />
                         </div>
                         <Box className="w-[64%]">
-                            <TravelPackageForm
+                            <StaySanatorium
                                 avtoCaplektData={top100Films}
                                 register={register}
                                 rowData={rowData}
                             />
-                            <HospitalStayForm
-                                avtoCaplektData={top100Films}
-                                register={register}
-                            />
+
                             <Comment />
                             <HarmFactors />
-                            <TagsBox data={top100FilmsChack} lable="Метки" />
                         </Box>
                     </form>
                     <FrontFooter />
-                    <ModeHandler />
+                    {/* <ModeHandler />
                     <DiagnostHandler />
                     <Box className="flex justify-between">
                         <Box className="w-[35%]">
@@ -428,11 +409,11 @@ const FrontPageView = () => {
                             leftLable="Получает постоянно медикаменты:"
                             style="w-[350px]"
                         />
-                    </Box>
+                    </Box> */}
                 </Grid>
             </Grid>
         </LocalizationProvider>
     );
 };
 
-export default FrontPageView;
+export default DispatchFrontPage;

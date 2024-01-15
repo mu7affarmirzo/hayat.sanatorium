@@ -9,6 +9,7 @@ export type TabsItem = {
     component: React.FC;
     chiled?: any;
     activBtnType?: any;
+    search?: any;
 };
 
 interface TabsProps {
@@ -23,8 +24,8 @@ const SideBar: FC<TabsProps> = ({ content }) => {
     };
 
     return (
-        <Box className="flex flex-row  min-h-[calc(100vh-76px)] border w-[100vw] h-full ">
-            <Box className="flex min-h-[calc(100vh-76px)] flex-col  gap-1  w-[280px] p-[5px]">
+        <Box className="flex flex-row  min-h-[calc(100vh-76px)] border w-[100vw] h-full  overflow-scroll">
+            <Box className="flex h-[calc(100vh-230px)] flex-col  gap-1  w-[280px] p-[5px] border overflow-scroll">
                 {content.map((item, index) => {
                     return (
                         <Box key={index}>
@@ -37,6 +38,7 @@ const SideBar: FC<TabsProps> = ({ content }) => {
                                 onClick={() => handleActiveTab(index)}
                                 chiled={item.chiled}
                                 activBtnType={item.activBtnType}
+                                search={item.search}
                             />
                         </Box>
                     );
