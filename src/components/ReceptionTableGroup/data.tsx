@@ -29,7 +29,7 @@ export function getData(): any[] {
 export const rowData2 = [
     {
         id: 1,
-        group: 'Консультации',
+        group: 'Есть назначения для диспетчеризации',
         model: 'Mercedes-AMG C63',
         color: 'black',
         country: 'US',

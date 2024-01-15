@@ -30,6 +30,7 @@ const ConsultationTechniques = () => {
     const appModals = useAppModals();
     return (
         <Box className="border border-[rgba(0, 0, 0, 0.23)] h-[calc(100vh-220px)]  p-[10px] overflow-hidden">
+            <div id="frontPage"></div>
             <Box className=" flex h-[60px] items-center  justify-between  ">
                 <Box className="">
                     <DefaultText style={'text-[#000] '}>
@@ -66,6 +67,7 @@ const ConsultationTechniques = () => {
                     />
                 </Box>
             </Box>
+
             <Box className="bg-[#fff] w-full p-[8px] overflow-scroll max-h-[calc(100vh-300px)] h-[calc(100vh-300px)]">
                 <DiagnostikaItem
                     title="Жалобы/анамнез"

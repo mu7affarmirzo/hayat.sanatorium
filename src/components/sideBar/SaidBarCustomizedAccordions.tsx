@@ -1,3 +1,4 @@
+import { Box } from '@mui/material';
 import MuiAccordion, { AccordionProps } from '@mui/material/Accordion';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import MuiAccordionSummary, {
@@ -5,13 +6,17 @@ import MuiAccordionSummary, {
 } from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
-import { CaretRightDownIcon2 } from 'assets/icons/icons';
+import { CaretRightDownIcon2, SearchIcon } from 'assets/icons/icons';
 import * as React from 'react';
-
+import { useForm } from 'react-hook-form';
+interface IFormInput {
+    name: string;
+}
 const Accordion = styled((props: AccordionProps) => (
     <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(() => ({
     cursor: 'pointer',
+
     '&:not(:last-child)': {
         borderBottom: 0,
     },
@@ -48,10 +53,13 @@ type propsType = {
     topBoxStyle?: any;
     onClick?: () => void;
     activBtnType?: string;
+    search?: any;
+    titleStyle?: any;
 };
 
 export default function SaidBarCustomizedAccordions(props: propsType) {
     const [expanded, setExpanded] = React.useState<string | false>('');
+    const { register, handleSubmit } = useForm<IFormInput>();
 
     const handleChange =
         (panel: string) =>
@@ -68,15 +76,24 @@ export default function SaidBarCustomizedAccordions(props: propsType) {
                 <AccordionSummary
                     aria-controls="panel1d-content"
                     id="panel1d-header"
-                    sx={
-                        props.topBoxStyle
-                            ? props.topBoxStyle
-                            : { background: '#e8e6e6' }
-                    }
+                    sx={props.topBoxStyle}
                 >
-                    <Typography className=" p-0  m-0 text-[12px]">
+                    <Typography
+                        className={`${props.titleStyle} text-[12px] mt-[3px]`}
+                    >
                         {props?.title}
                     </Typography>
+                    {props.search ? (
+                        <Box className="flex items-center rounded-[5px] bg-[#fff] w-[140px] pl-[2px] ml-[5px] border ">
+                            <SearchIcon width="16px" />
+                            <input
+                                className=" outline-none border-none w-[60%] ml-[5px] text-[#000]"
+                                {...register(`name`, {
+                                    required: true,
+                                })}
+                            />
+                        </Box>
+                    ) : null}
                 </AccordionSummary>
                 <AccordionDetails sx={props.childrenStyle}>
                     {props?.children}

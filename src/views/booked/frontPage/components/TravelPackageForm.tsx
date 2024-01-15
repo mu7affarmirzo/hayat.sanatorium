@@ -14,7 +14,7 @@ type propsType = {
 const TravelPackageForm = (props: propsType) => {
     let { avtoCaplektData, register, rowData } = props;
     return (
-        <Box className="flex flex-col  border  p-[5px]">
+        <Box className="flex flex-col  border  p-[5px] ">
             <Typography className=" text-[14px] text-[#000] ">
                 Путёвка
             </Typography>

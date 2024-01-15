@@ -1,5 +1,5 @@
 export interface SvgProps {
-    width?: number;
+    width?: any;
     height?: number;
     viewBox?: string;
     preserveAspectRatio?: string;

@@ -3,123 +3,42 @@ import { CoinsAltIcon, VuesaxLinearPrinterIcon } from 'assets/icons/icons';
 import SelectButton from 'components/SelectButton';
 import DefaultButton from 'components/deafultButton/DefaultButton';
 import SideBar, { TabsItem } from 'components/sideBar/SideBar';
-import changelog from '../changelog';
-import frontPage from '../frontPage';
-import invoicesDocuments from '../invoicesDocuments';
-import mainAssignmentSheet from '../mainAssignmentSheet';
-import nutrition from '../nutrition';
-import consultationTechniques from '../consultationTechniques';
-import researchSummaryTable from '../researchSummaryTable';
-import measuredParameters from '../measuredParameters';
-import treatmentSchedule from '../treatmentSchedule';
+import AutomaticDispatch from '../saidbar/automaticDispatch/AutomaticDispatch';
+import DispatchFrontPage from '../saidbar/dispatchFrontPage/DispatchFrontPage';
+import Appointments from '../saidbar/appointments/Appointments';
 
 const content: TabsItem[] = [
     {
         title: 'Титульная страница',
-        component: frontPage,
-        chiled: [
-            { id: 0, title: 'Диагнозы', link: '/#frontPage' },
-            { id: 2, title: 'Особые отметки', link: '/#frontPage' },
-        ],
-        activBtnType: 'panel1',
+        component: DispatchFrontPage,
     },
-    {
-        title: 'Документы',
-        component: invoicesDocuments,
-    },
-    {
-        title: 'Питание',
-        component: nutrition,
-    },
-    {
-        title: 'Консультации и повторные приемы',
-        component: consultationTechniques,
-        activBtnType: 'panel1',
-        chiled: [
-            {
-                id: 0,
-                title: 'Прием дежурного врача',
-                link: '#frontPage',
-            },
-            {
-                id: 1,
-                title: 'Жалобы/анамнез',
-            },
-            {
-                id: 2,
-                title: 'Объективные данные',
-            },
-            {
-                id: 3,
-                title: 'Диагноз',
-            },
-            {
-                id: 4,
-                title: 'Заключение',
-            },
-            {
-                id: 5,
-                title: 'Назначения',
-            },
-        ],
-    },
-    {
-        title: 'Основной лист назначений',
-        component: mainAssignmentSheet,
-        activBtnType: 'panel1',
-        chiled: [
-            {
-                id: 0,
-                title: 'Консультации и исследования',
-            },
-            {
-                id: 1,
-                title: 'Лечебные процедуры',
-            },
-        ],
-    },
-    {
-        title: 'Сводная таблица исследований',
-        component: researchSummaryTable,
-    },
-    {
-        title: 'Измеряемые параметры',
-        component: measuredParameters,
-        activBtnType: 'panel1',
-        chiled: [
-            {
-                id: 0,
-                title: 'Артериальное давление',
-            },
-            {
-                id: 1,
-                title: 'Глюкоза крови (глюкометр)',
-            },
-            {
-                id: 3,
-                title: 'Пульс',
-            },
-            {
-                id: 4,
-                title: 'Сатурация',
-            },
-
-            {
-                id: 5,
-                title: 'Температура',
-            },
-        ],
-    },
-
     {
         title: 'Расписание лечения',
-        component: treatmentSchedule,
+        component: AutomaticDispatch,
     },
+
     {
-        title: 'Журнал изменений',
-        component: changelog,
+        title: 'Назначения',
+        component: Appointments,
+        chiled: [
+            {
+                id: 0,
+                title: 'Диагнозы',
+                data: [
+                    { id: 1, title: 'Гидрованны', link: '/#frontPage' },
+                    { id: 2, title: 'Гидроколонотерапия', link: '/#frontPage' },
+                    {
+                        id: 3,
+                        title: '(орошение кишечника)',
+                        link: '/#frontPage',
+                    },
+                ],
+            },
+        ],
+        search: true,
     },
 ];
+
 const selectData = [
     {
         id: 0,
@@ -130,6 +49,7 @@ const selectData = [
         title: 'Начало приём2',
     },
 ];
+
 const selectData2 = [
     {
         id: 0,
@@ -140,7 +60,8 @@ const selectData2 = [
         title: 'Прием дежурного врача',
     },
 ];
-const AddMedicalHistoryView = () => {
+
+const FrontPageView = () => {
     return (
         <div className=" overflow-hidden relative max-h-[calc(100vh-142px)]   ">
             <Grid
@@ -189,7 +110,7 @@ const AddMedicalHistoryView = () => {
                     <DefaultButton
                         icon={<CoinsAltIcon stroke="black" />}
                         title="  0,00 сум"
-                        style="bg-[#F5F5F5] h-[46px] text-[#000]  py-[10px]"
+                        style="bg-[#F5F5F5] h-[46px] py-[10px]"
                         variant={'none'}
                     />
                 </Grid>
@@ -201,4 +122,4 @@ const AddMedicalHistoryView = () => {
     );
 };
 
-export default AddMedicalHistoryView;
+export default FrontPageView;

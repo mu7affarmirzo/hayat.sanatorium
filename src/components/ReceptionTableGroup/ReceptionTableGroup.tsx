@@ -5,6 +5,7 @@ import { AgGridReact } from 'ag-grid-react';
 import { useRef, useState } from 'react';
 import { rowData2 } from './data';
 import './style.css';
+import { rowData } from 'views/booked/frontPage/FrontPageView';
 type propsType = {
     columnDefs?: ColDef[];
     rowData?: any;
@@ -12,13 +13,6 @@ type propsType = {
 };
 const ReceptionTableGroup = (props: propsType) => {
     const gridRef = useRef<AgGridReact>(null);
-
-    // const onFirstDataRendered = useCallback(
-    //     (params: FirstDataRenderedEvent) => {
-    //         params.api.expandAll();
-    //     },
-    //     []
-    // );
 
     return (
         <div className={`${props.height ? props.height : 'h-[15vh]'}  w-full `}>
