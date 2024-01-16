@@ -1,12 +1,14 @@
-import LogoutTwoToneIcon from '@mui/icons-material/LogoutTwoTone';
-import { Button, Menu, MenuItem, Typography } from '@mui/material';
-import { ArrowDropDownIcon } from '@mui/x-date-pickers';
-import HeaderBookingScreenTabs from 'components/headerBookingTab/HeaderBookingTabs';
-import React, { useCallback, useMemo } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
-import { LogoSanatarumIcon } from '../../assets/icons/icons';
-import { NavBarDropdowns } from '../../constants/main';
+import LogoutTwoToneIcon from "@mui/icons-material/LogoutTwoTone";
+import { Button, Menu, MenuItem, Typography } from "@mui/material";
+import { ArrowDropDownIcon } from "@mui/x-date-pickers";
+import React, { useCallback, useMemo } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import { LogoSanatarumIcon } from "../../assets/icons/icons";
+import { NavBarDropdowns } from "../../constants/main";
+import { useReduxDispatch } from "hooks/useReduxHook";
+import { logout } from "features/login/AuthSlice";
+import { storageService } from "features/api/storageService";
 const HeaderContainer = styled.div`
     display: flex;
     align-items: center;
@@ -30,6 +32,7 @@ const RightSection = styled.div`
 const Headers = () => {
     const navigate = useNavigate();
     const location = useLocation();
+    const dispatch = useReduxDispatch();
 
     const subNavList = useMemo(() => {
         return (
@@ -48,6 +51,11 @@ const Headers = () => {
     const [profileOpen, setProfileOpen] = React.useState<null | HTMLElement>(
         null
     );
+
+    const handleLogOut = useCallback(() => {
+        dispatch(logout());
+        storageService.remove("token");
+    }, [dispatch]);
 
     return (
         <div className="">
@@ -69,8 +77,8 @@ const Headers = () => {
                                         }}
                                         className={`  rounded-none  px-[20px] h-[100%] text-sm   font-semibold  align-middle   cursor-pointer  normal-case ${
                                             isActiveNav(item.mainPath)
-                                                ? 'bg-blue-400 text-gray-100'
-                                                : 'bg-white  text-gray-700'
+                                                ? "bg-blue-400 text-gray-100"
+                                                : "bg-white  text-gray-700"
                                         } `}
                                     >
                                         <Typography className="text-sm  font-medium ">
@@ -87,22 +95,22 @@ const Headers = () => {
                         <Button
                             id="fade-button"
                             aria-controls={
-                                Boolean(profileOpen) ? 'fade-menu' : undefined
+                                Boolean(profileOpen) ? "fade-menu" : undefined
                             }
                             aria-haspopup="true"
                             aria-expanded={
-                                Boolean(profileOpen) ? 'true' : undefined
+                                Boolean(profileOpen) ? "true" : undefined
                             }
                             onClick={(e) => setProfileOpen(e.currentTarget)}
                         >
                             <Typography
-                                sx={{ color: 'rgba(0, 0, 0, 0.36)' }}
+                                sx={{ color: "rgba(0, 0, 0, 0.36)" }}
                                 className="text-sm , leading-5 , tracking-tighter , mr-10 , capitalize"
                             >
                                 Mухиддинов
                             </Typography>
                             <ArrowDropDownIcon
-                                sx={{ fill: 'rgba(0, 0, 0, 0.54)' }}
+                                sx={{ fill: "rgba(0, 0, 0, 0.54)" }}
                             />
                         </Button>
                         <Menu
@@ -112,8 +120,8 @@ const Headers = () => {
                             onClose={() => setProfileOpen(null)}
                             className="hidden_profile_block"
                         >
-                            <MenuItem>
-                                <LogoutTwoToneIcon sx={{ mr: '12px' }} />
+                            <MenuItem onClick={handleLogOut}>
+                                <LogoutTwoToneIcon sx={{ mr: "12px" }} />
                                 Logout
                             </MenuItem>
                         </Menu>

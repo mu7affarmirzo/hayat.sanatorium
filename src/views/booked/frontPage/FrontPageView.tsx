@@ -1,31 +1,31 @@
-import React, { Suspense, useEffect } from 'react';
+import React, { Suspense, useEffect } from "react";
 import {
     Box,
     CircularProgress,
     Grid,
     TextField,
     Typography,
-} from '@mui/material';
-import { ArrowDropSownIcon } from 'assets/icons/icons';
-import { useAppModals } from 'components/Modals';
-import AutocompleteInput from 'components/autocompleteInput/AutocompleteInput';
-import { PhonePush } from 'components/columnDefs/phonePush';
-import DefaultButton from 'components/deafultButton/DefaultButton';
-import DefaultText from 'components/defaultText/DefaultText';
-import FrontFooter from 'components/frontFooter/FrontFooter';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import DocumentationForm from './components/DocumentationForm';
-import HomeAddressForm from './components/HomeAddressForm';
-import HospitalStayForm from './components/HospitalStayForm';
-import PhonePushForm from './components/PhonePushForm';
-import TravelPackageForm from './components/TravelPackageForm';
-import { LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import RadioForm from 'components/RadioForm';
-import DiagnostikaItem from './components/DiagnostikaItem';
-import TagsBox from './components/TagsBox';
-import DefaulCheckbox from 'components/checkbox/DefaultCheckbox';
-const PatientForm = React.lazy(() => import('./components/PatientForm'));
+} from "@mui/material";
+import { ArrowDropSownIcon } from "assets/icons/icons";
+import { useAppModals } from "components/Modals";
+import AutocompleteInput from "components/autocompleteInput/AutocompleteInput";
+import { PhonePush } from "components/columnDefs/phonePush";
+import DefaultButton from "components/deafultButton/DefaultButton";
+import DefaultText from "components/defaultText/DefaultText";
+import FrontFooter from "components/frontFooter/FrontFooter";
+import { SubmitHandler, useForm } from "react-hook-form";
+import DocumentationForm from "./components/DocumentationForm";
+import HomeAddressForm from "./components/HomeAddressForm";
+import HospitalStayForm from "./components/HospitalStayForm";
+import PhonePushForm from "./components/PhonePushForm";
+import TravelPackageForm from "./components/TravelPackageForm";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import RadioForm from "components/RadioForm";
+import DiagnostikaItem from "./components/DiagnostikaItem";
+import TagsBox from "./components/TagsBox";
+import DefaulCheckbox from "components/checkbox/DefaultCheckbox";
+const PatientForm = React.lazy(() => import("./components/PatientForm"));
 interface IFormInput {
     lastName: string;
     name: string;
@@ -35,22 +35,22 @@ interface IFormInput {
 const polData = [
     {
         id: 0,
-        name: '[М] Мужской',
+        name: "[М] Мужской",
     },
     {
         id: 1,
-        name: '[Ж] Женский',
+        name: "[Ж] Женский",
     },
 ];
 export const rowData = [
     {
-        number: '137',
-        name: 'Ferd Banbrook Connolly',
+        number: "137",
+        name: "Ferd Banbrook Connolly",
         group: [],
-        arrivalData: '2023-12-06',
-        departureDate: '2023-12-15',
-        roomType: 'Lyuks A',
-        room: '51-929-6443',
+        arrivalData: "2023-12-06",
+        departureDate: "2023-12-15",
+        roomType: "Lyuks A",
+        room: "51-929-6443",
         numberOfGuest: 2,
         level: 3,
         howManyTimesUsed: 4,
@@ -61,16 +61,16 @@ export const rowData = [
         balance: 0,
         paid: 0,
         discount: 0,
-        statusRoom: 'clean',
+        statusRoom: "clean",
     },
     {
-        number: '117',
-        name: 'Levi Syde ',
+        number: "117",
+        name: "Levi Syde ",
         group: [],
-        arrivalData: '2023-12-05',
-        departureDate: '2023-12-13',
-        roomType: 'Lyuksbk',
-        room: '34-631-7219',
+        arrivalData: "2023-12-05",
+        departureDate: "2023-12-13",
+        roomType: "Lyuksbk",
+        room: "34-631-7219",
         numberOfGuest: 5,
         level: 1,
         howManyTimesUsed: 1,
@@ -81,16 +81,16 @@ export const rowData = [
         balance: 0,
         paid: 0,
         discount: 0,
-        statusRoom: 'clean',
+        statusRoom: "clean",
     },
     {
-        number: '139',
-        name: 'Griffie Pendrey ',
+        number: "139",
+        name: "Griffie Pendrey ",
         group: [],
-        arrivalData: '2023-12-06',
-        departureDate: '2023-12-14',
-        roomType: 'Lyuksbk',
-        room: '03-447-1912',
+        arrivalData: "2023-12-06",
+        departureDate: "2023-12-14",
+        roomType: "Lyuksbk",
+        room: "03-447-1912",
         numberOfGuest: 5,
         level: 2,
         howManyTimesUsed: 6,
@@ -101,16 +101,16 @@ export const rowData = [
         balance: 0,
         paid: 0,
         discount: 0,
-        statusRoom: 'clean',
+        statusRoom: "clean",
     },
     {
-        number: '141',
-        name: 'Arlinda Hamm Pimer',
+        number: "141",
+        name: "Arlinda Hamm Pimer",
         group: [],
-        arrivalData: '2023-12-06',
-        departureDate: '2023-12-14',
-        roomType: 'Lyuks B',
-        room: '53-821-3131',
+        arrivalData: "2023-12-06",
+        departureDate: "2023-12-14",
+        roomType: "Lyuks B",
+        room: "53-821-3131",
         numberOfGuest: 6,
         level: 2,
         howManyTimesUsed: 2,
@@ -121,71 +121,70 @@ export const rowData = [
         balance: 0,
         paid: 0,
         discount: 0,
-        statusRoom: 'clean',
+        statusRoom: "clean",
     },
 ];
 
 const top100Films = [
-    { label: 'The Shawshank Redemption', year: 1994 },
-    { label: 'The Godfather', year: 1972 },
-    { label: 'The Godfather: Part II', year: 1974 },
-    { label: 'The Dark Knight', year: 2008 },
-    { label: '12 Angry Men', year: 1957 },
+    { label: "The Shawshank Redemption", year: 1994 },
+    { label: "The Godfather", year: 1972 },
+    { label: "The Godfather: Part II", year: 1974 },
+    { label: "The Dark Knight", year: 2008 },
+    { label: "12 Angry Men", year: 1957 },
     { label: "Schindler's List", year: 1993 },
-    { label: 'Pulp Fiction', year: 1994 },
+    { label: "Pulp Fiction", year: 1994 },
 ];
 const top100FilmsChack = [
-    { title: 'The Shawshank Redemption', year: 1994 },
-    { title: 'The Godfather', year: 1972 },
-    { title: 'The Godfather: Part II', year: 1974 },
-    { title: 'The Dark Knight', year: 2008 },
-    { title: '12 Angry Men', year: 1957 },
+    { title: "The Shawshank Redemption", year: 1994 },
+    { title: "The Godfather", year: 1972 },
+    { title: "The Godfather: Part II", year: 1974 },
+    { title: "The Dark Knight", year: 2008 },
+    { title: "12 Angry Men", year: 1957 },
     { title: "Schindler's List", year: 1993 },
-    { title: 'Pulp Fiction', year: 1994 },
+    { title: "Pulp Fiction", year: 1994 },
     {
-        title: 'The Lord of the Rings: The Return of the King',
+        title: "The Lord of the Rings: The Return of the King",
         year: 2003,
     },
 ];
-type propsType = {};
 
 const radioForm = [
     {
         id: 0,
-        value: 'gentle',
-        label: 'Щадящий',
+        value: "gentle",
+        label: "Щадящий",
     },
     {
         id: 1,
-        value: 'bed',
-        label: 'Постельный',
+        value: "bed",
+        label: "Постельный",
     },
     {
         id: 2,
-        value: 'tonic',
-        label: 'Тонизирующий',
+        value: "tonic",
+        label: "Тонизирующий",
     },
     {
         id: 3,
-        value: 'coaching',
-        label: 'Тренирующий',
+        value: "coaching",
+        label: "Тренирующий",
     },
 ];
 const radioForm2 = [
     {
         id: 0,
-        value: 'shown',
-        label: 'Показан',
+        value: "shown",
+        label: "Показан",
     },
     {
         id: 1,
-        value: 'notShown',
-        label: 'Не показан',
+        value: "notShown",
+        label: "Не показан",
     },
     {
         id: 2,
-        value: 'contraindicated',
-        label: 'Противопоказан',
+        value: "contraindicated",
+        label: "Противопоказан",
     },
 ];
 
@@ -199,7 +198,7 @@ const FrontPageView = () => {
             <Box className="w-fill  bg-[#F5F5F5] py-[8px] px-[10px] mt-[10px]">
                 <Box className="flex items-center mb-[10px]">
                     <ArrowDropSownIcon />
-                    <DefaultText style={'ml-[10px] text-[#000]'}>
+                    <DefaultText style={"ml-[10px] text-[#000]"}>
                         Комментарий
                     </DefaultText>
                 </Box>
@@ -216,17 +215,17 @@ const FrontPageView = () => {
     const HarmFactors = () => {
         return (
             <Box className="w-fill  py-[5px] px-[10px]  border mt-[10px] ">
-                <DefaultText style={'mb-[10px] text-[#000]'}>
+                <DefaultText style={"mb-[10px] text-[#000]"}>
                     Факторы вредности
                 </DefaultText>
                 <Box className="flex">
                     <DefaultButton
-                        onClick={() => appModals?.show('createPayment')}
+                        onClick={() => appModals?.show("createPayment")}
                         title="Добавить фактор"
                         style="h-[40px] bg-[#4CAF50] mr-[10px]"
                     />
                     <DefaultButton
-                        onClick={() => appModals?.show('professionalRoute')}
+                        onClick={() => appModals?.show("professionalRoute")}
                         title="Создать профосмотр"
                         style="h-[40px] bg-[#4CAF50] mr-[10px]"
                     />
@@ -239,7 +238,7 @@ const FrontPageView = () => {
                     <AutocompleteInput
                         lable="Профессия"
                         data={top100Films}
-                        containerStyle={'w-[80%]  flex-col '}
+                        containerStyle={"w-[80%]  flex-col "}
                         inputStyle="w-[100%]"
                         lableStyle="text-[#000]"
                     />
@@ -256,7 +255,7 @@ const FrontPageView = () => {
         return (
             <Box className="flex justify-between">
                 <Box className=" border  w-[35%] px-[10px] py-[8px]">
-                    <DefaultText style={'text-[14px] text-[#000]'}>
+                    <DefaultText style={"text-[14px] text-[#000]"}>
                         Режим
                     </DefaultText>
                     <Box className="flex">
@@ -265,7 +264,7 @@ const FrontPageView = () => {
                         </Box>
                         <Box className=" mt-[5px]">
                             <DefaultButton
-                                onClick={() => appModals?.show('add_reason')}
+                                onClick={() => appModals?.show("add_reason")}
                                 title="Добавить причину"
                                 style=" bg-[#4CAF50] "
                             />
@@ -273,7 +272,7 @@ const FrontPageView = () => {
                     </Box>
                 </Box>
                 <Box className=" border  w-[64.5%] px-[10px] py-[8px] ">
-                    <DefaultText style={'text-[14px] text-[#000]'}>
+                    <DefaultText style={"text-[14px] text-[#000]"}>
                         Режим
                     </DefaultText>
                     <Box className="flex  justify-between">
@@ -282,7 +281,7 @@ const FrontPageView = () => {
                         </Box>
                         <Box className=" mt-[5px]">
                             <DefaultButton
-                                onClick={() => appModals?.show('add_reason')}
+                                onClick={() => appModals?.show("add_reason")}
                                 title="Добавить причину"
                                 style=" bg-[#4CAF50] "
                             />
@@ -308,7 +307,7 @@ const FrontPageView = () => {
                     title="Диагноз с места отбора"
                     text="Диагноз не задан."
                     btnTitle="Добавить диагноз"
-                    onClick={() => appModals?.show('choosingDiagnosis')}
+                    onClick={() => appModals?.show("choosingDiagnosis")}
                 />
                 <DiagnostikaItem
                     title="Диагноз стационара при поступлении"

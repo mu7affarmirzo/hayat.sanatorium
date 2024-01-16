@@ -1,17 +1,19 @@
-import Layout from 'components/layout';
-import { Navigate, Route, Routes } from 'react-router-dom';
-import styled from 'styled-components';
-import LoginView from 'views/auth/LoginView';
-import PrivateRoute from './privateRoute';
-import ROUTES from './router';
+import Layout from "components/layout";
+import { Navigate, Route, Routes } from "react-router-dom";
+import styled from "styled-components";
+import LoginView from "views/auth/LoginView";
+import PrivateRoute from "./privateRoute";
+import ROUTES from "./router";
+import { useReduxSelector } from "hooks/useReduxHook";
 
 export const MainContainer = styled.div`
     display: flex;
 `;
 
 const AppRouting = () => {
-    const token = true;
-    const isSignedIn = token;
+    const { isAuthenticated } = useReduxSelector(
+        (loginState) => loginState.auth
+    );
 
     return (
         <>
@@ -20,18 +22,18 @@ const AppRouting = () => {
                     path="*"
                     element={
                         <Navigate
-                            to={isSignedIn ? 'dashboard' : 'login'}
+                            to={isAuthenticated ? "dashboard" : "login"}
                             replace
                         />
                     }
                 />
-                {!isSignedIn ? (
+                {!isAuthenticated ? (
                     <Route path="/login" element={<LoginView />} />
                 ) : (
                     <Route
                         path="dashboard"
                         element={
-                            <PrivateRoute isSignedIn={isSignedIn}>
+                            <PrivateRoute isSignedIn={isAuthenticated}>
                                 <Layout />
                             </PrivateRoute>
                         }
