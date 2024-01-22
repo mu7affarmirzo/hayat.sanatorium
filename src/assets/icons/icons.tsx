@@ -1702,3 +1702,59 @@ export const PinIcon = (props: SvgProps) => {
         </svg>
     );
 };
+
+export const InfoCircle = (props: SvgProps) => {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+        >
+            <path
+                d="M10.0003 18.3332C14.5837 18.3332 18.3337 14.5832 18.3337 9.99984C18.3337 5.4165 14.5837 1.6665 10.0003 1.6665C5.41699 1.6665 1.66699 5.4165 1.66699 9.99984C1.66699 14.5832 5.41699 18.3332 10.0003 18.3332Z"
+                fill="#F49C1C"
+                stroke="#F49C1C"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+            <path
+                d="M10 6.6665V10.8332"
+                stroke="white"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+            <path
+                d="M9.99512 13.3335H10.0026"
+                stroke="white"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+        </svg>
+    );
+};
+
+export const FileIconCol = (props: SvgProps) => {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="25"
+            height="24"
+            viewBox="0 0 25 24"
+            fill="none"
+        >
+            <path
+                d="M9.33398 15L11.334 17L15.334 13M13.334 3H8.53398C7.41388 3 6.85383 3 6.426 3.21799C6.04968 3.40973 5.74372 3.71569 5.55197 4.09202C5.33398 4.51984 5.33398 5.0799 5.33398 6.2V17.8C5.33398 18.9201 5.33398 19.4802 5.55197 19.908C5.74372 20.2843 6.04968 20.5903 6.426 20.782C6.85383 21 7.41388 21 8.53398 21H16.134C17.2541 21 17.8141 21 18.242 20.782C18.6183 20.5903 18.9243 20.2843 19.116 19.908C19.334 19.4802 19.334 18.9201 19.334 17.8V9M13.334 3L19.334 9M13.334 3V7.4C13.334 7.96005 13.334 8.24008 13.443 8.45399C13.5389 8.64215 13.6918 8.79513 13.88 8.89101C14.0939 9 14.3739 9 14.934 9H19.334"
+                stroke="black"
+                stroke-opacity="0.87"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+        </svg>
+    );
+};

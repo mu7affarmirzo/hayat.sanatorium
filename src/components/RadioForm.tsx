@@ -1,20 +1,13 @@
-import {
-    Box,
-    FormControl,
-    FormControlLabel,
-    FormLabel,
-    Radio,
-    RadioGroup,
-} from '@mui/material';
-import DefaultText from './defaultText/DefaultText';
+import { Box, FormControlLabel, Radio, RadioGroup } from '@mui/material';
 type propsType = {
     data?: any;
+    style?: string;
 };
 const RadioForm = (props: propsType) => {
     console.log(props.data);
 
     return (
-        <Box className=" w-[100%] ">
+        <Box className={`${props.style ? props.style : 'w-[100%]'}`}>
             <RadioGroup
                 defaultValue={props.data[0]?.value}
                 name="radio-buttons-group"

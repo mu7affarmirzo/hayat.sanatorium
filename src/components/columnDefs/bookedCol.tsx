@@ -149,7 +149,7 @@ export const BookedPatiant: ColDef[] = [
             justifyContent: ' start ',
             border: '.5px solid #e0e0e0',
             paddingLeft: '10px',
-            color: '#0B79D0'
+            color: '#0B79D0',
         },
     },
     {
@@ -212,7 +212,7 @@ export const BookedPatiant: ColDef[] = [
             paddingLeft: '10px',
         },
     },
-]
+];
 
 export const BookedPatientSearch: ColDef[] = [
     {
@@ -249,7 +249,7 @@ export const BookedPatientSearch: ColDef[] = [
             justifyContent: ' start ',
             border: '.5px solid #e0e0e0',
             paddingLeft: '10px',
-            color: '#0B79D0'
+            color: '#0B79D0',
         },
     },
     {
@@ -324,7 +324,7 @@ export const BookedPatientSearch: ColDef[] = [
             paddingLeft: '10px',
         },
     },
-]
+];
 
 export const BookedPatientDoctorDuty: ColDef[] = [
     {
@@ -361,7 +361,7 @@ export const BookedPatientDoctorDuty: ColDef[] = [
             justifyContent: ' start ',
             border: '.5px solid #e0e0e0',
             paddingLeft: '10px',
-            color: '#0B79D0'
+            color: '#0B79D0',
         },
     },
     {
@@ -424,5 +424,4 @@ export const BookedPatientDoctorDuty: ColDef[] = [
             paddingLeft: '10px',
         },
     },
-]
-
+];

@@ -6,6 +6,7 @@ import SideBar, { TabsItem } from 'components/sideBar/SideBar';
 import AutomaticDispatch from '../saidbar/automaticDispatch/AutomaticDispatch';
 import DispatchFrontPage from '../saidbar/dispatchFrontPage/DispatchFrontPage';
 import Appointments from '../saidbar/appointments/Appointments';
+import HydroBaths from '../saidbar/hydroBaths/HydroBaths';
 
 const content: TabsItem[] = [
     {
@@ -25,11 +26,16 @@ const content: TabsItem[] = [
                 id: 0,
                 title: 'Диагнозы',
                 data: [
-                    { id: 1, title: 'Гидрованны', link: '/#frontPage' },
-                    { id: 2, title: 'Гидроколонотерапия', link: '/#frontPage' },
                     {
-                        id: 3,
-                        title: '(орошение кишечника)',
+                        id: 1,
+                        title: 'Гидрованны',
+                        component: Appointments,
+                        link: '/#frontPage',
+                    },
+                    {
+                        id: 2,
+                        title: 'Гидроколонотерапия (орошение кишечника)',
+                        component: HydroBaths,
                         link: '/#frontPage',
                     },
                 ],
