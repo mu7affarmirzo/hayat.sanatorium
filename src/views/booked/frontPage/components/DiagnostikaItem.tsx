@@ -16,6 +16,7 @@ type propsType = {
     titleStyle?: string;
     btnStyle?: string;
     disabled?: boolean;
+    messageIconStyle?: any;
 };
 const DiagnostikaItem = (props: propsType) => {
     return (
@@ -34,7 +35,13 @@ const DiagnostikaItem = (props: propsType) => {
                             {props.message}
                         </DefaultText>
                     </Box>
-                    <Box className="flex flex-col  ml-[10px]">
+                    <Box
+                        className={` ${
+                            props.messageIconStyle
+                                ? props.messageIconStyle
+                                : 'flex  flex-col  ml-[10px]'
+                        } `}
+                    >
                         <IconButton
                             color="primary"
                             aria-label="add to shopping cart"
@@ -45,7 +52,9 @@ const DiagnostikaItem = (props: propsType) => {
                         <IconButton
                             color="primary"
                             aria-label="add to shopping cart"
-                            className=" bg-[#64B6F7] rounded-none  mx-[3px] mt-[5px]"
+                            className={`bg-[#64B6F7] rounded-none  mx-[3px] ${
+                                props.messageIconStyle ? 'mt-[0]' : ' mt-[5px]'
+                            }`}
                         >
                             <FilePlusAltIcon />
                         </IconButton>
@@ -53,8 +62,9 @@ const DiagnostikaItem = (props: propsType) => {
                 </Box>
             ) : null}
             <Box
-                className={`flex items-center  w-[100%] ${props.outline ? 'mt-[10px] ' : 'mt-[0px]'
-                    }  `}
+                className={`flex items-center  w-[100%] ${
+                    props.outline ? 'mt-[10px] ' : 'mt-[0px]'
+                }  `}
             >
                 {props.text ? (
                     <DefaultText style={'text-[#000] text-[14px]'}>

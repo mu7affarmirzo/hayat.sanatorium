@@ -51,7 +51,6 @@ const SideBarBtn: FC<BookingProps> = (props) => {
                             <>
                                 {item.data ? (
                                     <SaidBarCustomizedAccordions
-                                        onClick={onClick}
                                         title={item.title}
                                         activBtnType={
                                             activeTab === index

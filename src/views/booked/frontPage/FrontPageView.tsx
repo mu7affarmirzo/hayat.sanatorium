@@ -1,31 +1,22 @@
-import React, { Suspense, useEffect } from 'react';
-import {
-    Box,
-    CircularProgress,
-    Grid,
-    TextField,
-    Typography,
-} from '@mui/material';
-import { ArrowDropSownIcon } from 'assets/icons/icons';
+import { Box, Grid, TextField, Typography } from '@mui/material';
+import CustomizedAccordions from 'components/CustomizedAccordions';
 import { useAppModals } from 'components/Modals';
+import RadioForm from 'components/RadioForm';
 import AutocompleteInput from 'components/autocompleteInput/AutocompleteInput';
+import DefaulCheckbox from 'components/checkbox/DefaultCheckbox';
 import { PhonePush } from 'components/columnDefs/phonePush';
 import DefaultButton from 'components/deafultButton/DefaultButton';
 import DefaultText from 'components/defaultText/DefaultText';
 import FrontFooter from 'components/frontFooter/FrontFooter';
+import React, { Suspense, useRef } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import DiagnostikaItem from './components/DiagnostikaItem';
 import DocumentationForm from './components/DocumentationForm';
 import HomeAddressForm from './components/HomeAddressForm';
 import HospitalStayForm from './components/HospitalStayForm';
 import PhonePushForm from './components/PhonePushForm';
-import TravelPackageForm from './components/TravelPackageForm';
-import { LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import RadioForm from 'components/RadioForm';
-import DiagnostikaItem from './components/DiagnostikaItem';
 import TagsBox from './components/TagsBox';
-import DefaulCheckbox from 'components/checkbox/DefaultCheckbox';
-import CustomizedAccordions from 'components/CustomizedAccordions';
+import TravelPackageForm from './components/TravelPackageForm';
 const PatientForm = React.lazy(() => import('./components/PatientForm'));
 interface IFormInput {
     lastName: string;
@@ -324,18 +315,56 @@ const FrontPageView = () => {
         );
     };
 
+    const scrollRef: any = useRef(null);
+
+    const scrollRight = () => {
+        if (scrollRef.current) {
+            scrollRef.current.scrollLeft += 200;
+        }
+    };
+
+    const scrollLeft = () => {
+        if (scrollRef.current) {
+            scrollRef.current.scrollLeft -= 200;
+        }
+    };
+
+    const scrollDown = () => {
+        if (scrollRef.current) {
+            scrollRef.current.scrollTop += 200;
+        }
+    };
+
+    const scrollUp = () => {
+        if (scrollRef.current) {
+            scrollRef.current.scrollTop -= 200;
+        }
+    };
     return (
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <div
+            style={{
+                width: '100%',
+                height: '100%',
+                whiteSpace: 'nowrap',
+            }}
+        >
             <Grid container className=" felx">
                 <Grid item xs={12} md={12} className=" flex ">
                     <Box className="flex w-[50%] justify-end  items-center ">
+                        <DefaultButton
+                            title="История болезни №"
+                            onClick={() => scrollDown()}
+                        />
                         <Typography>История болезни №</Typography>
                         <Box className=" w-[60px] h-[30px] ml-[10px] ">
                             <input className=" bg-[#fff] w-full h-full border-none outline-none  " />
                         </Box>
                     </Box>
                     <Box className=" flex w-[50%] justify-end  items-center ">
-                        <DefaultButton title="новая" />
+                        <DefaultButton
+                            title="новая"
+                            onClick={() => scrollUp()}
+                        />
                     </Box>
                 </Grid>
                 <Grid
@@ -343,6 +372,8 @@ const FrontPageView = () => {
                     xs={12}
                     md={12}
                     className="bg-[white] m-[5px] border min-h-[calc(100vh-280px)]  h-[calc(100vh-280px)] overflow-scroll  p-[5px]"
+                    ref={scrollRef}
+                    style={{ whiteSpace: 'nowrap' }}
                 >
                     <form
                         className="flex   bg-[white]  justify-between  "
@@ -388,7 +419,9 @@ const FrontPageView = () => {
                             <TagsBox data={top100FilmsChack} lable="Метки" />
                         </Box>
                     </form>
-                    <FrontFooter />
+                    <div>
+                        <FrontFooter />
+                    </div>
                     <ModeHandler />
                     <DiagnostHandler />
                     <Box className="flex justify-between">
@@ -431,7 +464,7 @@ const FrontPageView = () => {
                     </Box>
                 </Grid>
             </Grid>
-        </LocalizationProvider>
+        </div>
     );
 };
 

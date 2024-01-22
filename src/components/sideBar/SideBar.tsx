@@ -23,6 +23,8 @@ const SideBar: FC<TabsProps> = ({ content }) => {
         setActiveTab(index);
     };
 
+    console.log({ activeTab });
+
     return (
         <Box className="flex flex-row  min-h-[calc(100vh-76px)] border w-[100vw] h-full  overflow-scroll">
             <Box className="flex h-[calc(100vh-230px)] flex-col  gap-1  w-[280px] p-[5px] border overflow-scroll">
@@ -46,9 +48,8 @@ const SideBar: FC<TabsProps> = ({ content }) => {
             </Box>
             <Box className="max-w-[calc(100vw-280px)] w-[calc(100vw-307px)]  min-h-[calc(100vh-76px)] ">
                 {content.map((item, index) => {
-                    if (index === activeTab) {
+                    if (index === activeTab)
                         return <item.component key={index} />;
-                    }
                 })}
             </Box>
         </Box>

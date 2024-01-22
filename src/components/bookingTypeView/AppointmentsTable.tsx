@@ -2,7 +2,6 @@ import { Box, Typography } from '@mui/material';
 import { ColDef } from 'ag-grid-community';
 import { AgGridReact } from 'ag-grid-react';
 import { AppointmentsCol } from 'components/columnDefs/AppointmentsCol';
-import { FC } from 'react';
 import { rowData } from 'views/booked/frontPage/FrontPageView';
 import './ag-theme-roomstype.css';
 type propsType = {
@@ -14,7 +13,7 @@ type propsType = {
 };
 const AppointmentsTable = (props: propsType) => {
     return (
-        <div style={{ height: '58vh', width: '100%' }} className="flex">
+        <div style={{ height: '100%', width: '100%' }} className="flex">
             {props.id ? (
                 <div className="pt-[98px] px-[5px]">
                     {rowData.map((item, index) => {
@@ -35,7 +34,7 @@ const AppointmentsTable = (props: propsType) => {
                     height: '100%',
                     width: props?.width ? props?.width : '100%',
                 }}
-                className={'ag-theme-quartz-dark'}
+                className="ag-theme-alpin"
             >
                 <Box className="border flex justify-center items-center w-[150px] h-[50px] bg-[#F5F5F5]  rounded-tr-[20px] rounded-tl-[5px] rounded-bl-[0] rounded-br-[0] cursor-pointer">
                     <Typography className="text-[#007DFF] text-[14px]">
