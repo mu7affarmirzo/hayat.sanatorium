@@ -20,8 +20,8 @@ const content: TabsItem[] = [
         title: "Титульная страница",
         component: frontPage,
         chiled: [
-            { id: 0, title: "Диагнозы" },
-            { id: 2, title: "Особые отметки" },
+            { id: 0, title: "Диагнозы", link: "/#frontPage" },
+            { id: 2, title: "Особые отметки", link: "/#frontPage" },
         ],
         activBtnType: "panel1",
     },
@@ -41,6 +41,7 @@ const content: TabsItem[] = [
             {
                 id: 0,
                 title: "Прием дежурного врача",
+                link: "#frontPage",
             },
             {
                 id: 1,

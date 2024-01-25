@@ -13,13 +13,6 @@ type propsType = {
 const ReceptionTableGroup = (props: propsType) => {
     const gridRef = useRef<AgGridReact>(null);
 
-    // const onFirstDataRendered = useCallback(
-    //     (params: FirstDataRenderedEvent) => {
-    //         params.api.expandAll();
-    //     },
-    //     []
-    // );
-
     return (
         <div className={`${props.height ? props.height : "h-[15vh]"}  w-full `}>
             <div

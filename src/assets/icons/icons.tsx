@@ -719,7 +719,7 @@ export const SearchIcon = (props: SvgProps) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="24"
+            width={props.width ? props.width : '24px'}
             height="24"
             fill="none"
             viewBox="0 0 24 24"
@@ -1581,6 +1581,179 @@ export const FileNewIcon = (props: SvgProps) => {
                 strokeWidth="1.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
+            />
+        </svg>
+    );
+};
+export const VuesaxLinearDocumentIcon = (props: SvgProps) => {
+    return (
+        <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                d="M11 21H7.6C3.6 21 2 19.2 2 14.7V9.3C2 4.8 3.6 3 7.6 3H11.6"
+                stroke="#fff"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+            <path
+                d="M18 10H15C12.75 10 12 9.125 12 6.5V3L18 10Z"
+                stroke="#fff"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+            <path
+                d="M18.5638 18.4146L15.2817 14.5856"
+                stroke="#fff"
+                strokeWidth="1.5"
+                strokeMiterlimit="10"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+            <path
+                d="M18.5638 14.5856L15.2817 18.4146"
+                stroke="#fff"
+                strokeWidth="1.5"
+                strokeMiterlimit="10"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+            <rect
+                x="13"
+                y="12"
+                width="8"
+                height="9"
+                rx="1.5"
+                stroke="#fff"
+                strokeWidth="1.5"
+            />
+            <path
+                d="M7.5 12V18L9.5 16"
+                stroke="#fff"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+            <path
+                d="M7.5 18L5.5 16"
+                stroke="#fff"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </svg>
+    );
+};
+
+export const NavigationAppIcon = (props: SvgProps) => {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="19"
+            height="18"
+            viewBox="0 0 19 18"
+            fill="none"
+        >
+            <g clip-path="url(#clip0_5205_21654)">
+                <path
+                    d="M3.33301 6H6.33301V3H3.33301V6ZM7.83301 15H10.833V12H7.83301V15ZM3.33301 15H6.33301V12H3.33301V15ZM3.33301 10.5H6.33301V7.5H3.33301L3.33301 10.5ZM7.83301 10.5H10.833V7.5H7.83301V10.5ZM12.333 3V6H15.333V3H12.333ZM7.83301 6H10.833V3L7.83301 3V6ZM12.333 10.5H15.333V7.5H12.333V10.5ZM12.333 15H15.333V12H12.333V15Z"
+                    fill="black"
+                    fill-opacity="0.54"
+                />
+            </g>
+            <defs>
+                <clipPath id="clip0_5205_21654">
+                    <rect
+                        x="0.333008"
+                        width="18"
+                        height="18"
+                        rx="9"
+                        fill="white"
+                    />
+                </clipPath>
+            </defs>
+        </svg>
+    );
+};
+
+export const PinIcon = (props: SvgProps) => {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="17"
+            height="16"
+            viewBox="0 0 17 16"
+            fill="none"
+        >
+            <path
+                d="M6.23687 10.0763L9.24207 13.0815C9.24207 13.0815 10.0848 12.0887 10.3027 11.3137C10.527 10.5162 10.3027 9.19239 10.3027 9.19239C10.3027 9.19239 12.4241 7.07107 13.8383 5.65685C14.2749 5.22023 15.2525 4.94975 15.2525 4.94975L11.3634 1.06066C11.3634 1.06066 11.0929 2.03825 10.6563 2.47487C9.24207 3.88909 7.12075 6.01041 7.12075 6.01041C7.12075 6.01041 5.79692 5.78611 4.99943 6.01041C4.22442 6.22838 3.23167 7.07107 3.23167 7.07107L6.23687 10.0763ZM6.23687 10.0763L3.35004 12.9631"
+                stroke="white"
+                stroke-opacity="0.5"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+        </svg>
+    );
+};
+
+export const InfoCircle = (props: SvgProps) => {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+        >
+            <path
+                d="M10.0003 18.3332C14.5837 18.3332 18.3337 14.5832 18.3337 9.99984C18.3337 5.4165 14.5837 1.6665 10.0003 1.6665C5.41699 1.6665 1.66699 5.4165 1.66699 9.99984C1.66699 14.5832 5.41699 18.3332 10.0003 18.3332Z"
+                fill="#F49C1C"
+                stroke="#F49C1C"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+            <path
+                d="M10 6.6665V10.8332"
+                stroke="white"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+            <path
+                d="M9.99512 13.3335H10.0026"
+                stroke="white"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+        </svg>
+    );
+};
+
+export const FileIconCol = (props: SvgProps) => {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="25"
+            height="24"
+            viewBox="0 0 25 24"
+            fill="none"
+        >
+            <path
+                d="M9.33398 15L11.334 17L15.334 13M13.334 3H8.53398C7.41388 3 6.85383 3 6.426 3.21799C6.04968 3.40973 5.74372 3.71569 5.55197 4.09202C5.33398 4.51984 5.33398 5.0799 5.33398 6.2V17.8C5.33398 18.9201 5.33398 19.4802 5.55197 19.908C5.74372 20.2843 6.04968 20.5903 6.426 20.782C6.85383 21 7.41388 21 8.53398 21H16.134C17.2541 21 17.8141 21 18.242 20.782C18.6183 20.5903 18.9243 20.2843 19.116 19.908C19.334 19.4802 19.334 18.9201 19.334 17.8V9M13.334 3L19.334 9M13.334 3V7.4C13.334 7.96005 13.334 8.24008 13.443 8.45399C13.5389 8.64215 13.6918 8.79513 13.88 8.89101C14.0939 9 14.3739 9 14.934 9H19.334"
+                stroke="black"
+                stroke-opacity="0.87"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
             />
         </svg>
     );

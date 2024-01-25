@@ -1,0 +1,33 @@
+.ag-theme-quartz {
+    --ag-border-color: 0.6px solid;
+    --ag-border-size: 0px;
+    --ag-background-color: #fff;
+    --ag-cell-horizontal-padding: 8px;
+    --ag-header-column-resize-handle-color: rgb(126, 46, 132);
+    --ag-row-hover-color: #b6f2ff28;
+    --ag-disabled-foreground-color: red;
+    --ag-range-selection-border-color: #00d0ff28;
+    --ag-range-selection-border-style: solid;
+    --ag-range-selection-border-color: #00d0fff3;
+}
+
+.ag-theme-quartz .ag-header {
+    height: 40px;
+}
+.ag-theme-quartz .ag-header-group-cell {
+    font-weight: normal;
+    font-size: 22px;
+}
+
+.ag-theme-quartz .ag-header-cell {
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 12px;
+    border: 1px solid var(--Light, rgba(0, 0, 0, 0.1));
+}
+
+.ag-theme-quartz .ag-cell {
+    border: 1px solid var(--Light, rgba(0, 0, 0, 0.1));
+}

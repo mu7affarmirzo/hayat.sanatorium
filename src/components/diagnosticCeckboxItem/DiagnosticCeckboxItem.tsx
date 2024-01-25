@@ -1,33 +1,41 @@
-import { Box, Grid, IconButton } from '@mui/material'
-import { FileAltIcon, FilePlusAltIcon } from 'assets/icons/icons'
-import DefaultText from 'components/defaultText/DefaultText'
-import React from 'react'
+import { Box, Grid, IconButton } from '@mui/material';
+import { FileAltIcon, FilePlusAltIcon } from 'assets/icons/icons';
+import DefaultText from 'components/defaultText/DefaultText';
 
 type Props = {
-    style?: string,
-    titleStyle?: string,
-    lable?: string,
-    children?: any,
-    description?: string,
-    boxStyle?: string
-}
+    style?: string;
+    titleStyle?: string;
+    lable?: string;
+    children?: any;
+    description?: string;
+    boxStyle?: string;
+    checkBoxStle?: string;
+};
 
-const DiagnosticCeckboxItem = ({ style, titleStyle, lable, children, description, boxStyle }: Props) => {
+const DiagnosticCeckboxItem = ({
+    style,
+    titleStyle,
+    lable,
+    children,
+    description,
+    boxStyle,
+    checkBoxStle,
+}: Props) => {
     return (
         <Box
-            className={` ${style} flex gap-1 items-center justify-between w-[100%]`}
+            className={` ${style} flex gap-1  justify-between w-[100%] mt-[5px]`}
         >
-            <Box className="flex items-center w-[100%]">
-                <Box>
-                    <DefaultText style={"text-[#000] w-[100%] "}>
-                        {lable}
-                    </DefaultText>
-                </Box>
-                <Box className=" w-[100%]">
-                    {children}
-                </Box>
+            <Box
+                className={`${
+                    checkBoxStle ? checkBoxStle : 'w-[200px]'
+                } flex  items-center `}
+            >
+                <DefaultText style={'text-[#000] text-[14px]'}>
+                    {lable}
+                </DefaultText>
+                <Box className="">{children}</Box>
             </Box>
-            <Box className={`${boxStyle} flex w-[100%] gap-3`}>
+            <Box className={`${boxStyle} flex flex-1 gap-3`}>
                 <DefaultText style={`${titleStyle} text-[#000]`}>
                     {description}
                 </DefaultText>
@@ -49,7 +57,7 @@ const DiagnosticCeckboxItem = ({ style, titleStyle, lable, children, description
                 </Grid>
             </Box>
         </Box>
-    )
-}
+    );
+};
 
-export default DiagnosticCeckboxItem
+export default DiagnosticCeckboxItem;
