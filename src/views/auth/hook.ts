@@ -41,7 +41,7 @@ const useLoginHook = () => {
         if (type === "login") {
             setValues({ ...values, isLoginValid: value.length > 3 });
         } else if (type === "password") {
-            setValues({ ...values, isPasswordValid: value.length > 3 });
+            setValues({ ...values, isPasswordValid: value.length > 0 });
         }
     };
 
@@ -57,7 +57,6 @@ const useLoginHook = () => {
     ) => {
         event.preventDefault();
     };
-
     const handleLogin = useCallback(async () => {
         try {
             await fetchLogin({

@@ -1,42 +1,42 @@
-import { Grid } from '@mui/material';
-import { CoinsAltIcon, VuesaxLinearPrinterIcon } from 'assets/icons/icons';
-import SelectButton from 'components/SelectButton';
-import DefaultButton from 'components/deafultButton/DefaultButton';
-import SideBar, { TabsItem } from 'components/sideBar/SideBar';
-import AutomaticDispatch from '../saidbar/automaticDispatch/AutomaticDispatch';
-import DispatchFrontPage from '../saidbar/dispatchFrontPage/DispatchFrontPage';
-import Appointments from '../saidbar/appointments/Appointments';
-import HydroBaths from '../saidbar/hydroBaths/HydroBaths';
+import { Grid } from "@mui/material";
+import { CoinsAltIcon, VuesaxLinearPrinterIcon } from "assets/icons/icons";
+import SelectButton from "components/buttons/SelectButton";
+import DefaultButton from "components/deafultButton/DefaultButton";
+import SideBar, { TabsItem } from "components/sideBar/SideBar";
+import AutomaticDispatch from "../saidbar/automaticDispatch/AutomaticDispatch";
+import DispatchFrontPage from "../saidbar/dispatchFrontPage/DispatchFrontPage";
+import Appointments from "../saidbar/appointments/Appointments";
+import HydroBaths from "../saidbar/hydroBaths/HydroBaths";
 
 const content: TabsItem[] = [
     {
-        title: 'Титульная страница',
+        title: "Титульная страница",
         component: DispatchFrontPage,
     },
     {
-        title: 'Расписание лечения',
+        title: "Расписание лечения",
         component: AutomaticDispatch,
     },
 
     {
-        title: 'Назначения',
+        title: "Назначения",
         component: Appointments,
         chiled: [
             {
                 id: 0,
-                title: 'Диагнозы',
+                title: "Диагнозы",
                 data: [
                     {
                         id: 1,
-                        title: 'Гидрованны',
+                        title: "Гидрованны",
                         component: Appointments,
-                        link: '/#frontPage',
+                        link: "/#frontPage",
                     },
                     {
                         id: 2,
-                        title: 'Гидроколонотерапия (орошение кишечника)',
+                        title: "Гидроколонотерапия (орошение кишечника)",
                         component: HydroBaths,
-                        link: '/#frontPage',
+                        link: "/#frontPage",
                     },
                 ],
             },
@@ -48,22 +48,22 @@ const content: TabsItem[] = [
 const selectData = [
     {
         id: 0,
-        title: 'Начало приёма',
+        title: "Начало приёма",
     },
     {
         id: 1,
-        title: 'Начало приём2',
+        title: "Начало приём2",
     },
 ];
 
 const selectData2 = [
     {
         id: 0,
-        title: 'Осмотр дежурного врача при поступлении',
+        title: "Осмотр дежурного врача при поступлении",
     },
     {
         id: 1,
-        title: 'Прием дежурного врача',
+        title: "Прием дежурного врача",
     },
 ];
 
@@ -117,7 +117,7 @@ const FrontPageView = () => {
                         icon={<CoinsAltIcon stroke="black" />}
                         title="  0,00 сум"
                         style="bg-[#F5F5F5] h-[46px] py-[10px]"
-                        variant={'none'}
+                        variant={"none"}
                     />
                 </Grid>
             </Grid>

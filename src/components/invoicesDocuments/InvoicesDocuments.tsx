@@ -1,22 +1,22 @@
-import { Box, Grid, IconButton } from '@mui/material';
-import { CloseIcon, VuesaxLinearNote2Icon } from 'assets/icons/icons';
-import SelectButton from 'components/SelectButton';
-import DefaulCheckbox from 'components/checkbox/DefaultCheckbox';
-import DefaultButton from 'components/deafultButton/DefaultButton';
-import DefaultInput from 'components/defaultInput/DefaultInput';
-import DefaultText from 'components/defaultText/DefaultText';
-import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
-import DiagnostikaItem from 'views/booked/frontPage/components/DiagnostikaItem';
+import { Box, Grid, IconButton } from "@mui/material";
+import { CloseIcon, VuesaxLinearNote2Icon } from "assets/icons/icons";
+import SelectButton from "components/buttons/SelectButton";
+import DefaulCheckbox from "components/checkbox/DefaultCheckbox";
+import DefaultButton from "components/deafultButton/DefaultButton";
+import DefaultInput from "components/defaultInput/DefaultInput";
+import DefaultText from "components/defaultText/DefaultText";
+import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
+import DiagnostikaItem from "views/booked/frontPage/components/DiagnostikaItem";
 
 const data = [
     {
         id: 1,
-        title: 'Экспортировать эпикриз',
+        title: "Экспортировать эпикриз",
     },
     {
         id: 2,
-        title: 'История болезни',
+        title: "История болезни",
     },
 ];
 interface IFormInput {
@@ -31,7 +31,7 @@ const InvoicesDocuments = () => {
     return (
         <Grid container className="w-full h-full">
             <Grid item xs={12} md={12} className="p-[5px]">
-                <DefaultText style={'text-[#000]'}>Документы</DefaultText>
+                <DefaultText style={"text-[#000]"}>Документы</DefaultText>
             </Grid>
             <Grid item xs={12} md={12} className="p-[5px] border">
                 <DefaultText>Файлы</DefaultText>
@@ -46,7 +46,7 @@ const InvoicesDocuments = () => {
                     <SelectButton data={data} defaultValue="Сканировать" />
                 </Box>
                 <Box className="border-b-[1px] border-[#504f4f] w-[100%] pb-[5px]">
-                    <DefaultText style={'text-[#000]'}>Анализы</DefaultText>
+                    <DefaultText style={"text-[#000]"}>Анализы</DefaultText>
                 </Box>
                 <Box className="flex justify-between">
                     <Box className="flex  min-h-[140px] items-center w-[80px] ">
@@ -63,7 +63,7 @@ const InvoicesDocuments = () => {
                             <Box className="flex items-center w-[70%]">
                                 <Link
                                     className="mr-[20px] text-[#007DFF]"
-                                    to={''}
+                                    to={""}
                                 >
                                     ИшановЛ4.08.23.pdf
                                 </Link>
@@ -90,7 +90,7 @@ const InvoicesDocuments = () => {
                         <Box>
                             <DefaultText>Описание:</DefaultText>
                         </Box>
-                        <DefaultInput register={register} inputType={'phone'} />
+                        <DefaultInput register={register} inputType={"phone"} />
                     </Box>
                 </Box>
             </Grid>

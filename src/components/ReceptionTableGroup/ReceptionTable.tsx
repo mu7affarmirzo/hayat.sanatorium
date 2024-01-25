@@ -24,8 +24,6 @@ const ReceptionTableGroup = (props: propsType) => {
                     rowData={rowData2}
                     columnDefs={props.columnDefs}
                     groupDisplayType={"groupRows"}
-
-                    // onFirstDataRendered={onFirstDataRendered}
                 />
             </div>
         </div>

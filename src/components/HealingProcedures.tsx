@@ -1,16 +1,16 @@
-import { Box, Typography } from '@mui/material';
-import React from 'react';
-import OutlinedNumber from './outlinedNumber/OutlinedNumber';
-import DefaultCheckbox from './checkbox/DefaultCheckbox';
-import SelectButton from './SelectButton';
+import { Box, Typography } from "@mui/material";
+import React from "react";
+import OutlinedNumber from "./outlinedNumber/OutlinedNumber";
+import DefaultCheckbox from "./checkbox/DefaultCheckbox";
+import SelectButton from "./buttons/SelectButton";
 const data = [
     {
         id: 1,
-        title: '10.06.2023',
+        title: "10.06.2023",
     },
     {
         id: 2,
-        title: '10.06.2024',
+        title: "10.06.2024",
     },
 ];
 const HealingProcedures = () => {

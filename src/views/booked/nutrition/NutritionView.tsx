@@ -1,21 +1,21 @@
-import { Box } from '@mui/material';
-import { MemoIcon } from 'assets/icons/icons';
-import SelectButton from 'components/SelectButton';
-import { NutritionCol } from 'components/columnDefs/nutritionCol';
-import DefaultButton from 'components/deafultButton/DefaultButton';
-import ReceptionTable from 'components/receptionTable/ReceptionTable';
-import { rowData } from '../frontPage/FrontPageView';
-import DefaultText from 'components/defaultText/DefaultText';
-import NutritionItem from 'components/NutritionItem/NutritionItem';
+import { Box } from "@mui/material";
+import { MemoIcon } from "assets/icons/icons";
+import SelectButton from "components/buttons/SelectButton";
+import { NutritionCol } from "components/columnDefs/nutritionCol";
+import DefaultButton from "components/deafultButton/DefaultButton";
+import ReceptionTable from "components/receptionTable/ReceptionTable";
+import { rowData } from "../frontPage/FrontPageView";
+import DefaultText from "components/defaultText/DefaultText";
+import NutritionItem from "components/NutritionItem/NutritionItem";
 
 const data = [
     {
         id: 1,
-        title: 'Осмотр дежурного врача при поступлении',
+        title: "Осмотр дежурного врача при поступлении",
     },
     {
         id: 2,
-        title: 'Прием дежурного врача',
+        title: "Прием дежурного врача",
     },
 ];
 const NutritionView = () => {
@@ -54,14 +54,14 @@ const NutritionView = () => {
                 <ReceptionTable columnDefs={NutritionCol} rowData={rowData} />
             </Box>
             <Box className="flex flex-col gap-1 border-l-[1px] border-r-[1px] border-b-[1px] border-[#b0afaf] p-[3px]">
-                <DefaultText style={'text-[14px] text-[#000]'}>
+                <DefaultText style={"text-[14px] text-[#000]"}>
                     Дополнения
                 </DefaultText>
 
                 <NutritionItem data={data} />
             </Box>
             <Box className="flex flex-col gap-1 border-l-[1px] border-r-[1px] border-b-[1px] border-[#b0afaf] p-[3px]">
-                <DefaultText style={'text-[14px] text-[#000]'}>
+                <DefaultText style={"text-[14px] text-[#000]"}>
                     Исключения
                 </DefaultText>
 

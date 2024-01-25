@@ -23,7 +23,7 @@ import {
 import loginPhoto from "../../assets/images/LogoPng.png";
 
 import { Image } from "./styles";
-import LoadingButton from "components/loadingButton";
+import LoadingButton from "components/buttons/loadingButton";
 import useLoginHook from "./hook";
 
 const LeftSection = () => {
@@ -58,13 +58,13 @@ const AuthFormSection = () => {
                     <Typography
                         variant={"inherit"}
                         component="div"
-                        className="text-center , font-light , text-4xl , leading-normal ,text-black ,mb-8 "
+                        className="text-center font-light text-4xl text-black mb-8  font-inter"
                     >
                         Вход в систему Госпиталь
                         <Typography
                             variant={"inherit"}
                             component="span"
-                            className="text-red-600 , text-2xl , uppercase , font-bold , leading-normal , block"
+                            className="text-[#F1141E] text-[28px] uppercase font-bold leading-normal block font-inter"
                         >
                             Hayat Medical Center
                         </Typography>
@@ -167,6 +167,7 @@ const AuthFormSection = () => {
                                 underline="none"
                                 color="primary"
                                 fontWeight="500"
+                                className="text-sm font-sans uppercase font-normal"
                             >
                                 Забыли пароль ?
                             </Link>
@@ -180,7 +181,6 @@ const AuthFormSection = () => {
                             }
                             onClick={handleLogin}
                             variant="contained"
-                            classes="bg-blue-600"
                             loading={isLoading}
                             isDone={isSuccess}
                         >

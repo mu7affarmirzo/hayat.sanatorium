@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
     content: [
         "./src/**/*.{ts,tsx,js,jsx,tsx,mdx}",
@@ -10,7 +13,9 @@ module.exports = {
             colors: {
                 lightWhite: "rgba(255,255,255,0.7)",
             },
-            fontFamily: {},
+            fontFamily: {
+                inter: ["Inter", ...defaultTheme.fontFamily.sans],
+            },
         },
         screens: {
             xs: "320px",
