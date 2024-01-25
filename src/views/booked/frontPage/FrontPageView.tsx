@@ -1,11 +1,5 @@
-import React, { Suspense, useEffect } from "react";
-import {
-    Box,
-    CircularProgress,
-    Grid,
-    TextField,
-    Typography,
-} from "@mui/material";
+import React, { Suspense } from "react";
+import { Box, Grid, TextField, Typography } from "@mui/material";
 import { ArrowDropSownIcon } from "assets/icons/icons";
 import { useAppModals } from "components/Modals";
 import AutocompleteInput from "components/autocompleteInput/AutocompleteInput";
@@ -32,6 +26,7 @@ interface IFormInput {
     surName: string;
     appeal: string;
 }
+
 const polData = [
     {
         id: 0,
@@ -42,6 +37,7 @@ const polData = [
         name: "[Ж] Женский",
     },
 ];
+
 export const rowData = [
     {
         number: "137",
@@ -134,6 +130,7 @@ const top100Films = [
     { label: "Schindler's List", year: 1993 },
     { label: "Pulp Fiction", year: 1994 },
 ];
+
 const top100FilmsChack = [
     { title: "The Shawshank Redemption", year: 1994 },
     { title: "The Godfather", year: 1972 },
@@ -170,6 +167,7 @@ const radioForm = [
         label: "Тренирующий",
     },
 ];
+
 const radioForm2 = [
     {
         id: 0,

@@ -1,3 +1,4 @@
+/* eslint-disable react/style-prop-object */
 import { Box, Grid } from "@mui/material";
 import { CloseIcon, SearchAltIcon } from "assets/icons/icons";
 import AutocompleteInput from "components/autocompleteInput/AutocompleteInput";
@@ -34,6 +35,8 @@ interface BookedTopSecTypes {
 
 interface BookedTableType {
     rowData: GetIBSTypes[];
+    onChangeSearch: any;
+    searchValue: string;
 }
 
 const BookedViewTopSection = ({
@@ -84,7 +87,11 @@ const BookedViewTopSection = ({
     );
 };
 
-const BookedViewTableSection = ({ rowData }: BookedTableType) => {
+const BookedViewTableSection = ({
+    rowData,
+    onChangeSearch,
+    searchValue,
+}: BookedTableType) => {
     const ReceptionTableMemoized = React.memo(ReceptionTable);
     return (
         <Grid item xs={12} md={12}>
@@ -98,9 +105,12 @@ const BookedViewTableSection = ({ rowData }: BookedTableType) => {
                     Найдено записей: 1
                 </DefaultText>
             </Grid>
-
             <Grid item xs={12} md={12} className="mt-[10px] bg-[#F5F5F5] ">
-                <SearchInput placeholder="Искать в таблице" />
+                <SearchInput
+                    placeholder="Искать в таблице"
+                    onChange={onChangeSearch}
+                    searchValue={searchValue}
+                />
             </Grid>
             <Grid item xs={12} md={12} className=" bg-[#F5F5F5]">
                 <ReceptionTableMemoized
@@ -114,8 +124,14 @@ const BookedViewTableSection = ({ rowData }: BookedTableType) => {
 };
 
 const BookedView = () => {
-    const { handleSubmit, onSubmit, register, data } = useBookedHook();
-
+    const {
+        handleSubmit,
+        onSubmit,
+        register,
+        data,
+        searchTerm,
+        handleSearchIbss,
+    } = useBookedHook();
     return (
         <Grid container>
             <BookedViewTopSection
@@ -123,7 +139,11 @@ const BookedView = () => {
                 onSubmit={onSubmit}
                 register={register}
             />
-            <BookedViewTableSection rowData={data as never} />
+            <BookedViewTableSection
+                rowData={data as never}
+                onChangeSearch={handleSearchIbss}
+                searchValue={searchTerm}
+            />
         </Grid>
     );
 };

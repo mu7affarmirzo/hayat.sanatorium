@@ -4,7 +4,7 @@ import { ColDef } from "ag-grid-community";
 export const BookedCol: ColDef[] = [
     {
         headerName: "Статус",
-        field: "type",
+        field: "status",
         width: 160,
         cellStyle: {
             display: "flex",
@@ -16,20 +16,20 @@ export const BookedCol: ColDef[] = [
     },
     {
         headerName: "Пациент",
-        field: "name",
+        field: "patient",
         width: 250,
         editable: true,
         cellRenderer: (params: any) => {
-            const handleItemClick = (name: string) => {
-                console.log("Tanlangan element ID:", name);
+            const handleItemClick = (fullName: string) => {
+                console.log("Tanlangan element ID:", fullName);
             };
             return (
                 <div
                     className="border-[0px] cursor-pointer"
-                    onClick={() => handleItemClick(params.data.name)}
+                    onClick={() => handleItemClick(params.data.patient)}
                 >
                     <Typography className="text-sm font-normal text-blue-400">
-                        {params.data.name}
+                        {params.data.patient}
                     </Typography>
                 </div>
             );
@@ -44,8 +44,20 @@ export const BookedCol: ColDef[] = [
     },
     {
         headerName: "Пол",
-        field: "number",
+        field: "gender",
         width: 160,
+        cellRenderer: (params: any) => {
+            const getGender = params.data.patient.gender
+                ? "Мужской"
+                : "Женский";
+            return (
+                <div className="border-[0px]">
+                    <Typography className="text-sm font-normal">
+                        {getGender}
+                    </Typography>
+                </div>
+            );
+        },
         cellStyle: {
             display: "flex",
             alignItems: "center",
@@ -56,9 +68,19 @@ export const BookedCol: ColDef[] = [
     },
     {
         headerName: "Комната",
-        field: "name",
-        width: 160,
+        field: "room",
+        width: 200,
         editable: true,
+        cellRenderer: (params: any) => {
+            const roomNumber = params.data.room;
+            return (
+                <div className="border-[0px]">
+                    <Typography className="text-sm font-normal">
+                        {roomNumber}
+                    </Typography>
+                </div>
+            );
+        },
         cellStyle: {
             display: "flex",
             alignItems: "center",
@@ -68,9 +90,20 @@ export const BookedCol: ColDef[] = [
         },
     },
     {
-        headerName: "Пол",
-        field: "Тип комнаты",
-        width: 160,
+        headerName: "Тип комнаты",
+        field: "room_type",
+        width: 330,
+        editable: true,
+        cellRenderer: (params: any) => {
+            const roomType = params.data.room_type;
+            return (
+                <div className="border-[0px]">
+                    <Typography className="text-sm font-normal">
+                        {roomType}
+                    </Typography>
+                </div>
+            );
+        },
         cellStyle: {
             display: "flex",
             alignItems: "center",
@@ -81,7 +114,7 @@ export const BookedCol: ColDef[] = [
     },
     {
         headerName: "Программа",
-        field: "name",
+        field: "tariff",
         width: 160,
         editable: true,
         cellStyle: {
@@ -94,8 +127,17 @@ export const BookedCol: ColDef[] = [
     },
     {
         headerName: "Дата приезда (план)",
-        field: "Тип комнаты",
+        field: "start_date",
         width: 160,
+        cellRenderer: (params: any) => {
+            return (
+                <div className="border-[0px]">
+                    <Typography className="text-sm font-normal">
+                        {params.data.start_date}
+                    </Typography>
+                </div>
+            );
+        },
         cellStyle: {
             display: "flex",
             alignItems: "center",
@@ -106,9 +148,18 @@ export const BookedCol: ColDef[] = [
     },
     {
         headerName: "Дата отъезда (план)",
-        field: "name",
+        field: "end_date",
         width: 160,
         editable: true,
+        cellRenderer: (params: any) => {
+            return (
+                <div className="border-[0px]">
+                    <Typography className="text-sm font-normal">
+                        {params.data.end_date}
+                    </Typography>
+                </div>
+            );
+        },
         cellStyle: {
             display: "flex",
             alignItems: "center",

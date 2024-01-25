@@ -4,13 +4,14 @@ export interface PatientBook {
     id: number;
     name: string;
 }
-
 export interface BookedTypes {
-    patientData: PatientBook[];
+    broneData: PatientBook[];
+    selectBroneId: number | null;
 }
 
 const initialState: BookedTypes = {
-    patientData: [],
+    broneData: [],
+    selectBroneId: null,
 };
 
 export const bookedSlice = createSlice({
@@ -18,18 +19,28 @@ export const bookedSlice = createSlice({
     initialState,
     reducers: {
         addPatient: (state, action: PayloadAction<PatientBook>) => {
-            state.patientData.push(action.payload);
+            const newPatient = action.payload;
+            const existingPatientIndex = state.broneData.findIndex(
+                (patient) => patient.id === newPatient.id
+            );
+
+            if (existingPatientIndex !== -1) {
+                state.broneData.splice(existingPatientIndex, 1);
+            }
+            state.broneData.push(newPatient);
+            // state.selectBroneId = newPatient.id;
         },
         removePatient: (state, action: PayloadAction<number>) => {
-            const patientIndex = state.patientData.findIndex(
+            const patientIndex = state.broneData.findIndex(
                 (patient) => patient.id === action.payload
             );
             if (patientIndex !== -1) {
-                state.patientData.splice(patientIndex, 1);
+                state.broneData.splice(patientIndex, 1);
+                state.selectBroneId = null;
             }
         },
         clearBookedPatients: (state) => {
-            state.patientData = [];
+            state.broneData = [];
         },
     },
 });

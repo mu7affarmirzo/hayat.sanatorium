@@ -1,22 +1,22 @@
-import { Box, Button, Grid, IconButton, Typography } from '@mui/material';
-import { CloseCircleIcon } from 'assets/icons/icons';
-import DefaultText from 'components/defaultText/DefaultText';
-import SearchInput from 'components/search/SearchInput';
-import { useEscapeKey } from 'hooks/useEscapeKey';
-import { useCallback, useState } from 'react';
-import { CreatePaymentNowContainer } from './Modals.styles';
-import { useAppModals } from './ModalsProvider';
-import ICDItem from 'components/ICDItem';
-import OftenUsed from 'components/OftenUsed';
-import { useForm } from 'react-hook-form';
+import { Box, Button, Grid, IconButton, Typography } from "@mui/material";
+import { CloseCircleIcon } from "assets/icons/icons";
+import DefaultText from "components/defaultText/DefaultText";
+import SearchInput from "components/search/SearchInput";
+import { useEscapeKey } from "hooks/useEscapeKey";
+import { useCallback, useState } from "react";
+import { CreatePaymentNowContainer } from "./Modals.styles";
+import { useAppModals } from "./ModalsProvider";
+import ICDItem from "components/ICDItem";
+import OftenUsed from "components/OftenUsed";
+import { useForm } from "react-hook-form";
 const btnData = [
     {
         id: 0,
-        title: 'МКБ-10',
+        title: "МКБ-10",
     },
     {
         id: 1,
-        title: 'Часто используемые',
+        title: "Часто используемые",
     },
 ];
 interface IFormInput {
@@ -28,7 +28,7 @@ interface IFormInput {
 const ChoosingDiagnosisModal = () => {
     const appModals = useAppModals();
     const onCloseModal = useCallback(() => {
-        appModals?.hide('choosingDiagnosis');
+        appModals?.hide("choosingDiagnosis");
     }, [appModals]);
 
     useEscapeKey({
@@ -42,8 +42,8 @@ const ChoosingDiagnosisModal = () => {
             className={
                 appModals?.state.choosingDiagnosis.active &&
                 !appModals?.state.choosingDiagnosis.neverWork
-                    ? 'active'
-                    : 'none '
+                    ? "active"
+                    : "none "
             }
         >
             <Box className="container bg-[#fff]  ">
@@ -72,22 +72,23 @@ const ChoosingDiagnosisModal = () => {
                                 md={12}
                                 className="mt-[10px]  p-[4px]"
                             >
-                                <DefaultText style={'text-[20px] text-[#000]'}>
+                                <DefaultText style={"text-[20px] text-[#000]"}>
                                     Диагнозы:
                                 </DefaultText>
                             </Grid>
                             <Box className="flex p-[5px]">
-                                {btnData.map((item) => {
+                                {btnData.map((item, index) => {
                                     return (
                                         <Button
                                             onClick={() =>
                                                 setActiveTab(item.id)
                                             }
+                                            key={index}
                                             className={` flex  flex-row  gap-2 h-[48px]  px-[20px]
                                                    rounded-tl-lg  rounded-tr-lg  rounded-none  normal-case   box-border  ${
                                                        activeTab === item.id
-                                                           ? 'bg-[#3397FF] text-gray-100'
-                                                           : 'bg-[#fff]  text-gray-700'
+                                                           ? "bg-[#3397FF] text-gray-100"
+                                                           : "bg-[#fff]  text-gray-700"
                                                    }`}
                                         >
                                             <Box className="flex , flex-col , box-border ">
@@ -115,7 +116,7 @@ const ChoosingDiagnosisModal = () => {
                         </Box>
 
                         <Box className="w-[40%]  flex flex-col pt-[14px]  ">
-                            <DefaultText style={'text-[20px] text-[#000] '}>
+                            <DefaultText style={"text-[20px] text-[#000] "}>
                                 Рекомендованные назначения
                             </DefaultText>
 
@@ -124,12 +125,12 @@ const ChoosingDiagnosisModal = () => {
                                 <Box className="  border h-[75%] bg-[#fff] "></Box>
                                 <Box className="flex mt-[5px]">
                                     <Typography
-                                        className={'text-[14px] text-[#000] '}
+                                        className={"text-[14px] text-[#000] "}
                                     >
                                         Стоимость выбранного:
                                     </Typography>
                                     <Typography
-                                        className={'text-[14px] text-[#000] '}
+                                        className={"text-[14px] text-[#000] "}
                                     >
                                         0
                                     </Typography>
@@ -138,7 +139,7 @@ const ChoosingDiagnosisModal = () => {
                         </Box>
                     </Box>
                     <Box className="h-[90px] w-[100%] bg-[#F5F5F5] flex flex-col gap-1 pt-[10px] px-[5px] mt-[10px]">
-                        <DefaultText style={'text-[#20px] text-[#000]'}>
+                        <DefaultText style={"text-[#20px] text-[#000]"}>
                             Выбранные диагнозы
                         </DefaultText>
                         <DefaultText>

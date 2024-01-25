@@ -1,22 +1,22 @@
 import { ApiSlice } from "features/api/apiSlice";
-import { GetIBSTypes } from "types/booked";
+import { GetIBSTypes, GetIBSTypes2 } from "types/booked";
 
 export const bookedApiService = ApiSlice.injectEndpoints({
     endpoints: (builder) => ({
-        getAllIbs: builder.query<GetIBSTypes[], void>({
+        getAllIbs: builder.query<GetIBSTypes2[], void>({
             query: () => ({
-                url: "/sanatorium/get-ibs",
+                url: "/sanatorium/get-ibs2",
                 method: "GET",
             }),
         }),
-        getIbsWithId: builder.query({
-            query: (id: number) => ({
+        getIbsWithId: builder.query<GetIBSTypes, number>({
+            query: (id) => ({
                 url: `/sanatorium/get-ib/${id}`,
                 method: "GET",
             }),
         }),
-        postSearchIbs: builder.mutation({
-            query: (word: string) => ({
+        postSearchIbs: builder.mutation<GetIBSTypes, { word: string }>({
+            query: (word) => ({
                 url: "/sanatorium/search-ibs",
                 body: word,
                 method: "POST",

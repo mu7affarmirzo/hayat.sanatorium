@@ -1,6 +1,6 @@
-import { CaretRightDownIcon, CaretRightIcon } from 'assets/icons/icons';
-import { useState } from 'react';
-import DefaulCheckbox from './checkbox/DefaultCheckbox';
+import { CaretRightDownIcon, CaretRightIcon } from "assets/icons/icons";
+import { useState } from "react";
+import DefaulCheckbox from "./checkbox/DefaultCheckbox";
 
 const Checkbox = ({ label, checked, onChange }: any) => {
     return (
@@ -10,9 +10,9 @@ const Checkbox = ({ label, checked, onChange }: any) => {
         </div>
     );
 };
+
 const Dropdown = ({ title, children }: any) => {
     const [isOpen, setIsOpen] = useState(false);
-
     return (
         <div className="">
             <div className="flex items-center py-[10px]  ">
@@ -24,10 +24,9 @@ const Dropdown = ({ title, children }: any) => {
                 </div>
                 <DefaulCheckbox
                     label={title}
-                    checkboxStyle={{ padding: '0px', marginRight: '5px' }}
+                    checkboxStyle={{ padding: "0px", marginRight: "5px" }}
                 />
             </div>
-
             {isOpen && <div>{children}</div>}
         </div>
     );
@@ -35,14 +34,12 @@ const Dropdown = ({ title, children }: any) => {
 
 const CollapsibleTable = () => {
     const [checkedItems, setCheckedItems] = useState<any>({});
-
     const handleCheckboxChange = (name: any) => {
         setCheckedItems((prev: any) => ({
             ...prev,
             [name]: !prev[name],
         }));
     };
-
     return (
         <div>
             <Dropdown title="Полулюкс">
@@ -51,9 +48,9 @@ const CollapsibleTable = () => {
                         <div className="ml-[40px]">
                             <Checkbox
                                 label="Kompleks UZI"
-                                checked={checkedItems['kompleksUZI'] || false}
+                                checked={checkedItems["kompleksUZI"] || false}
                                 onChange={() =>
-                                    handleCheckboxChange('kompleksUZI')
+                                    handleCheckboxChange("kompleksUZI")
                                 }
                             />
                         </div>
