@@ -49,11 +49,11 @@ const ConsultationTechniques = () => {
                     />
                     <DefaultButton
                         title="Разблокировать"
-                        style="h-[38px] bg-[#2196F3] text-[#fff] mr-[8px]"
+                        classStyle="h-[38px] bg-[#2196F3] text-[#fff] mr-[8px]"
                     />
                     <DefaultButton
                         title="Отменить начатый приём"
-                        style="h-[38px] bg-[#2196F3] text-[#fff] mr-[8px]"
+                        classStyle="h-[38px] bg-[#2196F3] text-[#fff] mr-[8px]"
                         disabled={true}
                     />
                     <SelectButton
@@ -63,7 +63,7 @@ const ConsultationTechniques = () => {
                     />
                     <DefaultButton
                         title="Просмотр документа"
-                        style="h-[38px] bg-[#2196F3] text-[#fff] mr-[8px]"
+                        classStyle="h-[38px] bg-[#2196F3] text-[#fff] mr-[8px]"
                     />
                 </Box>
             </Box>

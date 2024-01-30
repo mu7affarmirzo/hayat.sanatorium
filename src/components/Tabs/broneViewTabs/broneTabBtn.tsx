@@ -15,7 +15,7 @@ interface BookingProps {
     handleCloseBtn?: () => void;
 }
 
-const BookingTabBtn: FC<BookingProps> = (props) => {
+const BroneTabBtn: FC<BookingProps> = (props) => {
     const { title, subTitle, onClick, activeTab, index, handleCloseBtn } =
         props;
     const isFirstElement = index === 0;
@@ -66,4 +66,4 @@ const BookingTabBtn: FC<BookingProps> = (props) => {
     );
 };
 
-export default BookingTabBtn;
+export default BroneTabBtn;

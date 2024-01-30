@@ -1,8 +1,8 @@
-import { Box, IconButton } from '@mui/material';
-import { FileAltIcon, FilePlusAltIcon } from 'assets/icons/icons';
-import DefaultButton from 'components/deafultButton/DefaultButton';
-import DefaultText from 'components/defaultText/DefaultText';
-import OutlinedNumber from 'components/outlinedNumber/OutlinedNumber';
+import { Box, IconButton } from "@mui/material";
+import { FileAltIcon, FilePlusAltIcon } from "assets/icons/icons";
+import DefaultButton from "components/deafultButton/DefaultButton";
+import DefaultText from "components/defaultText/DefaultText";
+import OutlinedNumber from "components/outlinedNumber/OutlinedNumber";
 type propsType = {
     title?: string;
     btnTitle?: string;
@@ -31,7 +31,7 @@ const DiagnostikaItem = (props: propsType) => {
                     <Box
                         className={`${props.messageStyle} border rounded-[4px] p-[10px] w-full min-h-[110px]`}
                     >
-                        <DefaultText style={'text-[#0057B2]'}>
+                        <DefaultText style={"text-[#0057B2]"}>
                             {props.message}
                         </DefaultText>
                     </Box>
@@ -39,7 +39,7 @@ const DiagnostikaItem = (props: propsType) => {
                         className={` ${
                             props.messageIconStyle
                                 ? props.messageIconStyle
-                                : 'flex  flex-col  ml-[10px]'
+                                : "flex  flex-col  ml-[10px]"
                         } `}
                     >
                         <IconButton
@@ -53,7 +53,7 @@ const DiagnostikaItem = (props: propsType) => {
                             color="primary"
                             aria-label="add to shopping cart"
                             className={`bg-[#64B6F7] rounded-none  mx-[3px] ${
-                                props.messageIconStyle ? 'mt-[0]' : ' mt-[5px]'
+                                props.messageIconStyle ? "mt-[0]" : " mt-[5px]"
                             }`}
                         >
                             <FilePlusAltIcon />
@@ -63,11 +63,11 @@ const DiagnostikaItem = (props: propsType) => {
             ) : null}
             <Box
                 className={`flex items-center  w-[100%] ${
-                    props.outline ? 'mt-[10px] ' : 'mt-[0px]'
+                    props.outline ? "mt-[10px] " : "mt-[0px]"
                 }  `}
             >
                 {props.text ? (
-                    <DefaultText style={'text-[#000] text-[14px]'}>
+                    <DefaultText style={"text-[#000] text-[14px]"}>
                         {props.text}
                     </DefaultText>
                 ) : null}
@@ -76,7 +76,7 @@ const DiagnostikaItem = (props: propsType) => {
                     <DefaultButton
                         onClick={props.onClick}
                         title={props.btnTitle}
-                        style={` ${props.btnStyle} bg-[#4CAF50]  ml-[10px] text-[#fff]`}
+                        classStyle={` ${props.btnStyle} bg-[#4CAF50]  ml-[10px] text-[#fff]`}
                         disabled={props.disabled}
                     />
                 ) : null}

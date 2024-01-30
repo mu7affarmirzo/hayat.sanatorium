@@ -1,6 +1,6 @@
-import { Grid } from '@mui/material';
-import DefaultButton from 'components/deafultButton/DefaultButton';
-import React from 'react';
+import { Grid } from "@mui/material";
+import DefaultButton from "components/deafultButton/DefaultButton";
+import React from "react";
 
 const InvoicesAccounts = () => {
     return (
@@ -8,7 +8,7 @@ const InvoicesAccounts = () => {
             <Grid item xs={12} md={12}>
                 <DefaultButton
                     title="Добавить счёт"
-                    style="bg-[#4CAF50]"
+                    classStyle="bg-[#4CAF50]"
                     disabled={true}
                 />
             </Grid>

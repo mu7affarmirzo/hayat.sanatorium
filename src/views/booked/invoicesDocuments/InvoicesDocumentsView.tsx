@@ -1,13 +1,15 @@
-import { Grid } from '@mui/material';
+import { Grid } from "@mui/material";
 
-import { LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import BookingScreenTabs, { TabsItem } from 'components/bookingTabs';
-import DefaultText from 'components/defaultText/DefaultText';
-import InvoicesDocuments from 'components/invoicesDocuments/InvoicesDocuments';
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import BookingScreenTabs, {
+    TabsItem,
+} from "components/Tabs/broneViewTabs/broneTabs";
+import DefaultText from "components/defaultText/DefaultText";
+import InvoicesDocuments from "components/invoicesDocuments/InvoicesDocuments";
 const content: TabsItem[] = [
     {
-        title: 'Документы',
+        title: "Документы",
         component: InvoicesDocuments,
     },
 ];
@@ -17,7 +19,7 @@ const InvoicesDocumentsView = () => {
             <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <Grid container>
                     <Grid item xs={12} md={12} className=" flex ">
-                        <DefaultText style={'text-[20px] text-[#000]'}>
+                        <DefaultText style={"text-[20px] text-[#000]"}>
                             Документы
                         </DefaultText>
                     </Grid>

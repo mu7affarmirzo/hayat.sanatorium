@@ -75,7 +75,7 @@ const BookedViewTopSection = ({
                     <DefaultButton
                         title=" Поиск"
                         icon={<SearchAltIcon stroke="white" />}
-                        style="bg-[#2196F3] h-[46px] text-[#fff] text-[14px]  capitalize  mr-[10px]"
+                        classStyle="bg-[#2196F3] h-[46px] text-[#fff] text-[14px]  capitalize  mr-[10px]"
                     />
                     <DefaultButton
                         title="Очистить фильтр"

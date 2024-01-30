@@ -1,78 +1,101 @@
-import Layout from "components/layout";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import LoginView from "views/auth/LoginView";
-import PrivateRoute from "./privateRoute";
-import ROUTES from "./router";
 import { useReduxSelector } from "hooks/useReduxHook";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { RoutingData } from "./router";
+import Headers from "components/header/header";
 
 export const MainContainer = styled.div`
     display: flex;
 `;
 
+type Props = {
+    role: "NoAuth" | "Reception" | "Doctors";
+};
+
 const AppRouting = () => {
+    const navigate = useNavigate();
+    const [role, setRole] = useState<Props["role"]>("Reception");
+    const [changeTopTab, setChangeTopTab] = React.useState<number>(0);
+
     const { isAuthenticated } = useReduxSelector(
         (loginState) => loginState.auth
     );
 
+    useEffect(() => {
+        if (isAuthenticated) {
+            setRole("Reception");
+            navigate("reception", { replace: true });
+        } else {
+            setRole("NoAuth");
+            navigate("login", { replace: true });
+        }
+    }, [isAuthenticated]);
+
+    const changeHeaderTab = useCallback((index: number) => {
+        setChangeTopTab(index);
+    }, []);
+
     return (
         <>
-            <Routes>
-                <Route
-                    path="*"
-                    element={
-                        <Navigate
-                            to={isAuthenticated ? "dashboard" : "login"}
-                            replace
-                        />
-                    }
-                />
-                {!isAuthenticated ? (
-                    <Route path="/login" element={<LoginView />} />
-                ) : (
-                    <Route
-                        path="dashboard"
-                        element={
-                            <PrivateRoute isSignedIn={isAuthenticated}>
-                                <Layout />
-                            </PrivateRoute>
-                        }
-                    >
-                        <Route
-                            path="*"
-                            index
-                            element={
-                                <Navigate to="/dashboard/booked" replace />
-                            }
-                        />
-                        {ROUTES.dashboard.map((item) => {
-                            return (
-                                <Route key={item.name} path={item.name}>
+            {role !== "NoAuth" ? (
+                <>
+                    <Headers
+                        activeTab={changeTopTab}
+                        setChangeTopTab={changeHeaderTab}
+                    />
+                    <MainContainer className=" overflow-hidden relative max-h-[calc(100vh-76px)] p-2">
+                        <div className="w-[100%] h-full">
+                            <Routes>
+                                {RoutingData[role].map((item, i) => {
+                                    return (
+                                        <React.Fragment key={i}>
+                                            <Route
+                                                key={i}
+                                                path={item.path}
+                                                element={item.component}
+                                            />
+                                            {item.global && (
+                                                <Route
+                                                    path="*"
+                                                    element={
+                                                        <Navigate
+                                                            to={item.path}
+                                                            replace
+                                                        />
+                                                    }
+                                                />
+                                            )}
+                                        </React.Fragment>
+                                    );
+                                })}
+                            </Routes>
+                        </div>
+                    </MainContainer>
+                </>
+            ) : (
+                <Routes>
+                    {RoutingData[role].map((item, i) => {
+                        return (
+                            <React.Fragment key={i}>
+                                <Route
+                                    key={i}
+                                    path={item.path}
+                                    element={item.component}
+                                />
+                                {item.global && (
                                     <Route
                                         path="*"
-                                        index
                                         element={
-                                            <Navigate
-                                                to={`/dashboard/${`${item.name}/${item.defaultPath}`}`}
-                                                replace
-                                            />
+                                            <Navigate to={item.path} replace />
                                         }
                                     />
-                                    {item.paths.map((route) => {
-                                        return (
-                                            <Route
-                                                path={route.path}
-                                                key={item.name}
-                                                element={<route.element />}
-                                            />
-                                        );
-                                    })}
-                                </Route>
-                            );
-                        })}
-                    </Route>
-                )}
-            </Routes>
+                                )}
+                            </React.Fragment>
+                        );
+                    })}
+                </Routes>
+            )}
         </>
     );
 };

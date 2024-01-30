@@ -9,6 +9,18 @@ const baseQuery = fetchBaseQuery({
         if (token) {
             headers.set("Authorization", `Bearer ${token}`);
         }
+        // const refreshToken = storageService.load("refreshToken");
+        // if (refreshToken) {
+        //     headers.set("X-Requested-With", "XMLHttpRequest");
+        //     try {
+        //       const response = await yourApiCallToRefreshToken(refreshToken);
+        //       const { accessToken: newAccessToken } = response.data;
+        //       storageService.save("accessToken", newAccessToken);
+        //       headers.set("Authorization", `Bearer ${newAccessToken}`);
+        //     } catch (error) {
+        //       throw error;
+        //     }
+        //   }
         return headers;
     },
 });

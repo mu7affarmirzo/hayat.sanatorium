@@ -1,6 +1,8 @@
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import BookingScreenTabs, { TabsItem } from "components/bookingTabs";
+import BookingScreenTabs, {
+    TabsItem,
+} from "components/Tabs/broneViewTabs/broneTabs";
 import addMedicalHistory from "./addMedicalHistory";
 import booked from "./bookedChildTab";
 import { useMemo } from "react";

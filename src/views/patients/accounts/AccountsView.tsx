@@ -80,7 +80,7 @@ const AccountsView = () => {
                         <DefaultButton
                             title=" Поиск"
                             icon={<SearchAltIcon stroke="white" />}
-                            style="bg-[#2196F3] h-[46px] text-[#fff] text-[14px]  capitalize  mr-[10px]"
+                            classStyle="bg-[#2196F3] h-[46px] text-[#fff] text-[14px]  capitalize  mr-[10px]"
                         />
                         <DefaultButton
                             title=" Очистить фильтр"
@@ -90,26 +90,32 @@ const AccountsView = () => {
                 </Grid>
             </Grid>
             <Grid item xs={12} md={12} className=" flex gap-[10px]">
-                <DefaultButton title="Распечатать" style="bg-[#64B6F7]" />
-                <DefaultButton title="Отменить" style="bg-[#64B6F7]" />
+                <DefaultButton title="Распечатать" classStyle="bg-[#64B6F7]" />
+                <DefaultButton title="Отменить" classStyle="bg-[#64B6F7]" />
                 <SelectButton defaultValue="Оплатить" data={selectData2} />
-                <DefaultButton title="Чек зачёта аванса" style="bg-[#64B6F7]" />
-                <DefaultButton title="Отменить оплату" style="bg-[#64B6F7]" />
+                <DefaultButton
+                    title="Чек зачёта аванса"
+                    classStyle="bg-[#64B6F7]"
+                />
+                <DefaultButton
+                    title="Отменить оплату"
+                    classStyle="bg-[#64B6F7]"
+                />
                 <DefaultButton
                     title="Выбор колонок"
-                    style="ml-[30px] bg-[#2196F3]"
+                    classStyle="ml-[30px] bg-[#2196F3]"
                 />
                 <DefaultButton
                     title="Ехсеl"
                     icon={<VuesaxLinear />}
-                    style="bg-[#2196F3]"
+                    classStyle="bg-[#2196F3]"
                 />
             </Grid>
             <Grid
                 item
                 xs={12}
                 md={12}
-                className="border border-[rgba(0, 0, 0, 0.23)] mt-3 h-[60vh] text-center"
+                className="border border-[rgba(0, 0, 0, 0.23)] mt-3 h-[700px] text-center"
             >
                 <Typography className=" ">Поиск не дал результатов.</Typography>
             </Grid>

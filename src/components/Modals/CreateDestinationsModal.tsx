@@ -1,18 +1,18 @@
-import { Box, Button, Grid, IconButton, Typography } from '@mui/material';
-import { CloseCircleIcon } from 'assets/icons/icons';
-import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
-import DefaultButton from 'components/deafultButton/DefaultButton';
-import DefaultText from 'components/defaultText/DefaultText';
-import SearchInput from 'components/search/SearchInput';
-import { useEscapeKey } from 'hooks/useEscapeKey';
-import { useCallback } from 'react';
-import { CreatePaymentNowContainer } from './Modals.styles';
-import { useAppModals } from './ModalsProvider';
+import { Box, Button, Grid, IconButton, Typography } from "@mui/material";
+import { CloseCircleIcon } from "assets/icons/icons";
+import DefaultCheckbox from "components/checkbox/DefaultCheckbox";
+import DefaultButton from "components/deafultButton/DefaultButton";
+import DefaultText from "components/defaultText/DefaultText";
+import SearchInput from "components/search/SearchInput";
+import { useEscapeKey } from "hooks/useEscapeKey";
+import { useCallback } from "react";
+import { CreatePaymentNowContainer } from "./Modals.styles";
+import { useAppModals } from "./ModalsProvider";
 
 const CreateDestinationsModal = () => {
     const appModals = useAppModals();
     const onCloseModal = useCallback(() => {
-        appModals?.hide('create_destinations');
+        appModals?.hide("create_destinations");
     }, [appModals]);
 
     useEscapeKey({
@@ -21,7 +21,7 @@ const CreateDestinationsModal = () => {
 
     const addSelectStudies = () => {
         onCloseModal();
-        appModals?.show('select_studies');
+        appModals?.show("select_studies");
     };
 
     return (
@@ -29,8 +29,8 @@ const CreateDestinationsModal = () => {
             className={
                 appModals?.state.create_destinations.active &&
                 !appModals?.state.create_destinations.neverWork
-                    ? 'active'
-                    : 'none '
+                    ? "active"
+                    : "none "
             }
         >
             <Box className="container bg-[#fff]  ">
@@ -53,13 +53,13 @@ const CreateDestinationsModal = () => {
                     </Grid>
                     <Grid item xs={12} md={12} className="mt-[10px] ">
                         <DefaultButton
-                            style="bg-[#4CAF50] "
+                            classStyle="bg-[#4CAF50] "
                             title="Добавить"
                             onClick={addSelectStudies}
                         />
                         <DefaultButton
                             title="Удалить выбранные"
-                            style="bg-[#2196F3] ml-[10px]"
+                            classStyle="bg-[#2196F3] ml-[10px]"
                         />
                     </Grid>
 
@@ -69,7 +69,7 @@ const CreateDestinationsModal = () => {
                         md={12}
                         className="mt-[10px] max-h-[600px] h-[400px]"
                     >
-                        <DefaultText style={'text-[20px] text-[#000]'}>
+                        <DefaultText style={"text-[20px] text-[#000]"}>
                             Выбрать исследования
                         </DefaultText>
 
@@ -78,8 +78,8 @@ const CreateDestinationsModal = () => {
                             <Box className=" border flex w-[100%]">
                                 <DefaultCheckbox
                                     checkboxStyle={{
-                                        padding: '0 3px',
-                                        bacgroundColor: '#fff',
+                                        padding: "0 3px",
+                                        bacgroundColor: "#fff",
                                     }}
                                 />
                                 <Box className=" bg-[#F8ED8D]  py-[3px] h-full w-[calc(100%-30px)]">

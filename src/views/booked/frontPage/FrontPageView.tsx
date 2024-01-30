@@ -220,16 +220,16 @@ const FrontPageView = () => {
                     <DefaultButton
                         onClick={() => appModals?.show("createPayment")}
                         title="Добавить фактор"
-                        style="h-[40px] bg-[#4CAF50] mr-[10px]"
+                        classStyle="h-[40px] bg-[#4CAF50] mr-[10px]"
                     />
                     <DefaultButton
                         onClick={() => appModals?.show("professionalRoute")}
                         title="Создать профосмотр"
-                        style="h-[40px] bg-[#4CAF50] mr-[10px]"
+                        classStyle="h-[40px] bg-[#4CAF50] mr-[10px]"
                     />
                     <DefaultButton
                         title="Отменить фактор"
-                        style="h-[40px] bg-[#3397FF]"
+                        classStyle="h-[40px] bg-[#3397FF]"
                     />
                 </Box>
                 <Box className="flex py-[8px] px-[10px] border  mt-[10px] items-center">
@@ -242,7 +242,7 @@ const FrontPageView = () => {
                     />
                     <DefaultButton
                         title="Синхронизировать"
-                        style="h-[40px] bg-[#3397FF] mt-[20px] ml-[10px]"
+                        classStyle="h-[40px] bg-[#3397FF] mt-[20px] ml-[10px]"
                     />
                 </Box>
             </Box>
@@ -264,7 +264,7 @@ const FrontPageView = () => {
                             <DefaultButton
                                 onClick={() => appModals?.show("add_reason")}
                                 title="Добавить причину"
-                                style=" bg-[#4CAF50] "
+                                classStyle=" bg-[#4CAF50] "
                             />
                         </Box>
                     </Box>
@@ -281,7 +281,7 @@ const FrontPageView = () => {
                             <DefaultButton
                                 onClick={() => appModals?.show("add_reason")}
                                 title="Добавить причину"
-                                style=" bg-[#4CAF50] "
+                                classStyle=" bg-[#4CAF50] "
                             />
                         </Box>
                     </Box>

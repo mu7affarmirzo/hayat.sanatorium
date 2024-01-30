@@ -1,18 +1,18 @@
-import { Box, IconButton, Typography } from '@mui/material';
-import { FilePlusAltIcon } from 'assets/icons/icons';
-import { useAppModals } from 'components/Modals';
-import AutocompleteInput from 'components/autocompleteInput/AutocompleteInput';
-import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
-import DefaultButton from 'components/deafultButton/DefaultButton';
-import DefaultText from 'components/defaultText/DefaultText';
+import { Box, IconButton, Typography } from "@mui/material";
+import { FilePlusAltIcon } from "assets/icons/icons";
+import { useAppModals } from "components/Modals";
+import AutocompleteInput from "components/autocompleteInput/AutocompleteInput";
+import DefaultCheckbox from "components/checkbox/DefaultCheckbox";
+import DefaultButton from "components/deafultButton/DefaultButton";
+import DefaultText from "components/defaultText/DefaultText";
 const top100Films = [
-    { label: 'The Shawshank Redemption', year: 1994 },
-    { label: 'The Godfather', year: 1972 },
-    { label: 'The Godfather: Part II', year: 1974 },
-    { label: 'The Dark Knight', year: 2008 },
-    { label: '12 Angry Men', year: 1957 },
+    { label: "The Shawshank Redemption", year: 1994 },
+    { label: "The Godfather", year: 1972 },
+    { label: "The Godfather: Part II", year: 1974 },
+    { label: "The Dark Knight", year: 2008 },
+    { label: "12 Angry Men", year: 1957 },
     { label: "Schindler's List", year: 1993 },
-    { label: 'Pulp Fiction', year: 1994 },
+    { label: "Pulp Fiction", year: 1994 },
 ];
 const ResearchSummaryTableView = () => {
     const appModals = useAppModals();
@@ -20,7 +20,7 @@ const ResearchSummaryTableView = () => {
     return (
         <Box className=" h-[calc(100vh-225px)]  p-[10px] overflow-hidden ">
             <Box className=" flex h-[35px] items-start  justify-between   ">
-                <DefaultText style={'text-[#000] text-[14px]'}>
+                <DefaultText style={"text-[#000] text-[14px]"}>
                     Сводная таблица исследований
                 </DefaultText>
             </Box>
@@ -45,8 +45,8 @@ const ResearchSummaryTableView = () => {
                         <Box className="mt-[5px]  border flex w-[100%]">
                             <DefaultCheckbox
                                 checkboxStyle={{
-                                    padding: '0 3px',
-                                    bacgroundColor: '#fff',
+                                    padding: "0 3px",
+                                    bacgroundColor: "#fff",
                                 }}
                             />
                             <Box className=" bg-[#F8ED8D]  py-[3px] h-full w-[calc(100%-30px)]">
@@ -62,13 +62,13 @@ const ResearchSummaryTableView = () => {
                     <Box className="flex w-full items-center">
                         <DefaultButton
                             title="Создать назначения"
-                            style="bg-[#4CAF50] h-[35px] mr-[10px]"
+                            classStyle="bg-[#4CAF50] h-[35px] mr-[10px]"
                             onClick={() =>
-                                appModals?.show('create_destinations')
+                                appModals?.show("create_destinations")
                             }
                         />
                         <DefaultCheckbox
-                            checkboxStyle={{ padding: '0 5px' }}
+                            checkboxStyle={{ padding: "0 5px" }}
                             label="Показать только отклонения"
                         />
                     </Box>

@@ -56,11 +56,11 @@ const ConsultationTechniquesInPatients = () => {
                     />
                     <DefaultButton
                         title="Разблокировать"
-                        style="h-[38px] bg-[#2196F3] text-[#fff] mr-[8px]"
+                        classStyle="h-[38px] bg-[#2196F3] text-[#fff] mr-[8px]"
                     />
                     <DefaultButton
                         title="Отменить начатый приём"
-                        style="h-[38px] bg-[#2196F3] text-[#fff] mr-[8px]"
+                        classStyle="h-[38px] bg-[#2196F3] text-[#fff] mr-[8px]"
                         disabled={true}
                     />
                     <SelectButton
@@ -70,7 +70,7 @@ const ConsultationTechniquesInPatients = () => {
                     />
                     <DefaultButton
                         title="Просмотр документа"
-                        style="h-[38px] bg-[#2196F3] text-[#fff] mr-[8px]"
+                        classStyle="h-[38px] bg-[#2196F3] text-[#fff] mr-[8px]"
                     />
                 </Box>
             </Box>
@@ -829,19 +829,19 @@ const ConsultationTechniquesInPatients = () => {
                     </Typography>
                     <Box className="flex gap-2 my-[10px]">
                         <DefaultButton
-                            style="bg-[#4CAF50] text-[#fff]"
+                            classStyle="bg-[#4CAF50] text-[#fff]"
                             title="Добавить диагноз"
                         />
                         <DefaultButton
-                            style="bg-[#64B6F7] text-[#fff]"
+                            classStyle="bg-[#64B6F7] text-[#fff]"
                             title="Утвердить"
                         />
                         <DefaultButton
-                            style="bg-[#64B6F7] text-[#fff]"
+                            classStyle="bg-[#64B6F7] text-[#fff]"
                             title="Отменить"
                         />
                         <DefaultButton
-                            style="bg-[#64B6F7] text-[#fff]"
+                            classStyle="bg-[#64B6F7] text-[#fff]"
                             title="Удалить"
                         />
                     </Box>

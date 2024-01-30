@@ -38,7 +38,7 @@ const InvoicesDocuments = () => {
                 <Box className="flex p-[5px]">
                     <DefaultButton
                         title="Добавить файлы автоматически"
-                        style="bg-[#4CAF50] mr-[10px]"
+                        classStyle="bg-[#4CAF50] mr-[10px]"
                     />
 
                     <SelectButton data={data} defaultValue="Добавить файл" />
@@ -69,7 +69,7 @@ const InvoicesDocuments = () => {
                                 </Link>
                                 <DefaultButton
                                     title="Заменить…"
-                                    style="h-[40px] bg-[#2196F3]"
+                                    classStyle="h-[40px] bg-[#2196F3]"
                                 />
                                 <DefaulCheckbox label="Опубликовать" />
                             </Box>

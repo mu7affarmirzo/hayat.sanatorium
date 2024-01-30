@@ -1,15 +1,17 @@
-import { LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import BookingScreenTabs, { TabsItem } from 'components/bookingTabs';
-import frontPage from './frontPage';
-import myPatients from './myPatients';
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import BookingScreenTabs, {
+    TabsItem,
+} from "components/Tabs/broneViewTabs/broneTabs";
+import frontPage from "./frontPage";
+import myPatients from "./myPatients";
 const content: TabsItem[] = [
     {
-        title: 'Мои пациенты',
+        title: "Мои пациенты",
         component: myPatients,
     },
     {
-        title: 'Титульная страница',
+        title: "Титульная страница",
         component: frontPage,
     },
 ];

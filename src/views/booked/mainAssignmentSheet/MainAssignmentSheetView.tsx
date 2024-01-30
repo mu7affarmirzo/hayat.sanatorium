@@ -211,14 +211,14 @@ const MainAssignmentSheetView = () => {
                         <Box className="flex ">
                             <DefaultButton
                                 title="Назначить из лечебной программы"
-                                style="bg-[#4CAF50] h-[40px]"
+                                classStyle="bg-[#4CAF50] h-[40px]"
                                 onClick={() =>
                                     appModals?.show("selecting_destination")
                                 }
                             />
                             <DefaultButton
                                 title="Добавить программу в ИБ"
-                                style="bg-[#4CAF50] h-[40px]  ml-[10px]"
+                                classStyle="bg-[#4CAF50] h-[40px]  ml-[10px]"
                             />
                         </Box>
                         <Box className="flex ">
@@ -244,27 +244,27 @@ const MainAssignmentSheetView = () => {
 
                         <DefaultButton
                             title="Приостановить"
-                            style="h-[35px] bg-[#2196F3] mr-[5px]"
+                            classStyle="h-[35px] bg-[#2196F3] mr-[5px]"
                             disabled
                         />
                         <DefaultButton
                             title="Возобновить"
-                            style="h-[35px] bg-[#2196F3] mr-[5px]"
+                            classStyle="h-[35px] bg-[#2196F3] mr-[5px]"
                             disabled
                         />
                         <DefaultButton
                             title="Отменить"
-                            style="h-[35px] bg-[#2196F3] mr-[5px]"
+                            classStyle="h-[35px] bg-[#2196F3] mr-[5px]"
                             disabled
                         />
                         <DefaultButton
                             title="Диспетчеризовать"
-                            style="h-[35px] bg-[#2196F3] mr-[5px]"
+                            classStyle="h-[35px] bg-[#2196F3] mr-[5px]"
                             disabled
                         />
                         <DefaultButton
                             title="Удалить"
-                            style="h-[35px] bg-[#2196F3] mr-[5px]"
+                            classStyle="h-[35px] bg-[#2196F3] mr-[5px]"
                             disabled
                         />
                     </Box>
@@ -281,37 +281,37 @@ const MainAssignmentSheetView = () => {
                         <Box className="  flex flex-wrap">
                             <DefaultButton
                                 title="Добавить"
-                                style="h-[35px] bg-[#4CAF50] mr-[5px]"
+                                classStyle="h-[35px] bg-[#4CAF50] mr-[5px]"
                                 onClick={() =>
                                     appModals?.show("selecting_destination")
                                 }
                             />
                             <DefaultButton
                                 title="Приостановить"
-                                style="h-[35px] bg-[#2196F3] mr-[5px]"
+                                classStyle="h-[35px] bg-[#2196F3] mr-[5px]"
                                 disabled
                             />
                             <DefaultButton
                                 title="Возобновить"
-                                style="h-[35px] bg-[#2196F3] mr-[5px]"
+                                classStyle="h-[35px] bg-[#2196F3] mr-[5px]"
                                 disabled
                             />
                             <DefaultButton
                                 title="Отменить"
-                                style="h-[35px] bg-[#2196F3] mr-[5px]"
+                                classStyle="h-[35px] bg-[#2196F3] mr-[5px]"
                                 disabled
                             />
                             <DefaultButton
                                 title="Диспетчеризовать"
-                                style="h-[35px] bg-[#2196F3] mr-[5px]"
+                                classStyle="h-[35px] bg-[#2196F3] mr-[5px]"
                             />
                             <DefaultButton
                                 title="Удалить"
-                                style="h-[35px] bg-[#2196F3] mr-[5px]"
+                                classStyle="h-[35px] bg-[#2196F3] mr-[5px]"
                             />
                             <DefaultButton
                                 title="Продлить выбранные назначения"
-                                style="h-[35px] bg-[#2196F3] mr-[5px]"
+                                classStyle="h-[35px] bg-[#2196F3] mr-[5px]"
                             />
                         </Box>
                         <Box>

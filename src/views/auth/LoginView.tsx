@@ -123,7 +123,6 @@ const AuthFormSection = () => {
                                 }
                                 label="Password"
                             />
-
                             {values.isPasswordValid === false && (
                                 <FormHelperText error>
                                     Введите более трех символов

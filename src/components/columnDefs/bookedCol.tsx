@@ -279,6 +279,18 @@ export const BookedPatiant: ColDef[] = [
             paddingLeft: "10px",
         },
     },
+    {
+        headerName: "",
+        field: "",
+        width: 165,
+        cellStyle: {
+            display: "flex",
+            alignItems: "center",
+            justifyContent: " end ",
+            border: ".5px solid #e0e0e0",
+            paddingLeft: "10px",
+        },
+    },
 ];
 
 export const BookedPatientSearch: ColDef[] = [

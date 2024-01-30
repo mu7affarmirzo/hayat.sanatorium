@@ -103,22 +103,22 @@ const MyPatientsView = () => {
                     <Grid item xs={12} md={5} className="flex justify-end ">
                         <DefaultButton
                             title="Выбор колонок"
-                            style="bg-[#2196F3] h-[40px] text-[#fff] mr-[10px]"
+                            classStyle="bg-[#2196F3] h-[40px] text-[#fff] mr-[10px]"
                         />
                         <DefaultButton
                             title="Ехсеl"
                             icon={<VuesaxLinearDocumentIcon />}
-                            style="bg-[#2196F3] h-[40px] text-[#fff] mr-[10px]"
+                            classStyle="bg-[#2196F3] h-[40px] text-[#fff] mr-[10px]"
                         />
                         <DefaultButton
                             title="Поиск"
                             icon={<SearchAltIcon />}
-                            style="bg-[#2196F3] h-[40px] text-[#fff] mr-[10px]"
+                            classStyle="bg-[#2196F3] h-[40px] text-[#fff] mr-[10px]"
                         />
                         <DefaultButton
                             title="Очистить фильтр"
                             icon={<CloseIcon stroke="#fff" />}
-                            style="bg-[#2196F3] h-[40px] text-[#fff] "
+                            classStyle="bg-[#2196F3] h-[40px] text-[#fff] "
                         />
                     </Grid>
                 </Grid>

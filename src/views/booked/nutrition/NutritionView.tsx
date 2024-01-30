@@ -25,20 +25,20 @@ const NutritionView = () => {
                 <Box className=" flex items-center w-[80%]">
                     <DefaultButton
                         title="Добавить счёт"
-                        style="h-[35px] bg-[#4CAF50] text-[#fff] mr-[8px]"
+                        classStyle="h-[35px] bg-[#4CAF50] text-[#fff] mr-[8px]"
                         disabled={true}
                     />
                     <DefaultButton
                         title="Добавить дополнение"
-                        style="h-[35px] bg-[#4CAF50] text-[#fff] mr-[8px]"
+                        classStyle="h-[35px] bg-[#4CAF50] text-[#fff] mr-[8px]"
                     />
                     <DefaultButton
                         title="Добавить исключение"
-                        style="h-[35px] bg-[#4CAF50] text-[#fff] mr-[8px]"
+                        classStyle="h-[35px] bg-[#4CAF50] text-[#fff] mr-[8px]"
                     />
                     <DefaultButton
                         title="Добавить пищевой аллерген"
-                        style="h-[35px] bg-[#4CAF50] text-[#fff] mr-[8px]"
+                        classStyle="h-[35px] bg-[#4CAF50] text-[#fff] mr-[8px]"
                     />
                 </Box>
                 <Box className=" flex items-center justify-end w-[20%]">

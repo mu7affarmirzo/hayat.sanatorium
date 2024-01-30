@@ -159,7 +159,7 @@ const DiseaseHistoryTopTabs = () => {
                 <div className="flex  justify-between items-center py-[10px]  ">
                     <DefaultButton
                         title="Сохранить"
-                        style="bg-[#4CAF50] h-[46px] text-[#fff] mr-[10px]  "
+                        classStyle="bg-[#4CAF50] h-[46px] text-[#fff] mr-[10px]  "
                     />
                     <SelectButton
                         data={selectData}
@@ -172,25 +172,25 @@ const DiseaseHistoryTopTabs = () => {
                     />
                     <DefaultButton
                         title="Закрыть историю болезни"
-                        style="bg-[#2196F3] h-[46px] text-[#fff] mr-[10px] "
+                        classStyle="bg-[#2196F3] h-[46px] text-[#fff] mr-[10px] "
                     />
                     <DefaultButton
                         title="Удалить историю болезни"
-                        style="bg-[#2196F3] h-[46px] text-[#fff] mr-[10px] "
+                        classStyle="bg-[#2196F3] h-[46px] text-[#fff] mr-[10px] "
                     />
                     <DefaultButton
                         title="Диспечеризовать все"
-                        style="bg-[#2196F3] h-[46px] text-[#fff] mr-[10px] "
+                        classStyle="bg-[#2196F3] h-[46px] text-[#fff] mr-[10px] "
                     />
                     <DefaultButton
                         title="Отменить все диспетчеризации"
-                        style="bg-[#2196F3] h-[46px] text-[#fff] mr-[10px] "
+                        classStyle="bg-[#2196F3] h-[46px] text-[#fff] mr-[10px] "
                     />
                 </div>
                 <DefaultButton
                     icon={<CoinsAltIcon stroke="black" />}
                     title="  0,00 сум"
-                    style="bg-[#F5F5F5] h-[46px] text-[#000]  py-[10px]"
+                    classStyle="bg-[#F5F5F5] h-[46px] text-[#000]  py-[10px]"
                     variant={"none"}
                 />
             </Grid>

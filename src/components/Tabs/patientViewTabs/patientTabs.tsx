@@ -1,8 +1,6 @@
 import { Box } from "@mui/material";
-import { FC, useCallback, useEffect, useState } from "react";
-import BookingTabBtn from "./bookingTabBtn";
-import { useReduxDispatch, useReduxSelector } from "hooks/useReduxHook";
-import { removePatient } from "features/booked/bookedSlice";
+import { FC, useState } from "react";
+import PatientTabBtn from "./patientTabBtn";
 
 export type TabsItem = {
     title: string;
@@ -15,25 +13,12 @@ interface TabsProps {
     content: TabsItem[];
 }
 
-const BookingScreenTabs: FC<TabsProps> = ({ content }) => {
-    const { selectBroneId } = useReduxSelector((brone) => brone.booked);
-    const dispatch = useReduxDispatch();
+const PatientViewTabs: FC<TabsProps> = ({ content }) => {
     const [activeTab, setActiveTab] = useState<number>(0);
 
     const handleActiveTab = (index: number) => {
         setActiveTab(index);
     };
-
-    const removeActiveIB = useCallback(() => {
-        dispatch(removePatient(activeTab));
-        setActiveTab(0);
-    }, [activeTab, dispatch]);
-
-    useEffect(() => {
-        if (selectBroneId !== null) {
-            setActiveTab(selectBroneId);
-        }
-    }, [selectBroneId]);
 
     return (
         <Box className=" w-full ">
@@ -41,14 +26,13 @@ const BookingScreenTabs: FC<TabsProps> = ({ content }) => {
                 {content.map((item, index) => {
                     return (
                         <Box key={index}>
-                            <BookingTabBtn
+                            <PatientTabBtn
                                 index={index}
                                 Icon={item?.icon}
                                 title={item?.title}
                                 subTitle={item?.subTitle}
                                 activeTab={activeTab}
                                 onClick={() => handleActiveTab(index)}
-                                handleCloseBtn={removeActiveIB}
                             />
                         </Box>
                     );
@@ -65,4 +49,4 @@ const BookingScreenTabs: FC<TabsProps> = ({ content }) => {
     );
 };
 
-export default BookingScreenTabs;
+export default PatientViewTabs;

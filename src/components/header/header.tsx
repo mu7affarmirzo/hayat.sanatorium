@@ -1,7 +1,7 @@
 import LogoutTwoToneIcon from "@mui/icons-material/LogoutTwoTone";
 import { Button, Menu, MenuItem, Typography } from "@mui/material";
 import { ArrowDropDownIcon } from "@mui/x-date-pickers";
-import React, { useCallback, useMemo } from "react";
+import React, { FC, useCallback, useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { LogoSanatarumIcon } from "../../assets/icons/icons";
@@ -29,27 +29,53 @@ const RightSection = styled.div`
     height: 100%;
 `;
 
-const Headers = () => {
+type Props = {
+    role: "NoAuth" | "Reception" | "Doctors";
+};
+
+interface HeaderProps {
+    setChangeTopTab: (index: number) => void;
+    activeTab: number;
+}
+
+const Headers: FC<HeaderProps> = ({ activeTab, setChangeTopTab }) => {
     const navigate = useNavigate();
     const location = useLocation();
     const dispatch = useReduxDispatch();
+    const [activeTabHeader, setActiveTabHeader] = useState<number>(0);
+    const [anchorEl, setAnchorEl] = React.useState<number>(0);
+    const [activeData, setActiveData] = useState<any>();
+    const [itemStyle, setItemStyle] = useState(false);
+    const [profileOpen, setProfileOpen] = React.useState<null | HTMLElement>(
+        null
+    );
 
-    const subNavList = useMemo(() => {
-        return (
-            NavBarDropdowns.find((el) =>
-                location.pathname.includes(`${el.mainPath}`)
-            )?.subMenu ?? NavBarDropdowns[0].subMenu
-        );
-    }, [location]);
+    const [role, setRole] = useState<Props["role"]>("Reception");
+
+    const SelectedNavbarDropDown = NavBarDropdowns[role];
+
+    const changeHeaderTab = useCallback(() => {
+        // navigate(SelectedNavbarDropDown[activeTab]?.dropdown[0]?.path)
+        setActiveData(SelectedNavbarDropDown[activeTab]);
+        if (SelectedNavbarDropDown[activeTab].dropdown?.length === 1) {
+            setItemStyle(true);
+        } else {
+            setItemStyle(false);
+        }
+        setActiveTabHeader(0);
+    }, [SelectedNavbarDropDown, activeTab]);
+
+    const handleClick = (index: number, item: any) => {
+        setAnchorEl(index);
+        setChangeTopTab(index);
+        navigate(item.path as never);
+    };
 
     const isActiveNav = useCallback(
         (path: string) => {
             return location.pathname.includes(path);
         },
         [location]
-    );
-    const [profileOpen, setProfileOpen] = React.useState<null | HTMLElement>(
-        null
     );
 
     const handleLogOut = useCallback(() => {
@@ -59,29 +85,34 @@ const Headers = () => {
 
     return (
         <div className="">
-            <HeaderContainer className=" border-b  border-gray-300 h-[80px]">
+            <HeaderContainer className="h-[76px] border-b border-gray-300">
                 <LeftSection>
                     <div className=" mr-10 ">
                         <LogoSanatarumIcon />
                     </div>
-
                     <nav className="h-[100%]">
-                        {NavBarDropdowns.map((item: any) => {
+                        {NavBarDropdowns[role].map((item, i) => {
                             return (
                                 <React.Fragment key={item.path}>
                                     <Button
                                         id="basic-button"
+                                        aria-controls={
+                                            anchorEl === i
+                                                ? "basic-menu"
+                                                : undefined
+                                        }
                                         aria-haspopup="true"
-                                        onClick={() => {
-                                            navigate(item.path);
-                                        }}
-                                        className={`  rounded-none  px-[20px] h-[100%] text-sm   font-semibold  align-middle   cursor-pointer  normal-case ${
-                                            isActiveNav(item.mainPath)
+                                        aria-expanded={
+                                            anchorEl === i ? "true" : undefined
+                                        }
+                                        onClick={() => handleClick(i, item)}
+                                        className={`rounded-none  px-[20px] h-[100%] text-sm   font-semibold  align-middle   cursor-pointer  normal-case ${
+                                            activeTab === i
                                                 ? "bg-blue-400 text-gray-100"
-                                                : "bg-white  text-gray-700"
+                                                : "bg-white  text-gray-400"
                                         } `}
                                     >
-                                        <Typography className="text-sm  font-medium ">
+                                        <Typography className="text-sm  font-medium  normal-case ">
                                             {item.title}
                                         </Typography>
                                     </Button>
@@ -95,12 +126,10 @@ const Headers = () => {
                         <Button
                             id="fade-button"
                             aria-controls={
-                                Boolean(profileOpen) ? "fade-menu" : undefined
+                                profileOpen ? "fade-menu" : undefined
                             }
                             aria-haspopup="true"
-                            aria-expanded={
-                                Boolean(profileOpen) ? "true" : undefined
-                            }
+                            aria-expanded={profileOpen ? "true" : undefined}
                             onClick={(e) => setProfileOpen(e.currentTarget)}
                         >
                             <Typography
@@ -128,7 +157,6 @@ const Headers = () => {
                     </>
                 </RightSection>
             </HeaderContainer>
-            {/* <HeaderBookingScreenTabs content={subNavList} /> */}
         </div>
     );
 };

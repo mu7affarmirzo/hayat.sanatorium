@@ -1,41 +1,43 @@
-import { LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import BookingScreenTabs, { TabsItem } from 'components/bookingTabs';
-import accounts from './accounts';
-import addPatients from './addPatients';
-import contactAndAccount from './contactAndAccount';
-import doctorOnDuty from './doctorOnDuty';
-import nurseOnDuty from './nurseOnDuty';
-import PatientFirst from './patientFirst/PatientFirst';
-import searchPatient from './searchPatient';
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import BookingScreenTabs, {
+    TabsItem,
+} from "components/Tabs/broneViewTabs/broneTabs";
+import accounts from "./accounts";
+import addPatients from "./addPatients";
+import contactAndAccount from "./contactAndAccount";
+import doctorOnDuty from "./doctorOnDuty";
+import nurseOnDuty from "./nurseOnDuty";
+import PatientFirst from "./myPatient/myPatientTab";
+import searchPatient from "./searchPatient";
 
 const content: TabsItem[] = [
     {
-        title: 'Дежурный врач',
+        title: "Дежурный врач",
         component: doctorOnDuty,
     },
     {
-        title: 'Дежурная медсестра',
+        title: "Дежурная медсестра",
         component: nurseOnDuty,
     },
     {
-        title: 'Мои пациенты',
+        title: "Мои пациенты",
         component: PatientFirst,
     },
     {
-        title: 'Счета',
+        title: "Счета",
         component: accounts,
     },
     {
-        title: 'Договоры и счета',
+        title: "Договоры и счета",
         component: contactAndAccount,
     },
     {
-        title: 'Поиск пациентов',
+        title: "Поиск пациентов",
         component: searchPatient,
     },
     {
-        title: '919/2022 Холматов У.',
+        title: "919/2022 Холматов У.",
         component: addPatients,
     },
 ];
