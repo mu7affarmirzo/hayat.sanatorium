@@ -1,26 +1,16 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 import { BASE_URL } from "./request";
 import { storageService } from "./storageService";
+import { RefreshTokenHandler } from "helper/refreshTokenHandler";
 
 const baseQuery = fetchBaseQuery({
     baseUrl: BASE_URL,
-    prepareHeaders: (headers) => {
+    prepareHeaders: async (headers) => {
         const token = storageService.load("token");
         if (token) {
             headers.set("Authorization", `Bearer ${token}`);
         }
-        // const refreshToken = storageService.load("refreshToken");
-        // if (refreshToken) {
-        //     headers.set("X-Requested-With", "XMLHttpRequest");
-        //     try {
-        //       const response = await yourApiCallToRefreshToken(refreshToken);
-        //       const { accessToken: newAccessToken } = response.data;
-        //       storageService.save("accessToken", newAccessToken);
-        //       headers.set("Authorization", `Bearer ${newAccessToken}`);
-        //     } catch (error) {
-        //       throw error;
-        //     }
-        //   }
+        await RefreshTokenHandler;
         return headers;
     },
 });

@@ -23,6 +23,7 @@ const useLoginHook = () => {
     useEffect(() => {
         if (data) {
             storageService.save("token", data.access);
+            storageService.save("refresh", data.refresh);
             dispatch(loginSuccess(data.access));
         }
     }, [data, dispatch, navigate]);

@@ -14,7 +14,7 @@ export const extendedApiSlice = ApiSlice.injectEndpoints({
         }),
         refreshToken: builder.mutation({
             query: (post) => ({
-                url: "/api/v1/token/refresh/",
+                url: "/token/refresh/",
                 method: "POST",
                 body: post,
             }),
