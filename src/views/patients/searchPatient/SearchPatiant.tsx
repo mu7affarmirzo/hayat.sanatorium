@@ -8,20 +8,13 @@ import DefaultButton from "components/deafultButton/DefaultButton";
 import DefaultInput from "components/defaultInput/DefaultInput";
 import ReceptionTable from "components/receptionTable/ReceptionTable";
 import SearchInput from "components/search/SearchInput";
-import React, { FC } from "react";
+import { FC } from "react";
 import {
     SubmitHandler,
     UseFormHandleSubmit,
     UseFormRegister,
-    useForm,
 } from "react-hook-form";
-
-interface IFormInput {
-    phone: string;
-    email: string;
-    company: string;
-    manager: string;
-}
+import { IFormInput, useSearchpatientHook } from "./hook";
 
 const top100Films = [
     { label: "The Shawshank Redemption", year: 1994 },
@@ -31,191 +24,6 @@ const top100Films = [
     { label: "12 Angry Men", year: 1957 },
     { label: "Schindler's List", year: 1993 },
     { label: "Pulp Fiction", year: 1994 },
-];
-
-const rowData = [
-    {
-        number: "776/2023",
-        name: "Choriyev Muzaffar",
-        Age: "30",
-        roomNumber: "311(Корпус1)",
-        mainDiagnos: "",
-        doctor: "Сулаймонов С.А.",
-        dateArrival: "10.06.2023",
-        dateLeave: "17.06.2023",
-    },
-    {
-        number: "776/2023",
-        name: "Choriyev Muzaffar",
-        Age: "30",
-        roomNumber: "311(Корпус1)",
-        mainDiagnos: "",
-        doctor: "Сулаймонов С.А.",
-        dateArrival: "10.06.2023",
-        dateLeave: "17.06.2023",
-    },
-    {
-        number: "776/2023",
-        name: "Choriyev Muzaffar",
-        Age: "30",
-        roomNumber: "311(Корпус1)",
-        mainDiagnos: "",
-        doctor: "Сулаймонов С.А.",
-        dateArrival: "10.06.2023",
-        dateLeave: "17.06.2023",
-    },
-    {
-        number: "776/2023",
-        name: "Choriyev Muzaffar",
-        Age: "30",
-        roomNumber: "311(Корпус1)",
-        mainDiagnos: "",
-        doctor: "Сулаймонов С.А.",
-        dateArrival: "10.06.2023",
-        dateLeave: "17.06.2023",
-    },
-    {
-        number: "776/2023",
-        name: "Choriyev Muzaffar",
-        Age: "30",
-        roomNumber: "311(Корпус1)",
-        mainDiagnos: "",
-        doctor: "Сулаймонов С.А.",
-        dateArrival: "10.06.2023",
-        dateLeave: "17.06.2023",
-    },
-    {
-        number: "776/2023",
-        name: "Choriyev Muzaffar",
-        Age: "30",
-        roomNumber: "311(Корпус1)",
-        mainDiagnos: "",
-        doctor: "Сулаймонов С.А.",
-        dateArrival: "10.06.2023",
-        dateLeave: "17.06.2023",
-    },
-    {
-        number: "776/2023",
-        name: "Choriyev Muzaffar",
-        Age: "30",
-        roomNumber: "311(Корпус1)",
-        mainDiagnos: "",
-        doctor: "Сулаймонов С.А.",
-        dateArrival: "10.06.2023",
-        dateLeave: "17.06.2023",
-    },
-    {
-        number: "776/2023",
-        name: "Choriyev Muzaffar",
-        Age: "30",
-        roomNumber: "311(Корпус1)",
-        mainDiagnos: "",
-        doctor: "Сулаймонов С.А.",
-        dateArrival: "10.06.2023",
-        dateLeave: "17.06.2023",
-    },
-    {
-        number: "776/2023",
-        name: "Choriyev Muzaffar",
-        Age: "30",
-        roomNumber: "311(Корпус1)",
-        mainDiagnos: "",
-        doctor: "Сулаймонов С.А.",
-        dateArrival: "10.06.2023",
-        dateLeave: "17.06.2023",
-    },
-    {
-        number: "776/2023",
-        name: "Choriyev Muzaffar",
-        Age: "30",
-        roomNumber: "311(Корпус1)",
-        mainDiagnos: "",
-        dateArrival: "10.06.2023",
-        dateLeave: "17.06.2023",
-    },
-    {
-        number: "776/2023",
-        name: "Choriyev Muzaffar",
-        Age: "30",
-        roomNumber: "311(Корпус1)",
-        mainDiagnos: "",
-        dateArrival: "10.06.2023",
-        dateLeave: "17.06.2023",
-    },
-    {
-        number: "776/2023",
-        name: "Choriyev Muzaffar",
-        Age: "30",
-        roomNumber: "311(Корпус1)",
-        mainDiagnos: "",
-        dateArrival: "10.06.2023",
-        dateLeave: "17.06.2023",
-    },
-    {
-        number: "776/2023",
-        name: "Choriyev Muzaffar",
-        Age: "30",
-        roomNumber: "311(Корпус1)",
-        mainDiagnos: "",
-        dateArrival: "10.06.2023",
-        dateLeave: "17.06.2023",
-    },
-    {
-        number: "776/2023",
-        name: "Choriyev Muzaffar",
-        Age: "30",
-        roomNumber: "311(Корпус1)",
-        mainDiagnos: "",
-        dateArrival: "10.06.2023",
-        dateLeave: "17.06.2023",
-    },
-    {
-        number: "776/2023",
-        name: "Choriyev Muzaffar",
-        Age: "30",
-        roomNumber: "311(Корпус1)",
-        mainDiagnos: "",
-        dateArrival: "10.06.2023",
-        dateLeave: "17.06.2023",
-    },
-
-    {
-        number: "776/2023",
-        name: "Choriyev Muzaffar",
-        Age: "30",
-        roomNumber: "311(Корпус1)",
-        mainDiagnos: "",
-        dateArrival: "10.06.2023",
-        dateLeave: "17.06.2023",
-    },
-    {
-        number: "776/2023",
-        name: "Choriyev Muzaffar",
-        Age: "30",
-        roomNumber: "311(Корпус1)",
-        mainDiagnos: "",
-        doctor: "Сулаймонов С.А.",
-        dateArrival: "10.06.2023",
-        dateLeave: "17.06.2023",
-    },
-    {
-        number: "776/2023",
-        name: "Choriyev Muzaffar",
-        Age: "30",
-        roomNumber: "311(Корпус1)",
-        mainDiagnos: "",
-        dateArrival: "10.06.2023",
-        dateLeave: "17.06.2023",
-    },
-    {
-        number: "776/2023",
-        name: "Choriyev Muzaffar",
-        Age: "30",
-        roomNumber: "311(Корпус1)",
-        mainDiagnos: "",
-        dateArrival: "10.06.2023",
-        dateLeave: "17.06.2023",
-    },
 ];
 
 interface Props {
@@ -237,17 +45,17 @@ const TopAccordionBox: FC<Props> = ({ handleSubmit, onSubmit, register }) => {
                 >
                     <DefaultInput
                         placeholder="ФИО пациента"
-                        inputType={"string"}
+                        inputType={"name"}
                         register={register}
                     />
                     <DefaultInput
                         placeholder="№ Истории"
-                        inputType={"string"}
+                        inputType={"historyIB"}
                         register={register}
                     />
                     <DefaultInput
                         placeholder="Тип карты"
-                        inputType={"string"}
+                        inputType={"cardType"}
                         register={register}
                     />
                 </form>
@@ -305,17 +113,23 @@ const BottomAccordionBox = () => {
 };
 
 const SearchPatiant = () => {
-    const { register, handleSubmit } = useForm<IFormInput>();
-    const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
+    const {
+        myPatientData,
+        handleSearch,
+        NumberOfPatient,
+        handleSubmit,
+        register,
+        onSubmit,
+    } = useSearchpatientHook();
 
     return (
-        <Grid className="" container>
+        <Grid container>
             <TopAccordionBox
                 handleSubmit={handleSubmit}
                 onSubmit={onSubmit}
                 register={register}
             />
-            <BottomAccordionBox />
+            {/* <BottomAccordionBox /> */}
             <Grid
                 item
                 xs={12}
@@ -329,10 +143,13 @@ const SearchPatiant = () => {
                     className=" flex items-center gap-[30px]"
                 >
                     <Typography className="text-[#8d8c8c] ">
-                        Найдено записей: 373
+                        Найдено записей: {NumberOfPatient}
                     </Typography>
                     <Box className="w-[70%]">
-                        <SearchInput placeholder="Искать в таблице" />
+                        <SearchInput
+                            placeholder="Искать в таблице"
+                            onChange={handleSearch}
+                        />
                     </Box>
                 </Grid>
                 <Grid item xs={12} md={4} className="flex justify-between">
@@ -357,7 +174,7 @@ const SearchPatiant = () => {
             >
                 <ReceptionTable
                     columnDefs={BookedPatientSearch}
-                    rowData={rowData}
+                    rowData={myPatientData}
                     height="h-[65vh]"
                 />
             </Grid>
