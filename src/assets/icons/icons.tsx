@@ -1,4 +1,4 @@
-import { SvgProps } from '../../types/types';
+import { SvgProps } from "../../types/types";
 
 export const PrentIcon = (props: SvgProps) => {
     return (
@@ -100,7 +100,7 @@ export const RefreshIcon = (props: SvgProps) => {
         >
             <path
                 d="M8.25 1.5L9.75 2.99659L9.70563 3.04106M9.75 13.5L8.25 14.9331L8.27224 14.9563M9.70563 3.04106L8.25 4.5M9.70563 3.04106C9.47419 3.01394 9.23872 3 9 3C5.68629 3 3 5.68629 3 9C3 10.8948 3.87831 12.5844 5.25 13.684M12.75 4.31597C14.1217 5.41556 15 7.10521 15 9C15 12.3137 12.3137 15 9 15C8.75366 15 8.5108 14.9852 8.27224 14.9563M9.75 16.5L8.27224 14.9563"
-                stroke={props.stroke ? props.stroke : 'white'}
+                stroke={props.stroke ? props.stroke : "white"}
                 strokeWidth="1.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -198,7 +198,7 @@ export const FileIcon = (props: SvgProps) => {
         >
             <path
                 d="M19 9V17.8C19 18.9201 19 19.4802 18.782 19.908C18.5903 20.2843 18.2843 20.5903 17.908 20.782C17.4802 21 16.9201 21 15.8 21H8.2C7.07989 21 6.51984 21 6.09202 20.782C5.71569 20.5903 5.40973 20.2843 5.21799 19.908C5 19.4802 5 18.9201 5 17.8V6.2C5 5.07989 5 4.51984 5.21799 4.09202C5.40973 3.71569 5.71569 3.40973 6.09202 3.21799C6.51984 3 7.0799 3 8.2 3H13M19 9L13 3M19 9H14C13.4477 9 13 8.55228 13 8V3"
-                stroke={props.stroke ? props.stroke : 'black'}
+                stroke={props.stroke ? props.stroke : "black"}
                 strokeOpacity="0.38"
                 strokeWidth="1.5"
                 strokeLinecap="round"
@@ -518,7 +518,7 @@ export const CalendarChackIcon = (props: SvgProps) => {
         >
             <path
                 d="M2.25 6.75H15.75M6.75 11.25L8.25 12.75L11.25 9.75M5.25 2.25V3.75M12.75 2.25V3.75M4.65 15.75H13.35C14.1901 15.75 14.6101 15.75 14.931 15.5865C15.2132 15.4427 15.4427 15.2132 15.5865 14.931C15.75 14.6101 15.75 14.1901 15.75 13.35V6.15C15.75 5.30992 15.75 4.88988 15.5865 4.56901C15.4427 4.28677 15.2132 4.0573 14.931 3.91349C14.6101 3.75 14.1901 3.75 13.35 3.75H4.65C3.80992 3.75 3.38988 3.75 3.06901 3.91349C2.78677 4.0573 2.5573 4.28677 2.41349 4.56901C2.25 4.88988 2.25 5.30992 2.25 6.15V13.35C2.25 14.1901 2.25 14.6101 2.41349 14.931C2.5573 15.2132 2.78677 15.4427 3.06901 15.5865C3.38988 15.75 3.80992 15.75 4.65 15.75Z"
-                stroke={props.stroke || '#fff'}
+                stroke={props.stroke || "#fff"}
                 strokeWidth="1.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -537,8 +537,8 @@ export const SearchAltIcon = (props: SvgProps) => {
         >
             <path
                 d="M12.5044 12.4809L15.75 15.75M14.25 8.25C14.25 11.5637 11.5637 14.25 8.25 14.25C4.93629 14.25 2.25 11.5637 2.25 8.25C2.25 4.93629 4.93629 2.25 8.25 2.25C11.5637 2.25 14.25 4.93629 14.25 8.25Z"
-                stroke={props.stroke || '#fff'}
-                strokeOpacity={props.strokeOpasity || '0.87'}
+                stroke={props.stroke || "#fff"}
+                strokeOpacity={props.strokeOpasity || "0.87"}
                 strokeWidth="1.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -559,7 +559,7 @@ export const CalendarIcon = (props: SvgProps) => {
             <g>
                 <g>
                     <path
-                        stroke={props.stroke || '#fff'}
+                        stroke={props.stroke || "#fff"}
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         strokeMiterlimit="10"
@@ -567,7 +567,7 @@ export const CalendarIcon = (props: SvgProps) => {
                         d="M8 2v3"
                     ></path>
                     <path
-                        stroke={props.stroke || '#fff'}
+                        stroke={props.stroke || "#fff"}
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         strokeMiterlimit="10"
@@ -575,7 +575,7 @@ export const CalendarIcon = (props: SvgProps) => {
                         d="M16 2v3"
                     ></path>
                     <path
-                        stroke={props.stroke || '#fff'}
+                        stroke={props.stroke || "#fff"}
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         strokeMiterlimit="10"
@@ -583,7 +583,7 @@ export const CalendarIcon = (props: SvgProps) => {
                         d="M16 3.5c3.33.18 5 1.45 5 6.15v6.18c0 4.12-1 6.18-6 6.18H9c-5 0-6-2.06-6-6.18V9.65c0-4.7 1.67-5.96 5-6.15h8z"
                     ></path>
                     <path
-                        stroke={props.stroke || '#fff'}
+                        stroke={props.stroke || "#fff"}
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         strokeMiterlimit="10"
@@ -591,7 +591,7 @@ export const CalendarIcon = (props: SvgProps) => {
                         d="M20.75 17.6H3.25"
                     ></path>
                     <path
-                        fill={props.fill || '#fff'}
+                        fill={props.fill || "#fff"}
                         d="M12 8.25c-1.23 0-2.27.67-2.27 1.97 0 .62.29 1.09.73 1.39-.61.36-.96.94-.96 1.62 0 1.24.95 2.01 2.5 2.01 1.54 0 2.5-.77 2.5-2.01 0-.68-.35-1.27-.97-1.62.45-.31.73-.77.73-1.39 0-1.3-1.03-1.97-2.26-1.97zm0 2.84c-.52 0-.9-.31-.9-.8 0-.5.38-.79.9-.79s.9.29.9.79c0 .49-.38.8-.9.8zM12 14c-.66 0-1.14-.33-1.14-.93 0-.6.48-.92 1.14-.92.66 0 1.14.33 1.14.92 0 .6-.48.93-1.14.93z"
                     ></path>
                 </g>
@@ -611,7 +611,7 @@ export const MonayBillIcon = (props: SvgProps) => {
         >
             <g>
                 <path
-                    stroke={props.stroke || '#000'}
+                    stroke={props.stroke || "#000"}
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeOpacity="0.87"
@@ -657,7 +657,7 @@ export const UserLockIcon = (props: SvgProps) => {
         >
             <g>
                 <path
-                    stroke={props.stroke || '#000'}
+                    stroke={props.stroke || "#000"}
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeOpacity="0.87"
@@ -680,7 +680,7 @@ export const SuitCaseIcon = (props: SvgProps) => {
         >
             <g>
                 <path
-                    stroke={props.stroke || '#000'}
+                    stroke={props.stroke || "#000"}
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeOpacity="0.87"
@@ -703,7 +703,7 @@ export const MoneyChackIcon = (props: SvgProps) => {
         >
             <g>
                 <path
-                    stroke={props.stroke || '#000'}
+                    stroke={props.stroke || "#000"}
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeOpacity="0.87"
@@ -719,14 +719,14 @@ export const SearchIcon = (props: SvgProps) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width={props.width ? props.width : '24px'}
+            width={props.width ? props.width : "24px"}
             height="24"
             fill="none"
             viewBox="0 0 24 24"
         >
             <g>
                 <g
-                    stroke={props.stroke || '#000'}
+                    stroke={props.stroke || "#000"}
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="1.5"
@@ -750,7 +750,7 @@ export const GridSearchIcon = (props: SvgProps) => {
         >
             <g>
                 <path
-                    stroke={props.stroke || '#000'}
+                    stroke={props.stroke || "#000"}
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeOpacity="0.87"
@@ -772,7 +772,7 @@ export const AirplaneIcon = (props: SvgProps) => {
             viewBox="0 0 24 24"
         >
             <path
-                stroke={props.stroke || '#000'}
+                stroke={props.stroke || "#000"}
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="1.5"
@@ -792,7 +792,7 @@ export const CloseIcon = (props: SvgProps) => {
         >
             <path
                 d="M4.5 4.5L13.5 13.5M13.5 4.5L4.5 13.5"
-                stroke={props.stroke ? props.stroke : 'black'}
+                stroke={props.stroke ? props.stroke : "black"}
                 strokeOpacity="0.87"
                 strokeWidth="1.5"
                 strokeLinecap="round"
@@ -920,7 +920,7 @@ export const MoneyBillIcon = (props: SvgProps) => {
         >
             <path
                 d="M5.82333 6.00037C6.2383 6.36683 6.5 6.90285 6.5 7.5C6.5 8.60457 5.60457 9.5 4.5 9.5C3.90285 9.5 3.36683 9.2383 3.00037 8.82333M5.82333 6.00037C5.94144 6 6.06676 6 6.2 6H17.8C17.9332 6 18.0586 6 18.1767 6.00037M5.82333 6.00037C4.94852 6.00308 4.46895 6.02593 4.09202 6.21799C3.71569 6.40973 3.40973 6.71569 3.21799 7.09202C3.02593 7.46895 3.00308 7.94852 3.00037 8.82333M3.00037 8.82333C3 8.94144 3 9.06676 3 9.2V14.8C3 14.9332 3 15.0586 3.00037 15.1767M3.00037 15.1767C3.36683 14.7617 3.90285 14.5 4.5 14.5C5.60457 14.5 6.5 15.3954 6.5 16.5C6.5 17.0971 6.2383 17.6332 5.82333 17.9996M3.00037 15.1767C3.00308 16.0515 3.02593 16.531 3.21799 16.908C3.40973 17.2843 3.71569 17.5903 4.09202 17.782C4.46895 17.9741 4.94852 17.9969 5.82333 17.9996M5.82333 17.9996C5.94144 18 6.06676 18 6.2 18H17.8C17.9332 18 18.0586 18 18.1767 17.9996M21 15.1771C20.6335 14.7619 20.0973 14.5 19.5 14.5C18.3954 14.5 17.5 15.3954 17.5 16.5C17.5 17.0971 17.7617 17.6332 18.1767 17.9996M21 15.1771C21.0004 15.0589 21 14.9334 21 14.8V9.2C21 9.06676 21 8.94144 20.9996 8.82333M21 15.1771C20.9973 16.0516 20.974 16.5311 20.782 16.908C20.5903 17.2843 20.2843 17.5903 19.908 17.782C19.5311 17.9741 19.0515 17.9969 18.1767 17.9996M20.9996 8.82333C20.6332 9.2383 20.0971 9.5 19.5 9.5C18.3954 9.5 17.5 8.60457 17.5 7.5C17.5 6.90285 17.7617 6.36683 18.1767 6.00037M20.9996 8.82333C20.9969 7.94852 20.9741 7.46895 20.782 7.09202C20.5903 6.71569 20.2843 6.40973 19.908 6.21799C19.5311 6.02593 19.0515 6.00308 18.1767 6.00037M14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12Z"
-                stroke={props.stroke ? props.stroke : 'black'}
+                stroke={props.stroke ? props.stroke : "black"}
                 strokeLinecap="round"
                 strokeLinejoin="round"
             />
@@ -956,7 +956,7 @@ export const MonnStarsIcon = (props: SvgProps) => {
         >
             <path
                 d="M9.75 4.5V2.25M13.875 9V5.25M10.875 3.375H8.625M15.75 7.125H12M11.6661 12.6113C12.5872 12.6113 13.462 12.4129 14.25 12.0565C13.265 14.2345 11.0732 15.75 8.52739 15.75C5.06048 15.75 2.25 12.9395 2.25 9.47261C2.25 6.92682 3.76546 4.73498 5.94346 3.75C5.58708 4.53804 5.38869 5.41281 5.38869 6.33392C5.38869 9.80083 8.19917 12.6113 11.6661 12.6113Z"
-                stroke={props.stroke ? props.stroke : 'black'}
+                stroke={props.stroke ? props.stroke : "black"}
                 strokeWidth="1.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -973,7 +973,7 @@ export const LogoSanatarumIcon = (props: SvgProps) => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
         >
-            <g clip-path="url(#clip0_1019_3779)">
+            <g clipPath="url(#clip0_1019_3779)">
                 <path
                     fillRule="evenodd"
                     clipRule="evenodd"
@@ -1101,7 +1101,7 @@ export const VuesaxLinearPrinterIcon = (props: SvgProps) => {
         >
             <path
                 d="M5.4375 5.25H12.5625V3.75C12.5625 2.25 12 1.5 10.3125 1.5H7.6875C6 1.5 5.4375 2.25 5.4375 3.75V5.25Z"
-                stroke={props.stroke ? props.stroke : 'white'}
+                stroke={props.stroke ? props.stroke : "white"}
                 strokeWidth="1.5"
                 strokeMiterlimit="10"
                 strokeLinecap="round"
@@ -1109,7 +1109,7 @@ export const VuesaxLinearPrinterIcon = (props: SvgProps) => {
             />
             <path
                 d="M12 11.25V14.25C12 15.75 11.25 16.5 9.75 16.5H8.25C6.75 16.5 6 15.75 6 14.25V11.25H12Z"
-                stroke={props.stroke ? props.stroke : 'white'}
+                stroke={props.stroke ? props.stroke : "white"}
                 strokeWidth="1.5"
                 strokeMiterlimit="10"
                 strokeLinecap="round"
@@ -1117,7 +1117,7 @@ export const VuesaxLinearPrinterIcon = (props: SvgProps) => {
             />
             <path
                 d="M15.75 7.5V11.25C15.75 12.75 15 13.5 13.5 13.5H12V11.25H6V13.5H4.5C3 13.5 2.25 12.75 2.25 11.25V7.5C2.25 6 3 5.25 4.5 5.25H13.5C15 5.25 15.75 6 15.75 7.5Z"
-                stroke={props.stroke ? props.stroke : 'white'}
+                stroke={props.stroke ? props.stroke : "white"}
                 strokeWidth="1.5"
                 strokeMiterlimit="10"
                 strokeLinecap="round"
@@ -1125,7 +1125,7 @@ export const VuesaxLinearPrinterIcon = (props: SvgProps) => {
             />
             <path
                 d="M12.75 11.25H11.8425H5.25"
-                stroke={props.stroke ? props.stroke : 'white'}
+                stroke={props.stroke ? props.stroke : "white"}
                 strokeWidth="1.5"
                 strokeMiterlimit="10"
                 strokeLinecap="round"
@@ -1133,7 +1133,7 @@ export const VuesaxLinearPrinterIcon = (props: SvgProps) => {
             />
             <path
                 d="M5.25 8.25H7.5"
-                stroke={props.stroke ? props.stroke : 'white'}
+                stroke={props.stroke ? props.stroke : "white"}
                 strokeWidth="1.5"
                 strokeMiterlimit="10"
                 strokeLinecap="round"
@@ -1181,7 +1181,7 @@ export const CoinsAltIcon = (props: SvgProps) => {
         >
             <path
                 d="M14 10.5C14 11.8807 11.7614 13 9 13C6.23858 13 4 11.8807 4 10.5M14 10.5C14 9.11929 11.7614 8 9 8C6.23858 8 4 9.11929 4 10.5M14 10.5V14.5M4 10.5V14.5M20 5.5C20 4.11929 17.7614 3 15 3C13.0209 3 11.3104 3.57493 10.5 4.40897M20 5.5C20 6.42535 18.9945 7.23328 17.5 7.66554M20 5.5V14C20 14.7403 18.9945 15.3866 17.5 15.7324M20 10C20 10.7567 18.9495 11.4152 17.3999 11.755M14 14.5C14 15.8807 11.7614 17 9 17C6.23858 17 4 15.8807 4 14.5M14 14.5V18.5C14 19.8807 11.7614 21 9 21C6.23858 21 4 19.8807 4 18.5V14.5"
-                stroke={props.stroke ? props.stroke : 'black'}
+                stroke={props.stroke ? props.stroke : "black"}
                 strokeOpacity="0.87"
                 strokeWidth="1.5"
                 strokeLinecap="round"
@@ -1267,7 +1267,7 @@ export const CaretRightDownIcon2 = (props: SvgProps) => {
         >
             <path
                 d="M11.1343 5.86569L5.3804 11.6196C4.95203 12.048 4.73784 12.2622 4.72336 12.4461C4.71081 12.6056 4.77539 12.7615 4.8971 12.8655C5.03736 12.9853 5.34027 12.9853 5.94609 12.9853L11.7 12.9853C11.98 12.9853 12.12 12.9853 12.227 12.9308C12.3211 12.8829 12.3976 12.8064 12.4455 12.7123C12.5 12.6053 12.5 12.4653 12.5 12.1853L12.5 6.43137C12.5 5.82556 12.5 5.52265 12.3802 5.38238C12.2763 5.26068 12.1203 5.19609 11.9608 5.20865C11.7769 5.22312 11.5627 5.43731 11.1343 5.86569Z"
-                fill={props.stroke ? props.stroke : 'black'}
+                fill={props.stroke ? props.stroke : "black"}
                 fill-opacity="0.54"
             />
         </svg>
@@ -1660,7 +1660,7 @@ export const NavigationAppIcon = (props: SvgProps) => {
             viewBox="0 0 19 18"
             fill="none"
         >
-            <g clip-path="url(#clip0_5205_21654)">
+            <g clipPath="url(#clip0_5205_21654)">
                 <path
                     d="M3.33301 6H6.33301V3H3.33301V6ZM7.83301 15H10.833V12H7.83301V15ZM3.33301 15H6.33301V12H3.33301V15ZM3.33301 10.5H6.33301V7.5H3.33301L3.33301 10.5ZM7.83301 10.5H10.833V7.5H7.83301V10.5ZM12.333 3V6H15.333V3H12.333ZM7.83301 6H10.833V3L7.83301 3V6ZM12.333 10.5H15.333V7.5H12.333V10.5ZM12.333 15H15.333V12H12.333V15Z"
                     fill="black"

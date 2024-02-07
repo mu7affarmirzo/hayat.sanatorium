@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { storageService } from "features/api/storageService";
 import { loginSuccess } from "features/login/AuthSlice";
 import { useLoginMutation } from "features/login/authService";
@@ -5,6 +6,7 @@ import { useReduxDispatch } from "hooks/useReduxHook";
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ILoginState } from "types/authTypes";
+import { jwtDecode, JwtPayload } from "jwt-decode";
 
 const useLoginHook = () => {
     const [fetchLogin, { isError, data, isSuccess, isLoading }] =
@@ -20,11 +22,21 @@ const useLoginHook = () => {
         rememberMe: false,
     });
 
+    const parseJwt = (token: string) => {
+        try {
+            return JSON.parse(atob(token.split(".")[1]));
+        } catch (e) {
+            return null;
+        }
+    };
+
     useEffect(() => {
         if (data) {
             storageService.save("token", data.access);
             storageService.save("refresh", data.refresh);
+            console.log(parseJwt(data.access).user_role, "decode accses");
             dispatch(loginSuccess(data.access));
+            console.log(data.access, "accses token ");
         }
     }, [data, dispatch, navigate]);
 

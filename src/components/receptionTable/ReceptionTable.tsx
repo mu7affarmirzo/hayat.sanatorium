@@ -13,6 +13,7 @@ type propsType = {
 
 const ReceptionTable = (props: propsType) => {
     const dispatch = useReduxDispatch();
+
     const handleRowClick = useCallback(
         (event: RowClickedEvent) => {
             dispatch(

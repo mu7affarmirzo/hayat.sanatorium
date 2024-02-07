@@ -21,7 +21,6 @@ const BookedView = () => {
                 title: item.name,
                 component: addMedicalHistory,
             })) || [];
-
         return [bookedTab, ...broneItems];
     }, [broneData]);
 

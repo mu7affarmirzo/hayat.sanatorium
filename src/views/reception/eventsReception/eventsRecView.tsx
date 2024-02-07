@@ -1,5 +1,7 @@
+import EventsView from "views/events/EventsView";
+
 const EventsReceptionView = () => {
-    return <h1>Events Recaption View </h1>;
+    return <EventsView />;
 };
 
 export default EventsReceptionView;

@@ -1,7 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { useReduxSelector } from "hooks/useReduxHook";
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { RoutingData } from "./router";
 import Headers from "components/header/header";
 
@@ -10,12 +11,12 @@ export const MainContainer = styled.div`
 `;
 
 type Props = {
-    role: "NoAuth" | "Reception" | "Doctors";
+    role: "NoAuth" | "Reception" | "Doctors" | "404";
 };
 
 const AppRouting = () => {
     const navigate = useNavigate();
-    const [role, setRole] = useState<Props["role"]>("Reception");
+    const [role, setRole] = useState<Props["role"]>("NoAuth");
     const [changeTopTab, setChangeTopTab] = React.useState<number>(0);
 
     const { isAuthenticated } = useReduxSelector(

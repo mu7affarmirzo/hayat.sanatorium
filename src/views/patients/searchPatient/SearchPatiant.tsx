@@ -219,7 +219,7 @@ const rowData = [
 ];
 
 interface Props {
-    handleSubmit: UseFormHandleSubmit<IFormInput, undefined>;
+    handleSubmit: UseFormHandleSubmit<IFormInput, any>;
     onSubmit: SubmitHandler<IFormInput>;
     register: UseFormRegister<IFormInput>;
 }

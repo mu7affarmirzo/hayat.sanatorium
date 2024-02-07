@@ -1,7 +1,7 @@
 const BookedReceptionView = () => {
     return (
-        <div className="w-[100%] ">
-            <h1>Booked Reception View </h1>
+        <div className=" w-full  h-full  relative">
+            <h1>Hello</h1>
         </div>
     );
 };

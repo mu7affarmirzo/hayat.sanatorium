@@ -6,6 +6,8 @@ import LoginView from "views/auth/LoginView";
 import Patientreception from "views/reception/patientReception";
 import EventsReception from "views/reception/eventsReception";
 import DispatchingReception from "views/reception/dispatchingReception";
+import NotFoundView from "views/NotFound/notFound";
+import BookedView from "views/booked/BookedView";
 
 type IRouting = {
     path: string;
@@ -24,6 +26,7 @@ export const RoutingData: MyGroupType = {
             component: <LoginView />,
         },
     ],
+
     Reception: [
         {
             path: "reception",
@@ -31,7 +34,7 @@ export const RoutingData: MyGroupType = {
         },
         {
             path: "reception/booked",
-            component: <BookedReception />,
+            component: <BookedView />,
         },
         {
             path: "reception/patients",
@@ -46,6 +49,7 @@ export const RoutingData: MyGroupType = {
             component: <DispatchingReception />,
         },
     ],
+
     Doctors: [
         {
             path: "/doctors",
@@ -57,6 +61,14 @@ export const RoutingData: MyGroupType = {
             component: <BookedDoctors />,
         },
     ],
+
+    404: [
+        {
+            path: "/404",
+            component: <NotFoundView />,
+        },
+    ],
+
     Nurses: [],
     ProcedureWorkers: [],
 };

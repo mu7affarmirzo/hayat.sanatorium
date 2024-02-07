@@ -1,5 +1,7 @@
+import DispatchingView from "views/dispatching/DispatchingView";
+
 const DispatchingReceptionView = () => {
-    return <h1>Dispatching Recaption View </h1>;
+    return <DispatchingView />;
 };
 
 export default DispatchingReceptionView;

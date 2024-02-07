@@ -1,5 +1,4 @@
 import { ColDef } from "ag-grid-community";
-import "ag-grid-enterprise";
 import { AgGridReact } from "ag-grid-react";
 import { useRef } from "react";
 import { rowData2 } from "./MockData";

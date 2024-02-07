@@ -8,11 +8,13 @@ import DefaultInput from "components/defaultInput/DefaultInput";
 import DefaultText from "components/defaultText/DefaultText";
 import ReceptionTable from "components/receptionTable/ReceptionTable";
 import SearchInput from "components/search/SearchInput";
+
 import {
     UseFormHandleSubmit,
     UseFormRegister,
     SubmitHandler,
 } from "react-hook-form";
+
 import React from "react";
 import useBookedHook, { IFormInput } from "./hook";
 import { GetIBSTypes } from "types/booked";
@@ -28,7 +30,7 @@ const top100Films = [
 ];
 
 interface BookedTopSecTypes {
-    handleSubmit: UseFormHandleSubmit<IFormInput, undefined>;
+    handleSubmit: UseFormHandleSubmit<IFormInput, any>;
     onSubmit: SubmitHandler<IFormInput>;
     register: UseFormRegister<IFormInput>;
 }
@@ -99,24 +101,25 @@ const BookedViewTableSection = ({
                 item
                 xs={12}
                 md={12}
-                className="flex justify-between items-center  "
+                className="flex flex-col justify-between bg-[#eeeeee] p-3 "
             >
                 <DefaultText style="text-[16px]  font-normal text-[#000] ">
                     Найдено записей: 1
                 </DefaultText>
+                <Grid item xs={12} md={12} className="mt-[10px]  my-2">
+                    <SearchInput
+                        placeholder="Искать в таблице"
+                        onChange={onChangeSearch}
+                        searchValue={searchValue}
+                    />
+                </Grid>
             </Grid>
-            <Grid item xs={12} md={12} className="mt-[10px] bg-[#F5F5F5] ">
-                <SearchInput
-                    placeholder="Искать в таблице"
-                    onChange={onChangeSearch}
-                    searchValue={searchValue}
-                />
-            </Grid>
+
             <Grid item xs={12} md={12} className=" bg-[#F5F5F5]">
                 <ReceptionTableMemoized
                     columnDefs={BookedCol}
                     rowData={rowData}
-                    height="h-[65vh]"
+                    height="h-[70vh]"
                 />
             </Grid>
         </Grid>

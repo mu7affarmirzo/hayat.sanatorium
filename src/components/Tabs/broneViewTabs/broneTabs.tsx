@@ -37,7 +37,7 @@ const BroneViewTabs: FC<TabsProps> = ({ content }) => {
 
     return (
         <Box className=" w-full ">
-            <Box className="flex  flex-row  gap-1  border-b-[1px] border-[rgba(0, 0, 0, 1)]  ">
+            <Box className="flex flex-row gap-1 border-b-[1px] border-[rgba(0, 0, 0, 1)]  ">
                 {content.map((item, index) => {
                     return (
                         <Box key={index}>
@@ -45,10 +45,10 @@ const BroneViewTabs: FC<TabsProps> = ({ content }) => {
                                 index={index}
                                 Icon={item?.icon}
                                 title={item?.title}
-                                subTitle={item?.subTitle}
                                 activeTab={activeTab}
-                                onClick={() => handleActiveTab(index)}
+                                subTitle={item?.subTitle}
                                 handleCloseBtn={removeActiveIB}
+                                onClick={() => handleActiveTab(index)}
                             />
                         </Box>
                     );

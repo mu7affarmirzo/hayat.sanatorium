@@ -10,8 +10,8 @@ export const RefreshTokenHandler = async () => {
         try {
             const response = await fetchRefresh(refreshToken);
             console.log(response, "refresh toeken res ");
-            //   const newAccessToken = response;
-            //   storageService.save('accessToken', newAccessToken);
+            const newAccessToken = response;
+            storageService.save("accessToken", newAccessToken);
         } catch (error) {
             throw error;
         }

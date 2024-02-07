@@ -4,7 +4,7 @@ export const extendedApiSlice = ApiSlice.injectEndpoints({
     endpoints: (builder) => ({
         login: builder.mutation({
             query: (post) => ({
-                url: "/token/",
+                url: "/account/custom-login/",
                 method: "POST",
                 body: post,
                 headers: {

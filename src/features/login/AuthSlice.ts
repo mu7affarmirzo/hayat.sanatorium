@@ -3,11 +3,13 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 interface AuthState {
     token: string | null;
     isAuthenticated: boolean;
+    role: any | null;
 }
 
 const initialState: AuthState = {
     token: null,
     isAuthenticated: false,
+    role: null,
 };
 
 const authSlice = createSlice({
