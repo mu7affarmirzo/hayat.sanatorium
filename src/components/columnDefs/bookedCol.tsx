@@ -184,8 +184,8 @@ export const BookedPatiant: ColDef[] = [
     },
     {
         headerName: "",
-        field: "",
-        width: 67,
+        field: "cito",
+        width: 110,
         cellStyle: {
             display: "flex",
             alignItems: "center",
@@ -196,7 +196,7 @@ export const BookedPatiant: ColDef[] = [
     },
     {
         headerName: "№",
-        field: "number",
+        field: "",
         width: 120,
         cellStyle: {
             display: "flex",
@@ -208,7 +208,7 @@ export const BookedPatiant: ColDef[] = [
     },
     {
         headerName: "Пациент",
-        field: "name",
+        field: "no",
         width: 250,
         cellStyle: {
             display: "flex",
@@ -221,7 +221,7 @@ export const BookedPatiant: ColDef[] = [
     },
     {
         headerName: "Возраст",
-        field: "Age",
+        field: "age",
         width: 100,
         cellStyle: {
             display: "flex",
@@ -233,7 +233,7 @@ export const BookedPatiant: ColDef[] = [
     },
     {
         headerName: "Комната",
-        field: "roomNumber",
+        field: "room",
         width: 200,
         cellStyle: {
             display: "flex",
@@ -245,7 +245,7 @@ export const BookedPatiant: ColDef[] = [
     },
     {
         headerName: "Основной диагноз",
-        field: "mainDiagnos",
+        field: "diagnosis",
         width: 550,
         cellStyle: {
             display: "flex",
@@ -257,7 +257,7 @@ export const BookedPatiant: ColDef[] = [
     },
     {
         headerName: "Дата приезда",
-        field: "dateArrival",
+        field: "start_date",
         width: 140,
         cellStyle: {
             display: "flex",
@@ -269,7 +269,7 @@ export const BookedPatiant: ColDef[] = [
     },
     {
         headerName: "Дата отъезда",
-        field: "dateLeave",
+        field: "end_date",
         width: 140,
         cellStyle: {
             display: "flex",

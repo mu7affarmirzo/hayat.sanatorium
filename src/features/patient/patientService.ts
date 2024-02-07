@@ -1,14 +1,15 @@
 import { ApiSlice } from "features/api/apiSlice";
+import { GetMyPatients } from "types/patientTypes";
 
 export const patientService = ApiSlice.injectEndpoints({
     endpoints: (builder) => ({
-        getAllPatients: builder.query({
+        getAllMyPatients: builder.query<GetMyPatients[], void>({
             query: () => ({
-                url: "/organizations/patients/",
+                url: "/sanatorium/get-my-patients",
                 method: "GET",
             }),
         }),
     }),
 });
 
-export const { useGetAllPatientsQuery } = patientService;
+export const { useGetAllMyPatientsQuery } = patientService;

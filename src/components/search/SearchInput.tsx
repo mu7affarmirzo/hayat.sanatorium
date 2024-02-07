@@ -1,18 +1,26 @@
 import { InputAdornment, TextField } from "@mui/material";
 import { SearchAltIcon } from "assets/icons/icons";
 import React from "react";
+
 type PropsType = {
     placeholder?: string;
-    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    onChange?: (value: string) => void;
     searchValue?: string;
 };
+
 const SearchInput = (props: PropsType) => {
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const { value } = event.target;
+        if (props.onChange) {
+            props.onChange(value);
+        }
+    };
     return (
         <TextField
             className={`${"w-[100%]"} bg-[#fff] h-[40px] `}
             id="outlined-start-adornment"
             size="small"
-            onChange={props.onChange}
+            onChange={handleChange}
             placeholder={props.placeholder}
             value={props.searchValue}
             InputProps={{
