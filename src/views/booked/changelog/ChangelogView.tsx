@@ -1,7 +1,7 @@
 /* eslint-disable react/style-prop-object */
 import { Box } from "@mui/material";
-import SelectButton from "components/buttons/SelectButton";
-import { ChangelolCol } from "components/columnDefs/ChangelogCol";
+import SelectButton from "components/Buttons/SelectButton";
+import { ChangelolCol } from "components/ColumnDefs/ChangelogCol";
 import DefaultText from "components/defaultText/DefaultText";
 import ReceptionTableGroup from "components/ReceptionTableGroup/ReceptionTable";
 import SearchInput from "components/search/SearchInput";

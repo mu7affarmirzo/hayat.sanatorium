@@ -1,17 +1,17 @@
-import { Box, Button, Grid, IconButton } from '@mui/material';
-import { CloseCircleIcon } from 'assets/icons/icons';
-import CollapsibleTable from 'components/Dropdown';
-import DefaultText from 'components/defaultText/DefaultText';
-import { useEscapeKey } from 'hooks/useEscapeKey';
-import { useCallback } from 'react';
-import { CreatePaymentNowContainer } from './Modals.styles';
-import { useAppModals } from './ModalsProvider';
-import DefaulCheckbox from 'components/checkbox/DefaultCheckbox';
+import { Box, Button, Grid, IconButton } from "@mui/material";
+import { CloseCircleIcon } from "assets/icons/icons";
+import CollapsibleTable from "components/Dropdown";
+import DefaultText from "components/defaultText/DefaultText";
+import { useEscapeKey } from "hooks/useEscapeKey";
+import { useCallback } from "react";
+import { CreatePaymentNowContainer } from "./Modals.styles";
+import { useAppModals } from "./ModalsProvider";
+import DefaulCheckbox from "components/Checkbox/DefaultCheckbox";
 
 const AddReasonModal = () => {
     const appModals = useAppModals();
     const onCloseModal = useCallback(() => {
-        appModals?.hide('add_reason');
+        appModals?.hide("add_reason");
     }, [appModals]);
 
     useEscapeKey({
@@ -23,8 +23,8 @@ const AddReasonModal = () => {
             className={
                 appModals?.state.add_reason.active &&
                 !appModals?.state.add_reason.neverWork
-                    ? 'active'
-                    : 'none '
+                    ? "active"
+                    : "none "
             }
         >
             <Box className="container bg-[#fff]  ">
@@ -52,7 +52,7 @@ const AddReasonModal = () => {
                         md={12}
                         className="mt-[10px] bg-[#F5F5F5] p-[4px]"
                     >
-                        <DefaultText style={'text-[20px] text-[#000]'}>
+                        <DefaultText style={"text-[20px] text-[#000]"}>
                             Возможные диагнозы
                         </DefaultText>
                     </Grid>
@@ -69,7 +69,7 @@ const AddReasonModal = () => {
                             </Box>
 
                             <DefaultText
-                                style={'text-[14px] text-[#000] ml-[10px]'}
+                                style={"text-[14px] text-[#000] ml-[10px]"}
                             >
                                 Диагноз
                             </DefaultText>

@@ -1,9 +1,9 @@
-import { Box, Typography } from '@mui/material';
-import { ColDef } from 'ag-grid-community';
-import { AgGridReact } from 'ag-grid-react';
-import { AppointmentsCol } from 'components/columnDefs/AppointmentsCol';
-import { rowData } from 'views/booked/frontPage/FrontPageView';
-import './ag-theme-roomstype.css';
+import { Box, Typography } from "@mui/material";
+import { ColDef } from "ag-grid-community";
+import { AgGridReact } from "ag-grid-react";
+import { AppointmentsCol } from "components/ColumnDefs/AppointmentsCol";
+import { rowData } from "views/TitlePageTab/FrontPageView";
+import "./ag-theme-roomstype.css";
 type propsType = {
     columnDefs?: ColDef[];
     rowData?: any;
@@ -13,7 +13,7 @@ type propsType = {
 };
 const AppointmentsTable = (props: propsType) => {
     return (
-        <div style={{ height: '100%', width: '100%' }} className="flex">
+        <div style={{ height: "100%", width: "100%" }} className="flex">
             {props.id ? (
                 <div className="pt-[98px] px-[5px]">
                     {rowData.map((item, index) => {
@@ -31,8 +31,8 @@ const AppointmentsTable = (props: propsType) => {
 
             <div
                 style={{
-                    height: '100%',
-                    width: props?.width ? props?.width : '100%',
+                    height: "100%",
+                    width: props?.width ? props?.width : "100%",
                 }}
                 className="ag-theme-alpin"
             >

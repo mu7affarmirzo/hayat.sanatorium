@@ -1,13 +1,13 @@
 import { Navigate } from "react-router-dom";
-import BookedDoctors from "views/doctors/bookedDoctors";
-import MainDoctorsView from "views/doctors/mainDoctors/main";
-import BookedReception from "views/reception/bookedReception";
 import LoginView from "views/auth/LoginView";
-import Patientreception from "views/reception/patientReception";
-import EventsReception from "views/reception/eventsReception";
-import DispatchingReception from "views/reception/dispatchingReception";
+
 import NotFoundView from "views/NotFound/notFound";
-import BookedView from "views/booked/BookedView";
+import PatientReception from "views/Role/Reception/patientReception";
+import EventsReception from "views/Role/Reception/eventsReception";
+import DispatchingReception from "views/Role/Reception/dispatchingReception";
+import MainDoctorsView from "views/Role/Doctors/mainDoctors/main";
+import BookedDoctors from "views/Role/Doctors/bookedDoctors";
+import BookedReceptionView from "views/Role/Reception/bookedReception/bookedRecView";
 
 type IRouting = {
     path: string;
@@ -34,11 +34,11 @@ export const RoutingData: MyGroupType = {
         },
         {
             path: "reception/booked",
-            component: <BookedView />,
+            component: <BookedReceptionView />,
         },
         {
             path: "reception/patients",
-            component: <Patientreception />,
+            component: <PatientReception />,
         },
         {
             path: "reception/events",

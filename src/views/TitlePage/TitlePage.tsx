@@ -1,19 +1,18 @@
 /* eslint-disable react/style-prop-object */
 import { Grid } from "@mui/material";
 import { CoinsAltIcon, VuesaxLinearPrinterIcon } from "assets/icons/icons";
-import SelectButton from "components/buttons/SelectButton";
+import SelectButton from "components/Buttons/SelectButton";
 import DefaultButton from "components/deafultButton/DefaultButton";
 import SideBar, { TabsItem } from "components/sideBar/SideBar";
-import changelog from "../changelog";
-import frontPage from "../frontPage";
-import invoicesDocuments from "../invoicesDocuments";
-import mainAssignmentSheet from "../mainAssignmentSheet";
-import nutrition from "../nutrition";
-import consultationTechniques from "../consultationTechniques";
-import researchSummaryTable from "../researchSummaryTable";
-import measuredParameters from "../measuredParameters";
-import treatmentSchedule from "../treatmentSchedule";
-import useAddMediceHistoryHook from "./hook";
+import changelog from "../booked/changelog";
+import frontPage from "../TitlePageTab";
+import invoicesDocuments from "../booked/invoicesDocuments";
+import mainAssignmentSheet from "../booked/mainAssignmentSheet";
+import nutrition from "../booked/nutrition";
+import consultationTechniques from "../booked/consultationTechniques";
+import researchSummaryTable from "../booked/researchSummaryTable";
+import measuredParameters from "../booked/measuredParameters";
+import treatmentSchedule from "../booked/treatmentSchedule";
 
 const content: TabsItem[] = [
     {
@@ -198,10 +197,7 @@ const DiseaseHistoryTopTabs = () => {
     );
 };
 
-const AddMedicalHistoryView = () => {
-    const { register, PatientData, onSubmit, handleSubmit } =
-        useAddMediceHistoryHook();
-
+const NewTitlePageContainer = () => {
     return (
         <div className=" overflow-hidden relative max-h-[calc(100vh-142px)]   ">
             <DiseaseHistoryTopTabs />
@@ -212,4 +208,4 @@ const AddMedicalHistoryView = () => {
     );
 };
 
-export default AddMedicalHistoryView;
+export default NewTitlePageContainer;

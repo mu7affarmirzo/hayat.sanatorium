@@ -1,7 +1,7 @@
 import { Box, Grid, Typography } from "@mui/material";
 import { CloseIcon, SearchAltIcon, VuesaxLinear } from "assets/icons/icons";
-import SelectButton from "components/buttons/SelectButton";
-import DefaultCheckbox from "components/checkbox/DefaultCheckbox";
+import SelectButton from "components/Buttons/SelectButton";
+import DefaultCheckbox from "components/Checkbox/DefaultCheckbox";
 import DefaultButton from "components/deafultButton/DefaultButton";
 import DefaultInput from "components/defaultInput/DefaultInput";
 import React from "react";

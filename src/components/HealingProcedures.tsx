@@ -1,8 +1,8 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
 import OutlinedNumber from "./outlinedNumber/OutlinedNumber";
-import DefaultCheckbox from "./checkbox/DefaultCheckbox";
-import SelectButton from "./buttons/SelectButton";
+import DefaultCheckbox from "./Checkbox/DefaultCheckbox";
+import SelectButton from "./Buttons/SelectButton";
 const data = [
     {
         id: 1,

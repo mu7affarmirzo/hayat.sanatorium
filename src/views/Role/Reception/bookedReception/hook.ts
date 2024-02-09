@@ -1,15 +1,10 @@
-import { LocalizationProvider } from "@mui/x-date-pickers";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import BookingScreenTabs, {
-    TabsItem,
-} from "components/Tabs/broneViewTabs/broneTabs";
-
-import { useMemo } from "react";
+import { TabsItem } from "components/sideBar/SideBar";
 import { useReduxSelector } from "hooks/useReduxHook";
-import bookedChildTab from "../BookedTab";
+import { useMemo } from "react";
+import bookedChildTab from "views/BookedTab";
 import NewTitlePageContainer from "views/TitlePage/TitlePage";
 
-const BookedView = () => {
+export const useRecaptionContainerHook = () => {
     const { broneData } = useReduxSelector((dynamicTabs) => dynamicTabs.booked);
     const dynamicContent = useMemo(() => {
         const bookedTab: TabsItem = {
@@ -25,13 +20,7 @@ const BookedView = () => {
         return [bookedTab, ...broneItems];
     }, [broneData]);
 
-    return (
-        <div className=" w-full  h-full  relative">
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <BookingScreenTabs content={dynamicContent} />
-            </LocalizationProvider>
-        </div>
-    );
+    return {
+        dynamicContent,
+    };
 };
-
-export default BookedView;

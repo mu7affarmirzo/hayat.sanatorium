@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { useReduxSelector } from "hooks/useReduxHook";
 import React, { useCallback, useEffect, useState } from "react";
 import { RoutingData } from "./router";
-import Headers from "components/header/header";
+import Headers from "components/Header/header";
 
 export const MainContainer = styled.div`
     display: flex;

@@ -1,17 +1,17 @@
-import { Box, Button, Grid, IconButton } from '@mui/material';
-import { CloseCircleIcon } from 'assets/icons/icons';
-import DefaultText from 'components/defaultText/DefaultText';
-import SearchInput from 'components/search/SearchInput';
-import { useEscapeKey } from 'hooks/useEscapeKey';
-import { useCallback } from 'react';
-import { SelectStudiesContainer } from './Modals.styles';
-import { useAppModals } from './ModalsProvider';
-import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
+import { Box, Button, Grid, IconButton } from "@mui/material";
+import { CloseCircleIcon } from "assets/icons/icons";
+import DefaultText from "components/defaultText/DefaultText";
+import SearchInput from "components/search/SearchInput";
+import { useEscapeKey } from "hooks/useEscapeKey";
+import { useCallback } from "react";
+import { SelectStudiesContainer } from "./Modals.styles";
+import { useAppModals } from "./ModalsProvider";
+import DefaultCheckbox from "components/Checkbox/DefaultCheckbox";
 
 const SelectStudiesMoodal = () => {
     const appModals = useAppModals();
     const onCloseModal = useCallback(() => {
-        appModals?.hide('select_studies');
+        appModals?.hide("select_studies");
     }, [appModals]);
 
     useEscapeKey({
@@ -23,8 +23,8 @@ const SelectStudiesMoodal = () => {
             className={
                 appModals?.state.select_studies.active &&
                 !appModals?.state.select_studies.neverWork
-                    ? 'active'
-                    : 'none '
+                    ? "active"
+                    : "none "
             }
         >
             <Box className="container bg-[#fff]  ">
@@ -57,7 +57,7 @@ const SelectStudiesMoodal = () => {
                             <Box className="border h-[calc(100%-45px)] w-full mt-[5px] p-[8px] overflow-scroll">
                                 <Box className=" w-full mb-[5px]">
                                     <DefaultCheckbox
-                                        checkboxStyle={{ padding: '0 5px 0 0' }}
+                                        checkboxStyle={{ padding: "0 5px 0 0" }}
                                         label="TORCH — инфекции"
                                     />
                                 </Box>

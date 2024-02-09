@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { TimePicker } from "@mui/x-date-pickers";
-import AutocompleteInput from "components/autocompleteInput/AutocompleteInput";
-import { columnDefs } from "components/columnDefs/expectedCol";
+import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
+import { columnDefs } from "components/ColumnDefs/expectedCol";
 import DefaultButton from "components/deafultButton/DefaultButton";
 import DefaultText from "components/defaultText/DefaultText";
 import ReceptionTable from "components/receptionTable/ReceptionTable";

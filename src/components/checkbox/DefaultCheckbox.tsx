@@ -1,5 +1,5 @@
-import { Box, Checkbox, FormControlLabel } from '@mui/material';
-import DefaultText from 'components/defaultText/DefaultText';
+import { Box, Checkbox, FormControlLabel } from "@mui/material";
+import DefaultText from "components/defaultText/DefaultText";
 type propsType = {
     style?: string;
     label?: string;
@@ -7,7 +7,7 @@ type propsType = {
     checkboxStyle?: any;
 };
 const DefaultCheckbox = (props: propsType) => {
-    let { style, label, leftLable, checkboxStyle } = props;
+    let { style, label, leftLable } = props;
     return (
         <Box className={`${style} flex items-center justify-between `}>
             {leftLable ? (

@@ -2,8 +2,8 @@ import React, { Suspense, useRef } from "react";
 import { Box, Grid, TextField, Typography } from "@mui/material";
 import { ArrowDropSownIcon } from "assets/icons/icons";
 import { useAppModals } from "components/Modals";
-import AutocompleteInput from "components/autocompleteInput/AutocompleteInput";
-import { PhonePush } from "components/columnDefs/phonePush";
+import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
+import { PhonePush } from "components/ColumnDefs/phonePush";
 import DefaultButton from "components/deafultButton/DefaultButton";
 import DefaultText from "components/defaultText/DefaultText";
 import FrontFooter from "components/frontFooter/FrontFooter";
@@ -13,12 +13,10 @@ import HomeAddressForm from "./components/HomeAddressForm";
 import HospitalStayForm from "./components/HospitalStayForm";
 import PhonePushForm from "./components/PhonePushForm";
 import TravelPackageForm from "./components/TravelPackageForm";
-import { LocalizationProvider } from "@mui/x-date-pickers";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import RadioForm from "components/RadioForm";
-import DiagnostikaItem from "./components/DiagnostikaItem";
+import DiagnostikaItem from "../../components/DiagnostikaItem";
 import TagsBox from "./components/TagsBox";
-import DefaulCheckbox from "components/checkbox/DefaultCheckbox";
+import DefaulCheckbox from "components/Checkbox/DefaultCheckbox";
 const PatientForm = React.lazy(() => import("./components/PatientForm"));
 interface IFormInput {
     lastName: string;
@@ -344,6 +342,7 @@ const FrontPageView = () => {
             scrollRef.current.scrollTop -= 200;
         }
     };
+
     return (
         <div
             style={{
@@ -352,13 +351,9 @@ const FrontPageView = () => {
                 whiteSpace: "nowrap",
             }}
         >
-            <Grid container className=" felx">
+            <Grid container className="flex">
                 <Grid item xs={12} md={12} className=" flex ">
                     <Box className="flex w-[50%] justify-end  items-center ">
-                        <DefaultButton
-                            title="История болезни №"
-                            onClick={() => scrollDown()}
-                        />
                         <Typography>История болезни №</Typography>
                         <Box className=" w-[60px] h-[30px] ml-[10px] ">
                             <input className=" bg-[#fff] w-full h-full border-none outline-none  " />

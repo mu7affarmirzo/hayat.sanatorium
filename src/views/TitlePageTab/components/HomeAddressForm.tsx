@@ -1,6 +1,6 @@
-import { Box, Typography } from '@mui/material';
-import AutocompleteInput from 'components/autocompleteInput/AutocompleteInput';
-import DefaultInput from 'components/defaultInput/DefaultInput';
+import { Box, Typography } from "@mui/material";
+import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
+import DefaultInput from "components/defaultInput/DefaultInput";
 type propsType = {
     avtoCaplektData: any;
     register: any;
@@ -16,7 +16,7 @@ const HomeAddressForm = (props: propsType) => {
             <DefaultInput
                 lable="Быстрый ввод адреса"
                 register={register}
-                inputType={'appeal'}
+                inputType={"appeal"}
                 containerStile="w-[100%] flex-col  mt-[10px] "
                 inputStyle="w-[100%]"
             />
@@ -25,20 +25,20 @@ const HomeAddressForm = (props: propsType) => {
                 <AutocompleteInput
                     lable="Страна"
                     data={avtoCaplektData}
-                    containerStyle={'w-[32%]  flex-col'}
+                    containerStyle={"w-[32%]  flex-col"}
                     inputStyle="w-[100%]"
                 />
                 <DefaultInput
                     lable="Область"
                     register={register}
-                    inputType={'appeal'}
+                    inputType={"appeal"}
                     containerStile="w-[32%] flex-col"
                     inputStyle="w-[100%]"
                 />
                 <DefaultInput
                     lable="Район"
                     register={register}
-                    inputType={'appeal'}
+                    inputType={"appeal"}
                     containerStile="w-[32%] flex-col"
                     inputStyle="w-[100%]"
                 />
@@ -47,21 +47,21 @@ const HomeAddressForm = (props: propsType) => {
                 <DefaultInput
                     lable="Тип нас. пункта"
                     register={register}
-                    inputType={'appeal'}
+                    inputType={"appeal"}
                     containerStile="w-[32%] flex-col"
                     inputStyle="w-[100%]"
                 />
                 <DefaultInput
                     lable="Название нас"
                     register={register}
-                    inputType={'appeal'}
+                    inputType={"appeal"}
                     containerStile="w-[32%] flex-col"
                     inputStyle="w-[100%]"
                 />
                 <DefaultInput
                     lable="Улица"
                     register={register}
-                    inputType={'appeal'}
+                    inputType={"appeal"}
                     containerStile="w-[32%] flex-col"
                     inputStyle="w-[100%]"
                 />
@@ -70,21 +70,21 @@ const HomeAddressForm = (props: propsType) => {
                 <DefaultInput
                     lable="Дом"
                     register={register}
-                    inputType={'appeal'}
+                    inputType={"appeal"}
                     containerStile="w-[32%] flex-col"
                     inputStyle="w-[100%]"
                 />
                 <DefaultInput
                     lable="Корпус"
                     register={register}
-                    inputType={'appeal'}
+                    inputType={"appeal"}
                     containerStile="w-[32%] flex-col"
                     inputStyle="w-[100%]"
                 />
                 <DefaultInput
                     lable="Квартира"
                     register={register}
-                    inputType={'appeal'}
+                    inputType={"appeal"}
                     containerStile="w-[32%] flex-col"
                     inputStyle="w-[100%]"
                 />

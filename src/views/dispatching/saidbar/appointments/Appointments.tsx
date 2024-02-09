@@ -5,8 +5,8 @@ import {
     NavigationAppIcon,
     PinIcon,
 } from "assets/icons/icons";
-import AutocompleteInput from "components/autocompleteInput/AutocompleteInput";
-import AppointmentsTable from "components/bookingTypeView/AppointmentsTable";
+import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
+import AppointmentsTable from "components/BookingTypeView/AppointmentsTable";
 import DefaultButton from "components/deafultButton/DefaultButton";
 import { useState } from "react";
 const top100Films = [

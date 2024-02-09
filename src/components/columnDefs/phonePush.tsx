@@ -1,6 +1,6 @@
-import { ColDef } from 'ag-grid-community';
-import { CloseIcon } from 'assets/icons/icons';
-import DefaulCheckbox from 'components/checkbox/DefaultCheckbox';
+import { ColDef } from "ag-grid-community";
+import { CloseIcon } from "assets/icons/icons";
+import DefaulCheckbox from "components/Checkbox/DefaultCheckbox";
 
 function MyRoomType(params: any) {
     return (
@@ -16,71 +16,71 @@ function chackBoxHandler(params: any) {
 }
 export const PhonePush: ColDef[] = [
     {
-        headerName: '',
-        field: '',
+        headerName: "",
+        field: "",
         cellRenderer: MyRoomType,
         width: 40,
         cellStyle: {
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: ' start ',
-            border: '.5px solid #e0e0e0',
-            padding: '0px',
+            display: "flex",
+            alignItems: "center",
+            justifyContent: " start ",
+            border: ".5px solid #e0e0e0",
+            padding: "0px",
         },
     },
     {
-        headerName: 'Название',
-        field: '',
+        headerName: "Название",
+        field: "",
         width: 120,
         editable: true,
         cellStyle: {
-            border: '.5px solid #e0e0e0',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'start ',
-            padding: '0px',
-            paddingLeft: '10px',
+            border: ".5px solid #e0e0e0",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "start ",
+            padding: "0px",
+            paddingLeft: "10px",
         },
     },
     {
-        headerName: 'Начало',
-        field: 'phone',
+        headerName: "Начало",
+        field: "phone",
         width: 120,
         cellStyle: {
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            border: '.5px solid #e0e0e0',
-            padding: '0px',
-            paddingLeft: '15px',
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            border: ".5px solid #e0e0e0",
+            padding: "0px",
+            paddingLeft: "15px",
         },
     },
     {
-        headerName: 'Основной',
-        field: 'group',
+        headerName: "Основной",
+        field: "group",
         width: 120,
         cellRenderer: chackBoxHandler,
         cellStyle: {
-            display: 'flex',
-            alignItems: 'center',
+            display: "flex",
+            alignItems: "center",
 
-            border: '.5px solid #e0e0e0',
-            padding: '0px',
-            paddingLeft: '15px',
+            border: ".5px solid #e0e0e0",
+            padding: "0px",
+            paddingLeft: "15px",
         },
     },
     {
-        headerName: 'Лимит',
-        field: 'name',
+        headerName: "Лимит",
+        field: "name",
         width: 120,
         editable: true,
         cellStyle: {
-            border: '.5px solid #e0e0e0',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'start ',
-            padding: '0px',
-            paddingLeft: '10px',
+            border: ".5px solid #e0e0e0",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "start ",
+            padding: "0px",
+            paddingLeft: "10px",
         },
     },
 ];

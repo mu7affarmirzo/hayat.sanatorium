@@ -1,27 +1,27 @@
-import { Box, Button, Grid, Typography } from '@mui/material';
-import { ActiveDotIcon, NoActiveDotIcon } from 'assets/icons/icons';
-import AutocompleteInput from 'components/autocompleteInput/AutocompleteInput';
-import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
-import OutlinedNumber from 'components/outlinedNumber/OutlinedNumber';
-import { useState } from 'react';
-import { Item } from 'themes/customItems';
+import { Box, Button, Grid, Typography } from "@mui/material";
+import { ActiveDotIcon, NoActiveDotIcon } from "assets/icons/icons";
+import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
+import DefaultCheckbox from "components/Checkbox/DefaultCheckbox";
+import OutlinedNumber from "components/outlinedNumber/OutlinedNumber";
+import { useState } from "react";
+import { Item } from "themes/customItems";
 const top100Films = [
-    { label: 'The Shawshank Redemption', year: 1994 },
-    { label: 'The Godfather', year: 1972 },
-    { label: 'The Godfather: Part II', year: 1974 },
-    { label: 'The Dark Knight', year: 2008 },
-    { label: '12 Angry Men', year: 1957 },
+    { label: "The Shawshank Redemption", year: 1994 },
+    { label: "The Godfather", year: 1972 },
+    { label: "The Godfather: Part II", year: 1974 },
+    { label: "The Dark Knight", year: 2008 },
+    { label: "12 Angry Men", year: 1957 },
     { label: "Schindler's List", year: 1993 },
-    { label: 'Pulp Fiction', year: 1994 },
+    { label: "Pulp Fiction", year: 1994 },
 ];
 const polData = [
     {
         id: 0,
-        name: '[М] Мужской',
+        name: "[М] Мужской",
     },
     {
         id: 1,
-        name: '[Ж] Женский',
+        name: "[Ж] Женский",
     },
 ];
 const AdvancedSearchOptions = () => {
@@ -60,7 +60,7 @@ const AdvancedSearchOptions = () => {
                                         data={top100Films}
                                         lableStyle=" text-black "
                                         containerStyle={
-                                            'w-[50%]  flex-row items-center  '
+                                            "w-[50%]  flex-row items-center  "
                                         }
                                         inputStyle="w-[130px]"
                                     />
@@ -69,7 +69,7 @@ const AdvancedSearchOptions = () => {
                                         data={top100Films}
                                         lableStyle="text-black"
                                         containerStyle={
-                                            'w-[50%]  flex-row items-center  '
+                                            "w-[50%]  flex-row items-center  "
                                         }
                                         inputStyle="w-[130px]"
                                     />
@@ -96,7 +96,7 @@ const AdvancedSearchOptions = () => {
                                         data={top100Films}
                                         lableStyle=" text-black "
                                         containerStyle={
-                                            'w-[50%]  flex-row items-center  '
+                                            "w-[50%]  flex-row items-center  "
                                         }
                                         inputStyle="w-[130px]"
                                     />
@@ -105,7 +105,7 @@ const AdvancedSearchOptions = () => {
                                         data={top100Films}
                                         lableStyle="text-black"
                                         containerStyle={
-                                            'w-[50%]  flex-row items-center  '
+                                            "w-[50%]  flex-row items-center  "
                                         }
                                         inputStyle="w-[130px]"
                                     />
@@ -145,8 +145,8 @@ const AdvancedSearchOptions = () => {
                                         }
                                         className={` ${
                                             item.id === activeBtn
-                                                ? 'bg-[#4CAF50] text-[#fff] border border-solid border-[#4CAF50]'
-                                                : 'bg-[#fff] text-[#000] border border-solid border-[#c4c2c2]'
+                                                ? "bg-[#4CAF50] text-[#fff] border border-solid border-[#4CAF50]"
+                                                : "bg-[#fff] text-[#000] border border-solid border-[#c4c2c2]"
                                         }  h-[40px]  text-[14px]  capitalize mr-[5px] px-[8px] py-[5px]  `}
                                     >
                                         {item?.name}
@@ -170,7 +170,7 @@ const AdvancedSearchOptions = () => {
                                     data={top100Films}
                                     lableStyle=" text-black "
                                     containerStyle={
-                                        'w-[50%] flex-row items-center  pr-[5px]  '
+                                        "w-[50%] flex-row items-center  pr-[5px]  "
                                     }
                                     inputStyle="w-[calc(100%-115px)]"
                                 />
@@ -179,7 +179,7 @@ const AdvancedSearchOptions = () => {
                                     data={top100Films}
                                     lableStyle=" text-black "
                                     containerStyle={
-                                        'w-[50%]  flex-row items-center  pl-[5px] '
+                                        "w-[50%]  flex-row items-center  pl-[5px] "
                                     }
                                     inputStyle="w-[calc(100%-135px)]"
                                 />
@@ -195,7 +195,7 @@ const AdvancedSearchOptions = () => {
                                     data={top100Films}
                                     lableStyle=" text-black "
                                     containerStyle={
-                                        'w-[50%] flex-row items-center  pr-[5px]  '
+                                        "w-[50%] flex-row items-center  pr-[5px]  "
                                     }
                                     inputStyle="w-[calc(100%-175px)]"
                                 />
@@ -204,7 +204,7 @@ const AdvancedSearchOptions = () => {
                                     data={top100Films}
                                     lableStyle=" text-black "
                                     containerStyle={
-                                        'w-[50%]  flex-row items-center  pl-[5px] '
+                                        "w-[50%]  flex-row items-center  pl-[5px] "
                                     }
                                     inputStyle="w-[calc(100%-155px)]"
                                 />
@@ -229,7 +229,7 @@ const AdvancedSearchOptions = () => {
                                 data={top100Films}
                                 lableStyle=" text-black "
                                 containerStyle={
-                                    'w-[99%]  flex-row items-center  justify-between'
+                                    "w-[99%]  flex-row items-center  justify-between"
                                 }
                                 inputStyle="w-[calc(100%-155px)]"
                             />
@@ -240,7 +240,7 @@ const AdvancedSearchOptions = () => {
                                 data={top100Films}
                                 lableStyle=" text-black "
                                 containerStyle={
-                                    'w-[99%]  flex-row items-center  justify-between '
+                                    "w-[99%]  flex-row items-center  justify-between "
                                 }
                                 inputStyle="w-[calc(100%-155px)]"
                             />
@@ -253,7 +253,7 @@ const AdvancedSearchOptions = () => {
                                 data={top100Films}
                                 lableStyle=" text-black "
                                 containerStyle={
-                                    'w-[99%]  flex-row items-center  justify-between'
+                                    "w-[99%]  flex-row items-center  justify-between"
                                 }
                                 inputStyle="w-[calc(100%-155px)]"
                             />
@@ -264,7 +264,7 @@ const AdvancedSearchOptions = () => {
                                 data={top100Films}
                                 lableStyle=" text-black "
                                 containerStyle={
-                                    'w-[99%]  flex-row items-center  justify-between '
+                                    "w-[99%]  flex-row items-center  justify-between "
                                 }
                                 inputStyle="w-[calc(100%-155px)]"
                             />
@@ -277,7 +277,7 @@ const AdvancedSearchOptions = () => {
                                 data={top100Films}
                                 lableStyle=" text-black "
                                 containerStyle={
-                                    'w-[99%]  flex-row items-center  justify-between'
+                                    "w-[99%]  flex-row items-center  justify-between"
                                 }
                                 inputStyle="w-[calc(100%-155px)]"
                             />
@@ -288,7 +288,7 @@ const AdvancedSearchOptions = () => {
                                 data={top100Films}
                                 lableStyle=" text-black "
                                 containerStyle={
-                                    'w-[99%]  flex-row items-center  justify-between '
+                                    "w-[99%]  flex-row items-center  justify-between "
                                 }
                                 inputStyle="w-[calc(100%-155px)]"
                             />
@@ -307,7 +307,7 @@ const AdvancedSearchOptions = () => {
                 <Box className="flex items-center w-[100%]">
                     <DefaultCheckbox
                         label="Показан"
-                        checkboxStyle={{ padding: 0, marginRight: '10px' }}
+                        checkboxStyle={{ padding: 0, marginRight: "10px" }}
                     />
                     <DefaultCheckbox label="Не показан" />
                     <DefaultCheckbox label="Противопоказан" />

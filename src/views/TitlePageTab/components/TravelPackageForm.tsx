@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { FileAltIcon } from "assets/icons/icons";
-import AutocompleteInput from "components/autocompleteInput/AutocompleteInput";
-import { columnDefs } from "components/columnDefs/expectedCol";
+import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
+import { columnDefs } from "components/ColumnDefs/expectedCol";
 import DefaultButton from "components/deafultButton/DefaultButton";
 import DefaultInput from "components/defaultInput/DefaultInput";
 import DefaultText from "components/defaultText/DefaultText";

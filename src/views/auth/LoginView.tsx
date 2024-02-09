@@ -23,7 +23,7 @@ import {
 import loginPhoto from "../../assets/images/LogoPng.png";
 
 import { Image } from "./styles";
-import LoadingButton from "components/buttons/loadingButton";
+import LoadingButton from "components/Buttons/loadingButton";
 import useLoginHook from "./hook";
 
 const LeftSection = () => {

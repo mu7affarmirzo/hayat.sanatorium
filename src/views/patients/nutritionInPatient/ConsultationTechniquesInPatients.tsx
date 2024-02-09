@@ -1,8 +1,8 @@
 import { Box, Grid, Typography } from "@mui/material";
 import { useAppModals } from "components/Modals";
-import SelectButton from "components/buttons/SelectButton";
-import AutocompleteInput from "components/autocompleteInput/AutocompleteInput";
-import DefaultCheckbox from "components/checkbox/DefaultCheckbox";
+import SelectButton from "components/Buttons/SelectButton";
+import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
+import DefaultCheckbox from "components/Checkbox/DefaultCheckbox";
 import DefaultButton from "components/deafultButton/DefaultButton";
 import DefaultInput from "components/defaultInput/DefaultInput";
 import DefaultText from "components/defaultText/DefaultText";
@@ -10,7 +10,7 @@ import DiagnosticCeckboxItem from "components/diagnosticCeckboxItem/DiagnosticCe
 import ReceptionTable from "components/receptionTable/ReceptionTable";
 
 import React from "react";
-import DiagnostikaItem from "views/booked/frontPage/components/DiagnostikaItem";
+import DiagnostikaItem from "components/DiagnostikaItem";
 import { ColData, rowData } from "./Coldata";
 
 const data = [

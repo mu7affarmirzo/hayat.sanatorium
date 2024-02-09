@@ -1,13 +1,13 @@
 import { Box, Grid, IconButton } from "@mui/material";
 import { CloseIcon, VuesaxLinearNote2Icon } from "assets/icons/icons";
-import SelectButton from "components/buttons/SelectButton";
-import DefaulCheckbox from "components/checkbox/DefaultCheckbox";
+import SelectButton from "components/Buttons/SelectButton";
+import DefaulCheckbox from "components/Checkbox/DefaultCheckbox";
 import DefaultButton from "components/deafultButton/DefaultButton";
 import DefaultInput from "components/defaultInput/DefaultInput";
 import DefaultText from "components/defaultText/DefaultText";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import DiagnostikaItem from "views/booked/frontPage/components/DiagnostikaItem";
+import DiagnostikaItem from "components/DiagnostikaItem";
 
 const data = [
     {

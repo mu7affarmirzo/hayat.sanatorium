@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 
 type propsType = {
     classStyle?: string;
@@ -22,7 +22,7 @@ const DefaultButton = (props: propsType) => {
                 disabled ? "opacity-50" : "opacity-100"
             } text-[14px]  capitalize text-[#000]`}
         >
-            {title}
+            <Typography className="text-[#fff]">{title}</Typography>
         </Button>
     );
 };

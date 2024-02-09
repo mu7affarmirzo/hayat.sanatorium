@@ -6,10 +6,10 @@ import {
     VuesaxLinearDocumentIcon,
 } from "assets/icons/icons";
 import CustomizedAccordions from "components/CustomizedAccordions";
-import AutocompleteInput from "components/autocompleteInput/AutocompleteInput";
-import DefaultCheckbox from "components/checkbox/DefaultCheckbox";
-import { ChangelolCol } from "components/columnDefs/ChangelogCol";
-import { MyPatientsGrupCol } from "components/columnDefs/MyPatientsGrupCol";
+import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
+import DefaultCheckbox from "components/Checkbox/DefaultCheckbox";
+import { ChangelolCol } from "components/ColumnDefs/ChangelogCol";
+import { MyPatientsGrupCol } from "components/ColumnDefs/MyPatientsGrupCol";
 import DefaultButton from "components/deafultButton/DefaultButton";
 import DefaultInput from "components/defaultInput/DefaultInput";
 import DefaultText from "components/defaultText/DefaultText";

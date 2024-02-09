@@ -1,9 +1,9 @@
 import { Box, Grid, Typography } from "@mui/material";
 import { CloseIcon, SearchIcon, VuesaxLinear } from "assets/icons/icons";
 import CustomizedAccordions from "components/CustomizedAccordions";
-import AutocompleteInput from "components/autocompleteInput/AutocompleteInput";
-import DefaultCheckbox from "components/checkbox/DefaultCheckbox";
-import { BookedPatientSearch } from "components/columnDefs/bookedCol";
+import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
+import DefaultCheckbox from "components/Checkbox/DefaultCheckbox";
+import { BookedPatientSearch } from "components/ColumnDefs/bookedCol";
 import DefaultButton from "components/deafultButton/DefaultButton";
 import DefaultInput from "components/defaultInput/DefaultInput";
 import ReceptionTable from "components/receptionTable/ReceptionTable";

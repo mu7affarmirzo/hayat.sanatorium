@@ -3,6 +3,7 @@ import { FileAltIcon, FilePlusAltIcon } from "assets/icons/icons";
 import DefaultButton from "components/deafultButton/DefaultButton";
 import DefaultText from "components/defaultText/DefaultText";
 import OutlinedNumber from "components/outlinedNumber/OutlinedNumber";
+
 type propsType = {
     title?: string;
     btnTitle?: string;
@@ -18,6 +19,7 @@ type propsType = {
     disabled?: boolean;
     messageIconStyle?: any;
 };
+
 const DiagnostikaItem = (props: propsType) => {
     return (
         <Box

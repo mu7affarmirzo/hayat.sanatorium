@@ -1,24 +1,24 @@
-import { Box, Button, Grid, IconButton } from '@mui/material';
-import { CloseCircleIcon } from 'assets/icons/icons';
-import DefaultText from 'components/defaultText/DefaultText';
-import { useEscapeKey } from 'hooks/useEscapeKey';
-import { useCallback, useState } from 'react';
-import { CreatePaymentNowContainer } from './Modals.styles';
-import { useAppModals } from './ModalsProvider';
+import { Box, Button, Grid, IconButton } from "@mui/material";
+import { CloseCircleIcon } from "assets/icons/icons";
+import DefaultText from "components/defaultText/DefaultText";
+import { useEscapeKey } from "hooks/useEscapeKey";
+import { useCallback, useState } from "react";
+import { CreatePaymentNowContainer } from "./Modals.styles";
+import { useAppModals } from "./ModalsProvider";
 
-import { useForm } from 'react-hook-form';
-import SearchInput from 'components/search/SearchInput';
-import CollapsibleTable from 'components/Dropdown';
-import ICDItem from 'components/ICDItem';
-import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
+import { useForm } from "react-hook-form";
+import SearchInput from "components/search/SearchInput";
+import CollapsibleTable from "components/Dropdown";
+import ICDItem from "components/ICDItem";
+import DefaultCheckbox from "components/Checkbox/DefaultCheckbox";
 const btnData = [
     {
         id: 0,
-        title: 'МКБ-10',
+        title: "МКБ-10",
     },
     {
         id: 1,
-        title: 'Часто используемые',
+        title: "Часто используемые",
     },
 ];
 interface IFormInput {
@@ -30,7 +30,7 @@ interface IFormInput {
 const SelectingDestinationsModal = () => {
     const appModals = useAppModals();
     const onCloseModal = useCallback(() => {
-        appModals?.hide('selecting_destination');
+        appModals?.hide("selecting_destination");
     }, [appModals]);
 
     useEscapeKey({
@@ -44,8 +44,8 @@ const SelectingDestinationsModal = () => {
             className={
                 appModals?.state.selecting_destination.active &&
                 !appModals?.state.selecting_destination.neverWork
-                    ? 'active'
-                    : 'none '
+                    ? "active"
+                    : "none "
             }
         >
             <Box className="container bg-[#fff]  ">
@@ -73,7 +73,7 @@ const SelectingDestinationsModal = () => {
                             md={12}
                             className="mt-[10px]  p-[4px]"
                         >
-                            <DefaultText style={'text-[20px] text-[#000]'}>
+                            <DefaultText style={"text-[20px] text-[#000]"}>
                                 Доступные назначения
                             </DefaultText>
                         </Grid>
@@ -86,8 +86,8 @@ const SelectingDestinationsModal = () => {
                             <DefaultCheckbox
                                 label="Скрывать сделанные назначения"
                                 checkboxStyle={{
-                                    padding: '0px',
-                                    marginRight: '5px',
+                                    padding: "0px",
+                                    marginRight: "5px",
                                 }}
                             />
                         </Grid>

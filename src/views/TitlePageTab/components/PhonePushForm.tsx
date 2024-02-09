@@ -1,15 +1,15 @@
-import { Box, Button, IconButton, Typography } from '@mui/material';
+import { Box, Button, IconButton, Typography } from "@mui/material";
 import {
     ActiveDotIcon,
     FileAltIcon,
     FilePlusAltIcon,
     NoActiveDotIcon,
-} from 'assets/icons/icons';
-import AutocompleteInput from 'components/autocompleteInput/AutocompleteInput';
-import DefaulCheckbox from 'components/checkbox/DefaultCheckbox';
-import DefaultInput from 'components/defaultInput/DefaultInput';
-import ReceptionTable from 'components/receptionTable/ReceptionTable';
-import { rowData } from '../FrontPageView';
+} from "assets/icons/icons";
+import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
+import DefaulCheckbox from "components/Checkbox/DefaultCheckbox";
+import DefaultInput from "components/defaultInput/DefaultInput";
+import ReceptionTable from "components/receptionTable/ReceptionTable";
+import { rowData } from "../FrontPageView";
 type propsType = {
     avtoCaplektData: any;
     register: any;
@@ -27,7 +27,7 @@ const PhonePushForm = (props: propsType) => {
                 </Typography>
                 <Button
                     variant="contained"
-                    className={` ${'bg-[#4CAF50] text-[#fff] border border-solid border-[#4CAF50]'}  h-[35px]  text-[14px]  capitalize mr-[5px] px-[8px] py-[5px]  mt-[5px] `}
+                    className={` ${"bg-[#4CAF50] text-[#fff] border border-solid border-[#4CAF50]"}  h-[35px]  text-[14px]  capitalize mr-[5px] px-[8px] py-[5px]  mt-[5px] `}
                 >
                     Добавить
                 </Button>
@@ -40,14 +40,14 @@ const PhonePushForm = (props: propsType) => {
                 <DefaultInput
                     lable="E-mail:"
                     register={register}
-                    inputType={'appeal'}
+                    inputType={"appeal"}
                     containerStile="w-[49%] flex-row items-center justify-between "
                     inputStyle="w-[75%]"
                 />
                 <DefaultInput
                     lable="Язык:"
                     register={register}
-                    inputType={'appeal'}
+                    inputType={"appeal"}
                     containerStile="w-[49%] flex-row items-center justify-between "
                     inputStyle="w-[75%]"
                 />
@@ -56,7 +56,7 @@ const PhonePushForm = (props: propsType) => {
                 <DefaultInput
                     lable="Поликлиника:"
                     register={register}
-                    inputType={'appeal'}
+                    inputType={"appeal"}
                     containerStile="w-[75%] flex-row items-center justify-between "
                     inputStyle="w-[70%]"
                 />
@@ -65,7 +65,7 @@ const PhonePushForm = (props: propsType) => {
             <DefaultInput
                 lable="Номер ИБ поликлиники:"
                 register={register}
-                inputType={'appeal'}
+                inputType={"appeal"}
                 containerStile="w-[100%] flex-row items-center justify-between mt-[10px]"
                 inputStyle="w-[60%]"
             />
@@ -74,10 +74,10 @@ const PhonePushForm = (props: propsType) => {
                 <Typography className="text-[14px] font-normal text-[#8d8c8c] mr-[5px]  w-[40%] ">
                     Диагноз из СКК
                 </Typography>
-                <Box className={'w-[60%]'}>
+                <Box className={"w-[60%]"}>
                     <Button
                         variant="contained"
-                        className={` ${'bg-[#4CAF50] text-[#fff] border border-solid border-[#4CAF50]'}  h-[35px]  text-[14px]  capitalize mr-[5px] px-[8px] py-[5px]  mt-[5px] `}
+                        className={` ${"bg-[#4CAF50] text-[#fff] border border-solid border-[#4CAF50]"}  h-[35px]  text-[14px]  capitalize mr-[5px] px-[8px] py-[5px]  mt-[5px] `}
                     >
                         Добавить диагноз
                     </Button>
@@ -87,7 +87,7 @@ const PhonePushForm = (props: propsType) => {
                 lable="Диагноз из СКК"
                 data={avtoCaplektData}
                 containerStyle={
-                    'w-full  flex-row items-center  mt-[10px] justify-between '
+                    "w-full  flex-row items-center  mt-[10px] justify-between "
                 }
                 inputStyle="w-[60%]"
             />
@@ -96,10 +96,10 @@ const PhonePushForm = (props: propsType) => {
                 <Typography className="text-[14px] font-normal text-[#8d8c8c]  w-[40%] ">
                     Комментарии
                 </Typography>
-                <Box className={'w-[60%] flex'}>
+                <Box className={"w-[60%] flex"}>
                     <DefaultInput
                         register={register}
-                        inputType={'lastName'}
+                        inputType={"lastName"}
                         containerStile="w-[80%] "
                     />
                     <IconButton
@@ -122,7 +122,7 @@ const PhonePushForm = (props: propsType) => {
                 lable="Направление от"
                 data={avtoCaplektData}
                 containerStyle={
-                    'w-full  flex-row items-center  mt-[10px] justify-between '
+                    "w-full  flex-row items-center  mt-[10px] justify-between "
                 }
                 inputStyle="w-[60%]"
             />
@@ -131,10 +131,10 @@ const PhonePushForm = (props: propsType) => {
                 <Typography className="text-[14px] font-normal text-[#8d8c8c] w-[40%] ">
                     Рекомендации
                 </Typography>
-                <Box className={'w-[60%] flex'}>
+                <Box className={"w-[60%] flex"}>
                     <DefaultInput
                         register={register}
-                        inputType={'lastName'}
+                        inputType={"lastName"}
                         containerStile="w-[80%] "
                     />
                     <IconButton
@@ -156,21 +156,21 @@ const PhonePushForm = (props: propsType) => {
             <DefaultInput
                 lable="Комментарии"
                 register={register}
-                inputType={'appeal'}
+                inputType={"appeal"}
                 containerStile="w-[100%] flex-row items-center justify-between mt-[10px]"
                 inputStyle="w-[70%]"
             />
             <DefaultInput
                 lable="Направление от"
                 register={register}
-                inputType={'appeal'}
+                inputType={"appeal"}
                 containerStile="w-[100%] flex-row items-center justify-between mt-[10px]"
                 inputStyle="w-[70%]"
             />
             <DefaultInput
                 lable="Рекомендации"
                 register={register}
-                inputType={'appeal'}
+                inputType={"appeal"}
                 containerStile="w-[100%] flex-row items-center justify-between mt-[10px]"
                 inputStyle="w-[70%]"
             />

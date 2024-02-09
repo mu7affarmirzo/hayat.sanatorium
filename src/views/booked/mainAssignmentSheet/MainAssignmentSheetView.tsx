@@ -10,16 +10,16 @@ import {
 } from "assets/icons/icons";
 import HealingProcedures from "components/HealingProcedures";
 import { useAppModals } from "components/Modals";
-import DefaultCheckbox from "components/checkbox/DefaultCheckbox";
-import { ConsultingResearchCol } from "components/columnDefs/ConsultingResearchCol";
-import { HealingProceduresCol } from "components/columnDefs/HealingProceduresCol";
-import { TreatmentProgramsCOl } from "components/columnDefs/TreatmentProgramsCal";
+import DefaultCheckbox from "components/Checkbox/DefaultCheckbox";
+import { ConsultingResearchCol } from "components/ColumnDefs/ConsultingResearchCol";
+import { HealingProceduresCol } from "components/ColumnDefs/HealingProceduresCol";
+import { TreatmentProgramsCOl } from "components/ColumnDefs/TreatmentProgramsCal";
 import DefaultButton from "components/deafultButton/DefaultButton";
 import DefaultText from "components/defaultText/DefaultText";
 import ReceptionTable from "components/receptionTable/ReceptionTable";
 import ReceptionTableGroup from "components/ReceptionTableGroup/ReceptionTable";
 import React from "react";
-import { rowData } from "../frontPage/FrontPageView";
+import { rowData } from "../../TitlePageTab/FrontPageView";
 
 const StyledMenu = styled((props: MenuProps) => (
     <Menu

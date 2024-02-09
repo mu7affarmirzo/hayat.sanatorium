@@ -1,11 +1,11 @@
 import { Box } from "@mui/material";
 
-import SelectButton from "components/buttons/SelectButton";
-import AutocompleteInput from "components/autocompleteInput/AutocompleteInput";
+import SelectButton from "components/Buttons/SelectButton";
+import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
 import DefaultButton from "components/deafultButton/DefaultButton";
 import DefaultText from "components/defaultText/DefaultText";
-import DiagnostikaItem from "../frontPage/components/DiagnostikaItem";
-import DefaultCheckbox from "components/checkbox/DefaultCheckbox";
+import DiagnostikaItem from "../../../components/DiagnostikaItem";
+import DefaultCheckbox from "components/Checkbox/DefaultCheckbox";
 import { useAppModals } from "components/Modals";
 const data = [
     {

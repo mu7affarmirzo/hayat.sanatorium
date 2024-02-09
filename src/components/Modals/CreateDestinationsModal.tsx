@@ -1,6 +1,6 @@
 import { Box, Button, Grid, IconButton, Typography } from "@mui/material";
 import { CloseCircleIcon } from "assets/icons/icons";
-import DefaultCheckbox from "components/checkbox/DefaultCheckbox";
+import DefaultCheckbox from "components/Checkbox/DefaultCheckbox";
 import DefaultButton from "components/deafultButton/DefaultButton";
 import DefaultText from "components/defaultText/DefaultText";
 import SearchInput from "components/search/SearchInput";

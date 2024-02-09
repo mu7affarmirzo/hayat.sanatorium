@@ -1,6 +1,6 @@
 import { Grid, Typography } from "@mui/material";
 import { VuesaxLinear } from "assets/icons/icons";
-import { BookedPatiant } from "components/columnDefs/bookedCol";
+import { BookedPatiant } from "components/ColumnDefs/bookedCol";
 import DefaultButton from "components/deafultButton/DefaultButton";
 import ReceptionTable from "components/receptionTable/ReceptionTable";
 import SearchInput from "components/search/SearchInput";
