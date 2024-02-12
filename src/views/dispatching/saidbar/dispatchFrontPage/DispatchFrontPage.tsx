@@ -19,7 +19,6 @@ import HomeAddressForm from "views/TitlePageTab/components/HomeAddressForm";
 import HospitalStayForm from "views/TitlePageTab/components/HospitalStayForm";
 import PatientForm from "views/TitlePageTab/components/PatientForm";
 import PhonePushForm from "views/TitlePageTab/components/PhonePushForm";
-import TagsBox from "views/TitlePageTab/components/TagsBox";
 import StaySanatorium from "views/dispatching/components/StaySanatorium";
 import CustomizedAccordions from "components/CustomizedAccordions";
 import PhoneAddForm from "views/dispatching/components/PhoneAddForm";

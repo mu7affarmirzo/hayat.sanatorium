@@ -14,7 +14,7 @@ const DocumentationForm = (props: propsType) => {
         <CustomizedAccordions
             title="Документы"
             childrenStyle={{
-                background: "#fff",
+                background: "#F5F5F5",
                 display: "flex",
             }}
             topBoxStyle={{ background: "#F5F5F5", marginTop: "10px" }}

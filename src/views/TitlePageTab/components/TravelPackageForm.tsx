@@ -1,124 +1,199 @@
-import { Box, Typography } from "@mui/material";
-import { FileAltIcon } from "assets/icons/icons";
+import { Box, Grid, Typography } from "@mui/material";
 import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
 import { columnDefs } from "components/ColumnDefs/expectedCol";
+import SectionTitle from "components/SectionTitle/sectionTitle";
 import DefaultButton from "components/deafultButton/DefaultButton";
-import DefaultInput from "components/defaultInput/DefaultInput";
 import DefaultText from "components/defaultText/DefaultText";
 import ReceptionTable from "components/receptionTable/ReceptionTable";
+import { FC } from "react";
+
 type propsType = {
     avtoCaplektData: any;
     register: any;
     rowData?: any;
 };
-const TravelPackageForm = (props: propsType) => {
-    let { avtoCaplektData, register, rowData } = props;
+
+interface InfoBoxTypes {
+    children: any;
+    label: string;
+    buttonChild?: JSX.Element;
+}
+
+const InfoContainer: FC<InfoBoxTypes> = ({ children, label, buttonChild }) => {
     return (
-        <Box className="flex flex-col  border  p-[5px] ">
-            <Typography className=" text-[14px] text-[#000] ">
-                Путёвка
-            </Typography>
+        <Grid
+            container
+            className={`${buttonChild ? "items-start" : "items-center"} mt-2`}
+        >
+            <Grid item xs={2.5}>
+                <Typography className="text-sm font-normal font-roboto text-[#8d8c8c] ">
+                    {label}
+                </Typography>
+                {buttonChild ? buttonChild : null}
+            </Grid>
+            <Grid item xs={9.5}>
+                {children}
+            </Grid>
+        </Grid>
+    );
+};
 
-            <Box className="w-full flex items-center  mt-[10px] ">
-                <AutocompleteInput
-                    lable="Дата заказа:"
-                    data={avtoCaplektData}
-                    containerStyle={"flex-row items-center "}
-                    inputStyle="w-[150px]"
-                    lableStyle="mr-[30px]"
-                />
-                <AutocompleteInput
-                    lable="Ожидаемое время заезда:"
-                    data={avtoCaplektData}
-                    containerStyle={" flex-row items-center  ml-[30px]"}
-                    inputStyle="w-[150px]"
-                />
-            </Box>
+const TravelPackageForm = (props: propsType) => {
+    let { avtoCaplektData, rowData } = props;
+    return (
+        <Box className="flex flex-col border p-[5px]">
+            <SectionTitle title="Пребывание в санатории" />
 
-            <AutocompleteInput
-                lable="Программа:"
-                data={avtoCaplektData}
-                containerStyle={
-                    "w-[100%]  flex-row items-center mt-[10px] justify-between "
+            <InfoContainer
+                label="Программа:"
+                children={
+                    <AutocompleteInput
+                        data={avtoCaplektData}
+                        inputStyle="w-[100%]"
+                    />
                 }
-                inputStyle="w-[80%]"
             />
-            <Box className="w-full flex my-[10px]">
-                <Box className="w-[20%] ">
-                    <DefaultText>Лечебные программы:</DefaultText>
+
+            <InfoContainer
+                label="Лечебные программы:"
+                buttonChild={
                     <DefaultButton
                         title="Добавить"
                         classStyle="bg-[#4CAF50]  w-[95%] mt-[10px]"
                     />
-                </Box>
-                <Box className="w-[80%]">
+                }
+                children={
                     <ReceptionTable
                         columnDefs={columnDefs}
-                        height="h-[300px]"
+                        height="h-[200px]"
                         rowData={rowData}
                     />
-                </Box>
-            </Box>
-
-            <AutocompleteInput
-                lable="Программа лояльности:"
-                data={avtoCaplektData}
-                containerStyle={
-                    "w-[100%] flex-row items-center mt-[10px] justify-between"
                 }
-                inputStyle="w-[80%]"
             />
-            <Box className="flex w-full items-center mt-[10px]">
-                <AutocompleteInput
-                    lable="Категория путёвки:"
-                    data={avtoCaplektData}
-                    containerStyle={
-                        "w-[40%]  flex-row items-center  justify-between "
-                    }
-                    inputStyle="w-[50%]"
-                />
-                <DefaultInput
-                    lable="Рекомендации"
-                    register={register}
-                    inputType={"appeal"}
-                    containerStile="w-[60%] flex-row items-center justify-between ml-[10px]"
-                    inputStyle="w-[68%]"
-                    icon={<FileAltIcon />}
-                />
-            </Box>
-            <Box className="flex w-full items-center mt-[10px]">
-                <AutocompleteInput
-                    lable="Категория путёвки:"
-                    data={avtoCaplektData}
-                    containerStyle={
-                        "w-[40%]  flex-row items-center  justify-between "
-                    }
-                    inputStyle="w-[50%]"
-                />
-                <DefaultInput
-                    lable="Стоимость:"
-                    register={register}
-                    inputType={"appeal"}
-                    containerStile="w-[30%] flex-row items-center justify-between ml-[10px]"
-                    inputStyle="w-[70%]"
-                />
-            </Box>
-            <Box className="flex w-full items-center mt-[10px]">
-                <AutocompleteInput
-                    lable="Срок лечения по путёвке:"
-                    data={avtoCaplektData}
-                    containerStyle={
-                        "w-[40%]  flex-row items-center  justify-between "
-                    }
-                    inputStyle="w-[45%]"
-                />
-                <AutocompleteInput
-                    lable="-"
-                    data={avtoCaplektData}
-                    containerStyle={"w-[40%]  flex-row items-center  ml-[10px]"}
-                    inputStyle="w-[45%]"
-                />
-            </Box>
+
+            <InfoContainer
+                label="Срок лечения по путевке:"
+                children={
+                    <Box className="flex flex-row items-center gap-2">
+                        <AutocompleteInput
+                            data={avtoCaplektData}
+                            containerStyle={
+                                "w-[20%]  flex-row items-center  justify-between"
+                            }
+                            inputStyle="w-[100%]"
+                        />
+                        <AutocompleteInput
+                            lable="-"
+                            data={avtoCaplektData}
+                            containerStyle={"w-[20%] flex-row items-center"}
+                            inputStyle="w-[100%]"
+                        />
+                        <DefaultText children={`дней: 8`} />
+                    </Box>
+                }
+            />
+
+            <InfoContainer
+                label="Прибыл:"
+                children={
+                    <AutocompleteInput
+                        data={avtoCaplektData}
+                        containerStyle={
+                            "w-[20%] flex-row items-center  justify-between "
+                        }
+                        inputStyle="w-[100%]"
+                    />
+                }
+            />
+
+            <InfoContainer
+                label="Планируемый отъезд:"
+                children={
+                    <Box className="flex flex-row items-center gap-2">
+                        <AutocompleteInput
+                            data={avtoCaplektData}
+                            containerStyle={
+                                "w-[20%]  flex-row items-center  justify-between "
+                            }
+                            inputStyle="w-[100%]"
+                        />
+                        <AutocompleteInput
+                            lable="время:"
+                            data={avtoCaplektData}
+                            containerStyle={
+                                "w-[25%]  flex-row items-center  justify-between "
+                            }
+                            inputStyle="w-[90%]"
+                        />
+                    </Box>
+                }
+            />
+            <InfoContainer
+                label="Выбыл:"
+                children={
+                    <AutocompleteInput
+                        data={avtoCaplektData}
+                        containerStyle={
+                            "w-[20%] flex-row items-center  justify-between "
+                        }
+                        inputStyle="w-[100%]"
+                    />
+                }
+            />
+
+            <InfoContainer
+                label="Количество к/дней:"
+                children={
+                    <Box>
+                        <DefaultText children={8} />
+                    </Box>
+                }
+            />
+
+            <InfoContainer
+                label="Лечащий врач:"
+                children={
+                    <AutocompleteInput
+                        data={avtoCaplektData}
+                        inputStyle="w-[100%]"
+                    />
+                }
+            />
+
+            <InfoContainer
+                label="Медсестра:"
+                children={
+                    <AutocompleteInput
+                        data={avtoCaplektData}
+                        inputStyle="w-[100%]"
+                    />
+                }
+            />
+
+            <InfoContainer
+                label="Помещён в комнату:"
+                children={
+                    <Box className="flex flex-row items-center gap-2">
+                        <AutocompleteInput
+                            data={avtoCaplektData}
+                            containerStyle={
+                                "w-[25%] flex-row items-center  justify-between "
+                            }
+                            inputStyle="w-[100%]"
+                        />
+                        <DefaultText children={"Двухместный люкс"} />
+                    </Box>
+                }
+            />
+            <InfoContainer
+                label="Отделение:"
+                children={
+                    <AutocompleteInput
+                        data={avtoCaplektData}
+                        inputStyle="w-[100%]"
+                    />
+                }
+            />
         </Box>
     );
 };
