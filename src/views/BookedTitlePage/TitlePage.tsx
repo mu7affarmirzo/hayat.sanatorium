@@ -2,10 +2,10 @@
 import { Grid } from "@mui/material";
 import { CoinsAltIcon, VuesaxLinearPrinterIcon } from "assets/icons/icons";
 import SelectButton from "components/Buttons/SelectButton";
-import DefaultButton from "components/deafultButton/DefaultButton";
+import DefaultButton from "components/DeafultButton/DefaultButton";
 import SideBar, { TabsItem } from "components/sideBar/SideBar";
 import changelog from "../booked/changelog";
-import frontPage from "../TitlePageTab";
+import frontPage from "../BookedTitlePageTab";
 import invoicesDocuments from "../booked/invoicesDocuments";
 import mainAssignmentSheet from "../booked/mainAssignmentSheet";
 import nutrition from "../booked/nutrition";

@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 import { ColDef } from "ag-grid-community";
 import { AgGridReact } from "ag-grid-react";
 import { AppointmentsCol } from "components/ColumnDefs/AppointmentsCol";
-import { rowData } from "views/TitlePageTab/FrontPageView";
+import { rowData } from "views/BookedTitlePageTab/FrontPageView";
 import "./ag-theme-roomstype.css";
 type propsType = {
     columnDefs?: ColDef[];

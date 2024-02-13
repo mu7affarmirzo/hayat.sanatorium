@@ -4,8 +4,8 @@ import { ArrowDropSownIcon } from "assets/icons/icons";
 import { useAppModals } from "components/Modals";
 import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
 import { PhonePush } from "components/ColumnDefs/phonePush";
-import DefaultButton from "components/deafultButton/DefaultButton";
-import DefaultText from "components/defaultText/DefaultText";
+import DefaultButton from "components/DeafultButton/DefaultButton";
+import DefaultText from "components/DefaultText/DefaultText";
 import FrontFooter from "components/frontFooter/FrontFooter";
 import DocumentationForm from "./components/DocumentationForm";
 import HomeAddressForm from "./components/HomeAddressForm";
@@ -367,7 +367,6 @@ const ModeHandler = () => {
 
 const DiagnostHandler = () => {
     const appModals = useAppModals();
-
     return (
         <>
             <DiagnostikaItem

@@ -2,8 +2,8 @@ import { Box, Typography } from "@mui/material";
 import { TimePicker } from "@mui/x-date-pickers";
 import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
 import { columnDefs } from "components/ColumnDefs/expectedCol";
-import DefaultButton from "components/deafultButton/DefaultButton";
-import DefaultText from "components/defaultText/DefaultText";
+import DefaultButton from "components/DeafultButton/DefaultButton";
+import DefaultText from "components/DefaultText/DefaultText";
 import ReceptionTable from "components/receptionTable/ReceptionTable";
 import dayjs from "dayjs";
 type propsType = {

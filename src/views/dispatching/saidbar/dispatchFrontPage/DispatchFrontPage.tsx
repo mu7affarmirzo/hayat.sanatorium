@@ -3,8 +3,8 @@ import { ArrowDropSownIcon } from "assets/icons/icons";
 import { useAppModals } from "components/Modals";
 import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
 import { PhonePush } from "components/ColumnDefs/phonePush";
-import DefaultButton from "components/deafultButton/DefaultButton";
-import DefaultText from "components/defaultText/DefaultText";
+import DefaultButton from "components/DeafultButton/DefaultButton";
+import DefaultText from "components/DefaultText/DefaultText";
 import FrontFooter from "components/frontFooter/FrontFooter";
 import { SubmitHandler, useForm } from "react-hook-form";
 
@@ -14,11 +14,11 @@ import RadioForm from "components/RadioForm";
 
 import DefaulCheckbox from "components/Checkbox/DefaultCheckbox";
 import DiagnostikaItem from "components/DiagnostikaItem";
-import DocumentationForm from "views/TitlePageTab/components/DocumentationForm";
-import HomeAddressForm from "views/TitlePageTab/components/HomeAddressForm";
-import HospitalStayForm from "views/TitlePageTab/components/HospitalStayForm";
-import PatientForm from "views/TitlePageTab/components/PatientForm";
-import PhonePushForm from "views/TitlePageTab/components/PhonePushForm";
+import DocumentationForm from "views/BookedTitlePageTab/components/DocumentationForm";
+import HomeAddressForm from "views/BookedTitlePageTab/components/HomeAddressForm";
+import HospitalStayForm from "views/BookedTitlePageTab/components/HospitalStayForm";
+import PatientForm from "views/BookedTitlePageTab/components/PatientForm";
+import PhonePushForm from "views/BookedTitlePageTab/components/PhonePushForm";
 import StaySanatorium from "views/Dispatching/components/StaySanatorium";
 import CustomizedAccordions from "components/CustomizedAccordions";
 import PhoneAddForm from "views/Dispatching/components/PhoneAddForm";

@@ -1,3 +1,4 @@
+/* eslint-disable react/style-prop-object */
 import { Box, Typography } from "@mui/material";
 import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
 import DefaulCheckbox from "components/Checkbox/DefaultCheckbox";

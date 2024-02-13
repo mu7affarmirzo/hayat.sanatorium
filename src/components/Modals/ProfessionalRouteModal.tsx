@@ -2,12 +2,12 @@ import { Box, Button, Grid, IconButton } from "@mui/material";
 import { CloseCircleIcon } from "assets/icons/icons";
 import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
 import { ConnectionCol } from "components/ColumnDefs/ConnectionCol";
-import DefaultText from "components/defaultText/DefaultText";
+import DefaultText from "components/DefaultText/DefaultText";
 import ReceptionTable from "components/receptionTable/ReceptionTable";
 
 import { useEscapeKey } from "hooks/useEscapeKey";
 import { useCallback } from "react";
-import { rowData } from "views/TitlePageTab/FrontPageView";
+import { rowData } from "views/BookedTitlePageTab/FrontPageView";
 import { CallMeLaterModalContainer } from "./Modals.styles";
 import { useAppModals } from "./ModalsProvider";
 import DefaulCheckbox from "components/Checkbox/DefaultCheckbox";

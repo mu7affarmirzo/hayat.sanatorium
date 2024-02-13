@@ -3,9 +3,9 @@ import { useAppModals } from "components/Modals";
 import SelectButton from "components/Buttons/SelectButton";
 import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
 import DefaultCheckbox from "components/Checkbox/DefaultCheckbox";
-import DefaultButton from "components/deafultButton/DefaultButton";
+import DefaultButton from "components/DeafultButton/DefaultButton";
 import DefaultInput from "components/defaultInput/DefaultInput";
-import DefaultText from "components/defaultText/DefaultText";
+import DefaultText from "components/DefaultText/DefaultText";
 import DiagnosticCeckboxItem from "components/diagnosticCeckboxItem/DiagnosticCeckboxItem";
 import ReceptionTable from "components/receptionTable/ReceptionTable";
 

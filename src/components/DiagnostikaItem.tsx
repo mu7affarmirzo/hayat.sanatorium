@@ -1,7 +1,7 @@
 import { Box, IconButton } from "@mui/material";
 import { FileAltIcon, FilePlusAltIcon } from "assets/icons/icons";
-import DefaultButton from "components/deafultButton/DefaultButton";
-import DefaultText from "components/defaultText/DefaultText";
+import DefaultButton from "components/DeafultButton/DefaultButton";
+import DefaultText from "components/DefaultText/DefaultText";
 import OutlinedNumber from "components/outlinedNumber/OutlinedNumber";
 
 type propsType = {

@@ -2,7 +2,7 @@ import { Box, Grid, Typography } from "@mui/material";
 import { CloseIcon, SearchAltIcon, VuesaxLinear } from "assets/icons/icons";
 import SelectButton from "components/Buttons/SelectButton";
 import DefaultCheckbox from "components/Checkbox/DefaultCheckbox";
-import DefaultButton from "components/deafultButton/DefaultButton";
+import DefaultButton from "components/DeafultButton/DefaultButton";
 import DefaultInput from "components/defaultInput/DefaultInput";
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";

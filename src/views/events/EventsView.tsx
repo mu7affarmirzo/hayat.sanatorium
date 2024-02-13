@@ -4,7 +4,7 @@ import CustomizedAccordions from "components/CustomizedAccordions";
 import RadioForm from "components/RadioForm";
 import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
 import DefaultCheckbox from "components/Checkbox/DefaultCheckbox";
-import DefaultButton from "components/deafultButton/DefaultButton";
+import DefaultButton from "components/DeafultButton/DefaultButton";
 import DefaultInput from "components/defaultInput/DefaultInput";
 import SearchInput from "components/search/SearchInput";
 import { SubmitHandler, useForm } from "react-hook-form";

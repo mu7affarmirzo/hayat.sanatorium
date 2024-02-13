@@ -7,7 +7,7 @@ import BookingScreenTabs, {
 import { useMemo } from "react";
 import { useReduxSelector } from "hooks/useReduxHook";
 import bookedChildTab from "../BookedTab";
-import NewTitlePageContainer from "views/TitlePage/TitlePage";
+import NewTitlePageContainer from "views/BookedTitlePage/TitlePage";
 
 const BookedView = () => {
     const { broneData } = useReduxSelector((dynamicTabs) => dynamicTabs.booked);

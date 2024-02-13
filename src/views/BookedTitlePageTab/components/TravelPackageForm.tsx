@@ -2,8 +2,8 @@ import { Box, Grid, Typography } from "@mui/material";
 import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
 import { columnDefs } from "components/ColumnDefs/expectedCol";
 import SectionTitle from "components/SectionTitle/sectionTitle";
-import DefaultButton from "components/deafultButton/DefaultButton";
-import DefaultText from "components/defaultText/DefaultText";
+import DefaultButton from "components/DeafultButton/DefaultButton";
+import DefaultText from "components/DefaultText/DefaultText";
 import ReceptionTable from "components/receptionTable/ReceptionTable";
 import { FC } from "react";
 

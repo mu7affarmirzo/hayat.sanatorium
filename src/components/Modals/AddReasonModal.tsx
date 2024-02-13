@@ -1,7 +1,7 @@
 import { Box, Button, Grid, IconButton } from "@mui/material";
 import { CloseCircleIcon } from "assets/icons/icons";
 import CollapsibleTable from "components/Dropdown";
-import DefaultText from "components/defaultText/DefaultText";
+import DefaultText from "components/DefaultText/DefaultText";
 import { useEscapeKey } from "hooks/useEscapeKey";
 import { useCallback } from "react";
 import { CreatePaymentNowContainer } from "./Modals.styles";

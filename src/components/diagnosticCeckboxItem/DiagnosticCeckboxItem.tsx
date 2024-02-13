@@ -1,6 +1,6 @@
-import { Box, Grid, IconButton } from '@mui/material';
-import { FileAltIcon, FilePlusAltIcon } from 'assets/icons/icons';
-import DefaultText from 'components/defaultText/DefaultText';
+import { Box, Grid, IconButton } from "@mui/material";
+import { FileAltIcon, FilePlusAltIcon } from "assets/icons/icons";
+import DefaultText from "components/DefaultText/DefaultText";
 
 type Props = {
     style?: string;
@@ -27,10 +27,10 @@ const DiagnosticCeckboxItem = ({
         >
             <Box
                 className={`${
-                    checkBoxStle ? checkBoxStle : 'w-[200px]'
+                    checkBoxStle ? checkBoxStle : "w-[200px]"
                 } flex  items-center `}
             >
-                <DefaultText style={'text-[#000] text-[14px]'}>
+                <DefaultText style={"text-[#000] text-[14px]"}>
                     {lable}
                 </DefaultText>
                 <Box className="">{children}</Box>

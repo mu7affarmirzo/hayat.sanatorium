@@ -1,7 +1,7 @@
 import { Grid } from "@mui/material";
 import { CoinsAltIcon, VuesaxLinearPrinterIcon } from "assets/icons/icons";
 import SelectButton from "components/Buttons/SelectButton";
-import DefaultButton from "components/deafultButton/DefaultButton";
+import DefaultButton from "components/DeafultButton/DefaultButton";
 import SideBar, { TabsItem } from "components/sideBar/SideBar";
 import AutomaticDispatch from "../saidbar/automaticDispatch/AutomaticDispatch";
 import DispatchFrontPage from "../saidbar/dispatchFrontPage/DispatchFrontPage";

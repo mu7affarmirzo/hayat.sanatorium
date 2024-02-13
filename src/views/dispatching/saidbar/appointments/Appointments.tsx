@@ -7,7 +7,7 @@ import {
 } from "assets/icons/icons";
 import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
 import AppointmentsTable from "components/BookingTypeView/AppointmentsTable";
-import DefaultButton from "components/deafultButton/DefaultButton";
+import DefaultButton from "components/DeafultButton/DefaultButton";
 import { useState } from "react";
 const top100Films = [
     { label: "The Shawshank Redemption", year: 1994 },

@@ -14,12 +14,12 @@ import DefaultCheckbox from "components/Checkbox/DefaultCheckbox";
 import { ConsultingResearchCol } from "components/ColumnDefs/ConsultingResearchCol";
 import { HealingProceduresCol } from "components/ColumnDefs/HealingProceduresCol";
 import { TreatmentProgramsCOl } from "components/ColumnDefs/TreatmentProgramsCal";
-import DefaultButton from "components/deafultButton/DefaultButton";
-import DefaultText from "components/defaultText/DefaultText";
+import DefaultButton from "components/DeafultButton/DefaultButton";
+import DefaultText from "components/DefaultText/DefaultText";
 import ReceptionTable from "components/receptionTable/ReceptionTable";
 import ReceptionTableGroup from "components/ReceptionTableGroup/ReceptionTable";
 import React from "react";
-import { rowData } from "../../TitlePageTab/FrontPageView";
+import { rowData } from "../../BookedTitlePageTab/FrontPageView";
 
 const StyledMenu = styled((props: MenuProps) => (
     <Menu

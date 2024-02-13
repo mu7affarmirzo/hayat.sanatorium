@@ -3,8 +3,8 @@ import { FilePlusAltIcon } from "assets/icons/icons";
 import { useAppModals } from "components/Modals";
 import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
 import DefaultCheckbox from "components/Checkbox/DefaultCheckbox";
-import DefaultButton from "components/deafultButton/DefaultButton";
-import DefaultText from "components/defaultText/DefaultText";
+import DefaultButton from "components/DeafultButton/DefaultButton";
+import DefaultText from "components/DefaultText/DefaultText";
 const top100Films = [
     { label: "The Shawshank Redemption", year: 1994 },
     { label: "The Godfather", year: 1972 },

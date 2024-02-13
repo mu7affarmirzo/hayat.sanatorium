@@ -2,12 +2,12 @@ import { Navigate } from "react-router-dom";
 import LoginView from "views/auth/LoginView";
 
 import NotFoundView from "views/NotFound/notFound";
-import PatientReception from "views/Role/Reception/patientReception";
-import EventsReception from "views/Role/Reception/eventsReception";
-import DispatchingReception from "views/Role/Reception/dispatchingReception";
+import PatientReception from "views/Role/Reception/PatientReception";
+import EventsReception from "views/Role/Reception/EventsReception";
+import DispatchingReception from "views/Role/Reception/DispatchingReception";
 import MainDoctorsView from "views/Role/Doctors/mainDoctors/main";
 import BookedDoctors from "views/Role/Doctors/bookedDoctors";
-import BookedReceptionView from "views/Role/Reception/bookedReception/bookedRecView";
+import BookedReceptionView from "views/Role/Reception/BookedReception/bookedRecView";
 
 type IRouting = {
     path: string;

@@ -1,26 +1,28 @@
 import { TabsItem } from "components/sideBar/SideBar";
 import { useReduxSelector } from "hooks/useReduxHook";
 import { useMemo } from "react";
-import bookedChildTab from "views/BookedTab";
-import NewTitlePageContainer from "views/BookedTitlePage/TitlePage";
+import MyPatientsView from "views/DispatchingMyPatient";
+import DispatchingTitlePage from "views/DispatchingTitlePage";
 
-export const useRecaptionContainerHook = () => {
-    const { broneData } = useReduxSelector((dynamicTabs) => dynamicTabs.booked);
+const useDispatchingHook = () => {
+    const { ibsData } = useReduxSelector((state) => state.dispatching);
+
     const dynamicContent = useMemo(() => {
         const bookedTab: TabsItem = {
             title: "Забронированные",
-            component: bookedChildTab,
+            component: MyPatientsView,
         };
-
         const broneItems =
-            broneData?.map((item) => ({
+            ibsData?.map((item) => ({
                 title: item.name,
-                component: NewTitlePageContainer,
+                component: DispatchingTitlePage,
             })) || [];
         return [bookedTab, ...broneItems];
-    }, [broneData]);
+    }, [ibsData]);
 
     return {
         dynamicContent,
     };
 };
+
+export default useDispatchingHook;

@@ -1,5 +1,5 @@
 import { Box, Checkbox, FormControlLabel } from "@mui/material";
-import DefaultText from "components/defaultText/DefaultText";
+import DefaultText from "components/DefaultText/DefaultText";
 type propsType = {
     style?: string;
     label?: string;

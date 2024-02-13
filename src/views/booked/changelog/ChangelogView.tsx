@@ -2,7 +2,7 @@
 import { Box } from "@mui/material";
 import SelectButton from "components/Buttons/SelectButton";
 import { ChangelolCol } from "components/ColumnDefs/ChangelogCol";
-import DefaultText from "components/defaultText/DefaultText";
+import DefaultText from "components/DefaultText/DefaultText";
 import ReceptionTableGroup from "components/ReceptionTableGroup/ReceptionTable";
 import SearchInput from "components/search/SearchInput";
 import { useState } from "react";

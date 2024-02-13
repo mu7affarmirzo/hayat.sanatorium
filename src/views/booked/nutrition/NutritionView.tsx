@@ -2,10 +2,10 @@ import { Box } from "@mui/material";
 import { MemoIcon } from "assets/icons/icons";
 import SelectButton from "components/Buttons/SelectButton";
 import { NutritionCol } from "components/ColumnDefs/nutritionCol";
-import DefaultButton from "components/deafultButton/DefaultButton";
+import DefaultButton from "components/DeafultButton/DefaultButton";
 import ReceptionTable from "components/receptionTable/ReceptionTable";
-import { rowData } from "../../TitlePageTab/FrontPageView";
-import DefaultText from "components/defaultText/DefaultText";
+import { rowData } from "../../BookedTitlePageTab/FrontPageView";
+import DefaultText from "components/DefaultText/DefaultText";
 import NutritionItem from "components/NutritionItem/NutritionItem";
 
 const data = [

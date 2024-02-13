@@ -3,9 +3,9 @@ import { Box, Grid } from "@mui/material";
 import { CloseIcon, SearchAltIcon } from "assets/icons/icons";
 import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
 import { BookedCol } from "components/ColumnDefs/bookedCol";
-import DefaultButton from "components/deafultButton/DefaultButton";
+import DefaultButton from "components/DeafultButton/DefaultButton";
 import DefaultInput from "components/defaultInput/DefaultInput";
-import DefaultText from "components/defaultText/DefaultText";
+import DefaultText from "components/DefaultText/DefaultText";
 import ReceptionTable from "components/receptionTable/ReceptionTable";
 import SearchInput from "components/search/SearchInput";
 

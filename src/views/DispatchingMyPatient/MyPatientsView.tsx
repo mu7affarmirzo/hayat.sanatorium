@@ -8,7 +8,7 @@ import CustomizedAccordions from "components/CustomizedAccordions";
 import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
 import DefaultCheckbox from "components/Checkbox/DefaultCheckbox";
 import { MyPatientsGrupCol } from "components/ColumnDefs/MyPatientsGrupCol";
-import DefaultButton from "components/deafultButton/DefaultButton";
+import DefaultButton from "components/DeafultButton/DefaultButton";
 import DefaultInput from "components/defaultInput/DefaultInput";
 import SearchInput from "components/search/SearchInput";
 import { useForm } from "react-hook-form";

@@ -1,11 +1,11 @@
 import { Box } from "@mui/material";
 import CustomizedAccordions from "components/CustomizedAccordions";
 import { columnDefs } from "components/ColumnDefs/expectedCol";
-import DefaultButton from "components/deafultButton/DefaultButton";
-import DefaultText from "components/defaultText/DefaultText";
+import DefaultButton from "components/DeafultButton/DefaultButton";
+import DefaultText from "components/DefaultText/DefaultText";
 import ReceptionTable from "components/receptionTable/ReceptionTable";
 
-import { rowData } from "views/TitlePageTab/FrontPageView";
+import { rowData } from "views/BookedTitlePageTab/FrontPageView";
 
 const FrontFooter = () => {
     return (
