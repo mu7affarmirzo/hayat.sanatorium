@@ -1,4 +1,4 @@
-import { useGetAllMyPatientsQuery } from "features/patient/patientService";
+import { useGetAllMyPatientsQuery } from "features/Patient/patientService";
 import useDebounce from "hooks/useDebounceHook";
 import { useState, useCallback, useMemo } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";

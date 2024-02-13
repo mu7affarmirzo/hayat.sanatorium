@@ -2,27 +2,27 @@ import { Box, Grid } from "@mui/material";
 import {
     CloseIcon,
     SearchAltIcon,
-    SearchIcon,
     VuesaxLinearDocumentIcon,
 } from "assets/icons/icons";
 import CustomizedAccordions from "components/CustomizedAccordions";
 import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
 import DefaultCheckbox from "components/Checkbox/DefaultCheckbox";
-import { ChangelolCol } from "components/ColumnDefs/ChangelogCol";
 import { MyPatientsGrupCol } from "components/ColumnDefs/MyPatientsGrupCol";
 import DefaultButton from "components/deafultButton/DefaultButton";
 import DefaultInput from "components/defaultInput/DefaultInput";
-import DefaultText from "components/defaultText/DefaultText";
 import SearchInput from "components/search/SearchInput";
-import { SubmitHandler, useForm } from "react-hook-form";
-import AdvancedSearchOptions from "./AdvancedSearchOptions";
+import { useForm } from "react-hook-form";
 import ReceptionTableGroup from "components/ReceptionTableGroup/ReceptionTable";
+import ExpancedSearchOptions from "../Dispatching/components/ExpandedOptionsSearch";
+import useDispatchingPatientHook from "./hook";
+
 interface IFormInput {
     lastName: string;
     name: string;
     surName: string;
     appeal: string;
 }
+
 const top100Films = [
     { label: "The Shawshank Redemption", year: 1994 },
     { label: "The Godfather", year: 1972 },
@@ -32,8 +32,41 @@ const top100Films = [
     { label: "Schindler's List", year: 1993 },
     { label: "Pulp Fiction", year: 1994 },
 ];
+
+const FunctionsBtnGroup = () => {
+    return (
+        <Grid item xs={12} className="flex justify-between my-[10px]">
+            <Grid item xs={12} md={7}>
+                <SearchInput />
+            </Grid>
+            <Grid item xs={12} md={5} className="flex justify-end ">
+                <DefaultButton
+                    title="Выбор колонок"
+                    classStyle="bg-[#2196F3] h-[40px] text-[#fff] mr-[10px]"
+                />
+                <DefaultButton
+                    title="Ехсеl"
+                    icon={<VuesaxLinearDocumentIcon />}
+                    classStyle="bg-[#2196F3] h-[40px] text-[#fff] mr-[10px]"
+                />
+                <DefaultButton
+                    title="Поиск"
+                    icon={<SearchAltIcon />}
+                    classStyle="bg-[#2196F3] h-[40px] text-[#fff] mr-[10px]"
+                />
+                <DefaultButton
+                    title="Очистить фильтр"
+                    icon={<CloseIcon stroke="#fff" />}
+                    classStyle="bg-[#2196F3] h-[40px] text-[#fff] "
+                />
+            </Grid>
+        </Grid>
+    );
+};
+
 const MyPatientsView = () => {
     const { register } = useForm<IFormInput>();
+    const { data, handleRowClick } = useDispatchingPatientHook();
 
     return (
         <Grid
@@ -94,38 +127,14 @@ const MyPatientsView = () => {
                     }}
                     topBoxStyle={{ background: "#F5F5F5", marginTop: "10px" }}
                 >
-                    <AdvancedSearchOptions />
+                    <ExpancedSearchOptions />
                 </CustomizedAccordions>
-                <Grid item xs={12} className="flex justify-between my-[10px]">
-                    <Grid item xs={12} md={7}>
-                        <SearchInput />
-                    </Grid>
-                    <Grid item xs={12} md={5} className="flex justify-end ">
-                        <DefaultButton
-                            title="Выбор колонок"
-                            classStyle="bg-[#2196F3] h-[40px] text-[#fff] mr-[10px]"
-                        />
-                        <DefaultButton
-                            title="Ехсеl"
-                            icon={<VuesaxLinearDocumentIcon />}
-                            classStyle="bg-[#2196F3] h-[40px] text-[#fff] mr-[10px]"
-                        />
-                        <DefaultButton
-                            title="Поиск"
-                            icon={<SearchAltIcon />}
-                            classStyle="bg-[#2196F3] h-[40px] text-[#fff] mr-[10px]"
-                        />
-                        <DefaultButton
-                            title="Очистить фильтр"
-                            icon={<CloseIcon stroke="#fff" />}
-                            classStyle="bg-[#2196F3] h-[40px] text-[#fff] "
-                        />
-                    </Grid>
-                </Grid>
-
+                <FunctionsBtnGroup />
                 <ReceptionTableGroup
                     columnDefs={MyPatientsGrupCol}
                     height="h-[50vh]"
+                    rowData={data}
+                    handleClickItem={handleRowClick}
                 />
             </Box>
         </Grid>

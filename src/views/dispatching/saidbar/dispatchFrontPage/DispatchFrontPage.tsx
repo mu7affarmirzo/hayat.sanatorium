@@ -19,9 +19,9 @@ import HomeAddressForm from "views/TitlePageTab/components/HomeAddressForm";
 import HospitalStayForm from "views/TitlePageTab/components/HospitalStayForm";
 import PatientForm from "views/TitlePageTab/components/PatientForm";
 import PhonePushForm from "views/TitlePageTab/components/PhonePushForm";
-import StaySanatorium from "views/dispatching/components/StaySanatorium";
+import StaySanatorium from "views/Dispatching/components/StaySanatorium";
 import CustomizedAccordions from "components/CustomizedAccordions";
-import PhoneAddForm from "views/dispatching/components/PhoneAddForm";
+import PhoneAddForm from "views/Dispatching/components/PhoneAddForm";
 
 interface IFormInput {
     lastName: string;

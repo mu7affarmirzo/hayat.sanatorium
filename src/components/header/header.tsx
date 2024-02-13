@@ -7,7 +7,7 @@ import styled from "styled-components";
 import { LogoSanatarumIcon } from "../../assets/icons/icons";
 import { NavBarDropdowns } from "../../constants/main";
 import { useReduxDispatch } from "hooks/useReduxHook";
-import { logout } from "features/login/AuthSlice";
+import { logout } from "features/Login/AuthSlice";
 import { storageService } from "features/api/storageService";
 const HeaderContainer = styled.div`
     display: flex;

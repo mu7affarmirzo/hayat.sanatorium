@@ -1,7 +1,7 @@
 import { AgGridReact } from "ag-grid-react";
 import { ColDef, RowClickedEvent } from "ag-grid-community";
 import { useReduxDispatch } from "hooks/useReduxHook";
-import { addPatient } from "features/booked/bookedSlice";
+import { addPatient } from "features/Booked/bookedSlice";
 import { useCallback } from "react";
 import "./style.css";
 
@@ -13,7 +13,6 @@ type propsType = {
 
 const ReceptionTable = (props: propsType) => {
     const dispatch = useReduxDispatch();
-
     const handleRowClick = useCallback(
         (event: RowClickedEvent) => {
             dispatch(

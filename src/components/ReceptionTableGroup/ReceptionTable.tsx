@@ -1,13 +1,13 @@
-import { ColDef } from "ag-grid-community";
+import { ColDef, RowClickedEvent } from "ag-grid-community";
 import { AgGridReact } from "ag-grid-react";
 import { useRef } from "react";
-import { rowData2 } from "./MockData";
 
 import "./style.css";
 type propsType = {
     columnDefs?: ColDef[];
     rowData?: any;
     height?: string;
+    handleClickItem?: (e: RowClickedEvent) => void;
 };
 const ReceptionTableGroup = (props: propsType) => {
     const gridRef = useRef<AgGridReact>(null);
@@ -20,9 +20,10 @@ const ReceptionTableGroup = (props: propsType) => {
             >
                 <AgGridReact
                     ref={gridRef}
-                    rowData={rowData2}
+                    rowData={props.rowData}
                     columnDefs={props.columnDefs}
                     groupDisplayType={"groupRows"}
+                    onRowClicked={props.handleClickItem}
                 />
             </div>
         </div>

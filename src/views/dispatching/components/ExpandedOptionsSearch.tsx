@@ -4,7 +4,6 @@ import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
 import DefaultCheckbox from "components/Checkbox/DefaultCheckbox";
 import OutlinedNumber from "components/outlinedNumber/OutlinedNumber";
 import { useState } from "react";
-import { Item } from "themes/customItems";
 const top100Films = [
     { label: "The Shawshank Redemption", year: 1994 },
     { label: "The Godfather", year: 1972 },
@@ -24,10 +23,10 @@ const polData = [
         name: "[Ж] Женский",
     },
 ];
-const AdvancedSearchOptions = () => {
+const ExpancedSearchOptions = () => {
     const [activeBtn, setActiveBtn] = useState(0);
     return (
-        <Grid container className="">
+        <Grid container>
             <Grid item xs={12} className="min-h-[200px]">
                 <Grid container className="flex justify-between h-[100%]">
                     <Grid
@@ -317,4 +316,4 @@ const AdvancedSearchOptions = () => {
     );
 };
 
-export default AdvancedSearchOptions;
+export default ExpancedSearchOptions;

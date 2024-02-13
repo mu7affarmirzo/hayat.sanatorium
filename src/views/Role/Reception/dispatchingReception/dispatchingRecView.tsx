@@ -1,4 +1,4 @@
-import DispatchingView from "views/dispatching/DispatchingView";
+import DispatchingView from "views/Dispatching/DispatchingView";
 
 const DispatchingReceptionView = () => {
     return <DispatchingView />;
