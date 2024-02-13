@@ -1,4 +1,4 @@
-import { useGetIbsWithIdQuery } from "features/Booked/bookedService";
+import { useGetIbsWithIdQuery } from "features/booked/bookedService";
 import { useReduxSelector } from "hooks/useReduxHook";
 import { useMemo } from "react";
 import { useForm } from "react-hook-form";

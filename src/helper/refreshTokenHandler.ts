@@ -1,5 +1,5 @@
 import { storageService } from "features/api/storageService";
-import { useRefreshTokenMutation } from "features/Login/authService";
+import { useRefreshTokenMutation } from "features/login/authService";
 
 export const RefreshTokenHandler = async () => {
     const refreshToken = storageService.load("refreshToken");

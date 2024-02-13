@@ -5,33 +5,33 @@ import {
     Select,
     SelectChangeEvent,
     styled,
-} from '@mui/material';
+} from "@mui/material";
 
-import { useState } from 'react';
+import { useState } from "react";
 const BootstrapInput = styled(InputBase)(({ theme }) => ({
-    'label + &': {
+    "label + &": {
         marginTop: theme.spacing(3),
     },
-    '& .MuiInputBase-input': {
+    "& .MuiInputBase-input": {
         borderRadius: 4,
-        position: 'relative',
-        color: '#fff',
+        position: "relative",
+        color: "#fff",
         fontSize: 16,
         padding: 0,
-        height: '100%',
+        height: "100%",
         fontFamily: [
-            '-apple-system',
-            'BlinkMacSystemFont',
+            "-apple-system",
+            "BlinkMacSystemFont",
             '"Segoe UI"',
-            'Roboto',
+            "Roboto",
             '"Helvetica Neue"',
-            'Arial',
-            'sans-serif',
+            "Arial",
+            "sans-serif",
             '"Apple Color Emoji"',
             '"Segoe UI Emoji"',
             '"Segoe UI Symbol"',
-        ].join(','),
-        '&:focus': {
+        ].join(","),
+        "&:focus": {
             border: 0,
         },
     },
@@ -45,7 +45,7 @@ type propsType = {
     itemStyle?: string;
 };
 const SelectButton = (props: propsType) => {
-    const [age, setAge] = useState('');
+    const [age, setAge] = useState("");
     const handleChange = (event: SelectChangeEvent) => {
         setAge(event.target.value as string);
     };
@@ -53,7 +53,7 @@ const SelectButton = (props: propsType) => {
     return (
         <div
             className={`${
-                props.style ? props.style : 'max-h-[46px] h-[46px]  '
+                props.style ? props.style : "max-h-[46px] h-[46px]  "
             }   flex pr-[10px] pl-[15px] items-center mr-[10px] rounded-[4px] min-w-[120px] bg-[#2196F3] `}
         >
             {props.icon ? <Box className="mr-[10px]"> {props.icon}</Box> : null}
@@ -64,14 +64,14 @@ const SelectButton = (props: propsType) => {
                 value={age}
                 onChange={handleChange}
                 displayEmpty
-                inputProps={{ 'aria-label': 'Without label' }}
+                inputProps={{ "aria-label": "Without label" }}
                 input={<BootstrapInput />}
                 className={`${props?.selectStyle} py-[10px] cursor-pointer  `}
             >
                 <MenuItem value="">
                     <p
                         className={`${
-                            props.itemStyle ? props.itemStyle : 'text-[#fff]'
+                            props.itemStyle ? props.itemStyle : "text-[#fff]"
                         } `}
                     >
                         {props.defaultValue}
@@ -84,7 +84,7 @@ const SelectButton = (props: propsType) => {
                                 className={` ${
                                     props.itemStyle
                                         ? props.itemStyle
-                                        : 'text-[#fff]'
+                                        : "text-[#fff]"
                                 } `}
                             >
                                 {item.title}
@@ -98,6 +98,3 @@ const SelectButton = (props: propsType) => {
 };
 
 export default SelectButton;
-{
-    /* <VuesaxLinearPrinterIcon />;  */
-}

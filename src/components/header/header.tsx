@@ -1,13 +1,13 @@
 import LogoutTwoToneIcon from "@mui/icons-material/LogoutTwoTone";
 import { Button, Menu, MenuItem, Typography } from "@mui/material";
 import { ArrowDropDownIcon } from "@mui/x-date-pickers";
-import React, { FC, useCallback, useMemo, useState } from "react";
+import React, { FC, useCallback, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { LogoSanatarumIcon } from "../../assets/icons/icons";
 import { NavBarDropdowns } from "../../constants/main";
 import { useReduxDispatch } from "hooks/useReduxHook";
-import { logout } from "features/Login/AuthSlice";
+import { logout } from "features/login/AuthSlice";
 import { storageService } from "features/api/storageService";
 const HeaderContainer = styled.div`
     display: flex;
@@ -55,7 +55,6 @@ const Headers: FC<HeaderProps> = ({ activeTab, setChangeTopTab }) => {
     const SelectedNavbarDropDown = NavBarDropdowns[role];
 
     const changeHeaderTab = useCallback(() => {
-        // navigate(SelectedNavbarDropDown[activeTab]?.dropdown[0]?.path)
         setActiveData(SelectedNavbarDropDown[activeTab]);
         if (SelectedNavbarDropDown[activeTab].dropdown?.length === 1) {
             setItemStyle(true);

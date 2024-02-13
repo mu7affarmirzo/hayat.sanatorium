@@ -12,7 +12,7 @@ const initialState: AuthState = {
     role: null,
 };
 
-const authSlice = createSlice({
+export const authSlice = createSlice({
     name: "login",
     initialState,
     reducers: {

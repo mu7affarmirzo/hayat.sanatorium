@@ -1,7 +1,7 @@
 import {
     useGetAllIbsQuery,
     usePostSearchIbsMutation,
-} from "features/Booked/bookedService";
+} from "features/booked/bookedService";
 import useDebounce from "hooks/useDebounceHook";
 import { useEffect, useMemo, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";

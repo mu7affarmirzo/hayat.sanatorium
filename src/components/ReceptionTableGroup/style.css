@@ -23,9 +23,9 @@
 }
 .ag-ltr .ag-cell {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
 }
 .ag-icon-tree-closed::before {
-    content: var(--ag-icon-font-code-tree-open, '\f132');
+    content: var(--ag-icon-font-code-tree-open, "\f132");
 }

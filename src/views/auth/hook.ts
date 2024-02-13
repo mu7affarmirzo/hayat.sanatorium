@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { storageService } from "features/api/storageService";
-import { loginSuccess } from "features/Login/AuthSlice";
-import { useLoginMutation } from "features/Login/authService";
+import { loginSuccess } from "features/login/AuthSlice";
+import { useLoginMutation } from "features/login/authService";
 import { useReduxDispatch } from "hooks/useReduxHook";
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
