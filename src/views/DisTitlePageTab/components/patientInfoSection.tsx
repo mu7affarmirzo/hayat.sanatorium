@@ -5,9 +5,11 @@ import HomeAddressForm from "views/BookedTitlePageTab/components/HomeAddressForm
 import PatientForm from "views/BookedTitlePageTab/components/PatientForm";
 import PhonePushForm from "views/BookedTitlePageTab/components/PhonePushForm";
 import { rowData } from "../disTitlePageTab";
+import { UseFormRegister } from "react-hook-form";
+import { Patient } from "types/booked";
 
 interface PatientInfoType {
-    register: any;
+    register: UseFormRegister<Patient>;
     pollData: any;
     mockData: any;
 }

@@ -12,7 +12,7 @@ import nutrition from "../booked/nutrition";
 import consultationTechniques from "../booked/consultationTechniques";
 import researchSummaryTable from "../booked/researchSummaryTable";
 import measuredParameters from "../booked/measuredParameters";
-import treatmentSchedule from "../booked/treatmentSchedule";
+import treatmentSchedule from "../TreatmentSchedule";
 
 const content: TabsItem[] = [
     {

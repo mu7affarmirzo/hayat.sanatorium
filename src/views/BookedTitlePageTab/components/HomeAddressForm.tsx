@@ -1,9 +1,11 @@
 import { Box, Typography } from "@mui/material";
 import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
 import DefaultInput from "components/defaultInput/DefaultInput";
+import { UseFormRegister } from "react-hook-form";
+import { Patient } from "types/booked";
 type propsType = {
     avtoCaplektData: any;
-    register: any;
+    register: UseFormRegister<Patient>;
 };
 const HomeAddressForm = (props: propsType) => {
     let { avtoCaplektData, register } = props;
@@ -16,7 +18,7 @@ const HomeAddressForm = (props: propsType) => {
             <DefaultInput
                 lable="Быстрый ввод адреса"
                 register={register}
-                inputType={"appeal"}
+                inputType={"address"}
                 containerStile="w-[100%] flex-col  mt-[10px] "
                 inputStyle="w-[100%]"
             />

@@ -1,7 +1,7 @@
-import { Button, Typography } from '@mui/material';
-import { FC, useState } from 'react';
-import { SvgProps } from 'types/types';
-import SaidBarCustomizedAccordions from './sideBar/SaidBarCustomizedAccordions';
+import { Button, Typography } from "@mui/material";
+import { FC, useState } from "react";
+import { SvgProps } from "types/types";
+import SaidBarCustomizedAccordions from "./sideBar/SaidBarCustomizedAccordions";
 
 interface BookingProps {
     index: number;
@@ -23,27 +23,30 @@ const SideBarBtn: FC<BookingProps> = (props) => {
     const [actibeBtn, setActiveBtn] = useState(0);
 
     return (
-        <>
+        <div
+            className="rounded"
+            style={{
+                borderRadius: "10px",
+                backgroundColor:
+                    activeTab === index ? "#64B6F7 !important" : "#fff",
+            }}
+        >
             {chiled ? (
                 <SaidBarCustomizedAccordions
                     onClick={onClick}
                     title={title}
-                    activBtnType={activeTab === index ? activBtnType : ''}
+                    activBtnType={activeTab === index ? activBtnType : ""}
                     search={search}
+                    isActive={activeTab === index}
                     childrenStyle={{
-                        background: '#fff',
-                        display: 'block',
-                        justifyContent: 'space-between',
-                        paddingLeft: search ? '0' : '40px',
+                        display: "block",
+                        justifyContent: "space-between",
                     }}
                     topBoxStyle={{
-                        backgroundColor:
-                            activeTab === index ? '#3397FF !important' : '#fff',
-                        color: activeTab === index ? 'white' : '#636363',
-                        paddingLeft: '15px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        borderRadius: search ? '0' : '5px',
+                        color: activeTab === index ? "white" : "#636363",
+                        paddingLeft: "15px",
+                        display: "flex",
+                        alignItems: "center",
                     }}
                 >
                     {chiled.map((item: any) => {
@@ -55,32 +58,25 @@ const SideBarBtn: FC<BookingProps> = (props) => {
                                         activBtnType={
                                             activeTab === index
                                                 ? activBtnType
-                                                : ''
+                                                : ""
                                         }
+                                        isActive={activeTab === index}
                                         childrenStyle={{
-                                            backgroundColor:
-                                                activeTab === index
-                                                    ? '#3397FF !important'
-                                                    : '#fff',
                                             color:
                                                 activeTab === index
-                                                    ? 'white'
-                                                    : '#636363',
-                                            display: 'block',
-                                            justifyContent: 'space-between',
-                                            paddingLeft: '30px',
+                                                    ? "white"
+                                                    : "#636363",
+                                            display: "block",
+                                            justifyContent: "space-between",
+                                            paddingLeft: "30px",
                                         }}
                                         topBoxStyle={{
-                                            backgroundColor:
-                                                activeTab === index
-                                                    ? '#3397FF !important'
-                                                    : '#fff',
                                             color:
                                                 activeTab === index
-                                                    ? 'white'
-                                                    : '#636363',
-                                            display: 'flex',
-                                            alignItems: 'center',
+                                                    ? "white"
+                                                    : "#636363",
+                                            display: "flex",
+                                            alignItems: "center",
                                             margin: 0,
                                         }}
                                     >
@@ -96,8 +92,8 @@ const SideBarBtn: FC<BookingProps> = (props) => {
                                                     className={`${
                                                         actibeBtn ===
                                                         itemChiled.id
-                                                            ? 'bg-[#007DFF]'
-                                                            : 'bg-[#3397FF ]'
+                                                            ? "bg-[#30a0fc]"
+                                                            : "bg-[#64B6F7 ]"
                                                     }  cursor-pointer w-[100%] text-left `}
                                                 >
                                                     <Typography className=" text-[#000] my-[3px] text-[12px]">
@@ -124,11 +120,11 @@ const SideBarBtn: FC<BookingProps> = (props) => {
             ) : (
                 <Button
                     onClick={onClick}
-                    className={` flex  min-h-[30px]  w-full py-[10px] items-center justify-start pl-[24px]
+                    className={` flex  min-h-[30px]  w-full py-[10px] items-center justify-start pl-[24px] 
               normal-case   ${
                   activeTab === index
-                      ? 'bg-[#3397FF] text-gray-100'
-                      : 'bg-[#fff]  text-gray-700'
+                      ? "bg-[#3397FF] text-gray-100"
+                      : "bg-[#fff]  text-gray-700"
               }`}
                 >
                     <Typography className="text-[12px] flex  text-start">
@@ -136,7 +132,7 @@ const SideBarBtn: FC<BookingProps> = (props) => {
                     </Typography>
                 </Button>
             )}
-        </>
+        </div>
     );
 };
 

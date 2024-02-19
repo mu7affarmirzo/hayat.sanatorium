@@ -1,7 +1,8 @@
 import { useGetPatientWithIdQuery } from "features/dispatching/dispatchingService";
 import { useReduxSelector } from "hooks/useReduxHook";
-import { useRef } from "react";
+import { useMemo, useRef } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { Patient } from "types/booked";
 
 export type IFormInput = {
     lastName: string;
@@ -21,6 +22,16 @@ const useDispatchTitlePageTabHook = () => {
 
     const scrollRef: any = useRef(null);
 
+    const PatientData = useMemo(() => {
+        const currentPatient = CurrentPatient?.patient;
+        return currentPatient;
+    }, [CurrentPatient?.patient]);
+
+    const { register: registerForm, handleSubmit: handleSubmitForm } =
+        useForm<Patient>({
+            defaultValues: CurrentPatient?.patient ?? {},
+        });
+
     const scrollUp = () => {
         if (scrollRef.current) {
             scrollRef.current.scrollTop -= 200;
@@ -34,6 +45,9 @@ const useDispatchTitlePageTabHook = () => {
         onSubmit,
         scrollRef,
         CurrentPatient,
+        PatientData,
+        registerForm,
+        handleSubmitForm,
     };
 };
 

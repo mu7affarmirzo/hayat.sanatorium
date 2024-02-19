@@ -3,10 +3,12 @@ import { ActiveDotIcon, NoActiveDotIcon } from "assets/icons/icons";
 import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
 import DefaultInput from "components/defaultInput/DefaultInput";
 import { memo, useState } from "react";
+import { UseFormRegister } from "react-hook-form";
+import { Patient } from "types/booked";
 type propsType = {
     polData: any;
     avtoCaplektData: any;
-    register: any;
+    register: UseFormRegister<Patient>;
 };
 const PatientForm = (props: propsType) => {
     let { polData, avtoCaplektData, register } = props;
@@ -18,21 +20,21 @@ const PatientForm = (props: propsType) => {
             <Box className="w-full flex items-center justify-between ">
                 <DefaultInput
                     register={register}
-                    inputType={"lastName"}
+                    inputType={"l_name"}
                     lable="Фамилия"
                     containerStile="w-[32%] flex-col "
                     inputStyle="70%"
                 />
                 <DefaultInput
                     register={register}
-                    inputType={"name"}
+                    inputType={"f_name"}
                     lable="Имя"
                     containerStile="w-[32%] flex-col "
                     inputStyle="70%"
                 />
                 <DefaultInput
                     register={register}
-                    inputType={"surname"}
+                    inputType={"mid_name"}
                     lable="Отчество"
                     containerStile="w-[32%] flex-col "
                     inputStyle="70%"

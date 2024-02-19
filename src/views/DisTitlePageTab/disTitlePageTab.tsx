@@ -153,6 +153,7 @@ const DispatchTitlePageTab = () => {
         scrollRef,
         scrollUp,
         CurrentPatient,
+        registerForm,
     } = useDispatchTitlePageTabHook();
 
     console.log(CurrentPatient, "CurrentPatient");
@@ -188,12 +189,12 @@ const DispatchTitlePageTab = () => {
                     style={{ whiteSpace: "nowrap" }}
                 >
                     <form
-                        className="flex justify-between  "
+                        className="flex justify-between"
                         onSubmit={handleSubmit(onSubmit)}
                     >
                         <div className="w-[35%]">
                             <PatientInfoSection
-                                register={register}
+                                register={registerForm}
                                 pollData={polData}
                                 mockData={top100FilmsChack}
                             />

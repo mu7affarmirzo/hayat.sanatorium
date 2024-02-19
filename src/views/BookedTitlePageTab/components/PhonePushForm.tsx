@@ -1,23 +1,20 @@
-import { Box, Button, IconButton, Typography } from "@mui/material";
-import {
-    ActiveDotIcon,
-    FileAltIcon,
-    FilePlusAltIcon,
-    NoActiveDotIcon,
-} from "assets/icons/icons";
-import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
-import DefaulCheckbox from "components/Checkbox/DefaultCheckbox";
+import { Patient } from "types/booked";
+import { FileAltIcon, FilePlusAltIcon } from "assets/icons/icons";
+import { UseFormRegister } from "react-hook-form";
 import DefaultInput from "components/defaultInput/DefaultInput";
-import ReceptionTable from "components/receptionTable/ReceptionTable";
-import { rowData } from "../FrontPageView";
+import DefaulCheckbox from "components/Checkbox/DefaultCheckbox";
+import { Box, Button, IconButton, Typography } from "@mui/material";
+import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
+
 type propsType = {
     avtoCaplektData: any;
-    register: any;
+    register: UseFormRegister<Patient>;
     rowData?: any;
     phonePush?: any;
 };
+
 const PhonePushForm = (props: propsType) => {
-    let { phonePush, avtoCaplektData, register } = props;
+    let { avtoCaplektData, register } = props;
 
     return (
         <Box className="flex flex-col ">
@@ -31,16 +28,16 @@ const PhonePushForm = (props: propsType) => {
                 >
                     Добавить
                 </Button>
-                <Box className="mt-[10px]">
+                {/* <Box className="mt-[10px]">
                     <ReceptionTable columnDefs={phonePush} rowData={rowData} />
-                </Box>
+                </Box> */}
             </Box>
 
             <Box className="w-full flex items-center justify-between mt-[10px]  ">
                 <DefaultInput
                     lable="E-mail:"
                     register={register}
-                    inputType={"appeal"}
+                    inputType={"email"}
                     containerStile="w-[49%] flex-row items-center justify-between "
                     inputStyle="w-[75%]"
                 />

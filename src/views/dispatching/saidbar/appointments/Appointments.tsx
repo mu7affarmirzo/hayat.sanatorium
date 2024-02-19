@@ -52,7 +52,7 @@ const data = [
 const Appointments = () => {
     const [active, setActive] = useState(0);
     return (
-        <Box className="px-[10px] py-[5px] w-full h-[calc(100vh-230px)] relative bg-[#F5F5F5] overflow-hidden">
+        <Box className="px-[10px] py-[5px] w-full h-[calc(100vh-140px)] relative bg-[#F5F5F5] overflow-hidden">
             <Box className="p-[5px] w-full relative bg-[#fff] overflow-hidden  h-full">
                 <Box className="flex items-center gap-2  my-[10px]">
                     <IconButton className=" border br-[50px] bg-slate-200">

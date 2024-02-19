@@ -339,11 +339,11 @@ const DispatchFrontPage = () => {
                                 <PatientForm
                                     polData={polData}
                                     avtoCaplektData={top100Films}
-                                    register={register}
+                                    register={register as never}
                                 />
                                 <HomeAddressForm
                                     avtoCaplektData={top100Films}
-                                    register={register}
+                                    register={register as never}
                                 />
                                 <PhoneAddForm
                                     phonePush={PhonePush}

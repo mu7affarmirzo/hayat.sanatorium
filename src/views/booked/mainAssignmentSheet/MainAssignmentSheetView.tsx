@@ -1,3 +1,4 @@
+/* eslint-disable react/style-prop-object */
 import { Box, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import Menu, { MenuProps } from "@mui/material/Menu";

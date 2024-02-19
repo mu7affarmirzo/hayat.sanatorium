@@ -2,9 +2,7 @@ import { Box, IconButton, Slider, Typography } from "@mui/material";
 import {
     File2Icon,
     File4Icon,
-    FileIcon,
     FileNewIcon,
-    VuesaxLinearPrinterIcon,
     VuesaxLinearSave2Icon,
 } from "assets/icons/icons";
 import CustomizedAccordions from "components/CustomizedAccordions";
@@ -12,6 +10,10 @@ import TablePaginationDemo from "components/TablePaginationDemo";
 import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
 import DefaultButton from "components/DeafultButton/DefaultButton";
 import { useState } from "react";
+import PrintComponent from "./components/printComponent";
+import { MyDocument } from "./components/myDocument";
+import { PDFViewer } from "@react-pdf/renderer";
+
 const top100Films = [
     { label: "The Shawshank Redemption", year: 1994 },
     { label: "The Godfather", year: 1972 },
@@ -21,14 +23,16 @@ const top100Films = [
     { label: "Schindler's List", year: 1993 },
     { label: "Pulp Fiction", year: 1994 },
 ];
+
 const TreatmentScheduleView = () => {
     const [sliderValue, setSliderValue] = useState<number>(0);
     function valuetext(value: number) {
         setSliderValue(value);
         return `${value}`;
     }
+
     return (
-        <Box className=" h-[calc(100vh-225px)]  p-[10px] overflow-scroll">
+        <Box className=" h-[calc(100vh-140px)] p-[10px] overflow-scroll">
             <CustomizedAccordions
                 title="Параметры расписания"
                 childrenStyle={{
@@ -59,11 +63,7 @@ const TreatmentScheduleView = () => {
             </CustomizedAccordions>
 
             <Box className="border border-[rgba(0, 0, 0, 0.23)] flex  p-[10px] bg-[#fff]">
-                <DefaultButton
-                    title="Print"
-                    icon={<VuesaxLinearPrinterIcon stroke="#000" />}
-                    classStyle="bg-[#F5F5F5] text-[#000] mr-[10px]"
-                />
+                <PrintComponent />
                 <DefaultButton
                     title="Save"
                     icon={<VuesaxLinearSave2Icon stroke="#000" />}
@@ -72,9 +72,13 @@ const TreatmentScheduleView = () => {
             </Box>
             <Box
                 className={
-                    "bg-[#9d9a9a] h-[calc(100%-200px)] w-[100%] overflow-scroll border mt-[10px]"
+                    "bg-[#e6e6e6] h-[calc(100%-200px)] w-[100%] overflow-scroll border mt-[10px]"
                 }
-            ></Box>
+            >
+                <PDFViewer className="w-full h-full">
+                    <MyDocument />
+                </PDFViewer>
+            </Box>
             <Box className="py-[8px] flex justify-between">
                 <Box className="w-[calc(70%-10px)] bg-[#fff] py-[10px]">
                     <TablePaginationDemo />

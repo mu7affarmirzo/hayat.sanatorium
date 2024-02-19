@@ -1,3 +1,4 @@
+/* eslint-disable react/style-prop-object */
 import React, { Suspense } from "react";
 import { Box, Grid, TextField, Typography } from "@mui/material";
 import { ArrowDropSownIcon } from "assets/icons/icons";
