@@ -6,7 +6,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { LogoSanatarumIcon } from "../../assets/icons/icons";
 import { NavBarDropdowns } from "../../constants/main";
-import { useReduxDispatch } from "hooks/useReduxHook";
+import { useReduxDispatch, useReduxSelector } from "hooks/useReduxHook";
 import { logout } from "features/login/AuthSlice";
 import { storageService } from "features/api/storageService";
 const HeaderContainer = styled.div`
@@ -38,31 +38,40 @@ interface HeaderProps {
     activeTab: number;
 }
 
+const BoxForCountEvents = () => {
+    return (
+        <div className="w-[24px] h-[24px] border border-white bg-red-300 rounded-full mx-2">
+            <Typography className="text-white">7</Typography>
+        </div>
+    );
+};
+
 const Headers: FC<HeaderProps> = ({ activeTab, setChangeTopTab }) => {
     const navigate = useNavigate();
-    const location = useLocation();
+    // const location = useLocation();
     const dispatch = useReduxDispatch();
-    const [activeTabHeader, setActiveTabHeader] = useState<number>(0);
+    // const [activeTabHeader, setActiveTabHeader] = useState<number>(0);
     const [anchorEl, setAnchorEl] = React.useState<number>(0);
-    const [activeData, setActiveData] = useState<any>();
-    const [itemStyle, setItemStyle] = useState(false);
+    // const [activeData, setActiveData] = useState<any>();
+    // const [itemStyle, setItemStyle] = useState(false);
     const [profileOpen, setProfileOpen] = React.useState<null | HTMLElement>(
         null
     );
+    const { countOfEvents } = useReduxSelector((state) => state.events);
 
     const [role, setRole] = useState<Props["role"]>("Reception");
 
-    const SelectedNavbarDropDown = NavBarDropdowns[role];
+    // const SelectedNavbarDropDown = NavBarDropdowns[role];
 
-    const changeHeaderTab = useCallback(() => {
-        setActiveData(SelectedNavbarDropDown[activeTab]);
-        if (SelectedNavbarDropDown[activeTab].dropdown?.length === 1) {
-            setItemStyle(true);
-        } else {
-            setItemStyle(false);
-        }
-        setActiveTabHeader(0);
-    }, [SelectedNavbarDropDown, activeTab]);
+    // const changeHeaderTab = useCallback(() => {
+    //     setActiveData(SelectedNavbarDropDown[activeTab]);
+    //     if (SelectedNavbarDropDown[activeTab].dropdown?.length === 1) {
+    //         setItemStyle(true);
+    //     } else {
+    //         setItemStyle(false);
+    //     }
+    //     setActiveTabHeader(0);
+    // }, [SelectedNavbarDropDown, activeTab]);
 
     const handleClick = (index: number, item: any) => {
         setAnchorEl(index);
@@ -70,17 +79,29 @@ const Headers: FC<HeaderProps> = ({ activeTab, setChangeTopTab }) => {
         navigate(item.path as never);
     };
 
-    const isActiveNav = useCallback(
-        (path: string) => {
-            return location.pathname.includes(path);
-        },
-        [location]
-    );
+    // const isActiveNav = useCallback(
+    //     (path: string) => {
+    //         return location.pathname.includes(path);
+    //     },
+    //     [location]
+    // );
 
     const handleLogOut = useCallback(() => {
         dispatch(logout());
         storageService.remove("token");
     }, [dispatch]);
+
+    const IsEventsBox = (path: string) => {
+        if (path === "/reception/events") {
+            return (
+                <div className="w-[24px] h-[24px] border border-white bg-red-300 rounded-full mx-2 flex items-center justify-center">
+                    <Typography className="text-white">5</Typography>
+                </div>
+            );
+        } else {
+            return null;
+        }
+    };
 
     return (
         <div className="">
@@ -114,6 +135,8 @@ const Headers: FC<HeaderProps> = ({ activeTab, setChangeTopTab }) => {
                                         <Typography className="text-sm  font-medium  normal-case ">
                                             {item.title}
                                         </Typography>
+
+                                        {IsEventsBox(item.path)}
                                     </Button>
                                 </React.Fragment>
                             );

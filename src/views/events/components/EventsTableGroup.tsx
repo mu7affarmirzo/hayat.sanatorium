@@ -1,6 +1,6 @@
 import { ColDef } from "ag-grid-community";
 import { AgGridReact } from "ag-grid-react";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
 type propsType = {
     columnDefs?: ColDef[];
