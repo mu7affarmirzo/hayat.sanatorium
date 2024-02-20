@@ -2,13 +2,14 @@ import LogoutTwoToneIcon from "@mui/icons-material/LogoutTwoTone";
 import { Button, Menu, MenuItem, Typography } from "@mui/material";
 import { ArrowDropDownIcon } from "@mui/x-date-pickers";
 import React, { FC, useCallback, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { LogoSanatarumIcon } from "../../assets/icons/icons";
 import { NavBarDropdowns } from "../../constants/main";
-import { useReduxDispatch, useReduxSelector } from "hooks/useReduxHook";
+import { useReduxDispatch } from "hooks/useReduxHook";
 import { logout } from "features/login/AuthSlice";
 import { storageService } from "features/api/storageService";
+
 const HeaderContainer = styled.div`
     display: flex;
     align-items: center;
@@ -38,14 +39,6 @@ interface HeaderProps {
     activeTab: number;
 }
 
-const BoxForCountEvents = () => {
-    return (
-        <div className="w-[24px] h-[24px] border border-white bg-red-300 rounded-full mx-2">
-            <Typography className="text-white">7</Typography>
-        </div>
-    );
-};
-
 const Headers: FC<HeaderProps> = ({ activeTab, setChangeTopTab }) => {
     const navigate = useNavigate();
     // const location = useLocation();
@@ -57,7 +50,7 @@ const Headers: FC<HeaderProps> = ({ activeTab, setChangeTopTab }) => {
     const [profileOpen, setProfileOpen] = React.useState<null | HTMLElement>(
         null
     );
-    const { countOfEvents } = useReduxSelector((state) => state.events);
+    // const { countOfEvents } = useReduxSelector((state) => state.events);
 
     const [role, setRole] = useState<Props["role"]>("Reception");
 

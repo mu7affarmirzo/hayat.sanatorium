@@ -1,18 +1,18 @@
-import { Typography, Grid, Box } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import DefaultButton from 'components/DeafultButton/DefaultButton';
-import useDispatchTitlePageTabHook from './hook';
 import TagAutoCompleateBox from 'components/TagAutoCompleateBox/tagAutoCompleateBox';
-import HarmFactors from '../BookedTitlePage/Components/harmFactors';
-import ModeHandler from '../BookedTitlePage/Components/modalHandler';
-import DiagnostHandler from '../BookedTitlePage/Components/diagnostHandler';
-import Comment from '../BookedTitlePage/Components/commetsSection';
 import FrontFooter from 'components/frontFooter/FrontFooter';
+import DocumentationForm from 'views/BookedTitlePageTab/components/DocumentationForm';
 import HospitalStayForm from 'views/BookedTitlePageTab/components/HospitalStayForm';
 import TravelPackageForm from 'views/BookedTitlePageTab/components/TravelPackageForm';
-import DocumentationForm from 'views/BookedTitlePageTab/components/DocumentationForm';
-import TitlePageBottomCheckbooks from '../BookedTitlePage/Components/bottomChechBoxs';
-import PatientInfoSection from '../BookedTitlePage/Components/patientInfoSection';
-import RiskFactorsAndTags from '../BookedTitlePage/Components/tagsFactors';
+import TitlePageBottomCheckbooks from 'views/BookedTitlePage/Components/bottomChechBoxs';
+import DiagnostHandler from 'views/BookedTitlePage/Components/diagnostHandler';
+import HarmFactors from 'views/BookedTitlePage/Components/harmFactors';
+import ModeHandler from 'views/BookedTitlePage/Components/modalHandler';
+import PatientInfoSection from 'views/BookedTitlePage/Components/patientInfoSection';
+import RiskFactorsAndTags from 'views/BookedTitlePage/Components/tagsFactors';
+import useReceptionBookedTitleHook from './hook';
+import Comment from 'views/BookedTitlePage/Components/commetsSection';
 
 const top100FilmsChack = [
   { title: 'The Shawshank Redemption', year: 1994 },
@@ -145,18 +145,9 @@ const polData = [
   },
 ];
 
-const DispatchTitlePageTab = () => {
-  const {
-    handleSubmit,
-    onSubmit,
-    register,
-    scrollRef,
-    scrollUp,
-    CurrentPatient,
-    registerForm,
-  } = useDispatchTitlePageTabHook();
-
-  console.log(CurrentPatient, 'CurrentPatient');
+const BookedTitlePageContainer = () => {
+  const { scrollRef, scrollUp, handleSubmit, onSubmit, register } =
+    useReceptionBookedTitleHook();
   return (
     <div
       style={{
@@ -188,7 +179,7 @@ const DispatchTitlePageTab = () => {
             onSubmit={handleSubmit(onSubmit)}>
             <div className="w-[35%]">
               <PatientInfoSection
-                register={registerForm}
+                register={register}
                 pollData={polData}
                 mockData={top100FilmsChack}
               />
@@ -213,7 +204,6 @@ const DispatchTitlePageTab = () => {
               <TagAutoCompleateBox data={top100FilmsChack} lable="Метки" />
             </Box>
           </form>
-
           <FrontFooter />
           <ModeHandler radioFormData={radioForm} />
           <DiagnostHandler />
@@ -225,4 +215,4 @@ const DispatchTitlePageTab = () => {
   );
 };
 
-export default DispatchTitlePageTab;
+export default BookedTitlePageContainer;
