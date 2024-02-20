@@ -1,53 +1,49 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-export interface PatientBook {
+export interface PatientDoctors {
     id: number;
     name: string;
 }
-export interface BookedTypes {
-    broneData: PatientBook[];
+export interface PatientDoctorsTypes {
+    broneData: PatientDoctors[];
     selectBroneId: number | null;
 }
 
-const initialState: BookedTypes = {
+const initialState: PatientDoctorsTypes = {
     broneData: [],
     selectBroneId: null,
 };
 
-export const bookedSlice = createSlice({
-    name: 'booked',
+export const patientDoctorsSlice = createSlice({
+    name: 'doctors',
     initialState,
     reducers: {
-        addPatient: (state, action: PayloadAction<PatientBook>) => {
+        addDoctorsPatient: (state, action: PayloadAction<PatientDoctors>) => {
             const newPatient = action.payload;
             const existingPatientIndex = state.broneData.findIndex(
                 (patient) => patient.id === newPatient.id
             );
-            state.selectBroneId = action?.payload?.id;
 
             if (existingPatientIndex !== -1) {
                 state.broneData.splice(existingPatientIndex, 1);
             }
-            if (action.payload) {
-                state.selectBroneId = action?.payload?.id;
-            }
             state.broneData.push(newPatient);
             // state.selectBroneId = newPatient.id;
         },
-        removePatient: (state, action: PayloadAction<number>) => {
+        removeDoctorPatient: (state, action: PayloadAction<number>) => {
             const patientIndex = state.broneData.findIndex(
                 (patient) => patient.id === action.payload
             );
             if (patientIndex !== -1) {
-                state.broneData.splice(patientIndex, 1);
+                state.broneData.splice(patientIndex, 5);
                 state.selectBroneId = null;
             }
         },
-        clearBookedPatients: (state) => {
+        clearDoctorPatients: (state) => {
             state.broneData = [];
         },
     },
 });
 
-export const { addPatient, clearBookedPatients, removePatient } =
-    bookedSlice.actions;
+export const { addDoctorsPatient, clearDoctorPatients, removeDoctorPatient } =
+    patientDoctorsSlice.actions;

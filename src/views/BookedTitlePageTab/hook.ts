@@ -1,5 +1,8 @@
-import { useRef } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useGetPatientWithIdQuery } from 'features/Dispatching/dispatchingService';
+import { usePostDiagnosMutation } from 'features/booked/bookedService';
+import { useReduxSelector } from 'hooks/useReduxHook';
+import { useRef } from 'react';
+import { useForm, SubmitHandler } from 'react-hook-form';
 
 export type IFormInput = {
     lastName: string;
@@ -9,8 +12,24 @@ export type IFormInput = {
 };
 
 const useTitlePageTabHook = () => {
+    const { selectBroneId } = useReduxSelector(
+        (dynamicTabs) => dynamicTabs.booked
+    );
+    const { data, isError, isLoading, isSuccess } = useGetPatientWithIdQuery(
+        Number(selectBroneId) || 0
+    );
+    const [fetchRequest] = usePostDiagnosMutation();
+
     const { register, handleSubmit } = useForm<IFormInput>();
+
     const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
+
+    const clicked = () => {
+        fetchRequest({
+            name: 'string',
+            code: 'string',
+        });
+    };
 
     const scrollRef: any = useRef(null);
 
@@ -43,6 +62,10 @@ const useTitlePageTabHook = () => {
         handleSubmit,
         onSubmit,
         scrollRef,
+        data,
+        isError,
+        isLoading,
+        isSuccess,
     };
 };
 export default useTitlePageTabHook;

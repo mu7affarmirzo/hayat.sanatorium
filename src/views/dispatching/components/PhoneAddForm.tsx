@@ -1,10 +1,10 @@
-import { Box, Button, IconButton, Typography } from "@mui/material";
-import { FileAltIcon, FilePlusAltIcon } from "assets/icons/icons";
-import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
-import DefaulCheckbox from "components/Checkbox/DefaultCheckbox";
-import DefaultInput from "components/defaultInput/DefaultInput";
-import ReceptionTable from "components/receptionTable/ReceptionTable";
-import { rowData } from "../saidbar/dispatchFrontPage/DispatchFrontPage";
+import { Box, Button, IconButton, Typography } from '@mui/material';
+import { FileAltIcon, FilePlusAltIcon } from 'assets/icons/icons';
+import AutocompleteInput from 'components/AutocompleteInput/AutocompleteInput';
+import DefaulCheckbox from 'components/Checkbox/DefaultCheckbox';
+import DefaultInput from 'components/defaultInput/DefaultInput';
+import ReceptionTable from 'components/receptionTable/ReceptionTable';
+import { rowData } from '../saidbar/dispatchFrontPage/DispatchFrontPage';
 
 type propsType = {
     avtoCaplektData: any;
@@ -23,7 +23,7 @@ const PhoneAddForm = (props: propsType) => {
                 </Typography>
                 <Button
                     variant="contained"
-                    className={` ${"bg-[#4CAF50] text-[#fff] border border-solid border-[#4CAF50]"}  h-[35px]  text-[14px]  capitalize mr-[5px] px-[8px] py-[5px]  mt-[5px] `}
+                    className={` ${'bg-[#4CAF50] text-[#fff] border border-solid border-[#4CAF50]'}  h-[35px]  text-[14px]  capitalize mr-[5px] px-[8px] py-[5px]  mt-[5px] `}
                 >
                     Добавить
                 </Button>
@@ -36,14 +36,14 @@ const PhoneAddForm = (props: propsType) => {
                 <DefaultInput
                     lable="E-mail:"
                     register={register}
-                    inputType={"appeal"}
+                    inputType={'appeal'}
                     containerStile="w-[49%] flex-row items-center justify-between "
                     inputStyle="w-[75%]"
                 />
                 <DefaultInput
                     lable="Язык:"
                     register={register}
-                    inputType={"appeal"}
+                    inputType={'appeal'}
                     containerStile="w-[49%] flex-row items-center justify-between "
                     inputStyle="w-[75%]"
                 />
@@ -52,7 +52,7 @@ const PhoneAddForm = (props: propsType) => {
                 <DefaultInput
                     lable="Поликлиника:"
                     register={register}
-                    inputType={"appeal"}
+                    inputType={'appeal'}
                     containerStile="w-[75%] flex-row items-center justify-between "
                     inputStyle="w-[70%]"
                 />
@@ -61,14 +61,14 @@ const PhoneAddForm = (props: propsType) => {
             <DefaultInput
                 lable="Номер ИБ поликлиники:"
                 register={register}
-                inputType={"appeal"}
+                inputType={'appeal'}
                 containerStile="w-[100%] flex-row items-center justify-between mt-[10px]"
                 inputStyle="w-[60%]"
             />
             <DefaultInput
                 lable="Социальное положение:"
                 register={register}
-                inputType={"appeal"}
+                inputType={'appeal'}
                 containerStile="w-[100%] flex-row items-center justify-between mt-[10px]"
                 inputStyle="w-[60%]"
             />

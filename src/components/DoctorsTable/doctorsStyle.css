@@ -1,0 +1,44 @@
+.ag-theme-alpine {
+    --ag-header-column-resize-handle-display: block;
+    --ag-header-column-resize-handle-width: 5px;
+    --ag-header-column-resize-handle-color: orange;
+
+    --ag-header-cell-text-color: black;
+    --ag-header-cell-border-color: black;
+    --ag-header-cell-border-width: 1px;
+    --ag-header-cell-border-style: solid;
+    --ag-header-group-cell-border-color: black;
+}
+
+.ag-cell {
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 12px;
+}
+.ag-theme-alpine .ag-header {
+    background-color: #64b6f7;
+    height: 40px;
+}
+.ag-theme-alpine .ag-header-group-cell {
+    font-weight: normal;
+    font-size: 22px;
+
+    padding: 0;
+}
+
+.ag-theme-alpine .ag-header-cell {
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.15px;
+    border-left: 1px solid var(--Light, rgba(0, 0, 0, 0.1));
+    border-right: 1px solid var(--Light, rgba(0, 0, 0, 0.1));
+    padding: 10px;
+}
+.ag-cell-wrapper {
+    padding: 0 10px;
+}

@@ -1,9 +1,9 @@
 import { AgGridReact } from 'ag-grid-react';
 import { ColDef, RowClickedEvent } from 'ag-grid-community';
 import { useReduxDispatch } from 'hooks/useReduxHook';
-import { addPatient } from 'features/booked/bookedSlice';
 import { useCallback } from 'react';
-import './style.css';
+import './doctorsStyle.css';
+import { addDoctorsPatient } from 'features/doctorsPatient/patientDoctorsSlice';
 
 type propsType = {
     columnDefs?: ColDef[];
@@ -11,12 +11,12 @@ type propsType = {
     height?: string;
 };
 
-const ReceptionTable = (props: propsType) => {
+const DoctorsTable = (props: propsType) => {
     const dispatch = useReduxDispatch();
     const handleRowClick = useCallback(
         (event: RowClickedEvent) => {
             dispatch(
-                addPatient({
+                addDoctorsPatient({
                     id: event.data.id,
                     name: event.data.patient,
                 })
@@ -45,4 +45,4 @@ const ReceptionTable = (props: propsType) => {
     );
 };
 
-export default ReceptionTable;
+export default DoctorsTable;

@@ -1,4 +1,4 @@
-import { Autocomplete, Box, TextField, Typography } from "@mui/material";
+import { Autocomplete, Box, TextField, Typography } from '@mui/material';
 
 type propsType = {
     data?: any;
@@ -15,7 +15,7 @@ const AutocompleteInput = (props: propsType) => {
     return (
         <Box
             className={`${
-                containerStyle ? containerStyle : "flex-row w-[100%]"
+                containerStyle ? containerStyle : 'flex-row w-[100%]'
             } flex  gap-1 z-[100]  `}
         >
             {lable ? (
@@ -34,7 +34,7 @@ const AutocompleteInput = (props: propsType) => {
                     getOptionLabel={(option) => option.title}
                     defaultValue={[data[1]]}
                     renderInput={(params) => <TextField {...params} />}
-                    className={`${inputStyle ? inputStyle : " w-[70%] "} `}
+                    className={`${inputStyle ? inputStyle : ' w-[70%] '} `}
                     limitTags={3}
                 />
             ) : (
@@ -45,7 +45,7 @@ const AutocompleteInput = (props: propsType) => {
                     disableClearable
                     options={data}
                     renderInput={(params) => <TextField {...params} />}
-                    className={`${inputStyle ? inputStyle : " w-[70%] "} `}
+                    className={`${inputStyle ? inputStyle : ' w-[70%] '} `}
                 />
             )}
         </Box>

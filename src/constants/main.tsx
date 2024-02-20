@@ -1,4 +1,4 @@
-import { SvgProps } from "../types/types";
+import { SvgProps } from '../types/types';
 
 interface IDropdownItem {
     icon?: React.ComponentType<SvgProps>;
@@ -23,28 +23,28 @@ interface IRoleNavs {
 export const NavBarDropdowns: IRoleNavs = {
     Reception: [
         {
-            name: "Забронированные",
-            title: "Забронированные",
-            path: "/reception/booked",
-            mainPath: "reception",
+            name: 'Забронированные',
+            title: 'Забронированные',
+            path: '/reception/booked',
+            mainPath: 'reception',
         },
         {
-            name: "Пациенты",
-            title: "Пациенты",
-            path: "/reception/patients",
-            mainPath: "reception",
+            name: 'Пациенты',
+            title: 'Пациенты',
+            path: '/reception/patients',
+            mainPath: 'reception',
         },
         {
-            name: "События",
-            title: "События",
-            path: "/reception/events",
-            mainPath: "reception",
+            name: 'События',
+            title: 'События',
+            path: '/reception/events',
+            mainPath: 'reception',
         },
         {
-            name: "Диспетчеризация",
-            title: "Диспетчеризация",
-            path: "/reception/dispatching",
-            mainPath: "reception",
+            name: 'Диспетчеризация',
+            title: 'Диспетчеризация',
+            path: '/reception/dispatching',
+            mainPath: 'reception',
         },
         // {
         //     name: "Пациенты",
@@ -109,5 +109,30 @@ export const NavBarDropdowns: IRoleNavs = {
         //     subMenu: [],
         // },
     ],
-    Doctors: [],
+    Doctors: [
+        {
+            name: 'Забронированные',
+            title: 'Забронированные',
+            path: '/doctors/booked',
+            mainPath: 'doctors',
+        },
+        {
+            name: 'Пациенты',
+            title: 'Пациенты',
+            path: '/doctors/patients',
+            mainPath: 'doctors',
+        },
+        {
+            name: 'События',
+            title: 'События',
+            path: '/doctors/events',
+            mainPath: 'doctors',
+        },
+        {
+            name: 'Диспетчеризация',
+            title: 'Диспетчеризация',
+            path: '/doctors/dispatching',
+            mainPath: 'doctors',
+        },
+    ],
 };
