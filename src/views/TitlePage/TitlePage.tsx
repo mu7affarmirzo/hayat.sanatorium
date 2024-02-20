@@ -1,122 +1,121 @@
-/* eslint-disable react/style-prop-object */
-import { Grid } from "@mui/material";
-import { CoinsAltIcon, VuesaxLinearPrinterIcon } from "assets/icons/icons";
-import SelectButton from "components/Buttons/SelectButton";
-import DefaultButton from "components/deafultButton/DefaultButton";
-import SideBar, { TabsItem } from "components/sideBar/SideBar";
-import changelog from "../booked/changelog";
-import frontPage from "../TitlePageTab";
-import invoicesDocuments from "../booked/invoicesDocuments";
-import mainAssignmentSheet from "../booked/mainAssignmentSheet";
-import nutrition from "../booked/nutrition";
-import consultationTechniques from "../booked/consultationTechniques";
-import researchSummaryTable from "../booked/researchSummaryTable";
-import measuredParameters from "../booked/measuredParameters";
-import treatmentSchedule from "../booked/treatmentSchedule";
+import { Grid } from '@mui/material';
+import { CoinsAltIcon, VuesaxLinearPrinterIcon } from 'assets/icons/icons';
+import SelectButton from 'components/Buttons/SelectButton';
+import DefaultButton from 'components/deafultButton/DefaultButton';
+import SideBar, { TabsItem } from 'components/sideBar/SideBar';
+import changelog from '../booked/changelog';
+import frontPage from '../TitlePageTab';
+import invoicesDocuments from '../booked/invoicesDocuments';
+import mainAssignmentSheet from '../booked/mainAssignmentSheet';
+import nutrition from '../booked/nutrition';
+import consultationTechniques from '../booked/consultationTechniques';
+import researchSummaryTable from '../booked/researchSummaryTable';
+import measuredParameters from '../booked/measuredParameters';
+import treatmentSchedule from '../booked/treatmentSchedule';
 
 const content: TabsItem[] = [
     {
-        title: "Титульная страница",
+        title: 'Титульная страница',
         component: frontPage,
         chiled: [
-            { id: 0, title: "Диагнозы", link: "/#frontPage" },
-            { id: 2, title: "Особые отметки", link: "/#frontPage" },
+            { id: 0, title: 'Диагнозы', link: '/#frontPage' },
+            { id: 2, title: 'Особые отметки', link: '/#frontPage' },
         ],
-        activBtnType: "panel1",
+        activBtnType: 'panel1',
     },
     {
-        title: "Документы",
+        title: 'Документы',
         component: invoicesDocuments,
     },
     {
-        title: "Питание",
+        title: 'Питание',
         component: nutrition,
     },
     {
-        title: "Консультации и повторные приемы",
+        title: 'Консультации и повторные приемы',
         component: consultationTechniques,
-        activBtnType: "panel1",
+        activBtnType: 'panel1',
         chiled: [
             {
                 id: 0,
-                title: "Прием дежурного врача",
-                link: "#frontPage",
+                title: 'Прием дежурного врача',
+                link: '#frontPage',
             },
             {
                 id: 1,
-                title: "Жалобы/анамнез",
+                title: 'Жалобы/анамнез',
             },
             {
                 id: 2,
-                title: "Объективные данные",
+                title: 'Объективные данные',
             },
             {
                 id: 3,
-                title: "Диагноз",
+                title: 'Диагноз',
             },
             {
                 id: 4,
-                title: "Заключение",
+                title: 'Заключение',
             },
             {
                 id: 5,
-                title: "Назначения",
+                title: 'Назначения',
             },
         ],
     },
     {
-        title: "Основной лист назначений",
+        title: 'Основной лист назначений',
         component: mainAssignmentSheet,
-        activBtnType: "panel1",
+        activBtnType: 'panel1',
         chiled: [
             {
                 id: 0,
-                title: "Консультации и исследования",
+                title: 'Консультации и исследования',
             },
             {
                 id: 1,
-                title: "Лечебные процедуры",
+                title: 'Лечебные процедуры',
             },
         ],
     },
     {
-        title: "Сводная таблица исследований",
+        title: 'Сводная таблица исследований',
         component: researchSummaryTable,
     },
     {
-        title: "Измеряемые параметры",
+        title: 'Измеряемые параметры',
         component: measuredParameters,
-        activBtnType: "panel1",
+        activBtnType: 'panel1',
         chiled: [
             {
                 id: 0,
-                title: "Артериальное давление",
+                title: 'Артериальное давление',
             },
             {
                 id: 1,
-                title: "Глюкоза крови (глюкометр)",
+                title: 'Глюкоза крови (глюкометр)',
             },
             {
                 id: 3,
-                title: "Пульс",
+                title: 'Пульс',
             },
             {
                 id: 4,
-                title: "Сатурация",
+                title: 'Сатурация',
             },
 
             {
                 id: 5,
-                title: "Температура",
+                title: 'Температура',
             },
         ],
     },
     {
-        title: "Расписание лечения",
+        title: 'Расписание лечения',
         component: treatmentSchedule,
     },
     {
-        title: "Журнал изменений",
+        title: 'Журнал изменений',
         component: changelog,
     },
 ];
@@ -124,22 +123,22 @@ const content: TabsItem[] = [
 const selectData = [
     {
         id: 0,
-        title: "Начало приёма",
+        title: 'Начало приёма',
     },
     {
         id: 1,
-        title: "Начало приём2",
+        title: 'Начало приём2',
     },
 ];
 
 const selectData2 = [
     {
         id: 0,
-        title: "Осмотр дежурного врача при поступлении",
+        title: 'Осмотр дежурного врача при поступлении',
     },
     {
         id: 1,
-        title: "Прием дежурного врача",
+        title: 'Прием дежурного врача',
     },
 ];
 
@@ -190,7 +189,7 @@ const DiseaseHistoryTopTabs = () => {
                     icon={<CoinsAltIcon stroke="black" />}
                     title="  0,00 сум"
                     classStyle="bg-[#F5F5F5] h-[46px] text-[#000]  py-[10px]"
-                    variant={"none"}
+                    variant={'none'}
                 />
             </Grid>
         </Grid>

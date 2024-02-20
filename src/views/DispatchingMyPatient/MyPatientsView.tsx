@@ -1,20 +1,20 @@
-import { Box, Grid } from "@mui/material";
+import { Box, Grid } from '@mui/material';
 import {
     CloseIcon,
     SearchAltIcon,
     VuesaxLinearDocumentIcon,
-} from "assets/icons/icons";
-import CustomizedAccordions from "components/CustomizedAccordions";
-import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
-import DefaultCheckbox from "components/Checkbox/DefaultCheckbox";
-import { MyPatientsGrupCol } from "components/ColumnDefs/MyPatientsGrupCol";
-import DefaultButton from "components/deafultButton/DefaultButton";
-import DefaultInput from "components/defaultInput/DefaultInput";
-import SearchInput from "components/search/SearchInput";
-import { useForm } from "react-hook-form";
-import ReceptionTableGroup from "components/ReceptionTableGroup/ReceptionTable";
-import ExpancedSearchOptions from "../Dispatching/components/ExpandedOptionsSearch";
-import useDispatchingPatientHook from "./hook";
+} from 'assets/icons/icons';
+import CustomizedAccordions from 'components/CustomizedAccordions';
+import AutocompleteInput from 'components/AutocompleteInput/AutocompleteInput';
+import DefaultCheckbox from 'components/Checkbox/DefaultCheckbox';
+import { MyPatientsGrupCol } from 'components/ColumnDefs/MyPatientsGrupCol';
+import DefaultButton from 'components/deafultButton/DefaultButton';
+import DefaultInput from 'components/defaultInput/DefaultInput';
+import SearchInput from 'components/search/SearchInput';
+import { useForm } from 'react-hook-form';
+import ReceptionTableGroup from 'components/ReceptionTableGroup/ReceptionTable';
+import ExpancedSearchOptions from '../Dispatching/components/ExpandedOptionsSearch';
+import useDispatchingPatientHook from './hook';
 
 interface IFormInput {
     lastName: string;
@@ -24,13 +24,13 @@ interface IFormInput {
 }
 
 const top100Films = [
-    { label: "The Shawshank Redemption", year: 1994 },
-    { label: "The Godfather", year: 1972 },
-    { label: "The Godfather: Part II", year: 1974 },
-    { label: "The Dark Knight", year: 2008 },
-    { label: "12 Angry Men", year: 1957 },
+    { label: 'The Shawshank Redemption', year: 1994 },
+    { label: 'The Godfather', year: 1972 },
+    { label: 'The Godfather: Part II', year: 1974 },
+    { label: 'The Dark Knight', year: 2008 },
+    { label: '12 Angry Men', year: 1957 },
     { label: "Schindler's List", year: 1993 },
-    { label: "Pulp Fiction", year: 1994 },
+    { label: 'Pulp Fiction', year: 1994 },
 ];
 
 const FunctionsBtnGroup = () => {
@@ -77,11 +77,11 @@ const MyPatientsView = () => {
                 <CustomizedAccordions
                     title="Параметры поиска:"
                     childrenStyle={{
-                        background: "#F5F5F5",
-                        display: "flex",
-                        padding: "10px",
+                        background: '#F5F5F5',
+                        display: 'flex',
+                        padding: '10px',
                     }}
-                    topBoxStyle={{ background: "#F5F5F5" }}
+                    topBoxStyle={{ background: '#F5F5F5' }}
                 >
                     <Grid
                         item
@@ -91,21 +91,21 @@ const MyPatientsView = () => {
                     >
                         <DefaultInput
                             register={register}
-                            inputType={"appeal"}
+                            inputType={'appeal'}
                             containerStile="w-[33%] "
                             inputStyle="w-[100%]"
                             placeholder="ФИО пациента"
                         />
                         <DefaultInput
                             register={register}
-                            inputType={"appeal"}
+                            inputType={'appeal'}
                             containerStile="w-[33%]  "
                             inputStyle="w-[100%]"
                             placeholder="Тип карты"
                         />
                         <AutocompleteInput
                             data={top100Films}
-                            containerStyle={" w-[33%]   bg-[#fff] "}
+                            containerStyle={' w-[33%]   bg-[#fff] '}
                             inputStyle="w-[100%]"
                         />
                     </Grid>
@@ -121,11 +121,11 @@ const MyPatientsView = () => {
                 <CustomizedAccordions
                     title="Расширенные параметры поиска"
                     childrenStyle={{
-                        background: "#F5F5F5",
-                        display: "flex",
-                        padding: "10px",
+                        background: '#F5F5F5',
+                        display: 'flex',
+                        padding: '10px',
                     }}
-                    topBoxStyle={{ background: "#F5F5F5", marginTop: "10px" }}
+                    topBoxStyle={{ background: '#F5F5F5', marginTop: '10px' }}
                 >
                     <ExpancedSearchOptions />
                 </CustomizedAccordions>

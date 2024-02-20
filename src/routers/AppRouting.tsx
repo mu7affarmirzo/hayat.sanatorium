@@ -1,22 +1,22 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
-import styled from "styled-components";
-import { useReduxSelector } from "hooks/useReduxHook";
-import React, { useCallback, useEffect, useState } from "react";
-import { RoutingData } from "./router";
-import Headers from "components/Header/header";
+import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+import { useReduxSelector } from 'hooks/useReduxHook';
+import React, { useCallback, useEffect, useState } from 'react';
+import { RoutingData } from './router';
+import Headers from 'components/Header/header';
 
 export const MainContainer = styled.div`
     display: flex;
 `;
 
 type Props = {
-    role: "NoAuth" | "Reception" | "Doctors" | "404";
+    role: 'NoAuth' | 'Reception' | 'Doctors' | '404';
 };
 
 const AppRouting = () => {
     const navigate = useNavigate();
-    const [role, setRole] = useState<Props["role"]>("NoAuth");
+    const [role, setRole] = useState<Props['role']>('NoAuth');
     const [changeTopTab, setChangeTopTab] = React.useState<number>(0);
 
     const { isAuthenticated } = useReduxSelector(
@@ -25,11 +25,11 @@ const AppRouting = () => {
 
     useEffect(() => {
         if (isAuthenticated) {
-            setRole("Reception");
-            navigate("reception", { replace: true });
+            setRole('Doctors');
+            navigate('doctors', { replace: true });
         } else {
-            setRole("NoAuth");
-            navigate("login", { replace: true });
+            setRole('NoAuth');
+            navigate('login', { replace: true });
         }
     }, [isAuthenticated]);
 
@@ -39,7 +39,7 @@ const AppRouting = () => {
 
     return (
         <>
-            {role !== "NoAuth" ? (
+            {role !== 'NoAuth' ? (
                 <>
                     <Headers
                         activeTab={changeTopTab}

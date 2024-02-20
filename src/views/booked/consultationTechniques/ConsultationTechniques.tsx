@@ -1,30 +1,30 @@
-import { Box } from "@mui/material";
+import { Box } from '@mui/material';
 
-import SelectButton from "components/Buttons/SelectButton";
-import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
-import DefaultButton from "components/deafultButton/DefaultButton";
-import DefaultText from "components/defaultText/DefaultText";
-import DiagnostikaItem from "../../../components/DiagnostikaItem";
-import DefaultCheckbox from "components/Checkbox/DefaultCheckbox";
-import { useAppModals } from "components/Modals";
+import SelectButton from 'components/Buttons/SelectButton';
+import AutocompleteInput from 'components/AutocompleteInput/AutocompleteInput';
+import DefaultButton from 'components/deafultButton/DefaultButton';
+import DefaultText from 'components/defaultText/DefaultText';
+import DiagnostikaItem from '../../../components/DiagnostikaItem';
+import DefaultCheckbox from 'components/Checkbox/DefaultCheckbox';
+import { useAppModals } from 'components/Modals';
 const data = [
     {
         id: 1,
-        title: "Осмотр дежурного врача при поступлении",
+        title: 'Осмотр дежурного врача при поступлении',
     },
     {
         id: 2,
-        title: "Прием дежурного врача",
+        title: 'Прием дежурного врача',
     },
 ];
 const top100Films = [
-    { label: "The Shawshank Redemption", year: 1994 },
-    { label: "The Godfather", year: 1972 },
-    { label: "The Godfather: Part II", year: 1974 },
-    { label: "The Dark Knight", year: 2008 },
-    { label: "12 Angry Men", year: 1957 },
+    { label: 'The Shawshank Redemption', year: 1994 },
+    { label: 'The Godfather', year: 1972 },
+    { label: 'The Godfather: Part II', year: 1974 },
+    { label: 'The Dark Knight', year: 2008 },
+    { label: '12 Angry Men', year: 1957 },
     { label: "Schindler's List", year: 1993 },
-    { label: "Pulp Fiction", year: 1994 },
+    { label: 'Pulp Fiction', year: 1994 },
 ];
 const ConsultationTechniques = () => {
     const appModals = useAppModals();
@@ -33,7 +33,7 @@ const ConsultationTechniques = () => {
             <div id="frontPage"></div>
             <Box className=" flex h-[60px] items-center  justify-between  ">
                 <Box className="">
-                    <DefaultText style={"text-[#000] "}>
+                    <DefaultText style={'text-[#000] '}>
                         Прием дежурного врача, Очилов Ибрагим Азамович
                     </DefaultText>
                 </Box>
@@ -43,7 +43,7 @@ const ConsultationTechniques = () => {
                         data={top100Films}
                         lableStyle="text-[#000]"
                         containerStyle={
-                            "w-[20%]  flex-row items-center  h-[35px] mr-[10px]"
+                            'w-[20%]  flex-row items-center  h-[35px] mr-[10px]'
                         }
                         inputStyle="w-[100%]"
                     />
@@ -84,7 +84,7 @@ const ConsultationTechniques = () => {
                     title="Диагноз"
                     text="Диагноз не изменен"
                     btnTitle="Добавить диагноз"
-                    onClick={() => appModals?.show("choosingDiagnosis")}
+                    onClick={() => appModals?.show('choosingDiagnosis')}
                 />
                 <DiagnostikaItem
                     title="Диагноз"
@@ -94,7 +94,7 @@ const ConsultationTechniques = () => {
                             <DefaultCheckbox
                                 label="Cito!"
                                 checkboxStyle={{
-                                    padding: "0px",
+                                    padding: '0px',
                                 }}
                             />
                             <DiagnostikaItem
@@ -113,7 +113,7 @@ const ConsultationTechniques = () => {
                     btnTitle="Назначить из лечебной программы"
                     btnStyle="ml-[0px] mb-[10px]"
                     disabled={true}
-                    onClick={() => appModals?.show("choosingDiagnosis")}
+                    onClick={() => appModals?.show('choosingDiagnosis')}
                     children={
                         <>
                             <DiagnostikaItem
@@ -121,7 +121,7 @@ const ConsultationTechniques = () => {
                                 text="Дополнительные консультации и исследования не требуются"
                                 btnTitle="Добавить"
                                 onClick={() =>
-                                    appModals?.show("choosingDiagnosis")
+                                    appModals?.show('choosingDiagnosis')
                                 }
                             />
                             <DiagnostikaItem
@@ -129,7 +129,7 @@ const ConsultationTechniques = () => {
                                 text="Дополнительные лечебные процедуры не требуются"
                                 btnTitle="Добавить"
                                 onClick={() =>
-                                    appModals?.show("choosingDiagnosis")
+                                    appModals?.show('choosingDiagnosis')
                                 }
                             />
                             <DiagnostikaItem
@@ -137,7 +137,7 @@ const ConsultationTechniques = () => {
                                 text="Дополнительные медикаменты не требуются"
                                 btnTitle="Добавить"
                                 onClick={() =>
-                                    appModals?.show("choosingDiagnosis")
+                                    appModals?.show('choosingDiagnosis')
                                 }
                             />
                         </>

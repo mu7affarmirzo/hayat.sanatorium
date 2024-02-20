@@ -1,7 +1,7 @@
-import { Box, Typography } from "@mui/material";
-import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
-import DefaulCheckbox from "components/Checkbox/DefaultCheckbox";
-import OutlinedNumber from "components/outlinedNumber/OutlinedNumber";
+import { Box, Typography } from '@mui/material';
+import AutocompleteInput from 'components/AutocompleteInput/AutocompleteInput';
+import DefaulCheckbox from 'components/Checkbox/DefaultCheckbox';
+import OutlinedNumber from 'components/outlinedNumber/OutlinedNumber';
 type propsType = {
     avtoCaplektData: any;
     register: any;
@@ -30,7 +30,7 @@ const HospitalStayForm = (props: propsType) => {
                 <AutocompleteInput
                     lable="Период проживания"
                     data={avtoCaplektData}
-                    containerStyle={"w-[18%]  flex-col  "}
+                    containerStyle={'w-[18%]  flex-col  '}
                     inputStyle="w-[100%]"
                     lableStyle="text-[#000]"
                 />
@@ -45,7 +45,7 @@ const HospitalStayForm = (props: propsType) => {
                     lable="по"
                     data={avtoCaplektData}
                     lableStyle="text-[#000]"
-                    containerStyle={"w-[20%]  flex-row items-center  mt-[20px]"}
+                    containerStyle={'w-[20%]  flex-row items-center  mt-[20px]'}
                     inputStyle="w-[100%]"
                 />
             </Box>
@@ -54,7 +54,7 @@ const HospitalStayForm = (props: propsType) => {
                     lable="Лечащий врач:"
                     data={avtoCaplektData}
                     containerStyle={
-                        "w-[49%]  flex-row justify-between items-center"
+                        'w-[49%]  flex-row justify-between items-center'
                     }
                     inputStyle="w-[64%]"
                 />
@@ -62,7 +62,7 @@ const HospitalStayForm = (props: propsType) => {
                     lable="Лечащий врач:"
                     data={avtoCaplektData}
                     containerStyle={
-                        "w-[49%]  flex-row justify-between items-center"
+                        'w-[49%]  flex-row justify-between items-center'
                     }
                     inputStyle="w-[64%]"
                 />
@@ -72,7 +72,7 @@ const HospitalStayForm = (props: propsType) => {
                     lable="Помещён в комнату."
                     data={avtoCaplektData}
                     containerStyle={
-                        "w-[49%]  flex-row justify-between items-center"
+                        'w-[49%]  flex-row justify-between items-center'
                     }
                     inputStyle="w-[64%]"
                 />
@@ -80,7 +80,7 @@ const HospitalStayForm = (props: propsType) => {
                     lable="Отделение:"
                     data={avtoCaplektData}
                     containerStyle={
-                        "w-[49%]  flex-row justify-between items-center"
+                        'w-[49%]  flex-row justify-between items-center'
                     }
                     inputStyle="w-[64%]"
                 />

@@ -1,13 +1,15 @@
-import { Navigate } from "react-router-dom";
-import LoginView from "views/auth/LoginView";
-
-import NotFoundView from "views/NotFound/notFound";
-import PatientReception from "views/Role/Reception/patientReception";
-import EventsReception from "views/Role/Reception/eventsReception";
-import DispatchingReception from "views/Role/Reception/dispatchingReception";
-import MainDoctorsView from "views/Role/Doctors/mainDoctors/main";
-import BookedDoctors from "views/Role/Doctors/bookedDoctors";
-import BookedReceptionView from "views/Role/Reception/bookedReception/bookedRecView";
+import { Navigate } from 'react-router-dom';
+import LoginView from 'views/auth/LoginView';
+import NotFoundView from 'views/NotFound/notFound';
+import PatientReception from 'views/Role/Reception/patientReception';
+import EventsReception from 'views/Role/Reception/eventsReception';
+import DispatchingReception from 'views/Role/Reception/dispatchingReception';
+import MainDoctorsView from 'views/Role/Doctors/mainDoctors/main';
+import BookedDoctors from 'views/Role/Doctors/bookedDoctors';
+import BookedReceptionView from 'views/Role/Reception/bookedReception/bookedRecView';
+import PatientDoctors from 'views/Role/Doctors/PatientDoctors';
+import EventsDoctors from 'views/Role/Doctors/EventsDoctors';
+import DispatchingDoctors from 'views/Role/Doctors/DispatchingDoctors';
 
 type IRouting = {
     path: string;
@@ -22,49 +24,61 @@ type MyGroupType = {
 export const RoutingData: MyGroupType = {
     NoAuth: [
         {
-            path: "/login",
+            path: '/login',
             component: <LoginView />,
         },
     ],
 
     Reception: [
         {
-            path: "reception",
+            path: 'reception',
             component: <Navigate to="/reception/booked" replace />,
         },
         {
-            path: "reception/booked",
+            path: 'reception/booked',
             component: <BookedReceptionView />,
         },
         {
-            path: "reception/patients",
+            path: 'reception/patients',
             component: <PatientReception />,
         },
         {
-            path: "reception/events",
+            path: 'reception/events',
             component: <EventsReception />,
         },
         {
-            path: "reception/dispatching",
+            path: 'reception/dispatching',
             component: <DispatchingReception />,
         },
     ],
 
     Doctors: [
         {
-            path: "/doctors",
-            component: <MainDoctorsView />,
+            path: 'doctors',
+            component: <Navigate to="/doctors/booked" replace />,
+        },
+        {
+            path: '/doctors/booked',
+            component: <BookedDoctors />,
         },
 
         {
-            path: "/doctors/booked",
-            component: <BookedDoctors />,
+            path: '/doctors/patients',
+            component: <PatientDoctors />,
+        },
+        {
+            path: 'doctors/events',
+            component: <EventsDoctors />,
+        },
+        {
+            path: 'doctors/dispatching',
+            component: <DispatchingDoctors />,
         },
     ],
 
     404: [
         {
-            path: "/404",
+            path: '/404',
             component: <NotFoundView />,
         },
     ],

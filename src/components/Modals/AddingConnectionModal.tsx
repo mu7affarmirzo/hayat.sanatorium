@@ -1,33 +1,34 @@
-import { Box, Button, Grid, IconButton } from "@mui/material";
-import { CloseCircleIcon } from "assets/icons/icons";
-import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
-import { ConnectionCol } from "components/ColumnDefs/ConnectionCol";
-import DefaultText from "components/defaultText/DefaultText";
-import ReceptionTable from "components/receptionTable/ReceptionTable";
-import SearchInput from "components/search/SearchInput";
-import { useEscapeKey } from "hooks/useEscapeKey";
-import { useCallback } from "react";
-import { rowData } from "views/TitlePageTab/FrontPageView";
-import { CreatePaymentNowContainer } from "./Modals.styles";
-import { useAppModals } from "./ModalsProvider";
+import { Box, Button, Grid, IconButton } from '@mui/material';
+import { CloseCircleIcon } from 'assets/icons/icons';
+
+import { ConnectionCol } from 'components/ColumnDefs/ConnectionCol';
+import DefaultText from 'components/defaultText/DefaultText';
+import ReceptionTable from 'components/receptionTable/ReceptionTable';
+import SearchInput from 'components/search/SearchInput';
+import { useEscapeKey } from 'hooks/useEscapeKey';
+import { useCallback } from 'react';
+import { rowData } from 'views/TitlePageTab/FrontPageView';
+import { CreatePaymentNowContainer } from './Modals.styles';
+import { useAppModals } from './ModalsProvider';
+import AutocompleteInput from 'components/AutocompleteInput/AutocompleteInput';
 
 const AddingConnectionModal = () => {
     const appModals = useAppModals();
     const onCloseModal = useCallback(() => {
-        appModals?.hide("createPayment");
+        appModals?.hide('createPayment');
     }, [appModals]);
 
     useEscapeKey({
         callback: onCloseModal,
     });
     const top100Films = [
-        { label: "The Shawshank Redemption", year: 1994 },
-        { label: "The Godfather", year: 1972 },
-        { label: "The Godfather: Part II", year: 1974 },
-        { label: "The Dark Knight", year: 2008 },
-        { label: "12 Angry Men", year: 1957 },
+        { label: 'The Shawshank Redemption', year: 1994 },
+        { label: 'The Godfather', year: 1972 },
+        { label: 'The Godfather: Part II', year: 1974 },
+        { label: 'The Dark Knight', year: 2008 },
+        { label: '12 Angry Men', year: 1957 },
         { label: "Schindler's List", year: 1993 },
-        { label: "Pulp Fiction", year: 1994 },
+        { label: 'Pulp Fiction', year: 1994 },
     ];
 
     return (
@@ -35,8 +36,8 @@ const AddingConnectionModal = () => {
             className={
                 appModals?.state.createPayment.active &&
                 !appModals?.state.createPayment.neverWork
-                    ? "active"
-                    : "none "
+                    ? 'active'
+                    : 'none '
             }
         >
             <Box className="container bg-[#fff]  ">
@@ -63,7 +64,7 @@ const AddingConnectionModal = () => {
                         md={12}
                         className="mt-[10px] bg-[#F5F5F5] p-[4px]"
                     >
-                        <DefaultText style={"text-[20px] text-[#000]"}>
+                        <DefaultText style={'text-[20px] text-[#000]'}>
                             Профессия
                         </DefaultText>
                         <AutocompleteInput

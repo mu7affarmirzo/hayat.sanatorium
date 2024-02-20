@@ -1,29 +1,29 @@
-import { Box, Grid, Typography } from "@mui/material";
-import { CloseIcon, SearchIcon, VuesaxLinear } from "assets/icons/icons";
-import CustomizedAccordions from "components/CustomizedAccordions";
-import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
-import DefaultCheckbox from "components/Checkbox/DefaultCheckbox";
-import { BookedPatientSearch } from "components/ColumnDefs/bookedCol";
-import DefaultButton from "components/deafultButton/DefaultButton";
-import DefaultInput from "components/defaultInput/DefaultInput";
-import ReceptionTable from "components/receptionTable/ReceptionTable";
-import SearchInput from "components/search/SearchInput";
-import { FC } from "react";
+import { Box, Grid, Typography } from '@mui/material';
+import { CloseIcon, SearchIcon, VuesaxLinear } from 'assets/icons/icons';
+import CustomizedAccordions from 'components/CustomizedAccordions';
+import AutocompleteInput from 'components/AutocompleteInput/AutocompleteInput';
+import DefaultCheckbox from 'components/Checkbox/DefaultCheckbox';
+import { BookedPatientSearch } from 'components/ColumnDefs/bookedCol';
+import DefaultButton from 'components/deafultButton/DefaultButton';
+import DefaultInput from 'components/defaultInput/DefaultInput';
+import ReceptionTable from 'components/receptionTable/ReceptionTable';
+import SearchInput from 'components/search/SearchInput';
+import { FC } from 'react';
 import {
     SubmitHandler,
     UseFormHandleSubmit,
     UseFormRegister,
-} from "react-hook-form";
-import { IFormInput, useSearchpatientHook } from "./hook";
+} from 'react-hook-form';
+import { IFormInput, useSearchpatientHook } from './hook';
 
 const top100Films = [
-    { label: "The Shawshank Redemption", year: 1994 },
-    { label: "The Godfather", year: 1972 },
-    { label: "The Godfather: Part II", year: 1974 },
-    { label: "The Dark Knight", year: 2008 },
-    { label: "12 Angry Men", year: 1957 },
+    { label: 'The Shawshank Redemption', year: 1994 },
+    { label: 'The Godfather', year: 1972 },
+    { label: 'The Godfather: Part II', year: 1974 },
+    { label: 'The Dark Knight', year: 2008 },
+    { label: '12 Angry Men', year: 1957 },
     { label: "Schindler's List", year: 1993 },
-    { label: "Pulp Fiction", year: 1994 },
+    { label: 'Pulp Fiction', year: 1994 },
 ];
 
 interface Props {
@@ -36,7 +36,7 @@ const TopAccordionBox: FC<Props> = ({ handleSubmit, onSubmit, register }) => {
     return (
         <CustomizedAccordions
             title="Параметры поиска:"
-            childrenStyle={{ background: "#F5F5F5" }}
+            childrenStyle={{ background: '#F5F5F5' }}
         >
             <Grid item xs={12} md={12} className="bg-[#F5F5F5]">
                 <form
@@ -45,17 +45,17 @@ const TopAccordionBox: FC<Props> = ({ handleSubmit, onSubmit, register }) => {
                 >
                     <DefaultInput
                         placeholder="ФИО пациента"
-                        inputType={"name"}
+                        inputType={'name'}
                         register={register}
                     />
                     <DefaultInput
                         placeholder="№ Истории"
-                        inputType={"historyIB"}
+                        inputType={'historyIB'}
                         register={register}
                     />
                     <DefaultInput
                         placeholder="Тип карты"
-                        inputType={"cardType"}
+                        inputType={'cardType'}
                         register={register}
                     />
                 </form>
@@ -74,7 +74,7 @@ const TopAccordionBox: FC<Props> = ({ handleSubmit, onSubmit, register }) => {
                             <Typography>Был в учреждении с:</Typography>
                             <AutocompleteInput
                                 data={top100Films}
-                                containerStyle={"flex-row items-center "}
+                                containerStyle={'flex-row items-center '}
                                 inputStyle="w-[150px]"
                             />
                         </Grid>
@@ -82,7 +82,7 @@ const TopAccordionBox: FC<Props> = ({ handleSubmit, onSubmit, register }) => {
                             <Typography>по:</Typography>
                             <AutocompleteInput
                                 data={top100Films}
-                                containerStyle={"flex-row items-center "}
+                                containerStyle={'flex-row items-center '}
                                 inputStyle="w-[150px]"
                             />
                         </Grid>
@@ -90,7 +90,7 @@ const TopAccordionBox: FC<Props> = ({ handleSubmit, onSubmit, register }) => {
                             <Typography>Был на приёме:</Typography>
                             <AutocompleteInput
                                 data={top100Films}
-                                containerStyle={"flex-row items-center "}
+                                containerStyle={'flex-row items-center '}
                                 inputStyle="w-[150px]"
                             />
                         </Grid>
@@ -105,7 +105,7 @@ const BottomAccordionBox = () => {
     return (
         <CustomizedAccordions
             title="Расширенные параметры поиска"
-            childrenStyle={{ background: "#F5F5F5" }}
+            childrenStyle={{ background: '#F5F5F5' }}
         >
             <Typography>Somthing</Typography>
         </CustomizedAccordions>
@@ -170,7 +170,7 @@ const SearchPatiant = () => {
                 xs={12}
                 md={12}
                 className="bg-[#F5F5F5]"
-                sx={{ marginBottom: "20px" }}
+                sx={{ marginBottom: '20px' }}
             >
                 <ReceptionTable
                     columnDefs={BookedPatientSearch}

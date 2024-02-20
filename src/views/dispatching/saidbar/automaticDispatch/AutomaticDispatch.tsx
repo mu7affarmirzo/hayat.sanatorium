@@ -1,4 +1,4 @@
-import { Box, IconButton, Slider, Typography } from "@mui/material";
+import { Box, IconButton, Slider, Typography } from '@mui/material';
 import {
     File2Icon,
     File4Icon,
@@ -6,20 +6,20 @@ import {
     FileNewIcon,
     VuesaxLinearPrinterIcon,
     VuesaxLinearSave2Icon,
-} from "assets/icons/icons";
-import CustomizedAccordions from "components/CustomizedAccordions";
-import TablePaginationDemo from "components/TablePaginationDemo";
-import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
-import DefaultButton from "components/deafultButton/DefaultButton";
-import { useState } from "react";
+} from 'assets/icons/icons';
+import CustomizedAccordions from 'components/CustomizedAccordions';
+import TablePaginationDemo from 'components/TablePaginationDemo';
+import AutocompleteInput from 'components/AutocompleteInput/AutocompleteInput';
+import DefaultButton from 'components/deafultButton/DefaultButton';
+import { useState } from 'react';
 const top100Films = [
-    { label: "The Shawshank Redemption", year: 1994 },
-    { label: "The Godfather", year: 1972 },
-    { label: "The Godfather: Part II", year: 1974 },
-    { label: "The Dark Knight", year: 2008 },
-    { label: "12 Angry Men", year: 1957 },
+    { label: 'The Shawshank Redemption', year: 1994 },
+    { label: 'The Godfather', year: 1972 },
+    { label: 'The Godfather: Part II', year: 1974 },
+    { label: 'The Dark Knight', year: 2008 },
+    { label: '12 Angry Men', year: 1957 },
     { label: "Schindler's List", year: 1993 },
-    { label: "Pulp Fiction", year: 1994 },
+    { label: 'Pulp Fiction', year: 1994 },
 ];
 const AutomaticDispatch = () => {
     const [sliderValue, setSliderValue] = useState<number>(0);
@@ -32,12 +32,12 @@ const AutomaticDispatch = () => {
             <CustomizedAccordions
                 title="Параметры расписания"
                 childrenStyle={{
-                    backgroundColor: "#fff",
-                    padding: "10px",
-                    display: "flex",
-                    justifyContent: "space-between",
+                    backgroundColor: '#fff',
+                    padding: '10px',
+                    display: 'flex',
+                    justifyContent: 'space-between',
                 }}
-                topBoxStyle={{ backgroundColor: "#fff" }}
+                topBoxStyle={{ backgroundColor: '#fff' }}
             >
                 <Box className="flex w-[400px] items-center justify-between">
                     <AutocompleteInput
@@ -72,7 +72,7 @@ const AutomaticDispatch = () => {
             </Box>
             <Box
                 className={
-                    "bg-[#9d9a9a] h-[calc(100%-200px)] w-[100%] overflow-scroll border mt-[10px]"
+                    'bg-[#9d9a9a] h-[calc(100%-200px)] w-[100%] overflow-scroll border mt-[10px]'
                 }
             ></Box>
             <Box className="py-[8px] flex justify-between">

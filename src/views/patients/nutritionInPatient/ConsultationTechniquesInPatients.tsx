@@ -1,36 +1,36 @@
-import { Box, Grid, Typography } from "@mui/material";
-import { useAppModals } from "components/Modals";
-import SelectButton from "components/Buttons/SelectButton";
-import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
-import DefaultCheckbox from "components/Checkbox/DefaultCheckbox";
-import DefaultButton from "components/deafultButton/DefaultButton";
-import DefaultInput from "components/defaultInput/DefaultInput";
-import DefaultText from "components/defaultText/DefaultText";
-import DiagnosticCeckboxItem from "components/diagnosticCeckboxItem/DiagnosticCeckboxItem";
-import ReceptionTable from "components/receptionTable/ReceptionTable";
+import { Box, Grid, Typography } from '@mui/material';
+import { useAppModals } from 'components/Modals';
+import SelectButton from 'components/Buttons/SelectButton';
+import AutocompleteInput from 'components/AutocompleteInput/AutocompleteInput';
+import DefaultCheckbox from 'components/Checkbox/DefaultCheckbox';
+import DefaultButton from 'components/deafultButton/DefaultButton';
+import DefaultInput from 'components/defaultInput/DefaultInput';
+import DefaultText from 'components/defaultText/DefaultText';
+import DiagnosticCeckboxItem from 'components/diagnosticCeckboxItem/DiagnosticCeckboxItem';
+import ReceptionTable from 'components/receptionTable/ReceptionTable';
 
-import React from "react";
-import DiagnostikaItem from "components/DiagnostikaItem";
-import { ColData, rowData } from "./Coldata";
+import React from 'react';
+import DiagnostikaItem from 'components/DiagnostikaItem';
+import { ColData, rowData } from './Coldata';
 
 const data = [
     {
         id: 1,
-        title: "Осмотр дежурного врача при поступлении",
+        title: 'Осмотр дежурного врача при поступлении',
     },
     {
         id: 2,
-        title: "Прием дежурного врача",
+        title: 'Прием дежурного врача',
     },
 ];
 const top100Films = [
-    { label: "The Shawshank Redemption", year: 1994 },
-    { label: "The Godfather", year: 1972 },
-    { label: "The Godfather: Part II", year: 1974 },
-    { label: "The Dark Knight", year: 2008 },
-    { label: "12 Angry Men", year: 1957 },
+    { label: 'The Shawshank Redemption', year: 1994 },
+    { label: 'The Godfather', year: 1972 },
+    { label: 'The Godfather: Part II', year: 1974 },
+    { label: 'The Dark Knight', year: 2008 },
+    { label: '12 Angry Men', year: 1957 },
     { label: "Schindler's List", year: 1993 },
-    { label: "Pulp Fiction", year: 1994 },
+    { label: 'Pulp Fiction', year: 1994 },
 ];
 
 const ConsultationTechniquesInPatients = () => {
@@ -40,7 +40,7 @@ const ConsultationTechniquesInPatients = () => {
         <Box className="border border-[rgba(0, 0, 0, 0.23)] h-[calc(100vh-220px)]  p-[10px] overflow-hidden">
             <Box className=" flex h-[60px] items-center justify-between  ">
                 <Box className="">
-                    <DefaultText style={"text-[#000] "}>
+                    <DefaultText style={'text-[#000] '}>
                         Прием дежурного врача, Очилов Ибрагим Азамович
                     </DefaultText>
                 </Box>
@@ -50,7 +50,7 @@ const ConsultationTechniquesInPatients = () => {
                         data={top100Films}
                         lableStyle="text-[#000]"
                         containerStyle={
-                            "w-[20%]  flex-row items-center  h-[35px] mr-[10px]"
+                            'w-[20%]  flex-row items-center  h-[35px] mr-[10px]'
                         }
                         inputStyle="w-[100%]"
                     />
@@ -103,7 +103,7 @@ const ConsultationTechniquesInPatients = () => {
                                 <DefaultCheckbox
                                     label="на протяжении максимального срока инкубации: не было"
                                     checkboxStyle={{
-                                        padding: "0px",
+                                        padding: '0px',
                                     }}
                                     style="text-[#2196F3]"
                                 />
@@ -113,32 +113,32 @@ const ConsultationTechniquesInPatients = () => {
                                 style="border-[0px] py-0 px-0"
                                 titleStyle="mb-[0px] text-[#5d5c5c] "
                                 messageStyle="min-h-[40px] h-[40px] w-[calc(100%-100px)]"
-                                messageIconStyle={"flex felx-row "}
+                                messageIconStyle={'flex felx-row '}
                             />
                             <DiagnosticCeckboxItem
                                 lable="Контакт с больными гриппом, ОРВИ:"
-                                checkBoxStle={"w-[360px]"}
+                                checkBoxStle={'w-[360px]'}
                                 children={<DefaultCheckbox label="нет," />}
                                 description=" "
                                 titleStyle="w-[100%] border p-[10px] rounded-[4px]"
                             />
                             <DiagnosticCeckboxItem
                                 lable="Выезд за пределы населенного пункта за 2 месяца ДО настоящего заболевания:"
-                                checkBoxStle={"w-[710px]"}
+                                checkBoxStle={'w-[710px]'}
                                 children={<DefaultCheckbox label="нет," />}
                                 description=" "
                                 titleStyle="w-[100%] border p-[10px] rounded-[4px]"
                             />
                             <DiagnosticCeckboxItem
                                 lable="Перенесенные инфекционные заболевания:"
-                                checkBoxStle={"w-[420px]"}
+                                checkBoxStle={'w-[420px]'}
                                 children={<DefaultCheckbox label="нет," />}
                                 description=" "
                                 titleStyle="w-[100%] border p-[10px] rounded-[4px]"
                             />
                             <DiagnosticCeckboxItem
                                 lable="Нахождение на стационарном лечении:"
-                                checkBoxStle={"w-[380px]"}
+                                checkBoxStle={'w-[380px]'}
                                 children={<DefaultCheckbox label="нет," />}
                                 description=" "
                                 titleStyle="w-[100%] border p-[10px] rounded-[4px]"
@@ -146,14 +146,14 @@ const ConsultationTechniquesInPatients = () => {
                             <DiagnosticCeckboxItem
                                 lable="Получение гемотрансфузий (крови и ее компонентов):"
                                 children={<DefaultCheckbox label="нет," />}
-                                checkBoxStle={"w-[500px]"}
+                                checkBoxStle={'w-[500px]'}
                                 description=" "
                                 titleStyle="w-[100%] border p-[10px] rounded-[4px]"
                             />
                             <DiagnosticCeckboxItem
                                 lable="Оперативные и массивные вмешательства за последние 6 месяцев:"
                                 children={<DefaultCheckbox label="нет," />}
-                                checkBoxStle={"w-[610px]"}
+                                checkBoxStle={'w-[610px]'}
                                 description=" "
                                 titleStyle="w-[100%] border p-[10px] rounded-[4px]"
                             />
@@ -161,7 +161,7 @@ const ConsultationTechniquesInPatients = () => {
                                 lable="Посещение стоматолога за последние 6 месяцев:"
                                 children={<DefaultCheckbox label="нет," />}
                                 description=" "
-                                checkBoxStle={"w-[460px]"}
+                                checkBoxStle={'w-[460px]'}
                                 titleStyle="w-[100%] border p-[10px] rounded-[4px]"
                             />
                             <DiagnosticCeckboxItem
@@ -170,7 +170,7 @@ const ConsultationTechniquesInPatients = () => {
                                     особенностей (например, контакт с
                                     животными):"
                                 description=" "
-                                checkBoxStle={"w-[100%]"}
+                                checkBoxStle={'w-[100%]'}
                                 style="flex flex-col"
                                 titleStyle="w-[100%] border p-[10px] rounded-[4px]"
                                 boxStyle="w-[100%]"
@@ -178,7 +178,7 @@ const ConsultationTechniquesInPatients = () => {
 
                             <DiagnosticCeckboxItem
                                 lable="Дополнительная информация:"
-                                checkBoxStle={"w-[1060px]"}
+                                checkBoxStle={'w-[1060px]'}
                                 children={
                                     <Box className="flex">
                                         <DefaultCheckbox label="педикюр," />
@@ -211,7 +211,7 @@ const ConsultationTechniquesInPatients = () => {
                             <DiagnosticCeckboxItem
                                 lable="Общее состояние:"
                                 boxStyle="w-[100%]"
-                                checkBoxStle={"w-[1000px] "}
+                                checkBoxStle={'w-[1000px] '}
                                 style="flex flex-col items-start border p-[5px]"
                                 children={
                                     <Box className="flex">
@@ -228,9 +228,9 @@ const ConsultationTechniquesInPatients = () => {
                     />
                     <DiagnosticCeckboxItem
                         lable="Сознание:"
-                        checkBoxStle={"w-[450px]"}
+                        checkBoxStle={'w-[450px]'}
                         children={
-                            <Box className={"flex"}>
+                            <Box className={'flex'}>
                                 <DefaultCheckbox label="ясное," />
                                 <DefaultCheckbox label="ступор," />
                                 <DefaultCheckbox label="сопор," />
@@ -242,9 +242,9 @@ const ConsultationTechniquesInPatients = () => {
                     />
                     <DiagnosticCeckboxItem
                         lable="Положение:"
-                        checkBoxStle={"w-[500px]"}
+                        checkBoxStle={'w-[500px]'}
                         children={
-                            <Box className={"flex"}>
+                            <Box className={'flex'}>
                                 <DefaultCheckbox label="активное," />
                                 <DefaultCheckbox label="пассивное," />
                                 <DefaultCheckbox label="вынужденное," />
@@ -255,9 +255,9 @@ const ConsultationTechniquesInPatients = () => {
                     />
                     <DiagnosticCeckboxItem
                         lable="Конституция:"
-                        checkBoxStle={"w-[500px]"}
+                        checkBoxStle={'w-[500px]'}
                         children={
-                            <Box className={"flex"}>
+                            <Box className={'flex'}>
                                 <DefaultCheckbox label="нормастеник," />
                                 <DefaultCheckbox label="астеник," />
                                 <DefaultCheckbox label="гиперстеник," />
@@ -269,7 +269,7 @@ const ConsultationTechniquesInPatients = () => {
                     <DiagnosticCeckboxItem
                         lable="Кожные покровы:"
                         boxStyle="w-[100%]"
-                        checkBoxStle={"w-[100%]  "}
+                        checkBoxStle={'w-[100%]  '}
                         style="flex flex-col items-start border p-[5px] "
                         children={
                             <Box className="flex">
@@ -307,7 +307,7 @@ const ConsultationTechniquesInPatients = () => {
                     />
                     <DiagnosticCeckboxItem
                         lable="Сосудистые изменения:"
-                        checkBoxStle={"w-[280px]"}
+                        checkBoxStle={'w-[280px]'}
                         children={<DefaultCheckbox label="нет," />}
                         description=" "
                         titleStyle="w-[100%] border p-[10px] rounded-[4px]"
@@ -326,7 +326,7 @@ const ConsultationTechniquesInPatients = () => {
                     />
                     <DiagnosticCeckboxItem
                         lable="Трофические изменения:"
-                        checkBoxStle={"w-[280px]"}
+                        checkBoxStle={'w-[280px]'}
                         children={<DefaultCheckbox label="нет," />}
                         description=" "
                         titleStyle="w-[100%] border p-[10px] rounded-[4px]"
@@ -334,13 +334,13 @@ const ConsultationTechniquesInPatients = () => {
                     <DiagnosticCeckboxItem
                         lable="Видимые опухоли:"
                         children={<DefaultCheckbox label="нет," />}
-                        checkBoxStle={"w-[250px]"}
+                        checkBoxStle={'w-[250px]'}
                         description=" "
                         titleStyle="w-[100%] border p-[10px] rounded-[4px]"
                     />
                     <DiagnosticCeckboxItem
                         lable="Влажность кожи:"
-                        checkBoxStle={"w-[500px]"}
+                        checkBoxStle={'w-[500px]'}
                         children={
                             <Box className="flex">
                                 <DefaultCheckbox label="обычная," />
@@ -353,7 +353,7 @@ const ConsultationTechniquesInPatients = () => {
                     />
                     <DiagnosticCeckboxItem
                         lable="Влажность кожи:"
-                        checkBoxStle={"w-[400px]"}
+                        checkBoxStle={'w-[400px]'}
                         children={
                             <Box className="flex">
                                 <DefaultCheckbox label="в норме," />
@@ -365,7 +365,7 @@ const ConsultationTechniquesInPatients = () => {
                     />
                     <DiagnosticCeckboxItem
                         lable="Подкожно-жировая клетчатка:"
-                        checkBoxStle={"w-[800px]"}
+                        checkBoxStle={'w-[800px]'}
                         children={
                             <Box className="flex">
                                 <DefaultCheckbox label="развита умеренно," />
@@ -379,12 +379,12 @@ const ConsultationTechniquesInPatients = () => {
                     />
                     <Box className="">
                         <Typography>Рост</Typography>
-                        <DefaultText style={" border"} children={"158"} />
+                        <DefaultText style={' border'} children={'158'} />
                         <Typography>см,</Typography>
                     </Box>
                     <DiagnosticCeckboxItem
                         lable="Отеки, пастозность:"
-                        checkBoxStle={"w-[250px]"}
+                        checkBoxStle={'w-[250px]'}
                         children={
                             <Box className="flex">
                                 <DefaultCheckbox label="нет," />
@@ -395,7 +395,7 @@ const ConsultationTechniquesInPatients = () => {
                     />
                     <DiagnosticCeckboxItem
                         lable="Лимфатические узлы:"
-                        checkBoxStle={"w-[700px]"}
+                        checkBoxStle={'w-[700px]'}
                         children={
                             <Box className="flex">
                                 <DefaultCheckbox label="не увеличены," />
@@ -420,7 +420,7 @@ const ConsultationTechniquesInPatients = () => {
                     </Typography>
                     <DiagnosticCeckboxItem
                         lable="Деформации:"
-                        checkBoxStle={"w-[210px]"}
+                        checkBoxStle={'w-[210px]'}
                         children={<DefaultCheckbox label="нет" />}
                         description=" "
                         titleStyle="w-[100%] border p-[10px] rounded-[4px]"
@@ -428,7 +428,7 @@ const ConsultationTechniquesInPatients = () => {
                     />
                     <DiagnosticCeckboxItem
                         lable="Контрактуры:"
-                        checkBoxStle={"w-[210px]"}
+                        checkBoxStle={'w-[210px]'}
                         children={<DefaultCheckbox label="нет," />}
                         description=" "
                         titleStyle="w-[100%] border p-[10px] rounded-[4px]"
@@ -436,7 +436,7 @@ const ConsultationTechniquesInPatients = () => {
                     />
                     <DiagnosticCeckboxItem
                         lable="Ограничения движений:"
-                        checkBoxStle={"w-[280px]"}
+                        checkBoxStle={'w-[280px]'}
                         children={<DefaultCheckbox label="нет," />}
                         description=" "
                         titleStyle="w-[100%] border p-[10px] rounded-[4px]"
@@ -467,7 +467,7 @@ const ConsultationTechniquesInPatients = () => {
                     </Box>
                     <DiagnosticCeckboxItem
                         lable="Тип дыхания:"
-                        checkBoxStle={"w-[450px]"}
+                        checkBoxStle={'w-[450px]'}
                         children={
                             <Box className="flex">
                                 <DefaultCheckbox label="нет," />
@@ -481,7 +481,7 @@ const ConsultationTechniquesInPatients = () => {
                     />
                     <DiagnosticCeckboxItem
                         lable="В легких аускультативно дыхание:"
-                        checkBoxStle={"w-[700px]"}
+                        checkBoxStle={'w-[700px]'}
                         children={
                             <Box className="flex">
                                 <DefaultCheckbox label="везикулярное," />
@@ -495,7 +495,7 @@ const ConsultationTechniquesInPatients = () => {
                     />
                     <DiagnosticCeckboxItem
                         lable="Хрипы:"
-                        checkBoxStle={"w-[280px]"}
+                        checkBoxStle={'w-[280px]'}
                         children={
                             <Box className="flex">
                                 <DefaultCheckbox label="сухие," />
@@ -508,7 +508,7 @@ const ConsultationTechniquesInPatients = () => {
                     />
                     <DiagnosticCeckboxItem
                         lable="Кашель:"
-                        checkBoxStle={"w-[280px]"}
+                        checkBoxStle={'w-[280px]'}
                         children={
                             <Box className="flex">
                                 <DefaultCheckbox label="сухой," />
@@ -521,7 +521,7 @@ const ConsultationTechniquesInPatients = () => {
                     />
                     <DiagnosticCeckboxItem
                         lable="Мокрота:"
-                        checkBoxStle={"w-[150px]"}
+                        checkBoxStle={'w-[150px]'}
                         children={
                             <Box className="flex">
                                 <DefaultCheckbox label="нет," />
@@ -533,7 +533,7 @@ const ConsultationTechniquesInPatients = () => {
                     />
                     <DiagnosticCeckboxItem
                         lable="Крепитация:"
-                        checkBoxStle={"w-[750px]"}
+                        checkBoxStle={'w-[750px]'}
                         children={
                             <Box className="flex">
                                 <DefaultCheckbox label="верхняя часть," />
@@ -550,7 +550,7 @@ const ConsultationTechniquesInPatients = () => {
                     <DiagnosticCeckboxItem
                         lable="Перкуторно в легких звук:"
                         boxStyle="w-[100%]"
-                        checkBoxStle={"w-[100%] "}
+                        checkBoxStle={'w-[100%] '}
                         style="flex flex-col items-start border p-[5px]"
                         children={
                             <Box className="flex">
@@ -581,7 +581,7 @@ const ConsultationTechniquesInPatients = () => {
                     </Typography>
                     <DiagnosticCeckboxItem
                         lable="Аппетит:"
-                        checkBoxStle={"w-[630px]"}
+                        checkBoxStle={'w-[630px]'}
                         children={
                             <Box className="flex">
                                 <DefaultCheckbox label="удовлетворительный," />
@@ -596,7 +596,7 @@ const ConsultationTechniquesInPatients = () => {
                     />
                     <DiagnosticCeckboxItem
                         lable="Язык:"
-                        checkBoxStle={"w-[620px]"}
+                        checkBoxStle={'w-[620px]'}
                         children={
                             <Box className="flex">
                                 <DefaultCheckbox label="чистый," />
@@ -611,7 +611,7 @@ const ConsultationTechniquesInPatients = () => {
                     />
                     <DiagnosticCeckboxItem
                         lable="Трещины, язвы в полости рта:"
-                        checkBoxStle={"w-[380px]"}
+                        checkBoxStle={'w-[380px]'}
                         children={
                             <Box className="flex">
                                 <DefaultCheckbox label="нет," />
@@ -624,7 +624,7 @@ const ConsultationTechniquesInPatients = () => {
                     />
                     <DiagnosticCeckboxItem
                         boxStyle="w-[100%]"
-                        checkBoxStle={"w-[100%] "}
+                        checkBoxStle={'w-[100%] '}
                         style="flex flex-col items-start border p-[5px]"
                         children={
                             <Box>
@@ -653,7 +653,7 @@ const ConsultationTechniquesInPatients = () => {
                     />
                     <DiagnosticCeckboxItem
                         lable="Печень:"
-                        checkBoxStle={"w-[500px]"}
+                        checkBoxStle={'w-[500px]'}
                         children={
                             <Box className="flex">
                                 <DefaultCheckbox label="не увеличена," />
@@ -674,7 +674,7 @@ const ConsultationTechniquesInPatients = () => {
                     />
                     <DiagnosticCeckboxItem
                         lable="Край печени:"
-                        checkBoxStle={"w-[600px]"}
+                        checkBoxStle={'w-[600px]'}
                         children={
                             <Box className="flex">
                                 <DefaultCheckbox label="острый," />
@@ -689,7 +689,7 @@ const ConsultationTechniquesInPatients = () => {
                     />
                     <DiagnosticCeckboxItem
                         lable="Селезенка:"
-                        checkBoxStle={"w-[500px]"}
+                        checkBoxStle={'w-[500px]'}
                         children={
                             <Box className="flex">
                                 <DefaultCheckbox label="не увеличена," />
@@ -710,7 +710,7 @@ const ConsultationTechniquesInPatients = () => {
                     />
                     <DiagnosticCeckboxItem
                         lable="Край селезенки:"
-                        checkBoxStle={"w-[600px]"}
+                        checkBoxStle={'w-[600px]'}
                         children={
                             <Box className="flex">
                                 <DefaultCheckbox label="острый," />
@@ -725,7 +725,7 @@ const ConsultationTechniquesInPatients = () => {
                     />
                     <DiagnosticCeckboxItem
                         lable="Стул:"
-                        checkBoxStle={"w-[700px]"}
+                        checkBoxStle={'w-[700px]'}
                         children={
                             <Box className="flex">
                                 <DefaultCheckbox label="жидкий," />
@@ -765,7 +765,7 @@ const ConsultationTechniquesInPatients = () => {
                     </Typography>
                     <DiagnosticCeckboxItem
                         lable="Симптом поколачивания:"
-                        checkBoxStle={"w-[700px]"}
+                        checkBoxStle={'w-[700px]'}
                         children={
                             <Box className="flex">
                                 <DefaultCheckbox label="отрицательный," />
@@ -791,7 +791,7 @@ const ConsultationTechniquesInPatients = () => {
                     </Typography>
                     <DiagnosticCeckboxItem
                         lable="Щитовидная железа:"
-                        checkBoxStle={"w-[730px]"}
+                        checkBoxStle={'w-[730px]'}
                         children={
                             <Box className="flex">
                                 <DefaultCheckbox label="без изменений," />
@@ -875,7 +875,7 @@ const ConsultationTechniquesInPatients = () => {
                     btnStyle="ml-[0px] mb-[10px]"
                     disabled={true}
                     style="mt-[10px]"
-                    onClick={() => appModals?.show("choosingDiagnosis")}
+                    onClick={() => appModals?.show('choosingDiagnosis')}
                     children={
                         <>
                             <DiagnostikaItem
@@ -883,7 +883,7 @@ const ConsultationTechniquesInPatients = () => {
                                 text="Дополнительные консультации и исследования не требуются"
                                 btnTitle="Добавить"
                                 onClick={() =>
-                                    appModals?.show("choosingDiagnosis")
+                                    appModals?.show('choosingDiagnosis')
                                 }
                             />
                             <DiagnostikaItem
@@ -891,7 +891,7 @@ const ConsultationTechniquesInPatients = () => {
                                 text="Дополнительные лечебные процедуры не требуются"
                                 btnTitle="Добавить"
                                 onClick={() =>
-                                    appModals?.show("choosingDiagnosis")
+                                    appModals?.show('choosingDiagnosis')
                                 }
                             />
                             <DiagnostikaItem
@@ -899,7 +899,7 @@ const ConsultationTechniquesInPatients = () => {
                                 text="Дополнительные медикаменты не требуются"
                                 btnTitle="Добавить"
                                 onClick={() =>
-                                    appModals?.show("choosingDiagnosis")
+                                    appModals?.show('choosingDiagnosis')
                                 }
                             />
                         </>

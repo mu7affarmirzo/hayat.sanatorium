@@ -1,8 +1,8 @@
-import { Box, Button, Typography } from "@mui/material";
-import { ActiveDotIcon, NoActiveDotIcon } from "assets/icons/icons";
-import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
-import DefaultInput from "components/defaultInput/DefaultInput";
-import { memo, useState } from "react";
+import { Box, Button, Typography } from '@mui/material';
+import { ActiveDotIcon, NoActiveDotIcon } from 'assets/icons/icons';
+import AutocompleteInput from 'components/AutocompleteInput/AutocompleteInput';
+import DefaultInput from 'components/defaultInput/DefaultInput';
+import { memo, useState } from 'react';
 type propsType = {
     polData: any;
     avtoCaplektData: any;
@@ -18,21 +18,21 @@ const PatientForm = (props: propsType) => {
             <Box className="w-full flex items-center justify-between ">
                 <DefaultInput
                     register={register}
-                    inputType={"lastName"}
+                    inputType={'lastName'}
                     lable="Фамилия"
                     containerStile="w-[32%] flex-col "
                     inputStyle="70%"
                 />
                 <DefaultInput
                     register={register}
-                    inputType={"name"}
+                    inputType={'name'}
                     lable="Имя"
                     containerStile="w-[32%] flex-col "
                     inputStyle="70%"
                 />
                 <DefaultInput
                     register={register}
-                    inputType={"surname"}
+                    inputType={'surname'}
                     lable="Отчество"
                     containerStile="w-[32%] flex-col "
                     inputStyle="70%"
@@ -42,7 +42,7 @@ const PatientForm = (props: propsType) => {
             <DefaultInput
                 lable="Обращение:"
                 register={register}
-                inputType={"appeal"}
+                inputType={'appeal'}
                 containerStile="w-[100%] flex-row justify-between items-center mt-[10px] "
                 inputStyle="w-[70%]"
             />
@@ -65,8 +65,8 @@ const PatientForm = (props: propsType) => {
                         }
                         className={` ${
                             item.id === activeBtn
-                                ? "bg-[#4CAF50] text-[#fff] border border-solid border-[#4CAF50]"
-                                : "bg-[#fff] text-[#000] border border-solid border-[#c4c2c2]"
+                                ? 'bg-[#4CAF50] text-[#fff] border border-solid border-[#4CAF50]'
+                                : 'bg-[#fff] text-[#000] border border-solid border-[#c4c2c2]'
                         }  h-[40px]  text-[14px]  capitalize mr-[5px] px-[8px] py-[5px]  `}
                     >
                         {item?.name}
@@ -77,21 +77,21 @@ const PatientForm = (props: propsType) => {
                 lable="Дата рождения"
                 data={avtoCaplektData}
                 containerStyle={
-                    "w-full  flex-row items-center  mt-[10px] justify-between"
+                    'w-full  flex-row items-center  mt-[10px] justify-between'
                 }
                 inputStyle="w-[62%]"
             />
             <DefaultInput
                 lable="Место работы:"
                 register={register}
-                inputType={"appeal"}
+                inputType={'appeal'}
                 containerStile="w-[100%] flex-row justify-between items-center mt-[10px] "
                 inputStyle="w-[62%]"
             />
             <DefaultInput
                 lable="Занимаемая должность:"
                 register={register}
-                inputType={"appeal"}
+                inputType={'appeal'}
                 containerStile="w-[100%] flex-row justify-between items-center mt-[10px] "
                 inputStyle="w-[62%]"
             />

@@ -1,14 +1,14 @@
-import { ColDef } from "ag-grid-community";
-import { CloseIcon } from "assets/icons/icons";
-import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
+import { ColDef } from 'ag-grid-community';
+import { CloseIcon } from 'assets/icons/icons';
+import AutocompleteInput from 'components/AutocompleteInput/AutocompleteInput';
 const top100Films = [
-    { label: "The Shawshank Redemption", year: 1994 },
-    { label: "The Godfather", year: 1972 },
-    { label: "The Godfather: Part II", year: 1974 },
-    { label: "The Dark Knight", year: 2008 },
-    { label: "12 Angry Men", year: 1957 },
+    { label: 'The Shawshank Redemption', year: 1994 },
+    { label: 'The Godfather', year: 1972 },
+    { label: 'The Godfather: Part II', year: 1974 },
+    { label: 'The Dark Knight', year: 2008 },
+    { label: '12 Angry Men', year: 1957 },
     { label: "Schindler's List", year: 1993 },
-    { label: "Pulp Fiction", year: 1994 },
+    { label: 'Pulp Fiction', year: 1994 },
 ];
 
 function MyRoomType(params: any) {
@@ -24,93 +24,93 @@ function AutocompleteHandler(params: any) {
     return (
         <AutocompleteInput
             data={top100Films}
-            containerStyle={"w-[100%]"}
+            containerStyle={'w-[100%]'}
             inputStyle="w-[90%]"
         />
     );
 }
 export const columnDefs: ColDef[] = [
     {
-        headerName: "",
-        field: "",
+        headerName: '',
+        field: '',
         cellRenderer: MyRoomType,
         width: 40,
         cellStyle: {
-            display: "flex",
-            alignItems: "center",
-            justifyContent: " start ",
-            border: ".5px solid #e0e0e0",
-            padding: "0px",
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: ' start ',
+            border: '.5px solid #e0e0e0',
+            padding: '0px',
         },
     },
     {
-        headerName: "Название",
-        field: "name",
+        headerName: 'Название',
+        field: 'name',
         width: 180,
         editable: true,
         cellStyle: {
-            border: ".5px solid #e0e0e0",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "start ",
-            padding: "0px",
-            paddingLeft: "10px",
+            border: '.5px solid #e0e0e0',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'start ',
+            padding: '0px',
+            paddingLeft: '10px',
         },
     },
     {
-        headerName: "Начало",
-        field: "group",
+        headerName: 'Начало',
+        field: 'group',
         width: 150,
         cellRenderer: AutocompleteHandler,
         cellStyle: {
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            border: ".5px solid #e0e0e0",
-            padding: "0px",
-            paddingLeft: "15px",
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            border: '.5px solid #e0e0e0',
+            padding: '0px',
+            paddingLeft: '15px',
         },
     },
     {
-        headerName: "Начало",
-        field: "group",
+        headerName: 'Начало',
+        field: 'group',
         width: 150,
         cellRenderer: AutocompleteHandler,
         cellStyle: {
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            border: ".5px solid #e0e0e0",
-            padding: "0px",
-            paddingLeft: "15px",
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            border: '.5px solid #e0e0e0',
+            padding: '0px',
+            paddingLeft: '15px',
         },
     },
     {
-        headerName: "Лимит",
-        field: "name",
+        headerName: 'Лимит',
+        field: 'name',
         width: 150,
         editable: true,
         cellStyle: {
-            border: ".5px solid #e0e0e0",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "start ",
-            padding: "0px",
-            paddingLeft: "10px",
+            border: '.5px solid #e0e0e0',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'start ',
+            padding: '0px',
+            paddingLeft: '10px',
         },
     },
     {
-        headerName: "Отпусков",
-        field: "name",
+        headerName: 'Отпусков',
+        field: 'name',
         width: 150,
         editable: true,
         cellStyle: {
-            border: ".5px solid #e0e0e0",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "start ",
-            padding: "0px",
-            paddingLeft: "10px",
+            border: '.5px solid #e0e0e0',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'start ',
+            padding: '0px',
+            paddingLeft: '10px',
         },
     },
 ];

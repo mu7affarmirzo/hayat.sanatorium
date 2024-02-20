@@ -1,14 +1,14 @@
-import LogoutTwoToneIcon from "@mui/icons-material/LogoutTwoTone";
-import { Button, Menu, MenuItem, Typography } from "@mui/material";
-import { ArrowDropDownIcon } from "@mui/x-date-pickers";
-import React, { FC, useCallback, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import styled from "styled-components";
-import { LogoSanatarumIcon } from "../../assets/icons/icons";
-import { NavBarDropdowns } from "../../constants/main";
-import { useReduxDispatch } from "hooks/useReduxHook";
-import { logout } from "features/login/AuthSlice";
-import { storageService } from "features/api/storageService";
+import LogoutTwoToneIcon from '@mui/icons-material/LogoutTwoTone';
+import { Button, Menu, MenuItem, Typography } from '@mui/material';
+import { ArrowDropDownIcon } from '@mui/x-date-pickers';
+import React, { FC, useCallback, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+import { LogoSanatarumIcon } from '../../assets/icons/icons';
+import { NavBarDropdowns } from '../../constants/main';
+import { useReduxDispatch } from 'hooks/useReduxHook';
+import { logout } from 'features/login/AuthSlice';
+import { storageService } from 'features/api/storageService';
 const HeaderContainer = styled.div`
     display: flex;
     align-items: center;
@@ -30,7 +30,7 @@ const RightSection = styled.div`
 `;
 
 type Props = {
-    role: "NoAuth" | "Reception" | "Doctors";
+    role: 'NoAuth' | 'Reception' | 'Doctors';
 };
 
 interface HeaderProps {
@@ -50,7 +50,7 @@ const Headers: FC<HeaderProps> = ({ activeTab, setChangeTopTab }) => {
         null
     );
 
-    const [role, setRole] = useState<Props["role"]>("Reception");
+    const [role, setRole] = useState<Props['role']>('Doctors');
 
     const SelectedNavbarDropDown = NavBarDropdowns[role];
 
@@ -79,7 +79,7 @@ const Headers: FC<HeaderProps> = ({ activeTab, setChangeTopTab }) => {
 
     const handleLogOut = useCallback(() => {
         dispatch(logout());
-        storageService.remove("token");
+        storageService.remove('token');
     }, [dispatch]);
 
     return (
@@ -97,18 +97,18 @@ const Headers: FC<HeaderProps> = ({ activeTab, setChangeTopTab }) => {
                                         id="basic-button"
                                         aria-controls={
                                             anchorEl === i
-                                                ? "basic-menu"
+                                                ? 'basic-menu'
                                                 : undefined
                                         }
                                         aria-haspopup="true"
                                         aria-expanded={
-                                            anchorEl === i ? "true" : undefined
+                                            anchorEl === i ? 'true' : undefined
                                         }
                                         onClick={() => handleClick(i, item)}
                                         className={`rounded-none  px-[20px] h-[100%] text-sm   font-semibold  align-middle   cursor-pointer  normal-case ${
                                             activeTab === i
-                                                ? "bg-blue-400 text-gray-100"
-                                                : "bg-white  text-gray-400"
+                                                ? 'bg-blue-400 text-gray-100'
+                                                : 'bg-white  text-gray-400'
                                         } `}
                                     >
                                         <Typography className="text-sm  font-medium  normal-case ">
@@ -125,20 +125,20 @@ const Headers: FC<HeaderProps> = ({ activeTab, setChangeTopTab }) => {
                         <Button
                             id="fade-button"
                             aria-controls={
-                                profileOpen ? "fade-menu" : undefined
+                                profileOpen ? 'fade-menu' : undefined
                             }
                             aria-haspopup="true"
-                            aria-expanded={profileOpen ? "true" : undefined}
+                            aria-expanded={profileOpen ? 'true' : undefined}
                             onClick={(e) => setProfileOpen(e.currentTarget)}
                         >
                             <Typography
-                                sx={{ color: "rgba(0, 0, 0, 0.36)" }}
+                                sx={{ color: 'rgba(0, 0, 0, 0.36)' }}
                                 className="text-sm , leading-5 , tracking-tighter , mr-10 , capitalize"
                             >
                                 Mухиддинов
                             </Typography>
                             <ArrowDropDownIcon
-                                sx={{ fill: "rgba(0, 0, 0, 0.54)" }}
+                                sx={{ fill: 'rgba(0, 0, 0, 0.54)' }}
                             />
                         </Button>
                         <Menu
@@ -149,7 +149,7 @@ const Headers: FC<HeaderProps> = ({ activeTab, setChangeTopTab }) => {
                             className="hidden_profile_block"
                         >
                             <MenuItem onClick={handleLogOut}>
-                                <LogoutTwoToneIcon sx={{ mr: "12px" }} />
+                                <LogoutTwoToneIcon sx={{ mr: '12px' }} />
                                 Logout
                             </MenuItem>
                         </Menu>

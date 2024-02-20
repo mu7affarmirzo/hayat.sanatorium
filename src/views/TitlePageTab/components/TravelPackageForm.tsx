@@ -1,11 +1,11 @@
-import { Box, Grid, Typography } from "@mui/material";
-import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
-import { columnDefs } from "components/ColumnDefs/expectedCol";
-import SectionTitle from "components/SectionTitle/sectionTitle";
-import DefaultButton from "components/deafultButton/DefaultButton";
-import DefaultText from "components/defaultText/DefaultText";
-import ReceptionTable from "components/receptionTable/ReceptionTable";
-import { FC } from "react";
+import { Box, Grid, Typography } from '@mui/material';
+import AutocompleteInput from 'components/AutocompleteInput/AutocompleteInput';
+import { columnDefs } from 'components/ColumnDefs/expectedCol';
+import SectionTitle from 'components/SectionTitle/sectionTitle';
+import DefaultButton from 'components/deafultButton/DefaultButton';
+import DefaultText from 'components/defaultText/DefaultText';
+import ReceptionTable from 'components/receptionTable/ReceptionTable';
+import { FC } from 'react';
 
 type propsType = {
     avtoCaplektData: any;
@@ -23,7 +23,7 @@ const InfoContainer: FC<InfoBoxTypes> = ({ children, label, buttonChild }) => {
     return (
         <Grid
             container
-            className={`${buttonChild ? "items-start" : "items-center"} mt-2`}
+            className={`${buttonChild ? 'items-start' : 'items-center'} mt-2`}
         >
             <Grid item xs={2.5}>
                 <Typography className="text-sm font-normal font-roboto text-[#8d8c8c] ">
@@ -78,14 +78,14 @@ const TravelPackageForm = (props: propsType) => {
                         <AutocompleteInput
                             data={avtoCaplektData}
                             containerStyle={
-                                "w-[20%]  flex-row items-center  justify-between"
+                                'w-[20%]  flex-row items-center  justify-between'
                             }
                             inputStyle="w-[100%]"
                         />
                         <AutocompleteInput
                             lable="-"
                             data={avtoCaplektData}
-                            containerStyle={"w-[20%] flex-row items-center"}
+                            containerStyle={'w-[20%] flex-row items-center'}
                             inputStyle="w-[100%]"
                         />
                         <DefaultText children={`дней: 8`} />
@@ -99,7 +99,7 @@ const TravelPackageForm = (props: propsType) => {
                     <AutocompleteInput
                         data={avtoCaplektData}
                         containerStyle={
-                            "w-[20%] flex-row items-center  justify-between "
+                            'w-[20%] flex-row items-center  justify-between '
                         }
                         inputStyle="w-[100%]"
                     />
@@ -113,7 +113,7 @@ const TravelPackageForm = (props: propsType) => {
                         <AutocompleteInput
                             data={avtoCaplektData}
                             containerStyle={
-                                "w-[20%]  flex-row items-center  justify-between "
+                                'w-[20%]  flex-row items-center  justify-between '
                             }
                             inputStyle="w-[100%]"
                         />
@@ -121,7 +121,7 @@ const TravelPackageForm = (props: propsType) => {
                             lable="время:"
                             data={avtoCaplektData}
                             containerStyle={
-                                "w-[25%]  flex-row items-center  justify-between "
+                                'w-[25%]  flex-row items-center  justify-between '
                             }
                             inputStyle="w-[90%]"
                         />
@@ -134,7 +134,7 @@ const TravelPackageForm = (props: propsType) => {
                     <AutocompleteInput
                         data={avtoCaplektData}
                         containerStyle={
-                            "w-[20%] flex-row items-center  justify-between "
+                            'w-[20%] flex-row items-center  justify-between '
                         }
                         inputStyle="w-[100%]"
                     />
@@ -177,11 +177,11 @@ const TravelPackageForm = (props: propsType) => {
                         <AutocompleteInput
                             data={avtoCaplektData}
                             containerStyle={
-                                "w-[25%] flex-row items-center  justify-between "
+                                'w-[25%] flex-row items-center  justify-between '
                             }
                             inputStyle="w-[100%]"
                         />
-                        <DefaultText children={"Двухместный люкс"} />
+                        <DefaultText children={'Двухместный люкс'} />
                     </Box>
                 }
             />

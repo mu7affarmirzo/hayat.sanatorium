@@ -1,32 +1,32 @@
 /* eslint-disable react/style-prop-object */
-import { Box, Grid } from "@mui/material";
-import { CloseIcon, SearchAltIcon } from "assets/icons/icons";
-import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
-import { BookedCol } from "components/ColumnDefs/bookedCol";
-import DefaultButton from "components/deafultButton/DefaultButton";
-import DefaultInput from "components/defaultInput/DefaultInput";
-import DefaultText from "components/defaultText/DefaultText";
-import ReceptionTable from "components/receptionTable/ReceptionTable";
-import SearchInput from "components/search/SearchInput";
+import { Box, Grid } from '@mui/material';
+import { CloseIcon, SearchAltIcon } from 'assets/icons/icons';
+import AutocompleteInput from 'components/AutocompleteInput/AutocompleteInput';
+import { BookedCol } from 'components/ColumnDefs/bookedCol';
+import DefaultButton from 'components/deafultButton/DefaultButton';
+import DefaultInput from 'components/defaultInput/DefaultInput';
+import DefaultText from 'components/defaultText/DefaultText';
+import ReceptionTable from 'components/receptionTable/ReceptionTable';
+import SearchInput from 'components/search/SearchInput';
 
 import {
     UseFormHandleSubmit,
     UseFormRegister,
     SubmitHandler,
-} from "react-hook-form";
+} from 'react-hook-form';
 
-import React from "react";
-import useBookedHook, { IFormInput } from "./hook";
-import { GetIBSTypes } from "types/booked";
+import React from 'react';
+import useBookedHook, { IFormInput } from './hook';
+import { GetIBSTypes } from 'types/booked';
 
 const top100Films = [
-    { label: "The Shawshank Redemption", year: 1994 },
-    { label: "The Godfather", year: 1972 },
-    { label: "The Godfather: Part II", year: 1974 },
-    { label: "The Dark Knight", year: 2008 },
-    { label: "12 Angry Men", year: 1957 },
+    { label: 'The Shawshank Redemption', year: 1994 },
+    { label: 'The Godfather', year: 1972 },
+    { label: 'The Godfather: Part II', year: 1974 },
+    { label: 'The Dark Knight', year: 2008 },
+    { label: '12 Angry Men', year: 1957 },
     { label: "Schindler's List", year: 1993 },
-    { label: "Pulp Fiction", year: 1994 },
+    { label: 'Pulp Fiction', year: 1994 },
 ];
 
 interface BookedTopSecTypes {
@@ -54,7 +54,7 @@ const BookedViewTopSection = ({
             >
                 <DefaultInput
                     register={register}
-                    inputType={"phone"}
+                    inputType={'phone'}
                     placeholder="ФИО пациента"
                     containerStile="w-[50%]"
                 />
@@ -62,13 +62,13 @@ const BookedViewTopSection = ({
                     <AutocompleteInput
                         lable="Приезд с:"
                         data={top100Films}
-                        containerStyle={"flex-row items-center "}
+                        containerStyle={'flex-row items-center '}
                         inputStyle="w-[150px]"
                     />
                     <AutocompleteInput
                         lable="по:"
                         data={top100Films}
-                        containerStyle={"flex-row items-center ml-[10px] "}
+                        containerStyle={'flex-row items-center ml-[10px] '}
                         inputStyle="w-[150px]"
                     />
                 </Box>

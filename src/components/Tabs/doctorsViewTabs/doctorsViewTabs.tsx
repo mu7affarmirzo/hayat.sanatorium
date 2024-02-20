@@ -1,9 +1,9 @@
-/* eslint-disable array-callback-return */
 import { Box } from '@mui/material';
 import { FC, useCallback, useEffect, useState } from 'react';
 import { useReduxDispatch, useReduxSelector } from 'hooks/useReduxHook';
-import { removePatient } from 'features/booked/bookedSlice';
-import BroneTabBtn from './broneTabBtn';
+
+import DoctorsViewTabBtn from './doctorsViewBtn';
+import { removeDoctorPatient } from 'features/doctorsPatient/patientDoctorsSlice';
 
 export type TabsItem = {
     title: string;
@@ -16,8 +16,8 @@ interface TabsProps {
     content: TabsItem[];
 }
 
-const BroneViewTabs: FC<TabsProps> = ({ content }) => {
-    const { selectBroneId } = useReduxSelector((brone) => brone.booked);
+const DoctorsViewTabs: FC<TabsProps> = ({ content }) => {
+    // const { selectBroneId } = useReduxSelector((brone) => brone.doctors);
     const dispatch = useReduxDispatch();
     const [activeTab, setActiveTab] = useState<number>(0);
 
@@ -25,16 +25,10 @@ const BroneViewTabs: FC<TabsProps> = ({ content }) => {
         setActiveTab(index);
     };
 
-    const removeActiveIB = useCallback(() => {
-        dispatch(removePatient(activeTab));
+    const removeActiveIB = () => {
+        dispatch(removeDoctorPatient(activeTab - 5));
         setActiveTab(0);
-    }, [activeTab, dispatch]);
-
-    useEffect(() => {
-        if (selectBroneId !== null) {
-            setActiveTab(selectBroneId);
-        }
-    }, [selectBroneId]);
+    };
 
     return (
         <Box className=" w-full ">
@@ -42,7 +36,7 @@ const BroneViewTabs: FC<TabsProps> = ({ content }) => {
                 {content.map((item, index) => {
                     return (
                         <Box key={index}>
-                            <BroneTabBtn
+                            <DoctorsViewTabBtn
                                 index={index}
                                 Icon={item?.icon}
                                 title={item?.title}
@@ -55,7 +49,7 @@ const BroneViewTabs: FC<TabsProps> = ({ content }) => {
                     );
                 })}
             </Box>
-            <Box className="w-full  ">
+            <Box className="w-full">
                 {content.map((item, index) => {
                     if (index === activeTab) {
                         return <item.component key={index} />;
@@ -66,4 +60,4 @@ const BroneViewTabs: FC<TabsProps> = ({ content }) => {
     );
 };
 
-export default BroneViewTabs;
+export default DoctorsViewTabs;

@@ -1,32 +1,32 @@
-import { Box, Typography } from "@mui/material";
-import { TimePicker } from "@mui/x-date-pickers";
-import AutocompleteInput from "components/AutoCompleteInput/AutocompleteInput";
-import { columnDefs } from "components/ColumnDefs/expectedCol";
-import DefaultButton from "components/deafultButton/DefaultButton";
-import DefaultText from "components/defaultText/DefaultText";
-import ReceptionTable from "components/receptionTable/ReceptionTable";
-import dayjs from "dayjs";
+import { Box, Typography } from '@mui/material';
+import { TimePicker } from '@mui/x-date-pickers';
+import AutocompleteInput from 'components/AutocompleteInput/AutocompleteInput';
+import { columnDefs } from 'components/ColumnDefs/expectedCol';
+import DefaultButton from 'components/deafultButton/DefaultButton';
+import DefaultText from 'components/defaultText/DefaultText';
+import ReceptionTable from 'components/receptionTable/ReceptionTable';
+import dayjs from 'dayjs';
 type propsType = {
     avtoCaplektData: any;
     register: any;
     rowData?: any;
 };
 const top100Films = [
-    { title: "The Shawshank Redemption", year: 1994 },
-    { title: "The Godfather", year: 1972 },
-    { title: "The Godfather: Part II", year: 1974 },
-    { title: "The Dark Knight", year: 2008 },
-    { title: "12 Angry Men", year: 1957 },
+    { title: 'The Shawshank Redemption', year: 1994 },
+    { title: 'The Godfather', year: 1972 },
+    { title: 'The Godfather: Part II', year: 1974 },
+    { title: 'The Dark Knight', year: 2008 },
+    { title: '12 Angry Men', year: 1957 },
     { title: "Schindler's List", year: 1993 },
-    { title: "Pulp Fiction", year: 1994 },
+    { title: 'Pulp Fiction', year: 1994 },
     {
-        title: "The Lord of the Rings: The Return of the King",
+        title: 'The Lord of the Rings: The Return of the King',
         year: 2003,
     },
-    { title: "The Good, the Bad and the Ugly", year: 1966 },
-    { title: "Fight Club", year: 1999 },
+    { title: 'The Good, the Bad and the Ugly', year: 1966 },
+    { title: 'Fight Club', year: 1999 },
     {
-        title: "The Lord of the Rings: The Fellowship of the Ring",
+        title: 'The Lord of the Rings: The Fellowship of the Ring',
         year: 2001,
     },
 ];
@@ -42,7 +42,7 @@ const StaySanatorium = (props: propsType) => {
                 lable="Программа:"
                 data={avtoCaplektData}
                 containerStyle={
-                    "w-[100%]  flex-row items-center mt-[10px] justify-between "
+                    'w-[100%]  flex-row items-center mt-[10px] justify-between '
                 }
                 inputStyle="w-[80%]"
             />
@@ -67,7 +67,7 @@ const StaySanatorium = (props: propsType) => {
                     lable="Срок лечения по путевке:"
                     data={avtoCaplektData}
                     containerStyle={
-                        "w-[40%]  flex-row items-center  justify-between "
+                        'w-[40%]  flex-row items-center  justify-between '
                     }
                     inputStyle="w-[130px]"
                 />
@@ -75,7 +75,7 @@ const StaySanatorium = (props: propsType) => {
                 <AutocompleteInput
                     data={avtoCaplektData}
                     containerStyle={
-                        "w-[130px]  flex-row items-center  justify-between "
+                        'w-[130px]  flex-row items-center  justify-between '
                     }
                     inputStyle="w-[100%]"
                 />
@@ -88,7 +88,7 @@ const StaySanatorium = (props: propsType) => {
                     lable="Прибыл:"
                     data={avtoCaplektData}
                     containerStyle={
-                        "w-[40%]  flex-row items-center  justify-between "
+                        'w-[40%]  flex-row items-center  justify-between '
                     }
                     inputStyle="w-[130px]"
                 />
@@ -98,7 +98,7 @@ const StaySanatorium = (props: propsType) => {
                     lable="Планируемый отъезд:"
                     data={avtoCaplektData}
                     containerStyle={
-                        "w-[40%]  flex-row items-center  justify-between "
+                        'w-[40%]  flex-row items-center  justify-between '
                     }
                     inputStyle="w-[130px]"
                 />
@@ -107,8 +107,8 @@ const StaySanatorium = (props: propsType) => {
                     время:
                 </Typography>
                 <TimePicker
-                    defaultValue={dayjs("2022-04-17T15:30")}
-                    slotProps={{ textField: { size: "small" } }}
+                    defaultValue={dayjs('2022-04-17T15:30')}
+                    slotProps={{ textField: { size: 'small' } }}
                     className="w-[150px] bg-[white]"
                 />
             </Box>
@@ -117,7 +117,7 @@ const StaySanatorium = (props: propsType) => {
                     lable="Выбыл:"
                     data={avtoCaplektData}
                     containerStyle={
-                        "w-[40%]  flex-row items-center  justify-between "
+                        'w-[40%]  flex-row items-center  justify-between '
                     }
                     inputStyle="w-[130px]"
                 />
@@ -135,7 +135,7 @@ const StaySanatorium = (props: propsType) => {
                 lable="Программа лояльности:"
                 data={avtoCaplektData}
                 containerStyle={
-                    "w-[100%] flex-row items-center mt-[10px] justify-between"
+                    'w-[100%] flex-row items-center mt-[10px] justify-between'
                 }
                 inputStyle="w-[calc(100%-210px)]"
             />
@@ -144,7 +144,7 @@ const StaySanatorium = (props: propsType) => {
                 data={top100Films}
                 multiple={true}
                 containerStyle={
-                    "w-[100%] flex-row items-center mt-[10px] justify-between"
+                    'w-[100%] flex-row items-center mt-[10px] justify-between'
                 }
                 inputStyle="w-[calc(100%-210px)]"
             />
@@ -153,7 +153,7 @@ const StaySanatorium = (props: propsType) => {
                     lable="Помещён в комнату:"
                     data={avtoCaplektData}
                     containerStyle={
-                        "w-[40%]  flex-row items-center  justify-between "
+                        'w-[40%]  flex-row items-center  justify-between '
                     }
                     inputStyle="w-[130px]"
                 />
@@ -166,7 +166,7 @@ const StaySanatorium = (props: propsType) => {
                 lable="Отделение:"
                 data={avtoCaplektData}
                 containerStyle={
-                    "w-[100%] flex-row items-center mt-[10px] justify-between"
+                    'w-[100%] flex-row items-center mt-[10px] justify-between'
                 }
                 inputStyle="w-[calc(100%-210px)]"
             />
