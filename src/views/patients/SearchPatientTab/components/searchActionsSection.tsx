@@ -29,10 +29,15 @@ export const SearchActionsSection = ({
       <Grid item xs={12} md={4} className="flex justify-between">
         <DefaultButton title="Выбор колонок" />
         <DefaultButton title="Ехсеl" icon={<VuesaxLinear />} />
-        <DefaultButton title="Поиск" icon={<SearchIcon stroke="white" />} />
+        <DefaultButton
+          title="Поиск"
+          icon={<SearchIcon stroke="white" />}
+          submitType="submit"
+        />
         <DefaultButton
           title="Очистить фильтр"
           icon={<CloseIcon stroke="white" />}
+          submitType="reset"
         />
       </Grid>
     </Grid>

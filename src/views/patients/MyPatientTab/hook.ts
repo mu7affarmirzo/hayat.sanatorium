@@ -1,35 +1,33 @@
-import { useGetAllMyPatientsQuery } from "features/patient/patientService";
-import useDebounce from "hooks/useDebounceHook";
-import { useCallback, useMemo, useState } from "react";
+import { useGetAllMyPatientsQuery } from 'features/patient/patientService';
+import useDebounce from 'hooks/useDebounceHook';
+import { useCallback, useMemo, useState } from 'react';
 
 const useMyPatientTabHook = () => {
-    const { data: myPatientData } = useGetAllMyPatientsQuery();
-    const [searchValue, setSearchValue] = useState<string>("");
+  const { data: myPatientData } = useGetAllMyPatientsQuery({});
+  const [searchValue, setSearchValue] = useState<string>('');
 
-    const debouncedSearchValue = useDebounce(searchValue, 500);
+  const debouncedSearchValue = useDebounce(searchValue, 500);
 
-    const handleSearch = useCallback((value: string) => {
-        console.log(value, "search value ");
-        setSearchValue(value);
-    }, []);
+  const handleSearch = useCallback((value: string) => {
+    console.log(value, 'search value ');
+    setSearchValue(value);
+  }, []);
 
-    const filteredMyPatientData = useMemo(() => {
-        return myPatientData?.filter((patient) =>
-            patient.no
-                .toLowerCase()
-                .includes(debouncedSearchValue.toLowerCase())
-        );
-    }, [myPatientData, debouncedSearchValue]);
+  const filteredMyPatientData = useMemo(() => {
+    return myPatientData?.filter((patient) =>
+      patient.no.toLowerCase().includes(debouncedSearchValue.toLowerCase()),
+    );
+  }, [myPatientData, debouncedSearchValue]);
 
-    const NumberOfPatient = useMemo(() => {
-        return myPatientData?.length;
-    }, [myPatientData?.length]);
+  const NumberOfPatient = useMemo(() => {
+    return myPatientData?.length;
+  }, [myPatientData?.length]);
 
-    return {
-        myPatientData: filteredMyPatientData,
-        NumberOfPatient,
-        handleSearch,
-    };
+  return {
+    myPatientData: filteredMyPatientData,
+    NumberOfPatient,
+    handleSearch,
+  };
 };
 
 export default useMyPatientTabHook;

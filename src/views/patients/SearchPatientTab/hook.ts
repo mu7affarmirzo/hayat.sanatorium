@@ -4,18 +4,29 @@ import { useState, useCallback, useMemo } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 
 export interface IFormInput {
-  name: string;
-  historyIB: string;
-  cardType: [type1: string, type2: string];
+  full_name: string;
+  ib: string;
+  word: string;
 }
 
 export const useSearchpatientHook = () => {
-  const { data: myPatientData } = useGetAllMyPatientsQuery();
   const [searchValue, setSearchValue] = useState<string>('');
-  const { register, handleSubmit } = useForm<IFormInput>();
+  const [searchoptions, setSearchOptions] = useState<Partial<IFormInput>>({
+    full_name: '',
+    ib: '',
+    word: '',
+  });
+  const { register, handleSubmit } = useForm<Partial<IFormInput>>();
+  const { data: myPatientData } = useGetAllMyPatientsQuery({
+    full_name: searchoptions.full_name,
+    ib: searchoptions.ib,
+    word: searchoptions.word,
+  });
 
-  const onSubmit: SubmitHandler<IFormInput> = (data) =>
+  const OnSubmit: SubmitHandler<Partial<IFormInput>> = (data) => {
     console.log(data, ' form values ');
+    setSearchOptions(data);
+  };
 
   const debouncedSearchValue = useDebounce(searchValue, 500);
 
@@ -30,16 +41,16 @@ export const useSearchpatientHook = () => {
     );
   }, [myPatientData, debouncedSearchValue]);
 
-  const NumberOfPatient = useMemo(() => {
+  const numberOfPatient = useMemo(() => {
     return filteredMyPatientData?.length;
   }, [filteredMyPatientData?.length]);
 
   return {
     myPatientData: filteredMyPatientData,
-    NumberOfPatient,
+    numberOfPatient,
     handleSearch,
     register,
     handleSubmit,
-    onSubmit,
+    OnSubmit,
   };
 };

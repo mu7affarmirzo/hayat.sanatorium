@@ -2,11 +2,35 @@ import { RowClickedEvent } from 'ag-grid-community';
 import { useGetAllPatientsQuery } from 'features/dispatching/dispatchingService';
 import { addInfoNewIb } from 'features/dispatching/dispatchingSlice';
 import { useReduxDispatch } from 'hooks/useReduxHook';
-import { useCallback } from 'react';
-
+import { useCallback, useEffect, useState } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
+interface IFormInput {
+  full_name: string;
+  word: string;
+  ib: string;
+}
 const useDispatchingPatientHook = () => {
   const dispatch = useReduxDispatch();
-  const { data, isError, isLoading, isSuccess } = useGetAllPatientsQuery();
+
+  const { register, handleSubmit } = useForm<IFormInput>();
+
+  const [searchOptions, setSearchOptions] = useState<Partial<IFormInput>>({
+    full_name: '',
+    ib: '',
+    word: '',
+  });
+
+  const { data, isError, isLoading, isSuccess, refetch } =
+    useGetAllPatientsQuery(searchOptions);
+
+  const OnSubmit: SubmitHandler<IFormInput> = (data) => {
+    console.log(data, ' form values dispatching ');
+    setSearchOptions(data);
+  };
+
+  useEffect(() => {
+    refetch();
+  }, [searchOptions, refetch]);
 
   const handleRowClick = useCallback(
     (event: RowClickedEvent) => {
@@ -27,6 +51,9 @@ const useDispatchingPatientHook = () => {
     isLoading,
     isSuccess,
     handleRowClick,
+    register,
+    OnSubmit,
+    handleSubmit,
   };
 };
 

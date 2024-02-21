@@ -1,49 +1,60 @@
 import CustomizedAccordions from 'components/CustomizedAccordions';
 import DefaultInput from 'components/defaultInput/DefaultInput';
 import { FC } from 'react';
-import {
-  UseFormHandleSubmit,
-  SubmitHandler,
-  UseFormRegister,
-} from 'react-hook-form';
-import { IFormInput } from '../hook';
+import { UseFormRegister } from 'react-hook-form';
 import { Grid } from '@mui/material';
+import AutocompleteInput from 'components/AutoCompleteInput/AutocompleteInput';
 
-interface Props {
-  handleSubmit: UseFormHandleSubmit<IFormInput, any>;
-  onSubmit: SubmitHandler<IFormInput>;
-  register: UseFormRegister<IFormInput>;
+const top100Films = [
+  { label: 'The Shawshank Redemption', year: 1994 },
+  { label: 'The Godfather', year: 1972 },
+  { label: 'The Godfather: Part II', year: 1974 },
+  { label: 'The Dark Knight', year: 2008 },
+  { label: '12 Angry Men', year: 1957 },
+  { label: "Schindler's List", year: 1993 },
+  { label: 'Pulp Fiction', year: 1994 },
+];
+
+interface IFormInput {
+  full_name: string;
+  ib: string;
+  word: string;
 }
 
-export const SearchOptionsAccordion: FC<Props> = ({
-  handleSubmit,
-  onSubmit,
-  register,
-}) => {
+interface Props {
+  register: UseFormRegister<Partial<IFormInput>>;
+}
+
+export const SearchOptionsAccordion: FC<Props> = ({ register }) => {
   return (
     <CustomizedAccordions
       title="Параметры поиска:"
       childrenStyle={{ background: '#F5F5F5' }}>
-      <Grid item xs={12} md={12} className="bg-[#F5F5F5]">
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className=" flex justify-between items-center gap-[10px] ">
-          <DefaultInput
-            placeholder="ФИО пациента"
-            inputType={'name'}
-            register={register}
-          />
-          <DefaultInput
-            placeholder="№ Истории"
-            inputType={'historyIB'}
-            register={register}
-          />
-          <DefaultInput
-            placeholder="Тип карты"
-            inputType={'cardType'}
-            register={register}
-          />
-        </form>
+      <Grid
+        item
+        xs={12}
+        md={12}
+        className="bg-[#F5F5F5] flex justify-between items-center gap-2">
+        <DefaultInput
+          register={register}
+          inputType={'full_name'}
+          containerStile="w-[33%] "
+          inputStyle="w-[100%]"
+          placeholder="ФИО пациента"
+        />
+        <DefaultInput
+          register={register}
+          inputType={'ib'}
+          containerStile="w-[33%]  "
+          inputStyle="w-[100%]"
+          placeholder="№ Истории"
+        />
+        <AutocompleteInput
+          data={top100Films}
+          placeholder="Тип карты"
+          containerStyle={' w-[33%]   bg-[#fff] '}
+          inputStyle="w-[100%]"
+        />
         {/* <Grid
             className="bg-[#F5F5F5] flex items-center mt-4 gap-[40px]"
             item

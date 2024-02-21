@@ -10,25 +10,21 @@ const SearchPatiant = () => {
   const {
     myPatientData,
     handleSearch,
-    NumberOfPatient,
+    numberOfPatient,
     handleSubmit,
     register,
-    onSubmit,
+    OnSubmit,
   } = useSearchpatientHook();
 
   return (
     <Grid container>
-      <SearchOptionsAccordion
-        handleSubmit={handleSubmit}
-        onSubmit={onSubmit}
-        register={register}
-      />
-
-      <SearchActionsSection
-        handleSearch={handleSearch}
-        numberOfPatient={NumberOfPatient as never}
-      />
-
+      <form onSubmit={handleSubmit(OnSubmit)} className="w-full">
+        <SearchOptionsAccordion register={register} />
+        <SearchActionsSection
+          handleSearch={handleSearch}
+          numberOfPatient={numberOfPatient as never}
+        />
+      </form>
       <Grid
         item
         xs={12}

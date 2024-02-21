@@ -9,8 +9,8 @@ export interface GetMyPatients {
 }
 
 export interface GetMyPatientsQuery {
-  full_name?: string;
-  ib?: number;
-  card_type?: any;
-  word?: string;
+  full_name: string;
+  ib: number;
+  card_type: any;
+  word: string;
 }
