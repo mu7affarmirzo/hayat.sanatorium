@@ -1,6 +1,6 @@
 import { useGetAllMyPatientsQuery } from 'features/patient/patientService';
 import useDebounce from 'hooks/useDebounceHook';
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo, useEffect } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 
 export interface IFormInput {
@@ -16,8 +16,8 @@ export const useSearchpatientHook = () => {
     ib: '',
     word: '',
   });
-  const { register, handleSubmit } = useForm<Partial<IFormInput>>();
-  const { data: myPatientData } = useGetAllMyPatientsQuery({
+  const { register, handleSubmit, reset } = useForm<Partial<IFormInput>>();
+  const { data: myPatientData, refetch } = useGetAllMyPatientsQuery({
     full_name: searchoptions.full_name,
     ib: searchoptions.ib,
     word: searchoptions.word,
@@ -40,6 +40,10 @@ export const useSearchpatientHook = () => {
       patient.no.toLowerCase().includes(debouncedSearchValue.toLowerCase()),
     );
   }, [myPatientData, debouncedSearchValue]);
+
+  useEffect(() => {
+    refetch();
+  }, [searchoptions, refetch, reset]);
 
   const numberOfPatient = useMemo(() => {
     return filteredMyPatientData?.length;
