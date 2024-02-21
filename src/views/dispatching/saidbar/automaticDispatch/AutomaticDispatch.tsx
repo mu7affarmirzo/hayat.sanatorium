@@ -9,7 +9,7 @@ import {
 } from 'assets/icons/icons';
 import CustomizedAccordions from 'components/CustomizedAccordions';
 import TablePaginationDemo from 'components/TablePaginationDemo';
-import AutocompleteInput from 'components/AutoCompleteInput/AutocompleteInput';
+import AutocompleteInput from 'components/AutoCompleteInput/AutoCompleteInput';
 import DefaultButton from 'components/DeafultButton/DefaultButton';
 import { useState } from 'react';
 const top100Films = [

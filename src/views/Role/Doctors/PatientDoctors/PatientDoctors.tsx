@@ -3,7 +3,6 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { TabsItem } from 'components/SideBar/SideBar';
 import DoctorsViewTabs from 'components/Tabs/doctorsViewTabs/doctorsViewTabs';
 import { useReduxSelector } from 'hooks/useReduxHook';
-
 import accounts from 'views/patients/accounts';
 import addPatients from 'views/patients/addPatients';
 import contactAndAccount from 'views/patients/contactAndAccount';
@@ -14,7 +13,7 @@ import searchPatient from 'views/patients/searchPatient';
 
 const PatientDoctors = () => {
   //bu yerda doctors lardan olinishi kerak edi
-  const { broneData } = useReduxSelector((dynamicTabs) => dynamicTabs.booked);
+  const { broneData } = useReduxSelector((dynamicTabs) => dynamicTabs?.booked);
 
   const broneDataTabs = broneData.map((broneItem) => {
     return {

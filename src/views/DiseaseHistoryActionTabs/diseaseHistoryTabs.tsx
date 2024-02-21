@@ -13,16 +13,16 @@ const DiseaseHistoryTopTabs: FC<Props> = ({ selectData, selectData2 }) => {
   return (
     <Grid
       container
-      className="min-h-[70px] flex justify-between flex-wrap py-[5px]">
+      className="min-h-[70px] flex justify-between flex-wrap py-[5px] bg-[#fff]">
       <Grid
         item
         xs={12}
         md={12}
         className="flex  items-center justify-between flex-wrap ">
-        <div className="flex justify-between items-center py-[10px]  ">
+        <div className="flex justify-between items-center py-[10px] ">
           <DefaultButton
             title="Сохранить"
-            classStyle="bg-[#4CAF50] h-[46px] text-[#fff] mr-[10px]  "
+            classStyle="h-[46px] text-[#fff] mr-[10px]  "
           />
           <SelectButton
             data={selectData}
@@ -35,25 +35,25 @@ const DiseaseHistoryTopTabs: FC<Props> = ({ selectData, selectData2 }) => {
           />
           <DefaultButton
             title="Закрыть историю болезни"
-            classStyle="bg-[#2196F3] h-[46px] text-[#fff] mr-[10px] "
+            classStyle="bg-[#2196F3] h-[46px] text-[#fff] mr-[5px] "
           />
           <DefaultButton
             title="Удалить историю болезни"
-            classStyle="bg-[#2196F3] h-[46px] text-[#fff] mr-[10px] "
+            classStyle="bg-[#2196F3] h-[46px] text-[#fff] mr-[5px] "
           />
           <DefaultButton
             title="Диспечеризовать все"
-            classStyle="bg-[#2196F3] h-[46px] text-[#fff] mr-[10px] "
+            classStyle="bg-[#2196F3] h-[46px] text-[#fff] mr-[5px] "
           />
           <DefaultButton
             title="Отменить все диспетчеризации"
-            classStyle="bg-[#2196F3] h-[46px] text-[#fff] mr-[10px] "
+            classStyle="bg-[#2196F3] h-[46px] text-[#fff] mr-[5px] "
           />
         </div>
         <DefaultButton
           icon={<CoinsAltIcon stroke="black" />}
-          title="  0,00 сум"
-          classStyle="bg-[#F5F5F5] h-[46px] text-[#000]  py-[10px]"
+          title="0,00 сум"
+          classStyle="bg-[#F5F5F5] h-[46px] text-[#000] py-[10px]"
           variant={'none'}
         />
       </Grid>

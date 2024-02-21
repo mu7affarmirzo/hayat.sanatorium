@@ -14,7 +14,7 @@ import HomeAddressForm from 'views/BookedTitlePageTab/components/HomeAddressForm
 import PhonePushForm from 'views/BookedTitlePageTab/components/PhonePushForm';
 import DefaultText from 'components/DefaultText/DefaultText';
 import DefaultButton from 'components/DeafultButton/DefaultButton';
-import AutocompleteInput from 'components/AutoCompleteInput/AutocompleteInput';
+import AutocompleteInput from 'components/AutoCompleteInput/AutoCompleteInput';
 import useTitlePageTabHook from 'views/BookedTitlePageTab/hook';
 import DocumentationForm from 'views/BookedTitlePageTab/components/DocumentationForm';
 import TravelPackageForm from 'views/BookedTitlePageTab/components/TravelPackageForm';

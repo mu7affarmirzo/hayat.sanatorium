@@ -2,7 +2,7 @@ import { authSlice } from 'features/login/AuthSlice';
 import { combineReducers } from '@reduxjs/toolkit';
 import { bookedSlice } from 'features/booked/bookedSlice';
 import { ApiSlice } from 'features/api/apiSlice';
-import { dispatchingSlice } from 'features/dispatching/dispatchingSlice';
+import { dispatchingSlice } from 'features/Dispatching/dispatchingSlice';
 import { eventsSlice } from 'features/events/eventsSlice';
 
 export const reducers = combineReducers({

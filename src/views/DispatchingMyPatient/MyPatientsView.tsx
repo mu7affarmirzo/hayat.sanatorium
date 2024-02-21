@@ -5,7 +5,7 @@ import {
   VuesaxLinearDocumentIcon,
 } from 'assets/icons/icons';
 import CustomizedAccordions from 'components/CustomizedAccordions';
-import AutocompleteInput from 'components/AutoCompleteInput/AutocompleteInput';
+import AutocompleteInput from 'components/AutoCompleteInput/AutoCompleteInput';
 import DefaultCheckbox from 'components/Checkbox/DefaultCheckbox';
 import { MyPatientsGrupCol } from 'components/ColumnDefs/MyPatientsGrupCol';
 import DefaultButton from 'components/DeafultButton/DefaultButton';

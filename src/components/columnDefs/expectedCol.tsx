@@ -1,6 +1,6 @@
 import { ColDef } from 'ag-grid-community';
 import { CloseIcon } from 'assets/icons/icons';
-import AutocompleteInput from 'components/AutoCompleteInput/AutocompleteInput';
+import AutocompleteInput from 'components/AutoCompleteInput/AutoCompleteInput';
 const top100Films = [
   { label: 'The Shawshank Redemption', year: 1994 },
   { label: 'The Godfather', year: 1972 },

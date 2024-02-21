@@ -1,7 +1,7 @@
 /* eslint-disable react/style-prop-object */
 import { Box, Grid } from '@mui/material';
 import { CloseIcon, SearchAltIcon } from 'assets/icons/icons';
-import AutocompleteInput from 'components/AutoCompleteInput/AutocompleteInput';
+import AutocompleteInput from 'components/AutoCompleteInput/AutoCompleteInput';
 import { BookedCol } from 'components/ColumnDefs/bookedCol';
 import DefaultButton from 'components/DeafultButton/DefaultButton';
 import DefaultInput from 'components/defaultInput/DefaultInput';

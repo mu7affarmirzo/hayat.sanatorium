@@ -1,7 +1,7 @@
 import { Box, IconButton, Typography } from '@mui/material';
 import { FilePlusAltIcon } from 'assets/icons/icons';
 import { useAppModals } from 'components/Modals';
-import AutocompleteInput from 'components/AutoCompleteInput/AutocompleteInput';
+import AutocompleteInput from 'components/AutoCompleteInput/AutoCompleteInput';
 import DefaultCheckbox from 'components/Checkbox/DefaultCheckbox';
 import DefaultButton from 'components/DeafultButton/DefaultButton';
 import DefaultText from 'components/DefaultText/DefaultText';
