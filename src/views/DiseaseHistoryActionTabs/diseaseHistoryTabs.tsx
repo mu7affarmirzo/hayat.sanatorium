@@ -13,7 +13,7 @@ const DiseaseHistoryTopTabs: FC<Props> = ({ selectData, selectData2 }) => {
   return (
     <Grid
       container
-      className="min-h-[70px] flex justify-between flex-wrap py-[5px]">
+      className="min-h-[70px] flex justify-between flex-wrap py-[5px] ">
       <Grid
         item
         xs={12}

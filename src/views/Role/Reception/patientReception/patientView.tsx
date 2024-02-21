@@ -2,22 +2,23 @@ import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { TabsItem } from 'components/SideBar/SideBar';
 import PatientViewTabs from 'components/Tabs/patientViewTabs/patientTabs';
-import SearchPatiant from 'views/patients/searchPatient/SearchPatiant';
-import accounts from 'views/patients/accounts';
-import PatientFirst from 'views/patients/myPatient/myPatientTab';
+import MyPatientTab from 'views/Patients/MyPatientTab';
+import SearchPatientTab from 'views/Patients/SearchPatientTab';
+import AccountsTab from 'views/Patients/AccountsTab';
 
+//bu ham booked kabi boladi PatientTabsData ni hook orqali bervorib dynamik ravishda qoshib qoysaiz buladi //
 const PatientTabsData: TabsItem[] = [
   {
     title: 'Мои пациенты',
-    component: PatientFirst,
+    component: MyPatientTab,
   },
   {
     title: 'Счета',
-    component: accounts,
+    component: AccountsTab,
   },
   {
     title: 'Поиск пациентов',
-    component: SearchPatiant,
+    component: SearchPatientTab,
   },
 ];
 
@@ -25,6 +26,7 @@ const ReceptionPatientView = () => {
   return (
     <div className="w-[100%] h-full relative">
       <LocalizationProvider dateAdapter={AdapterDayjs}>
+        {/* siz bu yerda BroneViewTabsga bervorish kerak Doctorslar uchun dynamic ravishda qoshib uchirib boladigan boladi shunda  */}
         <PatientViewTabs content={PatientTabsData} />
       </LocalizationProvider>
     </div>

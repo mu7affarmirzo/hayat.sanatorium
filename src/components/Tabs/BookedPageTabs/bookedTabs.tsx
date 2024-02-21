@@ -55,7 +55,7 @@ const BroneViewTabs: FC<TabsProps> = ({ content }) => {
           );
         })}
       </Box>
-      <Box className="w-full bg-green-600">
+      <Box className="w-full">
         {content.map((item, index) => {
           if (index === activeTab) {
             return <item.component key={index} />;

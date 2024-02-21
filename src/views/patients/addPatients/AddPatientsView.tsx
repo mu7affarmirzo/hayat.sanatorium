@@ -9,7 +9,6 @@ import frontPage from 'views/BookedTitlePageTab';
 import invoicesDocuments from 'views/booked/invoicesDocuments';
 import mainAssignmentSheet from 'views/booked/mainAssignmentSheet';
 import nutrition from 'views/booked/nutrition';
-import ConsultationTechniquesInPatients from '../nutritionInPatient/ConsultationTechniquesInPatients';
 
 const content: TabsItem[] = [
   {
@@ -24,10 +23,10 @@ const content: TabsItem[] = [
     title: 'Питание',
     component: nutrition,
   },
-  {
-    title: 'Первичный прием лечащего врача',
-    component: ConsultationTechniquesInPatients,
-  },
+  // {
+  //   title: 'Первичный прием лечащего врача',
+  //   component: ConsultationTechniquesInPatients,
+  // },
   {
     title: 'Основной лист назначений',
     component: mainAssignmentSheet,

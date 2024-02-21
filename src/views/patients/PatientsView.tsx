@@ -3,13 +3,13 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import BookingScreenTabs, {
   TabsItem,
 } from 'components/Tabs/BookedPageTabs/bookedTabs';
-import accounts from './accounts';
+import accounts from './AccountsTab';
 import addPatients from './addPatients';
 import contactAndAccount from './contactAndAccount';
 import doctorOnDuty from './doctorOnDuty';
 import nurseOnDuty from './nurseOnDuty';
-import PatientFirst from './myPatient/myPatientTab';
-import searchPatient from './searchPatient';
+import PatientFirst from './MyPatientTab/myPatientTab';
+import searchPatient from './SearchPatientTab';
 
 const content: TabsItem[] = [
   {

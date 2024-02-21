@@ -4,13 +4,13 @@ import { TabsItem } from 'components/SideBar/SideBar';
 import DoctorsViewTabs from 'components/Tabs/doctorsViewTabs/doctorsViewTabs';
 import { useReduxSelector } from 'hooks/useReduxHook';
 
-import accounts from 'views/patients/accounts';
-import addPatients from 'views/patients/addPatients';
-import contactAndAccount from 'views/patients/contactAndAccount';
-import doctorOnDuty from 'views/patients/doctorOnDuty';
-import PatientFirst from 'views/patients/myPatient/myPatientTab';
-import nurseOnDuty from 'views/patients/nurseOnDuty';
-import searchPatient from 'views/patients/searchPatient';
+import accounts from 'views/Patients/AccountsTab';
+import addPatients from 'views/Patients/addPatients';
+import contactAndAccount from 'views/Patients/contactAndAccount';
+import doctorOnDuty from 'views/Patients/doctorOnDuty';
+import PatientFirst from 'views/Patients/MyPatientTab/myPatientTab';
+import nurseOnDuty from 'views/Patients/nurseOnDuty';
+import searchPatient from 'views/Patients/SearchPatientTab';
 
 const PatientDoctors = () => {
   //bu yerda doctors lardan olinishi kerak edi
