@@ -37,14 +37,14 @@ const PhonePushForm = (props: propsType) => {
 
       <Box className="w-full flex items-center justify-between mt-[10px]  ">
         <DefaultInput
-          lable="E-mail:"
+          label="E-mail:"
           register={register}
           inputType={'patient.email'}
           containerStile="w-[49%] flex-row items-center justify-between "
           inputStyle="w-[75%]"
         />
         <DefaultInput
-          lable="Язык:"
+          label="Язык:"
           register={register}
           inputType={'patient.language'}
           containerStile="w-[49%] flex-row items-center justify-between "
@@ -53,7 +53,7 @@ const PhonePushForm = (props: propsType) => {
       </Box>
       <Box className="w-full flex flex-row items-center justify-between  gap-1 mt-[10px]">
         <DefaultInput
-          lable="Поликлиника:"
+          label="Поликлиника:"
           register={register}
           inputType={'patient.clinic'}
           containerStile="w-[75%] flex-row items-center justify-between "
@@ -62,7 +62,7 @@ const PhonePushForm = (props: propsType) => {
         <DefaulCheckbox label="Без СКК" style="w-[25%] ml-[5px]" />
       </Box>
       <DefaultInput
-        lable="Номер ИБ поликлиники:"
+        label="Номер ИБ поликлиники:"
         register={register}
         inputType={'id'}
         containerStile="w-[100%] flex-row items-center justify-between mt-[10px]"
@@ -83,7 +83,7 @@ const PhonePushForm = (props: propsType) => {
         </Box>
       </Box>
       <AutocompleteInput
-        lable="Диагноз из СКК"
+        label="Диагноз из СКК"
         data={avtoCaplektData}
         containerStyle={
           'w-full  flex-row items-center  mt-[10px] justify-between '
@@ -116,7 +116,7 @@ const PhonePushForm = (props: propsType) => {
         </Box>
       </Box>
       <AutocompleteInput
-        lable="Направление от"
+        label="Направление от"
         data={avtoCaplektData}
         containerStyle={
           'w-full  flex-row items-center  mt-[10px] justify-between '
@@ -149,21 +149,21 @@ const PhonePushForm = (props: propsType) => {
         </Box>
       </Box>
       <DefaultInput
-        lable="Комментарии"
+        label="Комментарии"
         register={register}
         inputType={'appeal'}
         containerStile="w-[100%] flex-row items-center justify-between mt-[10px]"
         inputStyle="w-[70%]"
       />
       <DefaultInput
-        lable="Направление от"
+        label="Направление от"
         register={register}
         inputType={'appeal'}
         containerStile="w-[100%] flex-row items-center justify-between mt-[10px]"
         inputStyle="w-[70%]"
       />
       <DefaultInput
-        lable="Рекомендации"
+        label="Рекомендации"
         register={register}
         inputType={'appeal'}
         containerStile="w-[100%] flex-row items-center justify-between mt-[10px]"

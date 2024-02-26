@@ -3,8 +3,8 @@ import treatmentSchedule from '../TreatmentSchedule';
 import SideBar, { TabsItem } from 'components/SideBar/SideBar';
 import researchSummaryTable from '../booked/researchSummaryTable';
 import DisTitlePageTab from 'views/DisTitlePageTab';
-import Appointments from 'views/Dispatching/saidbar/appointments/Appointments';
-import HydroBaths from 'views/Dispatching/saidbar/hydroBaths/HydroBaths';
+import HydroBaths from 'views/Dispatching/Saidbar/hydroBaths/HydroBaths';
+import Appointments from 'views/Dispatching/Saidbar/Appointments/appointments';
 
 const content: TabsItem[] = [
   {

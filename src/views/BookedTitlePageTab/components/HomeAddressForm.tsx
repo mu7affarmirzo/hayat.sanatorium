@@ -16,7 +16,7 @@ const HomeAddressForm = (props: propsType) => {
         Домашний адрес
       </Typography>
       <DefaultInput
-        lable="Быстрый ввод адреса"
+        label="Быстрый ввод адреса"
         register={register}
         inputType={'patient.address'}
         containerStile="w-[100%] flex-col  mt-[10px] "
@@ -25,44 +25,21 @@ const HomeAddressForm = (props: propsType) => {
 
       <Box className="w-full flex flex-row items-center justify-between  gap-1 mt-[10px]">
         <DefaultInput
-          lable="Страна"
+          label="Страна"
           register={register}
           inputType={'patient.country'}
           containerStile="w-[32%] flex-col"
           inputStyle="w-[100%]"
         />
         <DefaultInput
-          lable="Область"
+          label="Область"
           register={register}
           inputType={'appeal'}
           containerStile="w-[32%] flex-col"
           inputStyle="w-[100%]"
         />
         <DefaultInput
-          lable="Район"
-          register={register}
-          inputType={'appeal'}
-          containerStile="w-[32%] flex-col"
-          inputStyle="w-[100%]"
-        />
-      </Box>
-      <Box className="w-full flex flex-row items-center justify-between  gap-1 mt-[10px]">
-        <DefaultInput
-          lable="Тип нас. пункта"
-          register={register}
-          inputType={'appeal'}
-          containerStile="w-[32%] flex-col"
-          inputStyle="w-[100%]"
-        />
-        <DefaultInput
-          lable="Название нас"
-          register={register}
-          inputType={'appeal'}
-          containerStile="w-[32%] flex-col"
-          inputStyle="w-[100%]"
-        />
-        <DefaultInput
-          lable="Улица"
+          label="Район"
           register={register}
           inputType={'appeal'}
           containerStile="w-[32%] flex-col"
@@ -71,21 +48,44 @@ const HomeAddressForm = (props: propsType) => {
       </Box>
       <Box className="w-full flex flex-row items-center justify-between  gap-1 mt-[10px]">
         <DefaultInput
-          lable="Дом"
+          label="Тип нас. пункта"
           register={register}
           inputType={'appeal'}
           containerStile="w-[32%] flex-col"
           inputStyle="w-[100%]"
         />
         <DefaultInput
-          lable="Корпус"
+          label="Название нас"
           register={register}
           inputType={'appeal'}
           containerStile="w-[32%] flex-col"
           inputStyle="w-[100%]"
         />
         <DefaultInput
-          lable="Квартира"
+          label="Улица"
+          register={register}
+          inputType={'appeal'}
+          containerStile="w-[32%] flex-col"
+          inputStyle="w-[100%]"
+        />
+      </Box>
+      <Box className="w-full flex flex-row items-center justify-between  gap-1 mt-[10px]">
+        <DefaultInput
+          label="Дом"
+          register={register}
+          inputType={'appeal'}
+          containerStile="w-[32%] flex-col"
+          inputStyle="w-[100%]"
+        />
+        <DefaultInput
+          label="Корпус"
+          register={register}
+          inputType={'appeal'}
+          containerStile="w-[32%] flex-col"
+          inputStyle="w-[100%]"
+        />
+        <DefaultInput
+          label="Квартира"
           register={register}
           inputType={'appeal'}
           containerStile="w-[32%] flex-col"

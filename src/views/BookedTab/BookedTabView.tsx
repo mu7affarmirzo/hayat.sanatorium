@@ -59,13 +59,13 @@ const BookedViewTopSection = ({
         />
         <Box className=" flex justify-between items-center  ">
           <AutocompleteInput
-            lable="Приезд с:"
+            label="Приезд с:"
             data={top100Films}
             containerStyle={'flex-row items-center '}
             inputStyle="w-[150px]"
           />
           <AutocompleteInput
-            lable="по:"
+            label="по:"
             data={top100Films}
             containerStyle={'flex-row items-center ml-[10px] '}
             inputStyle="w-[150px]"

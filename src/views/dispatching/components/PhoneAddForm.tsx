@@ -2,7 +2,7 @@ import { Box, Button, Typography } from '@mui/material';
 import DefaulCheckbox from 'components/Checkbox/DefaultCheckbox';
 import DefaultInput from 'components/defaultInput/DefaultInput';
 import ReceptionTable from 'components/receptionTable/ReceptionTable';
-import { rowData } from '../saidbar/dispatchFrontPage/DispatchFrontPage';
+import { rowData } from '../Saidbar/dispatchFrontPage/DispatchFrontPage';
 
 type propsType = {
   avtoCaplektData: any;
@@ -29,14 +29,14 @@ const PhoneAddForm = (props: propsType) => {
 
       <Box className="w-full flex items-center justify-between mt-[10px]  ">
         <DefaultInput
-          lable="E-mail:"
+          label="E-mail:"
           register={register}
           inputType={'appeal'}
           containerStile="w-[49%] flex-row items-center justify-between "
           inputStyle="w-[75%]"
         />
         <DefaultInput
-          lable="Язык:"
+          label="Язык:"
           register={register}
           inputType={'appeal'}
           containerStile="w-[49%] flex-row items-center justify-between "
@@ -45,7 +45,7 @@ const PhoneAddForm = (props: propsType) => {
       </Box>
       <Box className="w-full flex flex-row items-center justify-between  gap-1 mt-[10px]">
         <DefaultInput
-          lable="Поликлиника:"
+          label="Поликлиника:"
           register={register}
           inputType={'appeal'}
           containerStile="w-[75%] flex-row items-center justify-between "
@@ -54,14 +54,14 @@ const PhoneAddForm = (props: propsType) => {
         <DefaulCheckbox label="Без СКК" style="w-[25%] ml-[5px]" />
       </Box>
       <DefaultInput
-        lable="Номер ИБ поликлиники:"
+        label="Номер ИБ поликлиники:"
         register={register}
         inputType={'appeal'}
         containerStile="w-[100%] flex-row items-center justify-between mt-[10px]"
         inputStyle="w-[60%]"
       />
       <DefaultInput
-        lable="Социальное положение:"
+        label="Социальное положение:"
         register={register}
         inputType={'appeal'}
         containerStile="w-[100%] flex-row items-center justify-between mt-[10px]"

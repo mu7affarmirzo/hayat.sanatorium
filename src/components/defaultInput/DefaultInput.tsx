@@ -1,11 +1,10 @@
 import { Box, IconButton, OutlinedInput, Typography } from '@mui/material';
-import { MobileDatePicker } from '@mui/x-date-pickers';
-import dayjs from 'dayjs';
+
 type propsType = {
   register: any;
   inputType: string;
-  lable?: string;
-  lableStyle?: string;
+  label?: string;
+  labelStyle?: string;
   placeholder?: string;
   containerStile?: string;
   inputStyle?: string;
@@ -18,24 +17,23 @@ const DefaultInput = (props: propsType) => {
   let {
     register,
     inputType,
-    lable,
-    lableStyle,
+    label,
+    labelStyle,
     placeholder,
     containerStile,
     inputStyle,
     icon,
     iconBg,
     onClick,
-    dataPicker,
   } = props;
   return (
     <Box
       className={`${
         containerStile ? containerStile : 'flex-col w-[100%]'
       } flex gap-1 `}>
-      {lable ? (
-        <Typography className={`${lableStyle} text-[14px] text-[#858585] `}>
-          {lable}
+      {label ? (
+        <Typography className={`${labelStyle} text-[14px] text-[#858585] `}>
+          {label}
         </Typography>
       ) : null}
 

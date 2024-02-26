@@ -52,7 +52,7 @@ const Headers: FC<HeaderProps> = ({ activeTab, setChangeTopTab }) => {
   );
   // const { countOfEvents } = useReduxSelector((state) => state.events);
 
-  const [role, setRole] = useState<Props['role']>('Reception');
+  const [role, setRole] = useState<Props['role']>('Doctors');
 
   // const SelectedNavbarDropDown = NavBarDropdowns[role];
 

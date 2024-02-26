@@ -1,7 +1,7 @@
 import { Navigate } from 'react-router-dom';
 import LoginView from 'views/auth/LoginView';
 import NotFoundView from 'views/NotFound/notFound';
-import BookedDoctors from 'views/Role/Doctors/bookedDoctors';
+import BookedDoctors from 'views/Role/Doctors/BookedDoctors';
 import PatientDoctors from 'views/Role/Doctors/PatientDoctors';
 import EventsDoctors from 'views/Role/Doctors/EventsDoctors';
 import DispatchingDoctors from 'views/Role/Doctors/DispatchingDoctors';

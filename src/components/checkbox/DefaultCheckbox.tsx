@@ -3,20 +3,20 @@ import DefaultText from 'components/DefaultText/DefaultText';
 type propsType = {
   style?: string;
   label?: string;
-  leftLable?: string;
+  leftLabel?: string;
   checkboxStyle?: any;
   setValue?: any;
   defaultChecked?: boolean;
   inputType?: string;
 };
 const DefaultCheckbox = (props: propsType) => {
-  let { style, label, leftLable, defaultChecked, setValue, inputType } = props;
+  let { style, label, leftLabel, defaultChecked, setValue, inputType } = props;
 
   return (
     <Box className={`${style} flex items-center justify-between `}>
-      {leftLable ? (
+      {leftLabel ? (
         <DefaultText style={`${style} text-[#000] text-[14px]`}>
-          {leftLable}
+          {leftLabel}
         </DefaultText>
       ) : null}
       <FormControlLabel

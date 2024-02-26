@@ -3,10 +3,10 @@ import { CoinsAltIcon, VuesaxLinearPrinterIcon } from 'assets/icons/icons';
 import SelectButton from 'components/Buttons/SelectButton';
 import DefaultButton from 'components/DeafultButton/DefaultButton';
 import SideBar, { TabsItem } from 'components/SideBar/SideBar';
-import AutomaticDispatch from '../saidbar/automaticDispatch/AutomaticDispatch';
-import DispatchFrontPage from '../saidbar/dispatchFrontPage/DispatchFrontPage';
-import Appointments from '../saidbar/appointments/Appointments';
-import HydroBaths from '../saidbar/hydroBaths/HydroBaths';
+import AutomaticDispatch from '../Saidbar/automaticDispatch/AutomaticDispatch';
+import DispatchFrontPage from '../Saidbar/dispatchFrontPage/DispatchFrontPage';
+import Appointments from '../Saidbar/Appointments/appointments';
+import HydroBaths from '../Saidbar/hydroBaths/HydroBaths';
 
 const content: TabsItem[] = [
   {
