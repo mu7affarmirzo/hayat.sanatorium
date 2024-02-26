@@ -39,14 +39,14 @@ const PhonePushForm = (props: propsType) => {
         <DefaultInput
           lable="E-mail:"
           register={register}
-          inputType={'email'}
+          inputType={'patient.email'}
           containerStile="w-[49%] flex-row items-center justify-between "
           inputStyle="w-[75%]"
         />
         <DefaultInput
           lable="Язык:"
           register={register}
-          inputType={'appeal'}
+          inputType={'patient.language'}
           containerStile="w-[49%] flex-row items-center justify-between "
           inputStyle="w-[75%]"
         />
@@ -55,7 +55,7 @@ const PhonePushForm = (props: propsType) => {
         <DefaultInput
           lable="Поликлиника:"
           register={register}
-          inputType={'appeal'}
+          inputType={'patient.clinic'}
           containerStile="w-[75%] flex-row items-center justify-between "
           inputStyle="w-[70%]"
         />
@@ -64,7 +64,7 @@ const PhonePushForm = (props: propsType) => {
       <DefaultInput
         lable="Номер ИБ поликлиники:"
         register={register}
-        inputType={'appeal'}
+        inputType={'id'}
         containerStile="w-[100%] flex-row items-center justify-between mt-[10px]"
         inputStyle="w-[60%]"
       />

@@ -1,18 +1,35 @@
 import { Box, Button, Typography } from '@mui/material';
 import { ActiveDotIcon, NoActiveDotIcon } from 'assets/icons/icons';
-import AutocompleteInput from 'components/AutoCompleteInput/AutoCompleteInput';
 import DefaultInput from 'components/defaultInput/DefaultInput';
-import { memo, useState } from 'react';
+import { SetStateAction, memo, useEffect, useState } from 'react';
 import { UseFormRegister } from 'react-hook-form';
 import { Patient } from 'types/booked';
 type propsType = {
   polData: any;
   avtoCaplektData: any;
   register: UseFormRegister<Patient>;
+  setValue?: any;
+  defaultValues?: any;
 };
 const PatientForm = (props: propsType) => {
-  let { polData, avtoCaplektData, register } = props;
+  let { polData, avtoCaplektData, register, setValue, defaultValues } = props;
+
   const [activeBtn, setActiveBtn] = useState(0);
+  const [isMale, setIsMale] = useState(defaultValues?.patient.gender);
+
+  const activeButtin = (
+    index: SetStateAction<number>,
+    id: SetStateAction<number>,
+  ) => {
+    setActiveBtn(id);
+    setIsMale(index === 0);
+  };
+
+  useEffect(() => {
+    const genderValue = isMale ? '[М] Мужской' : '[Ж] Женский';
+
+    setValue('patient.gender', genderValue);
+  }, [isMale, polData, setValue]);
 
   return (
     <Box className="flex flex-col ">
@@ -20,21 +37,21 @@ const PatientForm = (props: propsType) => {
       <Box className="w-full flex items-center justify-between ">
         <DefaultInput
           register={register}
-          inputType={'l_name'}
+          inputType={'patient.l_name'}
           lable="Фамилия"
           containerStile="w-[32%] flex-col "
           inputStyle="70%"
         />
         <DefaultInput
           register={register}
-          inputType={'f_name'}
+          inputType={'patient.f_name'}
           lable="Имя"
           containerStile="w-[32%] flex-col "
           inputStyle="70%"
         />
         <DefaultInput
           register={register}
-          inputType={'mid_name'}
+          inputType={'patient.mid_name'}
           lable="Отчество"
           containerStile="w-[32%] flex-col "
           inputStyle="70%"
@@ -44,7 +61,7 @@ const PatientForm = (props: propsType) => {
       <DefaultInput
         lable="Обращение:"
         register={register}
-        inputType={'appeal'}
+        inputType={'patient.appeal'}
         containerStile="w-[100%] flex-row justify-between items-center mt-[10px] "
         inputStyle="w-[70%]"
       />
@@ -53,42 +70,46 @@ const PatientForm = (props: propsType) => {
         <Typography className="text-[14px] text-[#858585] mr-[58px] ">
           Пол:
         </Typography>
-        {polData.map((item: any) => (
+        {polData.map((item: any, index: number) => (
           <Button
-            onClick={() => setActiveBtn(item.id)}
+            onClick={() => activeButtin(index, item.id)}
             key={item?.id}
             variant="contained"
             startIcon={
               item.id === activeBtn ? <ActiveDotIcon /> : <NoActiveDotIcon />
             }
             className={` ${
-              item.id === activeBtn
-                ? 'bg-[#4CAF50] text-[#fff] border border-solid border-[#4CAF50]'
-                : 'bg-[#fff] text-[#000] border border-solid border-[#c4c2c2]'
+              index === 0
+                ? isMale
+                  ? 'bg-[#4CAF50] text-[#fff] border border-solid border-[#4CAF50]'
+                  : 'bg-[#fff] text-[#000] border border-solid border-[#c4c2c2]'
+                : !isMale
+                  ? 'bg-[#4CAF50] text-[#fff] border border-solid border-[#4CAF50]'
+                  : 'bg-[#fff] text-[#000] border border-solid border-[#c4c2c2]'
             }  h-[40px]  text-[14px]  capitalize mr-[5px] px-[8px] py-[5px]  `}>
             {item?.name}
           </Button>
         ))}
       </Box>
-      <AutocompleteInput
+      <DefaultInput
         lable="Дата рождения"
-        data={avtoCaplektData}
-        containerStyle={
-          'w-full  flex-row items-center  mt-[10px] justify-between'
-        }
+        register={register}
+        inputType={'patient.date_of_birth'}
+        containerStile="w-[100%] flex-row justify-between items-center mt-[10px] "
         inputStyle="w-[62%]"
       />
+
       <DefaultInput
         lable="Место работы:"
         register={register}
-        inputType={'appeal'}
+        inputType={'patient.work_place'}
         containerStile="w-[100%] flex-row justify-between items-center mt-[10px] "
         inputStyle="w-[62%]"
       />
       <DefaultInput
         lable="Занимаемая должность:"
         register={register}
-        inputType={'appeal'}
+        inputType={'patient.work_position'}
         containerStile="w-[100%] flex-row justify-between items-center mt-[10px] "
         inputStyle="w-[62%]"
       />

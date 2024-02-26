@@ -18,16 +18,17 @@ const HomeAddressForm = (props: propsType) => {
       <DefaultInput
         lable="Быстрый ввод адреса"
         register={register}
-        inputType={'address'}
+        inputType={'patient.address'}
         containerStile="w-[100%] flex-col  mt-[10px] "
         inputStyle="w-[100%]"
       />
 
       <Box className="w-full flex flex-row items-center justify-between  gap-1 mt-[10px]">
-        <AutocompleteInput
+        <DefaultInput
           lable="Страна"
-          data={avtoCaplektData}
-          containerStyle={'w-[32%]  flex-col'}
+          register={register}
+          inputType={'patient.country'}
+          containerStile="w-[32%] flex-col"
           inputStyle="w-[100%]"
         />
         <DefaultInput
