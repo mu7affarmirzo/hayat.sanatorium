@@ -5,10 +5,11 @@ import BookedDoctors from 'views/Role/Doctors/bookedDoctors';
 import PatientDoctors from 'views/Role/Doctors/PatientDoctors';
 import EventsDoctors from 'views/Role/Doctors/EventsDoctors';
 import DispatchingDoctors from 'views/Role/Doctors/DispatchingDoctors';
-import BookedReceptionView from 'views/Role/Reception/bookedReception/bookedRecView';
-import PatientReception from 'views/Role/Reception/patientReception';
-import EventsReception from 'views/Role/Reception/eventsReception';
-import DispatchingReception from 'views/Role/Reception/dispatchingReception';
+
+import BookedReceptionView from 'views/Role/Reception/BookedReception/bookedRecView';
+import PatientReception from 'views/Role/Reception/PatientReception';
+import EventsReception from 'views/Role/Reception/EventsReception';
+import DispatchingReception from 'views/Role/Reception/DispatchingReception';
 
 type IRouting = {
   path: string;

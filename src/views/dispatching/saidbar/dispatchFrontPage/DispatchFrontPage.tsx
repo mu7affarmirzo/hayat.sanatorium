@@ -1,6 +1,6 @@
 import { Box, Grid, TextField, Typography } from '@mui/material';
 import { useAppModals } from 'components/Modals';
-import AutocompleteInput from 'components/AutoCompleteInput/AutoCompleteInput';
+import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
 import { PhonePush } from 'components/ColumnDefs/phonePush';
 import DefaultButton from 'components/DeafultButton/DefaultButton';
 import DefaultText from 'components/DefaultText/DefaultText';

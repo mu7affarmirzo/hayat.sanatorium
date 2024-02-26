@@ -5,7 +5,7 @@ import {
   NavigationAppIcon,
   PinIcon,
 } from 'assets/icons/icons';
-import AutocompleteInput from 'components/AutoCompleteInput/AutoCompleteInput';
+import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
 import AppointmentsTable from 'components/BookingTypeView/AppointmentsTable';
 import DefaultButton from 'components/DeafultButton/DefaultButton';
 import { useState } from 'react';

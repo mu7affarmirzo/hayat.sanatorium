@@ -1,6 +1,6 @@
 import { RowClickedEvent } from 'ag-grid-community';
-import { useGetAllPatientsQuery } from 'features/Dispatching/dispatchingService';
-import { addInfoNewIb } from 'features/Dispatching/dispatchingSlice';
+import { useGetAllPatientsQuery } from 'features/dispatching/dispatchingService';
+import { addInfoNewIb } from 'features/dispatching/dispatchingSlice';
 import { useReduxDispatch } from 'hooks/useReduxHook';
 import { useCallback, useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';

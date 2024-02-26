@@ -1,5 +1,5 @@
 import { Box, Grid, Typography } from '@mui/material';
-import AutocompleteInput from 'components/AutoCompleteInput/AutoCompleteInput';
+import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
 import DefaultCheckbox from 'components/Checkbox/DefaultCheckbox';
 import CustomizedAccordions from 'components/CustomizedAccordions';
 import RadioForm from 'components/RadioForm';

@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material';
 import { TimePicker } from '@mui/x-date-pickers';
-import AutocompleteInput from 'components/AutoCompleteInput/AutoCompleteInput';
+import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
 import { columnDefs } from 'components/ColumnDefs/expectedCol';
 import DefaultButton from 'components/DeafultButton/DefaultButton';
 import DefaultText from 'components/DefaultText/DefaultText';

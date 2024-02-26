@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 
 import SelectButton from 'components/Buttons/SelectButton';
-import AutocompleteInput from 'components/AutoCompleteInput/AutoCompleteInput';
+import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
 import DefaultButton from 'components/DeafultButton/DefaultButton';
 import DefaultText from 'components/DefaultText/DefaultText';
 import DiagnostikaItem from '../../../components/DiagnostikaItem';

@@ -4,7 +4,7 @@ import { UseFormRegister } from 'react-hook-form';
 import DefaultInput from 'components/defaultInput/DefaultInput';
 import DefaulCheckbox from 'components/Checkbox/DefaultCheckbox';
 import { Box, Button, IconButton, Typography } from '@mui/material';
-import AutocompleteInput from 'components/AutoCompleteInput/AutoCompleteInput';
+import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
 import { useAppModals } from 'components/Modals';
 
 type propsType = {

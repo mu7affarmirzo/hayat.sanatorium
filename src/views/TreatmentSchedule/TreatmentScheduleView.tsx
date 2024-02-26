@@ -7,7 +7,7 @@ import {
 } from 'assets/icons/icons';
 import CustomizedAccordions from 'components/CustomizedAccordions';
 import TablePaginationDemo from 'components/TablePaginationDemo';
-import AutocompleteInput from 'components/AutoCompleteInput/AutoCompleteInput';
+import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
 import DefaultButton from 'components/DeafultButton/DefaultButton';
 import { useState } from 'react';
 import PrintComponent from './components/printComponent';

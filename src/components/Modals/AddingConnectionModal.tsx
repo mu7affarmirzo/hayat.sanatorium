@@ -1,6 +1,6 @@
 import { Box, Button, Grid, IconButton } from '@mui/material';
 import { CloseCircleIcon } from 'assets/icons/icons';
-import AutocompleteInput from 'components/AutoCompleteInput/AutoCompleteInput';
+import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
 import { ConnectionCol } from 'components/ColumnDefs/ConnectionCol';
 import DefaultText from 'components/DefaultText/DefaultText';
 import ReceptionTable from 'components/receptionTable/ReceptionTable';

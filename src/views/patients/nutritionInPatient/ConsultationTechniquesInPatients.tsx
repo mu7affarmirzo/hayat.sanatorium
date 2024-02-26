@@ -1,7 +1,7 @@
 import { Box, Grid, Typography } from '@mui/material';
 import { useAppModals } from 'components/Modals';
 import SelectButton from 'components/Buttons/SelectButton';
-import AutocompleteInput from 'components/AutoCompleteInput/AutoCompleteInput';
+import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
 import DefaultCheckbox from 'components/Checkbox/DefaultCheckbox';
 import DefaultButton from 'components/DeafultButton/DefaultButton';
 import DefaultText from 'components/DefaultText/DefaultText';

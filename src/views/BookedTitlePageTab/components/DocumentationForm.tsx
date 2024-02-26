@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material';
-import AutocompleteInput from 'components/AutoCompleteInput/AutoCompleteInput';
+import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
 import CustomizedAccordions from 'components/CustomizedAccordions';
 import DefaultInput from 'components/defaultInput/DefaultInput';
 

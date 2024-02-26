@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Box, Button, Grid, Typography } from '@mui/material';
 import { ActiveDotIcon, NoActiveDotIcon } from 'assets/icons/icons';
-import AutocompleteInput from 'components/AutoCompleteInput/AutoCompleteInput';
+import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
 
 import DefaultCheckbox from 'components/Checkbox/DefaultCheckbox';
 import OutlinedNumber from 'components/outlinedNumber/OutlinedNumber';

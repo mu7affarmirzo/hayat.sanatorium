@@ -1,5 +1,5 @@
 import { usePostDiagnosMutation } from 'features/booked/bookedService';
-import { useGetPatientWithIdQuery } from 'features/Dispatching/dispatchingService';
+import { useGetPatientWithIdQuery } from 'features/dispatching/dispatchingService';
 import { useReduxSelector } from 'hooks/useReduxHook';
 import { useRef } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';

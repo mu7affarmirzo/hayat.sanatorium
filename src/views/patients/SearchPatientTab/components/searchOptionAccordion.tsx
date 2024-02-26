@@ -3,7 +3,7 @@ import DefaultInput from 'components/defaultInput/DefaultInput';
 import { FC } from 'react';
 import { UseFormRegister } from 'react-hook-form';
 import { Grid } from '@mui/material';
-import AutocompleteInput from 'components/AutoCompleteInput/AutocompleteInput';
+import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
 
 const top100Films = [
   { label: 'The Shawshank Redemption', year: 1994 },
