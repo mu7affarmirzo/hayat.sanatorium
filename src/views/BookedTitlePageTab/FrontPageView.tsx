@@ -3,7 +3,7 @@ import React, { Suspense } from 'react';
 import { Box, Grid, TextField, Typography } from '@mui/material';
 import { ArrowDropSownIcon } from 'assets/icons/icons';
 import { useAppModals } from 'components/Modals';
-import AutocompleteInput from 'components/AutoCompleteInput/AutocompleteInput';
+import AutocompleteInput from 'components/AutoCompleteInput/AutoCompleteInput';
 import { PhonePush } from 'components/ColumnDefs/phonePush';
 import DefaultButton from 'components/DeafultButton/DefaultButton';
 import DefaultText from 'components/DefaultText/DefaultText';
@@ -382,57 +382,57 @@ const FrontPageView = () => {
         height: '100%',
         whiteSpace: 'nowrap',
       }}>
-      <Grid container className="flex">
-        <Grid item xs={12} md={12} className="flex">
-          <Box className="flex w-[50%] justify-end  items-center ">
-            <Typography>История болезни №</Typography>
-            <Box className=" w-[60px] h-[30px] ml-[10px] ">
-              <input className=" bg-[#fff] w-full h-full border-none outline-none " />
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Grid container className="flex">
+          <Grid item xs={12} md={12} className="flex">
+            <Box className="flex w-[50%] justify-end  items-center ">
+              <Typography>История болезни №</Typography>
+              <Box className=" w-[60px] h-[30px] ml-[10px] ">
+                <input className=" bg-[#fff] w-full h-full border-none outline-none " />
+              </Box>
             </Box>
-          </Box>
-          <Box className=" flex w-[50%] justify-end  items-center ">
-            <DefaultButton title="новая" onClick={() => scrollUp()} />
-          </Box>
-        </Grid>
-        <Grid
-          item
-          xs={12}
-          md={12}
-          className="bg-[white] m-[5px] border min-h-[calc(100vh-280px)] h-[calc(100vh-280px)] overflow-scroll p-[5px]"
-          ref={scrollRef}
-          style={{ whiteSpace: 'nowrap' }}>
-          <form
-            className="flex bg-white justify-between  "
-            onSubmit={handleSubmit(onSubmit)}>
-            <div className="w-[35%]">
-              <PatientInfoSection register={register} />
-              <DocumentationForm
-                avtoCaplektData={top100Films}
-                register={register}
-              />
-            </div>
-            <Box className="w-[64%]">
-              <TravelPackageForm
-                avtoCaplektData={top100Films}
-                register={register}
-                rowData={rowData}
-              />
-              <HospitalStayForm
-                avtoCaplektData={top100Films}
-                register={register}
-              />
-              <Comment />
-              <HarmFactors />
-              <TagAutoCompleateBox data={top100FilmsChack} lable="Метки" />
+            <Box className=" flex w-[50%] justify-end  items-center ">
+              <DefaultButton title="новая" onClick={() => scrollUp()} />
+            </Box>
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={12}
+            className="bg-[white] m-[5px] border min-h-[calc(100vh-330px)] h-[calc(100vh-330px)] overflow-scroll p-[5px]"
+            ref={scrollRef}
+            style={{ whiteSpace: 'nowrap' }}>
+            <Box className="flex bg-white justify-between">
+              <div className="w-[35%]">
+                <PatientInfoSection register={register} />
+                <DocumentationForm
+                  avtoCaplektData={top100Films}
+                  register={register}
+                />
+              </div>
+              <Box className="w-[64%]">
+                <TravelPackageForm
+                  avtoCaplektData={top100Films}
+                  register={register}
+                  rowData={rowData}
+                />
+                <HospitalStayForm
+                  avtoCaplektData={top100Films}
+                  register={register}
+                />
+                <Comment />
+                <HarmFactors />
+                <TagAutoCompleateBox data={top100FilmsChack} lable="Метки" />
+              </Box>
             </Box>
             <FrontFooter />
             <ModeHandler />
             <DiagnostHandler />
             <RiskFactorsAndTags />
             <TitlePageBottomCheckbooks />
-          </form>
+          </Grid>
         </Grid>
-      </Grid>
+      </form>
     </div>
   );
 };

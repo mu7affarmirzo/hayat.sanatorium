@@ -14,7 +14,7 @@ import searchPatient from 'views/Patients/SearchPatientTab';
 
 const PatientDoctors = () => {
   //bu yerda doctors lardan olinishi kerak edi
-  const { broneData } = useReduxSelector((dynamicTabs) => dynamicTabs.booked);
+  const { broneData } = useReduxSelector((dynamicTabs) => dynamicTabs?.booked);
 
   const broneDataTabs = broneData.map((broneItem) => {
     return {

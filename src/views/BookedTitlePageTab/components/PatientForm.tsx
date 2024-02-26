@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from '@mui/material';
 import { ActiveDotIcon, NoActiveDotIcon } from 'assets/icons/icons';
-import AutocompleteInput from 'components/AutoCompleteInput/AutocompleteInput';
+import AutocompleteInput from 'components/AutoCompleteInput/AutoCompleteInput';
 import DefaultInput from 'components/defaultInput/DefaultInput';
 import { memo, useState } from 'react';
 import { UseFormRegister } from 'react-hook-form';
