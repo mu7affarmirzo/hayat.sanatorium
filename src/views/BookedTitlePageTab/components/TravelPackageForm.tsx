@@ -11,6 +11,7 @@ type propsType = {
   avtoCaplektData: any;
   register: any;
   rowData?: any;
+  watch?: any;
 };
 
 interface InfoBoxTypes {
@@ -38,7 +39,10 @@ const InfoContainer: FC<InfoBoxTypes> = ({ children, label, buttonChild }) => {
 };
 
 const TravelPackageForm = (props: propsType) => {
-  let { avtoCaplektData, rowData } = props;
+  let { avtoCaplektData, rowData, watch } = props;
+
+  console.log('watch', JSON.stringify(watch('nurse'), null, 2));
+
   return (
     <Box className="flex flex-col border p-[5px]">
       <SectionTitle title="Пребывание в санатории" />
@@ -143,14 +147,22 @@ const TravelPackageForm = (props: propsType) => {
       <InfoContainer
         label="Лечащий врач:"
         children={
-          <AutocompleteInput data={avtoCaplektData} inputStyle="w-[100%]" />
+          <AutocompleteInput
+            multiple={true}
+            data={[watch('doctor')] || []}
+            inputStyle="w-[100%]"
+          />
         }
       />
 
       <InfoContainer
         label="Медсестра:"
         children={
-          <AutocompleteInput data={avtoCaplektData} inputStyle="w-[100%]" />
+          <AutocompleteInput
+            multiple={true}
+            data={watch('nurse') || []}
+            inputStyle="w-[100%]"
+          />
         }
       />
 

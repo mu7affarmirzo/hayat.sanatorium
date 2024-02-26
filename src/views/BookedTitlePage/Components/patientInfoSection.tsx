@@ -12,12 +12,16 @@ interface PatientInfoType {
   register: UseFormRegister<Patient> | any;
   pollData: any;
   mockData: any;
+  setValue?: any;
+  defaultValues?: any;
 }
 
 const PatientInfoSection = ({
   register,
   pollData,
   mockData,
+  setValue,
+  defaultValues,
 }: PatientInfoType) => {
   return (
     <Box className="border p-[5px]">
@@ -26,6 +30,8 @@ const PatientInfoSection = ({
           polData={pollData}
           avtoCaplektData={mockData}
           register={register}
+          setValue={setValue}
+          defaultValues={defaultValues}
         />
         <HomeAddressForm avtoCaplektData={mockData} register={register} />
         <PhonePushForm

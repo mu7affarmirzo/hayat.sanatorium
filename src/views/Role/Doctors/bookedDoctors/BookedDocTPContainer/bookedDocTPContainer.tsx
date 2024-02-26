@@ -146,8 +146,16 @@ const polData = [
 ];
 
 const BookedDocTPContainer = () => {
-  const { scrollRef, scrollUp, handleSubmit, onSubmit, register } =
-    useDocTPBookedTitleHook();
+  const {
+    scrollRef,
+    scrollUp,
+    handleSubmit,
+    onSubmit,
+    register,
+    setValue,
+    defaultValues,
+    watch,
+  } = useDocTPBookedTitleHook();
   return (
     <div
       style={{
@@ -161,7 +169,10 @@ const BookedDocTPContainer = () => {
             <Box className="flex w-[50%] justify-end  items-center ">
               <Typography>История болезни №</Typography>
               <Box className=" w-[60px] h-[30px] ml-[10px] ">
-                <input className=" bg-[#fff] w-full h-full border-none outline-none" />
+                <input
+                  className=" bg-[#fff] w-full h-full border-none outline-none pl-[5px]"
+                  {...register('id')}
+                />
               </Box>
             </Box>
             <Box className=" flex w-[50%] justify-end  items-center ">
@@ -181,6 +192,8 @@ const BookedDocTPContainer = () => {
                   register={register}
                   pollData={polData}
                   mockData={top100FilmsChack}
+                  setValue={setValue}
+                  defaultValues={defaultValues}
                 />
                 <DocumentationForm
                   avtoCaplektData={top100FilmsChack}
@@ -193,6 +206,7 @@ const BookedDocTPContainer = () => {
                   avtoCaplektData={top100FilmsChack}
                   register={register}
                   rowData={rowData}
+                  watch={watch}
                 />
                 <HospitalStayForm
                   avtoCaplektData={top100FilmsChack}
@@ -207,7 +221,10 @@ const BookedDocTPContainer = () => {
             <ModeHandler radioFormData={radioForm} />
             <DiagnostHandler />
             <RiskFactorsAndTags mockData={top100FilmsChack} />
-            <TitlePageBottomCheckbooks />
+            <TitlePageBottomCheckbooks
+              setValue={setValue}
+              defaultValues={defaultValues}
+            />
           </Grid>
         </Grid>
       </form>
