@@ -4,7 +4,7 @@ import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
 import { columnDefs } from 'components/ColumnDefs/expectedCol';
 import DefaultButton from 'components/DeafultButton/DefaultButton';
 import DefaultText from 'components/DefaultText/DefaultText';
-import ReceptionTable from 'components/receptionTable/ReceptionTable';
+import ReceptionTable from 'components/ReceptionTable/ReceptionTable';
 import dayjs from 'dayjs';
 type propsType = {
   avtoCaplektData: any;

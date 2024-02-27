@@ -6,7 +6,7 @@ import DefaultCheckbox from 'components/Checkbox/DefaultCheckbox';
 import DefaultButton from 'components/DeafultButton/DefaultButton';
 import DefaultText from 'components/DefaultText/DefaultText';
 import DiagnosticCeckboxItem from 'components/diagnosticCeckboxItem/DiagnosticCeckboxItem';
-import ReceptionTable from 'components/receptionTable/ReceptionTable';
+import ReceptionTable from 'components/ReceptionTable/ReceptionTable';
 
 import React from 'react';
 import DiagnostikaItem from 'components/DiagnostikaItem';

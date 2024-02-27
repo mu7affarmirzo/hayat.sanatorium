@@ -55,13 +55,8 @@ export const RoutingData: MyGroupType = {
   Doctors: [
     {
       path: 'doctors',
-      component: <Navigate to="/doctors/booked" replace />,
+      component: <Navigate to="/doctors/patients" replace />,
     },
-    {
-      path: '/doctors/booked',
-      component: <BookedDoctors />,
-    },
-
     {
       path: '/doctors/patients',
       component: <PatientDoctors />,

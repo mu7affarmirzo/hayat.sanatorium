@@ -5,7 +5,7 @@ import { BookedCol } from 'components/ColumnDefs/bookedCol';
 import DefaultButton from 'components/DeafultButton/DefaultButton';
 import DefaultInput from 'components/defaultInput/DefaultInput';
 import DefaultText from 'components/DefaultText/DefaultText';
-import ReceptionTable from 'components/receptionTable/ReceptionTable';
+import ReceptionTable from 'components/ReceptionTable/ReceptionTable';
 import SearchInput from 'components/search/SearchInput';
 
 import {

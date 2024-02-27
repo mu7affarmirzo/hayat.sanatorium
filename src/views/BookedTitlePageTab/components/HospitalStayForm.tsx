@@ -40,7 +40,6 @@ const HospitalStayForm = (props: propsType) => {
           containerStyle="flex-col w-[15%]  mt-[20px]"
           inputStyle="w-[100%]]"
           text="дней"
-          // inputBoxStyle="flex-row-reverse "
         />
         <AutocompleteInput
           label="по"

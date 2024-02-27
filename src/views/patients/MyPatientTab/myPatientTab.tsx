@@ -2,17 +2,18 @@ import { Grid, Typography } from '@mui/material';
 import { VuesaxLinear } from 'assets/icons/icons';
 import { BookedPatiant } from 'components/ColumnDefs/bookedCol';
 import DefaultButton from 'components/DeafultButton/DefaultButton';
-import ReceptionTable from 'components/receptionTable/ReceptionTable';
+import ReceptionTable from 'components/ReceptionTable/ReceptionTable';
 import SearchInput from 'components/search/SearchInput';
 import useMyPatientTabHook from './hook';
 
 const MyPatientTab = () => {
   const { myPatientData, NumberOfPatient, handleSearch } =
     useMyPatientTabHook();
+
   return (
     <Grid container>
       <Grid
-        className="flex justify-between items-center  my-[10px] "
+        className="flex justify-between items-center  my-[10px]  "
         item
         xs={12}
         md={12}>
@@ -21,7 +22,7 @@ const MyPatientTab = () => {
         </Grid>
         <DefaultButton
           title=" Экспорт в Excel"
-          classStyle="bg-[#2196F3] h-[40px] text-[#fff] text-sm capitalize mr-[10px]"
+          classStyle="bg-[#2d373f] h-[40px] text-[#fff] text-sm capitalize mr-[10px]"
           icon={<VuesaxLinear />}
         />
       </Grid>

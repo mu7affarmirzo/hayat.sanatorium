@@ -49,66 +49,6 @@ export const rowData = [
     discount: 0,
     statusRoom: 'clean',
   },
-  {
-    number: '117',
-    name: 'Levi Syde ',
-    group: [],
-    arrivalData: '2023-12-05',
-    departureDate: '2023-12-13',
-    roomType: 'Lyuksbk',
-    room: '34-631-7219',
-    numberOfGuest: 5,
-    level: 1,
-    howManyTimesUsed: 1,
-    capacity: 1,
-    occupied: true,
-    tariff: 6,
-    duration: 8,
-    balance: 0,
-    paid: 0,
-    discount: 0,
-    statusRoom: 'clean',
-  },
-  {
-    number: '139',
-    name: 'Griffie Pendrey ',
-    group: [],
-    arrivalData: '2023-12-06',
-    departureDate: '2023-12-14',
-    roomType: 'Lyuksbk',
-    room: '03-447-1912',
-    numberOfGuest: 5,
-    level: 2,
-    howManyTimesUsed: 6,
-    capacity: 1,
-    occupied: false,
-    tariff: 5,
-    duration: 8,
-    balance: 0,
-    paid: 0,
-    discount: 0,
-    statusRoom: 'clean',
-  },
-  {
-    number: '141',
-    name: 'Arlinda Hamm Pimer',
-    group: [],
-    arrivalData: '2023-12-06',
-    departureDate: '2023-12-14',
-    roomType: 'Lyuks B',
-    room: '53-821-3131',
-    numberOfGuest: 6,
-    level: 2,
-    howManyTimesUsed: 2,
-    capacity: 2,
-    occupied: true,
-    tariff: 6,
-    duration: 8,
-    balance: 0,
-    paid: 0,
-    discount: 0,
-    statusRoom: 'clean',
-  },
 ];
 
 const radioForm = [
@@ -154,6 +94,8 @@ const BookedDocTPContainer = () => {
     register,
     setValue,
     defaultValues,
+    nurseData,
+    doctorData,
     watch,
   } = useDocTPBookedTitleHook();
   return (
@@ -207,6 +149,8 @@ const BookedDocTPContainer = () => {
                   register={register}
                   rowData={rowData}
                   watch={watch}
+                  nurseData={nurseData as never}
+                  doctorData={doctorData as never}
                 />
                 <HospitalStayForm
                   avtoCaplektData={top100FilmsChack}

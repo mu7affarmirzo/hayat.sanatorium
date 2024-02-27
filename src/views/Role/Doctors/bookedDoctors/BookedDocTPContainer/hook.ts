@@ -27,13 +27,15 @@ const useDocTPBookedTitleHook = () => {
     }
   };
 
-  const dostorData = useMemo(() => {
+  const doctorData = useMemo(() => {
     return data?.doctor;
   }, [data?.doctor]);
 
   const nurseData = useMemo(() => {
     return data?.nurse;
   }, [data?.nurse]);
+
+  const treatmentPrograms = useMemo(() => {}, []);
 
   console.log('watch', JSON.stringify(watch(), null, 2));
 
@@ -46,7 +48,7 @@ const useDocTPBookedTitleHook = () => {
     setValue,
     defaultValues,
     watch,
-    dostorData,
+    doctorData,
     nurseData,
   };
 };
