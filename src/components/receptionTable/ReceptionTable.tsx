@@ -1,9 +1,9 @@
-import { AgGridReact } from "ag-grid-react";
-import { ColDef, RowClickedEvent } from "ag-grid-community";
-import { useReduxDispatch } from "hooks/useReduxHook";
-import { addPatient } from "features/booked/bookedSlice";
-import { useCallback } from "react";
-import "./style.css";
+import { AgGridReact } from 'ag-grid-react';
+import { ColDef, RowClickedEvent } from 'ag-grid-community';
+import { useReduxDispatch } from 'hooks/useReduxHook';
+import { addPatient } from 'features/booked/bookedSlice';
+import { useCallback } from 'react';
+import './style.css';
 
 type propsType = {
     columnDefs?: ColDef[];
@@ -26,9 +26,9 @@ const ReceptionTable = (props: propsType) => {
     );
 
     return (
-        <div className={`${props.height ? props.height : "h-[15vh]"}  w-full `}>
+        <div className={`${props.height ? props.height : 'h-[15vh]'}  w-full `}>
             <div
-                style={{ height: "100%", width: "100%" }}
+                style={{ height: '100%', width: '100%' }}
                 className="ag-theme-alpine"
             >
                 <AgGridReact

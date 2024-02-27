@@ -1,6 +1,6 @@
 import { Box, Button, Grid, IconButton } from "@mui/material";
 import { CloseCircleIcon } from "assets/icons/icons";
-import DefaultText from "components/defaultText/DefaultText";
+import DefaultText from "components/DefaultText/DefaultText";
 import SearchInput from "components/search/SearchInput";
 import { useEscapeKey } from "hooks/useEscapeKey";
 import { useCallback } from "react";

@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface PatientBook {
     id: number;
@@ -15,7 +15,7 @@ const initialState: BookedTypes = {
 };
 
 export const bookedSlice = createSlice({
-    name: "booked",
+    name: 'booked',
     initialState,
     reducers: {
         addPatient: (state, action: PayloadAction<PatientBook>) => {
@@ -23,9 +23,13 @@ export const bookedSlice = createSlice({
             const existingPatientIndex = state.broneData.findIndex(
                 (patient) => patient.id === newPatient.id
             );
+            state.selectBroneId = action?.payload?.id;
 
             if (existingPatientIndex !== -1) {
                 state.broneData.splice(existingPatientIndex, 1);
+            }
+            if (action.payload) {
+                state.selectBroneId = action?.payload?.id;
             }
             state.broneData.push(newPatient);
             // state.selectBroneId = newPatient.id;

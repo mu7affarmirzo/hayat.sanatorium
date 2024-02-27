@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
-import DefaultButton from "components/deafultButton/DefaultButton";
-import DefaultText from "components/defaultText/DefaultText";
+import DefaultButton from "components/DeafultButton/DefaultButton";
+import DefaultText from "components/DefaultText/DefaultText";
 
 const MeasuredParametersItem = () => {
     return (

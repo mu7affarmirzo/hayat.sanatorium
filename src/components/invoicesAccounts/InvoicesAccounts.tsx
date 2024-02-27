@@ -1,5 +1,5 @@
 import { Grid } from "@mui/material";
-import DefaultButton from "components/deafultButton/DefaultButton";
+import DefaultButton from "components/DeafultButton/DefaultButton";
 import React from "react";
 
 const InvoicesAccounts = () => {

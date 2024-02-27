@@ -1,1 +1,1 @@
-export { default } from "./patientView";
+export { default } from './patientView';
