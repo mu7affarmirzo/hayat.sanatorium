@@ -4,7 +4,7 @@ import { columnDefs } from 'components/ColumnDefs/expectedCol';
 import SectionTitle from 'components/SectionTitle/sectionTitle';
 import DefaultButton from 'components/DeafultButton/DefaultButton';
 import DefaultText from 'components/DefaultText/DefaultText';
-import ReceptionTable from 'components/receptionTable/ReceptionTable';
+import ReceptionTable from 'components/ReceptionTable';
 import { FC } from 'react';
 
 type propsType = {

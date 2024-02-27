@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { LogoSanatarumIcon } from '../../assets/icons/icons';
 import { NavBarDropdowns } from '../../constants/main';
-import { useReduxDispatch } from 'hooks/useReduxHook';
+import { useReduxDispatch, useReduxSelector } from 'hooks/useReduxHook';
 import { logout } from 'features/login/AuthSlice';
 import { storageService } from 'features/api/storageService';
 
@@ -50,7 +50,7 @@ const Headers: FC<HeaderProps> = ({ activeTab, setChangeTopTab }) => {
   const [profileOpen, setProfileOpen] = React.useState<null | HTMLElement>(
     null,
   );
-  // const { countOfEvents } = useReduxSelector((state) => state.events);
+  const { countOfEvents } = useReduxSelector((state) => state.events);
 
   const [role, setRole] = useState<Props['role']>('Doctors');
 
@@ -85,10 +85,10 @@ const Headers: FC<HeaderProps> = ({ activeTab, setChangeTopTab }) => {
   }, [dispatch]);
 
   const IsEventsBox = (path: string) => {
-    if (path === '/reception/events') {
+    if (path === '/doctors/events') {
       return (
         <div className="w-[24px] h-[24px] border border-white bg-red-300 rounded-full mx-2 flex items-center justify-center">
-          <Typography className="text-white">5</Typography>
+          <Typography className="text-white">{countOfEvents}</Typography>
         </div>
       );
     } else {
