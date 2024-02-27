@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import { Box } from '@mui/material';
 import SideBarBtn from 'components/SideBarBtn';
 import { FC, useState } from 'react';

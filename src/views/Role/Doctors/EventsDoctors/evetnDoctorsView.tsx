@@ -1,8 +1,8 @@
 import React from 'react';
-import EventsView from 'views/events/EventsView';
+import EventsView from 'views/Events/EventsView';
 
 const EventsReception = () => {
-    return <EventsView />;
+  return <EventsView />;
 };
 
 export default EventsReception;

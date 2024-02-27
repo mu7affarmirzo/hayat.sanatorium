@@ -2,18 +2,22 @@ import { Grid, Typography } from '@mui/material';
 import { VuesaxLinear } from 'assets/icons/icons';
 import { BookedPatiant } from 'components/ColumnDefs/bookedCol';
 import DefaultButton from 'components/DeafultButton/DefaultButton';
-import ReceptionTable from 'components/ReceptionTable/ReceptionTable';
 import SearchInput from 'components/search/SearchInput';
 import useMyPatientTabHook from './hook';
+import TableComponent from 'components/Table/table';
 
 const MyPatientTab = () => {
-  const { myPatientData, NumberOfPatient, handleSearch } =
-    useMyPatientTabHook();
+  const {
+    myPatientData,
+    NumberOfPatient,
+    handleSearch,
+    handleClickedRowTable,
+  } = useMyPatientTabHook();
 
   return (
     <Grid container>
       <Grid
-        className="flex justify-between items-center  my-[10px]  "
+        className="flex justify-between items-center  my-[10px] "
         item
         xs={12}
         md={12}>
@@ -27,10 +31,11 @@ const MyPatientTab = () => {
         />
       </Grid>
       <Grid item xs={12} md={12} className=" bg-[#F5F5F5]">
-        <ReceptionTable
+        <TableComponent
           columnDefs={BookedPatiant}
-          rowData={myPatientData}
-          height="h-[810px]"
+          data={myPatientData as never}
+          tableHeight="h-[810px]"
+          handleClickedTableRow={handleClickedRowTable}
         />
       </Grid>
       <Grid>

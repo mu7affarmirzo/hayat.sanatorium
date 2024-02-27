@@ -1,10 +1,10 @@
 import { Grid } from '@mui/material';
 import { BookedPatientSearch } from 'components/ColumnDefs/bookedCol';
-import ReceptionTable from 'components/ReceptionTable/ReceptionTable';
 
 import { useSearchpatientHook } from './hook';
 import { SearchOptionsAccordion } from './components/searchOptionAccordion';
 import { SearchActionsSection } from './components/searchActionsSection';
+import TableComponent from 'components/Table/table';
 
 const SearchPatiant = () => {
   const {
@@ -14,6 +14,7 @@ const SearchPatiant = () => {
     handleSubmit,
     register,
     OnSubmit,
+    handleClickedRowTable,
   } = useSearchpatientHook();
 
   return (
@@ -31,10 +32,11 @@ const SearchPatiant = () => {
         md={12}
         className="bg-[#F5F5F5]"
         sx={{ marginBottom: '20px' }}>
-        <ReceptionTable
+        <TableComponent
           columnDefs={BookedPatientSearch}
-          rowData={myPatientData}
-          height="h-[70vh]"
+          data={myPatientData as never}
+          tableHeight="h-[70vh]"
+          handleClickedTableRow={handleClickedRowTable}
         />
       </Grid>
     </Grid>

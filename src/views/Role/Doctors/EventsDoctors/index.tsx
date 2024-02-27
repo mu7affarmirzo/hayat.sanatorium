@@ -1,1 +1,1 @@
-export { default } from './EventsReception';
+export { default } from './evetnDoctorsView';

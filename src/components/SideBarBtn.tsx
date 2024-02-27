@@ -46,9 +46,9 @@ const SideBarBtn: FC<BookingProps> = (props) => {
             display: 'flex',
             alignItems: 'center',
           }}>
-          {chiled.map((item: any) => {
+          {chiled.map((item: any, index: number) => {
             return (
-              <>
+              <div key={index}>
                 {item.data ? (
                   <SaidBarCustomizedAccordions
                     title={item.title}
@@ -92,7 +92,7 @@ const SideBarBtn: FC<BookingProps> = (props) => {
                     </Typography>
                   </button>
                 )}
-              </>
+              </div>
             );
           })}
         </SaidBarCustomizedAccordions>
