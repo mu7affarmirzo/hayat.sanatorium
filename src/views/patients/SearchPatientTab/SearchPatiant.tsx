@@ -1,5 +1,6 @@
 import { Grid } from '@mui/material';
 import { BookedPatientSearch } from 'components/ColumnDefs/bookedCol';
+import ReceptionTable from 'components/ReceptionTable';
 
 import { useSearchpatientHook } from './hook';
 import { SearchOptionsAccordion } from './components/searchOptionAccordion';

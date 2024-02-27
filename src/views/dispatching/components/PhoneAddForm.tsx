@@ -1,7 +1,7 @@
 import { Box, Button, Typography } from '@mui/material';
 import DefaulCheckbox from 'components/Checkbox/DefaultCheckbox';
 import DefaultInput from 'components/defaultInput/DefaultInput';
-import ReceptionTable from 'components/ReceptionTable/ReceptionTable';
+import ReceptionTable from 'components/ReceptionTable/receptionTable';
 import { rowData } from '../Saidbar/dispatchFrontPage/DispatchFrontPage';
 
 type propsType = {

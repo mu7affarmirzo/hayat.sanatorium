@@ -3,7 +3,7 @@ import { MemoIcon } from 'assets/icons/icons';
 import SelectButton from 'components/Buttons/SelectButton';
 import { NutritionCol } from 'components/ColumnDefs/nutritionCol';
 import DefaultButton from 'components/DeafultButton/DefaultButton';
-import ReceptionTable from 'components/ReceptionTable/ReceptionTable';
+import ReceptionTable from 'components/ReceptionTable';
 import { rowData } from '../../BookedTitlePageTab/FrontPageView';
 import DefaultText from 'components/DefaultText/DefaultText';
 import NutritionItem from 'components/NutritionItem/NutritionItem';

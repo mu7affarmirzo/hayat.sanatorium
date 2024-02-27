@@ -17,7 +17,7 @@ import { HealingProceduresCol } from 'components/ColumnDefs/HealingProceduresCol
 import { TreatmentProgramsCOl } from 'components/ColumnDefs/TreatmentProgramsCal';
 import DefaultButton from 'components/DeafultButton/DefaultButton';
 import DefaultText from 'components/DefaultText/DefaultText';
-import ReceptionTable from 'components/ReceptionTable/ReceptionTable';
+import ReceptionTable from 'components/ReceptionTable';
 import ReceptionTableGroup from 'components/ReceptionTableGroup/ReceptionTable';
 import React from 'react';
 import { rowData } from '../../BookedTitlePageTab/FrontPageView';

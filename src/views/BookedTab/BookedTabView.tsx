@@ -5,7 +5,6 @@ import { BookedCol } from 'components/ColumnDefs/bookedCol';
 import DefaultButton from 'components/DeafultButton/DefaultButton';
 import DefaultInput from 'components/defaultInput/DefaultInput';
 import DefaultText from 'components/DefaultText/DefaultText';
-import ReceptionTable from 'components/ReceptionTable/ReceptionTable';
 import SearchInput from 'components/search/SearchInput';
 
 import {
@@ -18,6 +17,7 @@ import React from 'react';
 import useBookedHook, { IFormInput } from './hook';
 import { GetIBSTypes } from 'types/booked';
 import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
+import ReceptionTable from 'components/ReceptionTable';
 
 const top100Films = [
   { label: 'The Shawshank Redemption', year: 1994 },
