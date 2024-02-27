@@ -17,48 +17,48 @@ const HospitalStayForm = (props: propsType) => {
       </Typography>
       <Box className="flex items-center mt-[10px] justify-between">
         <OutlinedNumber
-          lable="Кол-во"
+          label="Кол-во"
           containerStyle="flex-col w-[10%]"
           inputStyle="w-[100%]"
         />
         <OutlinedNumber
-          lable="Гости и размещение"
+          label="Гости и размещение"
           containerStyle="flex-col w-[30%] "
           inputStyle="w-[100%]"
           text="Взрослых:"
           inputBoxStyle="flex-row-reverse"
         />
         <AutocompleteInput
-          lable="Период проживания"
+          label="Период проживания"
           data={avtoCaplektData}
           containerStyle={'w-[18%]  flex-col  '}
           inputStyle="w-[100%]"
-          lableStyle="text-[#000]"
+          labelStyle="text-[#000]"
         />
         <OutlinedNumber
-          lable=" "
+          label=" "
           containerStyle="flex-col w-[15%]  mt-[20px]"
           inputStyle="w-[100%]]"
           text="дней"
           // inputBoxStyle="flex-row-reverse "
         />
         <AutocompleteInput
-          lable="по"
+          label="по"
           data={avtoCaplektData}
-          lableStyle="text-[#000]"
+          labelStyle="text-[#000]"
           containerStyle={'w-[20%]  flex-row items-center  mt-[20px]'}
           inputStyle="w-[100%]"
         />
       </Box>
       <Box className="flex items-center mt-[10px] justify-between">
         <AutocompleteInput
-          lable="Лечащий врач:"
+          label="Лечащий врач:"
           data={avtoCaplektData}
           containerStyle={'w-[49%]  flex-row justify-between items-center'}
           inputStyle="w-[64%]"
         />
         <AutocompleteInput
-          lable="Лечащий врач:"
+          label="Лечащий врач:"
           data={avtoCaplektData}
           containerStyle={'w-[49%]  flex-row justify-between items-center'}
           inputStyle="w-[64%]"
@@ -66,13 +66,13 @@ const HospitalStayForm = (props: propsType) => {
       </Box>
       <Box className="flex items-center mt-[10px] justify-between">
         <AutocompleteInput
-          lable="Помещён в комнату."
+          label="Помещён в комнату."
           data={avtoCaplektData}
           containerStyle={'w-[49%]  flex-row justify-between items-center'}
           inputStyle="w-[64%]"
         />
         <AutocompleteInput
-          lable="Отделение:"
+          label="Отделение:"
           data={avtoCaplektData}
           containerStyle={'w-[49%]  flex-row justify-between items-center'}
           inputStyle="w-[64%]"

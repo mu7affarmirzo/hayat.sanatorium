@@ -210,7 +210,7 @@ const DispatchTitlePageTab = () => {
               />
               <Comment />
               <HarmFactors dropdownData={top100FilmsChack} />
-              <TagAutoCompleateBox data={top100FilmsChack} lable="Метки" />
+              <TagAutoCompleateBox data={top100FilmsChack} label="Метки" />
             </Box>
           </form>
 

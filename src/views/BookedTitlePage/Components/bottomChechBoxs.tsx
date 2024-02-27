@@ -11,7 +11,7 @@ const TitlePageBottomCheckbooks = ({ setValue, defaultValues }: propsType) => {
         setValue={setValue}
         defaultChecked={defaultValues?.highlighted_tags?.allergy}
         label="нет"
-        leftLable="Аллергия:"
+        leftLabel="Аллергия:"
         style="w-[350px]"
         inputType="highlighted_tags?.allergy"
       />
@@ -19,7 +19,7 @@ const TitlePageBottomCheckbooks = ({ setValue, defaultValues }: propsType) => {
         setValue={setValue}
         defaultChecked={defaultValues?.highlighted_tags?.meteolabel}
         label="нет"
-        leftLable="Метеолабильность:"
+        leftLabel="Метеолабильность:"
         style="w-[350px]"
         inputType="highlighted_tags?.meteolabel"
       />
@@ -27,7 +27,7 @@ const TitlePageBottomCheckbooks = ({ setValue, defaultValues }: propsType) => {
         setValue={setValue}
         defaultChecked={defaultValues?.highlighted_tags?.food_issues}
         label="нет"
-        leftLable="Непереносимость продуктов!"
+        leftLabel="Непереносимость продуктов!"
         style="w-[350px]"
         inputType="highlighted_tags?.food_issues"
       />
@@ -35,7 +35,7 @@ const TitlePageBottomCheckbooks = ({ setValue, defaultValues }: propsType) => {
         setValue={setValue}
         defaultChecked={defaultValues?.highlighted_tags?.furniture_fault}
         label="нет"
-        leftLable="Нарушения стула:"
+        leftLabel="Нарушения стула:"
         style="w-[350px]"
         inputType="highlighted_tags?.furniture_fault"
       />
@@ -43,7 +43,7 @@ const TitlePageBottomCheckbooks = ({ setValue, defaultValues }: propsType) => {
         setValue={setValue}
         defaultChecked={defaultValues?.highlighted_tags?.pills_drugs}
         label="нет"
-        leftLable="Получает постоянно медикаменты:"
+        leftLabel="Получает постоянно медикаменты:"
         style="w-[350px]"
         inputType="highlighted_tags?.pills_drugs"
       />

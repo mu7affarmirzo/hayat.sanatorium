@@ -51,16 +51,16 @@ const ExpancedSearchOptions = () => {
                 </Box>
                 <Box className="flex w-[55%] ">
                   <AutocompleteInput
-                    lable="Приезд с:"
+                    label="Приезд с:"
                     data={top100Films}
-                    lableStyle=" text-black "
+                    labelStyle=" text-black "
                     containerStyle={'w-[50%]  flex-row items-center  '}
                     inputStyle="w-[130px]"
                   />
                   <AutocompleteInput
-                    lable="по:"
+                    label="по:"
                     data={top100Films}
-                    lableStyle="text-black"
+                    labelStyle="text-black"
                     containerStyle={'w-[50%]  flex-row items-center  '}
                     inputStyle="w-[130px]"
                   />
@@ -83,16 +83,16 @@ const ExpancedSearchOptions = () => {
                 </Box>
                 <Box className="flex w-[55%] ">
                   <AutocompleteInput
-                    lable="Отъезд с:"
+                    label="Отъезд с:"
                     data={top100Films}
-                    lableStyle=" text-black "
+                    labelStyle=" text-black "
                     containerStyle={'w-[50%]  flex-row items-center  '}
                     inputStyle="w-[130px]"
                   />
                   <AutocompleteInput
-                    lable="по:"
+                    label="по:"
                     data={top100Films}
-                    lableStyle="text-black"
+                    labelStyle="text-black"
                     containerStyle={'w-[50%]  flex-row items-center  '}
                     inputStyle="w-[130px]"
                   />
@@ -148,16 +148,16 @@ const ExpancedSearchOptions = () => {
               </Typography>
               <Box className="bg-[#fff] w-full flex mt-[10px]">
                 <AutocompleteInput
-                  lable="Лечащий врач:"
+                  label="Лечащий врач:"
                   data={top100Films}
-                  lableStyle=" text-black "
+                  labelStyle=" text-black "
                   containerStyle={'w-[50%] flex-row items-center  pr-[5px]  '}
                   inputStyle="w-[calc(100%-115px)]"
                 />
                 <AutocompleteInput
-                  lable="Палатная сестра:"
+                  label="Палатная сестра:"
                   data={top100Films}
-                  lableStyle=" text-black "
+                  labelStyle=" text-black "
                   containerStyle={'w-[50%]  flex-row items-center  pl-[5px] '}
                   inputStyle="w-[calc(100%-135px)]"
                 />
@@ -169,16 +169,16 @@ const ExpancedSearchOptions = () => {
               </Typography>
               <Box className="bg-[#fff] w-full flex mt-[10px]">
                 <AutocompleteInput
-                  lable="Санаторная программа:"
+                  label="Санаторная программа:"
                   data={top100Films}
-                  lableStyle=" text-black "
+                  labelStyle=" text-black "
                   containerStyle={'w-[50%] flex-row items-center  pr-[5px]  '}
                   inputStyle="w-[calc(100%-175px)]"
                 />
                 <AutocompleteInput
-                  lable="Лечебная программа:"
+                  label="Лечебная программа:"
                   data={top100Films}
-                  lableStyle=" text-black "
+                  labelStyle=" text-black "
                   containerStyle={'w-[50%]  flex-row items-center  pl-[5px] '}
                   inputStyle="w-[calc(100%-155px)]"
                 />
@@ -195,9 +195,9 @@ const ExpancedSearchOptions = () => {
           <Grid container className="mt-[15px]">
             <Grid item xs={6} className="  justify-between">
               <AutocompleteInput
-                lable="Метки:"
+                label="Метки:"
                 data={top100Films}
-                lableStyle=" text-black "
+                labelStyle=" text-black "
                 containerStyle={
                   'w-[99%]  flex-row items-center  justify-between'
                 }
@@ -206,9 +206,9 @@ const ExpancedSearchOptions = () => {
             </Grid>
             <Grid item xs={6}>
               <AutocompleteInput
-                lable="Консультации"
+                label="Консультации"
                 data={top100Films}
-                lableStyle=" text-black "
+                labelStyle=" text-black "
                 containerStyle={
                   'w-[99%]  flex-row items-center  justify-between '
                 }
@@ -219,9 +219,9 @@ const ExpancedSearchOptions = () => {
           <Grid container className="mt-[5px]">
             <Grid item xs={6} className="  justify-between">
               <AutocompleteInput
-                lable="Диагноз:"
+                label="Диагноз:"
                 data={top100Films}
-                lableStyle=" text-black "
+                labelStyle=" text-black "
                 containerStyle={
                   'w-[99%]  flex-row items-center  justify-between'
                 }
@@ -230,9 +230,9 @@ const ExpancedSearchOptions = () => {
             </Grid>
             <Grid item xs={6}>
               <AutocompleteInput
-                lable="Исследования"
+                label="Исследования"
                 data={top100Films}
-                lableStyle=" text-black "
+                labelStyle=" text-black "
                 containerStyle={
                   'w-[99%]  flex-row items-center  justify-between '
                 }
@@ -243,9 +243,9 @@ const ExpancedSearchOptions = () => {
           <Grid container className="mt-[5px]">
             <Grid item xs={6} className="  justify-between">
               <AutocompleteInput
-                lable="Медикаменты"
+                label="Медикаменты"
                 data={top100Films}
-                lableStyle=" text-black "
+                labelStyle=" text-black "
                 containerStyle={
                   'w-[99%]  flex-row items-center  justify-between'
                 }
@@ -254,9 +254,9 @@ const ExpancedSearchOptions = () => {
             </Grid>
             <Grid item xs={6}>
               <AutocompleteInput
-                lable="Лечебные процедуры"
+                label="Лечебные процедуры"
                 data={top100Films}
-                lableStyle=" text-black "
+                labelStyle=" text-black "
                 containerStyle={
                   'w-[99%]  flex-row items-center  justify-between '
                 }

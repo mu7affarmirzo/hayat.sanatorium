@@ -21,13 +21,13 @@ const DocumentationForm = (props: propsType) => {
       <Box className="flex flex-col  ">
         <Box className="w-full flex items-center justify-between mt-[10px] ">
           <AutocompleteInput
-            lable="Страна"
+            label="Страна"
             data={avtoCaplektData}
             containerStyle={'w-[49%] flex flex-col   justify-between '}
             inputStyle="w-[100%]"
           />
           <AutocompleteInput
-            lable="Тип документа"
+            label="Тип документа"
             data={avtoCaplektData}
             containerStyle={'w-[49%] flex flex-col   justify-between '}
             inputStyle="w-[100%]"
@@ -35,7 +35,7 @@ const DocumentationForm = (props: propsType) => {
         </Box>
         <Box className="w-full flex flex-row items-center  gap-1 mt-[10px]">
           <DefaultInput
-            lable="Серия"
+            label="Серия"
             register={register}
             inputType={'series'}
             containerStile="w-[20%] flex-col"
@@ -43,20 +43,20 @@ const DocumentationForm = (props: propsType) => {
           />
 
           <DefaultInput
-            lable="Номер"
+            label="Номер"
             register={register}
             inputType={'number'}
             containerStile="w-[20%] flex-col"
             inputStyle="w-[100%]"
           />
           <AutocompleteInput
-            lable="Дата выдачи"
+            label="Дата выдачи"
             data={avtoCaplektData}
             containerStyle={'w-[24%] flex flex-col'}
             inputStyle="w-[100%]"
           />
           <DefaultInput
-            lable="Код подразделения"
+            label="Код подразделения"
             register={register}
             inputType={'number'}
             containerStile="w-[35%] flex-col"
@@ -64,14 +64,14 @@ const DocumentationForm = (props: propsType) => {
           />
         </Box>
         <DefaultInput
-          lable="Кем выдан"
+          label="Кем выдан"
           register={register}
           inputType={'appeal'}
           containerStile="w-[100%] flex-row items-center justify-between mt-[10px]"
           inputStyle="w-[80%]"
         />
         <DefaultInput
-          lable="СНИЛС"
+          label="СНИЛС"
           register={register}
           inputType={'appeal'}
           containerStile="w-[100%] flex-row items-center justify-between mt-[10px]"
@@ -84,21 +84,21 @@ const DocumentationForm = (props: propsType) => {
           </Typography>
           <Box className="w-full flex items-center justify-between mt-[10px] ">
             <AutocompleteInput
-              lable="Тип полиса"
+              label="Тип полиса"
               data={avtoCaplektData}
               containerStyle={'w-[33%]  flex-col'}
               inputStyle="w-[100%]"
             />
 
             <DefaultInput
-              lable="Серия"
+              label="Серия"
               register={register}
               inputType={'number'}
               containerStile="w-[32%] flex-col"
               inputStyle="w-[100%]"
             />
             <DefaultInput
-              lable="Номер"
+              label="Номер"
               register={register}
               inputType={'number'}
               containerStile="w-[32%] flex-col"
@@ -106,7 +106,7 @@ const DocumentationForm = (props: propsType) => {
             />
           </Box>
           <DefaultInput
-            lable="Наименование СМО"
+            label="Наименование СМО"
             register={register}
             inputType={'number'}
             containerStile="w-[100%] flex-col mt-[10px]"

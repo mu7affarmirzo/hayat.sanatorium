@@ -4,7 +4,7 @@ import { columnDefs } from 'components/ColumnDefs/expectedCol';
 import SectionTitle from 'components/SectionTitle/sectionTitle';
 import DefaultButton from 'components/DeafultButton/DefaultButton';
 import DefaultText from 'components/DefaultText/DefaultText';
-import ReceptionTable from 'components/receptionTable/ReceptionTable';
+import ReceptionTable from 'components/ReceptionTable';
 import { FC } from 'react';
 
 type propsType = {
@@ -12,6 +12,7 @@ type propsType = {
   register: any;
   rowData?: any;
   watch?: any;
+  isDisabetBtns?: boolean;
 };
 
 interface InfoBoxTypes {
@@ -39,12 +40,10 @@ const InfoContainer: FC<InfoBoxTypes> = ({ children, label, buttonChild }) => {
 };
 
 const TravelPackageForm = (props: propsType) => {
-  let { avtoCaplektData, rowData, watch } = props;
-
-  console.log('watch', JSON.stringify(watch('nurse'), null, 2));
+  let { avtoCaplektData, rowData, watch, isDisabetBtns } = props;
 
   return (
-    <Box className="flex flex-col border p-[5px]">
+    <Box className="flex flex-col border p-[5px] bg-red-500">
       <SectionTitle title="Пребывание в санатории" />
 
       <InfoContainer
@@ -60,6 +59,7 @@ const TravelPackageForm = (props: propsType) => {
           <DefaultButton
             title="Добавить"
             classStyle="bg-[#4CAF50]  w-[95%] mt-[10px]"
+            disabled={isDisabetBtns}
           />
         }
         children={
@@ -81,7 +81,7 @@ const TravelPackageForm = (props: propsType) => {
               inputStyle="w-[100%]"
             />
             <AutocompleteInput
-              lable="-"
+              label="-"
               data={avtoCaplektData}
               containerStyle={'w-[20%] flex-row items-center'}
               inputStyle="w-[100%]"
@@ -114,7 +114,7 @@ const TravelPackageForm = (props: propsType) => {
               inputStyle="w-[100%]"
             />
             <AutocompleteInput
-              lable="время:"
+              label="время:"
               data={avtoCaplektData}
               containerStyle={
                 'w-[25%]  flex-row items-center  justify-between '

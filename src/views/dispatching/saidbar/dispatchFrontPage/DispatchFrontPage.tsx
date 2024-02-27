@@ -217,11 +217,11 @@ const DispatchFrontPage = () => {
         </Box>
         <Box className="flex py-[8px] px-[10px] border  mt-[10px] items-center">
           <AutocompleteInput
-            lable="Профессия"
+            label="Профессия"
             data={top100Films}
             containerStyle={'w-[80%]  flex-col '}
             inputStyle="w-[100%]"
-            lableStyle="text-[#000]"
+            labelStyle="text-[#000]"
           />
           <DefaultButton
             title="Синхронизировать"
@@ -364,37 +364,37 @@ const DispatchFrontPage = () => {
                         <Box className="w-[35%]">
                             <TagsBox
                                 data={top100FilmsChack}
-                                lable="Факторы риска"
+                                label="Факторы риска"
                             />
                         </Box>
                         <Box className="w-[64.5%]">
-                            <TagsBox data={top100FilmsChack} lable="Метки" />
+                            <TagsBox data={top100FilmsChack} label="Метки" />
                         </Box>
                     </Box>
                     <Box className="border my-[5px] px-[10px] py-[8px]">
                         <DefaulCheckbox
                             label="нет"
-                            leftLable="Аллергия:"
+                            leftlabel="Аллергия:"
                             style="w-[350px]"
                         />
                         <DefaulCheckbox
                             label="нет"
-                            leftLable="Метеолабильность:"
+                            leftlabel="Метеолабильность:"
                             style="w-[350px]"
                         />
                         <DefaulCheckbox
                             label="нет"
-                            leftLable="Непереносимость продуктов!"
+                            leftlabel="Непереносимость продуктов!"
                             style="w-[350px]"
                         />
                         <DefaulCheckbox
                             label="нет"
-                            leftLable="Нарушения стула:"
+                            leftlabel="Нарушения стула:"
                             style="w-[350px]"
                         />
                         <DefaulCheckbox
                             label="нет"
-                            leftLable="Получает постоянно медикаменты:"
+                            leftlabel="Получает постоянно медикаменты:"
                             style="w-[350px]"
                         />
                     </Box> */}

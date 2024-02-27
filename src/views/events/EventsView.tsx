@@ -11,7 +11,7 @@ const EventsView = () => {
           item
           xs={12}
           md={12}
-          className="flex items-center justify-between py-[10px] ">
+          className="flex items-center justify-between py-[10px]  bg-red-600">
           <Box className=" w-[60%] flex items-center">
             <SearchInput placeholder="Искать в таблице" />
           </Box>

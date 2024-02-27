@@ -1,12 +1,12 @@
 import { Grid } from '@mui/material';
+import React from 'react';
+import useDoctorsEventsHook from './hook';
 import EventsAccordion from 'views/Events/eventsAccordion';
 import EventsInfoSection from 'views/Events/eventsInfoSection';
 import EventsTableContainer from 'views/Events/eventsTableContaner';
-import useRecaptionEventsHook from './hook';
 
-const EventsReceptionView = () => {
-  const { handleSubmit, onSubmit, register, data } = useRecaptionEventsHook();
-
+const EventsReception = () => {
+  const { data, handleSubmit, onSubmit, register } = useDoctorsEventsHook();
   return (
     <Grid container>
       <EventsAccordion
@@ -20,4 +20,4 @@ const EventsReceptionView = () => {
   );
 };
 
-export default EventsReceptionView;
+export default EventsReception;

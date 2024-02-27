@@ -38,28 +38,28 @@ const PatientForm = (props: propsType) => {
         <DefaultInput
           register={register}
           inputType={'patient.l_name'}
-          lable="Фамилия"
+          label="Фамилия"
           containerStile="w-[32%] flex-col "
           inputStyle="70%"
         />
         <DefaultInput
           register={register}
           inputType={'patient.f_name'}
-          lable="Имя"
+          label="Имя"
           containerStile="w-[32%] flex-col "
           inputStyle="70%"
         />
         <DefaultInput
           register={register}
           inputType={'patient.mid_name'}
-          lable="Отчество"
+          label="Отчество"
           containerStile="w-[32%] flex-col "
           inputStyle="70%"
         />
       </Box>
 
       <DefaultInput
-        lable="Обращение:"
+        label="Обращение:"
         register={register}
         inputType={'patient.appeal'}
         containerStile="w-[100%] flex-row justify-between items-center mt-[10px] "
@@ -92,7 +92,7 @@ const PatientForm = (props: propsType) => {
         ))}
       </Box>
       <DefaultInput
-        lable="Дата рождения"
+        label="Дата рождения"
         register={register}
         inputType={'patient.date_of_birth'}
         containerStile="w-[100%] flex-row justify-between items-center mt-[10px] "
@@ -100,14 +100,14 @@ const PatientForm = (props: propsType) => {
       />
 
       <DefaultInput
-        lable="Место работы:"
+        label="Место работы:"
         register={register}
         inputType={'patient.work_place'}
         containerStile="w-[100%] flex-row justify-between items-center mt-[10px] "
         inputStyle="w-[62%]"
       />
       <DefaultInput
-        lable="Занимаемая должность:"
+        label="Занимаемая должность:"
         register={register}
         inputType={'patient.work_position'}
         containerStile="w-[100%] flex-row justify-between items-center mt-[10px] "

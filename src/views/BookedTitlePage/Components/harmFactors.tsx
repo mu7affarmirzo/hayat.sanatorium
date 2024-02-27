@@ -35,11 +35,11 @@ const HarmFactors: FC<Props> = ({ dropdownData }) => {
       </Box>
       <Box className="flex py-[8px] px-[10px] border  mt-[10px] items-center">
         <AutocompleteInput
-          lable="Профессия"
+          label="Профессия"
           data={dropdownData}
           containerStyle={'w-[80%]  flex-col '}
           inputStyle="w-[100%]"
-          lableStyle="text-[#000]"
+          labelStyle="text-[#000]"
         />
         <DefaultButton
           title="Синхронизировать"

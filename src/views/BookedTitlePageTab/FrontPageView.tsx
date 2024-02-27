@@ -207,25 +207,25 @@ const PatientInfoSection = ({ register }: PatientInfoType) => {
 const TitlePageBottomCheckbooks = () => {
   return (
     <Box className="border my-[5px] px-[10px] py-[8px]">
-      <DefaulCheckbox label="нет" leftLable="Аллергия:" style="w-[350px]" />
+      <DefaulCheckbox label="нет" leftLabel="Аллергия:" style="w-[350px]" />
       <DefaulCheckbox
         label="нет"
-        leftLable="Метеолабильность:"
+        leftLabel="Метеолабильность:"
         style="w-[350px]"
       />
       <DefaulCheckbox
         label="нет"
-        leftLable="Непереносимость продуктов!"
+        leftLabel="Непереносимость продуктов!"
         style="w-[350px]"
       />
       <DefaulCheckbox
         label="нет"
-        leftLable="Нарушения стула:"
+        leftLabel="Нарушения стула:"
         style="w-[350px]"
       />
       <DefaulCheckbox
         label="нет"
-        leftLable="Получает постоянно медикаменты:"
+        leftLabel="Получает постоянно медикаменты:"
         style="w-[350px]"
       />
     </Box>
@@ -236,10 +236,10 @@ const RiskFactorsAndTags = () => {
   return (
     <Box className="flex justify-between">
       <Box className="w-[35%]">
-        <TagAutoCompleateBox data={top100FilmsChack} lable="Факторы риска" />
+        <TagAutoCompleateBox data={top100FilmsChack} label="Факторы риска" />
       </Box>
       <Box className="w-[64.5%]">
-        <TagAutoCompleateBox data={top100FilmsChack} lable="Метки" />
+        <TagAutoCompleateBox data={top100FilmsChack} label="Метки" />
       </Box>
     </Box>
   );
@@ -288,11 +288,11 @@ const HarmFactors = () => {
       </Box>
       <Box className="flex py-[8px] px-[10px] border  mt-[10px] items-center">
         <AutocompleteInput
-          lable="Профессия"
+          label="Профессия"
           data={top100Films}
           containerStyle={'w-[80%]  flex-col '}
           inputStyle="w-[100%]"
-          lableStyle="text-[#000]"
+          labelStyle="text-[#000]"
         />
         <DefaultButton
           title="Синхронизировать"
@@ -422,7 +422,7 @@ const FrontPageView = () => {
                 />
                 <Comment />
                 <HarmFactors />
-                <TagAutoCompleateBox data={top100FilmsChack} lable="Метки" />
+                <TagAutoCompleateBox data={top100FilmsChack} label="Метки" />
               </Box>
             </Box>
             <FrontFooter />

@@ -40,9 +40,9 @@ const ConsultationTechniques = () => {
         </Box>
         <Box className=" flex items-center w-[80%]  justify-end ">
           <AutocompleteInput
-            lable="время:"
+            label="время:"
             data={top100Films}
-            lableStyle="text-[#000]"
+            labelStyle="text-[#000]"
             containerStyle={
               'w-[20%]  flex-row items-center  h-[35px] mr-[10px]'
             }

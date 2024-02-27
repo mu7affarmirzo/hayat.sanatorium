@@ -23,8 +23,8 @@ const AppRouting = () => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      setRole('Reception');
-      navigate('reception', { replace: true });
+      setRole('Doctors');
+      navigate('doctors', { replace: true });
     } else {
       setRole('NoAuth');
       navigate('login', { replace: true });

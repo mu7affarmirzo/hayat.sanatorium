@@ -4,7 +4,7 @@ import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
 import { columnDefs } from 'components/ColumnDefs/expectedCol';
 import DefaultButton from 'components/DeafultButton/DefaultButton';
 import DefaultText from 'components/DefaultText/DefaultText';
-import ReceptionTable from 'components/receptionTable/ReceptionTable';
+import ReceptionTable from 'components/ReceptionTable/receptionTable';
 import dayjs from 'dayjs';
 type propsType = {
   avtoCaplektData: any;
@@ -31,7 +31,7 @@ const top100Films = [
   },
 ];
 const StaySanatorium = (props: propsType) => {
-  let { avtoCaplektData, register, rowData } = props;
+  let { avtoCaplektData, rowData } = props;
   return (
     <Box className="flex flex-col  border  p-[5px] ">
       <Typography className=" text-[14px] text-[#000] ">
@@ -39,7 +39,7 @@ const StaySanatorium = (props: propsType) => {
       </Typography>
 
       <AutocompleteInput
-        lable="Программа:"
+        label="Программа:"
         data={avtoCaplektData}
         containerStyle={
           'w-[100%]  flex-row items-center mt-[10px] justify-between '
@@ -64,7 +64,7 @@ const StaySanatorium = (props: propsType) => {
       </Box>
       <Box className="flex w-full items-center mt-[10px]">
         <AutocompleteInput
-          lable="Срок лечения по путевке:"
+          label="Срок лечения по путевке:"
           data={avtoCaplektData}
           containerStyle={'w-[40%]  flex-row items-center  justify-between '}
           inputStyle="w-[130px]"
@@ -81,7 +81,7 @@ const StaySanatorium = (props: propsType) => {
       </Box>
       <Box className="flex w-full items-center mt-[10px]">
         <AutocompleteInput
-          lable="Прибыл:"
+          label="Прибыл:"
           data={avtoCaplektData}
           containerStyle={'w-[40%]  flex-row items-center  justify-between '}
           inputStyle="w-[130px]"
@@ -89,7 +89,7 @@ const StaySanatorium = (props: propsType) => {
       </Box>
       <Box className="flex w-full items-center mt-[10px]">
         <AutocompleteInput
-          lable="Планируемый отъезд:"
+          label="Планируемый отъезд:"
           data={avtoCaplektData}
           containerStyle={'w-[40%]  flex-row items-center  justify-between '}
           inputStyle="w-[130px]"
@@ -106,7 +106,7 @@ const StaySanatorium = (props: propsType) => {
       </Box>
       <Box className="flex w-full items-center mt-[10px]">
         <AutocompleteInput
-          lable="Выбыл:"
+          label="Выбыл:"
           data={avtoCaplektData}
           containerStyle={'w-[40%]  flex-row items-center  justify-between '}
           inputStyle="w-[130px]"
@@ -122,7 +122,7 @@ const StaySanatorium = (props: propsType) => {
       </Box>
 
       <AutocompleteInput
-        lable="Программа лояльности:"
+        label="Программа лояльности:"
         data={avtoCaplektData}
         containerStyle={
           'w-[100%] flex-row items-center mt-[10px] justify-between'
@@ -130,7 +130,7 @@ const StaySanatorium = (props: propsType) => {
         inputStyle="w-[calc(100%-210px)]"
       />
       <AutocompleteInput
-        lable="Медсестра:"
+        label="Медсестра:"
         data={top100Films}
         multiple={true}
         containerStyle={
@@ -140,7 +140,7 @@ const StaySanatorium = (props: propsType) => {
       />
       <Box className="flex w-full items-center mt-[10px]">
         <AutocompleteInput
-          lable="Помещён в комнату:"
+          label="Помещён в комнату:"
           data={avtoCaplektData}
           containerStyle={'w-[40%]  flex-row items-center  justify-between '}
           inputStyle="w-[130px]"
@@ -151,7 +151,7 @@ const StaySanatorium = (props: propsType) => {
         </Typography>
       </Box>
       <AutocompleteInput
-        lable="Отделение:"
+        label="Отделение:"
         data={avtoCaplektData}
         containerStyle={
           'w-[100%] flex-row items-center mt-[10px] justify-between'
