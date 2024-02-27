@@ -187,7 +187,7 @@ export const BookedPatiant: ColDef[] = [
   },
   {
     headerName: '№',
-    field: '',
+    field: 'no',
     width: 120,
     cellStyle: {
       display: 'flex',
@@ -199,7 +199,7 @@ export const BookedPatiant: ColDef[] = [
   },
   {
     headerName: 'Пациент',
-    field: 'no',
+    field: 'name',
     width: 250,
     cellStyle: {
       display: 'flex',

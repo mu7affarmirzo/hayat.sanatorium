@@ -13,6 +13,8 @@ type propsType = {
   rowData?: any;
   watch?: any;
   isDisabetBtns?: boolean;
+  nurseData?: [];
+  doctorData?: [];
 };
 
 interface InfoBoxTypes {
@@ -40,12 +42,19 @@ const InfoContainer: FC<InfoBoxTypes> = ({ children, label, buttonChild }) => {
 };
 
 const TravelPackageForm = (props: propsType) => {
-  let { avtoCaplektData, rowData, watch, isDisabetBtns } = props;
+  let {
+    avtoCaplektData,
+    rowData,
+    watch,
+    isDisabetBtns,
+    register,
+    doctorData,
+    nurseData,
+  } = props;
 
   return (
-    <Box className="flex flex-col border p-[5px] bg-red-500">
+    <Box className="flex flex-col border p-[5px] bg-gray-300">
       <SectionTitle title="Пребывание в санатории" />
-
       <InfoContainer
         label="Программа:"
         children={
@@ -79,6 +88,7 @@ const TravelPackageForm = (props: propsType) => {
               data={avtoCaplektData}
               containerStyle={'w-[20%]  flex-row items-center  justify-between'}
               inputStyle="w-[100%]"
+              multiple={true}
             />
             <AutocompleteInput
               label="-"
@@ -148,9 +158,10 @@ const TravelPackageForm = (props: propsType) => {
         label="Лечащий врач:"
         children={
           <AutocompleteInput
-            multiple={true}
+            multiple={false}
             data={[watch('doctor')] || []}
             inputStyle="w-[100%]"
+            optionsData={doctorData}
           />
         }
       />
@@ -162,6 +173,7 @@ const TravelPackageForm = (props: propsType) => {
             multiple={true}
             data={watch('nurse') || []}
             inputStyle="w-[100%]"
+            optionsData={nurseData}
           />
         }
       />

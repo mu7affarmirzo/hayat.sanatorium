@@ -5,10 +5,16 @@ import DefaultButton from 'components/DeafultButton/DefaultButton';
 import ReceptionTable from 'components/ReceptionTable';
 import SearchInput from 'components/search/SearchInput';
 import useMyPatientTabHook from './hook';
+import TableComponent from 'components/Table/table';
 
 const MyPatientTab = () => {
-  const { myPatientData, NumberOfPatient, handleSearch } =
-    useMyPatientTabHook();
+  const {
+    myPatientData,
+    NumberOfPatient,
+    handleSearch,
+    handleClickedRowTable,
+  } = useMyPatientTabHook();
+
   return (
     <Grid container>
       <Grid
@@ -21,15 +27,16 @@ const MyPatientTab = () => {
         </Grid>
         <DefaultButton
           title=" Экспорт в Excel"
-          classStyle="bg-[#2196F3] h-[40px] text-[#fff] text-sm capitalize mr-[10px]"
+          classStyle="bg-[#2d373f] h-[40px] text-[#fff] text-sm capitalize mr-[10px]"
           icon={<VuesaxLinear />}
         />
       </Grid>
       <Grid item xs={12} md={12} className=" bg-[#F5F5F5]">
-        <ReceptionTable
+        <TableComponent
           columnDefs={BookedPatiant}
-          rowData={myPatientData}
-          height="h-[810px]"
+          data={myPatientData as never}
+          tableHeight="h-[810px]"
+          handleClickedTableRow={handleClickedRowTable}
         />
       </Grid>
       <Grid>

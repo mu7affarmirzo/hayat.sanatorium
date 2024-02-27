@@ -5,9 +5,9 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
-interface AutocompleteInputProps {
+type propsType = {
   data?: any;
   label?: string;
   containerStyle?: string;
@@ -15,21 +15,8 @@ interface AutocompleteInputProps {
   labelStyle?: string;
   placeholder?: string;
   multiple?: boolean;
-}
-
-interface Film {
-  id?: number;
-  email?: string;
-  username?: string;
-  f_name?: string;
-  l_name?: string;
-  m_name?: string;
-  phone_number?: string;
-  sex?: boolean;
-  organization_id?: number;
-  branch_id?: number;
-  color?: string;
-}
+  optionsData?: [];
+};
 
 function sleep(duration: number): Promise<void> {
   return new Promise<void>((resolve) => {
@@ -38,40 +25,35 @@ function sleep(duration: number): Promise<void> {
     }, duration);
   });
 }
+const AutocompleteInput = (props: propsType) => {
+  let { label, containerStyle, inputStyle, labelStyle, multiple, optionsData } =
+    props;
 
-const AutocompleteInput: React.FC<AutocompleteInputProps> = ({
-  data,
-  label,
-  containerStyle,
-  inputStyle,
-  labelStyle,
-  placeholder,
-  multiple,
-}) => {
-  const [open, setOpen] = useState(false);
-  const [options, setOptions] = useState<readonly Film[]>([]);
+  const [open, setOpen] = React.useState(false);
+  const [options, setOptions] = React.useState<readonly any[]>([]);
   const loading = open && options?.length === 0;
 
-  useEffect(() => {
+  React.useEffect(() => {
     let active = true;
 
-    const fetchData = async () => {
-      await sleep(1e3);
-      if (active) {
-        setOptions([...(data || [])]);
-      }
-    };
-
-    if (loading) {
-      fetchData();
+    if (!loading) {
+      return undefined;
     }
+
+    (async () => {
+      await sleep(1e3);
+
+      if (active) {
+        setOptions([...(optionsData || [])]);
+      }
+    })();
 
     return () => {
       active = false;
     };
-  }, [loading, data]);
+  }, [loading]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!open) {
       setOptions([]);
     }
@@ -79,39 +61,64 @@ const AutocompleteInput: React.FC<AutocompleteInputProps> = ({
 
   return (
     <Box
-      className={`${containerStyle ? containerStyle : 'flex-row w-[100%]'} flex gap-1 z-[100]`}>
-      {label && (
+      className={`${
+        containerStyle ? containerStyle : 'flex-row w-[100%]'
+      } flex  gap-1 z-[100]  `}>
+      {label ? (
         <Box className={` ${labelStyle} text-[#8d8c8c]`}>
           <Typography className="text-[14px] font-normal  mr-[5px]">
             {label}
           </Typography>
         </Box>
+      ) : null}
+      {multiple ? (
+        <Autocomplete
+          multiple
+          id="asynchronous-demo"
+          size="small"
+          open={open}
+          onOpen={() => {
+            setOpen(true);
+          }}
+          onClose={() => {
+            setOpen(false);
+          }}
+          loading={loading}
+          options={options || []}
+          isOptionEqualToValue={(option, value) =>
+            option?.username === value?.username
+          }
+          getOptionLabel={(option: any) => option?.username}
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              InputProps={{
+                ...params?.InputProps,
+                endAdornment: (
+                  <React.Fragment>
+                    {loading ? (
+                      <CircularProgress color="inherit" size={20} />
+                    ) : null}
+                    {params?.InputProps?.endAdornment}
+                  </React.Fragment>
+                ),
+              }}
+            />
+          )}
+          className={`${inputStyle ? inputStyle : ' w-[70%] '} `}
+          limitTags={3}
+        />
+      ) : (
+        <Autocomplete
+          size="small"
+          id="free-solo-2-demo"
+          disableClearable
+          options={options || []}
+          renderInput={(params) => <TextField {...params} />}
+          className={`${inputStyle ? inputStyle : ' w-[70%] '} `}
+          getOptionLabel={(option: any) => option?.username}
+        />
       )}
-      <Autocomplete
-        multiple={multiple}
-        open={open}
-        onOpen={() => setOpen(true)}
-        onClose={() => setOpen(false)}
-        loading={loading}
-        options={options}
-        isOptionEqualToValue={(option, value) =>
-          option?.username === value?.username
-        }
-        getOptionLabel={(option: any) => option?.username}
-        renderInput={(params) => (
-          <TextField
-            {...params}
-            InputProps={{
-              ...params?.InputProps,
-              endAdornment: loading ? (
-                <CircularProgress color="inherit" size={20} />
-              ) : null,
-            }}
-          />
-        )}
-        className={`${inputStyle ? inputStyle : ' w-[70%] '}`}
-        limitTags={3}
-      />
     </Box>
   );
 };
