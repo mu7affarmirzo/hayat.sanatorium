@@ -1,6 +1,5 @@
 import { ColDef } from 'ag-grid-community';
 import { CloseIcon } from 'assets/icons/icons';
-import DefaulCheckbox from 'components/Checkbox/defaultCheckbox';
 
 function MyRoomType(params: any) {
   return (

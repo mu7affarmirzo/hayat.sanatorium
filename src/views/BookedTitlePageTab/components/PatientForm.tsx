@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from '@mui/material';
 import { ActiveDotIcon, NoActiveDotIcon } from 'assets/icons/icons';
-import DefaultInput from 'components/DefaultInput/DefaultInput';
+import DefaultInput from 'components/defaultInput/DefaultInput';
 import { SetStateAction, memo, useEffect, useState } from 'react';
 import { UseFormRegister } from 'react-hook-form';
 import { Patient } from 'types/booked';
@@ -12,7 +12,7 @@ type propsType = {
   defaultValues?: any;
 };
 const PatientForm = (props: propsType) => {
-  let { polData, avtoCaplektData, register, setValue, defaultValues } = props;
+  let { polData, register, setValue, defaultValues } = props;
 
   const [activeBtn, setActiveBtn] = useState(0);
   const [isMale, setIsMale] = useState(defaultValues?.patient.gender);

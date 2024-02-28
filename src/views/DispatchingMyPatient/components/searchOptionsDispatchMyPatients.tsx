@@ -1,8 +1,8 @@
 import { Grid } from '@mui/material';
-import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
-import DefaultCheckbox from 'components/Checkbox/defaultCheckbox';
+import AutocompleteInput from 'components/autocompleteInput';
+import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
 import CustomizedAccordions from 'components/CustomizedAccordions';
-import DefaultInput from 'components/DefaultInput/DefaultInput';
+import DefaultInput from 'components/defaultInput/DefaultInput';
 import { UseFormRegister } from 'react-hook-form';
 
 interface IFormInput {

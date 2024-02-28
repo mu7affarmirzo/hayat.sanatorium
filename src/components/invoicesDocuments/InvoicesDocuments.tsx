@@ -1,10 +1,10 @@
 import { Box, Grid, IconButton } from '@mui/material';
 import { CloseIcon, VuesaxLinearNote2Icon } from 'assets/icons/icons';
-import SelectButton from 'components/Buttons/selectButton';
-import DefaulCheckbox from 'components/Checkbox/defaultCheckbox';
-import DefaultButton from 'components/DeafultButton/DefaultButton';
-import DefaultInput from 'components/DefaultInput/DefaultInput';
-import DefaultText from 'components/DefaultText/DefaultText';
+import SelectButton from 'components/buttons/SelectButton';
+import DefaulCheckbox from 'components/checkbox/DefaultCheckbox';
+import DefaultButton from 'components/deafultButton/DefaultButton';
+import DefaultInput from 'components/defaultInput/DefaultInput';
+import DefaultText from 'components/defaultText/DefaultText';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import DiagnostikaItem from 'components/DiagnostikaItem';

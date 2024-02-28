@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material';
-import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
-import DefaultInput from 'components/DefaultInput/DefaultInput';
+import DefaultInput from 'components/defaultInput/DefaultInput';
+
 import { UseFormRegister } from 'react-hook-form';
 import { Patient } from 'types/booked';
 type propsType = {
@@ -8,7 +8,7 @@ type propsType = {
   register: UseFormRegister<Patient>;
 };
 const HomeAddressForm = (props: propsType) => {
-  let { avtoCaplektData, register } = props;
+  let { register } = props;
 
   return (
     <Box className="flex flex-col border mt-[10px] p-[5px] ">

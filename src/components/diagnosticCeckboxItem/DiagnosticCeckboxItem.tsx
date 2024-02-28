@@ -1,6 +1,6 @@
 import { Box, Grid, IconButton } from '@mui/material';
 import { FileAltIcon, FilePlusAltIcon } from 'assets/icons/icons';
-import DefaultText from 'components/DefaultText/DefaultText';
+import DefaultText from 'components/defaultText/DefaultText';
 
 type Props = {
   style?: string;

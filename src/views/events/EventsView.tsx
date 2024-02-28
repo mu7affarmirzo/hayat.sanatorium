@@ -1,6 +1,6 @@
 import { Box, Grid } from '@mui/material';
 import { CloseIcon, SearchIcon } from 'assets/icons/icons';
-import DefaultButton from 'components/DeafultButton/DefaultButton';
+import DefaultButton from 'components/deafultButton/DefaultButton';
 import SearchInput from 'components/SearchField/searchInput';
 
 const EventsView = () => {

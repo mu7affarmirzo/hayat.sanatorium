@@ -1,5 +1,6 @@
 import { Box, Checkbox, FormControlLabel } from '@mui/material';
-import DefaultText from 'components/DefaultText/DefaultText';
+import DefaultText from 'components/defaultText/DefaultText';
+
 type propsType = {
   style?: string;
   label?: string;
@@ -9,6 +10,7 @@ type propsType = {
   defaultChecked?: boolean;
   inputType?: string;
 };
+
 const DefaultCheckbox = (props: propsType) => {
   let { style, label, leftLabel, defaultChecked, setValue, inputType } = props;
 

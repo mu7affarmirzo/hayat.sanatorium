@@ -1,12 +1,14 @@
+/* eslint-disable react/style-prop-object */
 import { Box } from '@mui/material';
 import { MemoIcon } from 'assets/icons/icons';
-import SelectButton from 'components/Buttons/selectButton';
-import { NutritionCol } from 'components/ColumnDefs/nutritionCol';
-import DefaultButton from 'components/DeafultButton/DefaultButton';
-import ReceptionTable from 'components/ReceptionTable/receptionTable';
+
 import { rowData } from '../../BookedTitlePageTab/FrontPageView';
-import DefaultText from 'components/DefaultText/DefaultText';
+import DefaultText from 'components/defaultText/DefaultText';
 import NutritionItem from 'components/NutritionItem/NutritionItem';
+import SelectButton from 'components/buttons/SelectButton';
+import { NutritionCol } from 'components/columnDefs/nutritionCol';
+import DefaultButton from 'components/deafultButton/DefaultButton';
+import ReceptionTable from 'components/receptionTable';
 
 const data = [
   {

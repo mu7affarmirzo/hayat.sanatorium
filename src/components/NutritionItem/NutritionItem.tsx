@@ -3,11 +3,10 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 
 import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
 import { CloseIcon, FileAltIcon, FilePlusAltIcon } from 'assets/icons/icons';
 import './style.css';
 import { Box, IconButton, TableContainer } from '@mui/material';
-import DefaultInput from 'components/DefaultInput/DefaultInput';
+import DefaultInput from 'components/defaultInput/DefaultInput';
 import { useForm } from 'react-hook-form';
 interface IFormInput {
   lastName: string;
@@ -15,6 +14,7 @@ interface IFormInput {
   surName: string;
   appeal: string;
 }
+
 function MyRoomType(params: any) {
   return (
     <div className="flex  items-center justify-center  w-[100%] h-[100%] cursor-pointer  ">
@@ -24,6 +24,7 @@ function MyRoomType(params: any) {
     </div>
   );
 }
+
 function createData(
   name: string,
   calories: number,

@@ -1,10 +1,8 @@
 import { Box, Grid, TextField, Typography } from '@mui/material';
 import { useAppModals } from 'components/Modals';
-import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
-import { PhonePush } from 'components/ColumnDefs/phonePush';
-import DefaultButton from 'components/DeafultButton/DefaultButton';
-import DefaultText from 'components/DefaultText/DefaultText';
-import FrontFooter from 'components/FrontFooter/frontFooter';
+import { PhonePush } from 'components/columnDefs/phonePush';
+import DefaultButton from 'components/deafultButton/DefaultButton';
+import FrontFooter from 'components/frontFooter/FrontFooter';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { LocalizationProvider } from '@mui/x-date-pickers';
@@ -15,9 +13,11 @@ import DiagnostikaItem from 'components/DiagnostikaItem';
 import DocumentationForm from 'views/BookedTitlePageTab/components/DocumentationForm';
 import HomeAddressForm from 'views/BookedTitlePageTab/components/HomeAddressForm';
 import PatientForm from 'views/BookedTitlePageTab/components/PatientForm';
-import StaySanatorium from 'views/Dispatching/components/StaySanatorium';
+import StaySanatorium from 'views/dispatching/components/StaySanatorium';
 import CustomizedAccordions from 'components/CustomizedAccordions';
-import PhoneAddForm from 'views/Dispatching/components/PhoneAddForm';
+import PhoneAddForm from 'views/dispatching/components/PhoneAddForm';
+import DefaultText from 'components/defaultText/DefaultText';
+import AutocompleteInput from 'components/autocompleteInput';
 
 interface IFormInput {
   lastName: string;
@@ -25,6 +25,7 @@ interface IFormInput {
   surName: string;
   appeal: string;
 }
+
 const polData = [
   {
     id: 0,

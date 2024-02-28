@@ -1,10 +1,10 @@
 /* eslint-disable react/style-prop-object */
 import { Box, Grid } from '@mui/material';
 import { CloseIcon, SearchAltIcon } from 'assets/icons/icons';
-import { BookedCol } from 'components/ColumnDefs/bookedCol';
-import DefaultButton from 'components/DeafultButton/DefaultButton';
-import DefaultInput from 'components/DefaultInput/DefaultInput';
-import DefaultText from 'components/DefaultText/DefaultText';
+import { BookedCol } from 'components/columnDefs/bookedCol';
+import DefaultButton from 'components/deafultButton/DefaultButton';
+import DefaultInput from 'components/defaultInput/DefaultInput';
+import DefaultText from 'components/defaultText/DefaultText';
 import SearchInput from 'components/SearchField/searchInput';
 
 import {
@@ -16,8 +16,8 @@ import {
 import React from 'react';
 import useBookedHook, { IFormInput } from './hook';
 import { GetIBSTypes } from 'types/booked';
-import AutocompleteInput from 'components/AutoCompleteInput';
-import ReceptionTable from 'components/ReceptionTable/receptionTable';
+import ReceptionTable from 'components/receptionTable';
+import AutocompleteInput from 'components/autocompleteInput';
 
 const top100Films = [
   { label: 'The Shawshank Redemption', year: 1994 },

@@ -1,8 +1,9 @@
+/* eslint-disable react/style-prop-object */
 import { Box, IconButton } from '@mui/material';
 import { FileAltIcon, FilePlusAltIcon } from 'assets/icons/icons';
-import DefaultButton from 'components/DeafultButton/DefaultButton';
-import DefaultText from 'components/DefaultText/DefaultText';
-import OutlinedNumber from 'components/OutlinedNumber/outlinedNumber';
+import DefaultButton from 'components/deafultButton/DefaultButton';
+import DefaultText from 'components/defaultText/DefaultText';
+import OutlinedNumber from './outlinedNumber/OutlinedNumber';
 
 type propsType = {
   title?: string;

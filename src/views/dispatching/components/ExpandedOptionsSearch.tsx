@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { Box, Button, Grid, Typography } from '@mui/material';
 import { ActiveDotIcon, NoActiveDotIcon } from 'assets/icons/icons';
-import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
-
-import DefaultCheckbox from 'components/Checkbox/defaultCheckbox';
-import OutlinedNumber from 'components/OutlinedNumber/outlinedNumber';
+import AutocompleteInput from 'components/autocompleteInput';
+import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
+import OutlinedNumber from 'components/outlinedNumber/OutlinedNumber';
 
 const top100Films = [
   { label: 'The Shawshank Redemption', year: 1994 },

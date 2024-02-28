@@ -1,8 +1,8 @@
 import { Grid } from '@mui/material';
 import { CoinsAltIcon, VuesaxLinearPrinterIcon } from 'assets/icons/icons';
-import SelectButton from 'components/Buttons/selectButton';
-import DefaultButton from 'components/DeafultButton/DefaultButton';
-import SideBar, { TabsItem } from 'components/SideBar/SideBar';
+import SelectButton from 'components/buttons/SelectButton';
+import DefaultButton from 'components/deafultButton/DefaultButton';
+import SideBar, { TabsItem } from 'components/sideBar/SideBar';
 import React from 'react';
 import changelog from 'views/booked/changelog';
 import frontPage from 'views/BookedTitlePageTab';

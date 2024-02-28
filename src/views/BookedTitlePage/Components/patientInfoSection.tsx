@@ -1,5 +1,4 @@
 import { Box } from '@mui/material';
-import { PhonePush } from 'components/ColumnDefs/phonePush';
 import { Suspense } from 'react';
 import HomeAddressForm from 'views/BookedTitlePageTab/components/HomeAddressForm';
 import PatientForm from 'views/BookedTitlePageTab/components/PatientForm';
@@ -7,6 +6,7 @@ import PhonePushForm from 'views/BookedTitlePageTab/components/PhonePushForm';
 import { rowData } from '../../DisTitlePageTab/disTitlePageTab';
 import { UseFormRegister } from 'react-hook-form';
 import { Patient } from 'types/booked';
+import { PhonePush } from 'components/columnDefs/phonePush';
 
 interface PatientInfoType {
   register: UseFormRegister<Patient> | any;

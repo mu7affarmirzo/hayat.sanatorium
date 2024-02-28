@@ -1,10 +1,11 @@
 import { Box, Grid, Typography } from '@mui/material';
-import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
-import { columnDefs } from 'components/ColumnDefs/expectedCol';
+import DefaultText from 'components/defaultText/DefaultText';
 import SectionTitle from 'components/SectionTitle/sectionTitle';
-import DefaultButton from 'components/DeafultButton/DefaultButton';
-import DefaultText from 'components/DefaultText/DefaultText';
-import ReceptionTable from 'components/ReceptionTable/receptionTable';
+import AutocompleteInput from 'components/autocompleteInput';
+import { columnDefs } from 'components/columnDefs/expectedCol';
+import DefaultButton from 'components/deafultButton/DefaultButton';
+import ReceptionTable from 'components/receptionTable';
+
 import { FC } from 'react';
 
 type propsType = {
@@ -47,7 +48,6 @@ const TravelPackageForm = (props: propsType) => {
     rowData,
     watch,
     isDisabetBtns,
-    register,
     doctorData,
     nurseData,
   } = props;

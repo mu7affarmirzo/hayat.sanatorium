@@ -1,11 +1,12 @@
 /* eslint-disable react/style-prop-object */
 import { Box } from '@mui/material';
-import SelectButton from 'components/Buttons/selectButton';
-import { ChangelolCol } from 'components/ColumnDefs/changelogCol';
-import DefaultText from 'components/DefaultText/DefaultText';
+import DefaultText from 'components/defaultText/DefaultText';
 import ReceptionTableGroup from 'components/ReceptionTableGroup/receptionTableGroup';
 import SearchInput from 'components/SearchField/searchInput';
+import SelectButton from 'components/buttons/SelectButton';
+import { ChangelolCol } from 'components/columnDefs/ChangelogCol';
 import { useState } from 'react';
+
 const data = [
   {
     id: 1,

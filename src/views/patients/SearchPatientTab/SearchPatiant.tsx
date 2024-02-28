@@ -1,11 +1,9 @@
 import { Grid } from '@mui/material';
-import { BookedPatientSearch } from 'components/ColumnDefs/bookedCol';
-import ReceptionTable from 'components/ReceptionTable';
-
-import { useSearchpatientHook } from './hook';
-import { SearchOptionsAccordion } from './components/searchOptionAccordion';
+import TableComponent from 'components/CustomTable';
+import { BookedPatientSearch } from 'components/columnDefs/bookedCol';
 import { SearchActionsSection } from './components/searchActionsSection';
-import TableComponent from 'components/CustomTable/table';
+import { SearchOptionsAccordion } from './components/searchOptionAccordion';
+import { useSearchpatientHook } from './hook';
 
 const SearchPatiant = () => {
   const {

@@ -1,8 +1,8 @@
 import { Box } from '@mui/material';
 import CustomizedAccordions from 'components/CustomizedAccordions';
-import { columnDefs } from 'components/ColumnDefs/expectedCol';
-import DefaultButton from 'components/DeafultButton/DefaultButton';
-import ReceptionTable from 'components/ReceptionTable/receptionTable';
+import { columnDefs } from 'components/columnDefs/expectedCol';
+import DefaultButton from 'components/deafultButton/DefaultButton';
+import ReceptionTable from 'components/receptionTable';
 
 import { rowData } from 'views/BookedTitlePageTab/FrontPageView';
 

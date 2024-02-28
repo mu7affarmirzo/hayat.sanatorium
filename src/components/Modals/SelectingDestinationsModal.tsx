@@ -1,16 +1,15 @@
 import { Box, Button, Grid, IconButton } from '@mui/material';
 import { CloseCircleIcon } from 'assets/icons/icons';
-import DefaultText from 'components/DefaultText/DefaultText';
+import DefaultText from 'components/defaultText/DefaultText';
 import { useEscapeKey } from 'hooks/useEscapeKey';
 import { useCallback, useState } from 'react';
 import { CreatePaymentNowContainer } from './Modals.styles';
 import { useAppModals } from './ModalsProvider';
 
 import { useForm } from 'react-hook-form';
-import SearchInput from 'components/SearchField/searchInput';
-import CollapsibleTable from 'components/Dropdown';
 import ICDItem from 'components/ICDItem';
-import DefaultCheckbox from 'components/Checkbox/defaultCheckbox';
+import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
+
 const btnData = [
   {
     id: 0,

@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-import DefaultText from 'components/DefaultText/DefaultText';
+import DefaultText from 'components/defaultText/DefaultText';
 import MeasuredParametersItem from './MeasuredParametersItem';
 import BookingScreenTabs, {
   TabsItem,

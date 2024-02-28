@@ -1,7 +1,7 @@
 /* eslint-disable array-callback-return */
 import { Box } from '@mui/material';
-import SideBarBtn from 'components/SideBar/SideBarBtn';
 import { FC, useState } from 'react';
+import SideBarBtn from './SideBarBtn';
 
 export type TabsItem = {
   title: string;

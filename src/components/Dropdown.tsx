@@ -1,6 +1,6 @@
 import { CaretRightDownIcon, CaretRightIcon } from 'assets/icons/icons';
 import { useState } from 'react';
-import DefaulCheckbox from './Checkbox/defaultCheckbox';
+import DefaulCheckbox from './checkbox/DefaultCheckbox';
 
 const Checkbox = ({ label, checked, onChange }: any) => {
   return (

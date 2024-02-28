@@ -1,8 +1,8 @@
 import { Box, Button, Grid, IconButton, Typography } from '@mui/material';
 import { CloseCircleIcon } from 'assets/icons/icons';
-import DefaultCheckbox from 'components/Checkbox/defaultCheckbox';
-import DefaultButton from 'components/DeafultButton/DefaultButton';
-import DefaultText from 'components/DefaultText/DefaultText';
+import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
+import DefaultButton from 'components/deafultButton/DefaultButton';
+import DefaultText from 'components/defaultText/DefaultText';
 import SearchInput from 'components/SearchField/searchInput';
 import { useEscapeKey } from 'hooks/useEscapeKey';
 import { useCallback } from 'react';

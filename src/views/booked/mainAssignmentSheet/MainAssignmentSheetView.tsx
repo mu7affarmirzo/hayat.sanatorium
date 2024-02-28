@@ -11,16 +11,17 @@ import {
 } from 'assets/icons/icons';
 import HealingProcedures from 'components/HealingProcedures';
 import { useAppModals } from 'components/Modals';
-import DefaultCheckbox from 'components/Checkbox/defaultCheckbox';
-import { ConsultingResearchCol } from 'components/ColumnDefs/consultingResearchCol';
-import { HealingProceduresCol } from 'components/ColumnDefs/healingProceduresCol';
-import { TreatmentProgramsCOl } from 'components/ColumnDefs/treatmentProgramsCal';
-import DefaultButton from 'components/DeafultButton/DefaultButton';
-import DefaultText from 'components/DefaultText/DefaultText';
-import ReceptionTable from 'components/ReceptionTable/receptionTable';
-import ReceptionTableGroup from 'components/ReceptionTableGroup/receptionTableGroup';
+
 import React from 'react';
+import ReceptionTable from 'components/receptionTable';
+import DefaultText from 'components/defaultText/DefaultText';
 import { rowData } from '../../BookedTitlePageTab/FrontPageView';
+import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
+import DefaultButton from 'components/deafultButton/DefaultButton';
+import { HealingProceduresCol } from 'components/columnDefs/HealingProceduresCol';
+import { TreatmentProgramsCOl } from 'components/columnDefs/TreatmentProgramsCal';
+import { ConsultingResearchCol } from 'components/columnDefs/ConsultingResearchCol';
+import ReceptionTableGroup from 'components/ReceptionTableGroup/receptionTableGroup';
 
 const StyledMenu = styled((props: MenuProps) => (
   <Menu

@@ -5,10 +5,11 @@ import {
   NavigationAppIcon,
   PinIcon,
 } from 'assets/icons/icons';
-import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
-import AppointmentsTable from 'components/BookingTypeView/AppointmentsTable';
-import DefaultButton from 'components/DeafultButton/DefaultButton';
+import AutocompleteInput from 'components/autocompleteInput';
+import AppointmentsTable from 'components/bookingTypeView/AppointmentsTable';
+import DefaultButton from 'components/deafultButton/DefaultButton';
 import { useState } from 'react';
+
 const top100Films = [
   { label: 'The Shawshank Redemption', year: 1994 },
   { label: 'The Godfather', year: 1972 },

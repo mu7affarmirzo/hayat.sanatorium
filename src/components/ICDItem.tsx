@@ -1,6 +1,5 @@
 import React from 'react';
 import CollapsibleTable from './Dropdown';
-import DefaultInput from './DefaultInput/DefaultInput';
 import SearchInput from './SearchField/searchInput';
 import { Box } from '@mui/material';
 

@@ -1,10 +1,11 @@
 import { Box, IconButton, Typography } from '@mui/material';
 import { FilePlusAltIcon } from 'assets/icons/icons';
 import { useAppModals } from 'components/Modals';
-import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
-import DefaultCheckbox from 'components/Checkbox/defaultCheckbox';
-import DefaultButton from 'components/DeafultButton/DefaultButton';
-import DefaultText from 'components/DefaultText/DefaultText';
+
+import DefaultText from 'components/defaultText/DefaultText';
+import AutocompleteInput from 'components/autocompleteInput';
+import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
+import DefaultButton from 'components/deafultButton/DefaultButton';
 const top100Films = [
   { label: 'The Shawshank Redemption', year: 1994 },
   { label: 'The Godfather', year: 1972 },

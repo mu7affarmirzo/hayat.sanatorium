@@ -1,12 +1,12 @@
 import { Typography, Grid, Box } from '@mui/material';
-import DefaultButton from 'components/DeafultButton/DefaultButton';
+import DefaultButton from 'components/deafultButton/DefaultButton';
 import useDispatchTitlePageTabHook from './hook';
 import TagAutoCompleateBox from 'components/TagAutoCompleateBox/tagAutoCompleateBox';
 import HarmFactors from '../BookedTitlePage/Components/harmFactors';
 import ModeHandler from '../BookedTitlePage/Components/modalHandler';
 import DiagnostHandler from '../BookedTitlePage/Components/diagnostHandler';
 import Comment from '../BookedTitlePage/Components/commetsSection';
-import FrontFooter from 'components/FrontFooter/frontFooter';
+import FrontFooter from 'components/frontFooter/FrontFooter';
 import HospitalStayForm from 'views/BookedTitlePageTab/components/HospitalStayForm';
 import TravelPackageForm from 'views/BookedTitlePageTab/components/TravelPackageForm';
 import DocumentationForm from 'views/BookedTitlePageTab/components/DocumentationForm';

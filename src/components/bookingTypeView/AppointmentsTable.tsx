@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import { ColDef } from 'ag-grid-community';
 import { AgGridReact } from 'ag-grid-react';
-import { AppointmentsCol } from 'components/ColumnDefs/appointmentsCol';
+import { AppointmentsCol } from 'components/columnDefs/AppointmentsCol';
 import { rowData } from 'views/BookedTitlePageTab/FrontPageView';
 import './ag-theme-roomstype.css';
 type propsType = {

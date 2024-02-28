@@ -1,12 +1,12 @@
 import { Grid } from '@mui/material';
 import { CoinsAltIcon, VuesaxLinearPrinterIcon } from 'assets/icons/icons';
-import SelectButton from 'components/Buttons/selectButton';
-import DefaultButton from 'components/DeafultButton/DefaultButton';
-import SideBar, { TabsItem } from 'components/SideBar/SideBar';
-import AutomaticDispatch from '../Saidbar/automaticDispatch/AutomaticDispatch';
-import DispatchFrontPage from '../Saidbar/dispatchFrontPage/DispatchFrontPage';
-import Appointments from '../Saidbar/Appointments/appointments';
-import HydroBaths from '../Saidbar/hydroBaths/HydroBaths';
+import SelectButton from 'components/buttons/SelectButton';
+import DefaultButton from 'components/deafultButton/DefaultButton';
+import SideBar, { TabsItem } from 'components/sideBar/SideBar';
+import AutomaticDispatch from '../saidbar/automaticDispatch/AutomaticDispatch';
+import DispatchFrontPage from '../saidbar/dispatchFrontPage/DispatchFrontPage';
+import Appointments from '../saidbar/appointments/Appointments';
+import HydroBaths from '../saidbar/hydroBaths/HydroBaths';
 
 const content: TabsItem[] = [
   {

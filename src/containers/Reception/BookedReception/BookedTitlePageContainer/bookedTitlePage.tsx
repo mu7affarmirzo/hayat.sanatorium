@@ -1,7 +1,6 @@
 import { Box, Grid, Typography } from '@mui/material';
-import DefaultButton from 'components/DeafultButton/DefaultButton';
+import DefaultButton from 'components/deafultButton/DefaultButton';
 import TagAutoCompleateBox from 'components/TagAutoCompleateBox/tagAutoCompleateBox';
-import FrontFooter from 'components/FrontFooter/frontFooter';
 import DocumentationForm from 'views/BookedTitlePageTab/components/DocumentationForm';
 import HospitalStayForm from 'views/BookedTitlePageTab/components/HospitalStayForm';
 import TravelPackageForm from 'views/BookedTitlePageTab/components/TravelPackageForm';
@@ -13,6 +12,7 @@ import PatientInfoSection from 'views/BookedTitlePage/Components/patientInfoSect
 import RiskFactorsAndTags from 'views/BookedTitlePage/Components/tagsFactors';
 import useReceptionBookedTitleHook from './hook';
 import Comment from 'views/BookedTitlePage/Components/commetsSection';
+import FrontFooter from 'components/frontFooter/FrontFooter';
 
 const top100FilmsChack = [
   { title: 'The Shawshank Redemption', year: 1994 },

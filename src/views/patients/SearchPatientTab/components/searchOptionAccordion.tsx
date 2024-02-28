@@ -1,9 +1,9 @@
 import CustomizedAccordions from 'components/CustomizedAccordions';
-import DefaultInput from 'components/DefaultInput/DefaultInput';
+import DefaultInput from 'components/defaultInput/DefaultInput';
 import { FC } from 'react';
 import { UseFormRegister } from 'react-hook-form';
 import { Grid } from '@mui/material';
-import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
+import AutocompleteInput from 'components/autocompleteInput';
 
 const top100Films = [
   { label: 'The Shawshank Redemption', year: 1994 },

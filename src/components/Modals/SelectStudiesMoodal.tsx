@@ -1,12 +1,12 @@
 import { Box, Button, Grid, IconButton } from '@mui/material';
 import { CloseCircleIcon } from 'assets/icons/icons';
-import DefaultText from 'components/DefaultText/DefaultText';
+import DefaultText from 'components/defaultText/DefaultText';
 import SearchInput from 'components/SearchField/searchInput';
 import { useEscapeKey } from 'hooks/useEscapeKey';
 import { useCallback } from 'react';
 import { SelectStudiesContainer } from './Modals.styles';
 import { useAppModals } from './ModalsProvider';
-import DefaultCheckbox from 'components/Checkbox/defaultCheckbox';
+import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
 
 const SelectStudiesMoodal = () => {
   const appModals = useAppModals();

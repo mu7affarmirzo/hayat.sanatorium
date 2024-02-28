@@ -1,8 +1,9 @@
 import { Box, Typography } from '@mui/material';
 import React from 'react';
-import OutlinedNumber from './OutlinedNumber/outlinedNumber';
-import DefaultCheckbox from './Checkbox/defaultCheckbox';
-import SelectButton from './Buttons/selectButton';
+import DefaultCheckbox from './checkbox/DefaultCheckbox';
+import SelectButton from './buttons/SelectButton';
+import OutlinedNumber from './outlinedNumber/OutlinedNumber';
+
 const data = [
   {
     id: 1,
@@ -13,6 +14,7 @@ const data = [
     title: '10.06.2024',
   },
 ];
+
 const HealingProcedures = () => {
   return (
     <Box className="w-[480px] bg-[#F5F5F5] border p-[8px]">

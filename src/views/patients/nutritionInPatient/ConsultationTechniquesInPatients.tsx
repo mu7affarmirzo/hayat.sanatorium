@@ -1,16 +1,16 @@
 import { Box, Grid, Typography } from '@mui/material';
 import { useAppModals } from 'components/Modals';
-import SelectButton from 'components/Buttons/selectButton';
-import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
-import DefaultCheckbox from 'components/Checkbox/defaultCheckbox';
-import DefaultButton from 'components/DeafultButton/DefaultButton';
-import DefaultText from 'components/DefaultText/DefaultText';
-import DiagnosticCeckboxItem from 'components/DiagnosticCeckboxItem/DiagnosticCeckboxItem';
-import ReceptionTable from 'components/ReceptionTable/receptionTable';
+import DefaultButton from 'components/deafultButton/DefaultButton';
+import DiagnosticCeckboxItem from 'components/diagnosticCeckboxItem/DiagnosticCeckboxItem';
 
 import React from 'react';
 import DiagnostikaItem from 'components/DiagnostikaItem';
 import { ColData, rowData } from './Coldata';
+import AutocompleteInput from 'components/autocompleteInput';
+import SelectButton from 'components/buttons/SelectButton';
+import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
+import DefaultText from 'components/defaultText/DefaultText';
+import ReceptionTable from 'components/receptionTable';
 
 const data = [
   {

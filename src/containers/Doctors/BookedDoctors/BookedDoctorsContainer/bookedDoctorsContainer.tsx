@@ -1,4 +1,4 @@
-import SideBar, { TabsItem } from 'components/SideBar/SideBar';
+import SideBar, { TabsItem } from 'components/sideBar/SideBar';
 import DiseaseHistoryTopTabs from 'views/DiseaseHistoryActionTabs/diseaseHistoryTabs';
 import TreatmentSchedule from 'views/TreatmentSchedule';
 import changelog from 'views/booked/changelog';

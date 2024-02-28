@@ -2,7 +2,7 @@ import PatientFirst from 'views/Patients/MyPatientTab/myPatientTab';
 import { useReduxSelector } from 'hooks/useReduxHook';
 import PatientDoctorsContainer from './PatientDoctorsContainer';
 import SearchPatientTab from 'views/Patients/SearchPatientTab';
-import { TabsItem } from 'components/SideBar/SideBar';
+import { TabsItem } from 'components/sideBar/SideBar';
 
 export const useDoctorsPatientHook = () => {
   const { broneData } = useReduxSelector((dynamicTabs) => dynamicTabs.booked);

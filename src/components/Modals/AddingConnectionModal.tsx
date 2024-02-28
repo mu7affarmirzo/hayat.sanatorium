@@ -1,15 +1,15 @@
 import { Box, Button, Grid, IconButton } from '@mui/material';
 import { CloseCircleIcon } from 'assets/icons/icons';
-import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
-import { ConnectionCol } from 'components/ColumnDefs/connectionCol';
-import DefaultText from 'components/DefaultText/DefaultText';
-import ReceptionTable from 'components/ReceptionTable/receptionTable';
+import { ConnectionCol } from 'components/columnDefs/ConnectionCol';
+import DefaultText from 'components/defaultText/DefaultText';
+import ReceptionTable from 'components/receptionTable/ReceptionTable';
 import SearchInput from 'components/SearchField/searchInput';
 import { useEscapeKey } from 'hooks/useEscapeKey';
 import { useCallback } from 'react';
 import { rowData } from 'views/BookedTitlePageTab/FrontPageView';
 import { CreatePaymentNowContainer } from './Modals.styles';
 import { useAppModals } from './ModalsProvider';
+import AutoCompleteInput from 'components/autocompleteInput';
 
 const AddingConnectionModal = () => {
   const appModals = useAppModals();
@@ -58,7 +58,7 @@ const AddingConnectionModal = () => {
             <DefaultText style={'text-[20px] text-[#000]'}>
               Профессия
             </DefaultText>
-            <AutocompleteInput
+            <AutoCompleteInput
               containerStyle="w-[100%] bg-[#fff]"
               inputStyle="w-[100%]"
               data={top100Films}

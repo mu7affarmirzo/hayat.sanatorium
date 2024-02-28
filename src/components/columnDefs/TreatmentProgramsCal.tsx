@@ -1,6 +1,6 @@
 import { ColDef } from 'ag-grid-community';
 import { CloseIcon } from 'assets/icons/icons';
-import SelectButton from 'components/Buttons/selectButton';
+import SelectButton from 'components/buttons/SelectButton';
 
 const data = [
   {

@@ -7,12 +7,12 @@ import {
 } from 'assets/icons/icons';
 import CustomizedAccordions from 'components/CustomizedAccordions';
 import TablePaginationDemo from 'components/TablePaginationDemo';
-import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
-import DefaultButton from 'components/DeafultButton/DefaultButton';
 import { useState } from 'react';
 import PrintComponent from './components/printComponent';
 import { MyDocument } from './components/myDocument';
 import { PDFViewer } from '@react-pdf/renderer';
+import DefaultButton from 'components/deafultButton/DefaultButton';
+import AutocompleteInput from 'components/autocompleteInput';
 
 const top100Films = [
   { label: 'The Shawshank Redemption', year: 1994 },

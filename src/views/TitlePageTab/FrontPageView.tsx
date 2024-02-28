@@ -2,23 +2,22 @@ import React, { Suspense } from 'react';
 import { Box, Grid, TextField, Typography } from '@mui/material';
 import { ArrowDropSownIcon } from 'assets/icons/icons';
 import { useAppModals } from 'components/Modals';
-import { PhonePush } from 'components/ColumnDefs/phonePush';
-
-import FrontFooter from 'components/FrontFooter/frontFooter';
 
 import RadioForm from 'components/RadioForm';
 import DiagnostikaItem from '../../components/DiagnostikaItem';
-import DefaulCheckbox from 'components/Checkbox/defaultCheckbox';
 import TagAutoCompleateBox from 'components/TagAutoCompleateBox/tagAutoCompleateBox';
 import HomeAddressForm from 'views/BookedTitlePageTab/components/HomeAddressForm';
 import PhonePushForm from 'views/BookedTitlePageTab/components/PhonePushForm';
-import DefaultText from 'components/DefaultText/DefaultText';
-import DefaultButton from 'components/DeafultButton/DefaultButton';
-import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
+import DefaultText from 'components/defaultText/DefaultText';
 import useTitlePageTabHook from 'views/BookedTitlePageTab/hook';
 import DocumentationForm from 'views/BookedTitlePageTab/components/DocumentationForm';
 import TravelPackageForm from 'views/BookedTitlePageTab/components/TravelPackageForm';
 import HospitalStayForm from 'views/BookedTitlePageTab/components/HospitalStayForm';
+import AutocompleteInput from 'components/autocompleteInput';
+import { PhonePush } from 'components/columnDefs/phonePush';
+import DefaultButton from 'components/deafultButton/DefaultButton';
+import FrontFooter from 'components/frontFooter/FrontFooter';
+import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
 
 const PatientForm = React.lazy(
   () => import('views/BookedTitlePageTab/components/PatientForm'),
@@ -211,23 +210,23 @@ const PatientInfoSection = ({ register }: PatientInfoType) => {
 const TitlePageBottomCheckbooks = () => {
   return (
     <Box className="border my-[5px] px-[10px] py-[8px]">
-      <DefaulCheckbox label="нет" leftLabel="Аллергия:" style="w-[350px]" />
-      <DefaulCheckbox
+      <DefaultCheckbox label="нет" leftLabel="Аллергия:" style="w-[350px]" />
+      <DefaultCheckbox
         label="нет"
         leftLabel="Метеолабильность:"
         style="w-[350px]"
       />
-      <DefaulCheckbox
+      <DefaultCheckbox
         label="нет"
         leftLabel="Непереносимость продуктов!"
         style="w-[350px]"
       />
-      <DefaulCheckbox
+      <DefaultCheckbox
         label="нет"
         leftLabel="Нарушения стула:"
         style="w-[350px]"
       />
-      <DefaulCheckbox
+      <DefaultCheckbox
         label="нет"
         leftLabel="Получает постоянно медикаменты:"
         style="w-[350px]"

@@ -1,6 +1,6 @@
 import { Grid } from '@mui/material';
 import { CoinsAltIcon, VuesaxLinearPrinterIcon } from 'assets/icons/icons';
-import SelectButton from 'components/Buttons/selectButton';
+import SelectButton from 'components/buttons/SelectButton';
 
 import changelog from '../booked/changelog';
 import invoicesDocuments from '../booked/invoicesDocuments';
@@ -9,10 +9,10 @@ import nutrition from '../booked/nutrition';
 import consultationTechniques from '../booked/consultationTechniques';
 import researchSummaryTable from '../booked/researchSummaryTable';
 import measuredParameters from '../booked/measuredParameters';
-import frontPage from 'views/Dispatching/frontPage';
-import SideBar, { TabsItem } from 'components/SideBar/SideBar';
+import frontPage from 'views/dispatching/frontPage';
+import SideBar, { TabsItem } from 'components/sideBar/SideBar';
 import TreatmentSchedule from 'views/TreatmentSchedule';
-import DefaultButton from 'components/DeafultButton/DefaultButton';
+import DefaultButton from 'components/deafultButton/DefaultButton';
 
 const content: TabsItem[] = [
   {

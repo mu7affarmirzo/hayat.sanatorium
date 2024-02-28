@@ -1,4 +1,4 @@
-import { TabsItem } from 'components/SideBar/SideBar';
+import { TabsItem } from 'components/sideBar/SideBar';
 import { useReduxSelector } from 'hooks/useReduxHook';
 import { useMemo } from 'react';
 import MyPatientsView from 'views/DispatchingMyPatient';

@@ -1,9 +1,9 @@
 import { Grid } from '@mui/material';
-import { BookedCol } from 'components/ColumnDefs/bookedCol';
+import { BookedCol } from 'components/columnDefs/bookedCol';
 import SearchInput from 'components/SearchField/searchInput';
 import React from 'react';
 import useDoctorOnDutyHook from './hook';
-import DoctorsTable from 'components/DoctorsTable/doctorsTable';
+import DoctorsTable from 'components/DoctorsTable/DoctorsTable';
 
 const DoctorOnDuty = () => {
   const { data } = useDoctorOnDutyHook();

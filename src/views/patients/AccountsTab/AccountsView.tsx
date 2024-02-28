@@ -1,10 +1,9 @@
 import { Box, Grid, Typography } from '@mui/material';
 import { CloseIcon, SearchAltIcon, VuesaxLinear } from 'assets/icons/icons';
-import SelectButton from 'components/Buttons/selectButton';
-import DefaultCheckbox from 'components/Checkbox/defaultCheckbox';
-import DefaultButton from 'components/DeafultButton/DefaultButton';
-import DefaultInput from 'components/DefaultInput/DefaultInput';
-import React from 'react';
+import SelectButton from 'components/buttons/SelectButton';
+import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
+import DefaultButton from 'components/deafultButton/DefaultButton';
+import DefaultInput from 'components/defaultInput/DefaultInput';
 import { SubmitHandler, useForm } from 'react-hook-form';
 interface IFormInput {
   phone: string;
@@ -45,6 +44,7 @@ const AccountsView = () => {
           </Grid>
         </Grid>
       </Grid>
+
       <Grid className="flex justify-between items-center" item xs={12} md={12}>
         <form
           className="flex w-[80%] justify-between items-start my-[10px]"

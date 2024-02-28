@@ -3,13 +3,10 @@ import { alpha, styled } from '@mui/material/styles';
 import {
   CaretRightIcon,
   CoinsAltIcon,
-  FilePencilAltIcon,
-  VialIcon,
   VuesaxLinearPrinterIcon,
 } from 'assets/icons/icons';
-import SelectButton from 'components/Buttons/selectButton';
-import DefaultButton from 'components/DeafultButton/DefaultButton';
-import { useAppModals } from 'components/Modals';
+import SelectButton from 'components/buttons/SelectButton';
+import DefaultButton from 'components/deafultButton/DefaultButton';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import React, { FC } from 'react';
 

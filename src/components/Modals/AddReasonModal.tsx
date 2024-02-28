@@ -1,12 +1,11 @@
 import { Box, Button, Grid, IconButton } from '@mui/material';
 import { CloseCircleIcon } from 'assets/icons/icons';
-import CollapsibleTable from 'components/Dropdown';
-import DefaultText from 'components/DefaultText/DefaultText';
+import DefaultText from 'components/defaultText/DefaultText';
 import { useEscapeKey } from 'hooks/useEscapeKey';
 import { useCallback } from 'react';
 import { CreatePaymentNowContainer } from './Modals.styles';
 import { useAppModals } from './ModalsProvider';
-import DefaulCheckbox from 'components/Checkbox/defaultCheckbox';
+import DefaulCheckbox from 'components/checkbox/DefaultCheckbox';
 
 const AddReasonModal = () => {
   const appModals = useAppModals();

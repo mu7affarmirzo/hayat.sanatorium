@@ -1,11 +1,11 @@
 import { Patient } from 'types/booked';
 import { FileAltIcon, FilePlusAltIcon } from 'assets/icons/icons';
 import { UseFormRegister } from 'react-hook-form';
-import DefaultInput from 'components/DefaultInput/DefaultInput';
-import DefaulCheckbox from 'components/Checkbox/defaultCheckbox';
 import { Box, Button, IconButton, Typography } from '@mui/material';
-import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
 import { useAppModals } from 'components/Modals';
+import AutocompleteInput from 'components/autocompleteInput';
+import DefaultInput from 'components/defaultInput/DefaultInput';
+import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
 
 type propsType = {
   avtoCaplektData: any;
@@ -59,7 +59,7 @@ const PhonePushForm = (props: propsType) => {
           containerStile="w-[75%] flex-row items-center justify-between "
           inputStyle="w-[70%]"
         />
-        <DefaulCheckbox label="Без СКК" style="w-[25%] ml-[5px]" />
+        <DefaultCheckbox label="Без СКК" style="w-[25%] ml-[5px]" />
       </Box>
       <DefaultInput
         label="Номер ИБ поликлиники:"

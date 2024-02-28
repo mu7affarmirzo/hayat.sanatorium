@@ -1,8 +1,8 @@
 import React from 'react';
-import DispatchingView from 'views/Dispatching/DispatchingView';
+import DispatchingView from 'views/dispatching/DispatchingView';
 
 const DispatchingDoctors = () => {
-    return <DispatchingView />;
+  return <DispatchingView />;
 };
 
 export default DispatchingDoctors;

@@ -1,8 +1,9 @@
 /* eslint-disable react/style-prop-object */
 import { Box, Typography } from '@mui/material';
-import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
-import DefaulCheckbox from 'components/Checkbox/defaultCheckbox';
-import OutlinedNumber from 'components/OutlinedNumber/outlinedNumber';
+import AutocompleteInput from 'components/autocompleteInput';
+import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
+import OutlinedNumber from 'components/outlinedNumber/OutlinedNumber';
+
 type propsType = {
   avtoCaplektData: any;
   register: any;
@@ -78,8 +79,8 @@ const HospitalStayForm = (props: propsType) => {
         />
       </Box>
       <Box className="flex items-center mt-[10px]  w-[100%]">
-        <DefaulCheckbox label="Дополнительное место" />
-        <DefaulCheckbox label="Член семьи" style="ml-[20px]" />
+        <DefaultCheckbox label="Дополнительное место" />
+        <DefaultCheckbox label="Член семьи" style="ml-[20px]" />
       </Box>
     </Box>
   );

@@ -1,8 +1,9 @@
 import { Box } from '@mui/material';
-import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
-import DefaultButton from 'components/DeafultButton/DefaultButton';
-import DefaultText from 'components/DefaultText/DefaultText';
+
 import { useAppModals } from 'components/Modals';
+import AutocompleteInput from 'components/autocompleteInput';
+import DefaultButton from 'components/deafultButton/DefaultButton';
+import DefaultText from 'components/defaultText/DefaultText';
 import { FC } from 'react';
 
 type Props = {
