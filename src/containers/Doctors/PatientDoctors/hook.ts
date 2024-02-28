@@ -1,7 +1,7 @@
-import PatientFirst from 'views/Patients/MyPatientTab/myPatientTab';
+import PatientFirst from 'views/patients/MyPatientTab/myPatientTab';
 import { useReduxSelector } from 'hooks/useReduxHook';
 import PatientDoctorsContainer from './PatientDoctorsContainer';
-import SearchPatientTab from 'views/Patients/SearchPatientTab';
+import SearchPatientTab from 'views/patients/SearchPatientTab';
 import { TabsItem } from 'components/sideBar/SideBar';
 
 export const useDoctorsPatientHook = () => {
