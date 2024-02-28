@@ -1,6 +1,6 @@
 import { Box, Grid, Typography } from '@mui/material';
 import DefaultText from 'components/defaultText/DefaultText';
-import SectionTitle from 'components/SectionTitle/SectionTitle';
+import SectionTitle from 'components/SectionTitle/sectionTitle';
 import AutocompleteInput from 'components/autocompleteInput';
 import { columnDefs } from 'components/columnDefs/expectedCol';
 import DefaultButton from 'components/deafultButton/DefaultButton';

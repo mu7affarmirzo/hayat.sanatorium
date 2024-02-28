@@ -1,1 +1,1 @@
-export { default } from './ReceptionTableGroup';
+export { default } from './receptionTableGroup';

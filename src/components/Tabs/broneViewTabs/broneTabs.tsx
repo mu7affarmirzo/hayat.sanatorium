@@ -3,7 +3,7 @@ import { Box } from '@mui/material';
 import { FC, useCallback, useEffect, useState } from 'react';
 import { useReduxDispatch, useReduxSelector } from 'hooks/useReduxHook';
 import { removePatient } from 'features/booked/bookedSlice';
-import BroneTabBtn from '../BookedPageTabs/BookedTabItmeBtn';
+import BroneTabBtn from '../BookedPageTabs/bookedTabItmeBtn';
 
 export type TabsItem = {
   title: string;

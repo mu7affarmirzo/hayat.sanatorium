@@ -24,7 +24,7 @@ import loginPhoto from '../../assets/images/LogoPng.png';
 
 import { Image } from './styles';
 import useLoginHook from './hook';
-import LoadingButton from 'components/buttons/LoadingButton';
+import LoadingButton from 'components/buttons/loadingButton';
 
 const LeftSection = () => {
   return (
