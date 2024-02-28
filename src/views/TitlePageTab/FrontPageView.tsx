@@ -5,7 +5,7 @@ import { useAppModals } from 'components/Modals';
 
 import RadioForm from 'components/RadioForm';
 import DiagnostikaItem from '../../components/DiagnostikaItem';
-import TagAutoCompleateBox from 'components/TagAutoCompleateBox/TagAutoCompleateBox';
+import TagAutoCompleateBox from 'components/TagAutoCompleateBox/tagAutoCompleateBox';
 import HomeAddressForm from 'views/BookedTitlePageTab/components/HomeAddressForm';
 import PhonePushForm from 'views/BookedTitlePageTab/components/PhonePushForm';
 import DefaultText from 'components/defaultText/DefaultText';
