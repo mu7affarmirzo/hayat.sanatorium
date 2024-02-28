@@ -1,7 +1,7 @@
 import { Typography, Grid, Box } from '@mui/material';
 import DefaultButton from 'components/deafultButton/DefaultButton';
 import useDispatchTitlePageTabHook from './hook';
-import TagAutoCompleateBox from 'components/TagAutoCompleateBox/tagAutoCompleateBox';
+import TagAutoCompleateBox from 'components/TagAutoCompleateBox/TagAutoCompleateBox';
 import HarmFactors from '../BookedTitlePage/Components/harmFactors';
 import ModeHandler from '../BookedTitlePage/Components/modalHandler';
 import DiagnostHandler from '../BookedTitlePage/Components/diagnostHandler';

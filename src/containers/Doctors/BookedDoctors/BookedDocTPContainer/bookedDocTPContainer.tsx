@@ -1,6 +1,6 @@
 import { Box, Grid, Typography } from '@mui/material';
 import DefaultButton from 'components/deafultButton/DefaultButton';
-import TagAutoCompleateBox from 'components/TagAutoCompleateBox/tagAutoCompleateBox';
+import TagAutoCompleateBox from 'components/TagAutoCompleateBox/TagAutoCompleateBox';
 import FrontFooter from 'components/frontFooter/FrontFooter';
 import DocumentationForm from 'views/BookedTitlePageTab/components/DocumentationForm';
 import HospitalStayForm from 'views/BookedTitlePageTab/components/HospitalStayForm';

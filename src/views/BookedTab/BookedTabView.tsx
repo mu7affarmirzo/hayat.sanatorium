@@ -1,7 +1,6 @@
 /* eslint-disable react/style-prop-object */
 import { Box, Grid } from '@mui/material';
 import { CloseIcon, SearchAltIcon } from 'assets/icons/icons';
-import { BookedCol } from 'components/columnDefs/bookedCol';
 import DefaultButton from 'components/deafultButton/DefaultButton';
 import DefaultInput from 'components/defaultInput/DefaultInput';
 import DefaultText from 'components/defaultText/DefaultText';
@@ -18,6 +17,7 @@ import useBookedHook, { IFormInput } from './hook';
 import { GetIBSTypes } from 'types/booked';
 import ReceptionTable from 'components/receptionTable';
 import AutocompleteInput from 'components/autocompleteInput';
+import { BookedCol } from 'components/columnDefs/bookedCol';
 
 const top100Films = [
   { label: 'The Shawshank Redemption', year: 1994 },

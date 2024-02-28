@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-import TagAutoCompleateBox from 'components/TagAutoCompleateBox/tagAutoCompleateBox';
+import TagAutoCompleateBox from 'components/TagAutoCompleateBox/TagAutoCompleateBox';
 
 type Props = {
   mockData: any;

@@ -1,6 +1,6 @@
 import { Box, Grid } from '@mui/material';
 import { MyPatientsGrupCol } from 'components/columnDefs/MyPatientsGrupCol';
-import ReceptionTableGroup from 'components/ReceptionTableGroup/receptionTableGroup';
+import ReceptionTableGroup from 'components/ReceptionTableGroup';
 import useDispatchingPatientHook from './hook';
 import { DispatchMyPatientSearchOptions } from './components/searchOptionsDispatchMyPatients';
 import { DispatchActionsSection } from './components/dispatchActionsSection';

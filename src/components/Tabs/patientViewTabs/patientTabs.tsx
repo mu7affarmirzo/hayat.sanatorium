@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import { FC, useState } from 'react';
-import PatientTabBtn from './patientTabBtn';
+import PatientTabBtn from './PatientTabBtn';
 
 export type TabsItem = {
   title: string;

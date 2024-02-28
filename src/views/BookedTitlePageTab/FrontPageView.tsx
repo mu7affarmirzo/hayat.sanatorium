@@ -15,9 +15,9 @@ import TravelPackageForm from './components/TravelPackageForm';
 import RadioForm from 'components/RadioForm';
 import DiagnostikaItem from '../../components/DiagnostikaItem';
 import DefaulCheckbox from 'components/checkbox/DefaultCheckbox';
-import TagAutoCompleateBox from 'components/TagAutoCompleateBox/tagAutoCompleateBox';
 import useTitlePageTabHook from './hook';
 import AutocompleteInput from 'components/autocompleteInput';
+import TagAutoCompleateBox from 'components/TagAutoCompleateBox/TagAutoCompleateBox';
 const PatientForm = React.lazy(() => import('./components/PatientForm'));
 
 const polData = [

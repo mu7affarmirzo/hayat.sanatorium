@@ -1,10 +1,10 @@
 import { Grid, Typography } from '@mui/material';
 import { VuesaxLinear } from 'assets/icons/icons';
-import { BookedPatiant } from 'components/columnDefs/bookedCol';
 import DefaultButton from 'components/deafultButton/DefaultButton';
-import SearchInput from 'components/SearchField/searchInput';
 import TableComponent from 'components/CustomTable/table';
 import useMyPatientTabHook from './hook';
+import { BookedPatiant } from 'components/columnDefs/bookedCol';
+import SearchInput from 'components/SearchField/searchInput';
 
 const MyPatientTab = () => {
   const {

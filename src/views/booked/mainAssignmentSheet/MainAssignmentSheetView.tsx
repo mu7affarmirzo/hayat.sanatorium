@@ -21,7 +21,7 @@ import DefaultButton from 'components/deafultButton/DefaultButton';
 import { HealingProceduresCol } from 'components/columnDefs/HealingProceduresCol';
 import { TreatmentProgramsCOl } from 'components/columnDefs/TreatmentProgramsCal';
 import { ConsultingResearchCol } from 'components/columnDefs/ConsultingResearchCol';
-import ReceptionTableGroup from 'components/ReceptionTableGroup/receptionTableGroup';
+import ReceptionTableGroup from 'components/ReceptionTableGroup';
 
 const StyledMenu = styled((props: MenuProps) => (
   <Menu
