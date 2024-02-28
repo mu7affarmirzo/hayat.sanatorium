@@ -1,9 +1,9 @@
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { TabsItem } from 'components/sideBar/SideBar';
-import MyPatientTab from 'views/Patients/MyPatientTab';
-import SearchPatientTab from 'views/Patients/SearchPatientTab';
-import AccountsTab from 'views/Patients/AccountsTab';
+import MyPatientTab from 'views/patients/MyPatientTab';
+import SearchPatientTab from 'views/patients/SearchPatientTab';
+import AccountsTab from 'views/patients/AccountsTab';
 import PatientViewTabs from 'components/Tabs/patientViewTabs/patientTabs';
 
 //bu ham booked kabi boladi PatientTabsData ni hook orqali bervorib dynamik ravishda qoshib qoysaiz buladi //

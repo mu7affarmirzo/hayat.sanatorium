@@ -1,5 +1,5 @@
 import React from 'react';
-import EventsView from 'views/Events/EventsView';
+import EventsView from 'views/events/EventsView';
 
 const EventsReception = () => {
   return <EventsView />;

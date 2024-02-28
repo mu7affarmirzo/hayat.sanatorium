@@ -1,9 +1,9 @@
 import { Grid } from '@mui/material';
 import React from 'react';
 import useDoctorsEventsHook from './hook';
-import EventsAccordion from 'views/Events/eventsAccordion';
-import EventsInfoSection from 'views/Events/eventsInfoSection';
-import EventsTableContainer from 'views/Events/eventsTableContaner';
+import EventsAccordion from 'views/events/eventsAccordion';
+import EventsInfoSection from 'views/events/eventsInfoSection';
+import EventsTableContainer from 'views/events/eventsTableContaner';
 
 const EventsReception = () => {
   const { data, handleSubmit, onSubmit, register } = useDoctorsEventsHook();

@@ -1,7 +1,7 @@
 import { Grid } from '@mui/material';
-import EventsAccordion from 'views/Events/eventsAccordion';
-import EventsInfoSection from 'views/Events/eventsInfoSection';
-import EventsTableContainer from 'views/Events/eventsTableContaner';
+import EventsAccordion from 'views/events/eventsAccordion';
+import EventsInfoSection from 'views/events/eventsInfoSection';
+import EventsTableContainer from 'views/events/eventsTableContaner';
 import useRecaptionEventsHook from './hook';
 
 const EventsReceptionView = () => {
