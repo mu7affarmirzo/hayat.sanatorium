@@ -1,8 +1,8 @@
 import { Patient } from 'types/booked';
 import { FileAltIcon, FilePlusAltIcon } from 'assets/icons/icons';
 import { UseFormRegister } from 'react-hook-form';
-import DefaultInput from 'components/defaultInput/DefaultInput';
-import DefaulCheckbox from 'components/Checkbox/DefaultCheckbox';
+import DefaultInput from 'components/DefaultInput/DefaultInput';
+import DefaulCheckbox from 'components/Checkbox/defaultCheckbox';
 import { Box, Button, IconButton, Typography } from '@mui/material';
 import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
 import { useAppModals } from 'components/Modals';

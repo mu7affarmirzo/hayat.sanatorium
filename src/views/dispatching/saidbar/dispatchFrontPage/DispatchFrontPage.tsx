@@ -4,7 +4,7 @@ import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
 import { PhonePush } from 'components/ColumnDefs/phonePush';
 import DefaultButton from 'components/DeafultButton/DefaultButton';
 import DefaultText from 'components/DefaultText/DefaultText';
-import FrontFooter from 'components/frontFooter/FrontFooter';
+import FrontFooter from 'components/FrontFooter/frontFooter';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { LocalizationProvider } from '@mui/x-date-pickers';

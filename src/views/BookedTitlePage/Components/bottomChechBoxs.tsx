@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-import DefaultCheckbox from 'components/Checkbox/DefaultCheckbox';
+import DefaultCheckbox from 'components/Checkbox/defaultCheckbox';
 type propsType = {
   setValue?: any;
   defaultValues?: any;

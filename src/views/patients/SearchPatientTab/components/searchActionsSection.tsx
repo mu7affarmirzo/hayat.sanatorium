@@ -1,7 +1,7 @@
 import { Typography, Box, Grid } from '@mui/material';
 import { VuesaxLinear, SearchIcon, CloseIcon } from 'assets/icons/icons';
 import DefaultButton from 'components/DeafultButton/DefaultButton';
-import SearchInput from 'components/search/SearchInput';
+import SearchInput from 'components/SearchField/searchInput';
 
 type Props = {
   numberOfPatient: number;

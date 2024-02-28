@@ -1,7 +1,7 @@
 import { Button, Typography } from '@mui/material';
 import { FC, useState } from 'react';
 import { SvgProps } from 'types/types';
-import SaidBarCustomizedAccordions from './SideBar/SaidBarCustomizedAccordions';
+import SaidBarCustomizedAccordions from './SaidBarCustomizedAccordions';
 
 interface BookingProps {
   index: number;

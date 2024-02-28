@@ -1,11 +1,11 @@
 import { Box, Grid, Typography } from '@mui/material';
 import { useAppModals } from 'components/Modals';
-import SelectButton from 'components/Buttons/SelectButton';
+import SelectButton from 'components/Buttons/selectButton';
 import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
-import DefaultCheckbox from 'components/Checkbox/DefaultCheckbox';
+import DefaultCheckbox from 'components/Checkbox/defaultCheckbox';
 import DefaultButton from 'components/DeafultButton/DefaultButton';
 import DefaultText from 'components/DefaultText/DefaultText';
-import DiagnosticCeckboxItem from 'components/diagnosticCeckboxItem/DiagnosticCeckboxItem';
+import DiagnosticCeckboxItem from 'components/DiagnosticCeckboxItem/DiagnosticCeckboxItem';
 import ReceptionTable from 'components/ReceptionTable/receptionTable';
 
 import React from 'react';

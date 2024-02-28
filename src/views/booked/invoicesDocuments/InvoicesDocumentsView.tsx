@@ -6,7 +6,7 @@ import BookingScreenTabs, {
   TabsItem,
 } from 'components/Tabs/BookedPageTabs/bookedTabs';
 import DefaultText from 'components/DefaultText/DefaultText';
-import InvoicesDocuments from 'components/invoicesDocuments/InvoicesDocuments';
+import InvoicesDocuments from 'components/InvoicesDocuments/invoicesDocuments';
 const content: TabsItem[] = [
   {
     title: 'Документы',

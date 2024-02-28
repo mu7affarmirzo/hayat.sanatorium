@@ -1,7 +1,7 @@
 /* eslint-disable react/style-prop-object */
 import { Grid } from '@mui/material';
 import { CoinsAltIcon, VuesaxLinearPrinterIcon } from 'assets/icons/icons';
-import SelectButton from 'components/Buttons/SelectButton';
+import SelectButton from 'components/Buttons/selectButton';
 import DefaultButton from 'components/DeafultButton/DefaultButton';
 import SideBar, { TabsItem } from 'components/SideBar/SideBar';
 import changelog from '../booked/changelog';

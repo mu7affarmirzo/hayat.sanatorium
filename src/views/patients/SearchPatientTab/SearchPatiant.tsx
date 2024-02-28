@@ -5,7 +5,7 @@ import ReceptionTable from 'components/ReceptionTable';
 import { useSearchpatientHook } from './hook';
 import { SearchOptionsAccordion } from './components/searchOptionAccordion';
 import { SearchActionsSection } from './components/searchActionsSection';
-import TableComponent from 'components/Table/table';
+import TableComponent from 'components/CustomTable/table';
 
 const SearchPatiant = () => {
   const {

@@ -1,7 +1,7 @@
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { TabsItem } from 'components/SideBar/SideBar';
-import PatientViewTabs from 'components/Tabs/patientViewTabs/patientTabs';
+import PatientViewTabs from 'components/Tabs/PatientViewTabs/patientTabs';
 import MyPatientTab from 'views/Patients/MyPatientTab';
 import SearchPatientTab from 'views/Patients/SearchPatientTab';
 import AccountsTab from 'views/Patients/AccountsTab';

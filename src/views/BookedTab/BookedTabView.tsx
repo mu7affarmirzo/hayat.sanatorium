@@ -3,9 +3,9 @@ import { Box, Grid } from '@mui/material';
 import { CloseIcon, SearchAltIcon } from 'assets/icons/icons';
 import { BookedCol } from 'components/ColumnDefs/bookedCol';
 import DefaultButton from 'components/DeafultButton/DefaultButton';
-import DefaultInput from 'components/defaultInput/DefaultInput';
+import DefaultInput from 'components/DefaultInput/DefaultInput';
 import DefaultText from 'components/DefaultText/DefaultText';
-import SearchInput from 'components/search/SearchInput';
+import SearchInput from 'components/SearchField/searchInput';
 
 import {
   UseFormHandleSubmit,
@@ -16,8 +16,8 @@ import {
 import React from 'react';
 import useBookedHook, { IFormInput } from './hook';
 import { GetIBSTypes } from 'types/booked';
-import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
-import ReceptionTable from 'components/ReceptionTable';
+import AutocompleteInput from 'components/AutoCompleteInput';
+import ReceptionTable from 'components/ReceptionTable/receptionTable';
 
 const top100Films = [
   { label: 'The Shawshank Redemption', year: 1994 },

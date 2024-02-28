@@ -2,7 +2,7 @@ import { Box } from '@mui/material';
 import CustomizedAccordions from 'components/CustomizedAccordions';
 import { columnDefs } from 'components/ColumnDefs/expectedCol';
 import DefaultButton from 'components/DeafultButton/DefaultButton';
-import ReceptionTable from 'components/ReceptionTable';
+import ReceptionTable from 'components/ReceptionTable/receptionTable';
 
 import { rowData } from 'views/BookedTitlePageTab/FrontPageView';
 

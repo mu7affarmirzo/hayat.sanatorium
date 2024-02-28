@@ -1,10 +1,10 @@
 import { Box, Button, Grid, IconButton } from '@mui/material';
 import { CloseCircleIcon } from 'assets/icons/icons';
 import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
-import { ConnectionCol } from 'components/ColumnDefs/ConnectionCol';
+import { ConnectionCol } from 'components/ColumnDefs/connectionCol';
 import DefaultText from 'components/DefaultText/DefaultText';
-import ReceptionTable from 'components/ReceptionTable';
-import SearchInput from 'components/search/SearchInput';
+import ReceptionTable from 'components/ReceptionTable/receptionTable';
+import SearchInput from 'components/SearchField/searchInput';
 import { useEscapeKey } from 'hooks/useEscapeKey';
 import { useCallback } from 'react';
 import { rowData } from 'views/BookedTitlePageTab/FrontPageView';

@@ -7,7 +7,7 @@ import {
   VialIcon,
   VuesaxLinearPrinterIcon,
 } from 'assets/icons/icons';
-import SelectButton from 'components/Buttons/SelectButton';
+import SelectButton from 'components/Buttons/selectButton';
 import DefaultButton from 'components/DeafultButton/DefaultButton';
 import { useAppModals } from 'components/Modals';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';

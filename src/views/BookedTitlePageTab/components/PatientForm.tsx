@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from '@mui/material';
 import { ActiveDotIcon, NoActiveDotIcon } from 'assets/icons/icons';
-import DefaultInput from 'components/defaultInput/DefaultInput';
+import DefaultInput from 'components/DefaultInput/DefaultInput';
 import { SetStateAction, memo, useEffect, useState } from 'react';
 import { UseFormRegister } from 'react-hook-form';
 import { Patient } from 'types/booked';

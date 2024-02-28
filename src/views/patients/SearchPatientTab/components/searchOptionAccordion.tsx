@@ -1,5 +1,5 @@
 import CustomizedAccordions from 'components/CustomizedAccordions';
-import DefaultInput from 'components/defaultInput/DefaultInput';
+import DefaultInput from 'components/DefaultInput/DefaultInput';
 import { FC } from 'react';
 import { UseFormRegister } from 'react-hook-form';
 import { Grid } from '@mui/material';

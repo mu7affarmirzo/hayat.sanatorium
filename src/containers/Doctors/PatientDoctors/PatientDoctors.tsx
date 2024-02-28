@@ -1,6 +1,6 @@
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import DoctorsViewTabs from 'components/Tabs/doctorsViewTabs/doctorsViewTabs';
+import DoctorsViewTabs from 'components/Tabs/DoctorsViewTabs/doctorsViewTabs';
 
 import { useDoctorsPatientHook } from './hook';
 

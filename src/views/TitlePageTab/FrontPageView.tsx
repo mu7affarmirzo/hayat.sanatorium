@@ -4,11 +4,11 @@ import { ArrowDropSownIcon } from 'assets/icons/icons';
 import { useAppModals } from 'components/Modals';
 import { PhonePush } from 'components/ColumnDefs/phonePush';
 
-import FrontFooter from 'components/frontFooter/FrontFooter';
+import FrontFooter from 'components/FrontFooter/frontFooter';
 
 import RadioForm from 'components/RadioForm';
 import DiagnostikaItem from '../../components/DiagnostikaItem';
-import DefaulCheckbox from 'components/Checkbox/DefaultCheckbox';
+import DefaulCheckbox from 'components/Checkbox/defaultCheckbox';
 import TagAutoCompleateBox from 'components/TagAutoCompleateBox/tagAutoCompleateBox';
 import HomeAddressForm from 'views/BookedTitlePageTab/components/HomeAddressForm';
 import PhonePushForm from 'views/BookedTitlePageTab/components/PhonePushForm';

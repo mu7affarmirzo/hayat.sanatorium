@@ -1,6 +1,6 @@
 import { Grid } from '@mui/material';
 import { CoinsAltIcon, VuesaxLinearPrinterIcon } from 'assets/icons/icons';
-import SelectButton from 'components/Buttons/SelectButton';
+import SelectButton from 'components/Buttons/selectButton';
 
 import changelog from '../booked/changelog';
 import invoicesDocuments from '../booked/invoicesDocuments';

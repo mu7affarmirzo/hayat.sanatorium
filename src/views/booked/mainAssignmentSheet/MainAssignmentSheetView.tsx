@@ -11,14 +11,14 @@ import {
 } from 'assets/icons/icons';
 import HealingProcedures from 'components/HealingProcedures';
 import { useAppModals } from 'components/Modals';
-import DefaultCheckbox from 'components/Checkbox/DefaultCheckbox';
-import { ConsultingResearchCol } from 'components/ColumnDefs/ConsultingResearchCol';
-import { HealingProceduresCol } from 'components/ColumnDefs/HealingProceduresCol';
-import { TreatmentProgramsCOl } from 'components/ColumnDefs/TreatmentProgramsCal';
+import DefaultCheckbox from 'components/Checkbox/defaultCheckbox';
+import { ConsultingResearchCol } from 'components/ColumnDefs/consultingResearchCol';
+import { HealingProceduresCol } from 'components/ColumnDefs/healingProceduresCol';
+import { TreatmentProgramsCOl } from 'components/ColumnDefs/treatmentProgramsCal';
 import DefaultButton from 'components/DeafultButton/DefaultButton';
 import DefaultText from 'components/DefaultText/DefaultText';
-import ReceptionTable from 'components/ReceptionTable';
-import ReceptionTableGroup from 'components/ReceptionTableGroup/ReceptionTable';
+import ReceptionTable from 'components/ReceptionTable/receptionTable';
+import ReceptionTableGroup from 'components/ReceptionTableGroup/receptionTableGroup';
 import React from 'react';
 import { rowData } from '../../BookedTitlePageTab/FrontPageView';
 

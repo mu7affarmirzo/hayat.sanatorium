@@ -7,7 +7,7 @@ import { useEscapeKey } from 'hooks/useEscapeKey';
 import { useCallback } from 'react';
 import { CallMeLaterModalContainer } from './Modals.styles';
 import { useAppModals } from './ModalsProvider';
-import DefaulCheckbox from 'components/Checkbox/DefaultCheckbox';
+import DefaulCheckbox from 'components/Checkbox/defaultCheckbox';
 
 const ProfessionalRouteModal = () => {
   const appModals = useAppModals();

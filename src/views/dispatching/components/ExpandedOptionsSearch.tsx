@@ -3,8 +3,8 @@ import { Box, Button, Grid, Typography } from '@mui/material';
 import { ActiveDotIcon, NoActiveDotIcon } from 'assets/icons/icons';
 import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
 
-import DefaultCheckbox from 'components/Checkbox/DefaultCheckbox';
-import OutlinedNumber from 'components/outlinedNumber/OutlinedNumber';
+import DefaultCheckbox from 'components/Checkbox/defaultCheckbox';
+import OutlinedNumber from 'components/OutlinedNumber/outlinedNumber';
 
 const top100Films = [
   { label: 'The Shawshank Redemption', year: 1994 },

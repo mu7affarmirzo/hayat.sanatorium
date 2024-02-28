@@ -2,7 +2,7 @@ import { Box, IconButton, Typography } from '@mui/material';
 import { FilePlusAltIcon } from 'assets/icons/icons';
 import { useAppModals } from 'components/Modals';
 import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
-import DefaultCheckbox from 'components/Checkbox/DefaultCheckbox';
+import DefaultCheckbox from 'components/Checkbox/defaultCheckbox';
 import DefaultButton from 'components/DeafultButton/DefaultButton';
 import DefaultText from 'components/DefaultText/DefaultText';
 const top100Films = [

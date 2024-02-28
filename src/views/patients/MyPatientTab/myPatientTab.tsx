@@ -3,9 +3,9 @@ import { VuesaxLinear } from 'assets/icons/icons';
 import { BookedPatiant } from 'components/ColumnDefs/bookedCol';
 import DefaultButton from 'components/DeafultButton/DefaultButton';
 import ReceptionTable from 'components/ReceptionTable';
-import SearchInput from 'components/search/SearchInput';
+import SearchInput from 'components/SearchField/searchInput';
 import useMyPatientTabHook from './hook';
-import TableComponent from 'components/Table/table';
+import TableComponent from 'components/CustomTable/table';
 
 const MyPatientTab = () => {
   const {

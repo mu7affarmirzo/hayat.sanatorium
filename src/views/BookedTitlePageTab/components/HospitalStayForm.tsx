@@ -1,8 +1,8 @@
 /* eslint-disable react/style-prop-object */
 import { Box, Typography } from '@mui/material';
 import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
-import DefaulCheckbox from 'components/Checkbox/DefaultCheckbox';
-import OutlinedNumber from 'components/outlinedNumber/OutlinedNumber';
+import DefaulCheckbox from 'components/Checkbox/defaultCheckbox';
+import OutlinedNumber from 'components/OutlinedNumber/outlinedNumber';
 type propsType = {
   avtoCaplektData: any;
   register: any;

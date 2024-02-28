@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
 import CustomizedAccordions from 'components/CustomizedAccordions';
-import DefaultInput from 'components/defaultInput/DefaultInput';
+import DefaultInput from 'components/DefaultInput/DefaultInput';
 
 type propsType = {
   avtoCaplektData: any;
