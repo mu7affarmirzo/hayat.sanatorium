@@ -14,7 +14,7 @@ import DocumentationForm from 'views/BookedTitlePageTab/components/Documentation
 import TravelPackageForm from 'views/BookedTitlePageTab/components/TravelPackageForm';
 import HospitalStayForm from 'views/BookedTitlePageTab/components/HospitalStayForm';
 import AutocompleteInput from 'components/autocompleteInput';
-import { PhonePush } from 'components/columnDefs/phonePush';
+import { PhonePushColDefs } from 'components/columnDefs/phonePush';
 import DefaultButton from 'components/deafultButton/DefaultButton';
 import FrontFooter from 'components/frontFooter/FrontFooter';
 import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
@@ -197,7 +197,7 @@ const PatientInfoSection = ({ register }: PatientInfoType) => {
         />
         <HomeAddressForm avtoCaplektData={top100Films} register={register} />
         <PhonePushForm
-          phonePush={PhonePush}
+          phonePush={PhonePushColDefs}
           avtoCaplektData={top100Films}
           register={register}
           rowData={rowData}

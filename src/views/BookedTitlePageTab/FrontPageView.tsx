@@ -3,7 +3,7 @@ import React, { Suspense } from 'react';
 import { Box, Grid, TextField, Typography } from '@mui/material';
 import { ArrowDropSownIcon } from 'assets/icons/icons';
 import { useAppModals } from 'components/Modals';
-import { PhonePush } from 'components/columnDefs/phonePush';
+import { PhonePushColDefs } from 'components/columnDefs/phonePush';
 import DefaultButton from 'components/deafultButton/DefaultButton';
 import DefaultText from 'components/defaultText/DefaultText';
 import FrontFooter from 'components/frontFooter/FrontFooter';
@@ -194,7 +194,7 @@ const PatientInfoSection = ({ register }: PatientInfoType) => {
         />
         <HomeAddressForm avtoCaplektData={top100Films} register={register} />
         <PhonePushForm
-          phonePush={PhonePush}
+          phonePush={PhonePushColDefs}
           avtoCaplektData={top100Films}
           register={register}
           rowData={rowData}

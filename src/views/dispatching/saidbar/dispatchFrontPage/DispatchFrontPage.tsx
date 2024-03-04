@@ -1,6 +1,6 @@
 import { Box, Grid, TextField, Typography } from '@mui/material';
 import { useAppModals } from 'components/Modals';
-import { PhonePush } from 'components/columnDefs/phonePush';
+import { PhonePushColDefs } from 'components/columnDefs/phonePush';
 import DefaultButton from 'components/deafultButton/DefaultButton';
 import FrontFooter from 'components/frontFooter/FrontFooter';
 import { SubmitHandler, useForm } from 'react-hook-form';
@@ -336,7 +336,7 @@ const DispatchFrontPage = () => {
                   register={register as never}
                 />
                 <PhoneAddForm
-                  phonePush={PhonePush}
+                  phonePush={PhonePushColDefs}
                   avtoCaplektData={top100Films}
                   register={register}
                   rowData={rowData}

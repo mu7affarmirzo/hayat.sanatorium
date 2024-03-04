@@ -50,7 +50,7 @@ const HomeAddressForm = (props: propsType) => {
         <DefaultInput
           label="Тип нас. пункта"
           register={register}
-          inputType={'appeal'}
+          inputType={'patient.appeal'}
           containerStile="w-[32%] flex-col"
           inputStyle="w-[100%]"
         />
@@ -73,7 +73,7 @@ const HomeAddressForm = (props: propsType) => {
         <DefaultInput
           label="Дом"
           register={register}
-          inputType={'appeal'}
+          inputType={'patient.home'}
           containerStile="w-[32%] flex-col"
           inputStyle="w-[100%]"
         />
@@ -87,7 +87,7 @@ const HomeAddressForm = (props: propsType) => {
         <DefaultInput
           label="Квартира"
           register={register}
-          inputType={'appeal'}
+          inputType={'patient.home_number'}
           containerStile="w-[32%] flex-col"
           inputStyle="w-[100%]"
         />

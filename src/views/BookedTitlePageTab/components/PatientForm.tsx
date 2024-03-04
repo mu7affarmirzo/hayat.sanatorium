@@ -10,9 +10,10 @@ type propsType = {
   register: UseFormRegister<Patient>;
   setValue?: any;
   defaultValues?: any;
+  patientDob?: number;
 };
 const PatientForm = (props: propsType) => {
-  let { polData, register, setValue, defaultValues } = props;
+  let { polData, register, setValue, defaultValues, patientDob } = props;
 
   const [activeBtn, setActiveBtn] = useState(0);
   const [isMale, setIsMale] = useState(defaultValues?.patient.gender);
@@ -66,7 +67,7 @@ const PatientForm = (props: propsType) => {
         inputStyle="w-[70%]"
       />
 
-      <Box className="w-full flex flex-row items-center  gap-1 mt-[10px]">
+      <Box className="w-full flex flex-row items-center gap-1 mt-[10px]">
         <Typography className="text-[14px] text-[#858585] mr-[58px] ">
           Пол:
         </Typography>
@@ -91,13 +92,18 @@ const PatientForm = (props: propsType) => {
           </Button>
         ))}
       </Box>
-      <DefaultInput
-        label="Дата рождения"
-        register={register}
-        inputType={'patient.date_of_birth'}
-        containerStile="w-[100%] flex-row justify-between items-center mt-[10px] "
-        inputStyle="w-[62%]"
-      />
+      <Box className="flex flex-row items-center  mt-3">
+        <DefaultInput
+          label="Дата рождения"
+          register={register}
+          inputType={'patient.date_of_birth'}
+          containerStile="flex-row items-center gap-2"
+          inputStyle="w-[45%]"
+        />
+        <Typography className=" text-[14px] text-[#858585]">
+          Возраст:{patientDob} лет
+        </Typography>
+      </Box>
 
       <DefaultInput
         label="Место работы:"

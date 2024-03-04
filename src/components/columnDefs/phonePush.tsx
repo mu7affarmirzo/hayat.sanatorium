@@ -14,7 +14,7 @@ function MyRoomType(params: any) {
 function chackBoxHandler(params: any) {
   return <DefaulCheckbox />;
 }
-export const PhonePush: ColDef[] = [
+export const PhonePushColDefs: ColDef[] = [
   {
     headerName: '',
     field: '',
@@ -30,7 +30,7 @@ export const PhonePush: ColDef[] = [
   },
   {
     headerName: 'Название',
-    field: '',
+    field: 'name',
     width: 120,
     editable: true,
     cellStyle: {
@@ -43,8 +43,8 @@ export const PhonePush: ColDef[] = [
     },
   },
   {
-    headerName: 'Начало',
-    field: 'phone',
+    headerName: 'Телефоны',
+    field: 'phone_number',
     width: 120,
     cellStyle: {
       display: 'flex',
@@ -57,7 +57,7 @@ export const PhonePush: ColDef[] = [
   },
   {
     headerName: 'Основной',
-    field: 'group',
+    field: 'basic',
     width: 120,
     cellRenderer: chackBoxHandler,
     cellStyle: {
@@ -70,8 +70,8 @@ export const PhonePush: ColDef[] = [
     },
   },
   {
-    headerName: 'Лимит',
-    field: 'name',
+    headerName: '',
+    field: '',
     width: 120,
     editable: true,
     cellStyle: {

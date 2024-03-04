@@ -3,10 +3,9 @@ import { Suspense } from 'react';
 import HomeAddressForm from 'views/BookedTitlePageTab/components/HomeAddressForm';
 import PatientForm from 'views/BookedTitlePageTab/components/PatientForm';
 import PhonePushForm from 'views/BookedTitlePageTab/components/PhonePushForm';
-import { rowData } from '../../DisTitlePageTab/disTitlePageTab';
 import { UseFormRegister } from 'react-hook-form';
 import { Patient } from 'types/booked';
-import { PhonePush } from 'components/columnDefs/phonePush';
+import { PhonePushColDefs } from 'components/columnDefs/phonePush';
 
 interface PatientInfoType {
   register: UseFormRegister<Patient> | any;
@@ -14,6 +13,8 @@ interface PatientInfoType {
   mockData: any;
   setValue?: any;
   defaultValues?: any;
+  patientDob?: number;
+  patient_phones?: [];
 }
 
 const PatientInfoSection = ({
@@ -22,6 +23,8 @@ const PatientInfoSection = ({
   mockData,
   setValue,
   defaultValues,
+  patientDob,
+  patient_phones,
 }: PatientInfoType) => {
   return (
     <Box className="border p-[5px]">
@@ -32,13 +35,14 @@ const PatientInfoSection = ({
           register={register}
           setValue={setValue}
           defaultValues={defaultValues}
+          patientDob={patientDob as never}
         />
         <HomeAddressForm avtoCaplektData={mockData} register={register} />
         <PhonePushForm
-          phonePush={PhonePush}
+          phonePush={PhonePushColDefs}
           avtoCaplektData={mockData}
           register={register}
-          rowData={rowData}
+          rowData={patient_phones}
         />
       </Suspense>
     </Box>

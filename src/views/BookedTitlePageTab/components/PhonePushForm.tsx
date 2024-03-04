@@ -6,6 +6,7 @@ import { useAppModals } from 'components/Modals';
 import AutocompleteInput from 'components/autocompleteInput';
 import DefaultInput from 'components/defaultInput/DefaultInput';
 import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
+import ReceptionTable from 'components/receptionTable';
 
 type propsType = {
   avtoCaplektData: any;
@@ -15,7 +16,7 @@ type propsType = {
 };
 
 const PhonePushForm = (props: propsType) => {
-  let { avtoCaplektData, register } = props;
+  let { avtoCaplektData, register, phonePush, rowData } = props;
   const appModals = useAppModals();
   const openMola = () => {
     appModals?.show('choosingDiagnosis');
@@ -30,9 +31,9 @@ const PhonePushForm = (props: propsType) => {
           className={` ${'bg-[#4CAF50] text-[#fff] border border-solid border-[#4CAF50]'}  h-[35px]  text-[14px]  capitalize mr-[5px] px-[8px] py-[5px]  mt-[5px] `}>
           Добавить
         </Button>
-        {/* <Box className="mt-[10px]">
-                    <ReceptionTable columnDefs={phonePush} rowData={rowData} />
-                </Box> */}
+        <Box className="mt-[10px]">
+          <ReceptionTable columnDefs={phonePush} rowData={rowData} />
+        </Box>
       </Box>
 
       <Box className="w-full flex items-center justify-between mt-[10px]  ">
@@ -64,7 +65,7 @@ const PhonePushForm = (props: propsType) => {
       <DefaultInput
         label="Номер ИБ поликлиники:"
         register={register}
-        inputType={'id'}
+        inputType={'patient.INN'}
         containerStile="w-[100%] flex-row items-center justify-between mt-[10px]"
         inputStyle="w-[60%]"
       />
@@ -98,7 +99,7 @@ const PhonePushForm = (props: propsType) => {
         <Box className={'w-[60%] flex'}>
           <DefaultInput
             register={register}
-            inputType={'lastName'}
+            inputType={'patient.appeal'}
             containerStile="w-[80%] "
           />
           <IconButton
