@@ -8,7 +8,9 @@ import {
 import SelectButton from 'components/buttons/SelectButton';
 import DefaultButton from 'components/deafultButton/DefaultButton';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import React, { FC } from 'react';
+import React, { FC, useCallback } from 'react';
+import { useReduxDispatch } from 'hooks/useReduxHook';
+import { addPatientDoctors } from 'features/patient/patientSlice';
 
 const StyledMenu = styled((props: MenuProps) => (
   <Menu
@@ -55,9 +57,54 @@ const StyledMenu = styled((props: MenuProps) => (
 interface Props {
   selectData: any;
   selectData2: any;
+  setActiveItem?: any;
 }
+const popapData = [
+  {
+    id: 1,
+    title: 'Заключительный прием лечащего врача',
+  },
+  {
+    id: 2,
+    title: 'Консультация кардиолога первичная',
+  },
+  {
+    id: 3,
+    title: 'Консультация невролога первичная',
+  },
+  {
+    id: 4,
+    title: ' Осмотр дежурного врача при поступлении',
+  },
+  {
+    id: 5,
+    title: 'Повторный приём лечащего врача',
+  },
+  {
+    id: 6,
+    title: 'Прием дежурного врача',
+  },
+  {
+    id: 7,
+    title: 'ЭКГ(Электрокардиограмма)',
+  },
+];
 
 const DiseaseHistoryTopTabs: FC<Props> = ({ selectData, selectData2 }) => {
+  const dispatch = useReduxDispatch();
+
+  const handleClickedRowTable = useCallback(
+    (event: any) => {
+      dispatch(
+        addPatientDoctors({
+          id: event.id,
+          name: event.title,
+        }),
+      );
+    },
+    [dispatch],
+  );
+
   const PositionedMenu = () => {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
@@ -103,27 +150,17 @@ const DiseaseHistoryTopTabs: FC<Props> = ({ selectData, selectData2 }) => {
             vertical: 'bottom',
             horizontal: 'left',
           }}>
-          <MenuItem sx={{ width: '400px' }} onClick={handleClose}>
-            Заключительный прием лечащего врача
-          </MenuItem>
-          <MenuItem sx={{ width: '400px' }} onClick={handleClose}>
-            Консультация кардиолога первичная
-          </MenuItem>
-          <MenuItem sx={{ width: '400px' }} onClick={handleClose}>
-            Консультация невролога первичная
-          </MenuItem>
-          <MenuItem sx={{ width: '300px' }} onClick={handleClose}>
-            Осмотр дежурного врача при поступлении
-          </MenuItem>
-          <MenuItem sx={{ width: '300px' }} onClick={handleClose}>
-            Повторный приём лечащего врача
-          </MenuItem>
-          <MenuItem sx={{ width: '300px' }} onClick={handleClose}>
-            Прием дежурного врача
-          </MenuItem>
-          <MenuItem sx={{ width: '300px' }} onClick={handleClose}>
-            ЭКГ (Электрокардиограмма)
-          </MenuItem>
+          {popapData.map((item, index) => (
+            <MenuItem
+              sx={{ width: '400px' }}
+              onClick={() => {
+                handleClose();
+                handleClickedRowTable(item);
+              }}
+              key={index}>
+              {item.title}
+            </MenuItem>
+          ))}
         </StyledMenu>
       </div>
     );

@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { useReduxSelector } from 'hooks/useReduxHook';
