@@ -28,35 +28,35 @@ const DiagnostikaItem = (props: propsType) => {
       <DefaultText style={`${props.titleStyle} text-[#000]  mb-[10px]`}>
         {props.title}
       </DefaultText>
-      {props.message ? (
-        <Box className="flex justify-between">
-          <Box
-            className={`${props.messageStyle} border rounded-[4px] p-[10px] w-full min-h-[110px]`}>
-            <DefaultText style={'text-[#0057B2]'}>{props.message}</DefaultText>
-          </Box>
-          <Box
-            className={` ${
-              props.messageIconStyle
-                ? props.messageIconStyle
-                : 'flex  flex-col  ml-[10px]'
-            } `}>
-            <IconButton
-              color="primary"
-              aria-label="add to shopping cart"
-              className=" bg-[#64B6F7] rounded-none  mx-[3px]">
-              <FileAltIcon stroke="white" />
-            </IconButton>
-            <IconButton
-              color="primary"
-              aria-label="add to shopping cart"
-              className={`bg-[#64B6F7] rounded-none  mx-[3px] ${
-                props.messageIconStyle ? 'mt-[0]' : ' mt-[5px]'
-              }`}>
-              <FilePlusAltIcon />
-            </IconButton>
-          </Box>
+
+      <Box className="flex justify-between">
+        <Box
+          className={`${props.messageStyle} border rounded-[4px] p-[10px] w-full min-h-[110px]`}>
+          <DefaultText style={'text-[#0057B2]'}>{props.message}</DefaultText>
         </Box>
-      ) : null}
+        <Box
+          className={` ${
+            props.messageIconStyle
+              ? props.messageIconStyle
+              : 'flex  flex-col  ml-[10px]'
+          } `}>
+          <IconButton
+            color="primary"
+            aria-label="add to shopping cart"
+            className=" bg-[#64B6F7] rounded-none  mx-[3px]">
+            <FileAltIcon stroke="white" />
+          </IconButton>
+          <IconButton
+            color="primary"
+            aria-label="add to shopping cart"
+            className={`bg-[#64B6F7] rounded-none  mx-[3px] ${
+              props.messageIconStyle ? 'mt-[0]' : ' mt-[5px]'
+            }`}>
+            <FilePlusAltIcon />
+          </IconButton>
+        </Box>
+      </Box>
+
       <Box
         className={`flex items-center  w-[100%] ${
           props.outline ? 'mt-[10px] ' : 'mt-[0px]'

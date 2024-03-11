@@ -9697,6 +9697,13 @@ react-is@^18.0.0, react-is@^18.2.0:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-18.2.0.tgz#199431eeaaa2e09f86427efbb4f1473edb47609b"
   integrity sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==
 
+react-multilevel-dropdown@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/react-multilevel-dropdown/-/react-multilevel-dropdown-4.0.0.tgz#a387b7ab1babf299da5e66c3fa6d3cb9bbdbf415"
+  integrity sha512-0bAIwwyZLEc3tawRvHyo0J75UgtmZYiOayiwwofB3PfBsj8+lRoZXL1zLPpHSGTwBjaGFPgOWOEY0EMNZdmQUA==
+  dependencies:
+    react-style-classes "^2.0.2"
+
 react-onclickoutside@^6.13.0:
   version "6.13.0"
   resolved "https://registry.yarnpkg.com/react-onclickoutside/-/react-onclickoutside-6.13.0.tgz#e165ea4e5157f3da94f4376a3ab3e22a565f4ffc"
@@ -9829,6 +9836,11 @@ react-scripts@5.0.1:
     workbox-webpack-plugin "^6.4.1"
   optionalDependencies:
     fsevents "^2.3.2"
+
+react-style-classes@^2.0.2:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/react-style-classes/-/react-style-classes-2.0.3.tgz#4af25b75048fd8b1b10a41c2d50b5d3d857c260e"
+  integrity sha512-GVkst4dq8n5bckKDcucTQvIuS5gzGX0BGE3OqaWZsN6eeesrvmyqLW+qyTSCYizWw8xpQ5+18Yxeqnm8iID13A==
 
 react-style-singleton@^2.2.1:
   version "2.2.1"

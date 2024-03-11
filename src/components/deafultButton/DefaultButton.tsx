@@ -1,4 +1,5 @@
 import { Button, Typography } from '@mui/material';
+import { CommonProps } from '@mui/material/OverridableComponent';
 
 type propsType = {
   classStyle?: string;
@@ -7,6 +8,7 @@ type propsType = {
   variant?: any;
   onClick?: any;
   disabled?: boolean;
+  className?: CommonProps['className'];
   submitType?: 'button' | 'submit' | 'reset' | undefined;
 };
 const DefaultButton = (props: propsType) => {

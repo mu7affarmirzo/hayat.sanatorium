@@ -1,5 +1,5 @@
 import { ApiSlice } from 'features/api/apiSlice';
-import { GetMyPatients } from 'types/patientTypes';
+import { GetMyPatients, InitAppointmentTypes } from 'types/patientTypes';
 
 export const patientService = ApiSlice.injectEndpoints({
   endpoints: (builder) => ({
@@ -10,7 +10,15 @@ export const patientService = ApiSlice.injectEndpoints({
         params: { full_name, ib, word, card_type },
       }),
     }),
+    postInitAppointment: builder.mutation<any, InitAppointmentTypes>({
+      query: (body) => ({
+        url: '/sanatorium/doctors/init-appointment',
+        method: 'POST',
+        body: body,
+      }),
+    }),
   }),
 });
 
-export const { useGetAllMyPatientsQuery } = patientService;
+export const { useGetAllMyPatientsQuery, usePostInitAppointmentMutation } =
+  patientService;
