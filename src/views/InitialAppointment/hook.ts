@@ -3,11 +3,7 @@ import { useForm } from 'react-hook-form';
 import { InitAppointmentTypes } from 'types/patientTypes';
 
 const useInitialAppointmentForm = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<InitAppointmentTypes>();
+  const methods = useForm<InitAppointmentTypes>();
   const [fetchRequest, { isError, isLoading, isSuccess }] =
     usePostInitAppointmentMutation();
 
@@ -16,13 +12,11 @@ const useInitialAppointmentForm = () => {
   };
 
   return {
-    register,
-    handleSubmit,
+    methods,
     onSubmit,
     isLoading,
     isError,
     isSuccess,
-    errors,
   };
 };
 

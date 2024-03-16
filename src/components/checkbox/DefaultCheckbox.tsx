@@ -27,6 +27,7 @@ const DefaultCheckbox = (props: propsType) => {
           <Checkbox
             sx={props.checkboxStyle}
             defaultChecked={defaultChecked}
+            size="small"
             onChange={(e) => setValue(inputType, e.target.checked)}
           />
         }

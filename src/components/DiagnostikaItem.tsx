@@ -28,7 +28,6 @@ const DiagnostikaItem = (props: propsType) => {
       <DefaultText style={`${props.titleStyle} text-[#000]  mb-[10px]`}>
         {props.title}
       </DefaultText>
-
       <Box className="flex justify-between">
         <Box
           className={`${props.messageStyle} border rounded-[4px] p-[10px] w-full min-h-[110px]`}>
@@ -56,7 +55,6 @@ const DiagnostikaItem = (props: propsType) => {
           </IconButton>
         </Box>
       </Box>
-
       <Box
         className={`flex items-center  w-[100%] ${
           props.outline ? 'mt-[10px] ' : 'mt-[0px]'

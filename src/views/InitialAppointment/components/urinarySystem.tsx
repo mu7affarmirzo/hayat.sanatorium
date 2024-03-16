@@ -1,13 +1,22 @@
 /* eslint-disable react/style-prop-object */
 import { Box } from '@mui/material';
 import DiagnostikaItem from 'components/DiagnostikaItem';
+import RadioButtonGroup from 'components/RadioButtonGroup';
 import SectionTitle from 'components/SectionTitle/sectionTitle';
 import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
 import DiagnosticCeckboxItem from 'components/diagnosticCeckboxItem/DiagnosticCeckboxItem';
+import { FC } from 'react';
+import { UseFormReturn } from 'react-hook-form';
+import { InitAppointmentTypes } from 'types/patientTypes';
+import { EffleurageSymptomsOptions } from '../constant/radioOptions';
 
-const UrinarySystemSection = () => {
+interface Props {
+  formMethods: UseFormReturn<InitAppointmentTypes, any, InitAppointmentTypes>;
+}
+
+const UrinarySystemSection: FC<Props> = ({ formMethods }) => {
   return (
-    <Box className="border w-full px-[10px] pt-[10px] mt-[10px]">
+    <Box className="border w-full px-[10px] pt-[10px] mt-[10px] bg-blue-300">
       <SectionTitle
         title="Мочевыделительная система"
         className="text-base font-medium"
@@ -15,12 +24,15 @@ const UrinarySystemSection = () => {
       <DiagnosticCeckboxItem
         label="Симптом поколачивания:"
         checkBoxStle={'w-[700px]'}
+        formMethods={formMethods}
+        categoryName="effleurage_symptoms"
         children={
           <Box className="flex">
-            <DefaultCheckbox label="отрицательный," />
-            <DefaultCheckbox label="положительный," />
-            <DefaultCheckbox label="справа," />
-            <DefaultCheckbox label="слева," />
+            <RadioButtonGroup
+              name="effleurage_symptoms"
+              methods={formMethods}
+              options={EffleurageSymptomsOptions}
+            />
           </Box>
         }
         description=" "

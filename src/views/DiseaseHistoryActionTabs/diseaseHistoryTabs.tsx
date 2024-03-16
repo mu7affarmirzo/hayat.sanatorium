@@ -94,11 +94,11 @@ const DiseaseHistoryTopTabs: FC<Props> = ({ selectData, selectData2 }) => {
             options={options}
             onChange={handleChange}
           /> */}
-          <NestedDropdownMenu
+          {/* <NestedDropdownMenu
             title="MultiDropdown"
             options={options}
             onChange={handleChange}
-          />
+          /> */}
           <SelectButton
             data={selectData2}
             defaultValue="Экспортировать документы"

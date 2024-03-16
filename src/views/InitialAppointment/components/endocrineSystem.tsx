@@ -1,13 +1,21 @@
 /* eslint-disable react/style-prop-object */
 import { Box } from '@mui/material';
 import DiagnostikaItem from 'components/DiagnostikaItem';
+import RadioButtonGroup from 'components/RadioButtonGroup';
 import SectionTitle from 'components/SectionTitle/sectionTitle';
-import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
 import DiagnosticCeckboxItem from 'components/diagnosticCeckboxItem/DiagnosticCeckboxItem';
+import { FC } from 'react';
+import { UseFormReturn } from 'react-hook-form';
+import { InitAppointmentTypes } from 'types/patientTypes';
+import { ThyroidOptions } from '../constant/radioOptions';
 
-const EndocrineSystemSection = () => {
+interface Props {
+  formMethods: UseFormReturn<InitAppointmentTypes, any, InitAppointmentTypes>;
+}
+
+const EndocrineSystemSection: FC<Props> = ({ formMethods }) => {
   return (
-    <Box className="border w-full px-[10px] pt-[10px] mt-[10px]">
+    <Box className="border w-full px-[10px] pt-[10px] mt-[10px] bg-yellow-300">
       <SectionTitle
         title="Эндокринная система"
         className="text-base font-medium"
@@ -15,12 +23,15 @@ const EndocrineSystemSection = () => {
       <DiagnosticCeckboxItem
         label="Щитовидная железа:"
         checkBoxStle={'w-[730px]'}
+        formMethods={formMethods}
+        categoryName="thyroid"
         children={
           <Box className="flex">
-            <DefaultCheckbox label="без изменений," />
-            <DefaultCheckbox label="увеличена," />
-            <DefaultCheckbox label="болезненна," />
-            <DefaultCheckbox label="консистенция," />
+            <RadioButtonGroup
+              name="thyroid"
+              methods={formMethods}
+              options={ThyroidOptions}
+            />
           </Box>
         }
         description=" "

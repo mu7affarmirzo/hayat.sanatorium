@@ -17,8 +17,18 @@ export const patientService = ApiSlice.injectEndpoints({
         body: body,
       }),
     }),
+    postGetCategory: builder.mutation<any, { category: string }>({
+      query: (body) => ({
+        url: '/sanatorium/get-diagnosis-with-caterggory',
+        method: 'POST',
+        body: body,
+      }),
+    }),
   }),
 });
 
-export const { useGetAllMyPatientsQuery, usePostInitAppointmentMutation } =
-  patientService;
+export const {
+  useGetAllMyPatientsQuery,
+  usePostInitAppointmentMutation,
+  usePostGetCategoryMutation,
+} = patientService;

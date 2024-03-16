@@ -86,7 +86,6 @@ const SelectingDestinationsModal = () => {
               <ICDItem register={register} />
             </Grid>
           </Box>
-
           <Grid
             item
             xs={12}

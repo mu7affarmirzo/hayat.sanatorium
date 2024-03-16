@@ -59,7 +59,6 @@ type propsType = {
 export default function SaidBarCustomizedAccordions(props: propsType) {
   const [expanded, setExpanded] = React.useState<string | false>('');
   const { register } = useForm<IFormInput>();
-  console.log(props.isActive, 'is active item ');
 
   const handleChange =
     (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {

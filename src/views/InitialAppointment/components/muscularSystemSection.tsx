@@ -3,10 +3,17 @@ import { Box } from '@mui/material';
 import SectionTitle from 'components/SectionTitle/sectionTitle';
 import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
 import DiagnosticCeckboxItem from 'components/diagnosticCeckboxItem/DiagnosticCeckboxItem';
+import { FC } from 'react';
+import { UseFormReturn } from 'react-hook-form';
+import { InitAppointmentTypes } from 'types/patientTypes';
 
-const MuscularSystemSection = () => {
+interface Props {
+  formMethods: UseFormReturn<InitAppointmentTypes, any, InitAppointmentTypes>;
+}
+
+const MuscularSystemSection: FC<Props> = ({ formMethods }) => {
   return (
-    <Box className="border w-full px-[10px] pt-[10px] mt-[10px] ">
+    <Box className="border w-full px-[10px] pt-[10px] mt-[10px] bg-red-300">
       <SectionTitle
         title="Конно—мышечная система"
         className="text-base font-medium"
@@ -18,6 +25,8 @@ const MuscularSystemSection = () => {
         description=" "
         titleStyle="w-[100%] border p-[10px] rounded-[4px]"
         style="mt-[5px]"
+        formMethods={formMethods}
+        categoryName="deformations"
       />
       <DiagnosticCeckboxItem
         label="Контрактуры:"
@@ -26,6 +35,8 @@ const MuscularSystemSection = () => {
         description=" "
         titleStyle="w-[100%] border p-[10px] rounded-[4px]"
         style="mt-[5px]"
+        formMethods={formMethods}
+        categoryName="contractures"
       />
       <DiagnosticCeckboxItem
         label="Ограничения движений:"
@@ -34,6 +45,8 @@ const MuscularSystemSection = () => {
         description=" "
         titleStyle="w-[100%] border p-[10px] rounded-[4px]"
         style="mt-[5px]"
+        formMethods={formMethods}
+        categoryName="movement_restrictions"
       />
     </Box>
   );

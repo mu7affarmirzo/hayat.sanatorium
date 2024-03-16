@@ -3,8 +3,24 @@ import { Box, Typography, OutlinedInput } from '@mui/material';
 import SectionTitle from 'components/SectionTitle/sectionTitle';
 import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
 import DiagnosticCeckboxItem from 'components/diagnosticCeckboxItem/DiagnosticCeckboxItem';
+import { FC } from 'react';
+import { UseFormReturn } from 'react-hook-form';
+import { InitAppointmentTypes } from 'types/patientTypes';
+import {
+  AuscultationBreathingOptions,
+  BreathingTypeOptions,
+  CoughOptions,
+  CrepotusOptions,
+  WheezingOptions,
+  HeardEdgeOptions,
+} from '../constant/radioOptions';
+import RadioButtonGroup from 'components/RadioButtonGroup';
 
-const RespiratorySystemSection = () => {
+interface Props {
+  formMethods: UseFormReturn<InitAppointmentTypes, any, InitAppointmentTypes>;
+}
+
+const RespiratorySystemSection: FC<Props> = ({ formMethods }) => {
   return (
     <Box className="border w-full px-[10px] py-[10px] mt-[10px] ">
       <SectionTitle
@@ -26,11 +42,15 @@ const RespiratorySystemSection = () => {
       <DiagnosticCeckboxItem
         label="Тип дыхания:"
         checkBoxStle={'w-[450px]'}
+        formMethods={formMethods}
+        categoryName="breathing_type"
         children={
           <Box className="flex">
-            <DefaultCheckbox label="нет," />
-            <DefaultCheckbox label="брюшной," />
-            <DefaultCheckbox label="смешанный," />
+            <RadioButtonGroup
+              name="breathing_type"
+              methods={formMethods}
+              options={BreathingTypeOptions}
+            />
           </Box>
         }
         description=" "
@@ -40,11 +60,14 @@ const RespiratorySystemSection = () => {
       <DiagnosticCeckboxItem
         label="В легких аускультативно дыхание:"
         checkBoxStle={'w-[700px]'}
+        formMethods={formMethods}
         children={
           <Box className="flex">
-            <DefaultCheckbox label="везикулярное," />
-            <DefaultCheckbox label="жесткое," />
-            <DefaultCheckbox label="ослабленное," />
+            <RadioButtonGroup
+              name="auscultative_breathing"
+              methods={formMethods}
+              options={AuscultationBreathingOptions}
+            />
           </Box>
         }
         description=" "
@@ -55,10 +78,14 @@ const RespiratorySystemSection = () => {
       <DiagnosticCeckboxItem
         label="Хрипы:"
         checkBoxStle={'w-[280px]'}
+        formMethods={formMethods}
         children={
           <Box className="flex">
-            <DefaultCheckbox label="сухие," />
-            <DefaultCheckbox label="влажные," />
+            <RadioButtonGroup
+              name="wheezing"
+              methods={formMethods}
+              options={WheezingOptions}
+            />
           </Box>
         }
         description=" "
@@ -69,10 +96,14 @@ const RespiratorySystemSection = () => {
       <DiagnosticCeckboxItem
         label="Кашель:"
         checkBoxStle={'w-[280px]'}
+        formMethods={formMethods}
         children={
           <Box className="flex">
-            <DefaultCheckbox label="сухой," />
-            <DefaultCheckbox label="мокрый," />
+            <RadioButtonGroup
+              name="wheezing"
+              methods={formMethods}
+              options={CoughOptions}
+            />
           </Box>
         }
         description=" "
@@ -83,6 +114,8 @@ const RespiratorySystemSection = () => {
       <DiagnosticCeckboxItem
         label="Мокрота:"
         checkBoxStle={'w-[150px]'}
+        formMethods={formMethods}
+        categoryName="spleen"
         children={
           <Box className="flex">
             <DefaultCheckbox label="нет," />
@@ -95,13 +128,15 @@ const RespiratorySystemSection = () => {
       <DiagnosticCeckboxItem
         label="Крепитация:"
         checkBoxStle={'w-[750px]'}
+        formMethods={formMethods}
+        categoryName="crepitus"
         children={
           <Box className="flex">
-            <DefaultCheckbox label="верхняя часть," />
-            <DefaultCheckbox label="средняя часть," />
-            <DefaultCheckbox label="нижняя часть," />
-            <DefaultCheckbox label="слева," />
-            <DefaultCheckbox label="справа," />
+            <RadioButtonGroup
+              name="crepitus"
+              methods={formMethods}
+              options={CrepotusOptions}
+            />
           </Box>
         }
         description=" "
@@ -112,18 +147,15 @@ const RespiratorySystemSection = () => {
         label="Перкуторно в легких звук:"
         boxStyle="w-[100%]"
         checkBoxStle={'w-[100%] '}
+        formMethods={formMethods}
         style="flex flex-col items-start border p-[5px]"
         children={
           <Box className="flex">
-            <DefaultCheckbox label="ясный," />
-            <DefaultCheckbox label="легочный," />
-            <DefaultCheckbox label="притупленный," />
-            <DefaultCheckbox label="тупой," />
-            <DefaultCheckbox label="коробочный," />
-            <DefaultCheckbox label="тимпанический," />
-            <DefaultCheckbox label="притупленно-тимпанический," />
-            <DefaultCheckbox label="слева," />
-            <DefaultCheckbox label="справа" />
+            <RadioButtonGroup
+              name="heart_edge"
+              methods={formMethods}
+              options={HeardEdgeOptions}
+            />
           </Box>
         }
         titleStyle="w-[100%] border p-[10px] rounded-[4px]"

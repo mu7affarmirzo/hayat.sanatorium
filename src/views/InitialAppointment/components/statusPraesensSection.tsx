@@ -1,15 +1,29 @@
 /* eslint-disable react/style-prop-object */
 import { Box, Typography, OutlinedInput, Grid } from '@mui/material';
+import RadioButtonGroup from 'components/RadioButtonGroup';
 import SectionTitle from 'components/SectionTitle/sectionTitle';
 import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
 import DiagnosticCeckboxItem from 'components/diagnosticCeckboxItem/DiagnosticCeckboxItem';
 import { FC } from 'react';
+import { UseFormReturn } from 'react-hook-form';
+import { InitAppointmentTypes } from 'types/patientTypes';
+import {
+  ConsciousnessOptions,
+  ConstitutionOptions,
+  GeneralStateOptions,
+  LymphNodesOptions,
+  PositionOptions,
+  SkinMoistureOptions,
+  SkinOptions,
+  SkinTurgorOptions,
+  SubcutaneousFatOption,
+} from '../constant/radioOptions';
 
 interface Props {
-  register: any;
+  formMethods: UseFormReturn<InitAppointmentTypes, any, InitAppointmentTypes>;
 }
 
-const StatusPraesensSection: FC<Props> = ({ register }) => {
+const StatusPraesensSection: FC<Props> = ({ formMethods }) => {
   return (
     <Box className="border px-[10px] py-[10px] flex flex-col gap-1 mb-[10px] ">
       <Grid item className="">
@@ -24,12 +38,15 @@ const StatusPraesensSection: FC<Props> = ({ register }) => {
           style="flex flex-col border p-2"
           titleStyle="w-[100%] border p-[10px] rounded-[4px]"
           boxStyle="w-[100%]"
+          formMethods={formMethods}
+          categoryName="general_state"
           children={
             <Box className="flex">
-              <DefaultCheckbox label="удовлетворительное," />
-              <DefaultCheckbox label="относительное удовлетворительное," />
-              <DefaultCheckbox label="средней тяжести," />
-              <DefaultCheckbox label="тяжёлое" />
+              <RadioButtonGroup
+                options={GeneralStateOptions}
+                name="general_state"
+                methods={formMethods}
+              />
             </Box>
           }
         />
@@ -39,10 +56,11 @@ const StatusPraesensSection: FC<Props> = ({ register }) => {
           actions={false}
           children={
             <Box className={'flex'}>
-              <DefaultCheckbox label="ясное," />
-              <DefaultCheckbox label="ступор," />
-              <DefaultCheckbox label="сопор," />
-              <DefaultCheckbox label="кома," />
+              <RadioButtonGroup
+                options={ConsciousnessOptions}
+                name="consciousness"
+                methods={formMethods}
+              />
             </Box>
           }
           titleStyle="w-[100%] border p-[10px] rounded-[4px]"
@@ -52,9 +70,14 @@ const StatusPraesensSection: FC<Props> = ({ register }) => {
           checkBoxStle={'w-[500px]'}
           children={
             <Box className={'flex'}>
-              <DefaultCheckbox label="активное," />
+              {/* <DefaultCheckbox label="активное," />
               <DefaultCheckbox label="пассивное," />
-              <DefaultCheckbox label="вынужденное," />
+              <DefaultCheckbox label="вынужденное," /> */}
+              <RadioButtonGroup
+                options={PositionOptions}
+                name="ill_part_stomach"
+                methods={formMethods}
+              />
             </Box>
           }
           titleStyle="w-[100%] border p-[10px] rounded-[4px]"
@@ -64,9 +87,11 @@ const StatusPraesensSection: FC<Props> = ({ register }) => {
           checkBoxStle={'w-[500px]'}
           children={
             <Box className={'flex'}>
-              <DefaultCheckbox label="нормастеник," />
-              <DefaultCheckbox label="астеник," />
-              <DefaultCheckbox label="гиперстеник," />
+              <RadioButtonGroup
+                options={ConstitutionOptions}
+                name="constitution"
+                methods={formMethods}
+              />
             </Box>
           }
           titleStyle="w-[100%] border p-[10px] rounded-[4px]"
@@ -78,13 +103,11 @@ const StatusPraesensSection: FC<Props> = ({ register }) => {
           style="flex flex-col items-start border p-[5px] "
           children={
             <Box className="flex">
-              <DefaultCheckbox label="нормальной окраски," />
-              <DefaultCheckbox label="бледные," />
-              <DefaultCheckbox label="гиперемия," />
-              <DefaultCheckbox label="иктеричные," />
-              <DefaultCheckbox label="субиктеричные," />
-              <DefaultCheckbox label="акроцианоз," />
-              <DefaultCheckbox label="землистого цвета" />
+              <RadioButtonGroup
+                options={SkinOptions}
+                name="skin"
+                methods={formMethods}
+              />
             </Box>
           }
           titleStyle="w-[100%] border p-[10px] rounded-[4px]"
@@ -94,18 +117,24 @@ const StatusPraesensSection: FC<Props> = ({ register }) => {
           children={<DefaultCheckbox label="нет," />}
           style="mt-[10px]"
           description=" "
+          categoryName="pigmentation"
+          formMethods={formMethods}
           titleStyle="w-[100%] border p-[10px] rounded-[4px]"
         />
         <DiagnosticCeckboxItem
           label="Депигментация:"
           children={<DefaultCheckbox label="нет," />}
           description=" "
+          categoryName="depigmentation"
+          formMethods={formMethods}
           titleStyle="w-[100%] border p-[10px] rounded-[4px]"
         />
         <DiagnosticCeckboxItem
           label="Высыпания:"
           children={<DefaultCheckbox label="нет," />}
           description=" "
+          categoryName="rashes"
+          formMethods={formMethods}
           titleStyle="w-[100%] border p-[10px] rounded-[4px]"
         />
         <DiagnosticCeckboxItem
@@ -113,55 +142,77 @@ const StatusPraesensSection: FC<Props> = ({ register }) => {
           checkBoxStle={'w-[280px]'}
           children={<DefaultCheckbox label="нет," />}
           description=" "
+          categoryName="vascular_changes"
+          formMethods={formMethods}
           titleStyle="w-[100%] border p-[10px] rounded-[4px]"
         />
         <DiagnosticCeckboxItem
           label="Кровоизлияния:"
           children={<DefaultCheckbox label="нет," />}
           description=" "
+          categoryName="hemorrhages"
+          formMethods={formMethods}
           titleStyle="w-[100%] border p-[10px] rounded-[4px]"
         />
         <DiagnosticCeckboxItem
           label="Рубцы"
           children={<DefaultCheckbox label="нет," />}
           description=" "
+          categoryName="scarring"
+          formMethods={formMethods}
           titleStyle="w-[100%] border p-[10px] rounded-[4px]"
         />
+
         <DiagnosticCeckboxItem
           label="Трофические изменения:"
           checkBoxStle={'w-[280px]'}
           children={<DefaultCheckbox label="нет," />}
           description=" "
+          categoryName="trophic_changes"
+          formMethods={formMethods}
           titleStyle="w-[100%] border p-[10px] rounded-[4px]"
         />
+
         <DiagnosticCeckboxItem
           label="Видимые опухоли:"
           children={<DefaultCheckbox label="нет," />}
           checkBoxStle={'w-[250px]'}
           description=" "
+          categoryName="visible_tumors"
+          formMethods={formMethods}
           titleStyle="w-[100%] border p-[10px] rounded-[4px]"
         />
 
         <DiagnosticCeckboxItem
           label="Влажность кожи:"
           checkBoxStle={'w-[500px]'}
+          categoryName="skin_moisture"
+          formMethods={formMethods}
           children={
             <Box className="flex">
-              <DefaultCheckbox label="обычная," />
-              <DefaultCheckbox label="влажная," />
-              <DefaultCheckbox label="сухая," />
+              <RadioButtonGroup
+                options={SkinMoistureOptions}
+                name="skin_moisture"
+                methods={formMethods}
+              />
             </Box>
           }
           description=" "
           titleStyle="w-[100%] border p-[10px] rounded-[4px]"
         />
+
         <DiagnosticCeckboxItem
           label="Тургор кожи:"
           checkBoxStle={'w-[400px]'}
+          categoryName="skin_turgor"
+          formMethods={formMethods}
           children={
             <Box className="flex">
-              <DefaultCheckbox label="в норме," />
-              <DefaultCheckbox label="снижет," />
+              <RadioButtonGroup
+                options={SkinTurgorOptions}
+                name="skin_turgor"
+                methods={formMethods}
+              />
             </Box>
           }
           description=" "
@@ -171,11 +222,15 @@ const StatusPraesensSection: FC<Props> = ({ register }) => {
         <DiagnosticCeckboxItem
           label="Подкожно-жировая клетчатка:"
           checkBoxStle={'w-[800px]'}
+          categoryName="subcutaneous_fat"
+          formMethods={formMethods}
           children={
             <Box className="flex">
-              <DefaultCheckbox label="развита умеренно," />
-              <DefaultCheckbox label="развита слабо," />
-              <DefaultCheckbox label="развита чрезмерно," />
+              <RadioButtonGroup
+                options={SubcutaneousFatOption}
+                name="subcutaneous_fat"
+                methods={formMethods}
+              />
             </Box>
           }
           description=" "
@@ -186,40 +241,46 @@ const StatusPraesensSection: FC<Props> = ({ register }) => {
         <Box className="flex flex-row items-center p-1">
           <Typography>Рост</Typography>
           <OutlinedInput
-            sx={{ height: '35px', width: '100px' }}
+            sx={{ width: '100px' }}
             className="mx-2"
-            {...register('height', { required: true })}
+            size="small"
+            {...formMethods.register('height', { required: true })}
           />
           <Typography>см,</Typography>
           <Typography>вес</Typography>
           <OutlinedInput
-            sx={{ height: '35px', width: '100px' }}
+            sx={{ width: '100px' }}
             className="mx-2"
-            {...register('weight', { required: true })}
+            size="small"
+            {...formMethods.register('weight', { required: true })}
           />
           <Typography>кг, пульс</Typography>
           <OutlinedInput
-            sx={{ height: '35px', width: '100px' }}
+            sx={{ width: '100px' }}
             className="mx-2"
-            {...register('heart_beat', { required: true })}
+            size="small"
+            {...formMethods.register('heart_beat', { required: true })}
           />
           <Typography>уд/м, давление</Typography>
           <OutlinedInput
-            sx={{ height: '35px', width: '80px' }}
+            sx={{ width: '80px' }}
             className="mx-2"
-            {...register('arterial_high', { required: true })}
+            size="small"
+            {...formMethods.register('arterial_high', { required: true })}
           />
           <Typography>/</Typography>
           <OutlinedInput
-            sx={{ height: '35px', width: '80px' }}
+            sx={{ width: '80px' }}
             className="mx-2"
-            {...register('arterial_low', { required: true })}
+            size="small"
+            {...formMethods.register('arterial_low', { required: true })}
           />
           <Typography>мм рт.ст., ИМТ</Typography>
           <OutlinedInput
-            sx={{ height: '35px', width: '60px' }}
+            sx={{ width: '60px' }}
             className="mx-2"
-            {...register('imt', { required: true })}
+            size="small"
+            {...formMethods.register('imt', { required: true })}
           />
           <Typography>кг/м2</Typography>
         </Box>
@@ -234,9 +295,12 @@ const StatusPraesensSection: FC<Props> = ({ register }) => {
           }
           titleStyle="w-[100%] border p-[10px] rounded-[4px]"
         />
+
         <DiagnosticCeckboxItem
           label="Отеки, пастозность:"
           checkBoxStle={'w-[250px]'}
+          categoryName="swelling_pastiness"
+          formMethods={formMethods}
           children={
             <Box className="flex">
               <DefaultCheckbox label="нет," />
@@ -245,15 +309,19 @@ const StatusPraesensSection: FC<Props> = ({ register }) => {
           description=" "
           titleStyle="w-[100%] border p-[10px] rounded-[4px]"
         />
+
         <DiagnosticCeckboxItem
           label="Лимфатические узлы:"
-          checkBoxStle={'w-[800px]'}
+          checkBoxStle={'w-[650px]'}
+          categoryName="lymph_nodes"
+          formMethods={formMethods}
           children={
             <Box className="flex">
-              <DefaultCheckbox label="не увеличены," />
-              <DefaultCheckbox label="мягкие," />
-              <DefaultCheckbox label="плотные," />
-              <DefaultCheckbox label="эластичные," />
+              <RadioButtonGroup
+                options={LymphNodesOptions}
+                name="constitution"
+                methods={formMethods}
+              />
             </Box>
           }
           description=" "

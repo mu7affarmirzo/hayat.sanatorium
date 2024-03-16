@@ -1,13 +1,30 @@
 /* eslint-disable react/style-prop-object */
 import { Box, Typography, OutlinedInput } from '@mui/material';
 import DiagnostikaItem from 'components/DiagnostikaItem';
+import RadioButtonGroup from 'components/RadioButtonGroup';
 import SectionTitle from 'components/SectionTitle/sectionTitle';
 import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
 import DiagnosticCeckboxItem from 'components/diagnosticCeckboxItem/DiagnosticCeckboxItem';
+import { FC } from 'react';
+import { UseFormReturn } from 'react-hook-form';
+import { InitAppointmentTypes } from 'types/patientTypes';
+import {
+  AppetitOption,
+  CracksUlcersInMouthOptions,
+  LiverEdgeOptions,
+  SpeanEdgeOptions,
+  StomachOptions,
+  StoolOptions,
+  TongueOptions,
+} from '../constant/radioOptions';
 
-const DigestiveOrgansSection = () => {
+interface Props {
+  formMethods: UseFormReturn<InitAppointmentTypes, any, InitAppointmentTypes>;
+}
+
+const DigestiveOrgansSection: FC<Props> = ({ formMethods }) => {
   return (
-    <Box className="border w-full px-[10px] pt-[10px] mt-[10px] ">
+    <Box className="border w-full px-[10px] pt-[10px] mt-[10px] bg-green-300">
       <SectionTitle
         title="Органы пищеварения"
         className="text-base font-medium"
@@ -15,12 +32,15 @@ const DigestiveOrgansSection = () => {
       <DiagnosticCeckboxItem
         label="Аппетит:"
         checkBoxStle={'w-[630px]'}
+        formMethods={formMethods}
+        categoryName="appetit"
         children={
           <Box className="flex">
-            <DefaultCheckbox label="удовлетворительный," />
-            <DefaultCheckbox label="снижен," />
-            <DefaultCheckbox label="повышен," />
-            <DefaultCheckbox label="анорексия," />
+            <RadioButtonGroup
+              name="appetit"
+              methods={formMethods}
+              options={AppetitOption}
+            />
           </Box>
         }
         description=" "
@@ -30,12 +50,15 @@ const DigestiveOrgansSection = () => {
       <DiagnosticCeckboxItem
         label="Язык:"
         checkBoxStle={'w-[620px]'}
+        formMethods={formMethods}
+        categoryName="tongue"
         children={
           <Box className="flex">
-            <DefaultCheckbox label="чистый," />
-            <DefaultCheckbox label="влажный," />
-            <DefaultCheckbox label="географически й," />
-            <DefaultCheckbox label="обложен налетом," />
+            <RadioButtonGroup
+              name="tongue"
+              methods={formMethods}
+              options={TongueOptions}
+            />
           </Box>
         }
         description=" "
@@ -45,10 +68,15 @@ const DigestiveOrgansSection = () => {
       <DiagnosticCeckboxItem
         label="Трещины, язвы в полости рта:"
         checkBoxStle={'w-[380px]'}
+        formMethods={formMethods}
+        categoryName="cracks_ulcers_in_mouth"
         children={
           <Box className="flex">
-            <DefaultCheckbox label="нет," />
-            <DefaultCheckbox label="есть," />
+            <RadioButtonGroup
+              name="cracks_ulcers_in_mouth"
+              methods={formMethods}
+              options={CracksUlcersInMouthOptions}
+            />
           </Box>
         }
         description=" "
@@ -59,15 +87,19 @@ const DigestiveOrgansSection = () => {
         boxStyle="w-[100%]"
         checkBoxStle={'w-[100%] '}
         style="flex flex-col items-start border p-[5px]"
+        categoryName="stomach"
+        formMethods={formMethods}
         children={
           <Box>
             <Box className="flex items-center">
               <Typography className="text-[14px]  font-normal text-[#000]">
                 Живот:
               </Typography>
-              <DefaultCheckbox label="мягкий," />
-              <DefaultCheckbox label="вздутый," />
-              <DefaultCheckbox label="впавший," />
+              <RadioButtonGroup
+                name="stomach"
+                methods={formMethods}
+                options={StomachOptions}
+              />
             </Box>
             <Box className="flex items-center">
               <Typography className="text-[14px]  font-normal text-[#000]">
@@ -87,6 +119,8 @@ const DigestiveOrgansSection = () => {
       <DiagnosticCeckboxItem
         label="Печень:"
         checkBoxStle={'w-[500px]'}
+        formMethods={formMethods}
+        categoryName="liver"
         children={
           <Box className="flex">
             <DefaultCheckbox label="не увеличена," />
@@ -108,12 +142,15 @@ const DigestiveOrgansSection = () => {
       <DiagnosticCeckboxItem
         label="Край печени:"
         checkBoxStle={'w-[600px]'}
+        formMethods={formMethods}
+        categoryName="liver_edge"
         children={
           <Box className="flex">
-            <DefaultCheckbox label="острый," />
-            <DefaultCheckbox label="закругленный," />
-            <DefaultCheckbox label="мягкий," />
-            <DefaultCheckbox label="плотный," />
+            <RadioButtonGroup
+              name="liver_edge"
+              methods={formMethods}
+              options={LiverEdgeOptions}
+            />
           </Box>
         }
         description=" "
@@ -123,6 +160,8 @@ const DigestiveOrgansSection = () => {
       <DiagnosticCeckboxItem
         label="Селезенка:"
         checkBoxStle={'w-[500px]'}
+        formMethods={formMethods}
+        categoryName="spleen"
         children={
           <Box className="flex">
             <DefaultCheckbox label="не увеличена," />
@@ -144,12 +183,15 @@ const DigestiveOrgansSection = () => {
       <DiagnosticCeckboxItem
         label="Край селезенки:"
         checkBoxStle={'w-[600px]'}
+        formMethods={formMethods}
+        categoryName="spleen_edge"
         children={
           <Box className="flex">
-            <DefaultCheckbox label="острый," />
-            <DefaultCheckbox label="закругленный," />
-            <DefaultCheckbox label="мягкий," />
-            <DefaultCheckbox label="плотный," />
+            <RadioButtonGroup
+              name="spleen_edge"
+              methods={formMethods}
+              options={SpeanEdgeOptions}
+            />
           </Box>
         }
         description=" "
@@ -159,13 +201,15 @@ const DigestiveOrgansSection = () => {
       <DiagnosticCeckboxItem
         label="Стул:"
         checkBoxStle={'w-[700px]'}
+        formMethods={formMethods}
+        categoryName="stool"
         children={
           <Box className="flex">
-            <DefaultCheckbox label="жидкий," />
-            <DefaultCheckbox label="кашицеобразный," />
-            <DefaultCheckbox label="оформленный," />
-            <DefaultCheckbox label="запоры," />
-            <DefaultCheckbox label="диарея," />
+            <RadioButtonGroup
+              name="stool"
+              methods={formMethods}
+              options={StoolOptions}
+            />
           </Box>
         }
         description=" "
@@ -180,8 +224,8 @@ const DigestiveOrgansSection = () => {
         <OutlinedInput
           sx={{ height: '35px', width: '60px' }}
           className="mx-2"
+          {...formMethods.register('stool_frequency', { required: true })}
         />
-
         <Typography className=" text-[14px]  font-normal text-[#000]">
           раз в день
         </Typography>

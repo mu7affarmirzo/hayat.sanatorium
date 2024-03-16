@@ -15,6 +15,7 @@ import ConclusionSection from './components/conclusionSection';
 import AppointmentsSection from './components/appointmentsSection';
 import StatusPraesensSection from './components/statusPraesensSection';
 import MuscularSystemSection from './components/muscularSystemSection';
+import { FormProvider } from 'react-hook-form';
 
 const top100Films = [
   { label: 'The Shawshank Redemption', year: 1994 },
@@ -27,43 +28,45 @@ const top100Films = [
 ];
 
 const IntialApportmentView = () => {
-  const { register, onSubmit, handleSubmit } = useInitialAppointmentForm();
+  const { methods, onSubmit } = useInitialAppointmentForm();
 
   return (
     <Box>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="border border-[rgba(0, 0, 0, 0.23)] h-[calc(100vh-220px)]  p-[10px] overflow-hidden">
-        <InitialApportmentHeaderSection data={top100Films} />
-        <Box className="bg-[#fff] w-full p-[8px] overflow-scroll max-h-[calc(100vh-300px)] h-[calc(100vh-300px)]">
-          <DiagnostikaItem title="Жалобы/анамнез" />
-          <DiagnostikaItem title="Anamnesis morbi" />
-          <DiagnostikaItem title="Anamnesis vitae" />
+      <FormProvider {...methods}>
+        <form
+          onSubmit={methods.handleSubmit(onSubmit)}
+          className="border border-[rgba(0, 0, 0, 0.23)] h-[calc(100vh-220px)]  p-[10px] overflow-hidden">
+          <InitialApportmentHeaderSection data={top100Films} />
+          <Box className="bg-[#fff] w-full p-[8px] overflow-scroll max-h-[calc(100vh-300px)] h-[calc(100vh-300px)]">
+            <DiagnostikaItem title="Жалобы/анамнез" />
+            <DiagnostikaItem title="Anamnesis morbi" />
+            <DiagnostikaItem title="Anamnesis vitae" />
 
-          <EpidemiologicalHistorySection />
+            <EpidemiologicalHistorySection formMethods={methods} />
 
-          <StatusPraesensSection register={register} />
+            <StatusPraesensSection formMethods={methods} />
 
-          <MuscularSystemSection />
+            <MuscularSystemSection formMethods={methods} />
 
-          <RespiratorySystemSection />
+            <RespiratorySystemSection formMethods={methods} />
 
-          <CardiovascularSystemSection />
+            <CardiovascularSystemSection formMethods={methods} />
 
-          <DigestiveOrgansSection />
+            <DigestiveOrgansSection formMethods={methods} />
 
-          <UrinarySystemSection />
+            <UrinarySystemSection formMethods={methods} />
 
-          <EndocrineSystemSection />
+            <EndocrineSystemSection formMethods={methods} />
 
-          <NervousSystemSection />
+            <NervousSystemSection />
 
-          <DiagnosisSection />
+            <DiagnosisSection />
 
-          <ConclusionSection />
-          <AppointmentsSection />
-        </Box>
-      </form>
+            <ConclusionSection />
+            <AppointmentsSection />
+          </Box>
+        </form>
+      </FormProvider>
     </Box>
   );
 };
