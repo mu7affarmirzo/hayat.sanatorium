@@ -1,5 +1,6 @@
-import { Typography, Box, Grid } from '@mui/material';
-import { VuesaxLinear, SearchIcon, CloseIcon } from 'assets/icons/icons';
+import { Box, Grid, Typography } from '@mui/material';
+import { CloseIcon, SearchIcon, VuesaxLinear } from 'assets/icons/icons';
+import { useAppModals } from 'components/Modals';
 import SearchInput from 'components/SearchField/searchInput';
 import DefaultButton from 'components/deafultButton/DefaultButton';
 
@@ -8,10 +9,17 @@ type Props = {
   handleSearch: ((value: string) => void) | undefined;
 };
 
+// schedule_d_t;
+// cancel_appointment;
+// standard_templates;
 export const SearchActionsSection = ({
   handleSearch,
   numberOfPatient,
 }: Props) => {
+  const appModals = useAppModals();
+  const openModal = () => {
+    appModals?.show('schedule_d_t');
+  };
   return (
     <Grid
       item
@@ -27,7 +35,7 @@ export const SearchActionsSection = ({
         </Box>
       </Grid>
       <Grid item xs={12} md={4} className="flex justify-between">
-        <DefaultButton title="Выбор колонок" />
+        <DefaultButton title="Выбор колонок" onClick={openModal} />
         <DefaultButton title="Ехсеl" icon={<VuesaxLinear />} />
         <DefaultButton
           title="Поиск"

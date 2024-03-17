@@ -1,6 +1,33 @@
-import { Typography } from '@mui/material';
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import { Button, Typography } from '@mui/material';
 import { ColDef } from 'ag-grid-community';
 
+const CustomHeader = () => {
+  return (
+    <div className="flex">
+      <span className="p-[0] m-[0] text-[14px] text-[#000]">
+        Диспетчеризовать
+      </span>
+      <a href="" className="p-[0] m-[0] text-[13px] text-[#0057B2] ml-[10px]">
+        отменить всё
+      </a>
+    </div>
+  );
+};
+
+function MyRoomType(params: any) {
+  return (
+    <Button
+      sx={{
+        border: '1px solid #b1afaf',
+        width: '49px',
+        height: '26px',
+        background: '#f1f0f0',
+      }}>
+      <Typography className="text-[#000] text-[14px]"> да</Typography>
+    </Button>
+  );
+}
 export const BookedCol: ColDef[] = [
   {
     headerName: 'Статус',
@@ -390,6 +417,47 @@ export const BookedPatientSearch: ColDef[] = [
       display: 'flex',
       alignItems: 'center',
       justifyContent: ' end ',
+      border: '.5px solid #e0e0e0',
+      paddingLeft: '10px',
+    },
+  },
+];
+export const ScheduleDTModalCol: ColDef[] = [
+  {
+    headerName: 'Дата',
+    field: 'end_date',
+
+    width: 130,
+    cellStyle: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'start ',
+      border: '.5px solid #e0e0e0',
+      paddingLeft: '10px',
+    },
+  },
+  {
+    headerName: 'Нарушения правил',
+    field: 'name',
+    width: 600,
+    cellStyle: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: ' start ',
+      border: '.5px solid #e0e0e0',
+      paddingLeft: '10px',
+    },
+  },
+  {
+    headerName: 'Диспетчеризовать?',
+    field: 'age',
+    width: 240,
+    headerComponent: CustomHeader,
+    cellRenderer: MyRoomType,
+    cellStyle: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: ' center ',
       border: '.5px solid #e0e0e0',
       paddingLeft: '10px',
     },

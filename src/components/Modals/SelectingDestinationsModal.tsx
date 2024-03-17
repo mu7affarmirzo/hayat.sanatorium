@@ -10,16 +10,6 @@ import { useForm } from 'react-hook-form';
 import ICDItem from 'components/ICDItem';
 import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
 
-const btnData = [
-  {
-    id: 0,
-    title: 'МКБ-10',
-  },
-  {
-    id: 1,
-    title: 'Часто используемые',
-  },
-];
 interface IFormInput {
   lastName: string;
   name: string;
