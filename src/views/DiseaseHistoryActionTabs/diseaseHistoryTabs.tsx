@@ -1,55 +1,68 @@
 import { Grid } from '@mui/material';
-import { CoinsAltIcon } from 'assets/icons/icons';
+import { CoinsAltIcon, VuesaxLinearPrinterIcon } from 'assets/icons/icons';
 import SelectButton from 'components/buttons/SelectButton';
 import DefaultButton from 'components/deafultButton/DefaultButton';
 import { FC, useCallback } from 'react';
 import { useReduxDispatch } from 'hooks/useReduxHook';
 import { addPatientDoctors } from 'features/patient/patientSlice';
-import { AddHandler } from './components/nestDropdownMenu';
-import MultiLevelDropdown from 'components/MultiLevelDropdown';
-import {
-  MultiLevelDropdownOption,
-  options,
-} from 'components/MultiLevelDropdown/options';
-import NestedDropdownMenu from 'components/NestedDropdownMenu';
+import { MultiLevelDropdownOption } from 'components/MultiLevelDropdown/options';
+import Dropdown from 'components/NestedDropdownMenu/ReuseableDropdown';
+import { ArrowDropDownIcon } from '@mui/x-date-pickers';
 
 interface Props {
   selectData: any;
   selectData2: any;
   setActiveItem?: any;
 }
-const popapData = [
+
+export type DropdownMenuItem = {
+  id: number;
+  title: string;
+  subMenu?: DropdownMenuItem[];
+};
+
+const newPopapData: DropdownMenuItem[] = [
   {
     id: 1,
-    title: 'Заключительный прием лечащего врача',
+    title: 'Первичный прием лечащего врача',
   },
   {
     id: 2,
-    title: 'Консультация кардиолога первичная',
-  },
-  {
-    id: 3,
-    title: 'Консультация невролога первичная',
-  },
-  {
-    id: 4,
-    title: ' Осмотр дежурного врача при поступлении',
-  },
-  {
-    id: 5,
-    title: 'Повторный приём лечащего врача',
-  },
-  {
-    id: 6,
-    title: 'Прием дежурного врача',
-  },
-  {
-    id: 7,
-    title: 'ЭКГ(Электрокардиограмма)',
-  },
-  {
-    id: 8,
-    title: 'Первичный прием лечащего врача',
+    title: 'Без назначения',
+    subMenu: [
+      {
+        id: 1,
+        title: 'Заключительный прием лечащего врача',
+      },
+      {
+        id: 2,
+        title: 'Консультация кардиолога первичная',
+      },
+      {
+        id: 3,
+        title: 'Консультация невролога первичная',
+      },
+      {
+        id: 4,
+        title: ' Осмотр дежурного врача при поступлении',
+      },
+      {
+        id: 5,
+        title: 'Повторный приём лечащего врача',
+      },
+      {
+        id: 6,
+        title: 'Прием дежурного врача',
+      },
+      {
+        id: 7,
+        title: 'ЭКГ(Электрокардиограмма)',
+      },
+      {
+        id: 8,
+        title: 'Первичный прием лечащего врача',
+      },
+    ],
   },
 ];
 
@@ -57,17 +70,17 @@ const DiseaseHistoryTopTabs: FC<Props> = ({ selectData, selectData2 }) => {
   const dispatch = useReduxDispatch();
 
   const handleClickedRowTable = useCallback(
-    (id: number, title: string) => {
-      dispatch(
-        addPatientDoctors({
-          id: id,
-          name: title,
-        }),
-      );
+    (item: { id: number; title: string }) => {
+      // dispatch(
+      //   addPatientDoctors({
+      //     id: item.id,
+      //     name: item.title,
+      //   }),
+      // );
+      console.log(item, 'item');
     },
-    [dispatch],
+    [],
   );
-
   const handleChange = (selectedValue: MultiLevelDropdownOption) => {
     console.log(selectedValue);
   };
@@ -87,18 +100,22 @@ const DiseaseHistoryTopTabs: FC<Props> = ({ selectData, selectData2 }) => {
             classStyle="h-[46px] text-[#fff] mr-[10px] bg-green-500  "
             submitType="submit"
           />
-
-          <AddHandler handleClicked={handleClickedRowTable} data={popapData} />
-          {/* <MultiLevelDropdown
-            title="MultiDropdown"
-            options={options}
-            onChange={handleChange}
-          /> */}
-          {/* <NestedDropdownMenu
-            title="MultiDropdown"
-            options={options}
-            onChange={handleChange}
-          /> */}
+          <Dropdown
+            title="Начало приёма"
+            handleClicked={(item) => handleClickedRowTable(item)}
+            data={newPopapData}
+            styles="bg-[#2196F3] max-h-[46px] mx-1 h-[46px] w-[200px] min-w-[120px]"
+            startIcon={<VuesaxLinearPrinterIcon />}
+            endIcon={<ArrowDropDownIcon sx={{ color: '#000' }} />}
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'left',
+            }}
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'left',
+            }}
+          />
           <SelectButton
             data={selectData2}
             defaultValue="Экспортировать документы"

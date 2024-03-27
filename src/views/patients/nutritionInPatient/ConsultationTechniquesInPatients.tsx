@@ -5,7 +5,7 @@ import DefaultButton from 'components/deafultButton/DefaultButton';
 import DiagnosticCeckboxItem from 'components/diagnosticCeckboxItem/DiagnosticCeckboxItem';
 import DiagnostikaItem from 'components/DiagnostikaItem';
 import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
-import InitialApportmentHeaderSection from 'views/InitialAppointment/components/initialApportmentHeader';
+import InitialApportmentHeaderSection from 'views/InitAppointment/components/initialApportmentHeader';
 import SectionTitle from 'components/SectionTitle/sectionTitle';
 import DefaultText from 'components/defaultText/DefaultText';
 

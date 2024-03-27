@@ -15,6 +15,7 @@ import SelectingDestinationsModal from './SelectingDestinationsModal';
 import AddConsultationsModal from './AddConsultationsModal';
 import CreateDestinationsModal from './CreateDestinationsModal';
 import SelectStudiesMoodal from './SelectStudiesMoodal';
+import AppointmentMedicalsModal from './AppointmentMedicalsModal';
 
 const ModalsContext = createContext<ModalsContextType | null>(null);
 
@@ -52,6 +53,10 @@ const initialState = {
     neverWork: false,
   },
   select_studies: {
+    active: false,
+    neverWork: false,
+  },
+  appointment_medicals: {
     active: false,
     neverWork: false,
   },
@@ -95,6 +100,7 @@ export const ModalsProvider: FC<ModalsProviderType> = ({ children }) => {
       <AddConsultationsModal />
       <CreateDestinationsModal />
       <SelectStudiesMoodal />
+      <AppointmentMedicalsModal />
       {children}
     </ModalsContext.Provider>
   );

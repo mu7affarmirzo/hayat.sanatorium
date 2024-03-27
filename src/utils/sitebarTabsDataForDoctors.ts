@@ -1,6 +1,6 @@
 import { TabsItem } from 'components/sideBar/SideBar';
 import PatientDoctorTPContainer from 'containers/Doctors/PatientDoctors/PatientDoctorTPContainer';
-import InitialApportments from 'views/InitialAppointment';
+import InitialApportments from 'views/InitAppointment';
 import TreatmentSchedule from 'views/TreatmentSchedule';
 import changelog from 'views/booked/changelog';
 import consultationTechniques from 'views/booked/consultationTechniques';

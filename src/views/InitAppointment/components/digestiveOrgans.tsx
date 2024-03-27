@@ -24,7 +24,7 @@ interface Props {
 
 const DigestiveOrgansSection: FC<Props> = ({ formMethods }) => {
   return (
-    <Box className="border w-full px-[10px] pt-[10px] mt-[10px] bg-green-300">
+    <Box className="border w-full px-[10px] pt-[10px] mt-[10px] ">
       <SectionTitle
         title="Органы пищеварения"
         className="text-base font-medium"

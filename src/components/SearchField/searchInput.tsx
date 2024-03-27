@@ -19,6 +19,11 @@ const SearchInput = (props: PropsType) => {
   return (
     <TextField
       className={`${'w-[100%]'} bg-[#fff] h-[40px] `}
+      sx={{
+        width: '100%',
+        background: '#fff',
+        height: '40px',
+      }}
       id="outlined-start-adornment"
       size="small"
       onChange={handleChange}

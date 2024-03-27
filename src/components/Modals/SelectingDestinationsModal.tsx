@@ -1,3 +1,4 @@
+/* eslint-disable react/style-prop-object */
 import { Box, Button, Grid, IconButton } from '@mui/material';
 import { CloseCircleIcon } from 'assets/icons/icons';
 import DefaultText from 'components/defaultText/DefaultText';
@@ -20,6 +21,7 @@ const btnData = [
     title: 'Часто используемые',
   },
 ];
+
 interface IFormInput {
   lastName: string;
   name: string;
@@ -35,6 +37,7 @@ const SelectingDestinationsModal = () => {
   useEscapeKey({
     callback: onCloseModal,
   });
+
   const [activeTab, setActiveTab] = useState<number>(0);
   const { register, handleSubmit } = useForm<IFormInput>();
 
@@ -77,7 +80,6 @@ const SelectingDestinationsModal = () => {
                 }}
               />
             </Grid>
-
             <Grid
               item
               xs={12}

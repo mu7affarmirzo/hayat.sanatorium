@@ -15,7 +15,7 @@ interface Props {
 
 const EndocrineSystemSection: FC<Props> = ({ formMethods }) => {
   return (
-    <Box className="border w-full px-[10px] pt-[10px] mt-[10px] bg-yellow-300">
+    <Box className="border w-full px-[10px] pt-[10px] mt-[10px] ">
       <SectionTitle
         title="Эндокринная система"
         className="text-base font-medium"

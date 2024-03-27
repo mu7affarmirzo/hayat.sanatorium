@@ -13,7 +13,7 @@ interface Props {
 
 const MuscularSystemSection: FC<Props> = ({ formMethods }) => {
   return (
-    <Box className="border w-full px-[10px] pt-[10px] mt-[10px] bg-red-300">
+    <Box className="border w-full px-[10px] pt-[10px] mt-[10px]">
       <SectionTitle
         title="Конно—мышечная система"
         className="text-base font-medium"

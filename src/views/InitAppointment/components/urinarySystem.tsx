@@ -16,7 +16,7 @@ interface Props {
 
 const UrinarySystemSection: FC<Props> = ({ formMethods }) => {
   return (
-    <Box className="border w-full px-[10px] pt-[10px] mt-[10px] bg-blue-300">
+    <Box className="border w-full px-[10px] pt-[10px] mt-[10px] ">
       <SectionTitle
         title="Мочевыделительная система"
         className="text-base font-medium"

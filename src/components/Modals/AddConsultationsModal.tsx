@@ -37,7 +37,6 @@ const AddConsultationsModal = () => {
           </Grid>
         </Grid>
       </Box>
-
       <div className="cancel_window" onClick={onCloseModal} />
     </AddConsultationContainer>
   );

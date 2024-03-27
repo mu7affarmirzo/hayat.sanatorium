@@ -22,7 +22,7 @@ interface Props {
 
 const CardiovascularSystemSection: FC<Props> = ({ formMethods }) => {
   return (
-    <Box className="border w-full px-[10px] pt-[10px] mt-[10px]  bg-pink-300">
+    <Box className="border w-full px-[10px] pt-[10px] mt-[10px]  ">
       <SectionTitle
         title="Сердечно-сосудистая система"
         className="text-base font-medium"

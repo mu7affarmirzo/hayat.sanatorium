@@ -12,7 +12,7 @@ import EndocrineSystemSection from './components/endocrineSystem';
 import NervousSystemSection from './components/nervousSystem';
 import DiagnosisSection from './components/diagnosisSection';
 import ConclusionSection from './components/conclusionSection';
-import AppointmentsSection from './components/appointmentsSection';
+import AppointmentsSection from './components/AppointmentActionSection/appointmentsSection';
 import StatusPraesensSection from './components/statusPraesensSection';
 import MuscularSystemSection from './components/muscularSystemSection';
 import { FormProvider } from 'react-hook-form';
@@ -35,7 +35,7 @@ const IntialApportmentView = () => {
       <FormProvider {...methods}>
         <form
           onSubmit={methods.handleSubmit(onSubmit)}
-          className="border border-[rgba(0, 0, 0, 0.23)] h-[calc(100vh-220px)]  p-[10px] overflow-hidden">
+          className="border border-[rgba(0, 0, 0, 0.23)] h-[calc(100vh-220px)]  p-[10px] overflow-hidden ">
           <InitialApportmentHeaderSection data={top100Films} />
           <Box className="bg-[#fff] w-full p-[8px] overflow-scroll max-h-[calc(100vh-300px)] h-[calc(100vh-300px)]">
             <DiagnostikaItem title="Жалобы/анамнез" />

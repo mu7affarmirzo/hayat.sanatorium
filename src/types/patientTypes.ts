@@ -16,7 +16,10 @@ export interface GetMyPatientsQuery {
 }
 
 export interface InitAppointmentTypes {
-  complaint: string;
+  medical_services: MedicalService[];
+  procedures: Procedure[];
+  lab_research: LabResearch[];
+  pills: Pill[];
   anamnesis_morbi: string;
   anamnesis_vitae: string;
   contact_with_infectious: string;
@@ -92,7 +95,41 @@ export interface InitAppointmentTypes {
   nerve_system: string;
   cito: boolean;
   summary: string;
+  illness_history: number;
   diagnosis: number;
-  consulting: number[];
-  treatment_procedures: number[];
+}
+
+export interface LabResearch {
+  lab: number;
+  price: number;
+  state: string;
+  comments: string;
+}
+
+export interface MedicalService {
+  medical_service: number;
+  price: number;
+  consulted_doctor: number;
+  state: string;
+}
+
+export interface Pill {
+  pills_injections: number;
+  price: number;
+  state: string;
+  quantity: number;
+  period_days: number;
+  end_date: Date;
+  frequency: string;
+  comments: string;
+  instruction: string;
+}
+
+export interface Procedure {
+  medical_service: number;
+  price: number;
+  state: string;
+  quantity: number;
+  frequency: string;
+  comments: string;
 }

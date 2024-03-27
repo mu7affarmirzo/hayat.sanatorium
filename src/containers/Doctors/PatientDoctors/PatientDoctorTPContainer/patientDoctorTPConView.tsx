@@ -101,8 +101,6 @@ const PatientDoctorsTPContainer = () => {
     copyArray,
   } = usePatientDocTPHook();
 
-  console.log(getAgePatient, 'getAgePatient');
-
   return (
     <div
       style={{
