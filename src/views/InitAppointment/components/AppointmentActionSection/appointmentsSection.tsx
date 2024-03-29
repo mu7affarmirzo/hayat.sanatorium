@@ -3,7 +3,6 @@ import { Box, Grid } from '@mui/material';
 import SectionTitle from 'components/SectionTitle/sectionTitle';
 import DefaultButton from 'components/deafultButton/DefaultButton';
 import { AppointmentMedicalsActions } from '../MedicalsActions.tsx/appointmentMedicalsActions';
-import { AppointmentProductos } from '../AppointmentProcedures/proceduresAction';
 import NestedCollapseDropdownCheckbox from 'components/NestedCollapseDropdownCheckbox/CollapseDropdownCheckbox';
 import SearchInput from 'components/SearchField/searchInput';
 import DefaultText from 'components/defaultText/DefaultText';
@@ -11,6 +10,7 @@ import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
 import { useState } from 'react';
 import AdvancedModal from 'components/Modals/ReuseableModal/reuseableModal';
 import { ConsultingAndResearchView } from 'features/ConsultingAndResearch';
+import { ProceduresView } from 'features/Prodcedures';
 
 const AppointmentsBoxModal = ({ option }: any) => {
   return (
@@ -94,7 +94,7 @@ const AppointmentsSection = () => {
     <Box className="border w-full px-[10px] py-[5px] mt-[10px] mb-10">
       <AppointmentsBox />
       <ConsultingAndResearchView />
-      <AppointmentProductos />
+      <ProceduresView />
       <AppointmentMedicalsActions />
     </Box>
   );
