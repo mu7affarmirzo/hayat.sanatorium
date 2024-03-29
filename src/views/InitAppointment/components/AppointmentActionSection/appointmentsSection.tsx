@@ -2,15 +2,15 @@
 import { Box, Grid } from '@mui/material';
 import SectionTitle from 'components/SectionTitle/sectionTitle';
 import DefaultButton from 'components/deafultButton/DefaultButton';
-import { AppointmentConsultationActions } from '../AppointmentConsultation/appointmentConsultation';
 import { AppointmentMedicalsActions } from '../MedicalsActions.tsx/appointmentMedicalsActions';
-import { AppointmentProductos } from '../AppointmentProcedures/procedures';
-import NestedCollapseDropdownCheckbox from 'components/NestedCollapseDropdownCheckbox/nestedCollapseDropdownCheckbox';
+import { AppointmentProductos } from '../AppointmentProcedures/proceduresAction';
+import NestedCollapseDropdownCheckbox from 'components/NestedCollapseDropdownCheckbox/CollapseDropdownCheckbox';
 import SearchInput from 'components/SearchField/searchInput';
 import DefaultText from 'components/defaultText/DefaultText';
 import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
 import { useState } from 'react';
 import AdvancedModal from 'components/Modals/ReuseableModal/reuseableModal';
+import { ConsultingAndResearchView } from 'features/ConsultingAndResearch';
 
 const AppointmentsBoxModal = ({ option }: any) => {
   return (
@@ -53,7 +53,11 @@ const AppointmentsBoxModal = ({ option }: any) => {
             overflow: 'scroll',
             overflowX: 'auto',
           }}>
-          <NestedCollapseDropdownCheckbox options={option} />
+          <NestedCollapseDropdownCheckbox
+            options={option}
+            handleSelect={() => console.log('clicked')}
+            selectedItems={[]}
+          />
         </Box>
       </Grid>
     </Box>
@@ -89,7 +93,7 @@ const AppointmentsSection = () => {
   return (
     <Box className="border w-full px-[10px] py-[5px] mt-[10px] mb-10">
       <AppointmentsBox />
-      <AppointmentConsultationActions />
+      <ConsultingAndResearchView />
       <AppointmentProductos />
       <AppointmentMedicalsActions />
     </Box>

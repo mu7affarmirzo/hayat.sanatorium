@@ -6,6 +6,7 @@ import { eventsSlice } from 'features/events/eventsSlice';
 import dispatchingSlice from 'features/Dispatching/dispatchingSlice';
 import { patientSlice } from 'features/patient/patientSlice';
 import appointmentStatus from 'features/slices/initAppoinmentStatusSlice';
+import { consultingAndResearchSlice } from 'features/ConsultingAndResearch/model/slice/consultingAndResearchSlice';
 
 export const reducers = combineReducers({
   [ApiSlice.reducerPath]: ApiSlice.reducer,
@@ -15,6 +16,7 @@ export const reducers = combineReducers({
   dispatching: dispatchingSlice,
   patients: patientSlice.reducer,
   appointmentStatus: appointmentStatus,
+  consultingAndResearch: consultingAndResearchSlice.reducer,
 });
 
 export type RootState = ReturnType<typeof reducers>;

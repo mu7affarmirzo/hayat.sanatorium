@@ -1,27 +1,26 @@
 import { CaretRightDownIcon, CaretRightIcon } from 'assets/icons/icons';
-import React, { useState } from 'react';
+import { FC, useState } from 'react';
 
-const NestedCollapseDropdownCheckbox = ({ options }: any) => {
+interface Props {
+  options: any;
+  handleSelect: (item: any) => void;
+  selectedItems: any[];
+}
+
+const NestedCollapseDropdownCheckbox: FC<Props> = ({
+  options,
+  handleSelect,
+  selectedItems,
+}) => {
   const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>(
     {},
   );
-  const [selectedItems, setSelectedItems] = useState<any>([]);
 
   const toggleSection = (sectionId: any) => {
     setOpenSections((prevState) => ({
       ...prevState,
       [sectionId]: !prevState[sectionId],
     }));
-  };
-  console.log(selectedItems, 'select item');
-
-  const handleCheckboxChange = (itemId: any) => {
-    const index = selectedItems.indexOf(itemId);
-    if (index === -1) {
-      setSelectedItems([...selectedItems, itemId]);
-    } else {
-      setSelectedItems(selectedItems.filter((id: number) => id !== itemId));
-    }
   };
 
   const renderItems = (items: any) => {
@@ -33,8 +32,10 @@ const NestedCollapseDropdownCheckbox = ({ options }: any) => {
               style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
               <input
                 type="checkbox"
-                checked={selectedItems.includes(item.id)}
-                onChange={() => handleCheckboxChange(item.id)}
+                checked={selectedItems?.some(
+                  (selectedItem) => selectedItem.id === item.id,
+                )}
+                onChange={() => handleSelect(item)}
               />
               {item.name}
             </label>
@@ -45,12 +46,12 @@ const NestedCollapseDropdownCheckbox = ({ options }: any) => {
   };
 
   const renderSections = (sections: any) => {
-    return sections.map((section: any) => (
+    return sections?.map((section: any) => (
       <div key={section.id}>
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <div
             onClick={() => toggleSection(section.id)}
-            className="flex  cursor-pointer  ">
+            className="flex cursor-pointer">
             {openSections[section.id] ? (
               <CaretRightDownIcon />
             ) : (

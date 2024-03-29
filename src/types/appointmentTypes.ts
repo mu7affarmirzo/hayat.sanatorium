@@ -32,3 +32,17 @@ export interface MedServiceSpecialty {
 export enum Type {
   Service = 'service',
 }
+
+export interface LabResearchesType {
+  id: number;
+  name: string;
+  lab_research: LabResearch[];
+}
+
+export interface LabResearch {
+  id: number;
+  name: string;
+  price: number;
+  category: number;
+  branch: number;
+}

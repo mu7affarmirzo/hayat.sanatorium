@@ -1,0 +1,1 @@
+export { ReSearchModalView } from './ModalForReSearch';

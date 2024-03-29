@@ -1,13 +1,11 @@
-/* eslint-disable react/style-prop-object */
-import { Box } from '@mui/material';
-import SectionTitle from 'components/SectionTitle/sectionTitle';
-import DefaultText from 'components/defaultText/DefaultText';
-import { useAppointmentConsultationActions } from './hook';
-import { DropdownMenuItem } from 'views/DiseaseHistoryActionTabs/diseaseHistoryTabs';
+import { Box, Typography } from '@mui/material';
 import Dropdown from 'components/NestedDropdownMenu/ReuseableDropdown';
+import SectionTitle from 'components/SectionTitle/sectionTitle';
+import { DropdownMenuItem } from 'views/DiseaseHistoryActionTabs/diseaseHistoryTabs';
 import AdvancedModal from 'components/Modals/ReuseableModal/reuseableModal';
-import AppointmentCosultationModal from './modals/consultationModal';
-import AppointmentStudiesModal from './modals/studiesModal';
+import { useConsultingAndResearchHook } from './hook';
+import { ConsultingModalView } from '../components/ConsultingModal';
+import { ReSearchModalView } from '../components/ReSearchModal';
 
 const AppointmentConsultaionOptions: DropdownMenuItem[] = [
   {
@@ -51,28 +49,13 @@ const AppointmentConsultaionOptions: DropdownMenuItem[] = [
   },
 ];
 
-export const AppointmentConsultationActions = () => {
+export const ConsultingAndResearchView = () => {
   const {
-    handleClickPopupMenu,
     consultationModalOpen,
+    handleClickPopupMenu,
     studiesModalOpen,
-    setConsultationModal,
-    setStudiesModal,
-    data,
-    selectedLabResearch,
-    handleLabResearchCheckboxChange,
-    medicalsData,
-    selectedItems,
-    handleMedServiceChechboxChange,
-  } = useAppointmentConsultationActions();
-
-  const handleCloseModal = (modalType: string) => {
-    if (modalType === 'consultation') {
-      setConsultationModal(false);
-    } else if (modalType === 'studies') {
-      setStudiesModal(false);
-    }
-  };
+    handleCloseModal,
+  } = useConsultingAndResearchHook();
 
   return (
     <Box className="border p-2 my-2">
@@ -81,9 +64,9 @@ export const AppointmentConsultationActions = () => {
         className="text-base font-medium"
       />
       <Box className="flex flx-row items-center justify-start gap-3">
-        <DefaultText style="text-sm text-black">
+        <Typography className="text-sm text-black">
           Консультации и исследования не назначены.
-        </DefaultText>
+        </Typography>
         <Dropdown
           title="Добавить"
           data={AppointmentConsultaionOptions}
@@ -106,17 +89,9 @@ export const AppointmentConsultationActions = () => {
           }
           children={
             consultationModalOpen ? (
-              <AppointmentCosultationModal
-                option={medicalsData}
-                handleSelect={handleMedServiceChechboxChange}
-                selectedItem={selectedItems}
-              />
+              <ConsultingModalView />
             ) : (
-              <AppointmentStudiesModal
-                option={data}
-                selectedItems={selectedLabResearch}
-                handleCheckboxChange={handleLabResearchCheckboxChange}
-              />
+              <ReSearchModalView />
             )
           }
         />

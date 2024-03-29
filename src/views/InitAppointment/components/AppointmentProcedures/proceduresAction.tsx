@@ -1,48 +1,25 @@
 /* eslint-disable react/style-prop-object */
 import { Box, Grid } from '@mui/material';
 import AdvancedModal from 'components/Modals/ReuseableModal/reuseableModal';
-import NestedCollapseDropdownCheckbox from 'components/NestedCollapseDropdownCheckbox/nestedCollapseDropdownCheckbox';
+import NestedCollapseDropdownCheckbox from 'components/NestedCollapseDropdownCheckbox/CollapseDropdownCheckbox';
 import SearchInput from 'components/SearchField/searchInput';
 import SectionTitle from 'components/SectionTitle/sectionTitle';
 import DefaultButton from 'components/deafultButton/DefaultButton';
 import DefaultText from 'components/defaultText/DefaultText';
-import { useState } from 'react';
-import useAppointmentPredcedures from './hook';
+import { useAppointmentProceduresActions } from './hook';
+import { FC } from 'react';
 
-const options = [
-  {
-    id: 1,
-    title: 'Section 1',
-    sections: [
-      {
-        id: 11,
-        title: 'Subsection 1.1',
-        items: [
-          { id: 111, title: 'Item 1.1.1' },
-          { id: 112, title: 'Item 1.1.2' },
-        ],
-      },
-      {
-        id: 12,
-        title: 'Subsection 1.2',
-        items: [
-          { id: 121, title: 'Item 1.2.1' },
-          { id: 122, title: 'Item 1.2.2' },
-        ],
-      },
-    ],
-  },
-  {
-    id: 2,
-    title: 'Section 2',
-    items: [
-      { id: 21, title: 'Item 2.1' },
-      { id: 22, title: 'Item 2.2' },
-    ],
-  },
-];
+type ProdcedureModalProps = {
+  options: any;
+  handleSelect: (item: any) => void;
+  selectedItems: any[];
+};
 
-const AppointmentProductosModalSection = ({ option }: any) => {
+const AppointmentProductosModalSection: FC<ProdcedureModalProps> = ({
+  options,
+  handleSelect,
+  selectedItems,
+}) => {
   return (
     <Box
       className="w-[100%]  bg-[#F5F5F5] border border-[rgba(0, 0, 0, 0.23)] overflow-hidden"
@@ -83,7 +60,11 @@ const AppointmentProductosModalSection = ({ option }: any) => {
             overflow: 'scroll',
             overflowX: 'auto',
           }}>
-          <NestedCollapseDropdownCheckbox options={option} />
+          <NestedCollapseDropdownCheckbox
+            options={options}
+            handleSelect={handleSelect}
+            selectedItems={selectedItems}
+          />
         </Box>
       </Grid>
     </Box>
@@ -91,13 +72,13 @@ const AppointmentProductosModalSection = ({ option }: any) => {
 };
 
 export const AppointmentProductos = () => {
-  const { data } = useAppointmentPredcedures();
-  const [open, setOpen] = useState(false);
-  console.log(data, 'data prodcedures ');
-
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const {
+    handleCheckboxChange,
+    isOpen,
+    medicalsData,
+    selectedItems,
+    toggleMedicalsModal,
+  } = useAppointmentProceduresActions();
   return (
     <Box className="border p-2 my-2 ">
       <SectionTitle
@@ -111,13 +92,19 @@ export const AppointmentProductos = () => {
         <DefaultButton
           classStyle="bg-[#4CAF50] text-[#fff]"
           title="Добавить"
-          onClick={() => setOpen(true)}
+          onClick={toggleMedicalsModal}
         />
         <AdvancedModal
-          open={open}
-          onClose={handleClose}
+          open={isOpen}
+          onClose={toggleMedicalsModal}
           size="large"
-          children={<AppointmentProductosModalSection option={data} />}
+          children={
+            <AppointmentProductosModalSection
+              options={medicalsData}
+              handleSelect={handleCheckboxChange}
+              selectedItems={selectedItems}
+            />
+          }
           modalTitle={'Выбор назначений'}
         />
       </Box>

@@ -2,6 +2,7 @@ import { ApiSlice } from 'features/api/apiSlice';
 import {
   AppointmentMedServiceTypes,
   GetProdcedures,
+  LabResearchesType,
 } from 'types/appointmentTypes';
 import { GetMyPatients, InitAppointmentTypes } from 'types/patientTypes';
 
@@ -28,7 +29,7 @@ export const patientService = ApiSlice.injectEndpoints({
         body: body,
       }),
     }),
-    getLabsGroupByCategory: builder.query<any, any>({
+    getLabsGroupByCategory: builder.query<LabResearchesType[], any>({
       query: () => ({
         url: '/lis/get_labs_group_by_category/',
         method: 'GET',

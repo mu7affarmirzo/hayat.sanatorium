@@ -26,7 +26,10 @@ const appointmentStatusSlice = createSlice({
       state,
       action: PayloadAction<Partial<InitAppointmentTypes>>,
     ) => {
-      state.currentAppointment = action.payload;
+      state.currentAppointment = {
+        ...state.currentAppointment,
+        ...action.payload,
+      };
     },
   },
 });

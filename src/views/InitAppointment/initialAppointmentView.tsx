@@ -1,5 +1,5 @@
 /* eslint-disable react/style-prop-object */
-import { Box } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import DiagnostikaItem from 'components/DiagnostikaItem';
 import InitialApportmentHeaderSection from './components/initialApportmentHeader';
 import useInitialAppointmentForm from './hook';
@@ -63,6 +63,9 @@ const IntialApportmentView = () => {
             <DiagnosisSection />
 
             <ConclusionSection />
+            <Button type="submit" variant="contained" className="my-2">
+              Submit
+            </Button>
             <AppointmentsSection />
           </Box>
         </form>

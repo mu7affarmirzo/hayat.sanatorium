@@ -1,11 +1,52 @@
-import { useLazyGetLabsGroupByCategoryQuery } from 'features/patient/patientService';
+import {
+  useGetMedServiceGroupQuery,
+  useLazyGetLabsGroupByCategoryQuery,
+} from 'features/patient/patientService';
+import { setCurrentAppointment } from 'features/slices/initAppoinmentStatusSlice';
+import { useReduxDispatch } from 'hooks/useReduxHook';
 import { useCallback, useState } from 'react';
+import { LabResearch, MedServiceSpecialty } from 'types/appointmentTypes';
+import {
+  LabResearchForInitAppointment,
+  MedicalService,
+} from 'types/patientTypes';
 
 export const useAppointmentConsultationActions = () => {
+  const dispatch = useReduxDispatch();
   const [trigger, { data }] = useLazyGetLabsGroupByCategoryQuery();
+  const { data: medicalsData } = useGetMedServiceGroupQuery({});
   const [consultationModalOpen, setConsultationModalOpen] = useState(false);
   const [studiesModalOpen, setStudiesModalOpen] = useState(false);
-  const [selectedItems, setSelectedItems] = useState<number[]>([]);
+  const [selectedItems, setSelectedItems] = useState<MedServiceSpecialty[]>([]);
+  const [selectedLabResearch, setSelectedLabResearch] = useState<LabResearch[]>(
+    [],
+  );
+
+  const convertToLabResearch = useCallback(
+    (item: LabResearch): LabResearchForInitAppointment => {
+      const { id, price } = item;
+      return {
+        lab: id,
+        price: price,
+        comments: '',
+        state: '',
+      };
+    },
+    [],
+  );
+
+  const convertToMedicalService = useCallback(
+    (item: MedServiceSpecialty): MedicalService => {
+      const { id, cost, type, doctor } = item;
+      return {
+        medical_service: id,
+        price: cost,
+        consulted_doctor: doctor[0],
+        state: type,
+      };
+    },
+    [],
+  );
 
   const handleClickPopupMenu = useCallback(
     (item: any) => {
@@ -19,14 +60,53 @@ export const useAppointmentConsultationActions = () => {
     [trigger],
   );
 
-  const handleCheckboxChange = (itemId: number) => {
-    const index = selectedItems.indexOf(itemId as never);
-    if (index === -1) {
-      setSelectedItems([...selectedItems, itemId]);
-    } else {
-      setSelectedItems(selectedItems.filter((id) => id !== itemId));
-    }
-  };
+  const handleLabResearchCheckboxChange = useCallback(
+    (item: LabResearch) => {
+      const updatedSelectedLabResearch = selectedLabResearch.includes(item)
+        ? selectedLabResearch.filter(
+            (selectedLabResearchItem) => selectedLabResearchItem.id !== item.id,
+          )
+        : [...selectedLabResearch, item];
+
+      setSelectedLabResearch(updatedSelectedLabResearch);
+
+      const selectedLabResearchForInitAppointment: LabResearchForInitAppointment[] =
+        updatedSelectedLabResearch.map((selectedLabResearchItem) =>
+          convertToLabResearch(selectedLabResearchItem),
+        );
+
+      console.log(
+        selectedLabResearchForInitAppointment,
+        'selectedLabResearchForInitAppointment',
+      );
+      dispatch(
+        setCurrentAppointment({
+          lab_research: selectedLabResearchForInitAppointment,
+        }),
+      );
+    },
+    [convertToLabResearch, dispatch, selectedLabResearch],
+  );
+
+  const handleMedServiceChechboxChange = useCallback(
+    (item: MedServiceSpecialty) => {
+      const updatedSelectedItems = selectedItems.includes(item)
+        ? selectedItems.filter((selectedItem) => selectedItem.id !== item.id)
+        : [...selectedItems, item];
+
+      setSelectedItems(updatedSelectedItems);
+
+      const selectedMedicalServices: MedicalService[] =
+        updatedSelectedItems.map((selectedItem) =>
+          convertToMedicalService(selectedItem),
+        );
+
+      dispatch(
+        setCurrentAppointment({ medical_services: selectedMedicalServices }),
+      );
+    },
+    [dispatch, selectedItems, convertToMedicalService],
+  );
 
   return {
     data,
@@ -35,7 +115,10 @@ export const useAppointmentConsultationActions = () => {
     setConsultationModal: setConsultationModalOpen,
     studiesModalOpen,
     setStudiesModal: setStudiesModalOpen,
-    handleCheckboxChange,
+    handleLabResearchCheckboxChange,
+    selectedLabResearch,
+    medicalsData,
     selectedItems,
+    handleMedServiceChechboxChange,
   };
 };

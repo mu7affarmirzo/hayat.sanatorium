@@ -18,7 +18,7 @@ export interface GetMyPatientsQuery {
 export interface InitAppointmentTypes {
   medical_services: MedicalService[];
   procedures: Procedure[];
-  lab_research: LabResearch[];
+  lab_research: LabResearchForInitAppointment[];
   pills: Pill[];
   anamnesis_morbi: string;
   anamnesis_vitae: string;
@@ -99,7 +99,7 @@ export interface InitAppointmentTypes {
   diagnosis: number;
 }
 
-export interface LabResearch {
+export interface LabResearchForInitAppointment {
   lab: number;
   price: number;
   state: string;
