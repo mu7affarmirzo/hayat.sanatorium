@@ -1,4 +1,9 @@
 import { ApiSlice } from 'features/api/apiSlice';
+import {
+  AppointmentMedServiceTypes,
+  GetProdcedures,
+  LabResearchesType,
+} from 'types/appointmentTypes';
 import { GetMyPatients, InitAppointmentTypes } from 'types/patientTypes';
 
 export const patientService = ApiSlice.injectEndpoints({
@@ -24,6 +29,24 @@ export const patientService = ApiSlice.injectEndpoints({
         body: body,
       }),
     }),
+    getLabsGroupByCategory: builder.query<LabResearchesType[], any>({
+      query: () => ({
+        url: '/lis/get_labs_group_by_category/',
+        method: 'GET',
+      }),
+    }),
+    getProceduresGroupByCategory: builder.query<GetProdcedures[], any>({
+      query: () => ({
+        url: '/sanatorium/get_procedures_group_by_category/',
+        method: 'GET',
+      }),
+    }),
+    getMedServiceGroup: builder.query<AppointmentMedServiceTypes[], any>({
+      query: () => ({
+        url: '/sanatorium/get_med_services_group_by_category/',
+        method: 'GET',
+      }),
+    }),
   }),
 });
 
@@ -31,4 +54,7 @@ export const {
   useGetAllMyPatientsQuery,
   usePostInitAppointmentMutation,
   usePostGetCategoryMutation,
+  useLazyGetLabsGroupByCategoryQuery,
+  useGetProceduresGroupByCategoryQuery,
+  useGetMedServiceGroupQuery,
 } = patientService;

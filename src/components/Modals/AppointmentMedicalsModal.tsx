@@ -62,7 +62,7 @@ const AppointmentMedicalsModal = () => {
             </Box>
           </Grid>
 
-          <Grid item xs={12} md={12} className="  mt-[15px] flex justify-end ">
+          <Grid item xs={12} md={12} className="mt-[15px] flex justify-end ">
             <Button variant="contained" onClick={() => onCloseModal()}>
               Добавить
             </Button>

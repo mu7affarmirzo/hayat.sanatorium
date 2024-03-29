@@ -27,7 +27,9 @@ const ReceptionTable = (props: propsType) => {
   );
 
   return (
-    <div className={`${props.height ? props.height : 'h-[15vh]'}  w-full `}>
+    <div
+      className={`${props.height ? props.height : 'h-[15vh]'}  w-full `}
+      style={{ height: '400px' }}>
       <div
         style={{ height: '100%', width: '100%' }}
         className="ag-theme-alpine">
