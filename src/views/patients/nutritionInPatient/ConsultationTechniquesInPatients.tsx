@@ -1,28 +1,15 @@
 /* eslint-disable react/style-prop-object */
 import { Box, Grid, OutlinedInput, Typography } from '@mui/material';
-import { useAppModals } from 'components/Modals';
 import DefaultButton from 'components/deafultButton/DefaultButton';
 import DiagnosticCeckboxItem from 'components/diagnosticCeckboxItem/DiagnosticCeckboxItem';
 import DiagnostikaItem from 'components/DiagnostikaItem';
 import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
-import InitialApportmentHeaderSection from 'views/InitAppointment/components/initialApportmentHeader';
 import SectionTitle from 'components/SectionTitle/sectionTitle';
 import DefaultText from 'components/defaultText/DefaultText';
-
-const top100Films = [
-  { label: 'The Shawshank Redemption', year: 1994 },
-  { label: 'The Godfather', year: 1972 },
-  { label: 'The Godfather: Part II', year: 1974 },
-  { label: 'The Dark Knight', year: 2008 },
-  { label: '12 Angry Men', year: 1957 },
-  { label: "Schindler's List", year: 1993 },
-  { label: 'Pulp Fiction', year: 1994 },
-];
 
 const ConsultationTechniquesInPatients = () => {
   return (
     <Box className="border border-[rgba(0, 0, 0, 0.23)] h-[calc(100vh-220px)]  p-[10px] overflow-hidden">
-      <InitialApportmentHeaderSection data={top100Films} />
       <Box className="bg-[#fff] w-full p-[8px] overflow-scroll max-h-[calc(100vh-300px)] h-[calc(100vh-300px)]">
         <DiagnostikaItem title="Жалобы/анамнез" />
         <DiagnostikaItem title="Anamnesis morbi" />

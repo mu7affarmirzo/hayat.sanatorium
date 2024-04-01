@@ -89,9 +89,9 @@ const AppointmentsBox = () => {
   );
 };
 
-const AppointmentsSection = () => {
+const AppointmentsSections = () => {
   return (
-    <Box className="border w-full px-[10px] py-[5px] mt-[10px] mb-10">
+    <Box className="border w-full px-[10px] py-[5px] mt-[10px] ">
       <AppointmentsBox />
       <ConsultingAndResearchView />
       <ProceduresView />
@@ -100,4 +100,4 @@ const AppointmentsSection = () => {
   );
 };
 
-export default AppointmentsSection;
+export default AppointmentsSections;

@@ -1,6 +1,7 @@
 import { TabsItem } from 'components/sideBar/SideBar';
 import PatientDoctorTPContainer from 'containers/Doctors/PatientDoctors/PatientDoctorTPContainer';
-import InitialApportments from 'views/InitAppointment';
+import InitialApportments from 'views/AppointmentInit';
+import RepeatedAppointment from 'views/RepeatedAppointment';
 import TreatmentSchedule from 'views/TreatmentSchedule';
 import changelog from 'views/booked/changelog';
 import consultationTechniques from 'views/booked/consultationTechniques';
@@ -153,6 +154,10 @@ export const GenerateSidebarTabsData = (broneData: any) => {
     {
       title: 'Первичный прием лечащего врача',
       component: InitialApportments,
+    },
+    {
+      title: 'Повторный приём лечащего врача',
+      component: RepeatedAppointment,
     },
     {
       title: 'Измеряемые параметры',

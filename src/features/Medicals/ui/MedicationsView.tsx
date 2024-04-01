@@ -10,12 +10,12 @@ export const MedicationsView = () => {
   return (
     <Box className="border p-2 my-2">
       <SectionTitle title="Медикаменты" className="text-base font-medium" />
-      <Box className="flex items-center justify-between gap-3">
+      <Box className="flex items-center justify-start gap-3">
         <Typography className="text-sm text-black">
           Медикаменты не назначены.
         </Typography>
         <DefaultButton
-          classStyle="bg-green-500 text-white"
+          classStyle="bg-[#4CAF50] text-white"
           title="Добавить"
           onClick={toggleMedicalsModal}
         />

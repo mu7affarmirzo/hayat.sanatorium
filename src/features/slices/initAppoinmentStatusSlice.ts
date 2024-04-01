@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { InitAppointmentTypes } from 'types/patientTypes';
 
-type AppointmentStatus = {
+export type AppointmentStatus = {
   status: 'notCompleted' | 'completed' | 'cancelled';
 };
 

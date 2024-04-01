@@ -1,7 +1,7 @@
 import { Box, Grid, Typography } from '@mui/material';
-import ReuseAbleRadioButtonGroup from 'components/ReuseableRadioButtonGrou/reuseableRadiuBtnGroup';
 import SearchInput from 'components/SearchField/searchInput';
 import { MedicationTableView } from '../MedicationTable';
+import ReuseableRadioButtonGroup from 'components/ReuseableRadioButtonGroup';
 
 const options = [
   { label: 'Аптека стационара', value: 'hospitalpharmacy' },
@@ -27,7 +27,7 @@ export const MedicationModal = () => {
         <Typography className={'text-[20px] text-[#000]'}>
           Медикаменты
         </Typography>
-        <ReuseAbleRadioButtonGroup options={options} />
+        <ReuseableRadioButtonGroup options={options} />
       </Grid>
       <Grid
         item

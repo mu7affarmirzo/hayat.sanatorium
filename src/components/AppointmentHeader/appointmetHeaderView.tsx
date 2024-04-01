@@ -4,45 +4,41 @@ import AutocompleteInput from 'components/autocompleteInput';
 import SelectButton from 'components/buttons/SelectButton';
 import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
 import DefaultButton from 'components/deafultButton/DefaultButton';
-import DefaultText from 'components/defaultText/DefaultText';
-import { setAppointmentStatus } from 'features/slices/initAppoinmentStatusSlice';
-import { useReduxDispatch, useReduxSelector } from 'hooks/useReduxHook';
-import { FC, useCallback } from 'react';
+import { FC } from 'react';
 
-interface Props {
-  data: {
-    label: string;
-    year: number;
-  }[];
-}
+const top100Films = [
+  { label: 'The Shawshank Redemption', year: 1994 },
+  { label: 'The Godfather', year: 1972 },
+  { label: 'The Godfather: Part II', year: 1974 },
+  { label: 'The Dark Knight', year: 2008 },
+  { label: '12 Angry Men', year: 1957 },
+  { label: "Schindler's List", year: 1993 },
+  { label: 'Pulp Fiction', year: 1994 },
+];
 
-const InitialApportmentHeaderSection: FC<Props> = ({ data }) => {
-  const dispatch = useReduxDispatch();
-  const { status } = useReduxSelector((state) => state.appointmentStatus);
-  const handleClickedCheckbox = useCallback(
-    (item: any) => {
-      console.log('clicked', item);
-      if (item === 'appointment_completed') {
-        dispatch(setAppointmentStatus({ status: 'completed' }));
-      } else if (item === 'appointment_cancelled') {
-        dispatch(setAppointmentStatus({ status: 'cancelled' }));
-      }
-    },
-    [dispatch],
-  );
+type AppointmentHeaderViewProps = {
+  doctor: string;
+  appointmentStatus: 'notCompleted' | 'completed' | 'cancelled';
+  setAppointmentStatus: (
+    status: 'notCompleted' | 'completed' | 'cancelled',
+  ) => void;
+};
 
+const AppointmentHeaderView: FC<AppointmentHeaderViewProps> = ({
+  doctor,
+  appointmentStatus,
+  setAppointmentStatus,
+}) => {
   return (
-    <Box className=" flex h-[90px] flex-col justify-around">
+    <Box className=" flex h-[100px] flex-col justify-around">
       <Box className="flex items-center justify-between h-[35%] my-3">
         <Box className="">
-          <DefaultText style={'text-[#000] '}>
-            Прием дежурного врача, Очилов Ибрагим Азамович
-          </DefaultText>
+          <Typography className={'text-[#000] '}>{doctor}</Typography>
         </Box>
         <Box className=" flex items-center w-[80%]  justify-end ">
           <AutocompleteInput
             label="время:"
-            data={data}
+            data={top100Films}
             labelStyle="text-[#000]"
             containerStyle={
               'w-[20%]  flex-row items-center  h-[35px] mr-[10px]'
@@ -59,7 +55,7 @@ const InitialApportmentHeaderSection: FC<Props> = ({ data }) => {
             disabled={true}
           />
           <SelectButton
-            data={data}
+            data={top100Films}
             style="h-[38px] bg-[#2196F3]"
             defaultValue="Шаблоны"
           />
@@ -70,8 +66,8 @@ const InitialApportmentHeaderSection: FC<Props> = ({ data }) => {
         </Box>
       </Box>
       <hr />
-      {status.status === 'notCompleted' && (
-        <Box className={`px-4 flex flex-row justify-between items-center`}>
+      {appointmentStatus === 'notCompleted' && (
+        <Box className={`px-3 flex flex-row justify-between items-center`}>
           <Typography className="text-red-500 text-sm font-bold ">
             Не завершено
           </Typography>
@@ -80,12 +76,12 @@ const InitialApportmentHeaderSection: FC<Props> = ({ data }) => {
             <DefaultCheckbox
               label="Приём завершён"
               inputType="appointment_completed"
-              setValue={handleClickedCheckbox}
+              setValue={() => setAppointmentStatus('completed')}
             />
             <DefaultCheckbox
               label="Приём завершён"
               inputType="appointment_cancelled"
-              setValue={handleClickedCheckbox}
+              setValue={() => setAppointmentStatus('cancelled')}
             />
           </Box>
         </Box>
@@ -94,4 +90,4 @@ const InitialApportmentHeaderSection: FC<Props> = ({ data }) => {
   );
 };
 
-export default InitialApportmentHeaderSection;
+export default AppointmentHeaderView;

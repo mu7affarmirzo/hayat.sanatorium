@@ -1,13 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { GetMedicationTypes } from '../types/medicationTypes';
 
 interface MedicationState {
-  medications: any[];
-  selectedMedications: any[];
+  medications: GetMedicationTypes[];
+  selectedMedications: GetMedicationTypes;
 }
 
 const initialState: MedicationState = {
   medications: [],
-  selectedMedications: [],
+  selectedMedications: {} as GetMedicationTypes,
 };
 
 export const medicationSlice = createSlice({
@@ -17,8 +18,11 @@ export const medicationSlice = createSlice({
     setMedications: (state, action) => {
       state.medications = action.payload;
     },
-    setSelectedMedications: (state, action) => {
+    setSelectedMedication: (state, action) => {
       state.selectedMedications = action.payload;
     },
   },
 });
+
+export const { setMedications, setSelectedMedication } =
+  medicationSlice.actions;
