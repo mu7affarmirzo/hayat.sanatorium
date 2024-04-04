@@ -1,6 +1,8 @@
 import { TabsItem } from 'components/sideBar/SideBar';
 import PatientDoctorTPContainer from 'containers/Doctors/PatientDoctors/PatientDoctorTPContainer';
 import InitialApportments from 'views/AppointmentInit';
+import DoctorOnDutyAppointment from 'views/DoctorOnDutyAppointment';
+import ElectrocardiogramAppointment from 'views/ElectrocardiogramAppointment';
 import RepeatedAppointment from 'views/RepeatedAppointment';
 import TreatmentSchedule from 'views/TreatmentSchedule';
 import changelog from 'views/booked/changelog';
@@ -158,6 +160,14 @@ export const GenerateSidebarTabsData = (broneData: any) => {
     {
       title: 'Повторный приём лечащего врача',
       component: RepeatedAppointment,
+    },
+    {
+      title: 'Прием дежурного врача',
+      component: DoctorOnDutyAppointment,
+    },
+    {
+      title: 'ЭКГ(Электрокардиограмма)',
+      component: ElectrocardiogramAppointment,
     },
     {
       title: 'Измеряемые параметры',

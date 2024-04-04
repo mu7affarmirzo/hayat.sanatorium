@@ -32,7 +32,7 @@ const IntialApportmentView = () => {
             appointmentStatus={appointmentStatus}
             setAppointmentStatus={handleChangeStatus}
           />
-          <Box className="bg-[#fff] w-full p-[8px] overflow-scroll max-h-[calc(100vh-300px)] h-[calc(100vh-300px)]">
+          <Box className="bg-[#fff] w-full p-[8px] overflow-scroll max-h-[calc(100vh-300px)] h-[calc(100vh-300px)] pb-10">
             <DiagnostikaItem title="Жалобы/анамнез" />
             <DiagnostikaItem title="Anamnesis morbi" />
             <DiagnostikaItem title="Anamnesis vitae" />
@@ -58,9 +58,9 @@ const IntialApportmentView = () => {
             <DiagnosisSection />
 
             <ConclusionSection />
-            <Button type="submit" variant="contained" className="my-2">
+            {/* <Button type="submit" variant="contained" className="my-2">
               Submit
-            </Button>
+            </Button> */}
             <AppointmentsSection />
           </Box>
         </form>

@@ -3,11 +3,6 @@ import { InfoCircle } from 'assets/icons/icons';
 
 export const ColData: ColDef[] = [
   {
-    field: 'group',
-    rowGroup: true,
-    hide: true,
-  },
-  {
     headerName: '',
     field: '',
     width: 30,

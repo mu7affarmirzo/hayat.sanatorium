@@ -9,6 +9,8 @@ import appointmentStatus from 'features/slices/initAppoinmentStatusSlice';
 import { consultingAndResearchSlice } from 'features/ConsultingAndResearch/model/slice/consultingAndResearchSlice';
 import { proceduresSlice } from 'features/Prodcedures/model/slice/proceduresSlice';
 import { medicationSlice } from 'features/Medicals/model/slice/medicationSlice';
+import { repeatedAppointmentSlice } from 'features/slices/repeatedAppointmentSlice';
+import { doctorOnDutyAppointmentSlice } from 'features/slices/doctorOnDutyAppointmentSlice';
 
 export const reducers = combineReducers({
   [ApiSlice.reducerPath]: ApiSlice.reducer,
@@ -21,6 +23,8 @@ export const reducers = combineReducers({
   consultingAndResearch: consultingAndResearchSlice.reducer,
   procedures: proceduresSlice.reducer,
   medication: medicationSlice.reducer,
+  repeatedAppointment: repeatedAppointmentSlice.reducer,
+  doctorOnDutyAppointment: doctorOnDutyAppointmentSlice.reducer,
 });
 
 export type RootState = ReturnType<typeof reducers>;

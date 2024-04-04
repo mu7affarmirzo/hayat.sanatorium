@@ -63,6 +63,11 @@ const AppointmentHeaderView: FC<AppointmentHeaderViewProps> = ({
             title="Просмотр документа"
             classStyle="h-[38px] bg-[#2196F3] text-[#fff] mr-[8px]"
           />
+          <DefaultButton
+            title="Сохранить"
+            classStyle="h-[38px] text-[#fff] mr-[10px] bg-green-500  "
+            submitType="submit"
+          />
         </Box>
       </Box>
       <hr />
@@ -71,7 +76,6 @@ const AppointmentHeaderView: FC<AppointmentHeaderViewProps> = ({
           <Typography className="text-red-500 text-sm font-bold ">
             Не завершено
           </Typography>
-
           <Box className="flex flex-row gap-2">
             <DefaultCheckbox
               label="Приём завершён"
@@ -79,7 +83,7 @@ const AppointmentHeaderView: FC<AppointmentHeaderViewProps> = ({
               setValue={() => setAppointmentStatus('completed')}
             />
             <DefaultCheckbox
-              label="Приём завершён"
+              label="Пациент на прием не явился"
               inputType="appointment_cancelled"
               setValue={() => setAppointmentStatus('cancelled')}
             />

@@ -19,12 +19,13 @@ type propsType = {
   btnStyle?: string;
   disabled?: boolean;
   messageIconStyle?: any;
+  classNameStyle?: string;
 };
 
 const DiagnostikaItem = (props: propsType) => {
   return (
     <Box
-      className={` ${props.style} border px-[10px] py-[10px] flex flex-col gap-1 mb-[10px]`}>
+      className={` ${props.classNameStyle} border px-[10px] py-[10px] flex flex-col gap-1 mb-[10px]`}>
       <DefaultText style={`${props.titleStyle} text-[#000]  mb-[10px]`}>
         {props.title}
       </DefaultText>
