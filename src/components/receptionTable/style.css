@@ -10,26 +10,29 @@
     --ag-header-group-cell-border-color: black;
 }
 
+.ag-header-cell-text,
 .ag-cell {
-    font-family: Roboto;
-    font-size: 12px;
+    font-family: Roboto, Helvetica, Arial sans-serif !important;
+    font-size: 14px !important;
     font-style: normal;
-    font-weight: 400;
-    line-height: 12px;
+    font-weight: 400 !important;
+    line-height: 20px !important;
+    letter-spacing: 0.15px !important;
 }
+
 .ag-theme-alpine .ag-header {
     background-color: #64b6f7;
     height: 40px;
 }
+
 .ag-theme-alpine .ag-header-group-cell {
     font-weight: normal;
     font-size: 22px;
-
     padding: 0;
 }
 
 .ag-theme-alpine .ag-header-cell {
-    font-family: Roboto;
+    font-family: Roboto, Helvetica, Arial sans-serif !important;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -39,6 +42,7 @@
     border-right: 1px solid var(--Light, rgba(0, 0, 0, 0.1));
     padding: 10px;
 }
+
 .ag-cell-wrapper {
     padding: 0 10px;
 }

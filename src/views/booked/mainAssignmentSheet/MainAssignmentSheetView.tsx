@@ -200,22 +200,22 @@ const MainAssignmentSheetView = () => {
       </Box>
       <Box className="bg-[#fff] w-full p-[5px] overflow-scroll max-h-[calc(100vh-230px)] h-[calc(100vh-280px)] border  ">
         <Box className="border p-[3px] ">
-          <Typography className={'text-[#000] text-[14px] font-medium '}>
+          <Typography className={'text-[#000] text-[14px] font-medium tracking-[0.1px]'}>
             Лечебные программы
           </Typography>
           <Box className="flex mt-[10px]  justify-between">
             <Box className="flex ">
               <DefaultButton
                 title="Назначить из лечебной программы"
-                classStyle="bg-[#4CAF50] h-[40px]"
+                classStyle="bg-[#4CAF50] h-[24px] tracking-[0.15px] text-[14px]"
                 onClick={() => appModals?.show('selecting_destination')}
               />
               <DefaultButton
                 title="Добавить программу в ИБ"
-                classStyle="bg-[#4CAF50] h-[40px]  ml-[10px]"
+                classStyle="bg-[#4CAF50] h-[24px] tracking-[0.15px] text-[14px]  ml-[10px]"
               />
             </Box>
-            <Box className="flex ">
+            <Box className="flex h-6">
               <DefaultCheckbox label="Скрывать неактивные" />
             </Box>
           </Box>
