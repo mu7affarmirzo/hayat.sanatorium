@@ -33,6 +33,7 @@ const SideBarBtn: FC<BookingProps> = (props) => {
         <SaidBarCustomizedAccordions
           onClick={onClick}
           title={title}
+          status='idle'
           activBtnType={activeTab === index ? activBtnType : ''}
           search={search}
           isActive={activeTab === index}
@@ -42,9 +43,11 @@ const SideBarBtn: FC<BookingProps> = (props) => {
           }}
           topBoxStyle={{
             color: activeTab === index ? 'white' : '#636363',
-            paddingLeft: '15px',
+            padding: '5px 8px 5px 8px',
             display: 'flex',
             alignItems: 'center',
+            height: "min-content",
+            minHeight: "min-content",
           }}>
           {chiled.map((item: any, index: number) => {
             return (
@@ -55,13 +58,14 @@ const SideBarBtn: FC<BookingProps> = (props) => {
                     activBtnType={activeTab === index ? activBtnType : ''}
                     isActive={activeTab === index}
                     childrenStyle={{
-                      color: activeTab === index ? 'white' : '#636363',
+                      // color: activeTab === index ? 'white' : '#636363',
                       display: 'block',
                       justifyContent: 'space-between',
-                      paddingLeft: '30px',
+                      fontSize: "12px !important",
+                      paddingBottom: "5px"
                     }}
                     topBoxStyle={{
-                      color: activeTab === index ? 'white' : '#636363',
+                      // color: activeTab === index ? 'white' : '#636363',
                       display: 'flex',
                       alignItems: 'center',
                       margin: 0,
@@ -71,11 +75,10 @@ const SideBarBtn: FC<BookingProps> = (props) => {
                         <button
                           onClick={() => setActiveBtn(itemChiled.id)}
                           key={itemChiled?.id}
-                          className={`${
-                            actibeBtn === itemChiled.id
-                              ? 'bg-[#30a0fc]'
-                              : 'bg-[#64B6F7 ]'
-                          }  cursor-pointer w-[100%] text-left `}>
+                          className={`${actibeBtn === itemChiled.id
+                            ? 'bg-[#30a0fc]'
+                            : 'bg-[#64B6F7 ]'
+                            }  cursor-pointer w-[100%] text-left `}>
                           <Typography className=" text-[#000] my-[3px] text-[12px]">
                             {itemChiled?.title}
                           </Typography>
@@ -86,8 +89,8 @@ const SideBarBtn: FC<BookingProps> = (props) => {
                 ) : (
                   <button
                     key={item?.id}
-                    className=" block cursor-pointer py-[5px] w-[100%] text-left">
-                    <Typography className="text-sm text-[#7a7a7a] my-[3px] text-[12px]">
+                    className="cursor-pointer py-0 pl-8 w-[100%] text-left">
+                    <Typography className="text-sm text-[#0000008A] !text-[12px]">
                       {item?.title}
                     </Typography>
                   </button>
@@ -100,11 +103,10 @@ const SideBarBtn: FC<BookingProps> = (props) => {
         <Button
           onClick={onClick}
           className={` flex  min-h-[30px]  w-full py-[10px] items-center justify-start pl-[24px] 
-              normal-case   ${
-                activeTab === index
-                  ? 'bg-[#3397FF] text-gray-100'
-                  : 'bg-[#fff]  text-gray-700'
-              }`}>
+              normal-case   ${activeTab === index
+              ? 'bg-[#3397FF] text-gray-100'
+              : 'bg-[#fff]  text-gray-700'
+            }`}>
           <Typography className="text-[12px] flex  text-start">
             {title}
           </Typography>
