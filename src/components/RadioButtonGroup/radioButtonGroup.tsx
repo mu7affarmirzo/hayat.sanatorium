@@ -15,7 +15,7 @@ type RadioOption = {
 
 interface RadioGroupProps {
   name: keyof InitAppointmentTypes;
-  methods: UseFormReturn<InitAppointmentTypes, any, InitAppointmentTypes>;
+  methods?: UseFormReturn<InitAppointmentTypes, any, InitAppointmentTypes>;
   options: RadioOption[];
 }
 
@@ -25,7 +25,7 @@ const RadioButtonGroup: FC<RadioGroupProps> = ({ name, methods, options }) => {
   );
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    methods.setValue(name, event.target.value);
+    methods?.setValue(name, event.target.value);
     setSelectedOption(
       options.find(
         (option) => option.value === event.target.value,
@@ -49,7 +49,7 @@ const RadioButtonGroup: FC<RadioGroupProps> = ({ name, methods, options }) => {
               />
             }
             label={option.label}
-            className="my-2 text-[#8d8c8c] text-[14px]"
+            className="my-2 text-[#8d8c8c] text-[14px] bg-red-500"
           />
         ))}
       </FormGroup>

@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import SectionTitle from 'components/SectionTitle/sectionTitle';
 import TextareActionBoxView from 'components/TextareActionBox';
-import DiagnosticCeckboxItem from 'components/diagnosticCeckboxItem/DiagnosticCeckboxItem';
+import DiagnosticCeckboxItem from 'components/AutocomplateCategoryBox/AutocomplateCategoryBoxView';
 
 const DescriptionOfElectrocardiogramSection = () => {
   return (
@@ -14,7 +14,7 @@ const DescriptionOfElectrocardiogramSection = () => {
       <DiagnosticCeckboxItem label="Комплекс QRS:" description=" " />
       <DiagnosticCeckboxItem label="Зубец Т:" description=" " />
       <DiagnosticCeckboxItem label="Сегмент S-Т:" description=" " />
-      <TextareActionBoxView isActions={true} />
+      <TextareActionBoxView isActions={true} title="example" />
     </Box>
   );
 };

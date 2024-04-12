@@ -18,6 +18,7 @@ const top100Films = [
 
 type AppointmentHeaderViewProps = {
   doctor: string;
+  onClick?: () => void;
   appointmentStatus: 'notCompleted' | 'completed' | 'cancelled';
   setAppointmentStatus: (
     status: 'notCompleted' | 'completed' | 'cancelled',

@@ -7,18 +7,17 @@ import AppointmentsSections from 'components/AppointmentActionSection/appointmen
 import { useDoctorOnDutyAppointmentHook } from './hook';
 
 const DoctorOnDutyAppointment = () => {
-  const { appointmentStatus, handleChangeStatus } =
+  const { appointmentStatus, handleChangeStatus, handlePostAppointment } =
     useDoctorOnDutyAppointmentHook();
 
   return (
     <Box>
-      <form
-        onSubmit={() => console.log('submit')}
-        className="border border-[rgba(0, 0, 0, 0.23)] h-[calc(100vh-220px)]  p-[10px] overflow-hidden ">
+      <form className="border border-[rgba(0, 0, 0, 0.23)] h-[calc(100vh-220px)]  p-[10px] overflow-hidden ">
         <AppointmentHeader
           doctor="Прием дежурного врача, Admin"
           appointmentStatus={appointmentStatus}
           setAppointmentStatus={handleChangeStatus}
+          onClick={handlePostAppointment}
         />
         <Box className="bg-[#fff] w-full p-[8px] pb-10 overflow-scroll max-h-[calc(100vh-300px)] h-[calc(100vh-300px)]">
           <DiagnostikaItem title="Жалобы/анамнез" />

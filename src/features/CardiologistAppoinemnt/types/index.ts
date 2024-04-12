@@ -1,21 +1,13 @@
-export interface PostDoctorOnDutyAppointmentTypes {
-  medical_services: Partial<MedicalService>[];
-  lab_research: Partial<LabResearch>[];
-  procedures: Partial<Procedure>[];
-  pills: Partial<Pill>[];
-}
-
-export interface DoctorOnDutyAppointmentTypes {
+export interface PostCardiologistAppoinmnet {
   medical_services: MedicalService[];
   lab_research: LabResearch[];
   procedures: Procedure[];
   pills: Pill[];
   state: string;
-  complaints: string;
-  objective_data: string;
-  arterial_high: number;
-  arterial_low: number;
-  imt: number;
+  has_cardio_complaints: boolean;
+  has_nerve_complaints: boolean;
+  other_complaints: string;
+  anamnesis: string;
   cito: boolean;
   for_sanatorium_treatment: string;
   summary: string;

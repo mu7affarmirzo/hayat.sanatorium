@@ -1,7 +1,6 @@
 /* eslint-disable react/style-prop-object */
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 import DiagnostikaItem from 'components/DiagnostikaItem';
-import useInitialAppointmentForm from './hook';
 import EpidemiologicalHistorySection from './components/epidemiologicalHistory';
 import RespiratorySystemSection from './components/respiratorySystem';
 import CardiovascularSystemSection from './components/cardiovascularSystem';
@@ -16,10 +15,14 @@ import StatusPraesensSection from './components/statusPraesensSection';
 import MuscularSystemSection from './components/muscularSystemSection';
 import { FormProvider } from 'react-hook-form';
 import AppointmentHeader from 'components/AppointmentHeader';
+import {
+  AppointmentInitProvider,
+  useAppAppointmentInitContext,
+} from './module';
 
-const IntialApportmentView = () => {
+const Main = () => {
   const { methods, onSubmit, appointmentStatus, handleChangeStatus } =
-    useInitialAppointmentForm();
+    useAppAppointmentInitContext();
 
   return (
     <Box>
@@ -37,7 +40,7 @@ const IntialApportmentView = () => {
             <DiagnostikaItem title="Anamnesis morbi" />
             <DiagnostikaItem title="Anamnesis vitae" />
 
-            <EpidemiologicalHistorySection formMethods={methods} />
+            <EpidemiologicalHistorySection />
 
             <StatusPraesensSection formMethods={methods} />
 
@@ -68,5 +71,11 @@ const IntialApportmentView = () => {
     </Box>
   );
 };
+
+const IntialApportmentView = () => (
+  <AppointmentInitProvider>
+    <Main />
+  </AppointmentInitProvider>
+);
 
 export default IntialApportmentView;

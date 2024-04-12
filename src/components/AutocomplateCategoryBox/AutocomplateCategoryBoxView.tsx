@@ -4,9 +4,9 @@ import { FileAltIcon, FilePlusAltIcon } from 'assets/icons/icons';
 import SearchSelectField from 'components/SearchField/searchSelectField';
 import DefaultText from 'components/defaultText/DefaultText';
 import useCategoryFetcher from './hook';
-import { InitAppointmentTypes } from 'types/patientTypes';
+import { UseFormReturn } from 'react-hook-form';
 
-type Props = {
+type Props<T extends {}> = {
   style?: string;
   titleStyle?: string;
   label?: string;
@@ -15,12 +15,12 @@ type Props = {
   boxStyle?: string;
   checkBoxStle?: string;
   actions?: boolean;
-  categoryName?: keyof InitAppointmentTypes;
+  categoryName?: keyof T;
   fieldName?: string;
-  formMethods: any;
+  formMethods: UseFormReturn<T, any, T>;
 };
 
-const DiagnosticCeckboxItem = ({
+const DiagnosticCeckboxItem = <T extends {}>({
   style,
   label,
   children,
@@ -30,8 +30,9 @@ const DiagnosticCeckboxItem = ({
   categoryName,
   actions = true,
   formMethods,
-}: Partial<Props>) => {
+}: Partial<Props<T>>) => {
   const { categories, fetchCategories, open, setOpen } = useCategoryFetcher();
+  console.log();
 
   return (
     <Box className={` ${style} flex gap-1  justify-between w-[100%] mt-[3px]`}>
@@ -45,13 +46,16 @@ const DiagnosticCeckboxItem = ({
       {description && (
         <Box
           className={`${boxStyle} flex flex-1 gap-3 h-[40px] my-[6px] items-center `}>
-          <SearchSelectField
-            open={open}
-            setOpen={setOpen}
-            categoryData={categories}
-            fieldname={categoryName as never}
-            methods={formMethods}
-          />
+          {!!formMethods && (
+            <SearchSelectField
+              open={open}
+              setOpen={setOpen}
+              categoryData={categories}
+              fieldname={categoryName as never}
+              methods={formMethods}
+            />
+          )}
+
           {actions && (
             <Grid item className={`flex items-center gap-2`}>
               <IconButton

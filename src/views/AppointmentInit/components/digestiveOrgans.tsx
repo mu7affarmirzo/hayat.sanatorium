@@ -4,7 +4,7 @@ import DiagnostikaItem from 'components/DiagnostikaItem';
 import RadioButtonGroup from 'components/RadioButtonGroup';
 import SectionTitle from 'components/SectionTitle/sectionTitle';
 import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
-import DiagnosticCeckboxItem from 'components/diagnosticCeckboxItem/DiagnosticCeckboxItem';
+import DiagnosticCeckboxItem from 'components/AutocomplateCategoryBox/AutocomplateCategoryBoxView';
 import { FC } from 'react';
 import { UseFormReturn } from 'react-hook-form';
 import { InitAppointmentTypes } from 'types/patientTypes';

@@ -1,7 +1,7 @@
 /* eslint-disable react/style-prop-object */
 import { Box, Grid, OutlinedInput, Typography } from '@mui/material';
 import DefaultButton from 'components/deafultButton/DefaultButton';
-import DiagnosticCeckboxItem from 'components/diagnosticCeckboxItem/DiagnosticCeckboxItem';
+import DiagnosticCeckboxItem from 'components/AutocomplateCategoryBox/AutocomplateCategoryBoxView';
 import DiagnostikaItem from 'components/DiagnostikaItem';
 import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
 import SectionTitle from 'components/SectionTitle/sectionTitle';

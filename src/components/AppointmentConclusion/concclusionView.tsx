@@ -30,8 +30,7 @@ export const AppointmentConclusionView = () => {
         </Typography>
         <ReuseAbleRadioButtonGroup options={options} />
       </Box>
-      <SectionTitle title="Заключение:" className="text-base font-medium" />
-      <TextareActionBoxView isActions />
+      <TextareActionBoxView isActions title="Заключение:" />
     </Box>
   );
 };
