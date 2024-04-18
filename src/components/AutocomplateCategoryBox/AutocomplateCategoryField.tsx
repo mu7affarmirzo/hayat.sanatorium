@@ -1,9 +1,9 @@
 import { Box, Grid, IconButton, Typography } from '@mui/material';
 import { FileAltIcon, FilePlusAltIcon } from 'assets/icons/icons';
 import SearchSelectField from 'components/SearchField/searchSelectField';
-import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
 import useCategoryFetcher from './hook';
 import { UseFormReturn } from 'react-hook-form';
+import { NewDefaultCheckbox } from 'components/checkbox/NewDefaultCheckbox';
 
 interface Props<T extends {}> {
   label: string;
@@ -38,14 +38,23 @@ const AutoComplateCategoryBoxView = <T extends {}>({
 
   return (
     <Box className={`${changeContainerStyle} my-2 gap-2 justify-between`}>
-      <Box className="flex flex-row gap-2 items-center min-w-[150px] ">
-        <Typography className="font-roboto text-sm ">{label}:</Typography>
-        {defaultCheckbox && <DefaultCheckbox label="нет," />}
+      <Box className="flex flex-row gap-2 items-center ">
+        <Typography className="font-roboto text-sm font-normal">
+          {label}:
+        </Typography>
+        {defaultCheckbox && (
+          <NewDefaultCheckbox
+            option={{
+              label: 'отсутствует,',
+              value: 'absent',
+            }}
+          />
+        )}
         {children}
       </Box>
       <Box
         className={`${changeFieldStyle} flex flex-row items-center gap-2 min-w-[300px]`}>
-        {isSearchAction && !!formMethods && (
+        {isSearchAction && formMethods && (
           <SearchSelectField
             open={open}
             setOpen={setOpen}

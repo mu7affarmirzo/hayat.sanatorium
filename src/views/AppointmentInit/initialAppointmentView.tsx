@@ -15,6 +15,7 @@ import StatusPraesensSection from './components/statusPraesensSection';
 import MuscularSystemSection from './components/muscularSystemSection';
 import { FormProvider } from 'react-hook-form';
 import AppointmentHeader from 'components/AppointmentHeader';
+
 import {
   AppointmentInitProvider,
   useAppAppointmentInitContext,

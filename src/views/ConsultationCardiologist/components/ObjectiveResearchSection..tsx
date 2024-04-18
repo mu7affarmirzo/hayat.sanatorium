@@ -5,6 +5,7 @@ import { AppoinmentItemTitle } from 'components/defaultText/AppoinmentItemTitle'
 import { useCardiologistAppoinmnetContext } from '../module';
 import RadioButtonGroup from 'components/RadioButtonGroup';
 import { bodyTypeOptions } from '../constant/radioCheckboxData';
+import TextareActionBoxView from 'components/TextareActionBox/textareActionBoxView';
 
 export const ObjectiveResearchSection = () => {
   const { methods } = useCardiologistAppoinmnetContext();
@@ -73,7 +74,7 @@ export const ObjectiveResearchSection = () => {
         isSearchAction
         isGetAction
         categoryName={'for_sanatorium_treatment'}
-        fieldStyle="w-[50%]"
+        fieldStyle="w-[45%]"
         children={
           <Box>
             <RadioButtonGroup
@@ -89,7 +90,15 @@ export const ObjectiveResearchSection = () => {
         isSearchAction
         isGetAction
         categoryName={'for_sanatorium_treatment'}
-        fieldStyle="w-full"
+        fieldStyle="w-[45%]"
+        children={
+          <Box>
+            <RadioButtonGroup
+              name="auscultative_breathing"
+              options={bodyTypeOptions}
+            />
+          </Box>
+        }
       />
       <AutoComplateCategoryBoxView
         formMethods={methods}
@@ -97,7 +106,15 @@ export const ObjectiveResearchSection = () => {
         isSearchAction
         isGetAction
         categoryName={'for_sanatorium_treatment'}
-        fieldStyle="w-full"
+        fieldStyle="w-[35%]"
+        children={
+          <Box>
+            <RadioButtonGroup
+              name="auscultative_breathing"
+              options={bodyTypeOptions}
+            />
+          </Box>
+        }
       />
       <AutoComplateCategoryBoxView
         formMethods={methods}
@@ -105,7 +122,15 @@ export const ObjectiveResearchSection = () => {
         isSearchAction
         isGetAction
         categoryName={'for_sanatorium_treatment'}
-        fieldStyle="w-full"
+        fieldStyle="w-[40%]"
+        children={
+          <Box>
+            <RadioButtonGroup
+              name="auscultative_breathing"
+              options={bodyTypeOptions}
+            />
+          </Box>
+        }
       />
       <AppointmentSectionContainer>
         <AutoComplateCategoryBoxView
@@ -114,7 +139,15 @@ export const ObjectiveResearchSection = () => {
           isSearchAction
           isGetAction
           categoryName={'for_sanatorium_treatment'}
-          fieldStyle="w-full"
+          fieldStyle="w-[50%]"
+          children={
+            <Box>
+              <RadioButtonGroup
+                name="auscultative_breathing"
+                options={bodyTypeOptions}
+              />
+            </Box>
+          }
         />
         <AutoComplateCategoryBoxView
           formMethods={methods}
@@ -122,7 +155,15 @@ export const ObjectiveResearchSection = () => {
           isSearchAction
           isGetAction
           categoryName={'for_sanatorium_treatment'}
-          fieldStyle="w-full"
+          fieldStyle="w-[45%]"
+          children={
+            <Box>
+              <RadioButtonGroup
+                name="auscultative_breathing"
+                options={bodyTypeOptions}
+              />
+            </Box>
+          }
         />
         <AutoComplateCategoryBoxView
           formMethods={methods}
@@ -130,9 +171,18 @@ export const ObjectiveResearchSection = () => {
           isSearchAction
           isGetAction
           categoryName={'for_sanatorium_treatment'}
-          fieldStyle="w-full"
+          fieldStyle="w-[48%]"
+          children={
+            <Box>
+              <RadioButtonGroup
+                name="auscultative_breathing"
+                options={bodyTypeOptions}
+              />
+            </Box>
+          }
         />
       </AppointmentSectionContainer>
+      <TextareActionBoxView isActions isDisabled={false} />
     </AppointmentSectionContainer>
   );
 };

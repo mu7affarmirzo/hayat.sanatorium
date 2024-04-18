@@ -13,7 +13,7 @@ const NeurologistStatusSection = () => {
         isGetAction={true}
         label="Глазные щели "
         categoryName={'for_sanatorium_treatment'}
-        fieldStyle="w-full"
+        fieldStyle="w-[90%]"
       />
       <AutoComplateCategoryBoxView
         formMethods={methods}
@@ -29,7 +29,7 @@ const NeurologistStatusSection = () => {
         isGetAction={true}
         label="Реакция зрачков на свет"
         categoryName={'for_sanatorium_treatment'}
-        fieldStyle="w-full"
+        fieldStyle="w-[85%]"
       />
       <AutoComplateCategoryBoxView
         formMethods={methods}
@@ -37,7 +37,7 @@ const NeurologistStatusSection = () => {
         isGetAction={true}
         label="Движения глазных яблок"
         categoryName={'for_sanatorium_treatment'}
-        fieldStyle="w-full"
+        fieldStyle="w-[85%]"
       />
       <AutoComplateCategoryBoxView
         formMethods={methods}
@@ -61,7 +61,7 @@ const NeurologistStatusSection = () => {
         isGetAction={true}
         label="Мягкое небо"
         categoryName={'for_sanatorium_treatment'}
-        fieldStyle="w-full"
+        fieldStyle="w-[90%]"
       />
       <AutoComplateCategoryBoxView
         formMethods={methods}
@@ -69,7 +69,7 @@ const NeurologistStatusSection = () => {
         isGetAction={true}
         label="Фонация и глотание"
         categoryName={'for_sanatorium_treatment'}
-        fieldStyle="w-full"
+        fieldStyle="w-[85%]"
       />
       <AutoComplateCategoryBoxView
         formMethods={methods}
@@ -77,7 +77,7 @@ const NeurologistStatusSection = () => {
         isGetAction={true}
         label="Рефлексы орального автоматизма"
         categoryName={'for_sanatorium_treatment'}
-        fieldStyle="w-full"
+        fieldStyle="w-[80%]"
       />
 
       <AutoComplateCategoryBoxView
@@ -86,7 +86,7 @@ const NeurologistStatusSection = () => {
         isGetAction={true}
         label="Мышечная сила в конечностях:"
         categoryName={'for_sanatorium_treatment'}
-        fieldStyle="w-full"
+        fieldStyle="w-[80%]"
       />
       <AutoComplateCategoryBoxView
         formMethods={methods}
@@ -94,7 +94,7 @@ const NeurologistStatusSection = () => {
         isGetAction={true}
         label="Тонус мышц"
         categoryName={'for_sanatorium_treatment'}
-        fieldStyle="w-full"
+        fieldStyle="w-[90%]"
       />
       <AutoComplateCategoryBoxView
         formMethods={methods}
@@ -102,7 +102,7 @@ const NeurologistStatusSection = () => {
         isGetAction={true}
         label="Глубокие рефлексы на руках"
         categoryName={'for_sanatorium_treatment'}
-        fieldStyle="w-full"
+        fieldStyle="w-[80%]"
       />
       <AutoComplateCategoryBoxView
         formMethods={methods}
@@ -110,7 +110,7 @@ const NeurologistStatusSection = () => {
         isGetAction={true}
         label="Глубокие рефлексы на ногах"
         categoryName={'for_sanatorium_treatment'}
-        fieldStyle="w-full"
+        fieldStyle="w-[80%]"
       />
       <AutoComplateCategoryBoxView
         formMethods={methods}
@@ -118,7 +118,7 @@ const NeurologistStatusSection = () => {
         isGetAction={true}
         label="Рефлексы"
         categoryName={'for_sanatorium_treatment'}
-        fieldStyle="w-full"
+        fieldStyle="w-[90%]"
       />
       <AutoComplateCategoryBoxView
         formMethods={methods}
@@ -126,7 +126,7 @@ const NeurologistStatusSection = () => {
         isGetAction={true}
         label="стило-радиальные"
         categoryName={'for_sanatorium_treatment'}
-        fieldStyle="w-full"
+        fieldStyle="w-[88%]"
       />
       <AutoComplateCategoryBoxView
         formMethods={methods}
@@ -134,7 +134,7 @@ const NeurologistStatusSection = () => {
         isGetAction={true}
         label="с двуглавой мышцы плеча"
         categoryName={'for_sanatorium_treatment'}
-        fieldStyle="w-full"
+        fieldStyle="w-[80%]"
       />
       <AutoComplateCategoryBoxView
         formMethods={methods}
@@ -142,7 +142,7 @@ const NeurologistStatusSection = () => {
         isGetAction={true}
         label="с трехглавой мышцы плеча"
         categoryName={'for_sanatorium_treatment'}
-        fieldStyle="w-full"
+        fieldStyle="w-[80%]"
       />
       <AutoComplateCategoryBoxView
         formMethods={methods}
@@ -172,17 +172,17 @@ const NeurologistStatusSection = () => {
         formMethods={methods}
         isSearchAction={true}
         isGetAction={true}
-        label="Патологические рефлексы:"
+        label="Патологические рефлексы"
         categoryName={'for_sanatorium_treatment'}
-        fieldStyle="w-full"
+        fieldStyle="w-[83%]"
       />
       <AutoComplateCategoryBoxView
         formMethods={methods}
         isSearchAction={true}
         isGetAction={true}
-        label="Положение в позе Ромберга:"
+        label="Положение в позе Ромберга"
         categoryName={'for_sanatorium_treatment'}
-        fieldStyle="w-full"
+        fieldStyle="w-[80%]"
       />
       <AutoComplateCategoryBoxView
         formMethods={methods}
@@ -190,7 +190,7 @@ const NeurologistStatusSection = () => {
         isGetAction={true}
         label="В усложненной позе Ромберга"
         categoryName={'for_sanatorium_treatment'}
-        fieldStyle="w-full"
+        fieldStyle="w-[80%]"
       />
       <AutoComplateCategoryBoxView
         formMethods={methods}
@@ -198,7 +198,7 @@ const NeurologistStatusSection = () => {
         isGetAction={true}
         label="Пальценосовая проба"
         categoryName={'for_sanatorium_treatment'}
-        fieldStyle="w-full"
+        fieldStyle="w-[85%]"
       />
       <AutoComplateCategoryBoxView
         formMethods={methods}
@@ -206,7 +206,7 @@ const NeurologistStatusSection = () => {
         isGetAction={true}
         label="Пяточно-коленная проба"
         categoryName={'for_sanatorium_treatment'}
-        fieldStyle="w-full"
+        fieldStyle="w-[85%]"
       />
       <AutoComplateCategoryBoxView
         formMethods={methods}
@@ -222,7 +222,7 @@ const NeurologistStatusSection = () => {
         isGetAction={true}
         label="Чувствительность"
         categoryName={'for_sanatorium_treatment'}
-        fieldStyle="w-full"
+        fieldStyle="w-[90%]"
       />
       <AutoComplateCategoryBoxView
         formMethods={methods}
@@ -230,7 +230,7 @@ const NeurologistStatusSection = () => {
         isGetAction={true}
         label="Когнитивные функции"
         categoryName={'for_sanatorium_treatment'}
-        fieldStyle="w-full"
+        fieldStyle="w-[88%]"
       />
       <AutoComplateCategoryBoxView
         formMethods={methods}
@@ -238,7 +238,7 @@ const NeurologistStatusSection = () => {
         isGetAction={true}
         label="Эмоционально-волевая сфера"
         categoryName={'for_sanatorium_treatment'}
-        fieldStyle="w-full"
+        fieldStyle="w-[80%]"
       />
 
       <AutoComplateCategoryBoxView
@@ -255,7 +255,7 @@ const NeurologistStatusSection = () => {
         isGetAction={true}
         label="Движения в шейном отделе позвоночника"
         categoryName={'for_sanatorium_treatment'}
-        fieldStyle="w-full"
+        fieldStyle="w-[75%]"
       />
       <AutoComplateCategoryBoxView
         formMethods={methods}
@@ -263,7 +263,7 @@ const NeurologistStatusSection = () => {
         isGetAction={true}
         label="Движения в поясничном отделе позвоночника"
         categoryName={'for_sanatorium_treatment'}
-        fieldStyle="w-full"
+        fieldStyle="w-[75%]"
       />
       <AutoComplateCategoryBoxView
         formMethods={methods}
@@ -271,7 +271,7 @@ const NeurologistStatusSection = () => {
         isGetAction={true}
         label="Болезненность при пальпации остистых отростков"
         categoryName={'for_sanatorium_treatment'}
-        fieldStyle="w-full"
+        fieldStyle="w-[70%]"
       />
       <AutoComplateCategoryBoxView
         formMethods={methods}
@@ -279,7 +279,7 @@ const NeurologistStatusSection = () => {
         isGetAction={true}
         label="Болезненность паравертебральных точек"
         categoryName={'for_sanatorium_treatment'}
-        fieldStyle="w-full"
+        fieldStyle="w-[75%]"
       />
       <TextareActionBox isActions />
     </AppointmentSectionContainer>

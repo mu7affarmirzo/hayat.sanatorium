@@ -10,6 +10,7 @@ import { InitAppointmentTypes } from 'types/patientTypes';
 const useInitialAppointmentForm = () => {
   const [appointmentStatus, setAppointmentStatus] =
     useState<AppointmentStatus['status']>('notCompleted');
+
   const dispatch = useReduxDispatch();
   const methods = useForm<InitAppointmentTypes>();
   // const [fetchRequest, { isError, isLoading, isSuccess }] =

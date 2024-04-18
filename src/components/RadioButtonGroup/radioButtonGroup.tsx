@@ -3,6 +3,7 @@ import {
   FormControlLabel,
   Checkbox,
   FormGroup,
+  checkboxClasses,
 } from '@mui/material';
 import React, { FC } from 'react';
 import { UseFormReturn } from 'react-hook-form';
@@ -46,10 +47,25 @@ const RadioButtonGroup: FC<RadioGroupProps> = ({ name, methods, options }) => {
                 size="small"
                 className="w-5 h-5 p-3"
                 onChange={handleChange}
+                sx={{
+                  [`&.${checkboxClasses.root}`]: {
+                    color: '#d7d7d7', // Active rang
+                  },
+                  [`&.${checkboxClasses.checked}`]: {
+                    color: '#007DFF', // Active rang
+                  },
+                }}
               />
             }
             label={option.label}
-            className="my-2 text-[#8d8c8c] text-[14px] bg-red-500"
+            sx={{
+              '& .MuiTypography-root': {
+                fontSize: '14px',
+                color:
+                  selectedOption.value === option.value ? '#007DFF' : '#d7d7d7', // Shart bo'ylab label rangi
+              },
+            }}
+            className="my-2 text-[#b8b8b8aa] text-sm font-roboto font-normal"
           />
         ))}
       </FormGroup>

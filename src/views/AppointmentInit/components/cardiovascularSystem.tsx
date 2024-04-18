@@ -67,7 +67,6 @@ const CardiovascularSystemSection: FC<Props> = ({ formMethods }) => {
               <Typography className="text-[14px]  font-normal text-[#000]">
                 акцент 2 тона на аорте:
               </Typography>
-
               <RadioButtonGroup
                 name="accent_in_aorta"
                 methods={formMethods}

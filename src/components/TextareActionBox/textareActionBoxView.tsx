@@ -23,7 +23,7 @@ const TextareActionBoxView: FC<Partial<Props>> = ({
       <Box className="flex flex-row justify-between gap-3">
         <TextField
           multiline
-          rows={4}
+          rows={3}
           variant="outlined"
           disabled={isDisabled}
           className="w-full outline-none text-[#000] text-[14px] font-roboto"
