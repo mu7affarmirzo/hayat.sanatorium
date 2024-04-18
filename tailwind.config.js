@@ -16,6 +16,7 @@ module.exports = {
             fontFamily: {
                 inter: ["Inter", ...defaultTheme.fontFamily.sans],
                 roboto: ["Roboto", ...defaultTheme.fontFamily.sans],
+                helvetica: ["Roboto", "Helvetica", "Arial", ...defaultTheme.fontFamily.sans]
             },
         },
         screens: {

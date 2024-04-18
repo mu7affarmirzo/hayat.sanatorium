@@ -35,6 +35,7 @@ const ReceptionTable = (props: propsType) => {
         className="ag-theme-alpine">
         <AgGridReact
           rowSelection="multiple"
+          containerStyle={{ fontFamily: "Roboto, Helvetica, Arial, sans-serif" }}
           onRowClicked={handleRowClick}
           suppressRowClickSelection
           columnDefs={props?.columnDefs}

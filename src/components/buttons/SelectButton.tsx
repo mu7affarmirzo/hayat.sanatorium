@@ -52,9 +52,8 @@ const SelectButton = (props: propsType) => {
 
   return (
     <div
-      className={`${
-        props.style ? props.style : 'max-h-[46px] h-[46px]  '
-      }   flex pr-[10px] pl-[15px] items-center mr-[10px] rounded-[4px] min-w-[120px] bg-[#2196F3] `}>
+      className={`${props.style ? props.style : 'max-h-[46px] h-[46px]  '
+        }   flex pr-[10px] pl-[15px] items-center mr-[10px] rounded-[4px] min-w-[120px] bg-[#2196F3] `}>
       {props.icon ? <Box className="mr-[10px]"> {props.icon}</Box> : null}
 
       <Select
@@ -65,8 +64,8 @@ const SelectButton = (props: propsType) => {
         displayEmpty
         inputProps={{ 'aria-label': 'Without label' }}
         input={<BootstrapInput />}
-        className={`${props?.selectStyle} py-[10px] cursor-pointer  `}>
-        <MenuItem value="">
+        className={`${props?.selectStyle} py-[10px] cursor-pointer !font-roboto`}>
+        <MenuItem className='!font-roboto' value="">
           <p
             className={`${props.itemStyle ? props.itemStyle : 'text-[#fff]'} `}>
             {props.defaultValue}
@@ -74,11 +73,10 @@ const SelectButton = (props: propsType) => {
         </MenuItem>
         {props.data.map((item: any, index: number) => {
           return (
-            <MenuItem value={item.title} key={index}>
+            <MenuItem className='!font-roboto' value={item.title} key={index}>
               <p
-                className={` ${
-                  props.itemStyle ? props.itemStyle : 'text-[#fff]'
-                } `}>
+                className={` ${props.itemStyle ? props.itemStyle : 'text-[#fff]'
+                  } `}>
                 {item.title}
               </p>
             </MenuItem>

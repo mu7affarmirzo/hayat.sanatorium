@@ -32,7 +32,7 @@ const DefaultCheckbox = (props: Partial<propsType>) => {
           />
         }
         label={label}
-        className="text-[#8d8c8c] p-0 m-0"
+        className="text-[#000000DE] text-[14px] leading-5 tracking-[0.15px] p-0 m-0"
       />
     </Box>
   );
