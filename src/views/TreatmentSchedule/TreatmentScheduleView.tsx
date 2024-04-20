@@ -59,8 +59,9 @@ const TreatmentScheduleView = () => {
         <PrintComponent />
         <DefaultButton
           title="Save"
-          icon={<VuesaxLinearSave2Icon stroke="#000" />}
-          classStyle="bg-[#F5F5F5] text-[#000]"
+          icon={<VuesaxLinearSave2Icon stroke="#0000003B" />}
+          classStyle="bg-[#F5F5F5] !text-[14px] text-[#0000003B]"
+          color='#0000008A'
         />
       </Box>
       <Box

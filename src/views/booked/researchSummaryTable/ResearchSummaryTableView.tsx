@@ -59,10 +59,10 @@ const ResearchSummaryTableView = () => {
         </Box>
 
         <Box className="w-[calc(70%-6px)] h-full p-[6px] bg-[#F5F5F5]">
-          <Box className="flex w-full items-center">
+          <Box className="flex w-full flex-wrap items-center">
             <DefaultButton
               title="Создать назначения"
-              classStyle="bg-[#4CAF50] h-[35px] mr-[10px]"
+              classStyle="bg-[#4CAF50] h-[24px] mr-[10px]"
               onClick={() => appModals?.show('create_destinations')}
             />
             <DefaultCheckbox
@@ -71,7 +71,7 @@ const ResearchSummaryTableView = () => {
             />
           </Box>
           <Box className="mt-[10px]">
-            <DefaultText>В данной ИБ нет проведенных исследований</DefaultText>
+            <DefaultText style={"text-[#000000DE]"}>В данной ИБ нет проведенных исследований</DefaultText>
           </Box>
         </Box>
       </Box>

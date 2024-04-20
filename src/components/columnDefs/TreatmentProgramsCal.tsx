@@ -26,8 +26,8 @@ function AutocompleteHandler(className: string) {
     <SelectButton
       data={data}
       defaultValue="Выберите д"
-      style={`bg-[#fff] rounded-1 h-6 border-[#0000003B]`}
-      itemStyle="!text-[#00000061] !font-roboto !text-3 leading-5 "
+      style={`bg-[#fff] rounded-1 h-6 !text-[12px] border-[#0000003B] border-[1px]`}
+      itemStyle="!text-[#00000061] !font-roboto !text-[12px]leading-5 "
     />
   );
 }

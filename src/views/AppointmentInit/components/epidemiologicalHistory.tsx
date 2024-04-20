@@ -10,7 +10,8 @@ import { InitAppointmentTypes } from 'types/patientTypes';
 import { AdditionalDataOptions } from '../constant/radioOptions';
 
 interface Props {
-  formMethods: UseFormReturn<InitAppointmentTypes, any, InitAppointmentTypes>;
+  // formMethods: UseFormReturn<InitAppointmentTypes, any, InitAppointmentTypes>
+  formMethods: any;
 }
 
 const EpidemiologicalHistorySection: FC<Props> = ({ formMethods }) => {

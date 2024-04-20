@@ -1,4 +1,4 @@
-/* eslint-disable react/style-prop-object */
+
 import { Box, Button } from '@mui/material';
 import DiagnostikaItem from 'components/DiagnostikaItem';
 import useInitialAppointmentForm from './hook';

@@ -71,7 +71,7 @@ export const ConsultingAndResearchView = () => {
           title="Добавить"
           data={AppointmentConsultaionOptions}
           handleClicked={handleClickPopupMenu}
-          styles="bg-[#4CAF50] text-[#fff]"
+          styles="bg-[#4CAF50] text-[#fff] h-[30px]"
           anchorOrigin={{
             vertical: 'top',
             horizontal: 'right',

@@ -1,6 +1,6 @@
-import { Box, IconButton, OutlinedInput, Typography } from '@mui/material';
+import { Box, IconButton, OutlinedInput, OutlinedInputProps, Typography } from '@mui/material';
 
-type propsType = {
+interface propsType extends OutlinedInputProps {
   register: any;
   inputType: string;
   label?: string;
@@ -13,6 +13,7 @@ type propsType = {
   onClick?: () => void;
   dataPicker?: any;
 };
+
 const DefaultInput = (props: propsType) => {
   let {
     register,
@@ -28,9 +29,8 @@ const DefaultInput = (props: propsType) => {
   } = props;
   return (
     <Box
-      className={`${
-        containerStile ? containerStile : 'flex-col w-[100%]'
-      } flex gap-1 `}>
+      className={`${containerStile ? containerStile : 'flex-col w-[100%]'
+        } flex gap-1 `}>
       {label ? (
         <Typography className={`${labelStyle} text-[14px] text-[#858585] `}>
           {label}
@@ -38,9 +38,8 @@ const DefaultInput = (props: propsType) => {
       ) : null}
 
       <OutlinedInput
-        className={`${
-          inputStyle ? inputStyle : 'w-[100%]'
-        } bg-[#fff] h-[40px] `}
+        className={`${inputStyle ? inputStyle : 'w-[100%]'
+          } bg-[#fff] h-[40px] `}
         {...register(`${inputType}`, { required: true })}
         placeholder={placeholder}
       />
@@ -51,9 +50,8 @@ const DefaultInput = (props: propsType) => {
             onClick={onClick}
             color="primary"
             aria-label="add to shopping cart"
-            className={`${
-              iconBg ? iconBg : 'bg-[#64B6F7]'
-            }  rounded-none  mx-[3px]`}>
+            className={`${iconBg ? iconBg : 'bg-[#64B6F7]'
+              }  rounded-none  mx-[3px]`}>
             {icon}
           </IconButton>
         </>
