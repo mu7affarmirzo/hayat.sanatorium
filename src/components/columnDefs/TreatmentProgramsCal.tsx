@@ -21,13 +21,13 @@ function MyRoomType(params: any) {
     </div>
   );
 }
-function AutocompleteHandler(params: any) {
+function AutocompleteHandler(className: string) {
   return (
     <SelectButton
       data={data}
       defaultValue="Выберите д"
-      style="bg-[#fff] border"
-      itemStyle="text-[#000]"
+      style={`bg-[#fff] rounded-1 h-6 !text-[12px] border-[#0000003B] border-[1px]`}
+      itemStyle="!text-[#00000061] !font-roboto !text-[12px]leading-5 "
     />
   );
 }
@@ -77,7 +77,7 @@ export const TreatmentProgramsCOl: ColDef[] = [
     },
   },
   {
-    headerName: 'Начало',
+    headerName: 'Окончание',
     field: 'group',
     width: 150,
     cellRenderer: AutocompleteHandler,

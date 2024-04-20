@@ -102,7 +102,7 @@ export const GenerateSidebarTabsData = (broneData: any) => {
     },
     ...broneDataTabs,
     {
-      title: 'Консультации и повторные приемы',
+      title: 'Консультации и повторные приемы, приемы',
       component: consultationTechniques,
       activBtnType: 'panel1',
       chiled: [

@@ -1,4 +1,5 @@
 /* eslint-disable react/style-prop-object */
+/* eslint-disable */
 import { Box, Grid } from '@mui/material';
 import SectionTitle from 'components/SectionTitle/sectionTitle';
 import DefaultButton from 'components/deafultButton/DefaultButton';
@@ -74,7 +75,7 @@ const AppointmentsBox = () => {
     <Box className="border px-[10px] py-[5px] mt-[10px] mb-10">
       <SectionTitle title="Назначения" className="text-base font-medium py-2" />
       <DefaultButton
-        classStyle="bg-[#4CAF50] text-[#fff]"
+        classStyle="bg-[#4CAF50] text-[#fff] h-[30px]"
         title="Назначить из лечебной программы!"
         onClick={() => setOpen(true)}
       />

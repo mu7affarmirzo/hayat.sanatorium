@@ -11,7 +11,8 @@ import { InitAppointmentTypes } from 'types/patientTypes';
 import { EffleurageSymptomsOptions } from '../constant/radioOptions';
 
 interface Props {
-  formMethods: UseFormReturn<InitAppointmentTypes, any, InitAppointmentTypes>;
+  // formMethods: UseFormReturn<InitAppointmentTypes, any, InitAppointmentTypes>
+  formMethods: any;
 }
 
 const UrinarySystemSection: FC<Props> = ({ formMethods }) => {

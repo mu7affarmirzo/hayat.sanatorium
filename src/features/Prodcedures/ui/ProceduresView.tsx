@@ -18,7 +18,7 @@ export const ProceduresView = () => {
           Лечебные процедуры не назначены.
         </Typography>
         <DefaultButton
-          classStyle="bg-[#4CAF50] text-[#fff]"
+          classStyle="bg-[#4CAF50] text-[#fff] h-[30px]"
           title="Добавить"
           onClick={toggleMedicalsModal}
         />

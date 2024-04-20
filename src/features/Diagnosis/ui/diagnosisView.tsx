@@ -9,7 +9,7 @@ export const DiagnosisView = () => {
       <Box className="flex gap-2 my-[10px] items-center">
         <Typography className={'text-sm'}>Диагноз не изменен :</Typography>
         <DefaultButton
-          classStyle="bg-[#4CAF50] text-[#fff]"
+          classStyle="bg-[#4CAF50] text-[#fff] h-[30px]"
           title="Добавить диагноз"
         />
       </Box>
