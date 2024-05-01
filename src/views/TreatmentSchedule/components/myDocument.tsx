@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
 
 // PDF yuklash havolasi komponenti
 const PDFLink = ({ data }: any) => (
-    <PDFDownloadLink document={<MyDocument data={data} />} fileName="data.pdf">
+    <PDFDownloadLink className="font-roboto text-[#727272] text-[14px]" document={<MyDocument data={data} />} fileName="data.pdf">
         {({ blob, url, loading, error }) =>
             loading ? "PDF yaratilmoqda..." : "Print"
         }
@@ -61,7 +61,7 @@ const PDFComponent = ({ data }: any) => (
     <>
         <Button
             variant={"contained"}
-            className="text-[#727272] bg-[#ebebeb] capitalize text-sm mr-3"
+            className="bg-[#ebebeb] capitalize mr-3 "
             startIcon={<VuesaxLinearPrinterIcon stroke="#727272" />}
         >
             <PDFLink data={data} />

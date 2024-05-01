@@ -17,7 +17,8 @@ import {
 import RadioButtonGroup from 'components/RadioButtonGroup';
 
 interface Props {
-  formMethods: UseFormReturn<InitAppointmentTypes, any, InitAppointmentTypes>;
+  // formMethods: UseFormReturn<InitAppointmentTypes, any, InitAppointmentTypes>
+  formMethods: any;
 }
 
 const RespiratorySystemSection: FC<Props> = ({ formMethods }) => {

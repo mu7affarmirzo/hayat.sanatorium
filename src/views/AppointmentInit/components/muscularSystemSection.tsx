@@ -8,7 +8,8 @@ import { UseFormReturn } from 'react-hook-form';
 import { InitAppointmentTypes } from 'types/patientTypes';
 
 interface Props {
-  formMethods: UseFormReturn<InitAppointmentTypes, any, InitAppointmentTypes>;
+  // formMethods: UseFormReturn<InitAppointmentTypes, any, InitAppointmentTypes>
+  formMethods: any;
 }
 
 const MuscularSystemSection: FC<Props> = ({ formMethods }) => {

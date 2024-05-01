@@ -129,11 +129,10 @@ const ExpancedSearchOptions = () => {
                         <NoActiveDotIcon />
                       )
                     }
-                    className={` ${
-                      item.id === activeBtn
-                        ? 'bg-[#4CAF50] text-[#fff] border border-solid border-[#4CAF50]'
-                        : 'bg-[#fff] text-[#000] border border-solid border-[#c4c2c2]'
-                    }  h-[40px]  text-[14px]  capitalize mr-[5px] px-[8px] py-[5px]  `}>
+                    className={` ${item.id === activeBtn
+                      ? 'bg-[#4CAF50] text-[#fff] border border-solid border-[#4CAF50]'
+                      : 'bg-[#fff] text-[#000] border border-solid border-[#c4c2c2]'
+                      }  h-[40px]  text-[14px]  capitalize mr-[5px] px-[8px] py-[5px]  `}>
                     {item?.name}
                   </Button>
                 ))}
@@ -246,7 +245,7 @@ const ExpancedSearchOptions = () => {
                 data={top100Films}
                 labelStyle=" text-black "
                 containerStyle={
-                  'w-[99%]  flex-row items-center  justify-between'
+                  'w-[99%] flex-row items-center justify-between'
                 }
                 inputStyle="w-[calc(100%-155px)]"
               />

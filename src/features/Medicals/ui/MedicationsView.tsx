@@ -15,7 +15,7 @@ export const MedicationsView = () => {
           Медикаменты не назначены.
         </Typography>
         <DefaultButton
-          classStyle="bg-[#4CAF50] text-white"
+          classStyle="bg-[#4CAF50] text-white h-[30px]"
           title="Добавить"
           onClick={toggleMedicalsModal}
         />

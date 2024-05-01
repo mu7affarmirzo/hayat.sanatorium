@@ -22,6 +22,7 @@ import { HealingProceduresCol } from 'components/columnDefs/HealingProceduresCol
 import { TreatmentProgramsCOl } from 'components/columnDefs/TreatmentProgramsCal';
 import { ConsultingResearchCol } from 'components/columnDefs/ConsultingResearchCol';
 import ReceptionTableGroup from 'components/ReceptionTableGroup';
+import Drugs from 'components/Drugs';
 
 const StyledMenu = styled((props: MenuProps) => (
   <Menu
@@ -153,7 +154,7 @@ const AddHandler = () => {
         variant="contained"
         disableElevation
         onClick={handleClick}
-        className="h-[35px] bg-[#4CAF50] mr-[5px] text-[#fff]  capitalize px-[15px]">
+        className="h-6 tracking-[0.15px] !text-[14px] bg-[#4CAF50] mr-[5px] text-[#fff]  capitalize px-[15px]">
         Добавить
       </Button>
       <StyledMenu
@@ -194,25 +195,25 @@ const MainAssignmentSheetView = () => {
   return (
     <Box className="border border-[rgba(0, 0, 0, 0.23)] h-[calc(100vh-225px)]  p-[10px] overflow-hidden ">
       <Box className=" flex h-[35px] items-start  justify-between   ">
-        <DefaultText style={'text-[#000] text-[14px]'}>
+        <DefaultText style={'text-[#000] !text-[14px]'}>
           Основной лист назначений
         </DefaultText>
       </Box>
       <Box className="bg-[#fff] w-full p-[5px] overflow-scroll max-h-[calc(100vh-230px)] h-[calc(100vh-280px)] border  ">
         <Box className="border p-[3px] ">
-          <Typography className={'text-[#000] text-[14px] font-medium tracking-[0.1px]'}>
+          <Typography className={'text-[#000] !text-[14px] font-medium tracking-[0.1px]'}>
             Лечебные программы
           </Typography>
-          <Box className="flex mt-[10px]  justify-between">
+          <Box className="flex mt-[10px] flex-wrap justify-between">
             <Box className="flex ">
               <DefaultButton
                 title="Назначить из лечебной программы"
-                classStyle="bg-[#4CAF50] h-[24px] tracking-[0.15px] text-[14px]"
+                classStyle="bg-[#4CAF50] h-6 tracking-[0.15px] !text-[14px]"
                 onClick={() => appModals?.show('selecting_destination')}
               />
               <DefaultButton
                 title="Добавить программу в ИБ"
-                classStyle="bg-[#4CAF50] h-[24px] tracking-[0.15px] text-[14px]  ml-[10px]"
+                classStyle="bg-[#4CAF50] h-6 tracking-[0.15px] !text-[14px]  ml-[10px]"
               />
             </Box>
             <Box className="flex h-6">
@@ -231,32 +232,32 @@ const MainAssignmentSheetView = () => {
           <Typography className={'text-[#000] text-[14px] font-medium '}>
             Консультации и исследования
           </Typography>
-          <Box className=" py-[10px] ">
+          <Box className=" py-[10px] flex flex-wrap gap-[5px]">
             <AddHandler />
 
             <DefaultButton
               title="Приостановить"
-              classStyle="h-[35px] bg-[#2196F3] mr-[5px]"
+              classStyle="h-6 tracking-[0.15px] text-[14px] bg-[#2196F3]"
               disabled
             />
             <DefaultButton
               title="Возобновить"
-              classStyle="h-[35px] bg-[#2196F3] mr-[5px]"
+              classStyle="h-6 tracking-[0.15px] text-[14px] bg-[#2196F3]"
               disabled
             />
             <DefaultButton
               title="Отменить"
-              classStyle="h-[35px] bg-[#2196F3] mr-[5px]"
+              classStyle="h-6 tracking-[0.15px] text-[14px] bg-[#2196F3]"
               disabled
             />
             <DefaultButton
               title="Диспетчеризовать"
-              classStyle="h-[35px] bg-[#2196F3] mr-[5px]"
+              classStyle="h-6 tracking-[0.15px] text-[14px] bg-[#2196F3]"
               disabled
             />
             <DefaultButton
               title="Удалить"
-              classStyle="h-[35px] bg-[#2196F3] mr-[5px]"
+              classStyle="h-6 tracking-[0.15px] text-[14px] bg-[#2196F3]"
               disabled
             />
           </Box>
@@ -267,46 +268,43 @@ const MainAssignmentSheetView = () => {
             Лечебные процедуры
           </Typography>
 
-          <Box className=" py-[5px] flex flex-wrap  justify-between">
-            <Box className="  flex flex-wrap">
+          <Box className="py-[5px] flex flex-wrap items-center justify-between">
+            <Box className="gap-[5px] flex flex-wrap">
               <DefaultButton
                 title="Добавить"
-                classStyle="h-[35px] bg-[#4CAF50] mr-[5px]"
+                classStyle="h-6 tracking-[0.15px] !text-[14px] bg-[#4CAF50]"
                 onClick={() => appModals?.show('selecting_destination')}
               />
               <DefaultButton
                 title="Приостановить"
-                classStyle="h-[35px] bg-[#2196F3] mr-[5px]"
+                classStyle="h-6 tracking-[0.15px] !text-[14px] bg-[#2196F3]"
                 disabled
               />
               <DefaultButton
                 title="Возобновить"
-                classStyle="h-[35px] bg-[#2196F3] mr-[5px]"
+                classStyle="h-6 tracking-[0.15px] !text-[14px] bg-[#2196F3]"
                 disabled
               />
               <DefaultButton
                 title="Отменить"
-                classStyle="h-[35px] bg-[#2196F3] mr-[5px]"
+                classStyle="h-6 tracking-[0.15px] text-[14px] bg-[#2196F3]"
                 disabled
               />
               <DefaultButton
                 title="Диспетчеризовать"
-                classStyle="h-[35px] bg-[#2196F3] mr-[5px]"
+                classStyle="h-6 tracking-[0.15px] text-[14px] bg-[#2196F3]"
               />
               <DefaultButton
                 title="Удалить"
-                classStyle="h-[35px] bg-[#2196F3] mr-[5px]"
+                classStyle="h-6 tracking-[0.15px] text-[14px] bg-[#2196F3]"
               />
               <DefaultButton
                 title="Продлить выбранные назначения"
-                classStyle="h-[35px] bg-[#2196F3] mr-[5px]"
+                classStyle="h-6 tracking-[0.15px] text-[14px] bg-[#2196F3]"
               />
             </Box>
-            <Box>
-              <DefaultCheckbox
-                label="Скрывать неактивные"
-                style="flex flex-col"
-              />
+            <Box className="flex h-6">
+              <DefaultCheckbox label="Скрывать неактивные" />
             </Box>
           </Box>
           <Box className="flex w-[100%] justify-between">
@@ -315,6 +313,50 @@ const MainAssignmentSheetView = () => {
             </Box>
 
             <HealingProcedures />
+          </Box>
+        </Box>
+        <Box className="border p-[3px]  mt-[5px]">
+          <Typography className={'text-[#000] text-[14px] font-medium '}>
+            Медикаменты
+          </Typography>
+
+          <Box className="py-[5px] flex flex-wrap items-center justify-between">
+            <Box className="gap-[5px] flex flex-wrap">
+              <DefaultButton
+                title="Добавить"
+                classStyle="h-6 tracking-[0.15px] !text-[14px] bg-[#4CAF50]"
+                onClick={() => appModals?.show('selecting_destination')}
+              />
+              <DefaultButton
+                title="Распечатать"
+                classStyle="h-6 tracking-[0.15px] !text-[14px] bg-[#2196F3]"
+                disabled
+              />
+              <DefaultButton
+                title="Возобновить"
+                classStyle="h-6 tracking-[0.15px] !text-[14px] bg-[#2196F3]"
+                disabled
+              />
+              <DefaultButton
+                title="Отменить"
+                classStyle="h-6 tracking-[0.15px] text-[14px] bg-[#2196F3]"
+                disabled
+              />
+              <DefaultButton
+                title="Удалить"
+                classStyle="h-6 tracking-[0.15px] text-[14px] bg-[#2196F3]"
+              />
+            </Box>
+            <Box className="flex h-6">
+              <DefaultCheckbox label="Скрывать неактивные" />
+            </Box>
+          </Box>
+          <Box className="flex w-[100%] justify-between">
+            <Box className={'w-[calc(100%-500px)]'}>
+              <ReceptionTableGroup columnDefs={HealingProceduresCol} />
+            </Box>
+
+            <Drugs />
           </Box>
         </Box>
       </Box>

@@ -12,12 +12,14 @@ body {
         'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
 }
 
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
 }
+
 @import '~ag-grid-community/styles/ag-grid.css';
 @import '~ag-grid-community/styles/ag-theme-alpine.css';
 
@@ -26,10 +28,12 @@ code {
     position: absolute;
     top: var(--swiper-navigation-top-offset, 80%);
 }
+
 .swiper-nav-btns {
     position: absolute;
     /* bottom: 10px; */
 }
+
 span.MuiSlider-root.MuiSlider-colorPrimary.MuiSlider-sizeSmall.css-53tbrc-MuiSlider-root {
     padding: 0px;
 }

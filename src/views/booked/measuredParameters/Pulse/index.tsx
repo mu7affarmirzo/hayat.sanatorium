@@ -1,8 +1,12 @@
-import { Box } from '@mui/material';
+import { Box, IconButton } from '@mui/material';
 import DefaultText from 'components/defaultText/DefaultText';
 import DefaultButton from 'components/deafultButton/DefaultButton';
+import { CloseIcon } from 'assets/icons/icons';
+import OutlinedNumber from 'components/outlinedNumber/OutlinedNumber';
+import { NumberInput } from '../components/NumberInput';
+import { TableItem } from './TableItem';
 
-const MeasuredParametersItem = () => {
+const Pulse = () => {
   return (
     <Box className="w-[100%] border border-t-0 p-[5px] bg-[#fff] flex justify-between h-[calc(100vh-340px)] max-h-[calc(100vh-340px)]">
       <Box className="w-[40%]  h-[100%] ">
@@ -17,27 +21,23 @@ const MeasuredParametersItem = () => {
             <Box className="flex bg-[#64B6F7] w-full border items-center z-0">
               {/* <Box className="w-[30px] h-[30px] border-r-[1px] border-[#605e5e] "></Box> */}
               <Box className="border-r-[1px] border-[#605e5e] w-[30px] h-[30px] flex justify-center items-center"></Box>
-              <Box className="w-[calc(20%+30px)] h-[30px] flex flex-col justify-center">
-                <DefaultText style={'text-[14px] text-[#000] ml-[10px]'}>
-                  Систолическое
+              <Box className="w-[calc(25%+30px)] h-[30px] flex flex-col justify-center">
+                <DefaultText style={'text-[14px] font-medium text-[#000] ml-[10px]'}>
+                  Пульс
                 </DefaultText>
               </Box>
-              <Box className="border-l-[1px] border-[#605e5e] w-[35%] h-[30px] flex flex-col justify-center">
-                <DefaultText style={'text-[14px] text-[#000] ml-[10px]'}>
-                  Диастолическое
-                </DefaultText>
-              </Box>
-              <Box className="border-l-[1px] border-[#605e5e] w-[15%] h-[30px] flex flex-col justify-center">
-                <DefaultText style={'text-[14px] text-[#000] ml-[10px]'}>
+              <Box className="border-l-[1px] border-[#605e5e] w-[30%] h-[30px] flex flex-col justify-center">
+                <DefaultText style={'text-[14px] font-medium text-[#000] ml-[10px]'}>
                   Дата
                 </DefaultText>
               </Box>
-              <Box className="border-l-[1px] border-[#605e5e] w-[15%] h-[30px] flex flex-col justify-center">
-                <DefaultText style={'text-[14px] text-[#000] ml-[10px]'}>
-                  Добавить
+              <Box className="border-l-[1px] border-[#605e5e] w-[30%] h-[30px] flex flex-col justify-center">
+                <DefaultText style={'text-[14px] font-medium text-[#000] ml-[10px]'}>
+                  Добавил
                 </DefaultText>
               </Box>
             </Box>
+            <TableItem />
           </Box>
         </Box>
       </Box>
@@ -48,4 +48,4 @@ const MeasuredParametersItem = () => {
   );
 };
 
-export default MeasuredParametersItem;
+export { Pulse };

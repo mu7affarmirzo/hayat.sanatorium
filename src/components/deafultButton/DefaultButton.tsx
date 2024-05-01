@@ -10,9 +10,10 @@ type propsType = {
   disabled?: boolean;
   className?: CommonProps['className'];
   submitType?: 'button' | 'submit' | 'reset' | undefined;
+  color?: string;
 };
 const DefaultButton = (props: propsType) => {
-  let { classStyle, title, icon, variant, onClick, disabled, submitType } =
+  let { classStyle, title, icon, variant, onClick, disabled, submitType, color = "#fff" } =
     props;
   return (
     <Button
@@ -21,12 +22,10 @@ const DefaultButton = (props: propsType) => {
       startIcon={icon}
       disabled={disabled}
       type={submitType}
-      className={`${
-        classStyle ? classStyle : ' bg-[#2196F3] h-[46px] text-[#fff]'
-      } ${
-        disabled ? 'opacity-50' : 'opacity-100'
-      } text-[14px]  capitalize text-[#000]`}>
-      <Typography className="text-[#fff]">{title}</Typography>
+      className={`${classStyle ? classStyle : ' bg-[#2196F3] h-[46px] text-[#fff]'
+        } ${disabled ? 'opacity-50' : 'opacity-100'
+        } text-[14px]  capitalize text-[#000]`}>
+      <Typography className={`text-[${color}]`}>{title}</Typography>
     </Button>
   );
 };
