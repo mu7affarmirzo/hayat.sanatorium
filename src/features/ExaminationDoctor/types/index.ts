@@ -1,0 +1,34 @@
+export interface PostExamitationByDoctor {
+  state: string;
+  complaints: string;
+  arv_number: string;
+  ayes_shells: string;
+  from_to_sanatorium: string;
+  road_crossed: string;
+  abroad_for_last_years: string;
+  virus_hepatitis: string;
+  tuberculosis: string;
+  malarias: string;
+  venerian_illness: string;
+  dizanteri: string;
+  helminthic_infestations: string;
+  had_contact_with_inf_people: string;
+  had_stul_for: boolean;
+  allergy: string;
+  meteolabilisis: string;
+  non_carrying_prods: string;
+  stull_issues: string;
+  has_always_pills: string;
+  objective_data: string;
+  temperature: number;
+  arterial_high: number;
+  arterial_low: number;
+  imt: number;
+  pulse: string;
+  diet: string;
+  regime: string;
+  created_by: number;
+  modified_by: number;
+  doctor: number;
+  illness_history: number;
+}

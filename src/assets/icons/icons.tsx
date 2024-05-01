@@ -1018,6 +1018,25 @@ export const LogoSanatarumIcon = (props: SvgProps) => {
     </svg>
   );
 };
+
+export const UserIconForTabs = (props: SvgProps) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="18"
+      height="18"
+      fill="none"
+      viewBox="0 0 18 18">
+      <path
+        stroke={props.stroke ? props.stroke : 'white'}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
+        d="M4 17a5 5 0 0110 0m-9.8 0h9.6c1.12 0 1.68 0 2.108-.218a2 2 0 00.874-.874C17 15.48 17 14.92 17 13.8V4.2c0-1.12 0-1.68-.218-2.108a2 2 0 00-.874-.874C15.48 1 14.92 1 13.8 1H4.2c-1.12 0-1.68 0-2.108.218a2 2 0 00-.874.874C1 2.52 1 3.08 1 4.2v9.6c0 1.12 0 1.68.218 2.108a2 2 0 00.874.874C2.52 17 3.08 17 4.2 17zM11 7a2 2 0 11-4 0 2 2 0 014 0z"></path>
+    </svg>
+  );
+};
+
 export const BookUserIcon = (props: SvgProps) => {
   return (
     <svg

@@ -14,40 +14,37 @@ const initialState: PatientTypes = {
   selectBroneId: null,
 };
 
-export const patientSlice = createSlice({
+export const getIbWithPatientIdSlice = createSlice({
   name: 'patient',
   initialState,
   reducers: {
     addPatientDoctors: (state, action: PayloadAction<PatientType>) => {
       const newPatient = action.payload;
+      state.selectBroneId = newPatient.id;
+
       const existingPatientIndex = state.broneData.findIndex(
         (patient) => patient.id === newPatient.id,
       );
-      state.selectBroneId = action?.payload?.id;
-
       if (existingPatientIndex !== -1) {
         state.broneData.splice(existingPatientIndex, 1);
       }
-      if (action.payload) {
-        state.selectBroneId = action?.payload?.id;
-      }
+
       state.broneData.push(newPatient);
-      // state.selectBroneId = newPatient.id;
     },
     removePatientDoctors: (state, action: PayloadAction<number>) => {
-      const patientIndex = state.broneData.findIndex(
-        (patient) => patient.id === action.payload,
+      const patientIdToRemove = action.payload;
+      state.broneData = state.broneData.filter(
+        (patient) => patient.id !== patientIdToRemove,
       );
-      if (patientIndex !== -1) {
-        state.broneData.splice(patientIndex, 1);
-        state.selectBroneId = null;
-      }
+      state.selectBroneId = null;
     },
+
     clearPatientsDoctors: (state) => {
       state.broneData = [];
+      state.selectBroneId = null;
     },
   },
 });
 
 export const { addPatientDoctors, clearPatientsDoctors, removePatientDoctors } =
-  patientSlice.actions;
+  getIbWithPatientIdSlice.actions;

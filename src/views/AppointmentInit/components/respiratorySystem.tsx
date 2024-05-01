@@ -2,7 +2,7 @@
 import { Box, Typography, OutlinedInput } from '@mui/material';
 import SectionTitle from 'components/SectionTitle/sectionTitle';
 import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
-import DiagnosticCeckboxItem from 'components/diagnosticCeckboxItem/DiagnosticCeckboxItem';
+import DiagnosticCeckboxItem from 'components/AutocomplateCategoryBox/AutocomplateCategoryBoxView';
 import { FC } from 'react';
 import { UseFormReturn } from 'react-hook-form';
 import { InitAppointmentTypes } from 'types/patientTypes';
@@ -35,6 +35,7 @@ const RespiratorySystemSection: FC<Props> = ({ formMethods }) => {
         <OutlinedInput
           sx={{ height: '35px', width: '60px' }}
           className="mx-2"
+          {...formMethods.register('respiratory_frequency')}
         />
         <Typography className=" text-[14px]  font-normal text-[#000]">
           в 1 минуту

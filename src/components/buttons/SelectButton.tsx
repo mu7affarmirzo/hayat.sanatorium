@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import {
   Box,
   InputBase,
@@ -7,7 +8,6 @@ import {
   styled,
 } from '@mui/material';
 
-import { useState } from 'react';
 const BootstrapInput = styled(InputBase)(({ theme }) => ({
   'label + &': {
     marginTop: theme.spacing(3),
@@ -36,52 +36,54 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
     },
   },
 }));
-type propsType = {
-  icon?: any;
-  data?: any;
+
+type Option = {
+  title: string;
+};
+
+type SelectButtonProps = {
+  icon?: JSX.Element;
+  data?: Option[];
   defaultValue?: string;
   style?: string;
   selectStyle?: string;
   itemStyle?: string;
 };
-const SelectButton = (props: propsType) => {
-  const [age, setAge] = useState('');
+
+const SelectButton: React.FC<SelectButtonProps> = ({
+  icon,
+  data = [],
+  defaultValue = '',
+  style = 'max-h-[46px] h-[46px]',
+  selectStyle,
+  itemStyle,
+}) => {
+  const [age, setAge] = useState<string>('');
+
   const handleChange = (event: SelectChangeEvent) => {
     setAge(event.target.value as string);
   };
 
   return (
     <div
-      className={`${props.style ? props.style : 'max-h-[46px] h-[46px]  '
-        }   flex pr-[10px] pl-[8px] items-center mr-[10px] rounded-[4px] min-w-[120px] bg-[#2196F3] `}>
-      {props.icon ? <Box className="mr-[10px]"> {props.icon}</Box> : null}
-
+      className={`${style} flex pr-[10px] pl-[15px] items-center mr-[10px] rounded-[4px] min-w-[120px] bg-[#2196F3]`}>
+      {icon && <Box className="mr-[10px]">{icon}</Box>}
       <Select
         labelId="demo-simple-select-helper-label"
         id="demo-simple-select-helper"
         value={age}
         onChange={handleChange}
         displayEmpty
-        inputProps={{ 'aria-label': 'Without label' }}
         input={<BootstrapInput />}
-        className={`${props?.selectStyle} py-[10px] cursor-pointer`}>
-        <MenuItem value="">
-          <p
-            className={`${props.itemStyle ? props.itemStyle : 'text-[#fff]'} `}>
-            {props.defaultValue}
-          </p>
+        className={`${selectStyle} py-[10px] cursor-pointer !font-roboto`}>
+        <MenuItem className="!font-roboto" value="">
+          <p className={`${itemStyle} text-[#fff]`}>{defaultValue}</p>
         </MenuItem>
-        {props.data.map((item: any, index: number) => {
-          return (
-            <MenuItem value={item.title} key={index}>
-              <p
-                className={` ${props.itemStyle ? props.itemStyle : 'text-[#fff]'
-                  } `}>
-                {item.title}
-              </p>
-            </MenuItem>
-          );
-        })}
+        {data.map((item: Option, index: number) => (
+          <MenuItem className="!font-roboto" value={item.title} key={index}>
+            <p className={`${itemStyle} text-[#fff]`}>{item.title}</p>
+          </MenuItem>
+        ))}
       </Select>
     </div>
   );

@@ -1,7 +1,6 @@
-
-import { Box, Button } from '@mui/material';
+/* eslint-disable react/style-prop-object */
+import { Box } from '@mui/material';
 import DiagnostikaItem from 'components/DiagnostikaItem';
-import useInitialAppointmentForm from './hook';
 import EpidemiologicalHistorySection from './components/epidemiologicalHistory';
 import RespiratorySystemSection from './components/respiratorySystem';
 import CardiovascularSystemSection from './components/cardiovascularSystem';
@@ -17,9 +16,14 @@ import MuscularSystemSection from './components/muscularSystemSection';
 import { FormProvider } from 'react-hook-form';
 import AppointmentHeader from 'components/AppointmentHeader';
 
-const IntialApportmentView = () => {
+import {
+  AppointmentInitProvider,
+  useAppAppointmentInitContext,
+} from './module';
+
+const Main = () => {
   const { methods, onSubmit, appointmentStatus, handleChangeStatus } =
-    useInitialAppointmentForm();
+    useAppAppointmentInitContext();
 
   return (
     <Box>
@@ -37,9 +41,9 @@ const IntialApportmentView = () => {
             <DiagnostikaItem title="Anamnesis morbi" />
             <DiagnostikaItem title="Anamnesis vitae" />
 
-            <EpidemiologicalHistorySection formMethods={methods} />
+            <EpidemiologicalHistorySection />
 
-            <StatusPraesensSection formMethods={methods} />
+            <StatusPraesensSection />
 
             <MuscularSystemSection formMethods={methods} />
 
@@ -58,9 +62,7 @@ const IntialApportmentView = () => {
             <DiagnosisSection />
 
             <ConclusionSection />
-            {/* <Button type="submit" variant="contained" className="my-2">
-              Submit
-            </Button> */}
+
             <AppointmentsSection />
           </Box>
         </form>
@@ -68,5 +70,11 @@ const IntialApportmentView = () => {
     </Box>
   );
 };
+
+const IntialApportmentView = () => (
+  <AppointmentInitProvider>
+    <Main />
+  </AppointmentInitProvider>
+);
 
 export default IntialApportmentView;

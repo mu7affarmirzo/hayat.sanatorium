@@ -1,3 +1,10 @@
+export interface PostDoctorOnDutyAppointmentTypes {
+  medical_services: Partial<MedicalService>[];
+  lab_research: Partial<LabResearch>[];
+  procedures: Partial<Procedure>[];
+  pills: Partial<Pill>[];
+}
+
 export interface DoctorOnDutyAppointmentTypes {
   medical_services: MedicalService[];
   lab_research: LabResearch[];

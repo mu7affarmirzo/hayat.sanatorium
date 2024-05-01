@@ -18,6 +18,7 @@ const top100Films = [
 
 type AppointmentHeaderViewProps = {
   doctor: string;
+  onClick?: () => void;
   appointmentStatus: 'notCompleted' | 'completed' | 'cancelled';
   setAppointmentStatus: (
     status: 'notCompleted' | 'completed' | 'cancelled',
@@ -55,7 +56,7 @@ const AppointmentHeaderView: FC<AppointmentHeaderViewProps> = ({
             disabled={true}
           />
           <SelectButton
-            data={top100Films}
+            data={[]}
             style="h-[38px] bg-[#2196F3]"
             defaultValue="Шаблоны"
           />

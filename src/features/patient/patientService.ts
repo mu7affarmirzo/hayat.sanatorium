@@ -4,6 +4,7 @@ import {
   GetProdcedures,
   LabResearchesType,
 } from 'types/appointmentTypes';
+import { PostDoctorOnDutyAppointmentTypes } from 'types/doctorOnDutyAppointment';
 import { GetMyPatients, InitAppointmentTypes } from 'types/patientTypes';
 
 export const patientService = ApiSlice.injectEndpoints({
@@ -47,6 +48,17 @@ export const patientService = ApiSlice.injectEndpoints({
         method: 'GET',
       }),
     }),
+
+    postNeurologistAppointment: builder.mutation<
+      any,
+      PostDoctorOnDutyAppointmentTypes
+    >({
+      query: (body) => ({
+        url: '/sanatorium/appointments/neurologist-appointment',
+        method: 'POST',
+        body: body,
+      }),
+    }),
   }),
 });
 
@@ -57,4 +69,5 @@ export const {
   useLazyGetLabsGroupByCategoryQuery,
   useGetProceduresGroupByCategoryQuery,
   useGetMedServiceGroupQuery,
+  usePostNeurologistAppointmentMutation,
 } = patientService;

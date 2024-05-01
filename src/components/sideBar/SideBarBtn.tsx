@@ -3,6 +3,12 @@ import { FC, useState } from 'react';
 import { SvgProps } from 'types/types';
 import SaidBarCustomizedAccordions from './SaidBarCustomizedAccordions';
 
+interface ChildItem {
+  id: number;
+  title: string;
+  data?: ChildItem[];
+}
+
 interface BookingProps {
   index: number;
   title: string;
@@ -12,7 +18,7 @@ interface BookingProps {
   subTitle?: string;
   activeTab: number;
   onClick?: () => void;
-  chiled?: any;
+  chiled?: ChildItem[];
   activBtnType?: any;
   search?: any;
 }
@@ -20,7 +26,11 @@ interface BookingProps {
 const SideBarBtn: FC<BookingProps> = (props) => {
   const { title, onClick, activeTab, index, chiled, activBtnType, search } =
     props;
-  const [actibeBtn, setActiveBtn] = useState(0);
+  const [activeBtn, setActiveBtn] = useState(0);
+
+  const handleItemClick = (itemId: number) => {
+    setActiveBtn(itemId);
+  };
 
   return (
     <div
@@ -33,7 +43,7 @@ const SideBarBtn: FC<BookingProps> = (props) => {
         <SaidBarCustomizedAccordions
           onClick={onClick}
           title={title}
-          status='idle'
+          status="idle"
           activBtnType={activeTab === index ? activBtnType : ''}
           search={search}
           isActive={activeTab === index}
@@ -46,68 +56,62 @@ const SideBarBtn: FC<BookingProps> = (props) => {
             padding: '5px 8px 5px 8px',
             display: 'flex',
             alignItems: 'center',
-            height: "min-content",
-            minHeight: "min-content",
+            height: 'min-content',
+            minHeight: 'min-content',
           }}>
-          {chiled.map((item: any, index: number) => {
-            return (
-              <div key={index}>
-                {item.data ? (
-                  <SaidBarCustomizedAccordions
-                    title={item.title}
-                    activBtnType={activeTab === index ? activBtnType : ''}
-                    isActive={activeTab === index}
-                    childrenStyle={{
-                      // color: activeTab === index ? 'white' : '#636363',
-                      display: 'block',
-                      justifyContent: 'space-between',
-                      fontSize: "12px !important",
-                      paddingBottom: "5px"
-                    }}
-                    topBoxStyle={{
-                      // color: activeTab === index ? 'white' : '#636363',
-                      display: 'flex',
-                      alignItems: 'center',
-                      margin: 0,
-                    }}>
-                    {item.data.map((itemChiled: any) => {
-                      return (
-                        <button
-                          onClick={() => setActiveBtn(itemChiled.id)}
-                          key={itemChiled?.id}
-                          className={`${actibeBtn === itemChiled.id
-                            ? 'bg-[#30a0fc]'
-                            : 'bg-[#64B6F7 ]'
-                            }  cursor-pointer w-[100%] text-left `}>
-                          <Typography className=" text-[#000] my-[3px] text-[12px]">
-                            {itemChiled?.title}
-                          </Typography>
-                        </button>
-                      );
-                    })}
-                  </SaidBarCustomizedAccordions>
-                ) : (
-                  <button
-                    key={item?.id}
-                    className="cursor-pointer py-0 pl-8 w-[100%] text-left">
-                    <Typography className="text-sm text-[#0000008A] !text-[12px]">
-                      {item?.title}
-                    </Typography>
-                  </button>
-                )}
-              </div>
-            );
-          })}
+          {chiled.map((item: ChildItem, itemIndex: number) => (
+            <div key={itemIndex}>
+              {item.data ? (
+                <SaidBarCustomizedAccordions
+                  title={item.title}
+                  activBtnType={activeTab === index ? activBtnType : ''}
+                  isActive={activeTab === index}
+                  childrenStyle={{
+                    display: 'block',
+                    justifyContent: 'space-between',
+                    fontSize: '12px !important',
+                    paddingBottom: '5px',
+                  }}
+                  topBoxStyle={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    margin: 0,
+                  }}>
+                  {item.data.map((childItem: ChildItem) => (
+                    <button
+                      key={childItem.id}
+                      onClick={() => handleItemClick(childItem.id)}
+                      className={`${
+                        activeBtn === childItem.id
+                          ? 'bg-[#30a0fc]'
+                          : 'bg-[#64B6F7 ]'
+                      } cursor-pointer w-[100%] text-left`}>
+                      <Typography className="text-[#000] my-[3px] text-[12px]">
+                        {childItem.title}
+                      </Typography>
+                    </button>
+                  ))}
+                </SaidBarCustomizedAccordions>
+              ) : (
+                <button className="cursor-pointer py-0 pl-8 w-[100%] text-left">
+                  <Typography className="text-sm text-[#0000008A] !text-[12px]">
+                    {item.title}
+                  </Typography>
+                </button>
+              )}
+            </div>
+          ))}
         </SaidBarCustomizedAccordions>
       ) : (
         <Button
           onClick={onClick}
-          className={` flex  min-h-[30px]  w-full py-[10px] items-center justify-start pl-[24px] 
-              normal-case   ${activeTab === index
+          className={`flex min-h-[30px] w-full py-[10px] items-center justify-start pl-[24px] 
+          normal-case ${
+            activeTab === index
               ? 'bg-[#3397FF] text-gray-100'
               : 'bg-[#fff]  text-gray-700'
-            }`}>
-          <Typography className="text-[12px] flex  text-start">
+          }`}>
+          <Typography className="text-[12px] flex text-start">
             {title}
           </Typography>
         </Button>
@@ -115,5 +119,4 @@ const SideBarBtn: FC<BookingProps> = (props) => {
     </div>
   );
 };
-
 export default SideBarBtn;

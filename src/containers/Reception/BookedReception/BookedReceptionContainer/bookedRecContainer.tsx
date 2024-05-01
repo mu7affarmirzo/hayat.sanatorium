@@ -10,28 +10,6 @@ import nutrition from 'views/booked/nutrition';
 import researchSummaryTable from 'views/booked/researchSummaryTable';
 import BookedTitlePageContainer from '../BookedTitlePageContainer';
 
-const selectData = [
-  {
-    id: 0,
-    title: 'Начало приёма',
-  },
-  {
-    id: 1,
-    title: 'Начало приём2',
-  },
-];
-
-const selectData2 = [
-  {
-    id: 0,
-    title: 'Осмотр дежурного врача при поступлении',
-  },
-  {
-    id: 1,
-    title: 'Прием дежурного врача',
-  },
-];
-
 const sidebarItemTabs: TabsItem[] = [
   {
     title: 'Титульная страница',
@@ -142,10 +120,7 @@ const sidebarItemTabs: TabsItem[] = [
 const BookedReceptionContainer = () => {
   return (
     <div className="overflow-hidden relative max-h-[calc(100vh-142px)]">
-      <DiseaseHistoryTopTabs
-        selectData={selectData}
-        selectData2={selectData2}
-      />
+      <DiseaseHistoryTopTabs />
       <div className="overflow-hidden relative max-h-[calc(100vh-150px)] bg-[#F5F5F5]">
         <SideBar content={sidebarItemTabs} />
       </div>

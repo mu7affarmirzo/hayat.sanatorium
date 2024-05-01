@@ -5,30 +5,34 @@ import {
   FormLabel,
   Radio,
   RadioGroup,
+  checkboxClasses,
 } from '@mui/material';
+import { Path, UseFormReturn } from 'react-hook-form';
 
 interface Option {
   value: string;
   label: string;
 }
 
-interface RadioButtonGroupProps {
+interface RadioButtonGroupProps<T extends {}> {
   label?: string;
   options: Option[];
+  methods: UseFormReturn<T, any, T>;
+  name: Path<T>;
 }
 
-const ReuseAbleRadioButtonGroup: React.FC<RadioButtonGroupProps> = ({
+const ReusableRadioButtonGroup = <T extends {}>({
   label,
   options,
-}) => {
-  const [selectedOption, setSelectedOption] = React.useState<Option>(
-    options[0],
-  );
+  methods,
+  name,
+}: RadioButtonGroupProps<T>) => {
+  const [selectedOption, setSelectedOption] = React.useState<string>('');
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedOption(
-      options.find((option) => option.value === event.target.value) as Option,
-    );
+    const selectedValue = event.target.value;
+    methods.setValue(name, selectedValue as never); // Update value using setValue method
+    setSelectedOption(selectedValue); // Update local state
   };
 
   return (
@@ -36,15 +40,33 @@ const ReuseAbleRadioButtonGroup: React.FC<RadioButtonGroupProps> = ({
       <FormLabel component="legend">{label}</FormLabel>
       <RadioGroup
         aria-label={label}
-        value={selectedOption.value}
+        value={selectedOption || ''} // Provide a fallback value to prevent the warning
         style={{ display: 'flex', flexDirection: 'row' }}
         onChange={handleChange}>
         {options.map((option) => (
           <FormControlLabel
             key={option.value}
-            value={option.value}
-            control={<Radio />}
+            value={option.label}
+            control={
+              <Radio
+                sx={{
+                  [`&.${checkboxClasses.root}`]: {
+                    color: '#d7d7d7', // Active rang
+                  },
+                  [`&.${checkboxClasses.checked}`]: {
+                    color: '#007DFF', // Active rang
+                  },
+                }}
+              />
+            }
             label={option.label}
+            className="my-2 text-[#b8b8b8aa] text-sm font-roboto font-normal"
+            sx={{
+              '& .MuiTypography-root': {
+                fontSize: '14px',
+                color: selectedOption === option.label ? '#007DFF' : '#d7d7d7', // Shart bo'ylab label rangi
+              },
+            }}
           />
         ))}
       </RadioGroup>
@@ -52,4 +74,4 @@ const ReuseAbleRadioButtonGroup: React.FC<RadioButtonGroupProps> = ({
   );
 };
 
-export default ReuseAbleRadioButtonGroup;
+export default ReusableRadioButtonGroup;

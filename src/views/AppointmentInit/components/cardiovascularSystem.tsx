@@ -3,8 +3,7 @@ import { Box, Typography, OutlinedInput } from '@mui/material';
 import DiagnostikaItem from 'components/DiagnostikaItem';
 import RadioButtonGroup from 'components/RadioButtonGroup';
 import SectionTitle from 'components/SectionTitle/sectionTitle';
-import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
-import DiagnosticCeckboxItem from 'components/diagnosticCeckboxItem/DiagnosticCeckboxItem';
+import DiagnosticCeckboxItem from 'components/AutocomplateCategoryBox/AutocomplateCategoryBoxView';
 import { FC } from 'react';
 import { UseFormReturn } from 'react-hook-form';
 import { InitAppointmentTypes } from 'types/patientTypes';
@@ -69,7 +68,6 @@ const CardiovascularSystemSection: FC<Props> = ({ formMethods }) => {
               <Typography className="text-[14px]  font-normal text-[#000]">
                 акцент 2 тона на аорте:
               </Typography>
-
               <RadioButtonGroup
                 name="accent_in_aorta"
                 methods={formMethods}

@@ -3,7 +3,7 @@ import { Box } from '@mui/material';
 import DiagnostikaItem from 'components/DiagnostikaItem';
 import RadioButtonGroup from 'components/RadioButtonGroup';
 import SectionTitle from 'components/SectionTitle/sectionTitle';
-import DiagnosticCeckboxItem from 'components/diagnosticCeckboxItem/DiagnosticCeckboxItem';
+import DiagnosticCeckboxItem from 'components/AutocomplateCategoryBox/AutocomplateCategoryBoxView';
 import { FC } from 'react';
 import { UseFormReturn } from 'react-hook-form';
 import { InitAppointmentTypes } from 'types/patientTypes';

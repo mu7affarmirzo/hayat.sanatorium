@@ -3,33 +3,29 @@ import { Box, Grid } from '@mui/material';
 import RadioButtonGroup from 'components/RadioButtonGroup';
 import SectionTitle from 'components/SectionTitle/sectionTitle';
 import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
-import DiagnosticCeckboxItem from 'components/diagnosticCeckboxItem/DiagnosticCeckboxItem';
-import { FC } from 'react';
-import { UseFormReturn } from 'react-hook-form';
-import { InitAppointmentTypes } from 'types/patientTypes';
+import DiagnosticCeckboxItem from 'components/AutocomplateCategoryBox/AutocomplateCategoryBoxView';
+
 import { AdditionalDataOptions } from '../constant/radioOptions';
+import { useAppAppointmentInitContext } from '../module';
+import AutoComplateCategoryBoxView from 'components/AutocomplateCategoryBox/AutocomplateCategoryField';
 
-interface Props {
-  // formMethods: UseFormReturn<InitAppointmentTypes, any, InitAppointmentTypes>
-  formMethods: any;
-}
+const EpidemiologicalHistorySection = () => {
+  const { methods } = useAppAppointmentInitContext();
 
-const EpidemiologicalHistorySection: FC<Props> = ({ formMethods }) => {
   return (
     <Box className="border px-[10px] py-[10px] flex flex-col gap-1 mb-[10px] ">
       <Grid item className="">
         <SectionTitle title="Эпиданамнез" className="text-base font-medium" />
 
-        <DiagnosticCeckboxItem
-          label="Контакт с инфекционными больными"
-          description=" "
-          checkBoxStle={'w-[100%]'}
-          style="flex flex-col border p-2"
-          titleStyle="w-[100%] border p-[10px] rounded-[4px]"
-          boxStyle="w-[100%]"
-          formMethods={formMethods}
+        <AutoComplateCategoryBoxView
           categoryName="effleurage_symptoms"
-          children={<DefaultCheckbox label="нет," />}
+          formMethods={methods}
+          isSearchAction={true}
+          isGetAction={true}
+          label="Контакт с инфекционными больными"
+          defaultCheckbox={true}
+          fieldStyle="w-full"
+          containerStyle="flex flex-col p-2 w-[100%] border border-gray-300 "
         />
 
         <DiagnosticCeckboxItem
@@ -37,7 +33,7 @@ const EpidemiologicalHistorySection: FC<Props> = ({ formMethods }) => {
           checkBoxStle={'w-[360px]'}
           children={<DefaultCheckbox label="нет," />}
           titleStyle="w-[100%] border p-[5px] rounded-[4px]"
-          formMethods={formMethods}
+          formMethods={methods}
         />
 
         <DiagnosticCeckboxItem
@@ -47,7 +43,7 @@ const EpidemiologicalHistorySection: FC<Props> = ({ formMethods }) => {
           description=" "
           actions={false}
           titleStyle="w-[100%] border p-[10px] rounded-[4px]"
-          formMethods={formMethods}
+          formMethods={methods}
         />
 
         <DiagnosticCeckboxItem
@@ -57,7 +53,7 @@ const EpidemiologicalHistorySection: FC<Props> = ({ formMethods }) => {
           description=" "
           categoryName="transferred_infectious"
           titleStyle="w-[100%] border p-[10px] rounded-[4px]"
-          formMethods={formMethods}
+          formMethods={methods}
         />
 
         <DiagnosticCeckboxItem
@@ -67,7 +63,7 @@ const EpidemiologicalHistorySection: FC<Props> = ({ formMethods }) => {
           description=" "
           actions={false}
           titleStyle="w-[100%] border p-[10px] rounded-[4px]"
-          formMethods={formMethods}
+          formMethods={methods}
         />
 
         <DiagnosticCeckboxItem
@@ -77,7 +73,7 @@ const EpidemiologicalHistorySection: FC<Props> = ({ formMethods }) => {
           description=" "
           actions={false}
           titleStyle="w-[100%] border p-[10px] rounded-[4px]"
-          formMethods={formMethods}
+          formMethods={methods}
         />
 
         <DiagnosticCeckboxItem
@@ -87,7 +83,7 @@ const EpidemiologicalHistorySection: FC<Props> = ({ formMethods }) => {
           description=" "
           categoryName="surgical_massive_interventions_six_months"
           titleStyle="w-[100%] border p-[10px] rounded-[4px]"
-          formMethods={formMethods}
+          formMethods={methods}
         />
 
         <DiagnosticCeckboxItem
@@ -97,7 +93,7 @@ const EpidemiologicalHistorySection: FC<Props> = ({ formMethods }) => {
           checkBoxStle={'w-[460px]'}
           categoryName="dentist_visits_last_six_months"
           titleStyle="w-[100%] border p-[10px] rounded-[4px]"
-          formMethods={formMethods}
+          formMethods={methods}
         />
 
         <DiagnosticCeckboxItem
@@ -110,7 +106,7 @@ const EpidemiologicalHistorySection: FC<Props> = ({ formMethods }) => {
           style="flex flex-col"
           titleStyle="w-[100%] border p-[10px] rounded-[4px]"
           boxStyle="w-[100%]"
-          formMethods={formMethods}
+          formMethods={methods}
         />
 
         <DiagnosticCeckboxItem
@@ -120,13 +116,13 @@ const EpidemiologicalHistorySection: FC<Props> = ({ formMethods }) => {
           titleStyle="w-[100%] border p-[10px] rounded-[4px]"
           style="mt-[5px]"
           description=" "
-          formMethods={formMethods}
+          formMethods={methods}
           children={
             <Box className="flex flex-row ">
               <RadioButtonGroup
                 options={AdditionalDataOptions}
                 name="additional_data"
-                methods={formMethods}
+                methods={methods}
               />
             </Box>
           }

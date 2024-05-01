@@ -3,10 +3,7 @@ import { Box, Typography, OutlinedInput, Grid } from '@mui/material';
 import RadioButtonGroup from 'components/RadioButtonGroup';
 import SectionTitle from 'components/SectionTitle/sectionTitle';
 import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
-import DiagnosticCeckboxItem from 'components/diagnosticCeckboxItem/DiagnosticCeckboxItem';
-import { FC } from 'react';
-import { UseFormReturn } from 'react-hook-form';
-import { InitAppointmentTypes } from 'types/patientTypes';
+import DiagnosticCeckboxItem from 'components/AutocomplateCategoryBox/AutocomplateCategoryBoxView';
 import {
   ConsciousnessOptions,
   ConstitutionOptions,
@@ -18,13 +15,11 @@ import {
   SkinTurgorOptions,
   SubcutaneousFatOption,
 } from '../constant/radioOptions';
+import { useAppAppointmentInitContext } from '../module';
 
-interface Props {
-  // formMethods: UseFormReturn<InitAppointmentTypes, any, InitAppointmentTypes>
-  formMethods: any;
-}
+const StatusPraesensSection = () => {
+  const { methods } = useAppAppointmentInitContext();
 
-const StatusPraesensSection: FC<Props> = ({ formMethods }) => {
   return (
     <Box className="border px-[10px] py-[10px] flex flex-col gap-1 mb-[10px] ">
       <Grid item className="">
@@ -39,14 +34,14 @@ const StatusPraesensSection: FC<Props> = ({ formMethods }) => {
           style="flex flex-col border p-2"
           titleStyle="w-[100%] border p-[10px] rounded-[4px]"
           boxStyle="w-[100%]"
-          formMethods={formMethods}
+          formMethods={methods}
           categoryName="general_state"
           children={
             <Box className="flex">
               <RadioButtonGroup
                 options={GeneralStateOptions}
                 name="general_state"
-                methods={formMethods}
+                methods={methods}
               />
             </Box>
           }
@@ -60,7 +55,7 @@ const StatusPraesensSection: FC<Props> = ({ formMethods }) => {
               <RadioButtonGroup
                 options={ConsciousnessOptions}
                 name="consciousness"
-                methods={formMethods}
+                methods={methods}
               />
             </Box>
           }
@@ -77,7 +72,7 @@ const StatusPraesensSection: FC<Props> = ({ formMethods }) => {
               <RadioButtonGroup
                 options={PositionOptions}
                 name="ill_part_stomach"
-                methods={formMethods}
+                methods={methods}
               />
             </Box>
           }
@@ -91,7 +86,7 @@ const StatusPraesensSection: FC<Props> = ({ formMethods }) => {
               <RadioButtonGroup
                 options={ConstitutionOptions}
                 name="constitution"
-                methods={formMethods}
+                methods={methods}
               />
             </Box>
           }
@@ -107,7 +102,7 @@ const StatusPraesensSection: FC<Props> = ({ formMethods }) => {
               <RadioButtonGroup
                 options={SkinOptions}
                 name="skin"
-                methods={formMethods}
+                methods={methods}
               />
             </Box>
           }
@@ -119,7 +114,7 @@ const StatusPraesensSection: FC<Props> = ({ formMethods }) => {
           style="mt-[10px]"
           description=" "
           categoryName="pigmentation"
-          formMethods={formMethods}
+          formMethods={methods}
           titleStyle="w-[100%] border p-[10px] rounded-[4px]"
         />
         <DiagnosticCeckboxItem
@@ -127,7 +122,7 @@ const StatusPraesensSection: FC<Props> = ({ formMethods }) => {
           children={<DefaultCheckbox label="нет," />}
           description=" "
           categoryName="depigmentation"
-          formMethods={formMethods}
+          formMethods={methods}
           titleStyle="w-[100%] border p-[10px] rounded-[4px]"
         />
         <DiagnosticCeckboxItem
@@ -135,7 +130,7 @@ const StatusPraesensSection: FC<Props> = ({ formMethods }) => {
           children={<DefaultCheckbox label="нет," />}
           description=" "
           categoryName="rashes"
-          formMethods={formMethods}
+          formMethods={methods}
           titleStyle="w-[100%] border p-[10px] rounded-[4px]"
         />
         <DiagnosticCeckboxItem
@@ -144,7 +139,7 @@ const StatusPraesensSection: FC<Props> = ({ formMethods }) => {
           children={<DefaultCheckbox label="нет," />}
           description=" "
           categoryName="vascular_changes"
-          formMethods={formMethods}
+          formMethods={methods}
           titleStyle="w-[100%] border p-[10px] rounded-[4px]"
         />
         <DiagnosticCeckboxItem
@@ -152,7 +147,7 @@ const StatusPraesensSection: FC<Props> = ({ formMethods }) => {
           children={<DefaultCheckbox label="нет," />}
           description=" "
           categoryName="hemorrhages"
-          formMethods={formMethods}
+          formMethods={methods}
           titleStyle="w-[100%] border p-[10px] rounded-[4px]"
         />
         <DiagnosticCeckboxItem
@@ -160,7 +155,7 @@ const StatusPraesensSection: FC<Props> = ({ formMethods }) => {
           children={<DefaultCheckbox label="нет," />}
           description=" "
           categoryName="scarring"
-          formMethods={formMethods}
+          formMethods={methods}
           titleStyle="w-[100%] border p-[10px] rounded-[4px]"
         />
 
@@ -170,7 +165,7 @@ const StatusPraesensSection: FC<Props> = ({ formMethods }) => {
           children={<DefaultCheckbox label="нет," />}
           description=" "
           categoryName="trophic_changes"
-          formMethods={formMethods}
+          formMethods={methods}
           titleStyle="w-[100%] border p-[10px] rounded-[4px]"
         />
 
@@ -180,7 +175,7 @@ const StatusPraesensSection: FC<Props> = ({ formMethods }) => {
           checkBoxStle={'w-[250px]'}
           description=" "
           categoryName="visible_tumors"
-          formMethods={formMethods}
+          formMethods={methods}
           titleStyle="w-[100%] border p-[10px] rounded-[4px]"
         />
 
@@ -188,13 +183,13 @@ const StatusPraesensSection: FC<Props> = ({ formMethods }) => {
           label="Влажность кожи:"
           checkBoxStle={'w-[500px]'}
           categoryName="skin_moisture"
-          formMethods={formMethods}
+          formMethods={methods}
           children={
             <Box className="flex">
               <RadioButtonGroup
                 options={SkinMoistureOptions}
                 name="skin_moisture"
-                methods={formMethods}
+                methods={methods}
               />
             </Box>
           }
@@ -206,13 +201,13 @@ const StatusPraesensSection: FC<Props> = ({ formMethods }) => {
           label="Тургор кожи:"
           checkBoxStle={'w-[400px]'}
           categoryName="skin_turgor"
-          formMethods={formMethods}
+          formMethods={methods}
           children={
             <Box className="flex">
               <RadioButtonGroup
                 options={SkinTurgorOptions}
                 name="skin_turgor"
-                methods={formMethods}
+                methods={methods}
               />
             </Box>
           }
@@ -224,13 +219,13 @@ const StatusPraesensSection: FC<Props> = ({ formMethods }) => {
           label="Подкожно-жировая клетчатка:"
           checkBoxStle={'w-[800px]'}
           categoryName="subcutaneous_fat"
-          formMethods={formMethods}
+          formMethods={methods}
           children={
             <Box className="flex">
               <RadioButtonGroup
                 options={SubcutaneousFatOption}
                 name="subcutaneous_fat"
-                methods={formMethods}
+                methods={methods}
               />
             </Box>
           }
@@ -245,7 +240,7 @@ const StatusPraesensSection: FC<Props> = ({ formMethods }) => {
             sx={{ width: '100px' }}
             className="mx-2"
             size="small"
-            {...formMethods.register('height', { required: true })}
+            {...methods.register('height', { required: true })}
           />
           <Typography>см,</Typography>
           <Typography>вес</Typography>
@@ -253,45 +248,52 @@ const StatusPraesensSection: FC<Props> = ({ formMethods }) => {
             sx={{ width: '100px' }}
             className="mx-2"
             size="small"
-            {...formMethods.register('weight', { required: true })}
+            {...methods.register('weight', { required: true })}
           />
           <Typography>кг, пульс</Typography>
           <OutlinedInput
             sx={{ width: '100px' }}
             className="mx-2"
             size="small"
-            {...formMethods.register('heart_beat', { required: true })}
+            {...methods.register('heart_beat', { required: true })}
           />
           <Typography>уд/м, давление</Typography>
           <OutlinedInput
             sx={{ width: '80px' }}
             className="mx-2"
             size="small"
-            {...formMethods.register('arterial_high', { required: true })}
+            {...methods.register('arterial_high', { required: true })}
           />
           <Typography>/</Typography>
           <OutlinedInput
             sx={{ width: '80px' }}
             className="mx-2"
             size="small"
-            {...formMethods.register('arterial_low', { required: true })}
+            {...methods.register('arterial_low', { required: true })}
           />
           <Typography>мм рт.ст., ИМТ</Typography>
           <OutlinedInput
             sx={{ width: '60px' }}
             className="mx-2"
             size="small"
-            {...formMethods.register('imt', { required: true })}
+            {...methods.register('imt', { required: true })}
           />
           <Typography>кг/м2</Typography>
         </Box>
 
         <DiagnosticCeckboxItem
           label="Интерпретация показателя ИМТ"
-          checkBoxStle={'w-[350px]'}
+          checkBoxStle={'w-[full] '}
           children={
-            <Box className="flex">
+            <Box className="flex flex-row items-center gap-2">
               <DefaultCheckbox label="нет," />
+              <OutlinedInput
+                sx={{ width: '320px' }}
+                placeholder="избыточная масса тела (предожирение)"
+                className="mx-2"
+                size="small"
+                {...methods.register('extra_weight', { required: true })}
+              />
             </Box>
           }
           titleStyle="w-[100%] border p-[10px] rounded-[4px]"
@@ -301,7 +303,7 @@ const StatusPraesensSection: FC<Props> = ({ formMethods }) => {
           label="Отеки, пастозность:"
           checkBoxStle={'w-[250px]'}
           categoryName="swelling_pastiness"
-          formMethods={formMethods}
+          formMethods={methods}
           children={
             <Box className="flex">
               <DefaultCheckbox label="нет," />
@@ -315,13 +317,13 @@ const StatusPraesensSection: FC<Props> = ({ formMethods }) => {
           label="Лимфатические узлы:"
           checkBoxStle={'w-[650px]'}
           categoryName="lymph_nodes"
-          formMethods={formMethods}
+          formMethods={methods}
           children={
             <Box className="flex">
               <RadioButtonGroup
                 options={LymphNodesOptions}
                 name="constitution"
-                methods={formMethods}
+                methods={methods}
               />
             </Box>
           }

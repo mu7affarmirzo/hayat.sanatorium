@@ -1,18 +1,21 @@
 import { Box } from '@mui/material';
 import AppointmentHeader from 'components/AppointmentHeader';
-import { useElectrocardiogramAppointmentHook } from './hook';
 import AppointmentsSections from 'components/AppointmentActionSection';
 import { AppointmentConclusionView } from 'components/AppointmentConclusion/concclusionView';
 import { DiagnosisView } from 'features/Diagnosis';
 import DescriptionOfElectrocardiogramSection from './components/descriptionOfElectrocardiogram';
+import {
+  ElectrocardiogramAppointmentProvider,
+  useElectrocardiogramAppointmentContext,
+} from './module';
 
-const ElectrocardiogramView = () => {
-  const { appointmentStatus, handleChangeStatus } =
-    useElectrocardiogramAppointmentHook();
+const Main = () => {
+  const { appointmentStatus, handleChangeStatus, methods, onSubmit } =
+    useElectrocardiogramAppointmentContext();
   return (
     <Box>
       <form
-        onSubmit={() => console.log('clickesd')}
+        onSubmit={methods.handleSubmit(onSubmit)}
         className="border border-[rgba(0, 0, 0, 0.23)] h-[calc(100vh-220px)]  p-[10px] overflow-hidden ">
         <AppointmentHeader
           doctor="ECG (Electrocardiogram), Admin"
@@ -29,5 +32,11 @@ const ElectrocardiogramView = () => {
     </Box>
   );
 };
+
+const ElectrocardiogramView = () => (
+  <ElectrocardiogramAppointmentProvider>
+    <Main />
+  </ElectrocardiogramAppointmentProvider>
+);
 
 export default ElectrocardiogramView;

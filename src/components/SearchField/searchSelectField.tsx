@@ -1,24 +1,23 @@
 import { Autocomplete, CircularProgress, TextField } from '@mui/material';
-import { Category } from 'components/diagnosticCeckboxItem/hook';
-import React, { FC, useCallback, useState, useEffect } from 'react';
-import { UseFormReturn } from 'react-hook-form';
-import { InitAppointmentTypes } from 'types/patientTypes';
+import { Category } from 'components/AutocomplateCategoryBox/hook';
+import React, { useCallback, useState, useEffect } from 'react';
+import { FieldValues, Path, UseFormReturn } from 'react-hook-form';
 
-interface Props {
+interface Props<T extends FieldValues> {
   categoryData: Category[];
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  fieldname: keyof InitAppointmentTypes;
-  methods: UseFormReturn<InitAppointmentTypes, any, InitAppointmentTypes>;
+  fieldname: Path<T>;
+  methods: UseFormReturn<T, any, T>;
 }
 
-const SearchSelectField: FC<Props> = ({
+const SearchSelectField = <T extends FieldValues>({
   open,
   setOpen,
   categoryData,
   fieldname,
   methods,
-}) => {
+}: Props<T>) => {
   const [options, setOptions] = useState<readonly Category[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [fieldValue, setFieldValue] = useState<any>(null);
@@ -53,11 +52,13 @@ const SearchSelectField: FC<Props> = ({
   return (
     <Autocomplete
       id="asynchronous-demo"
-      sx={{ width: '100%' }}
+      sx={{
+        width: '100%',
+      }}
       open={open}
       value={fieldValue}
       onClose={handleClose}
-      onChange={(event, newValue) => handleAutocompleteChange(newValue)}
+      onChange={(_event, newValue) => handleAutocompleteChange(newValue)}
       size="small"
       loading={loading}
       options={options}
@@ -68,7 +69,7 @@ const SearchSelectField: FC<Props> = ({
       renderInput={(params) => (
         <TextField
           {...params}
-          className="bg-white border "
+          className="bg-white border"
           InputProps={{
             ...params.InputProps,
             endAdornment: loading ? (
