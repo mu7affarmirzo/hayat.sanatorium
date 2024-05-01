@@ -147,7 +147,7 @@ const PatientDoctorsTPContainer = () => {
                   register={register}
                 />
               </div>
-              <Box className="w-[64%]">
+              <Box className="w-[64%] ">
                 <TravelPackageForm
                   avtoCaplektData={top100FilmsChack}
                   register={register}

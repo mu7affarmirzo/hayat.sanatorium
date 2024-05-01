@@ -15,7 +15,7 @@ export const AppointmentSectionContainer: FC<Partial<Props>> = ({
     <Box className="border border-[rgba(0, 0, 0, 0.23)] p-2 my-2">
       <SectionTitle
         title={boxTitle as ''}
-        className="text-base font-roboto font-medium"
+        className="text-base font-roboto font-semibold"
       />
       <Box>{children}</Box>
     </Box>

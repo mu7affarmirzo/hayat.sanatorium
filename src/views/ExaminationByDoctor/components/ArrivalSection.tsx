@@ -1,11 +1,16 @@
 import { AppointmentSectionContainer } from 'components/AppointmentSectionBox/AppointmentSectionBox';
 import TextareActionBoxView from 'components/TextareActionBox/textareActionBoxView';
-import { useExaminationByDoctorContext } from '../module';
-import { Box, OutlinedInput } from '@mui/material';
+import { Box } from '@mui/material';
 import { AppoinmentItemTitle } from 'components/defaultText/AppoinmentItemTitle';
 import AutoComplateCategoryBoxView from 'components/AutocomplateCategoryBox/AutocomplateCategoryField';
-import { ExaminationOption } from '../constant/ExaminationOption';
+import {
+  AyesShellsOptions,
+  RoadCrossedOption,
+  fromToSanatoriumOption,
+} from '../constant/ExaminationOption';
 import RadioButtonGroup from 'components/RadioButtonGroup';
+import { OutlineField } from 'components/Fields/OutlineField';
+import { useExaminationByDoctorContext } from '../module';
 
 export const ArrivalSection = () => {
   const { methods } = useExaminationByDoctorContext();
@@ -18,32 +23,33 @@ export const ArrivalSection = () => {
         children={
           <Box className="flex flex-row items-center ">
             <RadioButtonGroup
-              name="auscultative_breathing"
-              options={ExaminationOption}
+              name="ayes_shells"
+              options={AyesShellsOptions}
+              methods={methods}
             />
-            <OutlinedInput
-              sx={{ width: '200px', height: '30px' }}
-              className="mx-2"
-              size="small"
+
+            <OutlineField
+              medhods={methods}
+              name="ayes_shells"
+              required={true}
+              inputWidth="120px"
             />
+
             <AppoinmentItemTitle title="Рейс №:" />
-            <OutlinedInput
-              sx={{ width: '100px', height: '30px' }}
-              className="mx-2"
-              size="small"
-            />
+            <OutlineField medhods={methods} name="arv_number" required={true} />
           </Box>
         }
       />
       <AutoComplateCategoryBoxView
         label="До санатория доехал(а) на:"
         formMethods={methods}
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'from_to_sanatorium'}
         children={
           <Box>
             <RadioButtonGroup
-              name="auscultative_breathing"
-              options={ExaminationOption}
+              name="from_to_sanatorium"
+              options={fromToSanatoriumOption}
+              methods={methods}
             />
           </Box>
         }
@@ -57,8 +63,9 @@ export const ArrivalSection = () => {
         children={
           <Box>
             <RadioButtonGroup
-              name="auscultative_breathing"
-              options={ExaminationOption}
+              name="road_crossed"
+              options={RoadCrossedOption}
+              methods={methods}
             />
           </Box>
         }

@@ -1,18 +1,18 @@
 import { Box } from '@mui/material';
 import AppointmentHeader from 'components/AppointmentHeader';
-import useExaminationByDoctorHook from './hook';
 import { ArrivalSection } from './components/ArrivalSection';
 import { EpidemiologicalHistorySection } from './components/EpidemiologicalHistorySection';
-import { ExaminationbyDoctorProvider } from './module';
 import { SpecialMarksSection } from './components/SpecialMarksSection';
 import { ObjectiveDataSection } from './components/ObjectiveDataSection';
 import { DieateAndModeSection } from './components/DieateAndModeSection';
+import {
+  useExaminationByDoctorContext,
+  ExaminationbyDoctorProvider,
+} from './module';
 
 const Main = () => {
   const { appointmentStatus, handleChangeStatus, methods, onSubmit } =
-    useExaminationByDoctorHook();
-
-  console.log('methods in cardiovascularSystem  dskjfj ', methods);
+    useExaminationByDoctorContext();
 
   return (
     <Box>
@@ -36,10 +36,12 @@ const Main = () => {
   );
 };
 
-const ExaminationDoctorView = () => (
-  <ExaminationbyDoctorProvider>
-    <Main />
-  </ExaminationbyDoctorProvider>
-);
+const ExaminationDoctorView = () => {
+  return (
+    <ExaminationbyDoctorProvider>
+      <Main />
+    </ExaminationbyDoctorProvider>
+  );
+};
 
 export default ExaminationDoctorView;

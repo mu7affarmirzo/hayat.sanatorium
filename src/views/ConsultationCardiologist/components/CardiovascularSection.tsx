@@ -1,11 +1,19 @@
 import { AppointmentSectionContainer } from 'components/AppointmentSectionBox/AppointmentSectionBox';
 import AutoComplateCategoryBoxView from 'components/AutocomplateCategoryBox/AutocomplateCategoryField';
 import { useCardiologistAppoinmnetContext } from '../module';
-import { bodyTypeOptions } from '../constant/radioCheckboxData';
+import {
+  arterialPulseStopOptions,
+  heartToneOptions,
+  iToneOptions,
+  iiToneOptions,
+  pulseOptions,
+  varicoseVeinsOfSuperficialVeinsOptions,
+} from '../constant/radioCheckboxData';
 import RadioButtonGroup from 'components/RadioButtonGroup';
-import { Box, OutlinedInput } from '@mui/material';
+import { Box } from '@mui/material';
 import { AppoinmentItemTitle } from 'components/defaultText/AppoinmentItemTitle';
 import TextareActionBoxView from 'components/TextareActionBox/textareActionBoxView';
+import { OutlineField } from 'components/Fields/OutlineField';
 
 export const CardiovascularSection = () => {
   const { methods } = useCardiologistAppoinmnetContext();
@@ -16,21 +24,22 @@ export const CardiovascularSection = () => {
         label="Пульс"
         isSearchAction
         isGetAction
-        categoryName={'for_sanatorium_treatment'}
-        fieldStyle="w-[40%]"
+        categoryName={'pulse_per_min'}
+        fieldStyle="w-[28%]"
         children={
           <Box className="flex flex-row items-center gap-1">
             <Box className="flex flex-row items-center gap-1">
-              <OutlinedInput
-                sx={{ width: '80px', height: '30px' }}
-                className="mx-2"
-                size="small"
+              <OutlineField
+                medhods={methods}
+                name="pulse_per_min"
+                required={true}
               />
               <AppoinmentItemTitle title="уд. в 1'," />
             </Box>
             <RadioButtonGroup
-              name="auscultative_breathing"
-              options={bodyTypeOptions}
+              name="pulse"
+              options={pulseOptions}
+              methods={methods}
             />
           </Box>
         }
@@ -40,7 +49,7 @@ export const CardiovascularSection = () => {
         label="Нарушение ритма"
         isSearchAction
         isGetAction
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'fault_of_pulse'}
         fieldStyle="w-[80%]"
         defaultCheckbox
       />
@@ -50,16 +59,16 @@ export const CardiovascularSection = () => {
         categoryName={'for_sanatorium_treatment'}
         children={
           <Box className="flex flex-row items-center ">
-            <OutlinedInput
-              sx={{ width: '80px', height: '30px' }}
-              className="mx-2"
-              size="small"
+            <OutlineField
+              medhods={methods}
+              name="heart_arterial_high"
+              required
             />
             <AppoinmentItemTitle title="/" />
-            <OutlinedInput
-              sx={{ width: '80px', height: '30px' }}
-              className="mx-2"
-              size="small"
+            <OutlineField
+              medhods={methods}
+              name="heart_arterial_low"
+              required
             />
           </Box>
         }
@@ -77,7 +86,7 @@ export const CardiovascularSection = () => {
               isSearchAction
               isGetAction
               containerStyle=" flex flex-row items-center gap-1 w-[42%] text-[#797979]"
-              categoryName={'for_sanatorium_treatment'}
+              categoryName={'right_heart_edges'}
               fieldStyle="w-[90%]"
             />
             <AutoComplateCategoryBoxView
@@ -86,7 +95,7 @@ export const CardiovascularSection = () => {
               isSearchAction
               isGetAction
               containerStyle=" flex flex-row items-center gap-1 w-[42%] text-[#797979]"
-              categoryName={'for_sanatorium_treatment'}
+              categoryName={'left_heart_edges'}
               fieldStyle="w-[90%]"
             />
             <AutoComplateCategoryBoxView
@@ -95,7 +104,7 @@ export const CardiovascularSection = () => {
               isSearchAction
               isGetAction
               containerStyle=" flex flex-row items-center gap-1 w-[42%] text-[#797979]"
-              categoryName={'for_sanatorium_treatment'}
+              categoryName={'upper_heart_edges'}
               fieldStyle="w-[90%]"
             />
           </Box>
@@ -104,7 +113,7 @@ export const CardiovascularSection = () => {
       <AutoComplateCategoryBoxView
         formMethods={methods}
         label="Сердечный толчок"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'heart_beat'}
         isSearchAction
         isGetAction
         fieldStyle="w-[90%]"
@@ -115,13 +124,14 @@ export const CardiovascularSection = () => {
           label="Тоны сердца"
           isSearchAction
           isGetAction
-          categoryName={'for_sanatorium_treatment'}
-          fieldStyle="w-[50%]"
+          categoryName={'heart_tone'}
+          fieldStyle="w-[58%]"
           children={
             <Box>
               <RadioButtonGroup
-                name="auscultative_breathing"
-                options={bodyTypeOptions}
+                name="heart_tone"
+                options={heartToneOptions}
+                methods={methods}
               />
             </Box>
           }
@@ -131,13 +141,14 @@ export const CardiovascularSection = () => {
           label="I тон"
           isSearchAction
           isGetAction
-          categoryName={'for_sanatorium_treatment'}
-          fieldStyle="w-[45%]"
+          categoryName={'i_tone'}
+          fieldStyle="w-[80%]"
           children={
             <Box>
               <RadioButtonGroup
-                name="auscultative_breathing"
-                options={bodyTypeOptions}
+                name="i_tone"
+                options={iToneOptions}
+                methods={methods}
               />
             </Box>
           }
@@ -147,13 +158,14 @@ export const CardiovascularSection = () => {
           label="акцент II-го тона на"
           isSearchAction
           isGetAction
-          categoryName={'for_sanatorium_treatment'}
-          fieldStyle="w-[48%]"
+          categoryName={'ii_tone'}
+          fieldStyle="w-[70%]"
           children={
             <Box>
               <RadioButtonGroup
-                name="auscultative_breathing"
-                options={bodyTypeOptions}
+                name="ii_tone"
+                options={iiToneOptions}
+                methods={methods}
               />
             </Box>
           }
@@ -162,15 +174,16 @@ export const CardiovascularSection = () => {
       <AutoComplateCategoryBoxView
         formMethods={methods}
         label="Шум"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'noise'}
         isSearchAction
         isGetAction
-        fieldStyle="w-[50%]"
+        fieldStyle="w-[77%]"
         children={
           <Box>
             <RadioButtonGroup
-              name="auscultative_breathing"
-              options={bodyTypeOptions}
+              name="noise"
+              options={iiToneOptions}
+              methods={methods}
             />
           </Box>
         }
@@ -178,15 +191,16 @@ export const CardiovascularSection = () => {
       <AutoComplateCategoryBoxView
         formMethods={methods}
         label="Пульсация тыльных артерий стоп"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'arterial_pulse_stop'}
         isSearchAction
         isGetAction
-        fieldStyle="w-[40%]"
+        fieldStyle="w-[45%]"
         children={
           <Box>
             <RadioButtonGroup
-              name="auscultative_breathing"
-              options={bodyTypeOptions}
+              name="arterial_pulse_stop"
+              options={arterialPulseStopOptions}
+              methods={methods}
             />
           </Box>
         }
@@ -194,15 +208,16 @@ export const CardiovascularSection = () => {
       <AutoComplateCategoryBoxView
         formMethods={methods}
         label="Варикозное расширение поверхностных вен"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'varicose_veins_of_superficial_veins'}
         isSearchAction
         isGetAction
-        fieldStyle="w-[30%]"
+        fieldStyle="w-[55%]"
         children={
           <Box>
             <RadioButtonGroup
-              name="auscultative_breathing"
-              options={bodyTypeOptions}
+              name="varicose_veins_of_superficial_veins"
+              options={varicoseVeinsOfSuperficialVeinsOptions}
+              methods={methods}
             />
           </Box>
         }
@@ -210,7 +225,7 @@ export const CardiovascularSection = () => {
       <AutoComplateCategoryBoxView
         formMethods={methods}
         label="Трофические изменения кожи"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'trophic_skin_changes'}
         isSearchAction
         isGetAction
         defaultCheckbox

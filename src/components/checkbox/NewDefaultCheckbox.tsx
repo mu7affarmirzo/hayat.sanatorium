@@ -4,31 +4,35 @@ import {
   FormControlLabel,
   checkboxClasses,
 } from '@mui/material';
-import { FC, useState } from 'react';
+import { useState } from 'react';
+import { Path, UseFormReturn } from 'react-hook-form';
 
-type PropsTypes = {
-  option: {
-    label: string;
-    value: string;
-  };
-};
+interface PropsTypes<T extends {}> {
+  methods: UseFormReturn<T, any, T>;
+  name: Path<T>;
+  label?: string;
+}
 
-export const NewDefaultCheckbox: FC<PropsTypes> = ({ option }) => {
+export const NewDefaultCheckbox = <T extends {}>({
+  methods,
+  name,
+  label,
+}: PropsTypes<T>) => {
   const [checked, setChecked] = useState(false);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(event.target.checked);
+  const handleChange = () => {
+    const isChecked = !checked;
+    setChecked(isChecked);
+    methods.setValue(name, isChecked as never);
   };
 
   return (
     <Box className="px-3">
       <FormControlLabel
-        key={option.value}
         control={
           <Checkbox
-            value={option.value}
             checked={checked}
-            size="small"
+            size="medium"
             className="w-5 h-5 p-3"
             onChange={handleChange}
             sx={{
@@ -41,10 +45,11 @@ export const NewDefaultCheckbox: FC<PropsTypes> = ({ option }) => {
             }}
           />
         }
-        label={option.label}
+        label={label}
         sx={{
           '& .MuiTypography-root': {
             fontSize: '14px',
+            fontWeight: 500,
             color: checked ? '#007DFF' : '#d7d7d7', // Shart bo'ylab label rangi
           },
         }}

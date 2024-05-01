@@ -12,7 +12,7 @@ const NeurologistStatusSection = () => {
         isSearchAction={true}
         isGetAction={true}
         label="Глазные щели "
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'palpebral_fissures'}
         fieldStyle="w-[90%]"
       />
       <AutoComplateCategoryBoxView
@@ -20,7 +20,7 @@ const NeurologistStatusSection = () => {
         isSearchAction={true}
         isGetAction={true}
         label="Зрачки"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'pupils'}
         fieldStyle="w-full"
       />
       <AutoComplateCategoryBoxView
@@ -28,7 +28,7 @@ const NeurologistStatusSection = () => {
         isSearchAction={true}
         isGetAction={true}
         label="Реакция зрачков на свет"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'reaction_on_pupils'}
         fieldStyle="w-[85%]"
       />
       <AutoComplateCategoryBoxView
@@ -36,7 +36,7 @@ const NeurologistStatusSection = () => {
         isSearchAction={true}
         isGetAction={true}
         label="Движения глазных яблок"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'aye_frame_movement'}
         fieldStyle="w-[85%]"
       />
       <AutoComplateCategoryBoxView
@@ -44,7 +44,7 @@ const NeurologistStatusSection = () => {
         isSearchAction={true}
         isGetAction={true}
         label="Нистагм"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'nystagmus'}
         fieldStyle="w-full"
       />
       <AutoComplateCategoryBoxView
@@ -52,7 +52,7 @@ const NeurologistStatusSection = () => {
         isSearchAction={true}
         isGetAction={true}
         label="Лицо"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'face'}
         fieldStyle="w-full"
       />
       <AutoComplateCategoryBoxView
@@ -60,7 +60,7 @@ const NeurologistStatusSection = () => {
         isSearchAction={true}
         isGetAction={true}
         label="Мягкое небо"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'soft_sk'}
         fieldStyle="w-[90%]"
       />
       <AutoComplateCategoryBoxView
@@ -68,7 +68,7 @@ const NeurologistStatusSection = () => {
         isSearchAction={true}
         isGetAction={true}
         label="Фонация и глотание"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'phonation_swallowing'}
         fieldStyle="w-[85%]"
       />
       <AutoComplateCategoryBoxView
@@ -76,7 +76,7 @@ const NeurologistStatusSection = () => {
         isSearchAction={true}
         isGetAction={true}
         label="Рефлексы орального автоматизма"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'reflexes'}
         fieldStyle="w-[80%]"
       />
 
@@ -85,7 +85,7 @@ const NeurologistStatusSection = () => {
         isSearchAction={true}
         isGetAction={true}
         label="Мышечная сила в конечностях:"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'muscle_strength'}
         fieldStyle="w-[80%]"
       />
       <AutoComplateCategoryBoxView
@@ -93,7 +93,7 @@ const NeurologistStatusSection = () => {
         isSearchAction={true}
         isGetAction={true}
         label="Тонус мышц"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'muscle_tones'}
         fieldStyle="w-[90%]"
       />
       <AutoComplateCategoryBoxView
@@ -101,7 +101,7 @@ const NeurologistStatusSection = () => {
         isSearchAction={true}
         isGetAction={true}
         label="Глубокие рефлексы на руках"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'deep_reflexes_hand'}
         fieldStyle="w-[80%]"
       />
       <AutoComplateCategoryBoxView
@@ -117,7 +117,7 @@ const NeurologistStatusSection = () => {
         isSearchAction={true}
         isGetAction={true}
         label="Рефлексы"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'reflexes'}
         fieldStyle="w-[90%]"
       />
       <AutoComplateCategoryBoxView
@@ -125,7 +125,7 @@ const NeurologistStatusSection = () => {
         isSearchAction={true}
         isGetAction={true}
         label="стило-радиальные"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'stylo_radial'}
         fieldStyle="w-[88%]"
       />
       <AutoComplateCategoryBoxView
@@ -133,7 +133,7 @@ const NeurologistStatusSection = () => {
         isSearchAction={true}
         isGetAction={true}
         label="с двуглавой мышцы плеча"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'biceps'}
         fieldStyle="w-[80%]"
       />
       <AutoComplateCategoryBoxView
@@ -141,7 +141,7 @@ const NeurologistStatusSection = () => {
         isSearchAction={true}
         isGetAction={true}
         label="с трехглавой мышцы плеча"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'triceps'}
         fieldStyle="w-[80%]"
       />
       <AutoComplateCategoryBoxView
@@ -149,7 +149,7 @@ const NeurologistStatusSection = () => {
         isSearchAction={true}
         isGetAction={true}
         label="коленные"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'knees'}
         fieldStyle="w-full"
       />
       <AutoComplateCategoryBoxView
@@ -157,7 +157,7 @@ const NeurologistStatusSection = () => {
         isSearchAction={true}
         isGetAction={true}
         label="ахилловы"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'achilles'}
         fieldStyle="w-full"
       />
       <AutoComplateCategoryBoxView
@@ -165,7 +165,7 @@ const NeurologistStatusSection = () => {
         isSearchAction={true}
         isGetAction={true}
         label="брюшные"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'abdominal'}
         fieldStyle="w-full"
       />
       <AutoComplateCategoryBoxView
@@ -173,7 +173,7 @@ const NeurologistStatusSection = () => {
         isSearchAction={true}
         isGetAction={true}
         label="Патологические рефлексы"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'pathological_reflexes'}
         fieldStyle="w-[83%]"
       />
       <AutoComplateCategoryBoxView
@@ -181,7 +181,7 @@ const NeurologistStatusSection = () => {
         isSearchAction={true}
         isGetAction={true}
         label="Положение в позе Ромберга"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'romberg_position'}
         fieldStyle="w-[80%]"
       />
       <AutoComplateCategoryBoxView
@@ -189,7 +189,7 @@ const NeurologistStatusSection = () => {
         isSearchAction={true}
         isGetAction={true}
         label="В усложненной позе Ромберга"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'complicated_position'}
         fieldStyle="w-[80%]"
       />
       <AutoComplateCategoryBoxView
@@ -197,7 +197,7 @@ const NeurologistStatusSection = () => {
         isSearchAction={true}
         isGetAction={true}
         label="Пальценосовая проба"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'finger_test'}
         fieldStyle="w-[85%]"
       />
       <AutoComplateCategoryBoxView
@@ -205,7 +205,7 @@ const NeurologistStatusSection = () => {
         isSearchAction={true}
         isGetAction={true}
         label="Пяточно-коленная проба"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'heel_knee_test'}
         fieldStyle="w-[85%]"
       />
       <AutoComplateCategoryBoxView
@@ -213,7 +213,7 @@ const NeurologistStatusSection = () => {
         isSearchAction={true}
         isGetAction={true}
         label="Походка"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'gait'}
         fieldStyle="w-full"
       />
       <AutoComplateCategoryBoxView
@@ -221,7 +221,7 @@ const NeurologistStatusSection = () => {
         isSearchAction={true}
         isGetAction={true}
         label="Чувствительность"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'sensitivity'}
         fieldStyle="w-[90%]"
       />
       <AutoComplateCategoryBoxView
@@ -229,7 +229,7 @@ const NeurologistStatusSection = () => {
         isSearchAction={true}
         isGetAction={true}
         label="Когнитивные функции"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'cognitive_test'}
         fieldStyle="w-[88%]"
       />
       <AutoComplateCategoryBoxView
@@ -237,7 +237,7 @@ const NeurologistStatusSection = () => {
         isSearchAction={true}
         isGetAction={true}
         label="Эмоционально-волевая сфера"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'emotional_volitional_sphere'}
         fieldStyle="w-[80%]"
       />
 
@@ -246,7 +246,7 @@ const NeurologistStatusSection = () => {
         isSearchAction={true}
         isGetAction={true}
         label="Инсомния"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'insomnia'}
         fieldStyle="w-full"
       />
       <AutoComplateCategoryBoxView
@@ -254,7 +254,7 @@ const NeurologistStatusSection = () => {
         isSearchAction={true}
         isGetAction={true}
         label="Движения в шейном отделе позвоночника"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'movements_in_the_cervical_spine'}
         fieldStyle="w-[75%]"
       />
       <AutoComplateCategoryBoxView
@@ -262,7 +262,7 @@ const NeurologistStatusSection = () => {
         isSearchAction={true}
         isGetAction={true}
         label="Движения в поясничном отделе позвоночника"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'movements_in_the_spinal_spine'}
         fieldStyle="w-[75%]"
       />
       <AutoComplateCategoryBoxView
@@ -270,7 +270,7 @@ const NeurologistStatusSection = () => {
         isSearchAction={true}
         isGetAction={true}
         label="Болезненность при пальпации остистых отростков"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'spinous_processes'}
         fieldStyle="w-[70%]"
       />
       <AutoComplateCategoryBoxView
@@ -278,7 +278,7 @@ const NeurologistStatusSection = () => {
         isSearchAction={true}
         isGetAction={true}
         label="Болезненность паравертебральных точек"
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'paravertebral_points'}
         fieldStyle="w-[75%]"
       />
       <TextareActionBox isActions />

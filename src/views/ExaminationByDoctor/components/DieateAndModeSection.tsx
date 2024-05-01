@@ -1,10 +1,12 @@
 import { Box } from '@mui/material';
 import RadioButtonGroup from 'components/RadioButtonGroup';
 import SectionTitle from 'components/SectionTitle/sectionTitle';
-import { ExaminationOption } from '../constant/ExaminationOption';
+import { RegimeOptions } from '../constant/ExaminationOption';
 import DefaultButton from 'components/deafultButton/DefaultButton';
+import { useExaminationByDoctorContext } from '../module';
 
 export const DieateAndModeSection = () => {
+  const { methods } = useExaminationByDoctorContext();
   return (
     <Box className="flex flex-row items-center gap-2">
       <Box className="w-[50%] border p-2 h-[107px]">
@@ -20,8 +22,9 @@ export const DieateAndModeSection = () => {
         />
         <Box className="flex flex-row items-center justify-between">
           <RadioButtonGroup
-            options={ExaminationOption}
-            name="accent_in_aorta"
+            options={RegimeOptions}
+            name="regime"
+            methods={methods}
           />
           <DefaultButton
             title="Добавить причину"

@@ -1,9 +1,12 @@
 import { AppointmentSectionContainer } from 'components/AppointmentSectionBox/AppointmentSectionBox';
-import { useExaminationByDoctorContext } from '../module';
 import AutoComplateCategoryBoxView from 'components/AutocomplateCategoryBox/AutocomplateCategoryField';
 import { Box } from '@mui/material';
 import RadioButtonGroup from 'components/RadioButtonGroup';
-import { ExaminationOption } from '../constant/ExaminationOption';
+import {
+  AbroadLastYearOptions,
+  StullIssueOptions,
+} from '../constant/ExaminationOption';
+import { useExaminationByDoctorContext } from '../module';
 
 export const EpidemiologicalHistorySection = () => {
   const { methods } = useExaminationByDoctorContext();
@@ -19,7 +22,11 @@ export const EpidemiologicalHistorySection = () => {
         fieldStyle="w-[62%]"
         children={
           <Box className="flex flex-row items-center gap-1">
-            <RadioButtonGroup options={ExaminationOption} name="imt" />
+            <RadioButtonGroup
+              options={AbroadLastYearOptions}
+              name="abroad_for_last_years"
+              methods={methods}
+            />
           </Box>
         }
       />
@@ -48,7 +55,7 @@ export const EpidemiologicalHistorySection = () => {
         formMethods={methods}
         label="Венерические болезни"
         isSearchAction
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'venerian_illness'}
         fieldStyle="w-[85%]"
       />
       <AutoComplateCategoryBoxView
@@ -81,7 +88,11 @@ export const EpidemiologicalHistorySection = () => {
         fieldStyle="w-[65%]"
         children={
           <Box className="flex flex-row items-center gap-1">
-            <RadioButtonGroup options={ExaminationOption} name="imt" />
+            <RadioButtonGroup
+              options={StullIssueOptions}
+              name="had_stul_for"
+              methods={methods}
+            />
           </Box>
         }
       />

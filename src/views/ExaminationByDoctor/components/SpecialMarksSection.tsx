@@ -1,7 +1,8 @@
 import { AppointmentSectionContainer } from 'components/AppointmentSectionBox/AppointmentSectionBox';
 import AutoComplateCategoryBoxView from 'components/AutocomplateCategoryBox/AutocomplateCategoryField';
-import { useExaminationByDoctorContext } from '../module';
+
 import { Box, Typography } from '@mui/material';
+import { useExaminationByDoctorContext } from '../module';
 
 export const SpecialMarksSection = () => {
   const { methods } = useExaminationByDoctorContext();
@@ -36,7 +37,7 @@ export const SpecialMarksSection = () => {
         label="Непереносимость продуктов"
         isSearchAction
         isGetAction
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'non_carrying_prods'}
         fieldStyle="w-[83%]"
       />
 
@@ -54,7 +55,7 @@ export const SpecialMarksSection = () => {
         label="Получает постоянно медикаменты"
         isSearchAction
         isGetAction
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'has_always_pills'}
         fieldStyle="w-[80%]"
       />
     </AppointmentSectionContainer>

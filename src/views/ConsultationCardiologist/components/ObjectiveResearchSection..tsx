@@ -1,11 +1,20 @@
-import { Box, OutlinedInput } from '@mui/material';
+import { Box } from '@mui/material';
 import { AppointmentSectionContainer } from 'components/AppointmentSectionBox/AppointmentSectionBox';
 import AutoComplateCategoryBoxView from 'components/AutocomplateCategoryBox/AutocomplateCategoryField';
 import { AppoinmentItemTitle } from 'components/defaultText/AppoinmentItemTitle';
 import { useCardiologistAppoinmnetContext } from '../module';
 import RadioButtonGroup from 'components/RadioButtonGroup';
-import { bodyTypeOptions } from '../constant/radioCheckboxData';
+import {
+  axillaryOptions,
+  bodyTypeOptions,
+  cervicalOptions,
+  inguinalOptions,
+  sclera_visible_mucosaOptions,
+  skinOptions,
+  thyroidsOptions,
+} from '../constant/radioCheckboxData';
 import TextareActionBoxView from 'components/TextareActionBox/textareActionBoxView';
+import { OutlineField } from 'components/Fields/OutlineField';
 
 export const ObjectiveResearchSection = () => {
   const { methods } = useCardiologistAppoinmnetContext();
@@ -13,59 +22,31 @@ export const ObjectiveResearchSection = () => {
     <AppointmentSectionContainer boxTitle="Данные объективного исследования">
       <Box className="flex flex-row items-center p-1">
         <AppoinmentItemTitle title="Рост" />
-        <OutlinedInput
-          sx={{ width: '80px', height: '30px' }}
-          className="mx-2"
-          size="small"
-          // {...formMethods.register('height', { required: true })}
-        />
+        <OutlineField medhods={methods} name="height" required={true} />
         <AppoinmentItemTitle title="см," />
+
         <AppoinmentItemTitle title="вес" />
-        <OutlinedInput
-          sx={{ width: '80px', height: '30px' }}
-          className="mx-2"
-          size="small"
-          // {...formMethods.register('weight', { required: true })}
-        />
+        <OutlineField medhods={methods} name="weight" required={true} />
+
         <AppoinmentItemTitle title="кг, пульс" />
+        <OutlineField medhods={methods} name="pulse_general" required={true} />
 
-        <OutlinedInput
-          sx={{ width: '80px', height: '30px' }}
-          className="mx-2"
-          size="small"
-          // {...formMethods.register('heart_beat', { required: true })}
-        />
         <AppoinmentItemTitle title="уд/м, давление" />
+        <OutlineField medhods={methods} name="arterial_high" required={false} />
 
-        <OutlinedInput
-          sx={{ width: '80px', height: '30px' }}
-          className="mx-2"
-          size="small"
-          // {...formMethods.register('arterial_high', { required: true })}
-        />
         <AppoinmentItemTitle title="/" />
 
-        <OutlinedInput
-          sx={{ width: '80px', height: '30px' }}
-          className="mx-2"
-          size="small"
-          // {...formMethods.register('arterial_low', { required: true })}
-        />
+        <OutlineField medhods={methods} name="arterial_low" required={false} />
         <AppoinmentItemTitle title="мм рт.ст., ИМТ" />
 
-        <OutlinedInput
-          sx={{ width: '80px', height: '30px' }}
-          className="mx-2"
-          size="small"
-          // {...formMethods.register('imt', { required: true })}
-        />
+        <OutlineField medhods={methods} name="imt" required={true} />
         <AppoinmentItemTitle title="кг/м2" />
+
         <AppoinmentItemTitle title="Интерпретация показателя ИМТ" />
-        <OutlinedInput
-          sx={{ width: '300px', height: '30px' }}
-          className="mx-2"
-          size="small"
-          // {...formMethods.register('imt', { required: true })}
+        <OutlineField
+          medhods={methods}
+          name="imt_interpretation"
+          required={true}
         />
       </Box>
       <AutoComplateCategoryBoxView
@@ -78,8 +59,9 @@ export const ObjectiveResearchSection = () => {
         children={
           <Box>
             <RadioButtonGroup
-              name="auscultative_breathing"
+              name="body_figure"
               options={bodyTypeOptions}
+              methods={methods}
             />
           </Box>
         }
@@ -90,12 +72,13 @@ export const ObjectiveResearchSection = () => {
         isSearchAction
         isGetAction
         categoryName={'for_sanatorium_treatment'}
-        fieldStyle="w-[45%]"
+        fieldStyle="w-[40%]"
         children={
           <Box>
             <RadioButtonGroup
-              name="auscultative_breathing"
-              options={bodyTypeOptions}
+              name="skin"
+              options={skinOptions}
+              methods={methods}
             />
           </Box>
         }
@@ -105,13 +88,14 @@ export const ObjectiveResearchSection = () => {
         label="Склеры и видимые слизистые"
         isSearchAction
         isGetAction
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'sclera_visible_mucosa'}
         fieldStyle="w-[35%]"
         children={
           <Box>
             <RadioButtonGroup
-              name="auscultative_breathing"
-              options={bodyTypeOptions}
+              name="sclera_visible_mucosa"
+              options={sclera_visible_mucosaOptions}
+              methods={methods}
             />
           </Box>
         }
@@ -121,13 +105,14 @@ export const ObjectiveResearchSection = () => {
         label="Щитовидная железа"
         isSearchAction
         isGetAction
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'thyroids'}
         fieldStyle="w-[40%]"
         children={
           <Box>
             <RadioButtonGroup
-              name="auscultative_breathing"
-              options={bodyTypeOptions}
+              name="thyroids"
+              options={thyroidsOptions}
+              methods={methods}
             />
           </Box>
         }
@@ -138,13 +123,14 @@ export const ObjectiveResearchSection = () => {
           label="шейные"
           isSearchAction
           isGetAction
-          categoryName={'for_sanatorium_treatment'}
-          fieldStyle="w-[50%]"
+          categoryName={'cervical'}
+          fieldStyle="w-[38%]"
           children={
             <Box>
               <RadioButtonGroup
-                name="auscultative_breathing"
-                options={bodyTypeOptions}
+                name="cervical"
+                options={cervicalOptions}
+                methods={methods}
               />
             </Box>
           }
@@ -154,13 +140,14 @@ export const ObjectiveResearchSection = () => {
           label="подмышечные"
           isSearchAction
           isGetAction
-          categoryName={'for_sanatorium_treatment'}
-          fieldStyle="w-[45%]"
+          categoryName={'axillary'}
+          fieldStyle="w-[33%]"
           children={
             <Box>
               <RadioButtonGroup
-                name="auscultative_breathing"
-                options={bodyTypeOptions}
+                name="axillary"
+                options={axillaryOptions}
+                methods={methods}
               />
             </Box>
           }
@@ -170,13 +157,14 @@ export const ObjectiveResearchSection = () => {
           label="паховые"
           isSearchAction
           isGetAction
-          categoryName={'for_sanatorium_treatment'}
-          fieldStyle="w-[48%]"
+          categoryName={'inguinal'}
+          fieldStyle="w-[37%]"
           children={
             <Box>
               <RadioButtonGroup
-                name="auscultative_breathing"
-                options={bodyTypeOptions}
+                name="inguinal"
+                options={inguinalOptions}
+                methods={methods}
               />
             </Box>
           }

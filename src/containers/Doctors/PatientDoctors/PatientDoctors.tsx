@@ -8,7 +8,7 @@ const PatientDoctors = () => {
   const { content } = useDoctorsPatientHook();
 
   return (
-    <div className="w-[100%] h-full relative">
+    <div className="w-[100%] h-full relative ">
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DoctorsViewTabs content={content} />
       </LocalizationProvider>

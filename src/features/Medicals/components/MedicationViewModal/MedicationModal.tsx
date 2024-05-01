@@ -27,7 +27,7 @@ export const MedicationModal = () => {
         <Typography className={'text-[20px] text-[#000]'}>
           Медикаменты
         </Typography>
-        <ReuseableRadioButtonGroup options={options} />
+        {/* <ReuseableRadioButtonGroup options={options} /> */}
       </Grid>
       <Grid
         item

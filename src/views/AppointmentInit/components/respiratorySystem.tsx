@@ -34,6 +34,7 @@ const RespiratorySystemSection: FC<Props> = ({ formMethods }) => {
         <OutlinedInput
           sx={{ height: '35px', width: '60px' }}
           className="mx-2"
+          {...formMethods.register('respiratory_frequency')}
         />
         <Typography className=" text-[14px]  font-normal text-[#000]">
           в 1 минуту

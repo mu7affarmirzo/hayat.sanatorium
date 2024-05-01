@@ -24,10 +24,9 @@ export interface PostExamitationByDoctor {
   arterial_high: number;
   arterial_low: number;
   imt: number;
-  cito: boolean;
-  for_sanatorium_treatment: string;
-  summary: string;
-  recommendation: string;
+  pulse: string;
+  diet: string;
+  regime: string;
   created_by: number;
   modified_by: number;
   doctor: number;

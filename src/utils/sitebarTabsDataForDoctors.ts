@@ -1,13 +1,6 @@
 import { TabsItem } from 'components/sideBar/SideBar';
 import PatientDoctorTPContainer from 'containers/Doctors/PatientDoctors/PatientDoctorTPContainer';
-import InitialApportments from 'views/AppointmentInit';
-import ConsultationCardiologistView from 'views/ConsultationCardiologist';
-import DoctorOnDutyAppointment from 'views/DoctorOnDutyAppointment';
-import ElectrocardiogramAppointment from 'views/ElectrocardiogramAppointment';
-import ExaminationByDoctor from 'views/ExaminationByDoctor';
-import FinalAppointment from 'views/FinalAppointment';
-import NeurologistConsultationView from 'views/NeurologistConsultationApp';
-import RepeatedAppointment from 'views/RepeatedAppointment';
+import { useMemo } from 'react';
 import TreatmentSchedule from 'views/TreatmentSchedule';
 import changelog from 'views/booked/changelog';
 import consultationTechniques from 'views/booked/consultationTechniques';
@@ -16,6 +9,7 @@ import mainAssignmentSheet from 'views/booked/mainAssignmentSheet';
 import measuredParameters from 'views/booked/measuredParameters';
 import nutrition from 'views/booked/nutrition';
 import researchSummaryTable from 'views/booked/researchSummaryTable';
+import { anotherPopopData } from './doctors/dynamicSitebarItems';
 
 export const selectData = [
   {
@@ -40,51 +34,18 @@ export const selectData2 = [
 ];
 
 export const GenerateSidebarTabsData = (broneData: any) => {
-  const popapData = [
-    {
-      id: 1,
-      title: 'Заключительный прием лечащего врача',
-      component: PatientDoctorTPContainer,
-    },
-    {
-      id: 2,
-      title: 'Консультация кардиолога первичная',
-      component: PatientDoctorTPContainer,
-    },
-    {
-      id: 3,
-      title: 'Консультация невролога первичная',
-      component: PatientDoctorTPContainer,
-    },
-    {
-      id: 4,
-      title: ' Осмотр дежурного врача при поступлении',
-      component: PatientDoctorTPContainer,
-    },
-    {
-      id: 5,
-      title: 'Повторный приём лечащего врача',
-      component: PatientDoctorTPContainer,
-    },
-
-    {
-      id: 6,
-      title: 'Прием дежурного врача',
-      component: PatientDoctorTPContainer,
-    },
-    {
-      id: 7,
-      title: 'ЭКГ(Электрокардиограмма)',
-      component: PatientDoctorTPContainer,
-    },
-  ];
-
-  const broneDataTabs = broneData.map((broneItem: any) => {
-    return {
-      title: broneItem.name,
-      component: popapData[broneItem?.id].component,
-    };
-  });
+  const dynamicSidebarItemTabs = useMemo(() => {
+    const newList = [...broneData];
+    return [
+      ...newList.map((key: any) => ({
+        title: key.title,
+        component: (anotherPopopData as { [key: string]: any })[
+          key.title as string
+        ],
+        hiled: anotherPopopData[key.title as string]?.chiled || [],
+      })),
+    ];
+  }, [broneData]);
 
   const sidebarItemTabs: TabsItem[] = [
     {
@@ -104,7 +65,7 @@ export const GenerateSidebarTabsData = (broneData: any) => {
       title: 'Питание',
       component: nutrition,
     },
-    ...broneDataTabs,
+    ...dynamicSidebarItemTabs,
     {
       title: 'Консультации и повторные приемы, приемы',
       component: consultationTechniques,
@@ -137,7 +98,6 @@ export const GenerateSidebarTabsData = (broneData: any) => {
         },
       ],
     },
-
     {
       title: 'Основной лист назначений',
       component: mainAssignmentSheet,
@@ -157,38 +117,7 @@ export const GenerateSidebarTabsData = (broneData: any) => {
       title: 'Сводная таблица исследований',
       component: researchSummaryTable,
     },
-    {
-      title: 'Первичный прием лечащего врача',
-      component: InitialApportments,
-    },
-    {
-      title: 'Заключительный прием лечащего врача',
-      component: FinalAppointment,
-    },
-    {
-      title: 'Повторный приём лечащего врача',
-      component: RepeatedAppointment,
-    },
-    {
-      title: 'Осмотр дежурного врача при поступлении',
-      component: ExaminationByDoctor,
-    },
-    {
-      title: 'Консультация невролога первичная',
-      component: NeurologistConsultationView,
-    },
-    {
-      title: 'Консультация кардиолога первичная',
-      component: ConsultationCardiologistView,
-    },
-    {
-      title: 'Прием дежурного врача',
-      component: DoctorOnDutyAppointment,
-    },
-    {
-      title: 'ЭКГ(Электрокардиограмма)',
-      component: ElectrocardiogramAppointment,
-    },
+
     {
       title: 'Измеряемые параметры',
       component: measuredParameters,

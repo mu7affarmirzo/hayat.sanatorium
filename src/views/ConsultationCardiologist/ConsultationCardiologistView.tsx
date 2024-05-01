@@ -3,16 +3,18 @@ import { AppointmentConclusionView } from 'components/AppointmentConclusion';
 import AppointmentHeader from 'components/AppointmentHeader';
 import { GetCategoryTextareField } from 'components/GetCategoryTextareField/CategoryTextareFieldView';
 import { DiagnosisView } from 'features/Diagnosis';
-import { useCardiologistAppoinmnetHook } from './hook';
 import { Box } from '@mui/material';
-import { CardiologistAppointmentProvider } from './module';
+import {
+  CardiologistAppointmentProvider,
+  useCardiologistAppoinmnetContext,
+} from './module';
 import { ObjectiveResearchSection } from './components/ObjectiveResearchSection.';
 import { CardiovascularSection } from './components/CardiovascularSection';
 import { RespiratorySection } from './components/RespiratorySection';
 
 const Main = () => {
   const { appointmentStatus, handleChangeStatus, methods, onSubmit } =
-    useCardiologistAppoinmnetHook();
+    useCardiologistAppoinmnetContext();
 
   return (
     <Box>

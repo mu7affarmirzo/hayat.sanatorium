@@ -56,7 +56,7 @@ const AppointmentHeaderView: FC<AppointmentHeaderViewProps> = ({
             disabled={true}
           />
           <SelectButton
-            data={top100Films}
+            data={[]}
             style="h-[38px] bg-[#2196F3]"
             defaultValue="Шаблоны"
           />

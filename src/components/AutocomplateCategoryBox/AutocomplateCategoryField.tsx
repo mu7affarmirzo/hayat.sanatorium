@@ -37,17 +37,15 @@ const AutoComplateCategoryBoxView = <T extends {}>({
   const changeFieldStyle = fieldStyle ? fieldStyle : 'w-[400px]';
 
   return (
-    <Box className={`${changeContainerStyle} my-2 gap-2 justify-between`}>
+    <Box className={`${changeContainerStyle} my-[6px] gap-2 justify-between`}>
       <Box className="flex flex-row gap-2 items-center ">
         <Typography className="font-roboto text-sm font-normal">
           {label}:
         </Typography>
         {defaultCheckbox && (
           <NewDefaultCheckbox
-            option={{
-              label: 'отсутствует,',
-              value: 'absent',
-            }}
+            methods={formMethods}
+            name={categoryName as never}
           />
         )}
         {children}

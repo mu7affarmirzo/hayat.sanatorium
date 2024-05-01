@@ -1,11 +1,17 @@
-import { Box, OutlinedInput } from '@mui/material';
+import { Box } from '@mui/material';
 import { AppointmentSectionContainer } from 'components/AppointmentSectionBox/AppointmentSectionBox';
 import AutoComplateCategoryBoxView from 'components/AutocomplateCategoryBox/AutocomplateCategoryField';
 import { AppoinmentItemTitle } from 'components/defaultText/AppoinmentItemTitle';
 import { useCardiologistAppoinmnetContext } from '../module';
 import RadioButtonGroup from 'components/RadioButtonGroup';
-import { bodyTypeOptions } from '../constant/radioCheckboxData';
+import {
+  auscultationBreathingoptions,
+  chestSheepOptions,
+  pulmonaryFieldsOptions,
+  wheezingOptions,
+} from '../constant/radioCheckboxData';
 import TextareActionBoxView from 'components/TextareActionBox/textareActionBoxView';
+import { OutlineField } from 'components/Fields/OutlineField';
 
 export const RespiratorySection = () => {
   const { methods } = useCardiologistAppoinmnetContext();
@@ -14,11 +20,7 @@ export const RespiratorySection = () => {
     <AppointmentSectionContainer boxTitle="Органы дыхания">
       <Box className="flex flex-row items-center gap-1">
         <AppoinmentItemTitle title="ЧДД:" />
-        <OutlinedInput
-          sx={{ width: '80px', height: '30px' }}
-          className="mx-2"
-          size="small"
-        />
+        <OutlineField medhods={methods} name={'chdd_per_minute'} />
         <AppoinmentItemTitle title="в 1 минуту" />
       </Box>
 
@@ -27,13 +29,14 @@ export const RespiratorySection = () => {
         label="Форма грудной клетки"
         isSearchAction
         isGetAction
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'chest_shape'}
         fieldStyle="w-[45%]"
         children={
           <Box>
             <RadioButtonGroup
-              name="auscultative_breathing"
-              options={bodyTypeOptions}
+              name="chest_shape"
+              options={chestSheepOptions}
+              methods={methods}
             />
           </Box>
         }
@@ -44,13 +47,14 @@ export const RespiratorySection = () => {
         label="При сравнительной перкуссии над легочными полями звук"
         isSearchAction
         isGetAction
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'pulmonary_fields'}
         fieldStyle="w-[25%]"
         children={
           <Box>
             <RadioButtonGroup
-              name="auscultative_breathing"
-              options={bodyTypeOptions}
+              name="pulmonary_fields"
+              options={pulmonaryFieldsOptions}
+              methods={methods}
             />
           </Box>
         }
@@ -61,13 +65,14 @@ export const RespiratorySection = () => {
         label="При аускультации дыхание"
         isSearchAction
         isGetAction
-        categoryName={'for_sanatorium_treatment'}
+        categoryName={'auscultation_breathing'}
         fieldStyle="w-[43%]"
         children={
           <Box>
             <RadioButtonGroup
-              name="auscultative_breathing"
-              options={bodyTypeOptions}
+              name="auscultation_breathing"
+              options={auscultationBreathingoptions}
+              methods={methods}
             />
           </Box>
         }
@@ -81,8 +86,9 @@ export const RespiratorySection = () => {
           <Box className="flex flex-row items-center gap-1 w-[97%]">
             <Box>
               <RadioButtonGroup
-                name="auscultative_breathing"
-                options={bodyTypeOptions}
+                name="wheezing"
+                options={wheezingOptions}
+                methods={methods}
               />
             </Box>
             <AutoComplateCategoryBoxView

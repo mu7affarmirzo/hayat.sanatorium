@@ -43,7 +43,7 @@ const Main = () => {
 
             <EpidemiologicalHistorySection />
 
-            <StatusPraesensSection formMethods={methods} />
+            <StatusPraesensSection />
 
             <MuscularSystemSection formMethods={methods} />
 
@@ -62,9 +62,7 @@ const Main = () => {
             <DiagnosisSection />
 
             <ConclusionSection />
-            {/* <Button type="submit" variant="contained" className="my-2">
-              Submit
-            </Button> */}
+
             <AppointmentsSection />
           </Box>
         </form>
