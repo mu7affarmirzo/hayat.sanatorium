@@ -90,7 +90,7 @@ export const EpidemiologicalHistorySection = () => {
           <Box className="flex flex-row items-center gap-1">
             <RadioButtonGroup
               options={StullIssueOptions}
-              name="had_stul_for"
+              name="stull_issues"
               methods={methods}
             />
           </Box>

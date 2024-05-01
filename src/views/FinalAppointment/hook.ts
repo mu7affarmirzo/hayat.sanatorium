@@ -18,6 +18,11 @@ export const useFinalAppointmentHook = () => {
 
   const onSubmit = (data: FinalAppointmentPostData) => {
     console.log(data);
+    const newData = {
+      ...data,
+      diagnosis: [1, 2],
+    };
+    fetchFinal(newData);
   };
 
   return {

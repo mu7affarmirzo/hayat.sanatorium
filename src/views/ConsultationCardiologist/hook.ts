@@ -1,3 +1,4 @@
+import { usePostCardiologistAppoinmnetMutation } from 'features/CardiologistAppoinemnt/service';
 import {
   LabResearchForCardiologist,
   MedicalServiceForCardiologist,
@@ -22,6 +23,8 @@ export const useCardiologistAppoinmnetHook = () => {
   );
 
   const methods = useForm<PostCardiologistAppoinmnet>();
+
+  const [fetchRequest] = usePostCardiologistAppoinmnetMutation();
 
   const { procedures } = useReduxSelector((state) => state.procedures);
   const { medications } = useReduxSelector((state) => state.medication);
@@ -77,6 +80,7 @@ export const useCardiologistAppoinmnetHook = () => {
       medical_services: convertToMedicalServices,
     };
     console.log(newData, 'newData in cardiologist hook');
+    fetchRequest(newData);
   };
 
   return {

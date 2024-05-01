@@ -1,5 +1,4 @@
 import AppointmentsSections from 'components/AppointmentActionSection/appointmentsSection';
-import { AppointmentConclusionView } from 'components/AppointmentConclusion';
 import AppointmentHeader from 'components/AppointmentHeader';
 import { GetCategoryTextareField } from 'components/GetCategoryTextareField/CategoryTextareFieldView';
 import { DiagnosisView } from 'features/Diagnosis';
@@ -11,6 +10,7 @@ import {
 import { ObjectiveResearchSection } from './components/ObjectiveResearchSection.';
 import { CardiovascularSection } from './components/CardiovascularSection';
 import { RespiratorySection } from './components/RespiratorySection';
+import { CardiologistConclusionSection } from './components/CardiologistConclusionSection';
 
 const Main = () => {
   const { appointmentStatus, handleChangeStatus, methods, onSubmit } =
@@ -45,7 +45,7 @@ const Main = () => {
 
           <DiagnosisView />
 
-          <AppointmentConclusionView />
+          <CardiologistConclusionSection />
 
           <AppointmentsSections />
         </Box>

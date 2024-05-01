@@ -1,4 +1,5 @@
-import { Box } from '@mui/material';
+/* eslint-disable react/style-prop-object */
+import { Box, Typography } from '@mui/material';
 import { AppointmentSectionContainer } from 'components/AppointmentSectionBox';
 import SelectButton from 'components/buttons/SelectButton';
 
@@ -20,10 +21,13 @@ export const UploadFileView = () => {
         <SelectButton
           data={SelectData}
           defaultValue="Добавить файл"
-          style="w-[170px] "
+          style="w-[170px]"
         />
         <SelectButton data={SelectData} defaultValue="Сканировать" />
       </Box>
+      <Typography className="text-[#686868bc] text-[14px] mt-[10px]">
+        Прикрепленные документы отсутствуют
+      </Typography>
     </AppointmentSectionContainer>
   );
 };

@@ -1,17 +1,19 @@
 import { Box } from '@mui/material';
 import AppointmentHeader from 'components/AppointmentHeader';
-import { useNeurologistAppoinmnetHook } from './hook';
 import AppointmentsSections from 'components/AppointmentActionSection';
-import { AppointmentConclusionView } from 'components/AppointmentConclusion/concclusionView';
 import DiagnostikaItem from 'components/DiagnostikaItem';
 import { DiagnosisView } from 'features/Diagnosis';
 import { GetCategoryTextareField } from 'components/GetCategoryTextareField/CategoryTextareFieldView';
 import NeurologistStatusSection from './components/neurologistStateusSection';
-import { NeurologistAppointmentProvider } from './module';
+import {
+  NeurologistAppointmentProvider,
+  useNeurologistAppoinmnetContext,
+} from './module';
+import { NeurologistConsultationSection } from './components/neurologistConculsionSection';
 
 const Main = () => {
   const { appointmentStatus, handleChangeStatus, onSubmit, methods } =
-    useNeurologistAppoinmnetHook();
+    useNeurologistAppoinmnetContext();
   return (
     <Box>
       <form
@@ -29,7 +31,7 @@ const Main = () => {
           <DiagnostikaItem title="Анамнез заболевания" />
           <NeurologistStatusSection />
           <DiagnosisView />
-          <AppointmentConclusionView />
+          <NeurologistConsultationSection />
           <AppointmentsSections />
         </Box>
       </form>

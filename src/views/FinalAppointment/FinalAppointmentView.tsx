@@ -5,12 +5,14 @@ import { OpjectiveStatusSection } from './components/ObjectiveStatusSection';
 import { TreatmentResultsSectiont } from './components/TreatmentResultsSection';
 
 const Main = () => {
-  const { appointmentStatus, handleChangeStatus } =
+  const { appointmentStatus, handleChangeStatus, methods, onSubmit } =
     useFinalAppointmentContext();
 
   return (
     <Box>
-      <form className="border border-[rgba(0, 0, 0, 0.23)] h-[calc(100vh-220px)]  p-[10px] overflow-hidden ">
+      <form
+        onSubmit={methods.handleSubmit(onSubmit)}
+        className="border border-[rgba(0, 0, 0, 0.23)] h-[calc(100vh-220px)]  p-[10px] overflow-hidden ">
         <AppointmentHeader
           doctor="Заключительный прием лечащего врача, Admin"
           setAppointmentStatus={handleChangeStatus}
