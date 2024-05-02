@@ -7,7 +7,7 @@ import React from 'react';
 import changelog from 'views/booked/changelog';
 import frontPage from 'views/BookedTitlePageTab';
 import invoicesDocuments from 'views/booked/invoicesDocuments';
-import mainAssignmentSheet from 'views/booked/mainAssignmentSheet';
+import mainAssignmentSheet from 'views/MainAssigmentSheet';
 import nutrition from 'views/booked/nutrition';
 
 const content: TabsItem[] = [

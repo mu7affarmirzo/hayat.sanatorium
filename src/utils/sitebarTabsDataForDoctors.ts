@@ -5,7 +5,7 @@ import TreatmentSchedule from 'views/TreatmentSchedule';
 import changelog from 'views/booked/changelog';
 import consultationTechniques from 'views/booked/consultationTechniques';
 import invoicesDocuments from 'views/booked/invoicesDocuments';
-import mainAssignmentSheet from 'views/booked/mainAssignmentSheet';
+import mainAssignmentSheet from 'views/MainAssigmentSheet';
 import measuredParameters from 'views/booked/measuredParameters';
 import nutrition from 'views/booked/nutrition';
 import researchSummaryTable from 'views/booked/researchSummaryTable';

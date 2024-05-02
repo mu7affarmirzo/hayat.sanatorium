@@ -15,7 +15,7 @@ import { useAppModals } from 'components/Modals';
 import React from 'react';
 import ReceptionTable from 'components/receptionTable';
 import DefaultText from 'components/defaultText/DefaultText';
-import { rowData } from '../../BookedTitlePageTab/FrontPageView';
+import { rowData } from '../BookedTitlePageTab/FrontPageView';
 import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
 import DefaultButton from 'components/deafultButton/DefaultButton';
 import { HealingProceduresCol } from 'components/columnDefs/HealingProceduresCol';
@@ -201,7 +201,8 @@ const MainAssignmentSheetView = () => {
       </Box>
       <Box className="bg-[#fff] w-full p-[5px] overflow-scroll max-h-[calc(100vh-230px)] h-[calc(100vh-280px)] border  ">
         <Box className="border p-[3px] ">
-          <Typography className={'text-[#000] !text-[14px] font-medium tracking-[0.1px]'}>
+          <Typography
+            className={'text-[#000] !text-[14px] font-medium tracking-[0.1px]'}>
             Лечебные программы
           </Typography>
           <Box className="flex mt-[10px] flex-wrap justify-between">
@@ -355,7 +356,6 @@ const MainAssignmentSheetView = () => {
             <Box className={'w-[calc(100%-500px)]'}>
               <ReceptionTableGroup columnDefs={HealingProceduresCol} />
             </Box>
-
             <Drugs />
           </Box>
         </Box>

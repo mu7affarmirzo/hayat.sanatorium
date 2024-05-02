@@ -1,11 +1,8 @@
-/* eslint-disable react/style-prop-object */
-/* eslint-disable */
-import { Box, Grid } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import SectionTitle from 'components/SectionTitle/sectionTitle';
 import DefaultButton from 'components/deafultButton/DefaultButton';
 import NestedCollapseDropdownCheckbox from 'components/NestedCollapseDropdownCheckbox/CollapseDropdownCheckbox';
 import SearchInput from 'components/SearchField/searchInput';
-import DefaultText from 'components/defaultText/DefaultText';
 import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
 import { useState } from 'react';
 import AdvancedModal from 'components/Modals/ReuseableModal/reuseableModal';
@@ -28,9 +25,9 @@ const AppointmentsBoxModal = ({ option }: any) => {
         md={12}
         className="mt-[10px]  p-[4px]"
         sx={{ marginTop: '10px', padding: '4px' }}>
-        <DefaultText style={'text-[20px] text-[#000]'}>
+        <Typography className="text-lg text-black font-roboto font-normal">
           Доступные назначения
-        </DefaultText>
+        </Typography>
         <DefaultCheckbox label="Скрывать сделанные назначения" />
       </Grid>
       <Grid
