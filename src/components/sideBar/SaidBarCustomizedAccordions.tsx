@@ -45,20 +45,20 @@ const AccordionSummary = styled((props: AccordionSummaryProps) => (
   },
 }));
 
-const AccordionDetails = styled(MuiAccordionDetails)(({ }) => ({
+const AccordionDetails = styled(MuiAccordionDetails)(({}) => ({
   padding: 0,
 }));
 
-const Input = styled("input")({
-  border: 'none',
-  letterSpacing: "0.4px",
-  fontWeight: "400",
-  fontSize: "12px",
-  lineHeight: "20px",
-  width: "100%",
-  color: "black",
-  fontFamily: "Roboto, Helvetica, Sans !important"
-});
+// const Input = styled("input")({
+//   border: 'none',
+//   letterSpacing: "0.4px",
+//   fontWeight: "400",
+//   fontSize: "12px",
+//   lineHeight: "20px",
+//   width: "100%",
+//   color: "black",
+//   fontFamily: "Roboto, Helvetica, Sans !important"
+// });
 
 type propsType = {
   children?: any;
@@ -70,13 +70,13 @@ type propsType = {
   search?: any;
   titleStyle?: any;
   isActive: boolean;
-  status?: "editing" | "done" | "idle"
+  status?: 'editing' | 'done' | 'idle';
 };
 
 export default function SaidBarCustomizedAccordions(props: propsType) {
   const [expanded, setExpanded] = React.useState<string | false>('');
   const { register } = useForm<IFormInput>();
-  const { status } = props
+  const { status } = props;
 
   const handleChange =
     (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
@@ -94,31 +94,26 @@ export default function SaidBarCustomizedAccordions(props: propsType) {
           id="panel1d-header"
           sx={{
             ...props.topBoxStyle,
-            paddingBottom: expanded ? 0 : "5px"
+            paddingBottom: expanded ? 0 : '5px',
           }}
           className="items-center !min-h-min !h-min">
-          {status === "editing" && <Box alignSelf={"center"} width={"18px"} marginRight={"2px"}>
-            <EditIcon
-              width={"18px"}
-              height={"18px"}
-            />
-          </Box>
-          }
-          {status === "done" && <Box alignSelf={"center"} width={"18px"} marginRight={"2px"}>
-            <CheckIcon
-              width={"18px"}
-              height={"18px"}
-            />
-          </Box>
-          }
+          {status === 'editing' && (
+            <Box alignSelf={'center'} width={'18px'} marginRight={'2px'}>
+              <EditIcon width={'18px'} height={'18px'} />
+            </Box>
+          )}
+          {status === 'done' && (
+            <Box alignSelf={'center'} width={'18px'} marginRight={'2px'}>
+              <CheckIcon width={'18px'} height={'18px'} />
+            </Box>
+          )}
           <Typography
-            letterSpacing={"0.4px"}
-            fontWeight={"400"}
-            fontSize={"12px"}
-            lineHeight={"20px"}
+            letterSpacing={'0.4px'}
+            fontWeight={'400'}
+            fontSize={'12px'}
+            lineHeight={'20px'}
             color="#000000DE"
-            marginLeft={!status || status === "idle" ? "5px" : 0}
-          >
+            marginLeft={!status || status === 'idle' ? '5px' : 0}>
             {props.title}
           </Typography>
           {/* <Typography
