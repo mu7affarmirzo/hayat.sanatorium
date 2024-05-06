@@ -1,25 +1,35 @@
-import { useSanatoriumDoctorsIdQuery } from 'features/booked/bookedService';
-import { useReduxSelector } from 'hooks/useReduxHook';
-import { useRef, useMemo } from 'react';
+import { useReduxDispatch, useReduxSelector } from 'hooks/useReduxHook';
+import { useRef, useMemo, useEffect } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { BookedDoctorsRootTypes } from 'types/bookedDoctorsTypes';
+import { GetPatientIbTypes } from 'features/DoctorsRoleService/types/index';
+import { useGetPatientByIdQuery } from 'features/DoctorsRoleService/service/doctorService';
+import { addActivePatient } from 'features/DoctorsRoleService/model/slices/patientIllnesHistorySlice';
 
 export const usePatientDocTPHook = () => {
-  const { selectBroneId } = useReduxSelector(
-    (dynamicTabs) => dynamicTabs.booked,
+  const dispatch = useReduxDispatch();
+  const { selectedId } = useReduxSelector(
+    (dynamicTopTabs) => dynamicTopTabs.dynamicTopTabs,
   );
 
-  const { data } = useSanatoriumDoctorsIdQuery(Number(selectBroneId) || 0);
+  const {
+    data: patientData,
+    status,
+    isLoading,
+  } = useGetPatientByIdQuery(Number(selectedId) || 0);
 
-  const defaultValues = data as unknown as BookedDoctorsRootTypes;
+  useEffect(() => {
+    if (status === 'fulfilled' && patientData) {
+      dispatch(addActivePatient(patientData));
+    }
+  }, [dispatch, patientData, status]);
 
-  const { register, handleSubmit, setValue, watch } =
-    useForm<BookedDoctorsRootTypes>({
-      defaultValues,
-    });
+  const defaultValues = patientData as GetPatientIbTypes;
 
-  const onSubmit: SubmitHandler<any> = (data) => console.log(data);
-  const scrollRef: any = useRef(null);
+  const methods = useForm<GetPatientIbTypes>({
+    defaultValues,
+  });
+
+  const scrollRef = useRef<any>(null);
 
   const scrollUp = () => {
     if (scrollRef.current) {
@@ -27,40 +37,39 @@ export const usePatientDocTPHook = () => {
     }
   };
 
-  const doctorData = useMemo(() => {
-    return data?.doctor;
-  }, [data?.doctor]);
-
-  const nurseData = useMemo(() => {
-    return data?.nurse;
-  }, [data?.nurse]);
+  const doctorData = useMemo(() => patientData?.doctor, [patientData?.doctor]);
+  const nurseData = useMemo(() => patientData?.nurse, [patientData?.nurse]);
 
   const getAgePatient = useMemo(() => {
     const currentYear = new Date().getFullYear();
-    const db = new Date(data?.patient.date_of_birth as never);
+    const db = new Date(patientData?.patient.date_of_birth as never);
     const newDB = db.getFullYear();
     return currentYear - newDB;
-  }, [data?.patient.date_of_birth]);
+  }, [patientData?.patient.date_of_birth]);
 
   const exampleObj = {
     name: 'home',
     phone_number: 999616427,
     basic: true,
   };
-  const copyArray = Array.from({ length: 2 }, () => exampleObj);
+  const copyArray = useMemo(
+    () => Array.from({ length: 2 }, () => exampleObj),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [],
+  );
+
+  const onSubmit: SubmitHandler<any> = (data) => console.log(data);
 
   return {
     scrollRef,
     scrollUp,
-    register,
-    handleSubmit,
+    methods,
     onSubmit,
-    setValue,
     defaultValues,
-    watch,
     doctorData,
     nurseData,
     getAgePatient,
     copyArray,
+    isLoading,
   };
 };

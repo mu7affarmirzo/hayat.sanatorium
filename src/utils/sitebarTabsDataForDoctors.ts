@@ -1,6 +1,6 @@
+import { useMemo } from 'react';
 import { TabsItem } from 'components/sideBar/SideBar';
 import PatientDoctorTPContainer from 'containers/Doctors/PatientDoctors/PatientDoctorTPContainer';
-import { useMemo } from 'react';
 import TreatmentSchedule from 'views/TreatmentSchedule';
 import changelog from 'views/booked/changelog';
 import consultationTechniques from 'views/booked/consultationTechniques';
@@ -11,40 +11,13 @@ import nutrition from 'views/booked/nutrition';
 import researchSummaryTable from 'views/booked/researchSummaryTable';
 import { anotherPopopData } from './doctors/dynamicSitebarItems';
 
-export const selectData = [
-  {
-    id: 0,
-    title: 'Начало приёма',
-  },
-  {
-    id: 1,
-    title: 'Начало приём2',
-  },
-];
-
-export const selectData2 = [
-  {
-    id: 0,
-    title: 'Осмотр дежурного врача при поступлении',
-  },
-  {
-    id: 1,
-    title: 'Прием дежурного врача',
-  },
-];
-
-export const GenerateSidebarTabsData = (broneData: any) => {
-  const dynamicSidebarItemTabs = useMemo(() => {
-    const newList = [...broneData];
-    return [
-      ...newList.map((key: any) => ({
-        title: key.title,
-        component: (anotherPopopData as { [key: string]: any })[
-          key.title as string
-        ],
-        hiled: anotherPopopData[key.title as string]?.chiled || [],
-      })),
-    ];
+export const GenerateSidebarTabsData = (broneData: any[]) => {
+  const dynamicSidebarItemTabs: TabsItem[] = useMemo(() => {
+    return broneData.map((item) => ({
+      title: item.title,
+      component: (anotherPopopData[item.title] as any)?.component,
+      chiled: (anotherPopopData[item.title] as any)?.chiled || [],
+    }));
   }, [broneData]);
 
   const sidebarItemTabs: TabsItem[] = [
@@ -71,31 +44,12 @@ export const GenerateSidebarTabsData = (broneData: any) => {
       component: consultationTechniques,
       activBtnType: 'panel1',
       chiled: [
-        {
-          id: 0,
-          title: 'Прием дежурного врача',
-          link: '#frontPage',
-        },
-        {
-          id: 1,
-          title: 'Жалобы/анамнез',
-        },
-        {
-          id: 2,
-          title: 'Объективные данные',
-        },
-        {
-          id: 3,
-          title: 'Диагноз',
-        },
-        {
-          id: 4,
-          title: 'Заключение',
-        },
-        {
-          id: 5,
-          title: 'Назначения',
-        },
+        { id: 0, title: 'Прием дежурного врача', link: '#frontPage' },
+        { id: 1, title: 'Жалобы/анамнез' },
+        { id: 2, title: 'Объективные данные' },
+        { id: 3, title: 'Диагноз' },
+        { id: 4, title: 'Заключение' },
+        { id: 5, title: 'Назначения' },
       ],
     },
     {
@@ -103,47 +57,24 @@ export const GenerateSidebarTabsData = (broneData: any) => {
       component: mainAssignmentSheet,
       activBtnType: 'panel1',
       chiled: [
-        {
-          id: 0,
-          title: 'Консультации и исследования',
-        },
-        {
-          id: 1,
-          title: 'Лечебные процедуры',
-        },
+        { id: 0, title: 'Консультации и исследования' },
+        { id: 1, title: 'Лечебные процедуры' },
       ],
     },
     {
       title: 'Сводная таблица исследований',
       component: researchSummaryTable,
     },
-
     {
       title: 'Измеряемые параметры',
       component: measuredParameters,
       activBtnType: 'panel1',
       chiled: [
-        {
-          id: 0,
-          title: 'Артериальное давление',
-        },
-        {
-          id: 1,
-          title: 'Глюкоза крови (глюкометр)',
-        },
-        {
-          id: 3,
-          title: 'Пульс',
-        },
-        {
-          id: 4,
-          title: 'Сатурация',
-        },
-
-        {
-          id: 5,
-          title: 'Температура',
-        },
+        { id: 0, title: 'Артериальное давление' },
+        { id: 1, title: 'Глюкоза крови (глюкометр)' },
+        { id: 3, title: 'Пульс' },
+        { id: 4, title: 'Сатурация' },
+        { id: 5, title: 'Температура' },
       ],
     },
     {
@@ -156,5 +87,5 @@ export const GenerateSidebarTabsData = (broneData: any) => {
     },
   ];
 
-  return [...sidebarItemTabs];
+  return sidebarItemTabs;
 };

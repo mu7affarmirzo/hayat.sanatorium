@@ -11,7 +11,7 @@ const PatientDoctorsContainer = () => {
   const sidebarItemTabsData = GenerateSidebarTabsData(dynamicSidebarItems);
 
   return (
-    <div className="overflow-hidden relative max-h-[calc(100vh-142px)]  ">
+    <div className="overflow-hidden relative max-h-[calc(100vh-142px)] bg-red-400 ">
       <DiseaseHistoryTopTabs />
       <div className="overflow-hidden relative max-h-[calc(100vh-150px)] bg-[#f5f5f5]">
         <SideBar content={sidebarItemTabsData} />

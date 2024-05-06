@@ -19,6 +19,7 @@ interface Props<T> {
   columns: IColumnType<T>[];
   isCollapsible?: boolean;
   cito?: any;
+  collapseTitle?: string;
 }
 
 const TableWrapper = styled('table', {
@@ -33,6 +34,7 @@ export function Table<T>({
   columns,
   isCollapsible,
   cito,
+  collapseTitle,
 }: Props<T>): JSX.Element {
   const [expandedRows, setExpandedRows] = useState<Record<number, boolean>>({});
 
@@ -44,7 +46,7 @@ export function Table<T>({
           <td colSpan={columns.length + 1}>
             {isCollapsible && (
               <CollapseTitle
-                title={`На этой неделе`}
+                title={collapseTitle as never}
                 id={cito}
                 expandedRows={expandedRows}
                 setExpandedRows={setExpandedRows}

@@ -33,12 +33,7 @@ const SideBarBtn: FC<BookingProps> = (props) => {
   };
 
   return (
-    <div
-      className="rounded"
-      style={{
-        borderRadius: '10px',
-        backgroundColor: activeTab === index ? '#64B6F7 !important' : '#fff',
-      }}>
+    <div>
       {chiled ? (
         <SaidBarCustomizedAccordions
           onClick={onClick}
@@ -83,10 +78,10 @@ const SideBarBtn: FC<BookingProps> = (props) => {
                       onClick={() => handleItemClick(childItem.id)}
                       className={`${
                         activeBtn === childItem.id
-                          ? 'bg-[#30a0fc]'
-                          : 'bg-[#64B6F7 ]'
+                          ? 'bg-[#268cf8]'
+                          : 'bg-[#3397FF ]'
                       } cursor-pointer w-[100%] text-left`}>
-                      <Typography className="text-[#000] my-[3px] text-[12px]">
+                      <Typography className="text-xs font-roboto text-black my-1">
                         {childItem.title}
                       </Typography>
                     </button>
@@ -94,7 +89,7 @@ const SideBarBtn: FC<BookingProps> = (props) => {
                 </SaidBarCustomizedAccordions>
               ) : (
                 <button className="cursor-pointer py-0 pl-8 w-[100%] text-left">
-                  <Typography className="text-sm text-[#0000008A] !text-[12px]">
+                  <Typography className="text-xs text-[#2121218a] font-roboto">
                     {item.title}
                   </Typography>
                 </button>
@@ -108,10 +103,10 @@ const SideBarBtn: FC<BookingProps> = (props) => {
           className={`flex min-h-[30px] w-full py-[10px] items-center justify-start pl-[24px] 
           normal-case ${
             activeTab === index
-              ? 'bg-[#3397FF] text-gray-100'
-              : 'bg-[#fff]  text-gray-700'
+              ? 'bg-[#64B6F7] text-gray-100'
+              : 'bg-[#ffffff]  text-gray-700'
           }`}>
-          <Typography className="text-[12px] flex text-start">
+          <Typography className="text-xs font-roboto font-normal text-black flex text-start">
             {title}
           </Typography>
         </Button>

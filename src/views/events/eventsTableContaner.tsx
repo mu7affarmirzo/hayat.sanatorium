@@ -87,6 +87,7 @@ const EventsTableContainer = ({ rowData }: Props) => {
           data={data}
           columns={columns}
           cito={cito}
+          collapseTitle={`На этой неделе`}
         />
       ))}
     </Grid>

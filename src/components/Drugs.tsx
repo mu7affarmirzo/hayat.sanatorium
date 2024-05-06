@@ -48,7 +48,7 @@ const Drugs = () => {
         </Typography>
 
         <OutlinedNumber
-          customVariant="outlined-sm"
+          customvariant="outlined-sm"
           containerStyle="flex !h-[24px]"
           inputStyle="w-[70px] !h-[24px]"
         />
@@ -67,7 +67,7 @@ const Drugs = () => {
           Количество всего
         </Typography>
         <OutlinedNumber
-          customVariant="outlined-sm"
+          customvariant="outlined-sm"
           containerStyle="flex !h-[24px]"
           inputStyle="w-[50px] !h-[24px]"
         />
