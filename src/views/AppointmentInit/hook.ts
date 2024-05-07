@@ -1,15 +1,14 @@
-import { usePostInitAppointmentMutation } from 'features/patient/patientService';
+import {
+  PostInitAppointmentTypes,
+  LabResearchForInitAppointment,
+  MedicalServiceForInitAppointment,
+  PillForInitAppointment,
+  ProcedureForInitAppointment,
+} from 'features/Appointments/InitAppointment/types';
 import { AppointmentStatus } from 'features/slices/initAppoinmentStatusSlice';
 import { useReduxSelector } from 'hooks/useReduxHook';
 import { useCallback, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import {
-  InitAppointmentTypes,
-  LabResearchForInitAppointment,
-  MedicalService,
-  Pill,
-  Procedure,
-} from 'types/patientTypes';
 
 const useInitialAppointmentForm = () => {
   const [appointmentStatus, setAppointmentStatus] =
@@ -21,8 +20,7 @@ const useInitialAppointmentForm = () => {
     (state) => state.consultingAndResearch,
   );
 
-  const methods = useForm<InitAppointmentTypes>();
-  const [fetchRequest] = usePostInitAppointmentMutation();
+  const methods = useForm<PostInitAppointmentTypes>();
 
   const handleChangeStatus = useCallback(
     (status: AppointmentStatus['status']) => {
@@ -31,16 +29,17 @@ const useInitialAppointmentForm = () => {
     [setAppointmentStatus],
   );
 
-  const convertToMedicalServices = useMemo((): MedicalService[] => {
-    return selectedConsultingItems.map((medication) => ({
-      medical_service: medication.id,
-      price: medication.cost,
-      consulted_doctor: 1,
-      state: 'assigned',
-    }));
-  }, [selectedConsultingItems]);
+  const convertToMedicalServices =
+    useMemo((): MedicalServiceForInitAppointment[] => {
+      return selectedConsultingItems.map((medication) => ({
+        medical_service: medication.id,
+        price: medication.cost,
+        consulted_doctor: 1,
+        state: 'assigned',
+      }));
+    }, [selectedConsultingItems]);
 
-  const convertToProcedures = useMemo((): Procedure[] => {
+  const convertToProcedures = useMemo((): ProcedureForInitAppointment[] => {
     return procedures.map((procedure) => ({
       medical_service: procedure.id,
       price: procedure.price,
@@ -51,7 +50,7 @@ const useInitialAppointmentForm = () => {
     }));
   }, [procedures]);
 
-  const convertToPills = useMemo((): Pill[] => {
+  const convertToPills = useMemo((): PillForInitAppointment[] => {
     return medications.map((medication) => ({
       pills_injections: medication.id,
       price: medication.price,
@@ -74,23 +73,14 @@ const useInitialAppointmentForm = () => {
     }));
   }, [selectedReSearchItems]);
 
-  console.log(
-    convertToMedicalServices,
-    convertToProcedures,
-    convertToLabResearch,
-    convertToPills,
-    ' convertToMedicalServices',
-  );
-
-  const onSubmit = (data: InitAppointmentTypes) => {
-    const newData: InitAppointmentTypes = {
+  const onSubmit = (data: PostInitAppointmentTypes) => {
+    const newData: PostInitAppointmentTypes = {
       ...data,
       medical_services: convertToMedicalServices,
       lab_research: convertToLabResearch,
       pills: convertToPills,
       procedures: convertToProcedures,
     };
-    fetchRequest(newData);
     console.log(newData, ' data from useFormHook');
   };
 

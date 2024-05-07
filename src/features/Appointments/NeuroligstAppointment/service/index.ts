@@ -1,5 +1,5 @@
 import { ApiSlice } from 'features/api/apiSlice';
-import { PostNeuroligstAppointment } from '../types/neuroligsAppointmentType';
+import { PostNeuroligstAppointment } from '../types';
 
 export const neurologistService = ApiSlice.injectEndpoints({
   endpoints: (builder) => ({

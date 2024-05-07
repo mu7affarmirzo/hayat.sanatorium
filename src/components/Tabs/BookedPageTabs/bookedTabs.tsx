@@ -1,8 +1,6 @@
 /* eslint-disable array-callback-return */
 import { Box } from '@mui/material';
-import { FC, useCallback, useEffect, useState } from 'react';
-import { useReduxDispatch, useReduxSelector } from 'hooks/useReduxHook';
-import { removePatient } from 'features/booked/bookedSlice';
+import { FC, useCallback, useState } from 'react';
 import BroneTabBtn from './bookedTabItmeBtn';
 
 export type TabsItem = {
@@ -20,29 +18,25 @@ interface TabsProps {
 const BroneViewTabs: FC<TabsProps> = ({ content }) => {
   // const { selectBroneId } = useReduxSelector((brone) => brone.booked);
   // const dispatch = useReduxDispatch();
-  const [dynamicTabs, setDynamicTabs] = useState(content)
+  const [dynamicTabs, setDynamicTabs] = useState(content);
   const [activeTab, setActiveTab] = useState<number>(0);
 
   const handleActiveTab = (index: number) => {
     setActiveTab(index);
   };
 
-  const removeActiveIB = useCallback((title?: string) => {
-    // dispatch(removePatient(activeTab));
-    const newDynamicContent = dynamicTabs.filter((tab) => tab.title !== title)
-    setDynamicTabs(newDynamicContent)
-    // setActiveTab(0);
-  }, [
-    dynamicTabs
-    // activeTab
-    // , dispatch
-  ]);
+  const removeActiveIB = useCallback(
+    (title?: string) => {
+      // dispatch(removePatient(activeTab));
+      const newDynamicContent = dynamicTabs.filter(
+        (tab) => tab.title !== title,
+      );
+      setDynamicTabs(newDynamicContent);
+      // setActiveTab(0);
+    },
+    [dynamicTabs],
+  );
 
-  // useEffect(() => {
-  //   if (selectBroneId !== null) {
-  //     // setActiveTab(selectBroneId);
-  //   }
-  // }, [selectBroneId]);
   console.log({ activeTab });
   return (
     <Box className=" w-full ">

@@ -1,11 +1,11 @@
-import { usePostCardiologistAppoinmnetMutation } from 'features/CardiologistAppoinemnt/service';
+import { usePostCardiologistAppoinmnetMutation } from 'features/Appointments/CardiologistAppoinemnt/service';
 import {
   LabResearchForCardiologist,
   MedicalServiceForCardiologist,
   PillForCardiologist,
   PostCardiologistAppoinmnet,
   ProcedureForCardiologist,
-} from 'features/CardiologistAppoinemnt/types';
+} from 'features/Appointments/CardiologistAppoinemnt/types';
 import { AppointmentStatus } from 'features/slices/initAppoinmentStatusSlice';
 import { useReduxSelector } from 'hooks/useReduxHook';
 import { useCallback, useMemo, useState } from 'react';

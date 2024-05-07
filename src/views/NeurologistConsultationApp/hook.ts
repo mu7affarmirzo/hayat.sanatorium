@@ -4,7 +4,7 @@ import {
   PilForNeuroligst,
   PostNeuroligstAppointment,
   ProcedureForNeuroligst,
-} from 'features/NeuroligstAppointment/types/neuroligsAppointmentType';
+} from 'features/Appointments/NeuroligstAppointment/types';
 import { usePostNeurologistAppointmentMutation } from 'features/patient/patientService';
 import { AppointmentStatus } from 'features/slices/initAppoinmentStatusSlice';
 import { useReduxSelector } from 'hooks/useReduxHook';

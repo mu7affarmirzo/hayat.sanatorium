@@ -27,7 +27,7 @@ const SideBar: FC<TabsProps> = ({ content }) => {
   return (
     <Box className="flex flex-row min-h-[calc(100vh-76px)] border w-[100vw] h-full overflow-scroll">
       <Box className="flex h-[calc(100vh-230px)] flex-col gap-1 w-[280px] p-[5px] border overflow-scroll">
-        {content.map((item, index) => (
+        {content?.map((item, index) => (
           <Box key={index}>
             <SideBarBtn
               index={index}

@@ -12,12 +12,17 @@ import researchSummaryTable from 'views/booked/researchSummaryTable';
 import { anotherPopopData } from './doctors/dynamicSitebarItems';
 
 export const GenerateSidebarTabsData = (broneData: any[]) => {
-  const dynamicSidebarItemTabs: TabsItem[] = useMemo(() => {
-    return broneData.map((item) => ({
-      title: item.title,
-      component: (anotherPopopData[item.title] as any)?.component,
-      chiled: (anotherPopopData[item.title] as any)?.chiled || [],
-    }));
+  const dynamicSidebarItemTabs = useMemo(() => {
+    const newList = [...broneData];
+    return [
+      ...newList.map((key: any) => ({
+        title: key.title,
+        component: (anotherPopopData as { [key: string]: any })[
+          key.title as string
+        ],
+        hiled: anotherPopopData[key.title as string]?.chiled || [],
+      })),
+    ];
   }, [broneData]);
 
   const sidebarItemTabs: TabsItem[] = [

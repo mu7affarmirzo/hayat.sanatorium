@@ -1,11 +1,11 @@
-import { usePostElectrocardiogrammaMutation } from 'features/Electrocardiogramma/service';
+import { usePostElectrocardiogrammaMutation } from 'features/Appointments/Electrocardiogramma/service';
 import {
   LabResearchForEkg,
   MedicalServiceForEKG,
   PillForEkg,
   PostEkgAppointmentTypes,
   ProcedureForEKG,
-} from 'features/Electrocardiogramma/types';
+} from 'features/Appointments/Electrocardiogramma/types';
 import { AppointmentStatus } from 'features/slices/initAppoinmentStatusSlice';
 import { useReduxSelector } from 'hooks/useReduxHook';
 import { useState, useCallback, useMemo } from 'react';

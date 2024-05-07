@@ -1,11 +1,11 @@
-import { usePostDoctorsOnDutyMutation } from 'features/DoctorOnDutyAppointment/service';
+import { usePostDoctorsOnDutyMutation } from 'features/Appointments/DoctorOnDutyAppointment/service';
 import {
   DoctorOnDutyAppointmentPostData,
   LabResearchForDoctorOnDuty,
   MedicalServiceForDoctorOnDuty,
   PillForDoctorOnDuty,
   ProcedureForDoctorOnDuty,
-} from 'features/DoctorOnDutyAppointment/types';
+} from 'features/Appointments/DoctorOnDutyAppointment/types';
 import { AppointmentStatus } from 'features/slices/initAppoinmentStatusSlice';
 import { useReduxSelector } from 'hooks/useReduxHook';
 import { useCallback, useMemo, useState } from 'react';

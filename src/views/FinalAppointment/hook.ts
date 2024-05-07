@@ -1,5 +1,5 @@
-import { usePostFinalAppointmentMutation } from 'features/FinalAppointment/service';
-import { FinalAppointmentPostData } from 'features/FinalAppointment/types';
+import { usePostFinalAppointmentMutation } from 'features/Appointments/FinalAppointment/service';
+import { FinalAppointmentPostData } from 'features/Appointments/FinalAppointment/types';
 import { AppointmentStatus } from 'features/slices/initAppoinmentStatusSlice';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';

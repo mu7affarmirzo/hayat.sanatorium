@@ -1,11 +1,11 @@
-import { usePostRepeatedAppointmentMutation } from 'features/RepeatedAppointmnet/service';
+import { usePostRepeatedAppointmentMutation } from 'features/Appointments/RepeatedAppointmnet/service';
 import {
   LabResearchForRepApp,
   MedicalServiceForRepApp,
   PillForRepApp,
   ProcedureForRepApp,
   RepeatedAppointmentPostData,
-} from 'features/RepeatedAppointmnet/types';
+} from 'features/Appointments/RepeatedAppointmnet/types';
 import { AppointmentStatus } from 'features/slices/initAppoinmentStatusSlice';
 import { useReduxSelector } from 'hooks/useReduxHook';
 import { useCallback, useMemo, useState } from 'react';

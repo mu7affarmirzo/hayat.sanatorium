@@ -47,7 +47,7 @@ const AccordionSummary = styled((props: AccordionSummaryProps) => (
   },
 }));
 
-const AccordionDetails = styled(MuiAccordionDetails)(() => ({
+const AccordionDetails = styled(MuiAccordionDetails)(({}) => ({
   padding: 0,
 }));
 
@@ -64,7 +64,7 @@ type propsType = {
   status?: 'editing' | 'done' | 'idle';
 };
 
-export default function SaidBarCustomizedAccordions(props: propsType) {
+function SaidBarCustomizedAccordions(props: propsType) {
   const [expanded, setExpanded] = React.useState<string | false>('');
   const { register } = useForm<IFormInput>();
   const { status } = props;
@@ -122,3 +122,5 @@ export default function SaidBarCustomizedAccordions(props: propsType) {
     </div>
   );
 }
+
+export default SaidBarCustomizedAccordions;

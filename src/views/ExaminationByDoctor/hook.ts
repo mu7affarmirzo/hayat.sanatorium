@@ -1,5 +1,5 @@
-import { usePostExaminationMutation } from 'features/ExaminationDoctor/service/examinationSecvice';
-import { PostExamitationByDoctor } from 'features/ExaminationDoctor/types';
+import { usePostExaminationMutation } from 'features/Appointments/ExaminationDoctor/service';
+import { PostExamitationByDoctor } from 'features/Appointments/ExaminationDoctor/types';
 import { AppointmentStatus } from 'features/slices/initAppoinmentStatusSlice';
 import { useCallback, useState } from 'react';
 import { useForm } from 'react-hook-form';

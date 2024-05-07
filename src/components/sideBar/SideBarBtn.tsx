@@ -10,17 +10,17 @@ interface ChildItem {
 }
 
 interface BookingProps {
+  search?: any;
   index: number;
   title: string;
-  Icon?: (props: SvgProps) => JSX.Element;
   color?: string;
   bgColor?: string;
   subTitle?: string;
   activeTab: number;
+  activBtnType?: any;
   onClick?: () => void;
   chiled?: ChildItem[];
-  activBtnType?: any;
-  search?: any;
+  Icon?: (props: SvgProps) => JSX.Element;
 }
 
 const SideBarBtn: FC<BookingProps> = (props) => {
