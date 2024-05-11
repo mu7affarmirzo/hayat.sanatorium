@@ -1,11 +1,16 @@
 import { useReduxDispatch, useReduxSelector } from 'hooks/useReduxHook';
-import { useRef, useMemo, useEffect } from 'react';
+import { useRef, useMemo, useEffect, useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { GetPatientIbTypes } from 'features/DoctorsRoleService/types/index';
-import { useGetPatientByIdQuery } from 'features/DoctorsRoleService/service/doctorService';
+import {
+  useGetAppointmentsListByIdQuery,
+  useGetPatientByIdQuery,
+} from 'features/DoctorsRoleService/service/doctorService';
 import { addActivePatient } from 'features/DoctorsRoleService/model/slices/patientIllnesHistorySlice';
+import { setAppointments } from 'features/Appointments/slice/appointmentsSlice';
 
 export const usePatientDocTPHook = () => {
+  const [illnesHistoryId, setIllnesHistoryId] = useState<number | null>(null);
   const dispatch = useReduxDispatch();
   const { selectedId } = useReduxSelector(
     (dynamicTopTabs) => dynamicTopTabs.dynamicTopTabs,
@@ -17,11 +22,22 @@ export const usePatientDocTPHook = () => {
     isLoading,
   } = useGetPatientByIdQuery(Number(selectedId) || 0);
 
+  const { data: AppointmentsList } = useGetAppointmentsListByIdQuery(
+    illnesHistoryId || 1,
+  );
+
   useEffect(() => {
     if (status === 'fulfilled' && patientData) {
       dispatch(addActivePatient(patientData));
+      setIllnesHistoryId(patientData.id);
     }
   }, [dispatch, patientData, status]);
+
+  useEffect(() => {
+    if (illnesHistoryId) {
+      dispatch(setAppointments(AppointmentsList));
+    }
+  }, [AppointmentsList, dispatch, illnesHistoryId, patientData]);
 
   const defaultValues = patientData as GetPatientIbTypes;
 

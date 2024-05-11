@@ -1,34 +1,39 @@
-export interface PostExamitationByDoctor {
+export type ExaminationAppointment = Omit<GetExaminatorAppointment, 'id'>;
+
+export interface GetExaminatorAppointment {
+  id: number;
   state: string;
-  complaints: string;
+  created_at: Date;
+  modified_at: Date;
+  complaints: null;
   arv_number: string;
   ayes_shells: string;
   from_to_sanatorium: string;
   road_crossed: string;
-  abroad_for_last_years: string;
-  virus_hepatitis: string;
-  tuberculosis: string;
-  malarias: string;
-  venerian_illness: string;
-  dizanteri: string;
-  helminthic_infestations: string;
-  had_contact_with_inf_people: string;
+  abroad_for_last_years: null;
+  virus_hepatitis: null;
+  tuberculosis: null;
+  malarias: null;
+  venerian_illness: null;
+  dizanteri: null;
+  helminthic_infestations: null;
+  had_contact_with_inf_people: null;
   had_stul_for: boolean;
-  allergy: string;
-  meteolabilisis: string;
-  non_carrying_prods: string;
-  stull_issues: string;
-  has_always_pills: string;
-  objective_data: string;
+  allergy: null;
+  meteolabilisis: null;
+  non_carrying_prods: null;
+  stull_issues: null;
+  has_always_pills: null;
+  objective_data: null;
   temperature: number;
   arterial_high: number;
   arterial_low: number;
   imt: number;
   pulse: string;
-  diet: string;
+  diet: null;
   regime: string;
   created_by: number;
-  modified_by: number;
+  modified_by: null;
   doctor: number;
-  illness_history: number;
+  illness_history: number | null;
 }

@@ -1,4 +1,7 @@
-export interface RepeatedAppointmentPostData {
+export type RepeatedAppointment = Omit<GetRepeatedAppointment, 'id'>;
+
+export interface GetRepeatedAppointment {
+  id: number;
   medical_services: MedicalServiceForRepApp[];
   lab_research: LabResearchForRepApp[];
   procedures: ProcedureForRepApp[];

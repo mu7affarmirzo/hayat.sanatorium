@@ -16,8 +16,17 @@ export const doctorService = ApiSlice.injectEndpoints({
         method: 'GET',
       }),
     }),
+    getAppointmentsListById: builder.query<any, any>({
+      query: (id) => ({
+        url: `/sanatorium/appointments/list-of-appointments/${id}`,
+        method: 'GET',
+      }),
+    }),
   }),
 });
 
-export const { useGetAllDocPatientsQuery, useGetPatientByIdQuery } =
-  doctorService;
+export const {
+  useGetAllDocPatientsQuery,
+  useGetPatientByIdQuery,
+  useGetAppointmentsListByIdQuery,
+} = doctorService;

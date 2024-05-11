@@ -1,18 +1,17 @@
 import { ApiSlice } from 'features/api/apiSlice';
-import { GetInitAppointmentTypes, PostInitAppointmentTypes } from '../types';
+import { GetInitAppointmentTypes } from '../types';
 
 export const initAppointmentService = ApiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getInitAppointment: builder.query<GetInitAppointmentTypes, any>({
-      query: () => ({
-        url: '/sanatorium/appointments/init-appointment',
+      query: (id) => ({
+        url: `/sanatorium/appointments/init-appointment/${id}`,
         method: 'GET',
       }),
     }),
-
     postInitAppointment: builder.mutation<
       GetInitAppointmentTypes,
-      PostInitAppointmentTypes
+      Omit<GetInitAppointmentTypes, 'id'>
     >({
       query: (body) => ({
         url: '/sanatorium/appointments/init-appointment',
@@ -20,7 +19,6 @@ export const initAppointmentService = ApiSlice.injectEndpoints({
         body: body,
       }),
     }),
-
     patchInitAppointment: builder.mutation<GetInitAppointmentTypes, any>({
       query: ({ body, id }) => ({
         url: `/sanatorium/doctors/update-init-appointment/${id}`,

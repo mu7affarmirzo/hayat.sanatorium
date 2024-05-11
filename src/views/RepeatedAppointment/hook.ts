@@ -4,7 +4,7 @@ import {
   MedicalServiceForRepApp,
   PillForRepApp,
   ProcedureForRepApp,
-  RepeatedAppointmentPostData,
+  RepeatedAppointment,
 } from 'features/Appointments/RepeatedAppointmnet/types';
 import { AppointmentStatus } from 'features/slices/initAppoinmentStatusSlice';
 import { useReduxSelector } from 'hooks/useReduxHook';
@@ -15,7 +15,7 @@ export const useRepeatedAppointmentHook = () => {
   const [appointmentStatus, setAppointmentStatus] =
     useState<AppointmentStatus['status']>('notCompleted');
 
-  const methods = useForm<RepeatedAppointmentPostData>();
+  const methods = useForm<RepeatedAppointment>();
 
   const { procedures } = useReduxSelector((state) => state.procedures);
   const { medications } = useReduxSelector((state) => state.medication);
@@ -73,16 +73,15 @@ export const useRepeatedAppointmentHook = () => {
     [setAppointmentStatus],
   );
 
-  const onSubmit = (data: RepeatedAppointmentPostData) => {
-    console.log(data);
-    const postData = {
+  const onSubmit = (data: RepeatedAppointment) => {
+    const postData: RepeatedAppointment = {
       ...data,
+      illness_history: 1,
       medical_services: convertToMedicalServices,
       lab_research: convertToLabResearch,
       procedures: convertToProcedures,
       pills: convertToPills,
     };
-    console.log(postData, 'postData');
     fetchRequest(postData);
   };
 

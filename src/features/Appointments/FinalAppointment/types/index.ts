@@ -1,4 +1,5 @@
-export interface FinalAppointmentPostData {
+export interface GetFinalAppointmentPostData {
+  id: number;
   state: 'assigned' | 'stopped' | 'cancelled' | 'dispatched';
   objective_status: string;
   height: number;
@@ -16,3 +17,5 @@ export interface FinalAppointmentPostData {
   illness_history: number;
   diagnosis: number[];
 }
+
+export type FinalAppointment = Omit<GetFinalAppointmentPostData, 'id'>;

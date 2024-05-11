@@ -2,7 +2,7 @@ import {
   LabResearchForNeuroligst,
   MedicalServiceForNeuroligst,
   PilForNeuroligst,
-  PostNeuroligstAppointment,
+  NeuroligstAppointment,
   ProcedureForNeuroligst,
 } from 'features/Appointments/NeuroligstAppointment/types';
 import { usePostNeurologistAppointmentMutation } from 'features/patient/patientService';
@@ -67,19 +67,18 @@ export const useNeurologistAppoinmnetHook = () => {
   );
 
   const [fetchNeuroligstApi] = usePostNeurologistAppointmentMutation();
-  const methods = useForm<PostNeuroligstAppointment>();
+  const methods = useForm<NeuroligstAppointment>();
 
-  const onSubmit = (data: PostNeuroligstAppointment) => {
-    console.log(data, ' data from useFormHook in neuroligst hook');
-    const newData = {
+  const onSubmit = (data: NeuroligstAppointment) => {
+    const newData: NeuroligstAppointment = {
       ...data,
+      illness_history: 1,
       procedures: convertToProcedures,
       lab_research: convertToLabResearch,
       medical_services: convertToMedicalServices,
       pills: convertToPills,
     };
 
-    console.log(newData, 'newData in neuroligst hook');
     fetchNeuroligstApi(newData);
   };
   return {

@@ -14,6 +14,7 @@ import { doctorOnDutyAppointmentSlice } from 'features/slices/doctorOnDutyAppoin
 import { doctorsPatientSidebarSlice } from 'features/slices/doctorsPatientSidebarSlice';
 import dynamicTopTabsSlice from 'features/DoctorsRoleService/model/slices/dynamicTopTabs';
 import patientIllnesHistorySlice from 'features/DoctorsRoleService/model/slices/patientIllnesHistorySlice';
+import appointmentsSlice from 'features/Appointments/slice/appointmentsSlice';
 
 export const reducers = combineReducers({
   [ApiSlice.reducerPath]: ApiSlice.reducer,
@@ -32,6 +33,7 @@ export const reducers = combineReducers({
   //doctors service slice here
   dynamicTopTabs: dynamicTopTabsSlice,
   patientIllnesHistory: patientIllnesHistorySlice,
+  appointments: appointmentsSlice,
 });
 
 export type RootState = ReturnType<typeof reducers>;

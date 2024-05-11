@@ -20,7 +20,11 @@ export const useExaminationByDoctorHook = () => {
   const [fetchRequest] = usePostExaminationMutation();
 
   const onSubmit = (data: ExaminationAppointment) => {
-    fetchRequest(data);
+    const newData: ExaminationAppointment = {
+      ...data,
+      illness_history: 1,
+    };
+    fetchRequest(newData);
   };
 
   return {
@@ -30,5 +34,3 @@ export const useExaminationByDoctorHook = () => {
     onSubmit,
   };
 };
-
-export default useExaminationByDoctorHook;

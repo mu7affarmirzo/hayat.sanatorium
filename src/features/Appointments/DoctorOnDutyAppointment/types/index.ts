@@ -1,4 +1,10 @@
-export interface DoctorOnDutyAppointmentPostData {
+export type DoctorOnDutyAppointmentTypes = Omit<
+  GetDoctorOnDutyAppointmentTypes,
+  'id'
+>;
+
+export interface GetDoctorOnDutyAppointmentTypes {
+  id: number;
   medical_services: MedicalServiceForDoctorOnDuty[];
   lab_research: LabResearchForDoctorOnDuty[];
   procedures: ProcedureForDoctorOnDuty[];

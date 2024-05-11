@@ -1,6 +1,6 @@
 import { usePostDoctorsOnDutyMutation } from 'features/Appointments/DoctorOnDutyAppointment/service';
 import {
-  DoctorOnDutyAppointmentPostData,
+  DoctorOnDutyAppointmentTypes,
   LabResearchForDoctorOnDuty,
   MedicalServiceForDoctorOnDuty,
   PillForDoctorOnDuty,
@@ -15,7 +15,7 @@ export const useDoctorOnDutyAppointmentHook = () => {
   const [appointmentStatus, setAppointmentStatus] =
     useState<AppointmentStatus['status']>('notCompleted');
 
-  const methods = useForm<DoctorOnDutyAppointmentPostData>();
+  const methods = useForm<DoctorOnDutyAppointmentTypes>();
 
   const [fetchRequest] = usePostDoctorsOnDutyMutation();
 
@@ -74,29 +74,15 @@ export const useDoctorOnDutyAppointmentHook = () => {
     [setAppointmentStatus],
   );
 
-  const onSubmit = (data: DoctorOnDutyAppointmentPostData) => {
-    console.log(data);
-    const postData = {
+  const onSubmit = (data: DoctorOnDutyAppointmentTypes) => {
+    const postData: DoctorOnDutyAppointmentTypes = {
+      ...data,
       medical_services: convertToMedicalServices,
       lab_research: convertToLabResearch,
       procedures: convertToProcedures,
       pills: convertToPills,
-      state: appointmentStatus,
-      complaints: data.complaints,
-      objective_data: data.objective_data,
-      arterial_high: data.arterial_high,
-      arterial_low: data.arterial_low,
-      imt: data.imt,
-      cito: data.cito,
-      for_sanatorium_treatment: data.for_sanatorium_treatment,
-      summary: data.summary,
-      recommendation: data.recommendation,
-      created_by: 1,
-      modified_by: 1,
-      doctor: 1,
       illness_history: 1,
     };
-
     fetchRequest(postData);
   };
 

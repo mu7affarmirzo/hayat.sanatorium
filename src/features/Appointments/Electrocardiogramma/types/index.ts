@@ -1,9 +1,12 @@
-export interface PostEkgAppointmentTypes {
+export type EkgAppointmentTypes = Omit<GetEkgAppointmentTypes, 'id'>;
+
+export interface GetEkgAppointmentTypes {
+  id: number;
   medical_services: MedicalServiceForEKG[];
   lab_research: LabResearchForEkg[];
   procedures: ProcedureForEKG[];
   pills: PillForEkg[];
-  state: string;
+  state: 'Не завершено' | 'Завершено';
   rhythm: string;
   heart_s_count: number;
   r_r: number;

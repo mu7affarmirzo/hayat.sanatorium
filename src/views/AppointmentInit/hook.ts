@@ -1,12 +1,13 @@
+import { useGetInitAppointmentQuery } from 'features/Appointments/InitAppointment/service';
 import {
-  PostInitAppointmentTypes,
+  InitAppointment,
   LabResearchForInitAppointment,
   MedicalServiceForInitAppointment,
   PillForInitAppointment,
   ProcedureForInitAppointment,
 } from 'features/Appointments/InitAppointment/types';
 import { AppointmentStatus } from 'features/slices/initAppoinmentStatusSlice';
-import { useReduxSelector } from 'hooks/useReduxHook';
+import { useReduxDispatch, useReduxSelector } from 'hooks/useReduxHook';
 import { useCallback, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
@@ -15,12 +16,16 @@ const useInitialAppointmentForm = () => {
     useState<AppointmentStatus['status']>('notCompleted');
   const { procedures } = useReduxSelector((state) => state.procedures);
   const { medications } = useReduxSelector((state) => state.medication);
+  // const { initAppointment } = useReduxSelector((state) => state.appointments);
+  const { data: InitAppointmentGetData, isSuccess } =
+    useGetInitAppointmentQuery({});
+  const dispatch = useReduxDispatch();
 
   const { selectedConsultingItems, selectedReSearchItems } = useReduxSelector(
     (state) => state.consultingAndResearch,
   );
 
-  const methods = useForm<PostInitAppointmentTypes>();
+  const methods = useForm<InitAppointment>();
 
   const handleChangeStatus = useCallback(
     (status: AppointmentStatus['status']) => {
@@ -69,17 +74,19 @@ const useInitialAppointmentForm = () => {
       lab: research.id,
       price: research.price,
       state: 'assigned',
+      start_date: new Date(),
       comments: 'no comments',
     }));
   }, [selectedReSearchItems]);
 
-  const onSubmit = (data: PostInitAppointmentTypes) => {
-    const newData: PostInitAppointmentTypes = {
+  const onSubmit = (data: InitAppointment) => {
+    const newData: InitAppointment = {
       ...data,
       medical_services: convertToMedicalServices,
       lab_research: convertToLabResearch,
       pills: convertToPills,
       procedures: convertToProcedures,
+      illness_history: 1,
     };
     console.log(newData, ' data from useFormHook');
   };
