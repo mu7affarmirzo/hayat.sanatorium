@@ -1,4 +1,8 @@
-import { usePostDoctorsOnDutyMutation } from 'features/Appointments/DoctorOnDutyAppointment/service';
+import {
+  usePostDoctorsOnDutyMutation,
+  useGetDoctorsOnDutyQuery,
+  usePatchDoctorsOnDutyMutation
+} from 'features/Appointments/DoctorOnDutyAppointment/service';
 import {
   DoctorOnDutyAppointmentTypes,
   LabResearchForDoctorOnDuty,
@@ -8,7 +12,7 @@ import {
 } from 'features/Appointments/DoctorOnDutyAppointment/types';
 import { AppointmentStatus } from 'features/slices/initAppoinmentStatusSlice';
 import { useReduxSelector } from 'hooks/useReduxHook';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 export const useDoctorOnDutyAppointmentHook = () => {
@@ -17,6 +21,21 @@ export const useDoctorOnDutyAppointmentHook = () => {
 
   const methods = useForm<DoctorOnDutyAppointmentTypes>();
 
+  const { appointments } = useReduxSelector((state) => state.appointments) 
+  
+  const {
+  data: doctorOnDutyData,
+  refetch: refetchDoctorOnDutyAppointment
+  } = useGetDoctorsOnDutyQuery(appointments.on_duty_doctor[0].id)
+
+  useEffect(() => {
+    if (doctorOnDutyData) {
+      const {id, ...restData} = doctorOnDutyData
+      methods.reset(restData)
+    }
+  }, [doctorOnDutyData])
+
+  const [fetchDoctorOnDutyPatch] = usePatchDoctorsOnDutyMutation();
   const [fetchRequest] = usePostDoctorsOnDutyMutation();
 
   const { procedures } = useReduxSelector((state) => state.procedures);
@@ -83,7 +102,19 @@ export const useDoctorOnDutyAppointmentHook = () => {
       pills: convertToPills,
       illness_history: 1,
     };
-    fetchRequest(postData);
+    if (doctorOnDutyData) {
+      fetchDoctorOnDutyPatch({
+        id: doctorOnDutyData.id,
+        body: postData
+      }).then(() => {
+        refetchDoctorOnDutyAppointment()
+      })
+    }
+    else {
+      fetchRequest(postData).then(() => {
+        refetchDoctorOnDutyAppointment()
+      });
+    }
   };
 
   return {

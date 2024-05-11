@@ -1,4 +1,8 @@
-import { usePostRepeatedAppointmentMutation } from 'features/Appointments/RepeatedAppointmnet/service';
+import {
+  usePostRepeatedAppointmentMutation,
+  useGetRepeatedAppointmentQuery,
+  usePatchRepeatedAppointmentMutation
+} from 'features/Appointments/RepeatedAppointmnet/service';
 import {
   LabResearchForRepApp,
   MedicalServiceForRepApp,
@@ -8,7 +12,7 @@ import {
 } from 'features/Appointments/RepeatedAppointmnet/types';
 import { AppointmentStatus } from 'features/slices/initAppoinmentStatusSlice';
 import { useReduxSelector } from 'hooks/useReduxHook';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 export const useRepeatedAppointmentHook = () => {
@@ -22,7 +26,21 @@ export const useRepeatedAppointmentHook = () => {
   const { selectedConsultingItems, selectedReSearchItems } = useReduxSelector(
     (state) => state.consultingAndResearch,
   );
+  const { appointments } = useReduxSelector((state) => state.appointments) 
 
+  const {
+    data: repeatedData,
+    refetch: refetchRepeatedAppointment
+  } = useGetRepeatedAppointmentQuery(appointments.repeated_appointment[0].id)
+
+  useEffect(() => {
+    if (repeatedData) {
+      const {id, ...restData} = repeatedData
+      methods.reset(restData)
+    }
+  }, [repeatedData])
+  
+  const [fetchRepeatedPatch] = usePatchRepeatedAppointmentMutation();
   const [fetchRequest] = usePostRepeatedAppointmentMutation();
 
   const convertToMedicalServices = useMemo((): MedicalServiceForRepApp[] => {
@@ -82,7 +100,19 @@ export const useRepeatedAppointmentHook = () => {
       procedures: convertToProcedures,
       pills: convertToPills,
     };
-    fetchRequest(postData);
+    if (repeatedData) {
+      fetchRepeatedPatch({
+        id: repeatedData.id,
+        data: postData
+      }).then(() => {
+        refetchRepeatedAppointment()
+      })
+    }
+    else {
+      fetchRequest(postData).then(() => {
+        refetchRepeatedAppointment()
+      });
+    }
   };
 
   return {

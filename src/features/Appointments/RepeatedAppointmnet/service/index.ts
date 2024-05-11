@@ -32,5 +32,8 @@ export const repeatedAppointmentService = ApiSlice.injectEndpoints({
   }),
 });
 
-export const { usePostRepeatedAppointmentMutation } =
-  repeatedAppointmentService;
+export const {
+  usePostRepeatedAppointmentMutation,
+  useGetRepeatedAppointmentQuery,
+  usePatchRepeatedAppointmentMutation,
+} = repeatedAppointmentService;

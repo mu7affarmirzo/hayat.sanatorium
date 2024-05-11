@@ -30,7 +30,7 @@ const Temperature = () => {
 
   return (
     <Box className="w-[100%] border border-t-0 p-[5px] bg-[#fff] flex justify-between h-[calc(100vh-340px)] max-h-[calc(100vh-340px)]">
-      <Box className="w-[40%]  h-[100%] ">
+      <Box className="w-[40%] h-[100%]">
         <Box>
           <DefaultButton
             onClick={handleAddItem}

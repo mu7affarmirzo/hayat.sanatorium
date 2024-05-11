@@ -12,8 +12,8 @@ export interface AppointmentsTypes {
   initAppointment: GetInitAppointmentTypes[];
   neurologist: GetNeuroligstAppointmentTypes[];
   cardiologist: GetCardiologistAppointmentTypes[];
-  on_duty_doctor: GetDoctorOnDutyAppointmentTypes[];
   on_duty_doctor_on_arrival: GetExaminatorAppointment[];
+  on_duty_doctor: GetDoctorOnDutyAppointmentTypes[];
   repeated_appointment: GetRepeatedAppointment[];
   ekg_appointment: GetEkgAppointmentTypes[];
   final_appointment: GetFinalAppointmentPostData[];

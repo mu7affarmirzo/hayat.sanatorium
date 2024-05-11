@@ -1,4 +1,8 @@
-import { usePostElectrocardiogrammaMutation } from 'features/Appointments/Electrocardiogramma/service';
+import {
+  usePostElectrocardiogrammaMutation,
+  useGetElectrocardiogrammaQuery,
+  usePatchElectrocardiogrammaMutation
+} from 'features/Appointments/Electrocardiogramma/service';
 import {
   LabResearchForEkg,
   MedicalServiceForEKG,
@@ -8,7 +12,7 @@ import {
 } from 'features/Appointments/Electrocardiogramma/types';
 import { AppointmentStatus } from 'features/slices/initAppoinmentStatusSlice';
 import { useReduxSelector } from 'hooks/useReduxHook';
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
 export const useElectrocardiogramAppointmentHook = () => {
@@ -16,15 +20,30 @@ export const useElectrocardiogramAppointmentHook = () => {
     useState<AppointmentStatus['status']>('notCompleted');
 
   const methods = useForm<EkgAppointmentTypes>();
-
+  
   const { procedures } = useReduxSelector((state) => state.procedures);
-
+  
   const { medications } = useReduxSelector((state) => state.medication);
-
+  
   const { selectedConsultingItems, selectedReSearchItems } = useReduxSelector(
     (state) => state.consultingAndResearch,
   );
+  
+  const { appointments } = useReduxSelector((state) => state.appointments) 
+  
+  const {
+  data: ekgData,
+  refetch: refetchEkgAppointment
+  } = useGetElectrocardiogrammaQuery(appointments.ekg_appointment[0].id)
 
+  useEffect(() => {
+    if (ekgData) {
+      const {id, ...restData} = ekgData
+      methods.reset(restData)
+    }
+  }, [ekgData])
+
+  const [fetchEkgPatch] = usePatchElectrocardiogrammaMutation();
   const [fetchEkgApp] = usePostElectrocardiogrammaMutation();
 
   const convertToMedicalServices = useMemo((): MedicalServiceForEKG[] => {
@@ -82,7 +101,20 @@ export const useElectrocardiogramAppointmentHook = () => {
       pills: convertToPills,
       state: 'Не завершено',
     };
-    fetchEkgApp(newData);
+    if (ekgData) {
+      fetchEkgPatch({
+        id: ekgData.id,
+        body: newData
+      }).then(() => {
+        refetchEkgAppointment()
+      })
+    }
+    else {
+      fetchEkgApp(newData).then(() => {
+        refetchEkgAppointment()
+      });
+    }
+   
   };
 
   return {
