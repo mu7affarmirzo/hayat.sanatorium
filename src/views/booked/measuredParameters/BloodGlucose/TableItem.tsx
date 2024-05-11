@@ -4,8 +4,21 @@ import { NumberInput } from '../components/NumberInput';
 import DefaultText from 'components/defaultText/DefaultText';
 import SelectButton from 'components/buttons/SelectButton';
 
-export const TableItem = () => {
-  const handleCloseBtn = () => {};
+interface ItemProps {
+  close?: (id: number) => void;
+  id?: number;
+}
+
+export const TableItem = (props: ItemProps) => {
+  const { close, id } = props;
+
+  const handleCloseBtn = () => {
+    if (!id) {
+      return;
+    }
+    close && close(id);
+  };
+
   const data = [
     {
       id: 1,
@@ -26,7 +39,7 @@ export const TableItem = () => {
         </IconButton>
       </Box>
       <Box className="w-[calc(25%+30px)] h-[30px] px-1 flex flex-col justify-center">
-        <NumberInput customvariant="outlined-sm" />
+        <NumberInput customVariant="outlined-sm" />
       </Box>
       <Box className="border-l-[1px] border-[#605e5e] w-[30%] h-[30px] px-1 flex flex-col justify-center">
         <SelectButton

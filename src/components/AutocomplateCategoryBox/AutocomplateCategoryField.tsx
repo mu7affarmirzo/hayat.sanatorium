@@ -11,7 +11,7 @@ interface Props<T extends {}> {
   defaultCheckbox?: boolean;
   isSearchAction?: boolean;
   isGetAction?: boolean;
-  formMethods: UseFormReturn<T, any, T>;
+  formMethods: UseFormReturn<any, any, any>;
   categoryName: keyof T;
   fieldStyle?: string;
   containerStyle?: string;

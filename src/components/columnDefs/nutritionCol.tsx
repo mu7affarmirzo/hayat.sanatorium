@@ -1,9 +1,20 @@
 import { ColDef } from 'ag-grid-community';
 import { CloseIcon } from 'assets/icons/icons';
+import { setNutritionList } from 'features/Nutrition/model/slice/nutritionSlice';
+import { useReduxDispatch, useReduxSelector } from 'hooks/useReduxHook';
 
 function MyRoomType(params: any) {
+  // console.log({ params });
+  const dispatch = useReduxDispatch();
+  const { nutritionList } = useReduxSelector((state) => state.nutrition);
+
+  const onClick = () => {
+    const list = nutritionList.filter((val) => val.room !== params.data.room) 
+    dispatch(setNutritionList(list))
+  }
+
   return (
-    <div className="flex  items-center justify-center  w-[100%] h-[100%] cursor-pointer  ">
+    <div onClick={onClick} className="flex items-center justify-center  w-[100%] h-[100%] cursor-pointer  ">
       <div className="w-[20px] h-[20px] rounded-[50%]  flex justify-center items-center bg-[#F79E98]">
         <CloseIcon stroke="white" />
       </div>

@@ -17,7 +17,7 @@ interface Option {
 interface RadioButtonGroupProps<T extends {}> {
   label?: string;
   options: Option[];
-  methods: UseFormReturn<T, any, T>;
+  methods: UseFormReturn<any, any, any>;
   name: Path<T>;
 }
 

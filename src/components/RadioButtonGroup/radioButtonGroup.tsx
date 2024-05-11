@@ -15,7 +15,7 @@ type RadioOption = {
 
 interface RadioGroupProps<T extends {}> {
   name: Path<T>; // Define name as a Path
-  methods: UseFormReturn<T, any, T>; // Require methods
+  methods: UseFormReturn<any, any, any>; // Require methods
   options: RadioOption[];
 }
 

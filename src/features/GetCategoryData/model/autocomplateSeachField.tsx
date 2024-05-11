@@ -9,7 +9,7 @@ interface Props<T extends FieldValues> {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   fieldname: Path<T>;
-  methods: UseFormReturn<T, any, T>;
+  methods: UseFormReturn<any, any, any>;
 }
 
 const AutoComplateSearchField = <T extends InitAppointmentTypes>({
