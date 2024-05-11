@@ -1,4 +1,8 @@
-import { usePostCardiologistAppoinmnetMutation } from 'features/Appointments/CardiologistAppoinemnt/service';
+import {
+  usePostCardiologistAppoinmnetMutation,
+  useGetCardiologistAppoinmnetQuery,
+  usePatchCardiologistAppoinmnetMutation
+} from 'features/Appointments/CardiologistAppoinemnt/service';
 import {
   LabResearchForCardiologist,
   MedicalServiceForCardiologist,
@@ -8,7 +12,7 @@ import {
 } from 'features/Appointments/CardiologistAppoinemnt/types';
 import { AppointmentStatus } from 'features/slices/initAppoinmentStatusSlice';
 import { useReduxSelector } from 'hooks/useReduxHook';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 export const useCardiologistAppoinmnetHook = () => {
@@ -24,6 +28,21 @@ export const useCardiologistAppoinmnetHook = () => {
 
   const methods = useForm<CardiologistAppointment>();
 
+  const { appointments } = useReduxSelector((state) => state.appointments) 
+  
+  const {
+  data: cardiologistAppointment,
+  refetch: refetchCardiologistAppointment
+  } = useGetCardiologistAppoinmnetQuery(appointments.cardiologist[0].id)
+
+  useEffect(() => {
+    if (cardiologistAppointment) {
+      const {id, ...restData} = cardiologistAppointment
+      methods.reset(restData)
+    }
+  }, [cardiologistAppointment])
+
+  const [fetchCardiologistAppointmentPatch] = usePatchCardiologistAppoinmnetMutation();
   const [fetchRequest] = usePostCardiologistAppoinmnetMutation();
 
   const { procedures } = useReduxSelector((state) => state.procedures);
@@ -80,7 +99,20 @@ export const useCardiologistAppoinmnetHook = () => {
       medical_services: convertToMedicalServices,
     };
     console.log(newData, 'newData in cardiologist hook');
-    fetchRequest(newData);
+
+    if (cardiologistAppointment) {
+      fetchCardiologistAppointmentPatch({
+        id: cardiologistAppointment.id,
+        data: newData
+      }).then(() => {
+        refetchCardiologistAppointment()
+      })
+    }
+    else {
+      fetchRequest(newData).then(() => {
+        refetchCardiologistAppointment()
+      });
+    }
   };
 
   return {

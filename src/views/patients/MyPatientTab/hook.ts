@@ -1,6 +1,6 @@
 import { RowClickedEvent } from 'ag-grid-community';
 import { addPatient } from 'features/booked/bookedSlice';
-import { useGetAllMyPatientsQuery } from 'features/patient/patientService';
+import { useGetAllMyPatientsQuery } from 'features/patient/service';
 import useDebounce from 'hooks/useDebounceHook';
 import { useReduxDispatch } from 'hooks/useReduxHook';
 import { useCallback, useMemo, useState } from 'react';

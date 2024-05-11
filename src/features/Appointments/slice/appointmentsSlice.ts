@@ -9,7 +9,7 @@ import { GetEkgAppointmentTypes } from '../Electrocardiogramma/types';
 import { GetDoctorOnDutyAppointmentTypes } from '../DoctorOnDutyAppointment/types';
 
 export interface AppointmentsTypes {
-  initAppointment: GetInitAppointmentTypes[];
+  initial: GetInitAppointmentTypes[];
   neurologist: GetNeuroligstAppointmentTypes[];
   cardiologist: GetCardiologistAppointmentTypes[];
   on_duty_doctor_on_arrival: GetExaminatorAppointment[];
@@ -34,7 +34,7 @@ const appointmentsSlice = createSlice({
       state,
       action: PayloadAction<GetInitAppointmentTypes[]>,
     ) => {
-      state.appointments.initAppointment = action.payload;
+      state.appointments.initial = action.payload;
     },
     setNeurologistAppointment: (
       state,

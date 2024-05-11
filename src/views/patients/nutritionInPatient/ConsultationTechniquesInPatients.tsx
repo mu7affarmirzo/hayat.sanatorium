@@ -140,7 +140,7 @@ const ConsultationTechniquesInPatients = () => {
               actions={false}
               children={
                 <Box className={'flex'}>
-                  <DefaultCheckbox label="ясное," />
+                  <DefaultCheckbox label="ясный," />
                   <DefaultCheckbox label="ступор," />
                   <DefaultCheckbox label="сопор," />
                   <DefaultCheckbox label="кома," />

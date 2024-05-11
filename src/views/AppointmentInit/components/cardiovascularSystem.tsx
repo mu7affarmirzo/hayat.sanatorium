@@ -108,21 +108,25 @@ const CardiovascularSystemSection: FC<Props> = ({ formMethods }) => {
       <Box className="flex flex-row items-center p-1">
         <Typography>АД слева</Typography>
         <OutlinedInput
+          type={'number'}
           sx={{ height: '35px', width: '100px' }}
           className="mx-2"
         />
         <Typography>, АД справа,</Typography>
         <OutlinedInput
+          type={'number'}
           sx={{ height: '35px', width: '100px' }}
           className="mx-2"
         />
         <Typography>, PS слева</Typography>
         <OutlinedInput
+          type={'number'}
           sx={{ height: '35px', width: '100px' }}
           className="mx-2"
         />
         <Typography>, PS справа</Typography>
         <OutlinedInput
+          type={'number'}
           sx={{ height: '35px', width: '80px' }}
           className="mx-2"
         />

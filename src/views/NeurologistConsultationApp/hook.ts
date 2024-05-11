@@ -1,14 +1,19 @@
 import {
+  usePostNeurologistAppointmentMutation,
+  useGetNeurologistAppointmentQuery,
+  usePatchNeurologistAppointmentMutation
+} from 'features/Appointments/NeuroligstAppointment/service';
+import {
   LabResearchForNeuroligst,
   MedicalServiceForNeuroligst,
   PilForNeuroligst,
   NeuroligstAppointment,
   ProcedureForNeuroligst,
 } from 'features/Appointments/NeuroligstAppointment/types';
-import { usePostNeurologistAppointmentMutation } from 'features/patient/patientService';
+
 import { AppointmentStatus } from 'features/slices/initAppoinmentStatusSlice';
 import { useReduxSelector } from 'hooks/useReduxHook';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 export const useNeurologistAppoinmnetHook = () => {
@@ -66,6 +71,21 @@ export const useNeurologistAppoinmnetHook = () => {
     [setAppointmentStatus],
   );
 
+  const { appointments } = useReduxSelector((state) => state.appointments)
+  console.log({ appointments })
+  const {
+  data: neurologistAppointment,
+  refetch: refetchNeurologistAppointment
+  } = useGetNeurologistAppointmentQuery(appointments.neurologist[0].id)
+
+  useEffect(() => {
+    if (neurologistAppointment) {
+      const {id, ...restData} = neurologistAppointment
+      methods.reset(restData)
+    }
+  }, [neurologistAppointment])
+
+  const [fetchNeurologistPatch] = usePatchNeurologistAppointmentMutation();
   const [fetchNeuroligstApi] = usePostNeurologistAppointmentMutation();
   const methods = useForm<NeuroligstAppointment>();
 
@@ -78,8 +98,19 @@ export const useNeurologistAppoinmnetHook = () => {
       medical_services: convertToMedicalServices,
       pills: convertToPills,
     };
-
-    fetchNeuroligstApi(newData);
+    if (neurologistAppointment) {
+      fetchNeurologistPatch({
+        id: neurologistAppointment.id,
+        body: newData
+      }).then(() => {
+        refetchNeurologistAppointment()
+      })
+    }
+    else {
+      fetchNeuroligstApi(newData).then(() => {
+        refetchNeurologistAppointment()
+      });
+    }
   };
   return {
     handleChangeStatus,

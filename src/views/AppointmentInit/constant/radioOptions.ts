@@ -19,7 +19,7 @@ export const GeneralStateOptions = [
 ];
 
 export const ConsciousnessOptions = [
-  { label: 'ясное', value: 'clear' },
+  { label: 'ясный', value: 'clear' },
   { label: 'смутное', value: 'vague' },
   { label: 'сопор', value: 'sopor' },
   { label: 'кома', value: 'coma' },

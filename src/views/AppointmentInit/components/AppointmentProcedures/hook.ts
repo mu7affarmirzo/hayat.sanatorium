@@ -1,4 +1,4 @@
-import { useGetMedServiceGroupQuery } from 'features/patient/patientService';
+import { useGetMedServiceGroupQuery } from 'features/patient/service';
 import { setCurrentAppointment } from 'features/slices/initAppoinmentStatusSlice';
 import { useReduxDispatch } from 'hooks/useReduxHook';
 import { useCallback, useState } from 'react';

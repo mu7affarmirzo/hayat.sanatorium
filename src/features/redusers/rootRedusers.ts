@@ -4,7 +4,7 @@ import { bookedSlice } from 'features/booked/bookedSlice';
 import { ApiSlice } from 'features/api/apiSlice';
 import { eventsSlice } from 'features/events/eventsSlice';
 import dispatchingSlice from 'features/Dispatching/dispatchingSlice';
-import { getIbWithPatientIdSlice } from 'features/patient/patientSlice';
+import { getIbWithPatientIdSlice } from 'features/patient/slice';
 import appointmentStatus from 'features/slices/initAppoinmentStatusSlice';
 import { consultingAndResearchSlice } from 'features/ConsultingAndResearch/model/slice/consultingAndResearchSlice';
 import { proceduresSlice } from 'features/Prodcedures/model/slice/proceduresSlice';

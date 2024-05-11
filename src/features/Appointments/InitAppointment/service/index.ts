@@ -1,11 +1,11 @@
 import { ApiSlice } from 'features/api/apiSlice';
 import { GetInitAppointmentTypes } from '../types';
 
-export const initAppointmentService = ApiSlice.injectEndpoints({
+export const initialAppointmentService = ApiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getInitAppointment: builder.query<GetInitAppointmentTypes, any>({
       query: (id) => ({
-        url: `/sanatorium/appointments/init-appointment/${id}`,
+        url: `/sanatorium/doctors/get-init-appointment/${id}`,
         method: 'GET',
       }),
     }),
@@ -33,4 +33,4 @@ export const {
   useGetInitAppointmentQuery,
   usePostInitAppointmentMutation,
   usePatchInitAppointmentMutation,
-} = initAppointmentService;
+} = initialAppointmentService;

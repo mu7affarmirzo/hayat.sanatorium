@@ -237,46 +237,52 @@ const StatusPraesensSection = () => {
         <Box className="flex flex-row items-center p-1">
           <Typography>Рост</Typography>
           <OutlinedInput
+            type='number'
             sx={{ width: '100px' }}
             className="mx-2"
             size="small"
-            {...methods.register('height', { required: true })}
+            {...methods.register('height', { required: true, valueAsNumber: true })}
           />
           <Typography>см,</Typography>
           <Typography>вес</Typography>
           <OutlinedInput
+            type='number'
             sx={{ width: '100px' }}
             className="mx-2"
             size="small"
-            {...methods.register('weight', { required: true })}
+            {...methods.register('weight', { required: true, valueAsNumber: true })}
           />
           <Typography>кг, пульс</Typography>
           <OutlinedInput
+            type='number'
             sx={{ width: '100px' }}
             className="mx-2"
             size="small"
-            {...methods.register('heart_beat', { required: true })}
+            {...methods.register('heart_beat', { required: true, valueAsNumber: true })}
           />
           <Typography>уд/м, давление</Typography>
           <OutlinedInput
+            type='number'
             sx={{ width: '80px' }}
             className="mx-2"
             size="small"
-            {...methods.register('arterial_high', { required: true })}
+            {...methods.register('arterial_high', { required: true, valueAsNumber: true })}
           />
           <Typography>/</Typography>
           <OutlinedInput
+            type='number'
             sx={{ width: '80px' }}
             className="mx-2"
             size="small"
-            {...methods.register('arterial_low', { required: true })}
+            {...methods.register('arterial_low', { required: true, valueAsNumber: true })}
           />
           <Typography>мм рт.ст., ИМТ</Typography>
           <OutlinedInput
+            type='number'
             sx={{ width: '60px' }}
             className="mx-2"
             size="small"
-            {...methods.register('imt', { required: true })}
+            {...methods.register('imt', { required: true, valueAsNumber: true })}
           />
           <Typography>кг/м2</Typography>
         </Box>
@@ -288,6 +294,7 @@ const StatusPraesensSection = () => {
             <Box className="flex flex-row items-center gap-2">
               <DefaultCheckbox label="нет," />
               <OutlinedInput
+                type='number'
                 sx={{ width: '320px' }}
                 placeholder="избыточная масса тела (предожирение)"
                 className="mx-2"

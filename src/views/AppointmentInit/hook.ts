@@ -1,4 +1,8 @@
-import { useGetInitAppointmentQuery } from 'features/Appointments/InitAppointment/service';
+import {
+  useGetInitAppointmentQuery,
+  usePatchInitAppointmentMutation,
+  usePostInitAppointmentMutation
+} from 'features/Appointments/InitAppointment/service';
 import {
   InitAppointment,
   LabResearchForInitAppointment,
@@ -8,7 +12,7 @@ import {
 } from 'features/Appointments/InitAppointment/types';
 import { AppointmentStatus } from 'features/slices/initAppoinmentStatusSlice';
 import { useReduxDispatch, useReduxSelector } from 'hooks/useReduxHook';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 const useInitialAppointmentForm = () => {
@@ -16,9 +20,7 @@ const useInitialAppointmentForm = () => {
     useState<AppointmentStatus['status']>('notCompleted');
   const { procedures } = useReduxSelector((state) => state.procedures);
   const { medications } = useReduxSelector((state) => state.medication);
-  // const { initAppointment } = useReduxSelector((state) => state.appointments);
-  const { data: InitAppointmentGetData, isSuccess } =
-    useGetInitAppointmentQuery({});
+  // const { initialAppointment } = useReduxSelector((state) => state.appointments);
   const dispatch = useReduxDispatch();
 
   const { selectedConsultingItems, selectedReSearchItems } = useReduxSelector(
@@ -26,6 +28,22 @@ const useInitialAppointmentForm = () => {
   );
 
   const methods = useForm<InitAppointment>();
+
+  const { appointments } = useReduxSelector((state) => state.appointments) 
+  const {
+  data: initialAppointment,
+  refetch: refetchInitialAppointment
+  } = useGetInitAppointmentQuery(appointments.initial[0].id)
+
+  useEffect(() => {
+    if (initialAppointment) {
+      const {id, ...restData} = initialAppointment
+      methods.reset(restData)
+    }
+  }, [initialAppointment])
+
+  const [fetchInitialAppointmentPatch] = usePatchInitAppointmentMutation();
+  const [fetchRequest] = usePostInitAppointmentMutation();
 
   const handleChangeStatus = useCallback(
     (status: AppointmentStatus['status']) => {
@@ -42,7 +60,7 @@ const useInitialAppointmentForm = () => {
         consulted_doctor: 1,
         state: 'assigned',
       }));
-    }, [selectedConsultingItems]);
+  }, [selectedConsultingItems]);
 
   const convertToProcedures = useMemo((): ProcedureForInitAppointment[] => {
     return procedures.map((procedure) => ({
@@ -89,6 +107,19 @@ const useInitialAppointmentForm = () => {
       illness_history: 1,
     };
     console.log(newData, ' data from useFormHook');
+    if (initialAppointment) {
+      fetchInitialAppointmentPatch({
+        id: initialAppointment.id,
+        body: newData
+      }).then(() => {
+        refetchInitialAppointment()
+      })
+    }
+    else {
+      fetchRequest(newData).then(() => {
+        refetchInitialAppointment()
+      });
+    }
   };
 
   return {

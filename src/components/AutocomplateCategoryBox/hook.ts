@@ -1,4 +1,4 @@
-import { usePostGetCategoryMutation } from 'features/patient/patientService';
+import { usePostGetCategoryMutation } from 'features/patient/service';
 import { useState, useCallback } from 'react';
 
 export type Category = {

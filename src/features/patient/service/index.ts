@@ -7,6 +7,7 @@ import {
 import { PostDoctorOnDutyAppointmentTypes } from 'types/doctorOnDutyAppointment';
 import { GetMyPatients, InitAppointmentTypes } from 'types/patientTypes';
 
+
 export const patientService = ApiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getAllMyPatients: builder.query<GetMyPatients[], any>({

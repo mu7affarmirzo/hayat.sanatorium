@@ -71,10 +71,10 @@ const Main = () => {
   );
 };
 
-const IntialApportmentView = () => (
+const InitialAppointmentView = () => (
   <AppointmentInitProvider>
     <Main />
   </AppointmentInitProvider>
 );
 
-export default IntialApportmentView;
+export default InitialAppointmentView;

@@ -5,7 +5,7 @@ export const examinationService = ApiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getExamination: builder.query<GetExaminatorAppointment, number>({
       query: (id) => ({
-        url: `/sanatorium/appointments/get-update-examination-appointment/${id}`,
+        url: `/sanatorium/appointments/get-update-on-duty-on-arrival-doctor-appointment/${id}`,
         method: 'GET',
       }),
     }),
@@ -32,4 +32,8 @@ export const examinationService = ApiSlice.injectEndpoints({
   }),
 });
 
-export const { usePostExaminationMutation } = examinationService;
+export const {
+  usePostExaminationMutation,
+  useGetExaminationQuery,
+  usePatchExamationMutation
+} = examinationService;

@@ -1,7 +1,7 @@
 import {
   useGetMedServiceGroupQuery,
   useLazyGetLabsGroupByCategoryQuery,
-} from 'features/patient/patientService';
+} from 'features/patient/service';
 import { setCurrentAppointment } from 'features/slices/initAppoinmentStatusSlice';
 import { useReduxDispatch } from 'hooks/useReduxHook';
 import { useCallback, useState } from 'react';

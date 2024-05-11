@@ -30,7 +30,7 @@ export const neurologistService = ApiSlice.injectEndpoints({
       }
     >({
       query: ({ body, id }) => ({
-        url: `/sanatorium/doctors/update-neurologist-appointment/${id}`,
+        url: `/sanatorium/doctors/get-update-neurologist-appointment/${id}`,
         method: 'PATCH',
         body: body,
       }),
@@ -38,4 +38,8 @@ export const neurologistService = ApiSlice.injectEndpoints({
   }),
 });
 
-export const { usePostNeurologistAppointmentMutation } = neurologistService;
+export const {
+  usePostNeurologistAppointmentMutation,
+  useGetNeurologistAppointmentQuery,
+  usePatchNeurologistAppointmentMutation
+} = neurologistService;
