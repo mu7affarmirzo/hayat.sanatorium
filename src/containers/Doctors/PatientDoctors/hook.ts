@@ -1,36 +1,37 @@
 import { useReduxSelector } from 'hooks/useReduxHook';
-import PatientFirst from 'views/patients/MyPatientTab/myPatientTab';
 import PatientDoctorsContainer from './PatientDoctorsContainer';
-import SearchPatientTab from 'views/patients/SearchPatientTab';
 import { TopTabsItemType } from 'components/Tabs/doctorsViewTabs/doctorsViewTabs';
+import MyPatientsDoc from './Tabs/MyPatientsDoc';
+import SearchMyPatientDoc from './Tabs/SearchMyPatientDoc';
 
 export const useDoctorsPatientHook = () => {
-  const { broneData: dynamicTabsData } = useReduxSelector(
-    (dynamicTabs) => dynamicTabs.booked,
+  const { data: dynamicTabsData } = useReduxSelector(
+    (state) => state.dynamicTopTabs,
   );
 
-  const broneDataTabs = dynamicTabsData.map((broneItem, index) => ({
-    title: broneItem.name,
+  const broneDataTabs: TopTabsItemType[] = dynamicTabsData.map((item) => ({
+    title: item.name,
     component: PatientDoctorsContainer,
     isRemove: true,
     isUserIcon: true,
   }));
 
-  const content: TopTabsItemType[] = [
+  const staticTabs: TopTabsItemType[] = [
     {
       title: 'Мои пациенты',
-      component: PatientFirst,
+      component: MyPatientsDoc,
       isRemove: false,
       isUserIcon: false,
     },
     {
       title: 'Поиск пациентов',
-      component: SearchPatientTab,
+      component: SearchMyPatientDoc,
       isRemove: false,
       isUserIcon: false,
     },
-    ...broneDataTabs,
   ];
+
+  const content: TopTabsItemType[] = [...staticTabs, ...broneDataTabs];
 
   return {
     content,

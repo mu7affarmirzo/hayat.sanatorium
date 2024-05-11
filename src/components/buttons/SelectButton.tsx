@@ -75,12 +75,13 @@ const SelectButton: React.FC<SelectButtonProps> = ({
         onChange={handleChange}
         displayEmpty
         input={<BootstrapInput />}
-        className={`${selectStyle} py-[10px] cursor-pointer !font-roboto`}>
-        <MenuItem className="!font-roboto" value="">
+        notched
+        className={`${selectStyle} py-[10px] cursor-pointer font-roboto`}>
+        <MenuItem className="font-roboto">
           <p className={`${itemStyle} text-[#fff]`}>{defaultValue}</p>
         </MenuItem>
         {data.map((item: Option, index: number) => (
-          <MenuItem className="!font-roboto" value={item.title} key={index}>
+          <MenuItem className="font-roboto" value={item.title} key={index}>
             <p className={`${itemStyle} text-[#fff]`}>{item.title}</p>
           </MenuItem>
         ))}

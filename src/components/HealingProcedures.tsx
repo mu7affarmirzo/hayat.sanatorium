@@ -3,7 +3,6 @@ import React from 'react';
 import DefaultCheckbox from './checkbox/DefaultCheckbox';
 import SelectButton from './buttons/SelectButton';
 import OutlinedNumber from './outlinedNumber/OutlinedNumber';
-import DefaultInput from './defaultInput/DefaultInput';
 import { FileAltIcon, FilePlusAltIcon } from 'assets/icons/icons';
 
 const data = [
@@ -37,11 +36,11 @@ const HealingProcedures = () => {
         </Typography>
 
         <OutlinedNumber
-          customVariant='outlined-sm'
+          customvariant="outlined-sm"
           containerStyle="flex w-[120px] !h-[24px]"
           inputStyle="w-[100%] !h-[24px]"
         />
-        <DefaultCheckbox style={"!h-[24px]"} label="На весь срок лечения" />
+        <DefaultCheckbox style={'!h-[24px]'} label="На весь срок лечения" />
       </Box>
       <Box className="flex items-center gap-[10px]">
         <Typography className="text-[14px] w-[90px] text-[#000]  font-normal">
@@ -69,7 +68,7 @@ const HealingProcedures = () => {
         Особые указания:
       </Typography>
       {/* <Box className={'flex'}> */}
-      <Stack direction={"row"} className={"items-stretch"}>
+      <Stack direction={'row'} className={'items-stretch'}>
         <textarea
           className={`w-full outline-none
            border-[1px] border-[#0000003B] 

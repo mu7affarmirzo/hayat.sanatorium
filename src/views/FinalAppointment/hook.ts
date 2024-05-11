@@ -1,5 +1,5 @@
-import { usePostFinalAppointmentMutation } from 'features/FinalAppointment/service';
-import { FinalAppointmentPostData } from 'features/FinalAppointment/types';
+import { usePostFinalAppointmentMutation } from 'features/Appointments/FinalAppointment/service';
+import { FinalAppointment } from 'features/Appointments/FinalAppointment/types';
 import { AppointmentStatus } from 'features/slices/initAppoinmentStatusSlice';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -8,7 +8,7 @@ export const useFinalAppointmentHook = () => {
   const [appointmentStatus, setAppointmentStatus] =
     useState<AppointmentStatus['status']>('notCompleted');
 
-  const methods = useForm<FinalAppointmentPostData>();
+  const methods = useForm<FinalAppointment>();
 
   const [fetchFinal] = usePostFinalAppointmentMutation();
 
@@ -16,10 +16,11 @@ export const useFinalAppointmentHook = () => {
     setAppointmentStatus(status);
   };
 
-  const onSubmit = (data: FinalAppointmentPostData) => {
+  const onSubmit = (data: FinalAppointment) => {
     console.log(data);
-    const newData = {
+    const newData: FinalAppointment = {
       ...data,
+      illness_history: 1,
       diagnosis: [1, 2],
     };
     fetchFinal(newData);

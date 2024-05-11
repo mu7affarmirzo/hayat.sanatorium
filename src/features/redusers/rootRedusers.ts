@@ -12,6 +12,9 @@ import { medicationSlice } from 'features/Medicals/model/slice/medicationSlice';
 import { repeatedAppointmentSlice } from 'features/slices/repeatedAppointmentSlice';
 import { doctorOnDutyAppointmentSlice } from 'features/slices/doctorOnDutyAppointmentSlice';
 import { doctorsPatientSidebarSlice } from 'features/slices/doctorsPatientSidebarSlice';
+import dynamicTopTabsSlice from 'features/DoctorsRoleService/model/slices/dynamicTopTabs';
+import patientIllnesHistorySlice from 'features/DoctorsRoleService/model/slices/patientIllnesHistorySlice';
+import appointmentsSlice from 'features/Appointments/slice/appointmentsSlice';
 import { nutritionSlice } from 'features/Nutrition/model/slice/nutritionSlice';
 
 export const reducers = combineReducers({
@@ -29,6 +32,10 @@ export const reducers = combineReducers({
   repeatedAppointment: repeatedAppointmentSlice.reducer,
   doctorOnDutyAppointment: doctorOnDutyAppointmentSlice.reducer,
   dynamicSidebarItems: doctorsPatientSidebarSlice.reducer,
+  //doctors service slice here
+  dynamicTopTabs: dynamicTopTabsSlice,
+  patientIllnesHistory: patientIllnesHistorySlice,
+  appointments: appointmentsSlice,
 });
 
 export type RootState = ReturnType<typeof reducers>;

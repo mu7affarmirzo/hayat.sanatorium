@@ -1,11 +1,11 @@
-import { usePostCardiologistAppoinmnetMutation } from 'features/CardiologistAppoinemnt/service';
+import { usePostCardiologistAppoinmnetMutation } from 'features/Appointments/CardiologistAppoinemnt/service';
 import {
   LabResearchForCardiologist,
   MedicalServiceForCardiologist,
   PillForCardiologist,
-  PostCardiologistAppoinmnet,
+  CardiologistAppointment,
   ProcedureForCardiologist,
-} from 'features/CardiologistAppoinemnt/types';
+} from 'features/Appointments/CardiologistAppoinemnt/types';
 import { AppointmentStatus } from 'features/slices/initAppoinmentStatusSlice';
 import { useReduxSelector } from 'hooks/useReduxHook';
 import { useCallback, useMemo, useState } from 'react';
@@ -22,7 +22,7 @@ export const useCardiologistAppoinmnetHook = () => {
     [setAppointmentStatus],
   );
 
-  const methods = useForm<PostCardiologistAppoinmnet>();
+  const methods = useForm<CardiologistAppointment>();
 
   const [fetchRequest] = usePostCardiologistAppoinmnetMutation();
 
@@ -70,13 +70,13 @@ export const useCardiologistAppoinmnetHook = () => {
       }));
     }, [selectedConsultingItems]);
 
-  const onSubmit = (data: PostCardiologistAppoinmnet) => {
-    console.log(data, 'data in cardiologist hook');
-    const newData = {
+  const onSubmit = (data: CardiologistAppointment) => {
+    const newData: CardiologistAppointment = {
       ...data,
+      illness_history: 1,
+      pills: convertToPills,
       procedures: convertToProcedures,
       lab_research: convertToLabResearch,
-      pills: convertToPills,
       medical_services: convertToMedicalServices,
     };
     console.log(newData, 'newData in cardiologist hook');

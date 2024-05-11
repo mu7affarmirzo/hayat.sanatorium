@@ -1,5 +1,5 @@
-import { usePostExaminationMutation } from 'features/ExaminationDoctor/service/examinationSecvice';
-import { PostExamitationByDoctor } from 'features/ExaminationDoctor/types';
+import { usePostExaminationMutation } from 'features/Appointments/ExaminationDoctor/service';
+import { ExaminationAppointment } from 'features/Appointments/ExaminationDoctor/types';
 import { AppointmentStatus } from 'features/slices/initAppoinmentStatusSlice';
 import { useCallback, useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -15,13 +15,11 @@ export const useExaminationByDoctorHook = () => {
     [setAppointmentStatus],
   );
 
-  const methods = useForm<PostExamitationByDoctor>();
+  const methods = useForm<ExaminationAppointment>();
 
   const [fetchRequest] = usePostExaminationMutation();
 
-  const onSubmit = (data: PostExamitationByDoctor) => {
-    console.log(data, ' data from useFormHook in ExaminationDoctor hook');
-
+  const onSubmit = (data: ExaminationAppointment) => {
     fetchRequest(data);
   };
 

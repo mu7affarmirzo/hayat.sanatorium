@@ -1,11 +1,11 @@
-import { usePostElectrocardiogrammaMutation } from 'features/Electrocardiogramma/service';
+import { usePostElectrocardiogrammaMutation } from 'features/Appointments/Electrocardiogramma/service';
 import {
   LabResearchForEkg,
   MedicalServiceForEKG,
   PillForEkg,
-  PostEkgAppointmentTypes,
+  EkgAppointmentTypes,
   ProcedureForEKG,
-} from 'features/Electrocardiogramma/types';
+} from 'features/Appointments/Electrocardiogramma/types';
 import { AppointmentStatus } from 'features/slices/initAppoinmentStatusSlice';
 import { useReduxSelector } from 'hooks/useReduxHook';
 import { useState, useCallback, useMemo } from 'react';
@@ -15,10 +15,12 @@ export const useElectrocardiogramAppointmentHook = () => {
   const [appointmentStatus, setAppointmentStatus] =
     useState<AppointmentStatus['status']>('notCompleted');
 
-  const methods = useForm<PostEkgAppointmentTypes>();
+  const methods = useForm<EkgAppointmentTypes>();
 
   const { procedures } = useReduxSelector((state) => state.procedures);
+
   const { medications } = useReduxSelector((state) => state.medication);
+
   const { selectedConsultingItems, selectedReSearchItems } = useReduxSelector(
     (state) => state.consultingAndResearch,
   );
@@ -70,17 +72,16 @@ export const useElectrocardiogramAppointmentHook = () => {
     [setAppointmentStatus],
   );
 
-  const onSubmit = (data: PostEkgAppointmentTypes) => {
-    console.log(data, ' data from useFormHook in ExaminationDoctor hook');
-    const newData = {
+  const onSubmit = (data: EkgAppointmentTypes) => {
+    const newData: EkgAppointmentTypes = {
       ...data,
+      illness_history: 1,
       medical_services: convertToMedicalServices,
       lab_research: convertToLabResearch,
       procedures: convertToProcedures,
       pills: convertToPills,
-      state: 'assigned',
+      state: 'Не завершено',
     };
-    console.log(newData, ' newData from useFormHook in ExaminationDoctor hook');
     fetchEkgApp(newData);
   };
 

@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react';
-import useExaminationByDoctorHook from './hook';
+import { useExaminationByDoctorHook } from './useExaminationByDoctorHook';
 
 type ExaminationbyDoctorContextType = ReturnType<
   typeof useExaminationByDoctorHook

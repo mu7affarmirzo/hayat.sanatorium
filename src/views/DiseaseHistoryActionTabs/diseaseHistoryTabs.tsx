@@ -1,6 +1,6 @@
 import { Grid } from '@mui/material';
 import { CoinsAltIcon, VuesaxLinearPrinterIcon } from 'assets/icons/icons';
-import SelectButton from 'components/buttons/SelectButton';
+// import SelectButton from 'components/buttons/SelectButton';
 import DefaultButton from 'components/deafultButton/DefaultButton';
 import { useCallback } from 'react';
 import Dropdown from 'components/NestedDropdownMenu/ReuseableDropdown';
@@ -64,16 +64,17 @@ const DiseaseHistoryTopTabs = () => {
         <div className="flex justify-between items-center py-[10px] ">
           <DefaultButton
             title="Сохранить"
-            classStyle="h-[46px] text-[#fff] mr-[10px] bg-green-500  "
+            classStyle="h-[46px] text-[#fff] mr-[10px] bg-green-500 "
             submitType="submit"
           />
+
           <Dropdown
             title="Начало приёма"
             handleClicked={(item) => handleClicked(item)}
             data={StartOfReceptionData}
             styles="bg-[#2196F3] max-h-[46px] mx-1 h-[46px] w-[200px] min-w-[120px]"
             startIcon={<VuesaxLinearPrinterIcon />}
-            endIcon={<ArrowDropDownIcon sx={{ color: '#000' }} />}
+            endIcon={<ArrowDropDownIcon fill="white" />}
             anchorOrigin={{
               vertical: 'bottom',
               horizontal: 'left',
@@ -84,11 +85,10 @@ const DiseaseHistoryTopTabs = () => {
             }}
           />
 
-          <SelectButton
-            data={mockSelectData}
-            defaultValue="Экспортировать документы"
+          <DefaultButton
+            title="Экспортировать документы"
+            classStyle="bg-[#2196F3] h-[46px] text-[#fff] mr-[5px] "
           />
-
           <DefaultButton
             title="Закрыть историю болезни"
             classStyle="bg-[#2196F3] h-[46px] text-[#fff] mr-[5px] "
@@ -102,18 +102,19 @@ const DiseaseHistoryTopTabs = () => {
           <DefaultButton
             title="Диспечеризовать все"
             classStyle="bg-[#2196F3] h-[46px] text-[#fff] mr-[5px] "
+            disabled
           />
 
-          <DefaultButton
+          {/* <DefaultButton
             title="Отменить все диспетчеризации"
             classStyle="bg-[#2196F3] h-[46px] text-[#fff] mr-[5px] "
-          />
+          /> */}
         </div>
         <DefaultButton
           icon={<CoinsAltIcon stroke="black" />}
           title="0,00 сум"
           classStyle="bg-[#F5F5F5] h-[46px] text-[#000] py-[10px]"
-          variant={'none'}
+          color="black"
         />
       </Grid>
     </Grid>

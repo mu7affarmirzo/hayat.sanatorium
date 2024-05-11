@@ -4,7 +4,7 @@ import SelectButton from 'components/buttons/SelectButton';
 
 import changelog from '../booked/changelog';
 import invoicesDocuments from '../booked/invoicesDocuments';
-import mainAssignmentSheet from '../booked/mainAssignmentSheet';
+import mainAssignmentSheet from '../MainAssigmentSheet';
 import nutrition from '../booked/nutrition';
 import consultationTechniques from '../booked/consultationTechniques';
 import researchSummaryTable from '../booked/researchSummaryTable';

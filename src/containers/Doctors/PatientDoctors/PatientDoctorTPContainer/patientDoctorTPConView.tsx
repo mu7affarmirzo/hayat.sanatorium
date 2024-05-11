@@ -12,7 +12,7 @@ import RiskFactorsAndTags from 'views/BookedTitlePage/Components/tagsFactors';
 import DocumentationForm from 'views/BookedTitlePageTab/components/DocumentationForm';
 import HospitalStayForm from 'views/BookedTitlePageTab/components/HospitalStayForm';
 import TravelPackageForm from 'views/BookedTitlePageTab/components/TravelPackageForm';
-import { usePatientDocTPHook } from './hook';
+import { PatientDocTPProvider, usePatientDocTPContext } from './module';
 
 const top100FilmsChack = [
   { title: 'The Shawshank Redemption', year: 1994 },
@@ -85,21 +85,19 @@ const polData = [
   },
 ];
 
-const PatientDoctorsTPContainer = () => {
+const Main = () => {
   const {
     scrollRef,
     scrollUp,
-    handleSubmit,
     onSubmit,
-    register,
-    setValue,
     defaultValues,
     nurseData,
     doctorData,
-    watch,
     getAgePatient,
+    methods: { register, handleSubmit, setValue, watch },
     copyArray,
-  } = usePatientDocTPHook();
+    isLoading,
+  } = usePatientDocTPContext();
 
   return (
     <div
@@ -108,76 +106,86 @@ const PatientDoctorsTPContainer = () => {
         height: '100%',
         whiteSpace: 'nowrap',
       }}>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <Grid container className="flex ">
-          <Grid item xs={12} md={12} className="flex">
-            <Box className="flex w-[50%] justify-end  items-center ">
-              <Typography>История болезни №</Typography>
-              <Box className=" w-[60px] ml-[10px] ">
-                <input
-                  className=" bg-[#fff] w-full h-full border-none outline-none pl-[5px]"
-                  {...register('id')}
-                />
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : (
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <Grid container className="flex ">
+            <Grid item xs={12} md={12} className="flex">
+              <Box className="flex w-[50%] justify-end  items-center ">
+                <Typography>История болезни №</Typography>
+                <Box className=" w-[60px] ml-[10px] ">
+                  <input
+                    className=" bg-[#fff] w-full h-full border-none outline-none pl-[5px]"
+                    {...register('id')}
+                  />
+                </Box>
               </Box>
-            </Box>
-            <Box className=" flex w-[50%] justify-end  items-center ">
-              <DefaultButton title="новая" onClick={() => scrollUp()} />
-            </Box>
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            md={12}
-            className="bg-white m-[5px] border min-h-[calc(100vh-280px)] h-[calc(100vh-320px)] overflow-scroll p-[5px]"
-            ref={scrollRef}
-            style={{ whiteSpace: 'nowrap' }}>
-            <Box className="flex justify-between">
-              <div className="w-[35%]">
-                <PatientInfoSection
-                  register={register}
-                  pollData={polData}
-                  mockData={top100FilmsChack}
-                  setValue={setValue}
-                  defaultValues={defaultValues}
-                  patientDob={getAgePatient}
-                  patient_phones={copyArray as never}
-                />
-                <DocumentationForm
-                  avtoCaplektData={top100FilmsChack}
-                  register={register}
-                />
-              </div>
-              <Box className="w-[64%] ">
-                <TravelPackageForm
-                  avtoCaplektData={top100FilmsChack}
-                  register={register}
-                  rowData={rowData}
-                  watch={watch}
-                  nurseData={nurseData as never}
-                  doctorData={doctorData as never}
-                />
-                <HospitalStayForm
-                  avtoCaplektData={top100FilmsChack}
-                  register={register}
-                />
-                <Comment />
-                <HarmFactors dropdownData={top100FilmsChack} />
-                <TagAutoCompleateBox data={top100FilmsChack} label="Метки" />
+              <Box className=" flex w-[50%] justify-end  items-center ">
+                <DefaultButton title="новая" onClick={() => scrollUp()} />
               </Box>
-            </Box>
-            <FrontFooter />
-            <ModeHandler radioFormData={radioForm} />
-            <DiagnostHandler />
-            <RiskFactorsAndTags mockData={top100FilmsChack} />
-            <TitlePageBottomCheckbooks
-              setValue={setValue}
-              defaultValues={defaultValues}
-            />
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              md={12}
+              className="bg-white m-[5px] border min-h-[calc(100vh-280px)] h-[calc(100vh-320px)] overflow-scroll p-[5px]"
+              ref={scrollRef}
+              style={{ whiteSpace: 'nowrap' }}>
+              <Box className="flex justify-between">
+                <div className="w-[35%]">
+                  <PatientInfoSection
+                    register={register}
+                    pollData={polData}
+                    mockData={top100FilmsChack}
+                    setValue={setValue}
+                    defaultValues={defaultValues}
+                    patientDob={getAgePatient}
+                    patient_phones={copyArray as never}
+                  />
+                  <DocumentationForm
+                    avtoCaplektData={top100FilmsChack}
+                    register={register}
+                  />
+                </div>
+                <Box className="w-[64%] ">
+                  <TravelPackageForm
+                    avtoCaplektData={top100FilmsChack}
+                    register={register}
+                    rowData={rowData}
+                    watch={watch}
+                    nurseData={nurseData as never}
+                    doctorData={doctorData as never}
+                  />
+                  <HospitalStayForm
+                    avtoCaplektData={top100FilmsChack}
+                    register={register}
+                  />
+                  <Comment />
+                  <HarmFactors dropdownData={top100FilmsChack} />
+                  <TagAutoCompleateBox data={top100FilmsChack} label="Метки" />
+                </Box>
+              </Box>
+              <FrontFooter />
+              <ModeHandler radioFormData={radioForm} />
+              <DiagnostHandler />
+              <RiskFactorsAndTags mockData={top100FilmsChack} />
+              <TitlePageBottomCheckbooks
+                setValue={setValue}
+                defaultValues={defaultValues}
+              />
+            </Grid>
           </Grid>
-        </Grid>
-      </form>
+        </form>
+      )}
     </div>
   );
 };
+
+const PatientDoctorsTPContainer = () => (
+  <PatientDocTPProvider>
+    <Main />
+  </PatientDocTPProvider>
+);
 
 export default PatientDoctorsTPContainer;

@@ -7,6 +7,7 @@
     "@date-io/date-fns": "^2.17.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@fontsource/anek-telugu": "^5.0.13",
     "@mantine/core": "^6.0.13",
     "@mui/icons-material": "^5.14.13",
     "@mui/lab": "^5.0.0-alpha.151",
@@ -17,6 +18,7 @@
     "@mui/x-date-pickers": "^6.16.3",
     "@react-pdf/renderer": "^3.3.8",
     "@reduxjs/toolkit": "^1.9.7",
+    "@stitches/react": "^1.2.8",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -35,6 +37,7 @@
     "dayjs": "^1.11.10",
     "html-react-parser": "^4.2.6",
     "jwt-decode": "^4.0.0",
+    "lodash.get": "^4.4.2",
     "material-react-table": "^1.15.1",
     "react": "^18.2.0",
     "react-datepicker": "^4.23.0",
@@ -87,6 +90,7 @@
     ]
   },
   "devDependencies": {
+    "@types/lodash.get": "^4.4.9",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
     "@typescript-eslint/parser": "^6.10.0",
     "eslint-config-prettier": "^9.1.0",

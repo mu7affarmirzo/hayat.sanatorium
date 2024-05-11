@@ -7,7 +7,7 @@ import SideBar, { TabsItem } from 'components/sideBar/SideBar';
 import changelog from '../booked/changelog';
 import frontPage from '../BookedTitlePageTab';
 import invoicesDocuments from '../booked/invoicesDocuments';
-import mainAssignmentSheet from '../booked/mainAssignmentSheet';
+import mainAssignmentSheet from '../MainAssigmentSheet';
 import nutrition from '../booked/nutrition';
 import consultationTechniques from '../booked/consultationTechniques';
 import researchSummaryTable from '../booked/researchSummaryTable';
