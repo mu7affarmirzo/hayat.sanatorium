@@ -27,16 +27,16 @@ export const TableItem = (props: ItemProps) => {
         </IconButton>
       </Box>
       <Box className="w-[calc(20%+30px)] h-[30px] px-1 flex flex-col justify-center">
-        <NumberInput customVariant="outlined-sm" />
+        <NumberInput customvariant="outlined-sm" />
       </Box>
       <Box className="border-l-[1px] border-[#605e5e] w-[35%] h-[30px] px-1 flex flex-col justify-center">
-        <NumberInput customVariant="outlined-sm" />
+        <NumberInput customvariant="outlined-sm" />
       </Box>
       <Box className="border-l-[1px] border-[#605e5e] w-[15%] h-[30px] px-1 flex flex-col justify-center">
-        <NumberInput customVariant="outlined-sm" />
+        <NumberInput customvariant="outlined-sm" />
       </Box>
       <Box className="border-l-[1px] border-[#605e5e] w-[15%] h-[30px] px-1 flex flex-col justify-center">
-        <NumberInput customVariant="outlined-sm" />
+        <NumberInput customvariant="outlined-sm" />
       </Box>
     </Box>
   );

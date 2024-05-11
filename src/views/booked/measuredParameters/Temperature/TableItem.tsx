@@ -38,7 +38,7 @@ export const TableItem = (props: ItemProps) => {
         </IconButton>
       </Box>
       <Box className="w-[calc(25%+30px)] h-[30px] px-1 flex flex-col justify-center">
-        <NumberInput customVariant="outlined-sm" />
+        <NumberInput customvariant="outlined-sm" />
       </Box>
       <Box className="border-l-[1px] border-[#605e5e] w-[30%] h-[30px] px-1 flex flex-col justify-center">
         <SelectButton
