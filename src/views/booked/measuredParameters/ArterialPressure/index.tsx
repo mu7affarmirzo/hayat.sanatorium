@@ -5,9 +5,24 @@ import { CloseIcon } from 'assets/icons/icons';
 import OutlinedNumber from 'components/outlinedNumber/OutlinedNumber';
 import { NumberInput } from '../components/NumberInput';
 import { TableItem } from './TableItem';
+import { useState } from 'react';
+import { useMeasuredParamsArterialMutation } from 'features/MeasuredParams/service';
 
 const ArterialPressure = () => {
+  const [createArterialRequest] = useMeasuredParamsArterialMutation()
+  const [tableItems, setTableItems] = useState([{id: 1}, {id: 2}])
+  const handleCloseItem = (id: number) => {
+    const newItems = [...tableItems].filter((i) => i.id !== id)
+    setTableItems(newItems)
+  }
 
+  const handleAddItem = () => {
+    createArterialRequest({ created_by: 1, diastologic: 1, illness_history: 1, systologic: 2 })
+    const newId = Date.now()
+    const newItems = [...tableItems]                        
+    newItems.push({id: newId})
+    setTableItems(newItems)
+  }
 
   return (
     <Box className="w-[100%] border border-t-0 p-[5px] bg-[#fff] flex justify-between h-[calc(100vh-340px)] max-h-[calc(100vh-340px)]">
@@ -15,6 +30,7 @@ const ArterialPressure = () => {
         <Box>
           <DefaultButton
             title="Добавить"
+            onClick={handleAddItem}
             classStyle="w-[100%] bg-[#4CAF50] text-[#fff] h-[40px] mt-[5px]"
           />
         </Box>
@@ -44,7 +60,7 @@ const ArterialPressure = () => {
                 </DefaultText>
               </Box>
             </Box>
-            <TableItem />
+            {tableItems.map((i) => <TableItem key={i.id} id={i.id} close={handleCloseItem}/>)}
           </Box>
         </Box>
       </Box>

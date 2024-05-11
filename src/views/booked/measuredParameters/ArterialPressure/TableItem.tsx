@@ -2,9 +2,20 @@ import { Box, IconButton } from "@mui/material"
 import { CloseIcon } from "assets/icons/icons"
 import { NumberInput } from "../components/NumberInput"
 
-export const TableItem = () => {
+interface ItemProps {
+    close?: (id: number) => void
+    id?: number
+}
 
-    const handleCloseBtn = () => { }
+export const TableItem = (props: ItemProps) => {
+    const {close, id} = props
+    
+    const handleCloseBtn = () => {
+        if (!id) {
+            return
+        }
+        close && close(id)
+    }
 
     return (
         <Box className="flex bg-[#fff] w-full border items-center z-0">

@@ -4,9 +4,21 @@ import { NumberInput } from "../components/NumberInput"
 import DefaultText from "components/defaultText/DefaultText"
 import SelectButton from "components/buttons/SelectButton"
 
-export const TableItem = () => {
+interface ItemProps {
+    close?: (id: number) => void
+    id?: number
+}
 
-    const handleCloseBtn = () => { }
+export const TableItem = (props: ItemProps) => {
+
+    const {close, id} = props
+    
+    const handleCloseBtn = () => {
+        if (!id) {
+            return
+        }
+        close && close(id)
+    }
     const data = [
         {
             id: 1,

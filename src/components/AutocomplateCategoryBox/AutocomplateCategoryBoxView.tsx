@@ -17,7 +17,7 @@ type Props<T extends {}> = {
   actions?: boolean;
   categoryName?: keyof T;
   fieldName?: string;
-  formMethods: UseFormReturn<T, any, T>;
+  formMethods: UseFormReturn<any, any, any>;
 };
 
 const DiagnosticCeckboxItem = <T extends {}>({

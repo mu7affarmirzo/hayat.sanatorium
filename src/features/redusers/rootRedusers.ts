@@ -12,6 +12,7 @@ import { medicationSlice } from 'features/Medicals/model/slice/medicationSlice';
 import { repeatedAppointmentSlice } from 'features/slices/repeatedAppointmentSlice';
 import { doctorOnDutyAppointmentSlice } from 'features/slices/doctorOnDutyAppointmentSlice';
 import { doctorsPatientSidebarSlice } from 'features/slices/doctorsPatientSidebarSlice';
+import { nutritionSlice } from 'features/Nutrition/model/slice/nutritionSlice';
 
 export const reducers = combineReducers({
   [ApiSlice.reducerPath]: ApiSlice.reducer,
@@ -24,6 +25,7 @@ export const reducers = combineReducers({
   consultingAndResearch: consultingAndResearchSlice.reducer,
   procedures: proceduresSlice.reducer,
   medication: medicationSlice.reducer,
+  nutrition: nutritionSlice.reducer,
   repeatedAppointment: repeatedAppointmentSlice.reducer,
   doctorOnDutyAppointment: doctorOnDutyAppointmentSlice.reducer,
   dynamicSidebarItems: doctorsPatientSidebarSlice.reducer,

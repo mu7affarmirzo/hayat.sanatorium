@@ -4,7 +4,7 @@ import { Path, UseFormReturn } from 'react-hook-form';
 interface Props<T extends {}> {
   inputHeight?: string;
   inputWidth?: string;
-  medhods: UseFormReturn<T, any, T>;
+  medhods: UseFormReturn<any, any, any>;
   name: Path<T>;
   required?: boolean;
 }

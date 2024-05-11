@@ -8,7 +8,7 @@ import { useState } from 'react';
 import { Path, UseFormReturn } from 'react-hook-form';
 
 interface PropsTypes<T extends {}> {
-  methods: UseFormReturn<T, any, T>;
+  methods: UseFormReturn<any, any, any>;
   name: Path<T>;
   label?: string;
 }

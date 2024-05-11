@@ -5,15 +5,35 @@ import { CloseIcon } from 'assets/icons/icons';
 import OutlinedNumber from 'components/outlinedNumber/OutlinedNumber';
 import { NumberInput } from '../components/NumberInput';
 import { TableItem } from './TableItem';
+import { useState } from 'react';
+import { useMeasuredParamsSaturationMutation } from 'features/MeasuredParams/service';
 
 const Saturation = () => {
+  const [createSaturationRequest] = useMeasuredParamsSaturationMutation()
+  const [tableItems, setTableItems] = useState([{ id: 1 }, { id: 2 }])
+  const handleCloseItem = (id: number) => {
+    const newItems = [...tableItems].filter((i) => i.id !== id)
+    setTableItems(newItems)
+  }
 
+  const handleAddItem = () => {
+    createSaturationRequest({
+      saturation: 1,
+      created_by: 1,
+      illness_history: 1
+    })
+    const newId = Date.now()
+    const newItems = [...tableItems]
+    newItems.push({ id: newId })
+    setTableItems(newItems)
+  }
 
   return (
     <Box className="w-[100%] border border-t-0 p-[5px] bg-[#fff] flex justify-between h-[calc(100vh-340px)] max-h-[calc(100vh-340px)]">
       <Box className="w-[40%]  h-[100%] ">
         <Box>
           <DefaultButton
+            onClick={handleAddItem}
             title="Добавить"
             classStyle="w-[100%] bg-[#4CAF50] text-[#fff] h-[40px] mt-[5px]"
           />
@@ -39,7 +59,7 @@ const Saturation = () => {
                 </DefaultText>
               </Box>
             </Box>
-            <TableItem />
+            {tableItems.map((i) => <TableItem key={i.id} id={i.id} close={handleCloseItem} />)}
           </Box>
         </Box>
       </Box>

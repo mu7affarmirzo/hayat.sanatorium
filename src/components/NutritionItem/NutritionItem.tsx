@@ -8,6 +8,9 @@ import './style.css';
 import { Box, IconButton, TableContainer } from '@mui/material';
 import DefaultInput from 'components/defaultInput/DefaultInput';
 import { useForm } from 'react-hook-form';
+import { Nutrition } from 'features/Nutrition/model/types/nutritionTypes';
+import { useReduxDispatch, useReduxSelector } from 'hooks/useReduxHook';
+import { setNutritionExceptions, setNutritionSupplements } from 'features/Nutrition/model/slice/nutritionSlice';
 interface IFormInput {
   lastName: string;
   name: string;
@@ -15,9 +18,33 @@ interface IFormInput {
   appeal: string;
 }
 
-function MyRoomType(params: any) {
+type NutritionType = 'supplements' | 'exceptions'
+
+interface MyRoomTypeProps {room: string, type: NutritionType}
+
+function MyRoomType(props: MyRoomTypeProps) {
+  const { room, type } = props
+  console.log({props});
+  
+  const dispatch = useReduxDispatch();
+  const { nutritionExceptions, nutritionSupplements } = useReduxSelector((state) => state.nutrition);
+
+  const onClick = () => {
+    if (type === 'exceptions') {
+      const list = nutritionExceptions.filter((val) => val.room !== props.room) 
+      
+      dispatch(setNutritionExceptions(list))
+    }
+    if (type === 'supplements') {
+      const list = nutritionSupplements.filter((val) => val.room !== props.room) 
+
+      dispatch(setNutritionSupplements(list))
+    }
+
+  }
+
   return (
-    <div className="flex  items-center justify-center  w-[100%] h-[100%] cursor-pointer  ">
+    <div onClick={onClick} className="flex  items-center justify-center  w-[100%] h-[100%] cursor-pointer  ">
       <button className="w-[20px] h-[20px] rounded-[50%]  flex justify-center items-center bg-[#F79E98]">
         <CloseIcon stroke="white" />
       </button>
@@ -35,17 +62,15 @@ function createData(
   return { name, calories, fat, carbs, protein };
 }
 
-const rows = [createData('Frozen yoghurt', 159, 6.0, 24, 4.0)];
 type propsType = {
-  data?: any;
+  data?: Nutrition[];
+  type: NutritionType
 };
 const NutritionItem = (props: propsType) => {
   const { register } = useForm<IFormInput>();
   return (
     <div className="p-[5px]">
       <TableContainer sx={{ paddingBottom: '10px' }}>
-        {props.data.map((item: any) => {
-          return (
             <Table
               sx={{
                 minWidth: '100%',
@@ -55,13 +80,13 @@ const NutritionItem = (props: propsType) => {
               }}
               size="small"
               className=" border-[1px]  bg-[#F8ED8D] ">
-              <TableBody key={item.id}>
-                {rows.map((row) => (
+              <TableBody>
+                {props.data?.map((row: any) => (
                   <TableRow key={row.name}>
                     <TableCell
                       className="w-[40px] border-r-[1px] border-r-[#c1bfbf]"
                       sx={{ padding: '2px 0' }}>
-                      <MyRoomType />
+                      <MyRoomType type={props.type} room={row.room} />
                     </TableCell>
                     <TableCell
                       className="w-[400px]  border-r-[1px] border-r-[#c1bfbf] px-[10px] overflow-hidden "
@@ -111,8 +136,8 @@ const NutritionItem = (props: propsType) => {
                 ))}
               </TableBody>
             </Table>
-          );
-        })}
+
+        
       </TableContainer>
     </div>
   );
