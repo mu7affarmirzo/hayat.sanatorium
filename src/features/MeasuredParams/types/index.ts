@@ -3,6 +3,7 @@ export interface ArterialParamProps {
   diastologic: number
   illness_history: number
   created_by: number
+  date?: string
 }
 
 export interface ArterialParamResponse extends ArterialParamProps {

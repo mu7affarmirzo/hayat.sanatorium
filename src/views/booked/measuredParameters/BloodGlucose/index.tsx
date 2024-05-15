@@ -2,28 +2,20 @@ import { Box } from '@mui/material';
 import DefaultText from 'components/defaultText/DefaultText';
 import DefaultButton from 'components/deafultButton/DefaultButton';
 import { TableItem } from './TableItem';
-import { useState } from 'react';
-import { useMeasuredParamsGlucometerMutation } from 'features/MeasuredParams/service';
+import { useGlucometer } from './hook';
 
 const BloodGlucose = () => {
-  const [tableItems, setTableItems] = useState([{ id: 1 }, { id: 2 }])
-  const [createGlucometerRequest] = useMeasuredParamsGlucometerMutation()
-  const handleCloseItem = (id: number) => {
-    const newItems = [...tableItems].filter((i) => i.id !== id)
-    setTableItems(newItems)
-  }
+  const {
+    handleAddItem,
+    handleCloseItem,
+    fields,
+    handleSubmit,
+    onSubmit,
+    register,
+    handleEdit,
+    control
+  } = useGlucometer()
 
-  const handleAddItem = () => {
-    createGlucometerRequest({
-      blood_glucose: 1,
-      created_by: 1,
-      illness_history: 1
-    })
-    const newId = Date.now()
-    const newItems = [...tableItems]
-    newItems.push({ id: newId })
-    setTableItems(newItems)
-  }
   return (
     <Box className="w-[100%] border border-t-0 p-[5px] bg-[#fff] flex justify-between h-[calc(100vh-340px)] max-h-[calc(100vh-340px)]">
       <Box className="w-[40%]  h-[100%] ">
@@ -41,7 +33,7 @@ const BloodGlucose = () => {
               <Box className="border-r-[1px] border-[#605e5e] w-[30px] h-[30px] flex justify-center items-center"></Box>
               <Box className="w-[calc(25%+30px)] h-[30px] flex flex-col justify-center">
                 <DefaultText style={'text-[14px] font-medium text-[#000] ml-[10px]'}>
-                  Пульс
+                  Глюкоза крови
                 </DefaultText>
               </Box>
               <Box className="border-l-[1px] border-[#605e5e] w-[30%] h-[30px] flex flex-col justify-center">
@@ -55,7 +47,19 @@ const BloodGlucose = () => {
                 </DefaultText>
               </Box>
             </Box>
-            {tableItems.map((i) => <TableItem key={i.id} id={i.id} close={handleCloseItem} />)}
+            <form className='w-full' onSubmit={handleSubmit(onSubmit)}>
+              {fields.map((i, index) => (
+                <TableItem
+                  index={index}
+                  register={register}
+                  key={i.id}
+                  handleEdit={handleEdit}
+                  id={i._id}
+                  close={handleCloseItem}
+                  control={control}
+                />
+              ))}
+            </form>
           </Box>
         </Box>
       </Box>
