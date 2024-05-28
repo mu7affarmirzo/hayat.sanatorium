@@ -5,8 +5,15 @@ import { OpjectiveStatusSection } from './components/ObjectiveStatusSection';
 import { TreatmentResultsSectiont } from './components/TreatmentResultsSection';
 
 const Main = () => {
-  const { appointmentStatus, handleChangeStatus, methods, onSubmit } =
-    useFinalAppointmentContext();
+  const {
+    appointmentStatus,
+    handleChangeStatus,
+    methods,
+    onSubmit,
+    finalData,
+  } = useFinalAppointmentContext();
+
+  console.log('FinalAppointmentView', finalData);
 
   return (
     <Box>

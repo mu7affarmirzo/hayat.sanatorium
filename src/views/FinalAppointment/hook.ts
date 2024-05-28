@@ -1,4 +1,8 @@
-import { usePostFinalAppointmentMutation, useGetFinalAppointmentQuery, usePatchFinalAppointmentMutation } from 'features/Appointments/FinalAppointment/service';
+import {
+  usePostFinalAppointmentMutation,
+  useGetFinalAppointmentQuery,
+  usePatchFinalAppointmentMutation,
+} from 'features/Appointments/FinalAppointment/service';
 import { FinalAppointment } from 'features/Appointments/FinalAppointment/types';
 import { AppointmentStatus } from 'features/slices/initAppoinmentStatusSlice';
 import { useReduxSelector } from 'hooks/useReduxHook';
@@ -9,21 +13,19 @@ export const useFinalAppointmentHook = () => {
   const [appointmentStatus, setAppointmentStatus] =
     useState<AppointmentStatus['status']>('notCompleted');
 
-  const { appointments } = useReduxSelector((state) => state.appointments) 
+  const { appointments } = useReduxSelector((state) => state.appointments);
 
-  const {
-    data: finalData,
-    refetch: refetchFinalAppointment
-  } = useGetFinalAppointmentQuery(appointments.final_appointment[0].id)
+  const { data: finalData, refetch: refetchFinalAppointment } =
+    useGetFinalAppointmentQuery(appointments.final_appointment[0].id);
 
   const methods = useForm<FinalAppointment>();
 
   useEffect(() => {
     if (finalData) {
-      const {id, ...restData} = finalData
-      methods.reset(restData)
+      const { id, ...restData } = finalData;
+      methods.reset(restData);
     }
-  }, [finalData])
+  }, [finalData]);
 
   const [fetchFinalPatch] = usePatchFinalAppointmentMutation();
   const [fetchFinal] = usePostFinalAppointmentMutation();
@@ -38,18 +40,17 @@ export const useFinalAppointmentHook = () => {
       illness_history: 1,
       diagnosis: [1, 2],
     };
-    
+
     if (finalData) {
       fetchFinalPatch({
         id: finalData.id,
-        data: newData
+        data: newData,
       }).then(() => {
-        refetchFinalAppointment()
-      })
-    }
-    else {
+        refetchFinalAppointment();
+      });
+    } else {
       fetchFinal(newData).then(() => {
-        refetchFinalAppointment()
+        refetchFinalAppointment();
       });
     }
   };
@@ -60,5 +61,6 @@ export const useFinalAppointmentHook = () => {
     fetchFinal,
     methods,
     onSubmit,
+    finalData,
   };
 };

@@ -38,13 +38,13 @@ const SideBarBtn: FC<BookingProps> = (props) => {
         <SaidBarCustomizedAccordions
           onClick={onClick}
           title={title}
-          status="idle"
+          status="done"
           activBtnType={activeTab === index ? activBtnType : ''}
-          search={search}
           isActive={activeTab === index}
           childrenStyle={{
             display: 'block',
             justifyContent: 'space-between',
+            gap: '5px',
           }}
           topBoxStyle={{
             color: activeTab === index ? 'white' : '#636363',
@@ -88,7 +88,7 @@ const SideBarBtn: FC<BookingProps> = (props) => {
                   ))}
                 </SaidBarCustomizedAccordions>
               ) : (
-                <button className="cursor-pointer py-0 pl-8 w-[100%] text-left">
+                <button className="cursor-pointer py-1 pl-8 w-[100%] text-left  ">
                   <Typography className="text-xs text-[#2121218a] font-roboto">
                     {item.title}
                   </Typography>

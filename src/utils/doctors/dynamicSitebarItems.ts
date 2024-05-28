@@ -1,4 +1,3 @@
-import InitialApportments from 'views/AppointmentInit';
 import ConsultationCardiologistView from 'views/ConsultationCardiologist';
 import { StartOfReceptionDataType } from 'views/DiseaseHistoryActionTabs/diseaseHistoryTabs.constants';
 import DoctorOnDutyAppointment from 'views/DoctorOnDutyAppointment';
@@ -8,35 +7,45 @@ import FinalAppointment from 'views/FinalAppointment';
 import NeurologistConsultationView from 'views/NeurologistConsultationApp';
 import RepeatedAppointment from 'views/RepeatedAppointment';
 
-export const popapData = [
-  {
-    id: 1,
-    title: StartOfReceptionDataType.INITIAL_APPOINTMENT,
-    component: InitialApportments,
+export const anotherPopopData: { [key: string]: any } = {
+  [StartOfReceptionDataType.final_appointment]: {
+    title: 'Заключительный прием лечащего врача',
+    component: FinalAppointment,
     chiled: [
       {
+        id: 0,
+        title: 'Объективный статус',
+      },
+      {
         id: 1,
-        title: 'Жалобы/анамнез',
+        title: 'Итоги лечения',
       },
       {
         id: 2,
-        title: 'Объективный статус',
+        title: 'Диагноз',
       },
     ],
   },
-  {
-    id: 2,
-    title: StartOfReceptionDataType.FINAL_APPOINTMENT,
-    component: FinalAppointment,
-  },
-  {
-    id: 3,
-    title: StartOfReceptionDataType.REPEATED_APPOINTMENT,
+  [StartOfReceptionDataType.repeated_appointment]: {
+    title: 'Повторный прием лечащего врача',
     component: RepeatedAppointment,
+    chiled: [
+      {
+        id: 0,
+        title: 'Жалобы/анамнез',
+      },
+      {
+        id: 1,
+        title: 'Объективный статус',
+      },
+      {
+        id: 2,
+        title: 'Объективный статус2',
+      },
+    ],
   },
-  {
-    id: 4,
-    title: StartOfReceptionDataType.EXAMINATION_BY_DOCTOR,
+  [StartOfReceptionDataType.on_duty_doctor]: {
+    title: 'Осмотр дежурного врача',
     component: ExaminationByDoctor,
     chiled: [
       {
@@ -49,39 +58,24 @@ export const popapData = [
       },
     ],
   },
-  {
-    id: 5,
-    title: StartOfReceptionDataType.NEUROLOGIST_CONSULTATION,
+  [StartOfReceptionDataType.neurologist]: {
+    title: 'Консультация невролога первичная',
     component: NeurologistConsultationView,
   },
-  {
-    id: 6,
-    title: StartOfReceptionDataType.CARDIOLOGIST_CONSULTATION,
+  [StartOfReceptionDataType.cardiologist]: {
+    title: 'Консультация кардиолога первичная',
     component: ConsultationCardiologistView,
   },
-  {
-    id: 7,
-    title: StartOfReceptionDataType.DOCTOR_ON_DUTY_APPOINTMENT,
+  [StartOfReceptionDataType.on_duty_doctor_on_arrival]: {
+    title: 'Прием дежурного врача',
     component: DoctorOnDutyAppointment,
   },
-  {
-    id: 8,
-    title: StartOfReceptionDataType.ELECTROCARDIOGRAM_APPOINTMENT,
+  [StartOfReceptionDataType.ekg_appointment]: {
+    title: 'ЭКГ(Электрокардиограмма)',
     component: ElectrocardiogramAppointment,
   },
-];
-
-export const anotherPopopData: { [key: string]: any } = {
-  [StartOfReceptionDataType.INITIAL_APPOINTMENT]: InitialApportments,
-  [StartOfReceptionDataType.FINAL_APPOINTMENT]: FinalAppointment,
-  [StartOfReceptionDataType.REPEATED_APPOINTMENT]: RepeatedAppointment,
-  [StartOfReceptionDataType.EXAMINATION_BY_DOCTOR]: ExaminationByDoctor,
-  [StartOfReceptionDataType.NEUROLOGIST_CONSULTATION]:
-    NeurologistConsultationView,
-  [StartOfReceptionDataType.CARDIOLOGIST_CONSULTATION]:
-    ConsultationCardiologistView,
-  [StartOfReceptionDataType.DOCTOR_ON_DUTY_APPOINTMENT]:
-    DoctorOnDutyAppointment,
-  [StartOfReceptionDataType.ELECTROCARDIOGRAM_APPOINTMENT]:
-    ElectrocardiogramAppointment,
+  [StartOfReceptionDataType.initial]: {
+    component: () => null,
+    title: '',
+  },
 };
