@@ -1,4 +1,5 @@
 import { Button, Typography } from '@mui/material';
+import { CommonProps } from '@mui/material/OverridableComponent';
 
 type propsType = {
   classStyle?: string;
@@ -7,11 +8,21 @@ type propsType = {
   variant?: any;
   onClick?: any;
   disabled?: boolean;
+  className?: CommonProps['className'];
   submitType?: 'button' | 'submit' | 'reset' | undefined;
+  color?: string;
 };
 const DefaultButton = (props: propsType) => {
-  let { classStyle, title, icon, variant, onClick, disabled, submitType } =
-    props;
+  let {
+    classStyle,
+    title,
+    icon,
+    variant,
+    onClick,
+    disabled,
+    submitType,
+    color = '#fff',
+  } = props;
   return (
     <Button
       onClick={onClick}
@@ -20,11 +31,11 @@ const DefaultButton = (props: propsType) => {
       disabled={disabled}
       type={submitType}
       className={`${
-        classStyle ? classStyle : ' bg-[#2196F3] h-[46px] text-[#fff]'
-      } ${
-        disabled ? 'opacity-50' : 'opacity-100'
-      } text-[14px]  capitalize text-[#000]`}>
-      <Typography className="text-[#fff]">{title}</Typography>
+        classStyle ? classStyle : ' bg-[##2196F3] h-[46px] text-[#fff]'
+      } ${disabled ? 'opacity-50' : 'opacity-100'} normal-case `}>
+      <Typography className={`text-[${color}] font-roboto text-sm`}>
+        {title}
+      </Typography>
     </Button>
   );
 };

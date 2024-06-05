@@ -1,15 +1,14 @@
 import { Navigate } from 'react-router-dom';
 import LoginView from 'views/auth/LoginView';
 import NotFoundView from 'views/NotFound/notFound';
-import BookedDoctors from 'views/Role/Doctors/BookedDoctors';
-import PatientDoctors from 'views/Role/Doctors/PatientDoctors';
-import EventsDoctors from 'views/Role/Doctors/EventsDoctors';
-import DispatchingDoctors from 'views/Role/Doctors/DispatchingDoctors';
+import PatientDoctors from 'containers/Doctors/PatientDoctors';
+import EventsDoctors from 'containers/Doctors/EventsDoctors';
+import DispatchingDoctors from 'containers/Doctors/DispatchingDoctors';
 
-import BookedReceptionView from 'views/Role/Reception/BookedReception/bookedRecView';
-import PatientReception from 'views/Role/Reception/PatientReception';
-import EventsReception from 'views/Role/Reception/EventsReception';
-import DispatchingReception from 'views/Role/Reception/DispatchingReception';
+import BookedReceptionView from 'containers/Reception/BookedReception/bookedRecView';
+import PatientReception from 'containers/Reception/PatientReception';
+import EventsReception from 'containers/Reception/EventsReception';
+import DispatchingReception from 'containers/Reception/DispatchingReception';
 
 type IRouting = {
   path: string;
@@ -55,13 +54,8 @@ export const RoutingData: MyGroupType = {
   Doctors: [
     {
       path: 'doctors',
-      component: <Navigate to="/doctors/booked" replace />,
+      component: <Navigate to="/doctors/patients" replace />,
     },
-    {
-      path: '/doctors/booked',
-      component: <BookedDoctors />,
-    },
-
     {
       path: '/doctors/patients',
       component: <PatientDoctors />,

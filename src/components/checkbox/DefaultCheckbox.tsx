@@ -1,15 +1,17 @@
 import { Box, Checkbox, FormControlLabel } from '@mui/material';
-import DefaultText from 'components/DefaultText/DefaultText';
+import DefaultText from 'components/defaultText/DefaultText';
+
 type propsType = {
-  style?: string;
-  label?: string;
-  leftLabel?: string;
-  checkboxStyle?: any;
-  setValue?: any;
-  defaultChecked?: boolean;
-  inputType?: string;
+  style: string;
+  label: string;
+  leftLabel: string;
+  checkboxStyle: any;
+  setValue: any;
+  defaultChecked: boolean;
+  inputType: string;
 };
-const DefaultCheckbox = (props: propsType) => {
+
+const DefaultCheckbox = (props: Partial<propsType>) => {
   let { style, label, leftLabel, defaultChecked, setValue, inputType } = props;
 
   return (
@@ -25,11 +27,12 @@ const DefaultCheckbox = (props: propsType) => {
           <Checkbox
             sx={props.checkboxStyle}
             defaultChecked={defaultChecked}
+            size="small"
             onChange={(e) => setValue(inputType, e.target.checked)}
           />
         }
         label={label}
-        className="text-[#8d8c8c] p-0 m-0"
+        className="text-[#000000DE] text-[14px] leading-5 tracking-[0.15px] p-0 m-0"
       />
     </Box>
   );

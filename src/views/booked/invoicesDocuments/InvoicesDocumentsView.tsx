@@ -5,7 +5,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import BookingScreenTabs, {
   TabsItem,
 } from 'components/Tabs/BookedPageTabs/bookedTabs';
-import DefaultText from 'components/DefaultText/DefaultText';
+import DefaultText from 'components/defaultText/DefaultText';
 import InvoicesDocuments from 'components/invoicesDocuments/InvoicesDocuments';
 const content: TabsItem[] = [
   {

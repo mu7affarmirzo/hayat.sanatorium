@@ -1,10 +1,10 @@
 /* eslint-disable react/style-prop-object */
 import treatmentSchedule from '../TreatmentSchedule';
-import SideBar, { TabsItem } from 'components/SideBar/SideBar';
+import SideBar, { TabsItem } from 'components/sideBar/SideBar';
 import researchSummaryTable from '../booked/researchSummaryTable';
 import DisTitlePageTab from 'views/DisTitlePageTab';
-import HydroBaths from 'views/Dispatching/Saidbar/hydroBaths/HydroBaths';
-import Appointments from 'views/Dispatching/Saidbar/Appointments/appointments';
+import HydroBaths from 'views/dispatching/saidbar/hydroBaths/HydroBaths';
+import Appointments from 'views/dispatching/saidbar/appointments/Appointments';
 
 const content: TabsItem[] = [
   {

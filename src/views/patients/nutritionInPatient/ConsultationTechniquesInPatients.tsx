@@ -1,422 +1,368 @@
-import { Box, Grid, Typography } from '@mui/material';
-import { useAppModals } from 'components/Modals';
-import SelectButton from 'components/Buttons/SelectButton';
-import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
-import DefaultCheckbox from 'components/Checkbox/DefaultCheckbox';
-import DefaultButton from 'components/DeafultButton/DefaultButton';
-import DefaultText from 'components/DefaultText/DefaultText';
-import DiagnosticCeckboxItem from 'components/diagnosticCeckboxItem/DiagnosticCeckboxItem';
-import ReceptionTable from 'components/ReceptionTable/receptionTable';
-
-import React from 'react';
+/* eslint-disable react/style-prop-object */
+import { Box, Grid, OutlinedInput, Typography } from '@mui/material';
+import DefaultButton from 'components/deafultButton/DefaultButton';
+import DiagnosticCeckboxItem from 'components/AutocomplateCategoryBox/AutocomplateCategoryBoxView';
 import DiagnostikaItem from 'components/DiagnostikaItem';
-import { ColData, rowData } from './Coldata';
-
-const data = [
-  {
-    id: 1,
-    title: 'Осмотр дежурного врача при поступлении',
-  },
-  {
-    id: 2,
-    title: 'Прием дежурного врача',
-  },
-];
-const top100Films = [
-  { label: 'The Shawshank Redemption', year: 1994 },
-  { label: 'The Godfather', year: 1972 },
-  { label: 'The Godfather: Part II', year: 1974 },
-  { label: 'The Dark Knight', year: 2008 },
-  { label: '12 Angry Men', year: 1957 },
-  { label: "Schindler's List", year: 1993 },
-  { label: 'Pulp Fiction', year: 1994 },
-];
+import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
+import SectionTitle from 'components/SectionTitle/sectionTitle';
+import DefaultText from 'components/defaultText/DefaultText';
 
 const ConsultationTechniquesInPatients = () => {
-  const appModals = useAppModals();
-
   return (
     <Box className="border border-[rgba(0, 0, 0, 0.23)] h-[calc(100vh-220px)]  p-[10px] overflow-hidden">
-      <Box className=" flex h-[60px] items-center justify-between  ">
-        <Box className="">
-          <DefaultText style={'text-[#000] '}>
-            Прием дежурного врача, Очилов Ибрагим Азамович
-          </DefaultText>
-        </Box>
-        <Box className=" flex items-center w-[80%]  justify-end ">
-          <AutocompleteInput
-            label="время:"
-            data={top100Films}
-            labelStyle="text-[#000]"
-            containerStyle={
-              'w-[20%]  flex-row items-center  h-[35px] mr-[10px]'
-            }
-            inputStyle="w-[100%]"
-          />
-          <DefaultButton
-            title="Разблокировать"
-            classStyle="h-[38px] bg-[#2196F3] text-[#fff] mr-[8px]"
-          />
-          <DefaultButton
-            title="Отменить начатый приём"
-            classStyle="h-[38px] bg-[#2196F3] text-[#fff] mr-[8px]"
-            disabled={true}
-          />
-          <SelectButton
-            data={data}
-            style="h-[38px] bg-[#2196F3]"
-            defaultValue="Шаблоны"
-          />
-          <DefaultButton
-            title="Просмотр документа"
-            classStyle="h-[38px] bg-[#2196F3] text-[#fff] mr-[8px]"
-          />
-        </Box>
-      </Box>
       <Box className="bg-[#fff] w-full p-[8px] overflow-scroll max-h-[calc(100vh-300px)] h-[calc(100vh-300px)]">
-        <DiagnostikaItem
-          title="Жалобы/анамнез"
-          message="На боли за грудиной, головокружение, повышение АД, сухость во рту, онемение в руках и ногах, боли в шейном отделе позвоночника, частое мочевыделение,
-                    чувство опорожнения мочевого пузыря, общую слабость, быструю утомляемость."
-        />
-        <DiagnostikaItem
-          title="Anamnesis morbi"
-          message="ИБС, ГБ и СД П тип в течении многых лет. Заболевание связывает с психоэмоциональным перенапряжением. Макс. подъемы А/Д до 160/90ммрст, при исходном
-                    120/80ммрст. В 2011 годуперенесла ОНМК В 2017 году больной выполнена операция по ХЭК. Регулярно непринимает амбулаторное и стационарный лечение. Дома
-                    нерегулярно принимает Стазикс 75мг, Диаприд 1 мг, Сиафор1000 мг, Эмкор 2,5 мг. В связи с усилением вышеуказанных жалоб больная обратилась в НАУАТ HOSPITAL
-                    для обследования и лечения."
-        />
-        <DiagnostikaItem
-          title="Anamnesis vitae"
-          message="В дейтсве частые простудные. Течении многих лет болеет ИБС, ГБ, СД. Наследственность отягощена отрецает. Аллергик анамнез спокоен. Жилищно-битовые условия в настоящее время удовлотворительные, питаютсия регулярно. Курит 1 пачку в два дня ."
-        />
-        <DiagnostikaItem
-          title="Эпиданамнез"
-          titleStyle="mb-[0px]"
-          children={
-            <Grid item className="border p-2">
-              <Grid item className="flex gap-3">
-                <Typography className="text-[rgba(0, 0, 0, 0.87))]">
-                  Контакт с инфекционными больными
-                </Typography>
-                <DefaultCheckbox
-                  label="на протяжении максимального срока инкубации: не было"
-                  checkboxStyle={{
-                    padding: '0px',
-                  }}
-                  style="text-[#2196F3]"
-                />
-              </Grid>
-              <DiagnostikaItem
-                message=" "
-                style="border-[0px] py-0 px-0"
-                titleStyle="mb-[0px] text-[#5d5c5c] "
-                messageStyle="min-h-[40px] h-[40px] w-[calc(100%-100px)]"
-                messageIconStyle={'flex felx-row '}
-              />
-              <DiagnosticCeckboxItem
-                label="Контакт с больными гриппом, ОРВИ:"
-                checkBoxStle={'w-[360px]'}
-                children={<DefaultCheckbox label="нет," />}
-                description=" "
-                titleStyle="w-[100%] border p-[10px] rounded-[4px]"
-              />
-              <DiagnosticCeckboxItem
-                label="Выезд за пределы населенного пункта за 2 месяца ДО настоящего заболевания:"
-                checkBoxStle={'w-[710px]'}
-                children={<DefaultCheckbox label="нет," />}
-                description=" "
-                titleStyle="w-[100%] border p-[10px] rounded-[4px]"
-              />
-              <DiagnosticCeckboxItem
-                label="Перенесенные инфекционные заболевания:"
-                checkBoxStle={'w-[420px]'}
-                children={<DefaultCheckbox label="нет," />}
-                description=" "
-                titleStyle="w-[100%] border p-[10px] rounded-[4px]"
-              />
-              <DiagnosticCeckboxItem
-                label="Нахождение на стационарном лечении:"
-                checkBoxStle={'w-[380px]'}
-                children={<DefaultCheckbox label="нет," />}
-                description=" "
-                titleStyle="w-[100%] border p-[10px] rounded-[4px]"
-              />
-              <DiagnosticCeckboxItem
-                label="Получение гемотрансфузий (крови и ее компонентов):"
-                children={<DefaultCheckbox label="нет," />}
-                checkBoxStle={'w-[500px]'}
-                description=" "
-                titleStyle="w-[100%] border p-[10px] rounded-[4px]"
-              />
-              <DiagnosticCeckboxItem
-                label="Оперативные и массивные вмешательства за последние 6 месяцев:"
-                children={<DefaultCheckbox label="нет," />}
-                checkBoxStle={'w-[610px]'}
-                description=" "
-                titleStyle="w-[100%] border p-[10px] rounded-[4px]"
-              />
-              <DiagnosticCeckboxItem
-                label="Посещение стоматолога за последние 6 месяцев:"
-                children={<DefaultCheckbox label="нет," />}
-                description=" "
-                checkBoxStle={'w-[460px]'}
-                titleStyle="w-[100%] border p-[10px] rounded-[4px]"
-              />
-              <DiagnosticCeckboxItem
-                label=" Профессия с подробным указанием
+        <DiagnostikaItem title="Жалобы/анамнез" />
+        <DiagnostikaItem title="Anamnesis morbi" />
+        <DiagnostikaItem title="Anamnesis vitae" />
+        <Box className="border px-[10px] py-[10px] flex flex-col gap-1 mb-[10px] ">
+          <Grid item className="">
+            <SectionTitle
+              title="Эпиданамнез"
+              className="text-base font-medium"
+            />
+            <DiagnosticCeckboxItem
+              label=" Контакт с инфекционными больными"
+              description=" "
+              checkBoxStle={'w-[100%]'}
+              style="flex flex-col border p-2"
+              titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+              boxStyle="w-[100%]"
+              children={<DefaultCheckbox label="нет," />}
+            />
+            <DiagnosticCeckboxItem
+              label="Контакт с больными гриппом, ОРВИ:"
+              checkBoxStle={'w-[360px]'}
+              children={<DefaultCheckbox label="нет," />}
+              titleStyle="w-[100%] border p-[5px] rounded-[4px]"
+            />
+            <DiagnosticCeckboxItem
+              label="Выезд за пределы населенного пункта за 2 месяца ДО настоящего заболевания:"
+              checkBoxStle={'w-[710px]'}
+              children={<DefaultCheckbox label="нет," />}
+              description=" "
+              actions={false}
+              titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+            />
+            <DiagnosticCeckboxItem
+              label="Перенесенные инфекционные заболевания:"
+              checkBoxStle={'w-[420px]'}
+              children={<DefaultCheckbox label="нет," />}
+              description=" "
+              titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+            />
+            <DiagnosticCeckboxItem
+              label="Нахождение на стационарном лечении:"
+              checkBoxStle={'w-[380px]'}
+              children={<DefaultCheckbox label="нет," />}
+              description=" "
+              actions={false}
+              titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+            />
+            <DiagnosticCeckboxItem
+              label="Получение гемотрансфузий (крови и ее компонентов):"
+              children={<DefaultCheckbox label="нет," />}
+              checkBoxStle={'w-[500px]'}
+              description=" "
+              actions={false}
+              titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+            />
+            <DiagnosticCeckboxItem
+              label="Оперативные и массивные вмешательства за последние 6 месяцев:"
+              children={<DefaultCheckbox label="нет," />}
+              checkBoxStle={'w-[610px]'}
+              description=" "
+              titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+            />
+            <DiagnosticCeckboxItem
+              label="Посещение стоматолога за последние 6 месяцев:"
+              children={<DefaultCheckbox label="нет," />}
+              description=" "
+              checkBoxStle={'w-[460px]'}
+              titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+            />
+
+            <DiagnosticCeckboxItem
+              label=" Профессия с подробным указанием
                                     профессиональных вредностей и др.
                                     особенностей (например, контакт с
                                     животными):"
-                description=" "
-                checkBoxStle={'w-[100%]'}
-                style="flex flex-col"
-                titleStyle="w-[100%] border p-[10px] rounded-[4px]"
-                boxStyle="w-[100%]"
-              />
-
-              <DiagnosticCeckboxItem
-                label="Дополнительная информация:"
-                checkBoxStle={'w-[1060px]'}
-                children={
-                  <Box className="flex">
-                    <DefaultCheckbox label="педикюр," />
-                    <DefaultCheckbox label="маникюр," />
-                    <DefaultCheckbox label="татуировка," />
-                    <DefaultCheckbox label="пирсинг," />
-                    <DefaultCheckbox label="иглоукалывание," />
-                    <DefaultCheckbox label="иглоукалывание," />
-                  </Box>
-                }
-                description=" "
-                titleStyle="w-[100%] border p-[10px] rounded-[4px]"
-                style="mt-[5px]"
-              />
-              <DiagnostikaItem
-                message=" "
-                style="border-[0px] py-0 px-0"
-                titleStyle="mb-[0px] text-[#5d5c5c]"
-                messageStyle="min-h-[80px]"
-              />
-            </Grid>
-          }
-        />
-
-        <Box className="border w-full px-[10px] pt-[10px] mt-[10px]">
-          <DiagnostikaItem
-            title="Status praesens objectivus"
-            style="border-0 px-0 py-0"
-            children={
-              <DiagnosticCeckboxItem
-                label="Общее состояние:"
-                boxStyle="w-[100%]"
-                checkBoxStle={'w-[1000px] '}
-                style="flex flex-col items-start border p-[5px]"
-                children={
-                  <Box className="flex">
-                    <DefaultCheckbox label="удовлетворительное," />
-                    <DefaultCheckbox label="относительное удовлетворительное," />
-                    <DefaultCheckbox label="средней тяжести," />
-                    <DefaultCheckbox label="тяжёлое" />
-                  </Box>
-                }
-                description=" "
-                titleStyle="w-[100%] border p-[10px] rounded-[4px]"
-              />
-            }
-          />
-          <DiagnosticCeckboxItem
-            label="Сознание:"
-            checkBoxStle={'w-[450px]'}
-            children={
-              <Box className={'flex'}>
-                <DefaultCheckbox label="ясное," />
-                <DefaultCheckbox label="ступор," />
-                <DefaultCheckbox label="сопор," />
-                <DefaultCheckbox label="кома," />
-              </Box>
-            }
-            description=" "
-            titleStyle="w-[100%] border p-[10px] rounded-[4px]"
-          />
-          <DiagnosticCeckboxItem
-            label="Положение:"
-            checkBoxStle={'w-[500px]'}
-            children={
-              <Box className={'flex'}>
-                <DefaultCheckbox label="активное," />
-                <DefaultCheckbox label="пассивное," />
-                <DefaultCheckbox label="вынужденное," />
-              </Box>
-            }
-            description=" "
-            titleStyle="w-[100%] border p-[10px] rounded-[4px]"
-          />
-          <DiagnosticCeckboxItem
-            label="Конституция:"
-            checkBoxStle={'w-[500px]'}
-            children={
-              <Box className={'flex'}>
-                <DefaultCheckbox label="нормастеник," />
-                <DefaultCheckbox label="астеник," />
-                <DefaultCheckbox label="гиперстеник," />
-              </Box>
-            }
-            description=" "
-            titleStyle="w-[100%] border p-[10px] rounded-[4px]"
-          />
-          <DiagnosticCeckboxItem
-            label="Кожные покровы:"
-            boxStyle="w-[100%]"
-            checkBoxStle={'w-[100%]  '}
-            style="flex flex-col items-start border p-[5px] "
-            children={
-              <Box className="flex">
-                <DefaultCheckbox label="нормальной окраски," />
-                <DefaultCheckbox label="бледные," />
-                <DefaultCheckbox label="гиперемия," />
-                <DefaultCheckbox label="иктеричные," />
-                <DefaultCheckbox label="субиктеричные," />
-                <DefaultCheckbox label="акроцианоз," />
-                <DefaultCheckbox label="землистого цвета" />
-              </Box>
-            }
-            description=" "
-            titleStyle="w-[100%] border p-[10px] rounded-[4px]"
-          />
-
-          <DiagnosticCeckboxItem
-            label="Пигментация:"
-            children={<DefaultCheckbox label="нет," />}
-            style="mt-[10px]"
-            description=" "
-            titleStyle="w-[100%] border p-[10px] rounded-[4px]"
-          />
-          <DiagnosticCeckboxItem
-            label="Депигментация:"
-            children={<DefaultCheckbox label="нет," />}
-            description=" "
-            titleStyle="w-[100%] border p-[10px] rounded-[4px]"
-          />
-          <DiagnosticCeckboxItem
-            label="Высыпания:"
-            children={<DefaultCheckbox label="нет," />}
-            description=" "
-            titleStyle="w-[100%] border p-[10px] rounded-[4px]"
-          />
-          <DiagnosticCeckboxItem
-            label="Сосудистые изменения:"
-            checkBoxStle={'w-[280px]'}
-            children={<DefaultCheckbox label="нет," />}
-            description=" "
-            titleStyle="w-[100%] border p-[10px] rounded-[4px]"
-          />
-          <DiagnosticCeckboxItem
-            label="Кровоизлияния:"
-            children={<DefaultCheckbox label="нет," />}
-            description=" "
-            titleStyle="w-[100%] border p-[10px] rounded-[4px]"
-          />
-          <DiagnosticCeckboxItem
-            label="Рубцы"
-            children={<DefaultCheckbox label="нет," />}
-            description=" "
-            titleStyle="w-[100%] border p-[10px] rounded-[4px]"
-          />
-          <DiagnosticCeckboxItem
-            label="Трофические изменения:"
-            checkBoxStle={'w-[280px]'}
-            children={<DefaultCheckbox label="нет," />}
-            description=" "
-            titleStyle="w-[100%] border p-[10px] rounded-[4px]"
-          />
-          <DiagnosticCeckboxItem
-            label="Видимые опухоли:"
-            children={<DefaultCheckbox label="нет," />}
-            checkBoxStle={'w-[250px]'}
-            description=" "
-            titleStyle="w-[100%] border p-[10px] rounded-[4px]"
-          />
-          <DiagnosticCeckboxItem
-            label="Влажность кожи:"
-            checkBoxStle={'w-[500px]'}
-            children={
-              <Box className="flex">
-                <DefaultCheckbox label="обычная," />
-                <DefaultCheckbox label="влажная," />
-                <DefaultCheckbox label="сухая," />
-              </Box>
-            }
-            description=" "
-            titleStyle="w-[100%] border p-[10px] rounded-[4px]"
-          />
-          <DiagnosticCeckboxItem
-            label="Влажность кожи:"
-            checkBoxStle={'w-[400px]'}
-            children={
-              <Box className="flex">
-                <DefaultCheckbox label="в норме," />
-                <DefaultCheckbox label="снижет," />
-              </Box>
-            }
-            description=" "
-            titleStyle="w-[100%] border p-[10px] rounded-[4px]"
-          />
-          <DiagnosticCeckboxItem
-            label="Подкожно-жировая клетчатка:"
-            checkBoxStle={'w-[800px]'}
-            children={
-              <Box className="flex">
-                <DefaultCheckbox label="развита умеренно," />
-                <DefaultCheckbox label="развита слабо," />
-                <DefaultCheckbox label="развита чрезмерно," />
-              </Box>
-            }
-            description=" "
-            titleStyle="w-[100%] border p-[10px] rounded-[4px]"
-            boxStyle=" w-[55%]"
-          />
-          <Box className="">
-            <Typography>Рост</Typography>
-            <DefaultText style={' border'} children={'158'} />
-            <Typography>см,</Typography>
-          </Box>
-          <DiagnosticCeckboxItem
-            label="Отеки, пастозность:"
-            checkBoxStle={'w-[250px]'}
-            children={
-              <Box className="flex">
-                <DefaultCheckbox label="нет," />
-              </Box>
-            }
-            description=" "
-            titleStyle="w-[100%] border p-[10px] rounded-[4px]"
-          />
-          <DiagnosticCeckboxItem
-            label="Лимфатические узлы:"
-            checkBoxStle={'w-[700px]'}
-            children={
-              <Box className="flex">
-                <DefaultCheckbox label="не увеличены," />
-                <DefaultCheckbox label="мягкие," />
-                <DefaultCheckbox label="плотные," />
-                <DefaultCheckbox label="эластичные," />
-              </Box>
-            }
-            description=" "
-            titleStyle="w-[100%] border p-[10px] rounded-[4px]"
-            boxStyle=" w-[55%]"
-          />
-          <DiagnostikaItem
-            style="border-0 px-0 py-0"
-            message=" "
-            messageStyle=" min-h-[80px] h-[80px]"
-          />
+              description=" "
+              checkBoxStle={'w-[100%]'}
+              style="flex flex-col"
+              titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+              boxStyle="w-[100%]"
+            />
+            <DiagnosticCeckboxItem
+              label="Дополнительная информация:"
+              checkBoxStle={'w-[1060px]'}
+              children={
+                <Box className="flex">
+                  <DefaultCheckbox label="педикюр," />
+                  <DefaultCheckbox label="маникюр," />
+                  <DefaultCheckbox label="татуировка," />
+                  <DefaultCheckbox label="пирсинг," />
+                  <DefaultCheckbox label="иглоукалывание," />
+                  <DefaultCheckbox label="иглоукалывание," />
+                </Box>
+              }
+              titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+              style="mt-[5px]"
+              description=" "
+            />
+          </Grid>
         </Box>
-        <Box className="border w-full px-[10px] pt-[10px] mt-[10px]">
-          <Typography className="mb-[10px] text-[14px]  font-normal text-[#000]">
-            Конно—мышечная система
-          </Typography>
+
+        <Box className="border px-[10px] py-[10px] flex flex-col gap-1 mb-[10px] ">
+          <Grid item className="">
+            <SectionTitle
+              title="Status praesens objectivus"
+              className="text-base font-medium"
+            />
+            <DiagnosticCeckboxItem
+              label="Общее состояние:"
+              description=" "
+              checkBoxStle={'w-[100%]'}
+              style="flex flex-col border p-2"
+              titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+              boxStyle="w-[100%]"
+              children={
+                <Box className="flex">
+                  <DefaultCheckbox label="удовлетворительное," />
+                  <DefaultCheckbox label="относительное удовлетворительное," />
+                  <DefaultCheckbox label="средней тяжести," />
+                  <DefaultCheckbox label="тяжёлое" />
+                </Box>
+              }
+            />
+            <DiagnosticCeckboxItem
+              label="Сознание:"
+              checkBoxStle={'w-[450px]'}
+              actions={false}
+              children={
+                <Box className={'flex'}>
+                  <DefaultCheckbox label="ясный," />
+                  <DefaultCheckbox label="ступор," />
+                  <DefaultCheckbox label="сопор," />
+                  <DefaultCheckbox label="кома," />
+                </Box>
+              }
+              titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+            />
+            <DiagnosticCeckboxItem
+              label="Положение:"
+              checkBoxStle={'w-[500px]'}
+              children={
+                <Box className={'flex'}>
+                  <DefaultCheckbox label="активное," />
+                  <DefaultCheckbox label="пассивное," />
+                  <DefaultCheckbox label="вынужденное," />
+                </Box>
+              }
+              titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+            />
+            <DiagnosticCeckboxItem
+              label="Конституция:"
+              checkBoxStle={'w-[500px]'}
+              children={
+                <Box className={'flex'}>
+                  <DefaultCheckbox label="нормастеник," />
+                  <DefaultCheckbox label="астеник," />
+                  <DefaultCheckbox label="гиперстеник," />
+                </Box>
+              }
+              titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+            />
+            <DiagnosticCeckboxItem
+              label="Кожные покровы:"
+              boxStyle="w-[100%]"
+              checkBoxStle={'w-[100%]  '}
+              style="flex flex-col items-start border p-[5px] "
+              children={
+                <Box className="flex">
+                  <DefaultCheckbox label="нормальной окраски," />
+                  <DefaultCheckbox label="бледные," />
+                  <DefaultCheckbox label="гиперемия," />
+                  <DefaultCheckbox label="иктеричные," />
+                  <DefaultCheckbox label="субиктеричные," />
+                  <DefaultCheckbox label="акроцианоз," />
+                  <DefaultCheckbox label="землистого цвета" />
+                </Box>
+              }
+              titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+            />
+            <DiagnosticCeckboxItem
+              label="Пигментация:"
+              children={<DefaultCheckbox label="нет," />}
+              style="mt-[10px]"
+              description=" "
+              titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+            />
+            <DiagnosticCeckboxItem
+              label="Депигментация:"
+              children={<DefaultCheckbox label="нет," />}
+              description=" "
+              titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+            />
+            <DiagnosticCeckboxItem
+              label="Высыпания:"
+              children={<DefaultCheckbox label="нет," />}
+              description=" "
+              titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+            />
+            <DiagnosticCeckboxItem
+              label="Сосудистые изменения:"
+              checkBoxStle={'w-[280px]'}
+              children={<DefaultCheckbox label="нет," />}
+              description=" "
+              titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+            />
+            <DiagnosticCeckboxItem
+              label="Кровоизлияния:"
+              children={<DefaultCheckbox label="нет," />}
+              description=" "
+              titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+            />
+            <DiagnosticCeckboxItem
+              label="Рубцы"
+              children={<DefaultCheckbox label="нет," />}
+              description=" "
+              titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+            />
+            <DiagnosticCeckboxItem
+              label="Трофические изменения:"
+              checkBoxStle={'w-[280px]'}
+              children={<DefaultCheckbox label="нет," />}
+              description=" "
+              titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+            />
+            <DiagnosticCeckboxItem
+              label="Видимые опухоли:"
+              children={<DefaultCheckbox label="нет," />}
+              checkBoxStle={'w-[250px]'}
+              description=" "
+              titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+            />
+
+            <DiagnosticCeckboxItem
+              label="Влажность кожи:"
+              checkBoxStle={'w-[500px]'}
+              children={
+                <Box className="flex">
+                  <DefaultCheckbox label="обычная," />
+                  <DefaultCheckbox label="влажная," />
+                  <DefaultCheckbox label="сухая," />
+                </Box>
+              }
+              description=" "
+              titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+            />
+            <DiagnosticCeckboxItem
+              label="Тургор кожи:"
+              checkBoxStle={'w-[400px]'}
+              children={
+                <Box className="flex">
+                  <DefaultCheckbox label="в норме," />
+                  <DefaultCheckbox label="снижет," />
+                </Box>
+              }
+              description=" "
+              titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+            />
+
+            <DiagnosticCeckboxItem
+              label="Подкожно-жировая клетчатка:"
+              checkBoxStle={'w-[800px]'}
+              children={
+                <Box className="flex">
+                  <DefaultCheckbox label="развита умеренно," />
+                  <DefaultCheckbox label="развита слабо," />
+                  <DefaultCheckbox label="развита чрезмерно," />
+                </Box>
+              }
+              description=" "
+              titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+              boxStyle=" w-[55%]"
+            />
+
+            <Box className="flex flex-row items-center p-1">
+              <Typography>Рост</Typography>
+              <OutlinedInput
+                sx={{ height: '35px', width: '100px' }}
+                className="mx-2"
+              />
+              <Typography>см,</Typography>
+              <Typography>вес</Typography>
+              <OutlinedInput
+                sx={{ height: '35px', width: '100px' }}
+                className="mx-2"
+              />
+              <Typography>кг, пульс</Typography>
+              <OutlinedInput
+                sx={{ height: '35px', width: '100px' }}
+                className="mx-2"
+              />
+              <Typography>уд/м, давление</Typography>
+              <OutlinedInput
+                sx={{ height: '35px', width: '80px' }}
+                className="mx-2"
+              />
+              <Typography>/</Typography>
+              <OutlinedInput
+                sx={{ height: '35px', width: '80px' }}
+                className="mx-2"
+              />
+              <Typography>мм рт.ст., ИМТ</Typography>
+              <OutlinedInput
+                sx={{ height: '35px', width: '60px' }}
+                className="mx-2"
+              />
+              <Typography>кг/м2</Typography>
+            </Box>
+
+            <DiagnosticCeckboxItem
+              label="Интерпретация показателя ИМТ"
+              checkBoxStle={'w-[350px]'}
+              children={
+                <Box className="flex">
+                  <DefaultCheckbox label="нет," />
+                </Box>
+              }
+              titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+            />
+            <DiagnosticCeckboxItem
+              label="Отеки, пастозность:"
+              checkBoxStle={'w-[250px]'}
+              children={
+                <Box className="flex">
+                  <DefaultCheckbox label="нет," />
+                </Box>
+              }
+              description=" "
+              titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+            />
+            <DiagnosticCeckboxItem
+              label="Лимфатические узлы:"
+              checkBoxStle={'w-[800px]'}
+              children={
+                <Box className="flex">
+                  <DefaultCheckbox label="не увеличены," />
+                  <DefaultCheckbox label="мягкие," />
+                  <DefaultCheckbox label="плотные," />
+                  <DefaultCheckbox label="эластичные," />
+                </Box>
+              }
+              description=" "
+              titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+              boxStyle=" w-[55%]"
+            />
+          </Grid>
+        </Box>
+
+        <Box className="border w-full px-[10px] pt-[10px] mt-[10px] ">
+          <SectionTitle
+            title="Конно—мышечная система"
+            className="text-base font-medium"
+          />
           <DiagnosticCeckboxItem
             label="Деформации:"
             checkBoxStle={'w-[210px]'}
@@ -441,23 +387,21 @@ const ConsultationTechniquesInPatients = () => {
             titleStyle="w-[100%] border p-[10px] rounded-[4px]"
             style="mt-[5px]"
           />
-          <DiagnostikaItem
-            style="border-0 px-0 py-0 "
-            message=" "
-            messageStyle=" min-h-[80px] h-[80px]"
-          />
         </Box>
-        <Box className="border w-full px-[10px] pt-[10px] mt-[10px]">
-          <Typography className="mb-[10px] text-[14px]  font-normal text-[#000]">
-            Дыхательная система
-          </Typography>
+
+        <Box className="border w-full px-[10px] py-[10px] mt-[10px] ">
+          <SectionTitle
+            title="Дыхательная система"
+            className="text-base font-medium"
+          />
           <Box className=" flex gap-2 items-center">
             <Typography className=" text-[14px]  font-normal text-[#000]">
               ЧДД
             </Typography>
-            <Box className=" border rounded-[4px] p-[10px] pr-[30px] items-center">
-              <Typography className=" pr-[20px] text-[#007DFF]">1</Typography>
-            </Box>
+            <OutlinedInput
+              sx={{ height: '35px', width: '60px' }}
+              className="mx-2"
+            />
             <Typography className=" text-[14px]  font-normal text-[#000]">
               в 1 минуту
             </Typography>
@@ -487,6 +431,7 @@ const ConsultationTechniquesInPatients = () => {
               </Box>
             }
             description=" "
+            actions={false}
             titleStyle="w-[100%] border p-[10px] rounded-[4px]"
             style="mt-[5px]"
           />
@@ -500,6 +445,7 @@ const ConsultationTechniquesInPatients = () => {
               </Box>
             }
             description=" "
+            actions={false}
             titleStyle="w-[100%] border p-[10px] rounded-[4px]"
             style="mt-[5px]"
           />
@@ -513,6 +459,7 @@ const ConsultationTechniquesInPatients = () => {
               </Box>
             }
             description=" "
+            actions={false}
             titleStyle="w-[100%] border p-[10px] rounded-[4px]"
             style="mt-[5px]"
           />
@@ -562,20 +509,141 @@ const ConsultationTechniquesInPatients = () => {
                 <DefaultCheckbox label="справа" />
               </Box>
             }
+            titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+          />
+        </Box>
+
+        <Box className="border w-full px-[10px] pt-[10px] mt-[10px] ">
+          <SectionTitle
+            title="Сердечно-сосудистая система"
+            className="text-base font-medium"
+          />
+          <DiagnosticCeckboxItem
+            label="Границы сердца:"
+            checkBoxStle={'w-[400px]'}
+            children={
+              <Box className="flex">
+                <DefaultCheckbox label="в норме," />
+                <DefaultCheckbox label="расширены," />
+              </Box>
+            }
+            description=" "
+            titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+            style="mt-[5px]"
+          />
+
+          <DiagnosticCeckboxItem
+            boxStyle="w-[100%]"
+            checkBoxStle={'w-[100%] '}
+            style="flex flex-col items-start border p-[5px]"
+            children={
+              <Box>
+                <Box className="flex items-center">
+                  <Typography className="text-[14px]  font-normal text-[#000]">
+                    Тоны сердца:
+                  </Typography>
+                  <DefaultCheckbox label="звучные," />
+                  <DefaultCheckbox label="приглушенные," />
+                  <DefaultCheckbox label="глухие," />
+                  <DefaultCheckbox label="ритмичные," />
+                  <DefaultCheckbox label="аритмичные," />
+                  <DefaultCheckbox label="мерцательная аритмия," />
+                  <DefaultCheckbox label="тахикардия," />
+                  <DefaultCheckbox label="брадикардия," />
+                </Box>
+                <Box className="flex items-center">
+                  <Typography className="text-[14px]  font-normal text-[#000]">
+                    акцент 2 тона на аорте:
+                  </Typography>
+                  <DefaultCheckbox label="есть," />
+                  <DefaultCheckbox label="нет," />
+                  <DefaultCheckbox label="патологические шумы" />
+                </Box>
+              </Box>
+            }
             description=" "
             titleStyle="w-[100%] border p-[10px] rounded-[4px]"
           />
+
+          <Box className=" py-2">
+            <Typography>
+              Изменение шума в зависимости ОТ положения тела, задержки дыхания
+              на вдохе И выдохе и после физической нагрузки:
+            </Typography>
+            <DiagnosticCeckboxItem
+              label=""
+              checkBoxStle={'w-[310px]'}
+              children={
+                <Box className="flex">
+                  <DefaultCheckbox label="усиливается," />
+                  <DefaultCheckbox label="неизменяется," />
+                </Box>
+              }
+              description=" "
+              titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+              style="mt-[5px]"
+            />
+          </Box>
+
+          <Box className="flex flex-row items-center p-1">
+            <Typography>АД слева</Typography>
+            <OutlinedInput
+              sx={{ height: '35px', width: '100px' }}
+              className="mx-2"
+            />
+            <Typography>, АД справа,</Typography>
+            <OutlinedInput
+              sx={{ height: '35px', width: '100px' }}
+              className="mx-2"
+            />
+            <Typography>, PS слева</Typography>
+            <OutlinedInput
+              sx={{ height: '35px', width: '100px' }}
+              className="mx-2"
+            />
+            <Typography>, PS справа</Typography>
+            <OutlinedInput
+              sx={{ height: '35px', width: '80px' }}
+              className="mx-2"
+            />
+          </Box>
+          <DiagnosticCeckboxItem
+            boxStyle="w-[100%]"
+            checkBoxStle={'w-[100%] '}
+            style="flex flex-col items-start border p-[5px]"
+            children={
+              <Box>
+                <Box className="flex items-center">
+                  <Typography className="text-[14px]  font-normal text-[#000]">
+                    Пульсация, шум над артериями:
+                  </Typography>
+                  <DefaultCheckbox label="нет," />
+                  <DefaultCheckbox label="сонная," />
+                  <DefaultCheckbox label="подключичная," />
+                  <DefaultCheckbox label="яремная," />
+                  <DefaultCheckbox label="тыльная," />
+                  <DefaultCheckbox label="слева," />
+                  <DefaultCheckbox label="справа" />
+                </Box>
+              </Box>
+            }
+            description=" "
+            titleStyle="w-[100%] border p-[10px] rounded-[4px]"
+          />
+
           <DiagnostikaItem
             message=" "
-            style="border-[0px] py-0 px-0"
+            style="border-[0px]  "
             titleStyle="mb-[0px] text-[#5d5c5c]"
             messageStyle="min-h-[80px]"
           />
         </Box>
-        <Box className="border w-full px-[10px] pt-[10px] mt-[10px]">
-          <Typography className="mb-[10px] text-[14px]  font-normal text-[#000]">
-            Органы пищеварения
-          </Typography>
+
+        <Box className="border w-full px-[10px] pt-[10px] mt-[10px] ">
+          <SectionTitle
+            title="Органы пищеварения"
+            className="text-base font-medium"
+          />
           <DiagnosticCeckboxItem
             label="Аппетит:"
             checkBoxStle={'w-[630px]'}
@@ -740,9 +808,12 @@ const ConsultationTechniquesInPatients = () => {
             <Typography className=" text-[14px]  font-normal text-[#000]">
               Частота стула:
             </Typography>
-            <Box className=" border rounded-[4px] p-[10px] pr-[30px] items-center">
-              <Typography className=" pr-[20px] text-[#007DFF]">1</Typography>
-            </Box>
+
+            <OutlinedInput
+              sx={{ height: '35px', width: '60px' }}
+              className="mx-2"
+            />
+
             <Typography className=" text-[14px]  font-normal text-[#000]">
               раз в день
             </Typography>
@@ -754,10 +825,12 @@ const ConsultationTechniquesInPatients = () => {
             messageStyle="min-h-[80px]"
           />
         </Box>
+
         <Box className="border w-full px-[10px] pt-[10px] mt-[10px]">
-          <Typography className="mb-[10px] text-[14px]  font-normal text-[#000]">
-            Мочевыделительная система
-          </Typography>
+          <SectionTitle
+            title="Мочевыделительная система"
+            className="text-base font-medium"
+          />
           <DiagnosticCeckboxItem
             label="Симптом поколачивания:"
             checkBoxStle={'w-[700px]'}
@@ -780,10 +853,12 @@ const ConsultationTechniquesInPatients = () => {
             messageStyle="min-h-[80px]"
           />
         </Box>
+
         <Box className="border w-full px-[10px] pt-[10px] mt-[10px]">
-          <Typography className="mb-[10px] text-[14px]  font-normal text-[#000]">
-            Эндокринная система
-          </Typography>
+          <SectionTitle
+            title="Эндокринная система"
+            className="text-base font-medium"
+          />
           <DiagnosticCeckboxItem
             label="Щитовидная железа:"
             checkBoxStle={'w-[730px]'}
@@ -800,34 +875,35 @@ const ConsultationTechniquesInPatients = () => {
             style="mt-[5px]"
           />
           <DiagnostikaItem
-            message="СД "
+            message=" "
             style="border-[0px] py-0 px-0"
             titleStyle="mb-[0px] text-[#5d5c5c]"
             messageStyle="min-h-[80px]"
           />
         </Box>
+
         <Box className="border w-full px-[10px] pt-[10px] mt-[10px]">
-          <Typography className=" text-[14px]  font-normal text-[#000]">
-            Нервная система
-          </Typography>
+          <SectionTitle
+            title="Нервная система"
+            className="text-base font-medium"
+          />
           <DiagnostikaItem
-            message="Сознание ясное, адекватно, овечает на вапросы, обаняние, Острота зрения OD=OS зрачки D=S, фотореаксия сохранена. Глазные щели D=S. Лицо симметричное,
- Голос и голоточные рефлекс сохранено, потологические рефлексы нет. "
+            message=" "
             style="border-[0px] py-0 px-0"
             titleStyle="mb-[0px] text-[#5d5c5c]"
             messageStyle="min-h-[80px]"
           />
         </Box>
+
         <Box className="border w-full px-[10px] pt-[10px] mt-[10px]">
-          <Typography className=" text-[14px]  font-normal text-[#000]">
-            Диагноз
-          </Typography>
-          <Box className="flex gap-2 my-[10px]">
+          <SectionTitle title="Диагноз" className="text-base font-medium" />
+          <Box className="flex gap-2 my-[10px] items-center">
+            <DefaultText style={'text-sm'}>Диагноз не изменен :</DefaultText>
             <DefaultButton
               classStyle="bg-[#4CAF50] text-[#fff]"
               title="Добавить диагноз"
             />
-            <DefaultButton
+            {/* <DefaultButton
               classStyle="bg-[#64B6F7] text-[#fff]"
               title="Утвердить"
             />
@@ -838,24 +914,21 @@ const ConsultationTechniquesInPatients = () => {
             <DefaultButton
               classStyle="bg-[#64B6F7] text-[#fff]"
               title="Удалить"
-            />
+            /> */}
           </Box>
-          <Box>
+          {/* <Box>
             <ReceptionTable
               columnDefs={ColData}
               rowData={rowData}
               height="h-[20vh]"
             />
-          </Box>
+          </Box> */}
         </Box>
-        <Box className="border w-full px-[10px] pt-[10px] mt-[10px]">
-          <Typography className=" text-[14px]  font-normal text-[#000]">
-            Заключение
-          </Typography>
+
+        <Box className="border w-full p-[10px] mt-[10px]">
+          <SectionTitle title="Заключение" className="text-base font-medium" />
           <DefaultCheckbox label="Cito!" />
-          <Typography className=" text-[14px]  font-normal text-[#000]">
-            Заключение:
-          </Typography>
+          <SectionTitle title="Заключение:" className="text-base font-medium" />
           <DiagnostikaItem
             message=" "
             style="border-[0px] py-0 px-0"
@@ -863,37 +936,61 @@ const ConsultationTechniquesInPatients = () => {
             messageStyle="min-h-[80px]"
           />
         </Box>
-        <DiagnostikaItem
-          title="Назначения"
-          titleStyle="mb-[0px]"
-          btnTitle="Назначить из лечебной программы"
-          btnStyle="ml-[0px] mb-[10px]"
-          disabled={true}
-          style="mt-[10px]"
-          onClick={() => appModals?.show('choosingDiagnosis')}
-          children={
-            <>
-              <DiagnostikaItem
-                title="Консультации и исследования"
-                text="Дополнительные консультации и исследования не требуются"
-                btnTitle="Добавить"
-                onClick={() => appModals?.show('choosingDiagnosis')}
+        <Box className="border w-full px-[10px] py-[5px] mt-[10px] mb-10">
+          <SectionTitle
+            title="Назначения"
+            className="text-base font-medium py-2"
+          />
+          <DefaultButton
+            classStyle="bg-[#4CAF50] text-[#fff]"
+            title="Назначить из лечебной программы!"
+          />
+          <Box className="border p-2 my-2">
+            <SectionTitle
+              title="Консультации и исследования"
+              className="text-base font-medium"
+            />
+            <Box className="flex flx-row items-center justify-start gap-3">
+              <DefaultText style="text-sm text-black">
+                Консультации и исследования не назначены.
+              </DefaultText>
+              <DefaultButton
+                classStyle="bg-[#4CAF50] text-[#fff]"
+                title="Добавить"
               />
-              <DiagnostikaItem
-                title="Лечебные процедуры"
-                text="Дополнительные лечебные процедуры не требуются"
-                btnTitle="Добавить"
-                onClick={() => appModals?.show('choosingDiagnosis')}
+            </Box>
+          </Box>
+          <Box className="border p-2 my-2">
+            <SectionTitle
+              title="Лечебные процедуры"
+              className="text-base font-medium"
+            />
+            <Box className="flex flx-row items-center justify-start gap-3">
+              <DefaultText style="text-sm text-black">
+                Лечебные процедуры не назначены.
+              </DefaultText>
+              <DefaultButton
+                classStyle="bg-[#4CAF50] text-[#fff]"
+                title="Добавить"
               />
-              <DiagnostikaItem
-                title="Медикаменты"
-                text="Дополнительные медикаменты не требуются"
-                btnTitle="Добавить"
-                onClick={() => appModals?.show('choosingDiagnosis')}
+            </Box>
+          </Box>
+          <Box className="border p-2 my-2">
+            <SectionTitle
+              title="Медикаменты"
+              className="text-base font-medium"
+            />
+            <Box className="flex flx-row items-center justify-start gap-3">
+              <DefaultText style="text-sm text-black">
+                Медикаменты не назначены.
+              </DefaultText>
+              <DefaultButton
+                classStyle="bg-[#4CAF50] text-[#fff]"
+                title="Добавить"
               />
-            </>
-          }
-        />
+            </Box>
+          </Box>
+        </Box>
       </Box>
     </Box>
   );

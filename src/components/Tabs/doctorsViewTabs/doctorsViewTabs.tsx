@@ -1,63 +1,76 @@
+import { FC, useCallback, useState } from 'react';
 import { Box } from '@mui/material';
-import { FC, useCallback, useEffect, useState } from 'react';
+
+import DoctorsTabBtn from './doctorstopTabsBtn';
 import { useReduxDispatch, useReduxSelector } from 'hooks/useReduxHook';
+import { selectPatient } from 'features/DoctorsRoleService/model/slices/selectedPatientsSlice';
+import { removePatient } from 'features/booked/bookedSlice';
 
-import DoctorsViewTabBtn from './doctorsViewBtn';
-import { removeDoctorPatient } from 'features/doctorsPatient/patientDoctorsSlice';
-
-export type TabsItem = {
-    title: string;
-    subTitle?: string;
-    icon?: any;
-    component: React.FC;
+export type TopTabsItemType = {
+  title: string;
+  component: React.FC;
+  subTitle?: string;
+  isRemove?: boolean;
+  isUserIcon: boolean;
 };
 
 interface TabsProps {
-    content: TabsItem[];
+  content: TopTabsItemType[];
 }
 
 const DoctorsViewTabs: FC<TabsProps> = ({ content }) => {
-    // const { selectBroneId } = useReduxSelector((brone) => brone.doctors);
-    const dispatch = useReduxDispatch();
-    const [activeTab, setActiveTab] = useState<number>(0);
+  const [activeTab, setActiveTab] = useState<number>(0);
+  const dispatch = useReduxDispatch();
 
-    const handleActiveTab = (index: number) => {
-        setActiveTab(index);
-    };
+  const { data } = useReduxSelector((state) => state.dynamicTopTabs);
 
-    const removeActiveIB = () => {
-        dispatch(removeDoctorPatient(activeTab - 5));
-        setActiveTab(0);
-    };
+  const handleActiveTab = useCallback(
+    (index: number, tabName: string) => {
+      const curItem = data.find(({ name }) => name === tabName);
+      dispatch(selectPatient(curItem?.id as never));
+      setActiveTab(index);
+    },
+    [data, dispatch],
+  );
 
-    return (
-        <Box className=" w-full ">
-            <Box className="flex flex-row gap-1 border-b-[1px] border-[rgba(0, 0, 0, 1)]  ">
-                {content.map((item, index) => {
-                    return (
-                        <Box key={index}>
-                            <DoctorsViewTabBtn
-                                index={index}
-                                Icon={item?.icon}
-                                title={item?.title}
-                                activeTab={activeTab}
-                                subTitle={item?.subTitle}
-                                handleCloseBtn={removeActiveIB}
-                                onClick={() => handleActiveTab(index)}
-                            />
-                        </Box>
-                    );
-                })}
-            </Box>
-            <Box className="w-full">
-                {content.map((item, index) => {
-                    if (index === activeTab) {
-                        return <item.component key={index} />;
-                    }
-                })}
-            </Box>
-        </Box>
-    );
+  const removeActiveTab = useCallback(
+    (tabName: string) => {
+      const curItem = data.find(({ name }) => name === tabName);
+      dispatch(removePatient(curItem?.id as never));
+      setActiveTab(0);
+    },
+    [data, dispatch],
+  );
+
+  return (
+    <Box className="w-full">
+      <Box className="flex flex-row gap-1 border-b-[1px] border-[rgba(0, 0, 0, 1)] w-full">
+        {content.map((item, index) => (
+          <Box key={index}>
+            <DoctorsTabBtn
+              index={index}
+              title={item.title}
+              activeTab={activeTab}
+              subTitle={item.subTitle}
+              handleCloseBtn={() => removeActiveTab(item.title)}
+              isRemove={item.isRemove || false}
+              onClick={() => handleActiveTab(index, item.title)}
+              isUserIcon={item.isUserIcon}
+            />
+          </Box>
+        ))}
+      </Box>
+      <Box className="w-full">
+        {content.map((item, index) => {
+          if (index === activeTab) {
+            const Component = item.component;
+            return <Component key={index} />;
+          }
+          return null;
+        })}
+      </Box>
+    </Box>
+  );
 };
 
 export default DoctorsViewTabs;

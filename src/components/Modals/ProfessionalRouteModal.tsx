@@ -1,13 +1,13 @@
 import { Box, Button, Grid, IconButton } from '@mui/material';
 import { CloseCircleIcon } from 'assets/icons/icons';
-import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
-import DefaultText from 'components/DefaultText/DefaultText';
+import AutocompleteInput from 'components/autocompleteInput';
+import DefaultText from 'components/defaultText/DefaultText';
 
 import { useEscapeKey } from 'hooks/useEscapeKey';
 import { useCallback } from 'react';
 import { CallMeLaterModalContainer } from './Modals.styles';
 import { useAppModals } from './ModalsProvider';
-import DefaulCheckbox from 'components/Checkbox/DefaultCheckbox';
+import DefaulCheckbox from 'components/checkbox/DefaultCheckbox';
 
 const ProfessionalRouteModal = () => {
   const appModals = useAppModals();

@@ -1,14 +1,14 @@
 import React from 'react';
 import CollapsibleTable from './Dropdown';
-import SearchInput from './search/SearchInput';
+import SearchInput from './SearchField/searchInput';
 
 const OftenUsed = () => {
-    return (
-        <div>
-            <SearchInput placeholder="Искать в таблице" />
-            <CollapsibleTable />
-        </div>
-    );
+  return (
+    <div>
+      <SearchInput placeholder="Искать в таблице" />
+      <CollapsibleTable />
+    </div>
+  );
 };
 
 export default OftenUsed;

@@ -1,6 +1,7 @@
 import { Box, Typography } from '@mui/material';
-import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
+import SectionTitle from 'components/SectionTitle/sectionTitle';
 import DefaultInput from 'components/defaultInput/DefaultInput';
+
 import { UseFormRegister } from 'react-hook-form';
 import { Patient } from 'types/booked';
 type propsType = {
@@ -8,19 +9,19 @@ type propsType = {
   register: UseFormRegister<Patient>;
 };
 const HomeAddressForm = (props: propsType) => {
-  let { avtoCaplektData, register } = props;
+  let { register } = props;
 
   return (
     <Box className="flex flex-col border mt-[10px] p-[5px] ">
-      <Typography className=" text-[14px] text-[text-[#000]] ">
-        Домашний адрес
-      </Typography>
+      <SectionTitle
+        title="Домашний адрес"
+        className="text-sm font-medium font-roboto"
+      />
       <DefaultInput
         label="Быстрый ввод адреса"
         register={register}
         inputType={'patient.address'}
-        containerStile="w-[100%] flex-col  mt-[10px] "
-        inputStyle="w-[100%]"
+        inputStyle="w-[98%]"
       />
 
       <Box className="w-full flex flex-row items-center justify-between  gap-1 mt-[10px]">
@@ -50,7 +51,7 @@ const HomeAddressForm = (props: propsType) => {
         <DefaultInput
           label="Тип нас. пункта"
           register={register}
-          inputType={'appeal'}
+          inputType={'patient.appeal'}
           containerStile="w-[32%] flex-col"
           inputStyle="w-[100%]"
         />
@@ -73,7 +74,7 @@ const HomeAddressForm = (props: propsType) => {
         <DefaultInput
           label="Дом"
           register={register}
-          inputType={'appeal'}
+          inputType={'patient.home'}
           containerStile="w-[32%] flex-col"
           inputStyle="w-[100%]"
         />
@@ -87,7 +88,7 @@ const HomeAddressForm = (props: propsType) => {
         <DefaultInput
           label="Квартира"
           register={register}
-          inputType={'appeal'}
+          inputType={'patient.home_number'}
           containerStile="w-[32%] flex-col"
           inputStyle="w-[100%]"
         />

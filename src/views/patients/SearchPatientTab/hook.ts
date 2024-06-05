@@ -1,4 +1,5 @@
-import { useGetAllMyPatientsQuery } from 'features/patient/patientService';
+import { RowClickedEvent } from 'ag-grid-community';
+import { useGetAllMyPatientsQuery } from 'features/patient/service';
 import useDebounce from 'hooks/useDebounceHook';
 import { useState, useCallback, useMemo, useEffect } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
@@ -49,6 +50,10 @@ export const useSearchpatientHook = () => {
     return filteredMyPatientData?.length;
   }, [filteredMyPatientData?.length]);
 
+  const handleClickedRowTable = useCallback((event: RowClickedEvent) => {
+    console.log(event.data);
+  }, []);
+
   return {
     myPatientData: filteredMyPatientData,
     numberOfPatient,
@@ -56,5 +61,6 @@ export const useSearchpatientHook = () => {
     register,
     handleSubmit,
     OnSubmit,
+    handleClickedRowTable,
   };
 };

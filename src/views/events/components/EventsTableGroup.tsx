@@ -2,14 +2,14 @@ import { ColDef, RowClickedEvent } from 'ag-grid-community';
 import { AgGridReact } from 'ag-grid-react';
 import { useCallback, useRef } from 'react';
 
-type propsType = {
+type PropsType = {
   columnDefs?: ColDef[];
   rowData?: any;
   height?: string;
   icons?: any;
 };
 
-const EventsTableGroup = (props: propsType) => {
+const EventsTableGroup = (props: PropsType) => {
   const gridRef = useRef<AgGridReact>(null);
 
   const handleRowClick = useCallback((event: RowClickedEvent) => {
@@ -26,6 +26,12 @@ const EventsTableGroup = (props: propsType) => {
           rowData={props.rowData}
           columnDefs={props.columnDefs}
           groupDisplayType={'groupRows'}
+          defaultColDef={{ sortable: true }}
+          autoGroupColumnDef={{
+            headerName: 'Group',
+            field: 'start_date',
+            minWidth: 300,
+          }}
           icons={props.icons}
           rowSelection="multiple"
           onRowClicked={handleRowClick}

@@ -9,8 +9,8 @@ import {
 } from 'assets/icons/icons';
 import CustomizedAccordions from 'components/CustomizedAccordions';
 import TablePaginationDemo from 'components/TablePaginationDemo';
-import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
-import DefaultButton from 'components/DeafultButton/DefaultButton';
+import AutocompleteInput from 'components/autocompleteInput';
+import DefaultButton from 'components/deafultButton/DefaultButton';
 import { useState } from 'react';
 const top100Films = [
   { label: 'The Shawshank Redemption', year: 1994 },

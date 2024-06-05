@@ -3,10 +3,9 @@ import React, { Suspense } from 'react';
 import { Box, Grid, TextField, Typography } from '@mui/material';
 import { ArrowDropSownIcon } from 'assets/icons/icons';
 import { useAppModals } from 'components/Modals';
-import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
-import { PhonePush } from 'components/ColumnDefs/phonePush';
-import DefaultButton from 'components/DeafultButton/DefaultButton';
-import DefaultText from 'components/DefaultText/DefaultText';
+import { PhonePushColDefs } from 'components/columnDefs/phonePush';
+import DefaultButton from 'components/deafultButton/DefaultButton';
+import DefaultText from 'components/defaultText/DefaultText';
 import FrontFooter from 'components/frontFooter/FrontFooter';
 import DocumentationForm from './components/DocumentationForm';
 import HomeAddressForm from './components/HomeAddressForm';
@@ -15,10 +14,13 @@ import PhonePushForm from './components/PhonePushForm';
 import TravelPackageForm from './components/TravelPackageForm';
 import RadioForm from 'components/RadioForm';
 import DiagnostikaItem from '../../components/DiagnostikaItem';
-import DefaulCheckbox from 'components/Checkbox/DefaultCheckbox';
-import TagAutoCompleateBox from 'components/TagAutoCompleateBox/tagAutoCompleateBox';
+import DefaulCheckbox from 'components/checkbox/DefaultCheckbox';
 import useTitlePageTabHook from './hook';
-const PatientForm = React.lazy(() => import('./components/PatientForm'));
+import AutocompleteInput from 'components/autocompleteInput';
+import TagAutoCompleateBox from 'components/TagAutoCompleateBox/tagAutoCompleateBox';
+const PatientForm = React.lazy(
+  () => import('../BookedTitlePage/Components/PatientForm'),
+);
 
 const polData = [
   {
@@ -194,7 +196,7 @@ const PatientInfoSection = ({ register }: PatientInfoType) => {
         />
         <HomeAddressForm avtoCaplektData={top100Films} register={register} />
         <PhonePushForm
-          phonePush={PhonePush}
+          phonePush={PhonePushColDefs}
           avtoCaplektData={top100Films}
           register={register}
           rowData={rowData}

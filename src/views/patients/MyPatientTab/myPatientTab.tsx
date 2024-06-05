@@ -1,14 +1,19 @@
 import { Grid, Typography } from '@mui/material';
 import { VuesaxLinear } from 'assets/icons/icons';
-import { BookedPatiant } from 'components/ColumnDefs/bookedCol';
-import DefaultButton from 'components/DeafultButton/DefaultButton';
-import ReceptionTable from 'components/ReceptionTable';
-import SearchInput from 'components/search/SearchInput';
+import DefaultButton from 'components/deafultButton/DefaultButton';
+import TableComponent from 'components/CustomTable/table';
 import useMyPatientTabHook from './hook';
+import { BookedPatiant } from 'components/columnDefs/bookedCol';
+import SearchInput from 'components/SearchField/searchInput';
 
 const MyPatientTab = () => {
-  const { myPatientData, NumberOfPatient, handleSearch } =
-    useMyPatientTabHook();
+  const {
+    myPatientData,
+    NumberOfPatient,
+    handleSearch,
+    handleClickedRowTable,
+  } = useMyPatientTabHook();
+
   return (
     <Grid container>
       <Grid
@@ -21,15 +26,16 @@ const MyPatientTab = () => {
         </Grid>
         <DefaultButton
           title=" Экспорт в Excel"
-          classStyle="bg-[#2196F3] h-[40px] text-[#fff] text-sm capitalize mr-[10px]"
+          classStyle="bg-[#2d373f] h-[40px] text-[#fff] text-sm capitalize mr-[10px]"
           icon={<VuesaxLinear />}
         />
       </Grid>
       <Grid item xs={12} md={12} className=" bg-[#F5F5F5]">
-        <ReceptionTable
+        <TableComponent
           columnDefs={BookedPatiant}
-          rowData={myPatientData}
-          height="h-[810px]"
+          data={myPatientData as never}
+          tableHeight="h-[810px]"
+          handleClickedTableRow={handleClickedRowTable}
         />
       </Grid>
       <Grid>

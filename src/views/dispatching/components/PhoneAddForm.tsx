@@ -1,8 +1,8 @@
 import { Box, Button, Typography } from '@mui/material';
-import DefaulCheckbox from 'components/Checkbox/DefaultCheckbox';
 import DefaultInput from 'components/defaultInput/DefaultInput';
-import ReceptionTable from 'components/ReceptionTable/receptionTable';
-import { rowData } from '../Saidbar/dispatchFrontPage/DispatchFrontPage';
+import ReceptionTable from 'components/receptionTable';
+import { rowData } from '../saidbar/dispatchFrontPage/DispatchFrontPage';
+import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
 
 type propsType = {
   avtoCaplektData: any;
@@ -51,7 +51,7 @@ const PhoneAddForm = (props: propsType) => {
           containerStile="w-[75%] flex-row items-center justify-between "
           inputStyle="w-[70%]"
         />
-        <DefaulCheckbox label="Без СКК" style="w-[25%] ml-[5px]" />
+        <DefaultCheckbox label="Без СКК" style="w-[25%] ml-[5px]" />
       </Box>
       <DefaultInput
         label="Номер ИБ поликлиники:"

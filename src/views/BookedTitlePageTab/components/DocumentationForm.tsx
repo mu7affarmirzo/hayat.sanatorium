@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material';
-import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
 import CustomizedAccordions from 'components/CustomizedAccordions';
 import DefaultInput from 'components/defaultInput/DefaultInput';
+import AutocompleteInput from 'components/autocompleteInput';
 
 type propsType = {
   avtoCaplektData: any;
@@ -10,11 +10,11 @@ type propsType = {
 
 const DocumentationForm = (props: propsType) => {
   let { avtoCaplektData, register } = props;
+
   return (
     <CustomizedAccordions
       title="Документы"
       childrenStyle={{
-        background: '#F5F5F5',
         display: 'flex',
       }}
       topBoxStyle={{ background: '#F5F5F5', marginTop: '10px' }}>
@@ -41,7 +41,6 @@ const DocumentationForm = (props: propsType) => {
             containerStile="w-[20%] flex-col"
             inputStyle="w-[100%]"
           />
-
           <DefaultInput
             label="Номер"
             register={register}

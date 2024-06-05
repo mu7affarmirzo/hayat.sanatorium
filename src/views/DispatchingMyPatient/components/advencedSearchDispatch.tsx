@@ -1,5 +1,5 @@
 import CustomizedAccordions from 'components/CustomizedAccordions';
-import ExpancedSearchOptions from 'views/Dispatching/components/ExpandedOptionsSearch';
+import ExpancedSearchOptions from 'views/dispatching/components/ExpandedOptionsSearch';
 
 export const AdvencedSearchOptionDispatch = () => {
   return (

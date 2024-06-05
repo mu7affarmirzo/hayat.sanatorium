@@ -1,10 +1,11 @@
 import { Box, Grid, Typography } from '@mui/material';
-import AutocompleteInput from 'components/AutoCompleteInput/autocompleteInput';
-import { columnDefs } from 'components/ColumnDefs/expectedCol';
+import DefaultText from 'components/defaultText/DefaultText';
 import SectionTitle from 'components/SectionTitle/sectionTitle';
-import DefaultButton from 'components/DeafultButton/DefaultButton';
-import DefaultText from 'components/DefaultText/DefaultText';
-import ReceptionTable from 'components/ReceptionTable';
+import AutocompleteInput from 'components/autocompleteInput';
+import { columnDefs } from 'components/columnDefs/expectedCol';
+import DefaultButton from 'components/deafultButton/DefaultButton';
+import ReceptionTable from 'components/receptionTable';
+
 import { FC } from 'react';
 
 type propsType = {
@@ -25,7 +26,7 @@ const InfoContainer: FC<InfoBoxTypes> = ({ children, label, buttonChild }) => {
   return (
     <Grid
       container
-      className={`${buttonChild ? 'items-start' : 'items-center'} mt-2`}>
+      className={`${buttonChild ? 'items-start' : 'items-center'} mt-2 `}>
       <Grid item xs={2.5}>
         <Typography className="text-sm font-normal font-roboto text-[#8d8c8c] ">
           {label}
@@ -43,8 +44,11 @@ const TravelPackageForm = (props: propsType) => {
   let { avtoCaplektData, rowData, watch, isDisabetBtns } = props;
 
   return (
-    <Box className="flex flex-col border p-[5px] bg-red-500">
-      <SectionTitle title="Пребывание в санатории" />
+    <Box className="flex flex-col border p-[5px]">
+      <SectionTitle
+        title="Пребывание в санатории"
+        className="font-roboto font-medium text-sm"
+      />
 
       <InfoContainer
         label="Программа:"
@@ -65,7 +69,7 @@ const TravelPackageForm = (props: propsType) => {
         children={
           <ReceptionTable
             columnDefs={columnDefs}
-            height="h-[200px]"
+            height="h-[100px]"
             rowData={rowData}
           />
         }
@@ -79,6 +83,7 @@ const TravelPackageForm = (props: propsType) => {
               data={avtoCaplektData}
               containerStyle={'w-[20%]  flex-row items-center  justify-between'}
               inputStyle="w-[100%]"
+              multiple={true}
             />
             <AutocompleteInput
               label="-"
@@ -124,6 +129,7 @@ const TravelPackageForm = (props: propsType) => {
           </Box>
         }
       />
+
       <InfoContainer
         label="Выбыл:"
         children={
@@ -148,9 +154,10 @@ const TravelPackageForm = (props: propsType) => {
         label="Лечащий врач:"
         children={
           <AutocompleteInput
-            multiple={true}
+            multiple={false}
             data={[watch('doctor')] || []}
             inputStyle="w-[100%]"
+            optionsData={[]}
           />
         }
       />
@@ -162,6 +169,7 @@ const TravelPackageForm = (props: propsType) => {
             multiple={true}
             data={watch('nurse') || []}
             inputStyle="w-[100%]"
+            optionsData={[]}
           />
         }
       />
@@ -179,6 +187,7 @@ const TravelPackageForm = (props: propsType) => {
           </Box>
         }
       />
+
       <InfoContainer
         label="Отделение:"
         children={

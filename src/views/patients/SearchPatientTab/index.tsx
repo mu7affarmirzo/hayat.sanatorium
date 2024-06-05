@@ -1,1 +1,1 @@
-export { default } from "./SearchPatiant"
+export { default } from './SearchPatiant';

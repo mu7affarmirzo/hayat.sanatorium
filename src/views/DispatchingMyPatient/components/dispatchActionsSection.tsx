@@ -4,8 +4,8 @@ import {
   SearchAltIcon,
   CloseIcon,
 } from 'assets/icons/icons';
-import DefaultButton from 'components/DeafultButton/DefaultButton';
-import SearchInput from 'components/search/SearchInput';
+import DefaultButton from 'components/deafultButton/DefaultButton';
+import SearchInput from 'components/SearchField/searchInput';
 
 export const DispatchActionsSection = () => {
   return (
