@@ -1,7 +1,7 @@
 import {
   usePostElectrocardiogrammaMutation,
   useGetElectrocardiogrammaQuery,
-  usePatchElectrocardiogrammaMutation
+  usePatchElectrocardiogrammaMutation,
 } from 'features/Appointments/Electrocardiogramma/service';
 import {
   LabResearchForEkg,
@@ -20,28 +20,30 @@ export const useElectrocardiogramAppointmentHook = () => {
     useState<AppointmentStatus['status']>('notCompleted');
 
   const methods = useForm<EkgAppointmentTypes>();
-  
+
   const { procedures } = useReduxSelector((state) => state.procedures);
-  
+
   const { medications } = useReduxSelector((state) => state.medication);
-  
+
   const { selectedConsultingItems, selectedReSearchItems } = useReduxSelector(
     (state) => state.consultingAndResearch,
   );
-  
-  const { appointments } = useReduxSelector((state) => state.appointments) 
-  
-  const {
-  data: ekgData,
-  refetch: refetchEkgAppointment
-  } = useGetElectrocardiogrammaQuery(appointments.ekg_appointment[0].id)
+
+  const { appointments } = useReduxSelector((state) => state.appointments);
+
+  const CheckElectrogrammaApp = appointments.ekg_appointment
+    ? appointments.ekg_appointment[0]
+    : null;
+
+  const { data: ekgData, refetch: refetchEkgAppointment } =
+    useGetElectrocardiogrammaQuery(appointments.ekg_appointment[0].id);
 
   useEffect(() => {
     if (ekgData) {
-      const {id, ...restData} = ekgData
-      methods.reset(restData)
+      const { id, ...restData } = ekgData;
+      methods.reset(restData);
     }
-  }, [ekgData])
+  }, [ekgData]);
 
   const [fetchEkgPatch] = usePatchElectrocardiogrammaMutation();
   const [fetchEkgApp] = usePostElectrocardiogrammaMutation();
@@ -104,17 +106,15 @@ export const useElectrocardiogramAppointmentHook = () => {
     if (ekgData) {
       fetchEkgPatch({
         id: ekgData.id,
-        body: newData
+        body: newData,
       }).then(() => {
-        refetchEkgAppointment()
-      })
-    }
-    else {
+        refetchEkgAppointment();
+      });
+    } else {
       fetchEkgApp(newData).then(() => {
-        refetchEkgAppointment()
+        refetchEkgAppointment();
       });
     }
-   
   };
 
   return {

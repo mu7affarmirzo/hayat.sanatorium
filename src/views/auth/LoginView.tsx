@@ -57,12 +57,12 @@ const AuthFormSection = () => {
           <Typography
             variant={'inherit'}
             component="div"
-            className="text-center font-light text-4xl text-black mb-8  font-inter">
+            className="text-center font-light text-4xl text-black mb-8  font-roboto ">
             Вход в систему Госпиталь
             <Typography
               variant={'inherit'}
               component="span"
-              className="text-[#F1141E] text-[28px] uppercase font-bold leading-normal block font-inter">
+              className="text-[#F1141E] text-[28px] uppercase font-bold leading-normal block font-roboto">
               Hayat Medical Center
             </Typography>
           </Typography>
@@ -72,7 +72,7 @@ const AuthFormSection = () => {
               error={values.isLoginValid === false}
               className="w-full , mb-7 , mt-4"
               variant="outlined">
-              <InputLabel>Логин</InputLabel>
+              <InputLabel className="font-roboto">Логин</InputLabel>
               <OutlinedInput
                 type="text"
                 label="Логин"
@@ -91,7 +91,9 @@ const AuthFormSection = () => {
               error={values.isPasswordValid === false}
               className="w-full , mb-7 "
               variant="outlined">
-              <InputLabel htmlFor="outlined-adornment-password">
+              <InputLabel
+                htmlFor="outlined-adornment-password"
+                className="font-roboto">
                 Пароль
               </InputLabel>
               <OutlinedInput
@@ -112,7 +114,7 @@ const AuthFormSection = () => {
                 label="Password"
               />
               {values.isPasswordValid === false && (
-                <FormHelperText error>
+                <FormHelperText error className="font-roboto">
                   Введите более трех символов
                 </FormHelperText>
               )}
@@ -122,7 +124,7 @@ const AuthFormSection = () => {
               <Box className="w-full,text-center , justify-between , bg-red-600 , h-4, px-4 , rounded , mb-4 , flex-1">
                 <div className="text-center">
                   <ErrorOutlineOutlined sx={{ color: '#fff' }} />
-                  <Typography component={'span'}>
+                  <Typography component={'span'} className="font-roboto">
                     Логин или пароль введен неправильно
                   </Typography>
                 </div>
@@ -144,6 +146,7 @@ const AuthFormSection = () => {
                   />
                 }
                 label="Запомните пароль"
+                className="font-roboto"
               />
 
               <Link
@@ -151,7 +154,7 @@ const AuthFormSection = () => {
                 underline="none"
                 color="primary"
                 fontWeight="500"
-                className="text-sm font-sans uppercase font-normal">
+                className="text-sm font-roboto uppercase font-normal ">
                 Забыли пароль ?
               </Link>
             </Item>

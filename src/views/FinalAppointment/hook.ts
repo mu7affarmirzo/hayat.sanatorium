@@ -15,8 +15,12 @@ export const useFinalAppointmentHook = () => {
 
   const { appointments } = useReduxSelector((state) => state.appointments);
 
+  const CheckFinalAppointment = appointments.final_appointment
+    ? appointments.final_appointment[0]
+    : null;
+
   const { data: finalData, refetch: refetchFinalAppointment } =
-    useGetFinalAppointmentQuery(appointments.final_appointment[0].id);
+    useGetFinalAppointmentQuery(CheckFinalAppointment as never);
 
   const methods = useForm<FinalAppointment>();
 

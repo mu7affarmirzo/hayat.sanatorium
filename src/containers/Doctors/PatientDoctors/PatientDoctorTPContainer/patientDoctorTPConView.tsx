@@ -1,6 +1,5 @@
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import TagAutoCompleateBox from 'components/TagAutoCompleateBox/tagAutoCompleateBox';
-import DefaultButton from 'components/deafultButton/DefaultButton';
 import FrontFooter from 'components/frontFooter/FrontFooter';
 import TitlePageBottomCheckbooks from 'views/BookedTitlePage/Components/bottomChechBoxs';
 import Comment from 'views/BookedTitlePage/Components/commetsSection';
@@ -13,6 +12,7 @@ import DocumentationForm from 'views/BookedTitlePageTab/components/Documentation
 import HospitalStayForm from 'views/BookedTitlePageTab/components/HospitalStayForm';
 import TravelPackageForm from 'views/BookedTitlePageTab/components/TravelPackageForm';
 import { PatientDocTPProvider, usePatientDocTPContext } from './module';
+import { TitlePageContainer } from 'views/BookedTitlePage/Components/titlePageContainer';
 
 const top100FilmsChack = [
   { title: 'The Shawshank Redemption', year: 1994 },
@@ -88,11 +88,8 @@ const polData = [
 const Main = () => {
   const {
     scrollRef,
-    scrollUp,
     onSubmit,
     defaultValues,
-    nurseData,
-    doctorData,
     getAgePatient,
     methods: { register, handleSubmit, setValue, watch },
     copyArray,
@@ -110,21 +107,7 @@ const Main = () => {
         <div>Loading...</div>
       ) : (
         <form onSubmit={handleSubmit(onSubmit)}>
-          <Grid container className="flex ">
-            <Grid item xs={12} md={12} className="flex">
-              <Box className="flex w-[50%] justify-end  items-center ">
-                <Typography>История болезни №</Typography>
-                <Box className=" w-[60px] ml-[10px] ">
-                  <input
-                    className=" bg-[#fff] w-full h-full border-none outline-none pl-[5px]"
-                    {...register('id')}
-                  />
-                </Box>
-              </Box>
-              <Box className=" flex w-[50%] justify-end  items-center ">
-                <DefaultButton title="новая" onClick={() => scrollUp()} />
-              </Box>
-            </Grid>
+          <TitlePageContainer>
             <Grid
               item
               xs={12}
@@ -137,10 +120,10 @@ const Main = () => {
                   <PatientInfoSection
                     register={register}
                     pollData={polData}
-                    mockData={top100FilmsChack}
                     setValue={setValue}
-                    defaultValues={defaultValues}
                     patientDob={getAgePatient}
+                    mockData={top100FilmsChack}
+                    defaultValues={defaultValues}
                     patient_phones={copyArray as never}
                   />
                   <DocumentationForm
@@ -148,14 +131,12 @@ const Main = () => {
                     register={register}
                   />
                 </div>
-                <Box className="w-[64%] ">
+                <Box className="w-[64%] bg-red-400">
                   <TravelPackageForm
                     avtoCaplektData={top100FilmsChack}
                     register={register}
                     rowData={rowData}
                     watch={watch}
-                    nurseData={nurseData as never}
-                    doctorData={doctorData as never}
                   />
                   <HospitalStayForm
                     avtoCaplektData={top100FilmsChack}
@@ -175,7 +156,7 @@ const Main = () => {
                 defaultValues={defaultValues}
               />
             </Grid>
-          </Grid>
+          </TitlePageContainer>
         </form>
       )}
     </div>

@@ -12,7 +12,7 @@ import RadioForm from 'components/RadioForm';
 import DiagnostikaItem from 'components/DiagnostikaItem';
 import DocumentationForm from 'views/BookedTitlePageTab/components/DocumentationForm';
 import HomeAddressForm from 'views/BookedTitlePageTab/components/HomeAddressForm';
-import PatientForm from 'views/BookedTitlePageTab/components/PatientForm';
+import PatientForm from 'views/BookedTitlePage/Components/PatientForm';
 import StaySanatorium from 'views/dispatching/components/StaySanatorium';
 import CustomizedAccordions from 'components/CustomizedAccordions';
 import PhoneAddForm from 'views/dispatching/components/PhoneAddForm';

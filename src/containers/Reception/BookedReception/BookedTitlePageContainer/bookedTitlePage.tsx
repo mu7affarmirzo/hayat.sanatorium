@@ -10,9 +10,9 @@ import HarmFactors from 'views/BookedTitlePage/Components/harmFactors';
 import ModeHandler from 'views/BookedTitlePage/Components/modalHandler';
 import PatientInfoSection from 'views/BookedTitlePage/Components/patientInfoSection';
 import RiskFactorsAndTags from 'views/BookedTitlePage/Components/tagsFactors';
-import useReceptionBookedTitleHook from './hook';
 import Comment from 'views/BookedTitlePage/Components/commetsSection';
 import FrontFooter from 'components/frontFooter/FrontFooter';
+import useReceptionBookedTitleHook from './hook';
 
 const top100FilmsChack = [
   { title: 'The Shawshank Redemption', year: 1994 },
@@ -188,7 +188,6 @@ const BookedTitlePageContainer = () => {
                 register={register}
               />
             </div>
-
             <Box className="w-[64%]">
               <TravelPackageForm
                 avtoCaplektData={top100FilmsChack}

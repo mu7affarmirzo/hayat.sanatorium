@@ -28,10 +28,12 @@ export const useRepeatedAppointmentHook = () => {
   );
   const { appointments } = useReduxSelector((state) => state.appointments) 
 
+  const CheckRepeatedApp = appointments.repeated_appointment ? appointments.repeated_appointment[0] : null
+
   const {
     data: repeatedData,
     refetch: refetchRepeatedAppointment
-  } = useGetRepeatedAppointmentQuery(appointments.repeated_appointment[0].id)
+  } = useGetRepeatedAppointmentQuery(CheckRepeatedApp as never)
 
   useEffect(() => {
     if (repeatedData) {

@@ -1,3 +1,4 @@
+import InitialApportments from 'views/AppointmentInit';
 import ConsultationCardiologistView from 'views/ConsultationCardiologist';
 import { StartOfReceptionDataType } from 'views/DiseaseHistoryActionTabs/diseaseHistoryTabs.constants';
 import DoctorOnDutyAppointment from 'views/DoctorOnDutyAppointment';
@@ -8,6 +9,73 @@ import NeurologistConsultationView from 'views/NeurologistConsultationApp';
 import RepeatedAppointment from 'views/RepeatedAppointment';
 
 export const anotherPopopData: { [key: string]: any } = {
+  [StartOfReceptionDataType.initial]: {
+    title: 'Первичный прием лечащего врача',
+    component: InitialApportments,
+    chiled: [
+      {
+        id: 1,
+        title: 'Жалобы/анамнез',
+      },
+      {
+        id: 2,
+        title: 'Anamnesis morbi',
+      },
+      {
+        id: 3,
+        title: 'Anamnesis vitae',
+      },
+      {
+        id: 4,
+        title: 'Эпиданамнез',
+      },
+      {
+        id: 5,
+        title: 'Status praesens objectivus',
+      },
+      {
+        id: 6,
+        title: 'Косте-мышечная система',
+      },
+      {
+        id: 7,
+        title: 'Дыхательная система',
+      },
+      {
+        id: 8,
+        title: 'Сердечно—сосудистая система',
+      },
+      {
+        id: 9,
+        title: 'Органы пищеварения',
+      },
+      {
+        id: 10,
+        title: 'Мочевыделительная система',
+      },
+      {
+        id: 11,
+        title: 'Эндокринная система',
+      },
+      {
+        id: 12,
+        title: 'Нервная система',
+      },
+      {
+        id: 13,
+        title: 'Диагноз',
+      },
+      {
+        id: 8,
+        title: 'Заключение',
+      },
+      {
+        id: 8,
+        title: 'Назначения',
+      },
+    ],
+  },
+
   [StartOfReceptionDataType.final_appointment]: {
     title: 'Заключительный прием лечащего врача',
     component: FinalAppointment,
@@ -73,9 +141,5 @@ export const anotherPopopData: { [key: string]: any } = {
   [StartOfReceptionDataType.ekg_appointment]: {
     title: 'ЭКГ(Электрокардиограмма)',
     component: ElectrocardiogramAppointment,
-  },
-  [StartOfReceptionDataType.initial]: {
-    component: () => null,
-    title: '',
   },
 };

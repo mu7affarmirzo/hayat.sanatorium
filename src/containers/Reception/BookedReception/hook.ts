@@ -1,24 +1,31 @@
-import { TabsItem } from 'components/sideBar/SideBar';
 import { useReduxSelector } from 'hooks/useReduxHook';
-import { useMemo } from 'react';
-import bookedChildTab from 'views/BookedTab';
 import BookedReceptionContainer from './BookedReceptionContainer';
+import { TopTabsItemType } from 'components/Tabs/doctorsViewTabs/doctorsViewTabs';
+import BookedTab from 'views/BookedTab';
 
 export const useRecaptionContainerHook = () => {
   const { broneData } = useReduxSelector((dynamicTabs) => dynamicTabs.booked);
-  const dynamicContent = useMemo(() => {
-    const bookedTab: TabsItem = {
-      title: 'Забронированные',
-      component: bookedChildTab,
-    };
 
-    const broneItems =
-      broneData?.map((item) => ({
-        title: item.name,
-        component: BookedReceptionContainer,
-      })) || [];
-    return [bookedTab, ...broneItems];
-  }, [broneData]);
+  const recBookedDynamicTabs: TopTabsItemType[] = broneData?.map((item) => ({
+    itemId: item.id,
+    title: item.name,
+    component: BookedReceptionContainer,
+    isUserIcon: true,
+    isRemove: true,
+  }));
+
+  const staticContentTabs: TopTabsItemType[] = [
+    {
+      title: 'Забронированные',
+      component: BookedTab,
+      isUserIcon: false,
+    },
+  ];
+
+  const dynamicContent: TopTabsItemType[] = [
+    ...staticContentTabs,
+    ...recBookedDynamicTabs,
+  ];
 
   return {
     dynamicContent,

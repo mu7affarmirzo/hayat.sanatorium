@@ -1,4 +1,3 @@
-import InitialApportments from 'views/AppointmentInit';
 import { TabsItem } from 'components/sideBar/SideBar';
 import PatientDoctorTPContainer from 'containers/Doctors/PatientDoctors/PatientDoctorTPContainer';
 import TreatmentSchedule from 'views/TreatmentSchedule';
@@ -17,26 +16,25 @@ export const GenerateSidebarTabsData = (
 ) => {
   const separateAppointmentsData = () => {
     const list: TabsItem[] = map(appointmentsList ?? {}, (values, key: any) => {
+      if (values.length === 0) {
+        return null;
+      }
       const items = map(values ?? [], (appointment, index) => ({
         title: anotherPopopData[key]?.title,
         component: anotherPopopData[key]?.component,
         key,
       }));
+
       return {
         title: anotherPopopData[key]?.title,
         component: anotherPopopData[key]?.component,
         chiled: items,
       };
-    }) as TabsItem[];
-
+    }).filter((item) => item !== null) as TabsItem[];
     return list;
   };
 
-  console.log(
-    separateAppointmentsData(),
-    appointmentsList,
-    'separateAppointmentsData',
-  );
+  console.log(separateAppointmentsData, 'separateAppointmentsData');
 
   const staticSidebarItemTabs: TabsItem[] = [
     {
@@ -53,72 +51,72 @@ export const GenerateSidebarTabsData = (
       title: 'Документы',
       component: invoicesDocuments,
     },
-    {
-      title: 'Первичный прием лечащего врача',
-      component: InitialApportments,
-      chiled: [
-        {
-          id: 1,
-          title: 'Жалобы/анамнез',
-        },
-        {
-          id: 2,
-          title: 'Anamnesis morbi',
-        },
-        {
-          id: 3,
-          title: 'Anamnesis vitae',
-        },
-        {
-          id: 4,
-          title: 'Эпиданамнез',
-        },
-        {
-          id: 5,
-          title: 'Status praesens objectivus',
-        },
-        {
-          id: 6,
-          title: 'Косте-мышечная система',
-        },
-        {
-          id: 7,
-          title: 'Дыхательная система',
-        },
-        {
-          id: 8,
-          title: 'Сердечно—сосудистая система',
-        },
-        {
-          id: 9,
-          title: 'Органы пищеварения',
-        },
-        {
-          id: 10,
-          title: 'Мочевыделительная система',
-        },
-        {
-          id: 11,
-          title: 'Эндокринная система',
-        },
-        {
-          id: 12,
-          title: 'Нервная система',
-        },
-        {
-          id: 13,
-          title: 'Диагноз',
-        },
-        {
-          id: 8,
-          title: 'Заключение',
-        },
-        {
-          id: 8,
-          title: 'Назначения',
-        },
-      ],
-    },
+    // {
+    //   title: 'Первичный прием лечащего врача',
+    //   component: InitialApportments,
+    //   chiled: [
+    //     {
+    //       id: 1,
+    //       title: 'Жалобы/анамнез',
+    //     },
+    //     {
+    //       id: 2,
+    //       title: 'Anamnesis morbi',
+    //     },
+    //     {
+    //       id: 3,
+    //       title: 'Anamnesis vitae',
+    //     },
+    //     {
+    //       id: 4,
+    //       title: 'Эпиданамнез',
+    //     },
+    //     {
+    //       id: 5,
+    //       title: 'Status praesens objectivus',
+    //     },
+    //     {
+    //       id: 6,
+    //       title: 'Косте-мышечная система',
+    //     },
+    //     {
+    //       id: 7,
+    //       title: 'Дыхательная система',
+    //     },
+    //     {
+    //       id: 8,
+    //       title: 'Сердечно—сосудистая система',
+    //     },
+    //     {
+    //       id: 9,
+    //       title: 'Органы пищеварения',
+    //     },
+    //     {
+    //       id: 10,
+    //       title: 'Мочевыделительная система',
+    //     },
+    //     {
+    //       id: 11,
+    //       title: 'Эндокринная система',
+    //     },
+    //     {
+    //       id: 12,
+    //       title: 'Нервная система',
+    //     },
+    //     {
+    //       id: 13,
+    //       title: 'Диагноз',
+    //     },
+    //     {
+    //       id: 8,
+    //       title: 'Заключение',
+    //     },
+    //     {
+    //       id: 8,
+    //       title: 'Назначения',
+    //     },
+    //   ],
+    // },
 
     {
       title: 'Питание',
@@ -137,7 +135,6 @@ export const GenerateSidebarTabsData = (
       title: 'Сводная таблица исследований',
       component: researchSummaryTable,
     },
-
     {
       title: 'Измеряемые параметры',
       component: measuredParameters,

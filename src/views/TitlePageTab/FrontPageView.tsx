@@ -20,7 +20,7 @@ import FrontFooter from 'components/frontFooter/FrontFooter';
 import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
 
 const PatientForm = React.lazy(
-  () => import('views/BookedTitlePageTab/components/PatientForm'),
+  () => import('views/BookedTitlePage/Components/PatientForm'),
 );
 
 const polData = [

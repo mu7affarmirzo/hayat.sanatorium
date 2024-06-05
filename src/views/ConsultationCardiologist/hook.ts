@@ -1,7 +1,7 @@
 import {
   usePostCardiologistAppoinmnetMutation,
   useGetCardiologistAppoinmnetQuery,
-  usePatchCardiologistAppoinmnetMutation
+  usePatchCardiologistAppoinmnetMutation,
 } from 'features/Appointments/CardiologistAppoinemnt/service';
 import {
   LabResearchForCardiologist,
@@ -28,21 +28,26 @@ export const useCardiologistAppoinmnetHook = () => {
 
   const methods = useForm<CardiologistAppointment>();
 
-  const { appointments } = useReduxSelector((state) => state.appointments) 
-  
+  const { appointments } = useReduxSelector((state) => state.appointments);
+
+  const CheckCardiologistApp = appointments.cardiologist
+    ? appointments.cardiologist[0]
+    : null;
+
   const {
-  data: cardiologistAppointment,
-  refetch: refetchCardiologistAppointment
-  } = useGetCardiologistAppoinmnetQuery(appointments.cardiologist[0].id)
+    data: cardiologistAppointment,
+    refetch: refetchCardiologistAppointment,
+  } = useGetCardiologistAppoinmnetQuery(CheckCardiologistApp as never);
 
   useEffect(() => {
     if (cardiologistAppointment) {
-      const {id, ...restData} = cardiologistAppointment
-      methods.reset(restData)
+      const { id, ...restData } = cardiologistAppointment;
+      methods.reset(restData);
     }
-  }, [cardiologistAppointment])
+  }, [cardiologistAppointment]);
 
-  const [fetchCardiologistAppointmentPatch] = usePatchCardiologistAppoinmnetMutation();
+  const [fetchCardiologistAppointmentPatch] =
+    usePatchCardiologistAppoinmnetMutation();
   const [fetchRequest] = usePostCardiologistAppoinmnetMutation();
 
   const { procedures } = useReduxSelector((state) => state.procedures);
@@ -103,14 +108,13 @@ export const useCardiologistAppoinmnetHook = () => {
     if (cardiologistAppointment) {
       fetchCardiologistAppointmentPatch({
         id: cardiologistAppointment.id,
-        data: newData
+        data: newData,
       }).then(() => {
-        refetchCardiologistAppointment()
-      })
-    }
-    else {
+        refetchCardiologistAppointment();
+      });
+    } else {
       fetchRequest(newData).then(() => {
-        refetchCardiologistAppointment()
+        refetchCardiologistAppointment();
       });
     }
   };
