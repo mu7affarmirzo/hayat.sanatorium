@@ -1,7 +1,7 @@
 import {
   usePostDoctorsOnDutyMutation,
   useGetDoctorsOnDutyQuery,
-  usePatchDoctorsOnDutyMutation
+  usePatchDoctorsOnDutyMutation,
 } from 'features/Appointments/DoctorOnDutyAppointment/service';
 import {
   DoctorOnDutyAppointmentTypes,
@@ -21,19 +21,21 @@ export const useDoctorOnDutyAppointmentHook = () => {
 
   const methods = useForm<DoctorOnDutyAppointmentTypes>();
 
-  const { appointments } = useReduxSelector((state) => state.appointments) 
-  
-  const {
-  data: doctorOnDutyData,
-  refetch: refetchDoctorOnDutyAppointment
-  } = useGetDoctorsOnDutyQuery(appointments.on_duty_doctor[0].id)
+  const { appointments } = useReduxSelector((state) => state.appointments);
+
+  const CheckDocOnDutyApp = appointments.on_duty_doctor_on_arrival
+    ? appointments.on_duty_doctor_on_arrival[0]
+    : null;
+
+  const { data: doctorOnDutyData, refetch: refetchDoctorOnDutyAppointment } =
+    useGetDoctorsOnDutyQuery(CheckDocOnDutyApp as never);
 
   useEffect(() => {
     if (doctorOnDutyData) {
-      const {id, ...restData} = doctorOnDutyData
-      methods.reset(restData)
+      const { id, ...restData } = doctorOnDutyData;
+      methods.reset(restData);
     }
-  }, [doctorOnDutyData])
+  }, [doctorOnDutyData]);
 
   const [fetchDoctorOnDutyPatch] = usePatchDoctorsOnDutyMutation();
   const [fetchRequest] = usePostDoctorsOnDutyMutation();
@@ -105,14 +107,13 @@ export const useDoctorOnDutyAppointmentHook = () => {
     if (doctorOnDutyData) {
       fetchDoctorOnDutyPatch({
         id: doctorOnDutyData.id,
-        body: postData
+        body: postData,
       }).then(() => {
-        refetchDoctorOnDutyAppointment()
-      })
-    }
-    else {
+        refetchDoctorOnDutyAppointment();
+      });
+    } else {
       fetchRequest(postData).then(() => {
-        refetchDoctorOnDutyAppointment()
+        refetchDoctorOnDutyAppointment();
       });
     }
   };

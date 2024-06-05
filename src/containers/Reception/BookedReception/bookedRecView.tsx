@@ -1,14 +1,14 @@
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import BroneViewTabs from 'components/Tabs/BookedPageTabs/bookedTabs';
 import { useRecaptionContainerHook } from './hook';
+import DoctorsViewTabs from 'components/Tabs/doctorsViewTabs/doctorsViewTabs';
 
 const BookedReceptionView = () => {
   const { dynamicContent } = useRecaptionContainerHook();
   return (
     <div className=" w-full  h-full  relative">
       <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <BroneViewTabs content={dynamicContent} />
+        <DoctorsViewTabs content={dynamicContent} />
       </LocalizationProvider>
     </div>
   );

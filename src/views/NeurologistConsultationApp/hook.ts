@@ -1,7 +1,7 @@
 import {
   usePostNeurologistAppointmentMutation,
   useGetNeurologistAppointmentQuery,
-  usePatchNeurologistAppointmentMutation
+  usePatchNeurologistAppointmentMutation,
 } from 'features/Appointments/NeuroligstAppointment/service';
 import {
   LabResearchForNeuroligst,
@@ -22,6 +22,7 @@ export const useNeurologistAppoinmnetHook = () => {
 
   const { procedures } = useReduxSelector((state) => state.procedures);
   const { medications } = useReduxSelector((state) => state.medication);
+
   const { selectedConsultingItems, selectedReSearchItems } = useReduxSelector(
     (state) => state.consultingAndResearch,
   );
@@ -71,19 +72,19 @@ export const useNeurologistAppoinmnetHook = () => {
     [setAppointmentStatus],
   );
 
-  const { appointments } = useReduxSelector((state) => state.appointments)
-  console.log({ appointments })
+  const { appointments } = useReduxSelector((state) => state.appointments);
+
   const {
-  data: neurologistAppointment,
-  refetch: refetchNeurologistAppointment
-  } = useGetNeurologistAppointmentQuery(appointments.neurologist[0].id)
+    data: neurologistAppointment,
+    refetch: refetchNeurologistAppointment,
+  } = useGetNeurologistAppointmentQuery(appointments.neurologist[0] as never);
 
   useEffect(() => {
     if (neurologistAppointment) {
-      const {id, ...restData} = neurologistAppointment
-      methods.reset(restData)
+      const { id, ...restData } = neurologistAppointment;
+      methods.reset(restData);
     }
-  }, [neurologistAppointment])
+  }, [neurologistAppointment]);
 
   const [fetchNeurologistPatch] = usePatchNeurologistAppointmentMutation();
   const [fetchNeuroligstApi] = usePostNeurologistAppointmentMutation();
@@ -101,14 +102,13 @@ export const useNeurologistAppoinmnetHook = () => {
     if (neurologistAppointment) {
       fetchNeurologistPatch({
         id: neurologistAppointment.id,
-        body: newData
+        body: newData,
       }).then(() => {
-        refetchNeurologistAppointment()
-      })
-    }
-    else {
+        refetchNeurologistAppointment();
+      });
+    } else {
       fetchNeuroligstApi(newData).then(() => {
-        refetchNeurologistAppointment()
+        refetchNeurologistAppointment();
       });
     }
   };

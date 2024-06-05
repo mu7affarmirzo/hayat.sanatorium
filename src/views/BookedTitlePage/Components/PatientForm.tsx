@@ -1,9 +1,11 @@
 import { Box, Button, Typography } from '@mui/material';
 import { ActiveDotIcon, NoActiveDotIcon } from 'assets/icons/icons';
+import SectionTitle from 'components/SectionTitle/sectionTitle';
 import DefaultInput from 'components/defaultInput/DefaultInput';
 import { SetStateAction, memo, useEffect, useState } from 'react';
 import { UseFormRegister } from 'react-hook-form';
 import { Patient } from 'types/booked';
+
 type propsType = {
   polData: any;
   avtoCaplektData: any;
@@ -33,29 +35,32 @@ const PatientForm = (props: propsType) => {
   }, [isMale, polData, setValue]);
 
   return (
-    <Box className="flex flex-col ">
-      <Typography>Пациент</Typography>
+    <Box className="flex flex-col p-1">
+      <SectionTitle
+        title="Пациент"
+        className="text-sm font-medium font-roboto"
+      />
       <Box className="w-full flex items-center justify-between ">
         <DefaultInput
           register={register}
           inputType={'patient.l_name'}
           label="Фамилия"
-          containerStile="w-[32%] flex-col "
-          inputStyle="70%"
+          containerStile="w-[32%] flex-col"
+          size="small"
         />
+
         <DefaultInput
           register={register}
           inputType={'patient.f_name'}
           label="Имя"
           containerStile="w-[32%] flex-col "
-          inputStyle="70%"
         />
+
         <DefaultInput
           register={register}
           inputType={'patient.mid_name'}
           label="Отчество"
           containerStile="w-[32%] flex-col "
-          inputStyle="70%"
         />
       </Box>
 
@@ -63,11 +68,11 @@ const PatientForm = (props: propsType) => {
         label="Обращение:"
         register={register}
         inputType={'patient.appeal'}
-        containerStile="w-[100%] flex-row justify-between items-center mt-[10px] "
-        inputStyle="w-[70%]"
+        inputStyle="w-[99%]"
+        labelPosition="right"
       />
 
-      <Box className="w-full flex flex-row items-center gap-1 mt-[10px]">
+      <Box className="w-full flex flex-row items-center gap-1 mt-[10px] mx-1">
         <Typography className="text-[14px] text-[#858585] mr-[58px] ">
           Пол:
         </Typography>
@@ -92,15 +97,17 @@ const PatientForm = (props: propsType) => {
           </Button>
         ))}
       </Box>
-      <Box className="flex flex-row items-center  mt-3">
+
+      <Box className="flex flex-row items-center ">
         <DefaultInput
           label="Дата рождения"
           register={register}
           inputType={'patient.date_of_birth'}
-          containerStile="flex-row items-center gap-2"
-          inputStyle="w-[45%]"
+          containerStile="w-[40%]"
+          inputStyle="w-[100%]"
+          labelPosition="above"
         />
-        <Typography className=" text-[14px] text-[#858585]">
+        <Typography className="text-[14px] mt-6 text-[#858585]">
           Возраст:{patientDob} лет
         </Typography>
       </Box>
@@ -109,15 +116,15 @@ const PatientForm = (props: propsType) => {
         label="Место работы:"
         register={register}
         inputType={'patient.work_place'}
-        containerStile="w-[100%] flex-row justify-between items-center mt-[10px] "
-        inputStyle="w-[62%]"
+        containerStile=""
+        inputStyle="w-[98%]"
       />
       <DefaultInput
         label="Занимаемая должность:"
         register={register}
         inputType={'patient.work_position'}
-        containerStile="w-[100%] flex-row justify-between items-center mt-[10px] "
-        inputStyle="w-[62%]"
+        containerStile=""
+        inputStyle="w-[98%]"
       />
     </Box>
   );

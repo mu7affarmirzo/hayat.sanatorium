@@ -11,9 +11,11 @@ import {
   StartOfReceptionDataType,
 } from './diseaseHistoryTabs.constants';
 
-import { useReduxDispatch } from 'hooks/useReduxHook';
+import { useReduxDispatch, useReduxSelector } from 'hooks/useReduxHook';
 
 import { setDynamicSidebar } from 'features/slices/doctorsPatientSidebarSlice';
+import generateUniqueId from 'utils/generateID';
+import { useRemoveIllnessHistoryMutation } from 'features/DoctorsRoleService/service/doctorService';
 
 export const mockSelectData = [
   {
@@ -27,7 +29,7 @@ export const mockSelectData = [
 ];
 
 export type DropdownMenuItem = {
-  id: number;
+  id?: number;
   title: StartOfReceptionDataType | string;
   subMenu?: DropdownMenuItem[];
   child?: {
@@ -39,13 +41,37 @@ export type DropdownMenuItem = {
 const DiseaseHistoryTopTabs = () => {
   const dispatch = useReduxDispatch();
 
+  const { activePatient } = useReduxSelector(
+    (state) => state.patientIllnesHistory,
+  );
+
+  const [fetchRemove] = useRemoveIllnessHistoryMutation();
+  const [fetchClose] = useRemoveIllnessHistoryMutation();
+
+  const { id } = activePatient;
+
+  const hanleRemoveIllnessHistory = useCallback(
+    (id: number) => {
+      console.log('remove illness history', id);
+      fetchRemove(id);
+    },
+    [fetchRemove],
+  );
+
+  const hanleCloseIllnessHistory = useCallback(
+    (id: number) => {
+      console.log('close illness history', id);
+      fetchClose(id);
+    },
+    [fetchClose],
+  );
+
   const handleClicked = useCallback(
-    (item: DropdownMenuItem) => {
+    (item: any) => {
       dispatch(
         setDynamicSidebar({
-          id: item.id,
+          id: generateUniqueId(),
           title: item.title,
-          child: item.child,
         }),
       );
     },
@@ -67,7 +93,6 @@ const DiseaseHistoryTopTabs = () => {
             classStyle="h-[46px] text-[#fff] mr-[10px] bg-green-500 "
             submitType="submit"
           />
-
           <Dropdown
             title="Начало приёма"
             handleClicked={(item) => handleClicked(item)}
@@ -84,7 +109,6 @@ const DiseaseHistoryTopTabs = () => {
               horizontal: 'left',
             }}
           />
-
           <DefaultButton
             title="Экспортировать документы"
             classStyle="bg-[#2196F3] h-[46px] text-[#fff] mr-[5px] "
@@ -92,11 +116,13 @@ const DiseaseHistoryTopTabs = () => {
           <DefaultButton
             title="Закрыть историю болезни"
             classStyle="bg-[#2196F3] h-[46px] text-[#fff] mr-[5px] "
+            onClick={() => hanleCloseIllnessHistory(id)}
           />
 
           <DefaultButton
             title="Удалить историю болезни"
             classStyle="bg-[#2196F3] h-[46px] text-[#fff] mr-[5px] "
+            onClick={() => hanleRemoveIllnessHistory(id)}
           />
 
           <DefaultButton

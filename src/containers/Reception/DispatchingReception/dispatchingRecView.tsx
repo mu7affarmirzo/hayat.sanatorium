@@ -1,12 +1,12 @@
-import BroneViewTabs from 'components/Tabs/BookedPageTabs/bookedTabs';
 import useDispatchingHook from './hook';
+import DoctorsViewTabs from 'components/Tabs/doctorsViewTabs/doctorsViewTabs';
 
 const DispatchingReceptionView = () => {
-  const { dynamicContent } = useDispatchingHook();
+  const { content } = useDispatchingHook();
 
   return (
     <div className="w-full h-full relative">
-      <BroneViewTabs content={dynamicContent} />
+      <DoctorsViewTabs content={content} />
     </div>
   );
 };

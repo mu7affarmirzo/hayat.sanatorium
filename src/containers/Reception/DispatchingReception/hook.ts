@@ -1,27 +1,30 @@
-import { TabsItem } from 'components/sideBar/SideBar';
+import { TopTabsItemType } from 'components/Tabs/doctorsViewTabs/doctorsViewTabs';
 import { useReduxSelector } from 'hooks/useReduxHook';
-import { useMemo } from 'react';
 import MyPatientsView from 'views/DispatchingMyPatient';
 import DispatchingTitlePage from 'views/DispatchingTitlePage';
 
 const useDispatchingHook = () => {
   const { ibsData } = useReduxSelector((state) => state.dispatching);
 
-  const dynamicContent = useMemo(() => {
-    const bookedTab: TabsItem = {
+  const recDispatchDynamicTabs: TopTabsItemType[] = ibsData?.map((item) => ({
+    title: item.name,
+    component: DispatchingTitlePage,
+    isUserIcon: true,
+    isRemove: true,
+  }));
+
+  const staticTabs: TopTabsItemType[] = [
+    {
       title: 'Забронированные',
       component: MyPatientsView,
-    };
-    const broneItems =
-      ibsData?.map((item) => ({
-        title: item.name,
-        component: DispatchingTitlePage,
-      })) || [];
-    return [bookedTab, ...broneItems];
-  }, [ibsData]);
+      isUserIcon: false,
+    },
+  ];
+
+  const content: TopTabsItemType[] = [...staticTabs, ...recDispatchDynamicTabs];
 
   return {
-    dynamicContent,
+    content,
   };
 };
 

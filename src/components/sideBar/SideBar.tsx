@@ -4,13 +4,14 @@ import { FC, useState } from 'react';
 import SideBarBtn from './SideBarBtn';
 
 export type TabsItem = {
+  props?: any;
+  chiled?: any;
+  search?: any;
   title: string;
   subTitle?: string;
-  component: React.FC<any>;
-  chiled?: any;
   activBtnType?: any;
-  search?: any;
-  props?: any;
+  isEditable?: boolean;
+  component: React.FC<any>;
 };
 
 interface TabsProps {

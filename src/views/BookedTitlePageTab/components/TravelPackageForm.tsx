@@ -14,8 +14,6 @@ type propsType = {
   rowData?: any;
   watch?: any;
   isDisabetBtns?: boolean;
-  nurseData?: [];
-  doctorData?: [];
 };
 
 interface InfoBoxTypes {
@@ -28,7 +26,7 @@ const InfoContainer: FC<InfoBoxTypes> = ({ children, label, buttonChild }) => {
   return (
     <Grid
       container
-      className={`${buttonChild ? 'items-start' : 'items-center'} mt-2`}>
+      className={`${buttonChild ? 'items-start' : 'items-center'} mt-2 `}>
       <Grid item xs={2.5}>
         <Typography className="text-sm font-normal font-roboto text-[#8d8c8c] ">
           {label}
@@ -43,18 +41,15 @@ const InfoContainer: FC<InfoBoxTypes> = ({ children, label, buttonChild }) => {
 };
 
 const TravelPackageForm = (props: propsType) => {
-  let {
-    avtoCaplektData,
-    rowData,
-    watch,
-    isDisabetBtns,
-    doctorData,
-    nurseData,
-  } = props;
+  let { avtoCaplektData, rowData, watch, isDisabetBtns } = props;
 
   return (
-    <Box className="flex flex-col border p-[5px] bg-gray-300">
-      <SectionTitle title="Пребывание в санатории" />
+    <Box className="flex flex-col border p-[5px]">
+      <SectionTitle
+        title="Пребывание в санатории"
+        className="font-roboto font-medium text-sm"
+      />
+
       <InfoContainer
         label="Программа:"
         children={
@@ -74,7 +69,7 @@ const TravelPackageForm = (props: propsType) => {
         children={
           <ReceptionTable
             columnDefs={columnDefs}
-            height="h-[200px]"
+            height="h-[100px]"
             rowData={rowData}
           />
         }
@@ -134,6 +129,7 @@ const TravelPackageForm = (props: propsType) => {
           </Box>
         }
       />
+
       <InfoContainer
         label="Выбыл:"
         children={
@@ -161,7 +157,7 @@ const TravelPackageForm = (props: propsType) => {
             multiple={false}
             data={[watch('doctor')] || []}
             inputStyle="w-[100%]"
-            optionsData={doctorData}
+            optionsData={[]}
           />
         }
       />
@@ -173,7 +169,7 @@ const TravelPackageForm = (props: propsType) => {
             multiple={true}
             data={watch('nurse') || []}
             inputStyle="w-[100%]"
-            optionsData={nurseData}
+            optionsData={[]}
           />
         }
       />
@@ -191,6 +187,7 @@ const TravelPackageForm = (props: propsType) => {
           </Box>
         }
       />
+
       <InfoContainer
         label="Отделение:"
         children={

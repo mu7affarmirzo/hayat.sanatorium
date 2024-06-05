@@ -1,7 +1,7 @@
 import {
   useGetInitAppointmentQuery,
   usePatchInitAppointmentMutation,
-  usePostInitAppointmentMutation
+  usePostInitAppointmentMutation,
 } from 'features/Appointments/InitAppointment/service';
 import {
   InitAppointment,
@@ -27,20 +27,27 @@ const useInitialAppointmentForm = () => {
     (state) => state.consultingAndResearch,
   );
 
+  const { activePatient } = useReduxSelector(
+    (state) => state.patientIllnesHistory,
+  );
+
   const methods = useForm<InitAppointment>();
 
-  const { appointments } = useReduxSelector((state) => state.appointments) 
-  const {
-  data: initialAppointment,
-  refetch: refetchInitialAppointment
-  } = useGetInitAppointmentQuery(appointments.initial[0].id)
+  const { appointments } = useReduxSelector((state) => state.appointments);
+
+  const ChechInitialAppointment = appointments.initial
+    ? appointments.initial[0]
+    : null;
+
+  const { data: initialAppointment, refetch: refetchInitialAppointment } =
+    useGetInitAppointmentQuery(ChechInitialAppointment);
 
   useEffect(() => {
     if (initialAppointment) {
-      const {id, ...restData} = initialAppointment
-      methods.reset(restData)
+      const { id, ...restData } = initialAppointment;
+      methods.reset(restData);
     }
-  }, [initialAppointment])
+  }, [initialAppointment]);
 
   const [fetchInitialAppointmentPatch] = usePatchInitAppointmentMutation();
   const [fetchRequest] = usePostInitAppointmentMutation();
@@ -60,7 +67,7 @@ const useInitialAppointmentForm = () => {
         consulted_doctor: 1,
         state: 'assigned',
       }));
-  }, [selectedConsultingItems]);
+    }, [selectedConsultingItems]);
 
   const convertToProcedures = useMemo((): ProcedureForInitAppointment[] => {
     return procedures.map((procedure) => ({
@@ -104,20 +111,18 @@ const useInitialAppointmentForm = () => {
       lab_research: convertToLabResearch,
       pills: convertToPills,
       procedures: convertToProcedures,
-      illness_history: 1,
+      illness_history: activePatient.id,
     };
-    console.log(newData, ' data from useFormHook');
     if (initialAppointment) {
       fetchInitialAppointmentPatch({
         id: initialAppointment.id,
-        body: newData
+        body: newData,
       }).then(() => {
-        refetchInitialAppointment()
-      })
-    }
-    else {
+        refetchInitialAppointment();
+      });
+    } else {
       fetchRequest(newData).then(() => {
-        refetchInitialAppointment()
+        refetchInitialAppointment();
       });
     }
   };

@@ -1,3 +1,4 @@
+import { GetMyPatients } from 'features/DoctorsRoleService/types';
 import { ApiSlice } from 'features/api/apiSlice';
 import {
   AppointmentMedServiceTypes,
@@ -5,8 +6,7 @@ import {
   LabResearchesType,
 } from 'types/appointmentTypes';
 import { PostDoctorOnDutyAppointmentTypes } from 'types/doctorOnDutyAppointment';
-import { GetMyPatients, InitAppointmentTypes } from 'types/patientTypes';
-
+import { InitAppointmentTypes } from 'types/patientTypes';
 
 export const patientService = ApiSlice.injectEndpoints({
   endpoints: (builder) => ({

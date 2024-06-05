@@ -1,31 +1,42 @@
-import { useMemo } from 'react';
 import { TabsItem } from 'components/sideBar/SideBar';
 import PatientDoctorTPContainer from 'containers/Doctors/PatientDoctors/PatientDoctorTPContainer';
 import TreatmentSchedule from 'views/TreatmentSchedule';
 import changelog from 'views/booked/changelog';
-import consultationTechniques from 'views/booked/consultationTechniques';
 import invoicesDocuments from 'views/booked/invoicesDocuments';
 import mainAssignmentSheet from 'views/MainAssigmentSheet';
 import measuredParameters from 'views/booked/measuredParameters';
 import nutrition from 'views/booked/nutrition';
 import researchSummaryTable from 'views/booked/researchSummaryTable';
 import { anotherPopopData } from './doctors/dynamicSitebarItems';
+import { AppointmentsTypes } from 'features/Appointments/slice/appointmentsSlice';
+import { map } from 'lodash';
 
-export const GenerateSidebarTabsData = (broneData: any[]) => {
-  const dynamicSidebarItemTabs = useMemo(() => {
-    const newList = [...broneData];
-    return [
-      ...newList.map((key: any) => ({
-        title: key.title,
-        component: (anotherPopopData as { [key: string]: any })[
-          key.title as string
-        ],
-        hiled: anotherPopopData[key.title as string]?.chiled || [],
-      })),
-    ];
-  }, [broneData]);
+export const GenerateSidebarTabsData = (
+  appointmentsList: AppointmentsTypes,
+) => {
+  const separateAppointmentsData = () => {
+    const list: TabsItem[] = map(appointmentsList ?? {}, (values, key: any) => {
+      if (values.length === 0) {
+        return null;
+      }
+      const items = map(values ?? [], (appointment, index) => ({
+        title: anotherPopopData[key]?.title,
+        component: anotherPopopData[key]?.component,
+        key,
+      }));
 
-  const sidebarItemTabs: TabsItem[] = [
+      return {
+        title: anotherPopopData[key]?.title,
+        component: anotherPopopData[key]?.component,
+        chiled: items,
+      };
+    }).filter((item) => item !== null) as TabsItem[];
+    return list;
+  };
+
+  console.log(separateAppointmentsData, 'separateAppointmentsData');
+
+  const staticSidebarItemTabs: TabsItem[] = [
     {
       title: 'Титульная страница',
       component: PatientDoctorTPContainer,
@@ -35,27 +46,81 @@ export const GenerateSidebarTabsData = (broneData: any[]) => {
       ],
       activBtnType: 'panel1',
     },
+
     {
       title: 'Документы',
       component: invoicesDocuments,
     },
+    // {
+    //   title: 'Первичный прием лечащего врача',
+    //   component: InitialApportments,
+    //   chiled: [
+    //     {
+    //       id: 1,
+    //       title: 'Жалобы/анамнез',
+    //     },
+    //     {
+    //       id: 2,
+    //       title: 'Anamnesis morbi',
+    //     },
+    //     {
+    //       id: 3,
+    //       title: 'Anamnesis vitae',
+    //     },
+    //     {
+    //       id: 4,
+    //       title: 'Эпиданамнез',
+    //     },
+    //     {
+    //       id: 5,
+    //       title: 'Status praesens objectivus',
+    //     },
+    //     {
+    //       id: 6,
+    //       title: 'Косте-мышечная система',
+    //     },
+    //     {
+    //       id: 7,
+    //       title: 'Дыхательная система',
+    //     },
+    //     {
+    //       id: 8,
+    //       title: 'Сердечно—сосудистая система',
+    //     },
+    //     {
+    //       id: 9,
+    //       title: 'Органы пищеварения',
+    //     },
+    //     {
+    //       id: 10,
+    //       title: 'Мочевыделительная система',
+    //     },
+    //     {
+    //       id: 11,
+    //       title: 'Эндокринная система',
+    //     },
+    //     {
+    //       id: 12,
+    //       title: 'Нервная система',
+    //     },
+    //     {
+    //       id: 13,
+    //       title: 'Диагноз',
+    //     },
+    //     {
+    //       id: 8,
+    //       title: 'Заключение',
+    //     },
+    //     {
+    //       id: 8,
+    //       title: 'Назначения',
+    //     },
+    //   ],
+    // },
+
     {
       title: 'Питание',
       component: nutrition,
-    },
-    ...dynamicSidebarItemTabs,
-    {
-      title: 'Консультации и повторные приемы, приемы',
-      component: consultationTechniques,
-      activBtnType: 'panel1',
-      chiled: [
-        { id: 0, title: 'Прием дежурного врача', link: '#frontPage' },
-        { id: 1, title: 'Жалобы/анамнез' },
-        { id: 2, title: 'Объективные данные' },
-        { id: 3, title: 'Диагноз' },
-        { id: 4, title: 'Заключение' },
-        { id: 5, title: 'Назначения' },
-      ],
     },
     {
       title: 'Основной лист назначений',
@@ -90,6 +155,10 @@ export const GenerateSidebarTabsData = (broneData: any[]) => {
       title: 'Журнал изменений',
       component: changelog,
     },
+  ];
+  const sidebarItemTabs = [
+    ...staticSidebarItemTabs,
+    ...separateAppointmentsData(),
   ];
 
   return sidebarItemTabs;

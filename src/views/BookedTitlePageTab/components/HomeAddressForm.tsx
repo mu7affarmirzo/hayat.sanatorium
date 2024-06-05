@@ -1,4 +1,5 @@
 import { Box, Typography } from '@mui/material';
+import SectionTitle from 'components/SectionTitle/sectionTitle';
 import DefaultInput from 'components/defaultInput/DefaultInput';
 
 import { UseFormRegister } from 'react-hook-form';
@@ -12,15 +13,15 @@ const HomeAddressForm = (props: propsType) => {
 
   return (
     <Box className="flex flex-col border mt-[10px] p-[5px] ">
-      <Typography className=" text-[14px] text-[text-[#000]] ">
-        Домашний адрес
-      </Typography>
+      <SectionTitle
+        title="Домашний адрес"
+        className="text-sm font-medium font-roboto"
+      />
       <DefaultInput
         label="Быстрый ввод адреса"
         register={register}
         inputType={'patient.address'}
-        containerStile="w-[100%] flex-col  mt-[10px] "
-        inputStyle="w-[100%]"
+        inputStyle="w-[98%]"
       />
 
       <Box className="w-full flex flex-row items-center justify-between  gap-1 mt-[10px]">

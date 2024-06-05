@@ -2,7 +2,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { StartOfReceptionDataType } from 'views/DiseaseHistoryActionTabs/diseaseHistoryTabs.constants';
 
 interface DynamicSidebarItem {
-  id: number;
+  id: string | number | undefined;
   title: StartOfReceptionDataType | string;
   child?: {
     id: number;

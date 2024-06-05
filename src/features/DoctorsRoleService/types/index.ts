@@ -11,6 +11,19 @@ export interface GetMyPatients {
   name: string;
 }
 
+export interface GetAllIB {
+  id: number;
+  status: string;
+  patient: string;
+  gender: boolean;
+  room: string;
+  room_type: string;
+  age: number;
+  tariff: string;
+  start_date: Date;
+  end_date: Date;
+}
+
 //Get Patient By ID Types
 
 export interface GetPatientIbTypes {
@@ -26,9 +39,11 @@ export interface GetPatientIbTypes {
   doctor: Doctor;
   series_number: string;
   type: string;
-  state: string;
+  state: IBStateType;
   initial_diagnosis: null;
 }
+
+export type IBStateType = 'open' | 'close';
 
 export interface Booking {
   id: number;

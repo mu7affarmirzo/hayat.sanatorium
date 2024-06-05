@@ -1,5 +1,5 @@
 import { ApiSlice } from 'features/api/apiSlice';
-import { GetMyPatients, GetPatientIbTypes } from '../types';
+import { GetAllIB, GetMyPatients, GetPatientIbTypes } from '../types';
 
 export const doctorService = ApiSlice.injectEndpoints({
   endpoints: (builder) => ({
@@ -10,9 +10,15 @@ export const doctorService = ApiSlice.injectEndpoints({
         params: { full_name, ib, word, card_type },
       }),
     }),
+    getAllIllnesHistory: builder.query<GetAllIB[], any>({
+      query: () => ({
+        url: '/sanatorium/get-ibs2',
+        method: 'GET',
+      }),
+    }),
     getPatientById: builder.query<GetPatientIbTypes, number>({
-      query: (id) => ({
-        url: `/sanatorium/get-ib/${id}`,
+      query: (id: number) => ({
+        url: `/sanatorium/doctors/get-ib/${id}`,
         method: 'GET',
       }),
     }),
@@ -22,6 +28,18 @@ export const doctorService = ApiSlice.injectEndpoints({
         method: 'GET',
       }),
     }),
+    removeIllnessHistory: builder.mutation<any, number>({
+      query: (id) => ({
+        url: `/sanatorium/del-illness-history/${id}`,
+        method: 'DELETE',
+      }),
+    }),
+    closeIllnessHistory: builder.mutation<any, number>({
+      query: (id) => ({
+        url: `/sanatorium/close-illness-history/${id}`,
+        method: 'PATCH',
+      }),
+    }),
   }),
 });
 
@@ -29,4 +47,7 @@ export const {
   useGetAllDocPatientsQuery,
   useGetPatientByIdQuery,
   useGetAppointmentsListByIdQuery,
+  useRemoveIllnessHistoryMutation,
+  useCloseIllnessHistoryMutation,
+  useGetAllIllnesHistoryQuery,
 } = doctorService;

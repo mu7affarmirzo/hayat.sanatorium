@@ -1,82 +1,42 @@
-import { Box, styled, TextField, Typography } from '@mui/material';
+import { Box, TextField, TextFieldProps, Typography } from '@mui/material';
+import { forwardRef, HTMLProps, Ref } from 'react';
+import styled from 'styled-components';
 
-type propsType = {
-  label?: string;
-  containerStyle?: string;
-  inputStyle?: string;
-  text?: string;
-  inputBoxStyle?: string;
-  customvariant?: 'outlined-sm';
-};
+interface IInputProps extends React.ComponentProps<'input'> { }
 
-const CustomField = styled(TextField)<propsType>((props) => ({
-  '& .MuiInputBase-root':
-    props.customvariant === 'outlined-sm'
-      ? {
-          height: 24,
-          backgroundColor: 'white',
-          border: '1px solid #0000003B',
-          borderRadius: '4px',
-          textAlign: 'right',
-          '& .MuiOutlinedInput-notchedOutline': {
-            border: 'none',
-          },
-          '& .Mui-active': {
-            border: 'none',
-          },
-          '& .MuiInputBase-input': {
-            padding: '0 8px 0 4px',
-            fontSize: '12px',
-            textAlign: 'right',
-            color: '#000000DE',
-            letterSpacing: '0.4px',
-            fontFamily: `Roboto, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"`,
-          },
-          '& input[type=number]::-webkit-outer-spin-button': {
-            opacity: 1,
-          },
-        }
-      : {},
-}));
+const CustomField = styled('input')<IInputProps>(() => ({
+  height: 24,
+  backgroundColor: 'white',
+  border: '1px solid #0000003B',
+  borderRadius: '4px',
+  textAlign: 'right',
+  padding: '0 8px 0 4px',
+  fontSize: '12px',
+  color: '#000000DE',
+  letterSpacing: '0.4px',
+  width: '100%',
+  flex: 1,
+  fontFamily: `Roboto, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"`,
+}
+));
 
-const NumberInput = (props: propsType) => {
+const NumberInput = forwardRef<HTMLInputElement, IInputProps>((props, ref) => {
   let {
-    containerStyle = 'w-full',
-    inputStyle = 'w-full',
-    label,
-    text,
-    inputBoxStyle = 'w-full',
+    ...rest
   } = props;
   return (
-    <Box className={`${containerStyle} flex gap-1`}>
-      {label ? (
-        <Typography className=" text-[14px] font-normal text-[#000]">
-          {label}
-        </Typography>
-      ) : null}
-      <Box className={`${inputBoxStyle} flex items-center`}>
-        <CustomField
-          id="outlined-number"
-          type="number"
-          customvariant={props.customvariant}
-          size="small"
-          className={`${inputStyle ? inputStyle : 'w-full'}`}
-          InputLabelProps={{
-            shrink: true,
-            sx: {
-              fontSize: '12px',
-              color: 'rgba(0, 0, 0, 0.54)',
-            },
-          }}
-        />
-        {text ? (
-          <Typography className="text-[14px] font-normal text-[#000] mx-[5px]">
-            {text}
-          </Typography>
-        ) : null}
-      </Box>
-    </Box>
+    <CustomField
+      // type="number"
+      {...rest}
+      ref={ref}
+      onKeyDown={(e) => {
+        if (e.currentTarget.valueAsNumber < 0) {
+          e.preventDefault()
+        }
+      }}
+      type='number'
+    />
   );
-};
+});
 
 export { NumberInput };

@@ -12,7 +12,7 @@ import { medicationSlice } from 'features/Medicals/model/slice/medicationSlice';
 import { repeatedAppointmentSlice } from 'features/slices/repeatedAppointmentSlice';
 import { doctorOnDutyAppointmentSlice } from 'features/slices/doctorOnDutyAppointmentSlice';
 import { doctorsPatientSidebarSlice } from 'features/slices/doctorsPatientSidebarSlice';
-import dynamicTopTabsSlice from 'features/DoctorsRoleService/model/slices/dynamicTopTabs';
+import dynamicTopTabsSlice from 'features/DoctorsRoleService/model/slices/selectedPatientsSlice';
 import patientIllnesHistorySlice from 'features/DoctorsRoleService/model/slices/patientIllnesHistorySlice';
 import appointmentsSlice from 'features/Appointments/slice/appointmentsSlice';
 import { nutritionSlice } from 'features/Nutrition/model/slice/nutritionSlice';

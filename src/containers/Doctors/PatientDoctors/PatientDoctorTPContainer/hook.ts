@@ -12,34 +12,35 @@ import { setAppointments } from 'features/Appointments/slice/appointmentsSlice';
 export const usePatientDocTPHook = () => {
   const [illnesHistoryId, setIllnesHistoryId] = useState<number | null>(null);
   const dispatch = useReduxDispatch();
-  const { selectedId } = useReduxSelector(
+
+  const { selectedPatient } = useReduxSelector(
     (dynamicTopTabs) => dynamicTopTabs.dynamicTopTabs,
   );
 
   const {
-    data: patientData,
+    data: patientIBData,
     status,
     isLoading,
-  } = useGetPatientByIdQuery(Number(selectedId) || 0);
+  } = useGetPatientByIdQuery(Number(selectedPatient?.id) || 0);
 
   const { data: AppointmentsList } = useGetAppointmentsListByIdQuery(
-    illnesHistoryId || 1,
+    illnesHistoryId || 2,
   );
 
   useEffect(() => {
-    if (status === 'fulfilled' && patientData) {
-      dispatch(addActivePatient(patientData));
-      setIllnesHistoryId(patientData.id);
+    if (status === 'fulfilled' && patientIBData) {
+      dispatch(addActivePatient(patientIBData));
+      setIllnesHistoryId(patientIBData.id);
     }
-  }, [dispatch, patientData, status]);
+  }, [dispatch, patientIBData, status]);
 
   useEffect(() => {
     if (illnesHistoryId) {
       dispatch(setAppointments(AppointmentsList));
     }
-  }, [AppointmentsList, dispatch, illnesHistoryId, patientData]);
+  }, [AppointmentsList, dispatch, illnesHistoryId, patientIBData]);
 
-  const defaultValues = patientData as GetPatientIbTypes;
+  const defaultValues = patientIBData as GetPatientIbTypes;
 
   const methods = useForm<GetPatientIbTypes>({
     defaultValues,
@@ -53,15 +54,18 @@ export const usePatientDocTPHook = () => {
     }
   };
 
-  const doctorData = useMemo(() => patientData?.doctor, [patientData?.doctor]);
-  const nurseData = useMemo(() => patientData?.nurse, [patientData?.nurse]);
+  const doctorData = useMemo(
+    () => patientIBData?.doctor,
+    [patientIBData?.doctor],
+  );
+  const nurseData = useMemo(() => patientIBData?.nurse, [patientIBData?.nurse]);
 
   const getAgePatient = useMemo(() => {
     const currentYear = new Date().getFullYear();
-    const db = new Date(patientData?.patient.date_of_birth as never);
+    const db = new Date(patientIBData?.patient.date_of_birth as never);
     const newDB = db.getFullYear();
     return currentYear - newDB;
-  }, [patientData?.patient.date_of_birth]);
+  }, [patientIBData?.patient.date_of_birth]);
 
   const exampleObj = {
     name: 'home',

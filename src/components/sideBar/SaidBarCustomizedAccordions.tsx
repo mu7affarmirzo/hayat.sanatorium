@@ -6,17 +6,9 @@ import MuiAccordionSummary, {
 } from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
-import {
-  CaretRightDownIcon2,
-  SearchIcon,
-  CheckIcon,
-  EditIcon,
-} from 'assets/icons/icons';
+import { CaretRightDownIcon2, CheckIcon, EditIcon } from 'assets/icons/icons';
 import * as React from 'react';
-import { useForm } from 'react-hook-form';
-interface IFormInput {
-  name: string;
-}
+
 const Accordion = styled((props: AccordionProps) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(() => ({
@@ -58,7 +50,6 @@ type propsType = {
   topBoxStyle?: any;
   onClick?: () => void;
   activBtnType?: string;
-  search?: any;
   titleStyle?: any;
   isActive: boolean;
   status?: 'editing' | 'done' | 'idle';
@@ -66,7 +57,6 @@ type propsType = {
 
 function SaidBarCustomizedAccordions(props: propsType) {
   const [expanded, setExpanded] = React.useState<string | false>('');
-  const { register } = useForm<IFormInput>();
   const { status } = props;
 
   const handleChange =
@@ -99,21 +89,10 @@ function SaidBarCustomizedAccordions(props: propsType) {
             </Box>
           )}
           <Typography
-            className="font-roboto text-black  text-xs font-normal"
+            className="font-roboto text-black text-xs font-normal"
             marginLeft={!status || status === 'idle' ? '5px' : 0}>
             {props.title}
           </Typography>
-          {props.search ? (
-            <Box className="flex items-center rounded-[5px] bg-[#fff] w-[140px] pl-[2px] ml-[5px] border ">
-              <SearchIcon width="16px" />
-              <input
-                className=" outline-none border-none w-[60%] ml-[5px] text-[#000]"
-                {...register(`name`, {
-                  required: true,
-                })}
-              />
-            </Box>
-          ) : null}
         </AccordionSummary>
         <AccordionDetails sx={props.childrenStyle}>
           {props?.children}

@@ -1,29 +1,20 @@
-import { Box, IconButton } from '@mui/material';
+import { Box } from '@mui/material';
 import DefaultText from 'components/defaultText/DefaultText';
 import DefaultButton from 'components/deafultButton/DefaultButton';
-import { CloseIcon } from 'assets/icons/icons';
-import OutlinedNumber from 'components/outlinedNumber/OutlinedNumber';
-import { NumberInput } from '../components/NumberInput';
 import { TableItem } from './TableItem';
-import { useState } from 'react';
-import { useMeasuredParamsArterialMutation } from 'features/MeasuredParams/service';
+import { useArterialPressure } from './hook';
 
 const ArterialPressure = () => {
-  const [createArterialRequest] = useMeasuredParamsArterialMutation()
-  const [tableItems, setTableItems] = useState([{id: 1}, {id: 2}])
-  const handleCloseItem = (id: number) => {
-    const newItems = [...tableItems].filter((i) => i.id !== id)
-    setTableItems(newItems)
-  }
-
-  const handleAddItem = () => {
-    createArterialRequest({ created_by: 1, diastologic: 1, illness_history: 1, systologic: 2 })
-    const newId = Date.now()
-    const newItems = [...tableItems]                        
-    newItems.push({id: newId})
-    setTableItems(newItems)
-  }
-
+  const {
+    handleAddItem,
+    handleCloseItem,
+    fields,
+    handleSubmit,
+    onSubmit,
+    register,
+    handleEdit,
+    control
+  } = useArterialPressure()
   return (
     <Box className="w-[100%] border border-t-0 p-[5px] bg-[#fff] flex justify-between h-[calc(100vh-340px)] max-h-[calc(100vh-340px)]">
       <Box className="w-[40%]  h-[100%] ">
@@ -60,7 +51,19 @@ const ArterialPressure = () => {
                 </DefaultText>
               </Box>
             </Box>
-            {tableItems.map((i) => <TableItem key={i.id} id={i.id} close={handleCloseItem}/>)}
+            <form className='w-full' onSubmit={handleSubmit(onSubmit)}>
+              {fields.map((i, index) => (
+                <TableItem
+                  index={index}
+                  register={register}
+                  key={i.id}
+                  handleEdit={handleEdit}
+                  id={i._id}
+                  close={handleCloseItem}
+                  control={control}
+                />
+              ))}
+            </form>
           </Box>
         </Box>
       </Box>
