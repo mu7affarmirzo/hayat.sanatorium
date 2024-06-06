@@ -39,7 +39,7 @@ export function Table<T>({
   const [expandedRows, setExpandedRows] = useState<Record<number, boolean>>({});
 
   return (
-    <TableWrapper>
+    <TableWrapper width={'100%'}>
       <thead>
         <TableHeader columns={columns} />
         <tr>

@@ -77,8 +77,8 @@ const EventsAccordion: FC<EventsAccordionType> = ({
               </Box>
             </Grid>
             <Grid item xs={3.2}>
-              <Box className="flex  gap-2">
-                <Box className="flex items-center gap-2  border-l-2 pl-[15px]">
+              <Box className="flex gap-2 max-xl:flex-col border-l-2 pl-[15px] h-full">
+                <Box className="flex items-center gap-2">
                   <Typography>Дата события с</Typography>
                   <AutocompleteInput
                     data={top100Films}
