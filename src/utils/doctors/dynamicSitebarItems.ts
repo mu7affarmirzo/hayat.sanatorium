@@ -75,7 +75,6 @@ export const anotherPopopData: { [key: string]: any } = {
       },
     ],
   },
-
   [StartOfReceptionDataType.final_appointment]: {
     title: 'Заключительный прием лечащего врача',
     component: FinalAppointment,

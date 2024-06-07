@@ -131,7 +131,7 @@ const Main = () => {
                     register={register}
                   />
                 </div>
-                <Box className="w-[64%] max-larger:w-full bg-red-400">
+                <Box className="w-[64%] max-larger:w-ful">
                   <TravelPackageForm
                     avtoCaplektData={top100FilmsChack}
                     register={register}

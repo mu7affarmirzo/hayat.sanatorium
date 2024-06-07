@@ -77,7 +77,9 @@ export const useNeurologistAppoinmnetHook = () => {
   const {
     data: neurologistAppointment,
     refetch: refetchNeurologistAppointment,
-  } = useGetNeurologistAppointmentQuery(appointments.neurologist[0] as never);
+  } = useGetNeurologistAppointmentQuery(
+    appointments.neurologist[0].id as never,
+  );
 
   useEffect(() => {
     if (neurologistAppointment) {
@@ -112,6 +114,7 @@ export const useNeurologistAppoinmnetHook = () => {
       });
     }
   };
+
   return {
     handleChangeStatus,
     appointmentStatus,

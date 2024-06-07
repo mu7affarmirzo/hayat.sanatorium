@@ -17,6 +17,7 @@ export interface AppointmentsTypes {
   repeated_appointment: GetRepeatedAppointment[];
   ekg_appointment: GetEkgAppointmentTypes[];
   final_appointment: GetFinalAppointmentPostData[];
+  current_appointment: {};
 }
 
 const initialState = {
@@ -30,73 +31,35 @@ const appointmentsSlice = createSlice({
     setAppointments: (state, action: PayloadAction<AppointmentsTypes>) => {
       state.appointments = action.payload;
     },
-    setInitAppointment: (
+    addAppointment: (
       state,
-      action: PayloadAction<GetInitAppointmentTypes[]>,
+      action: PayloadAction<{
+        type: keyof AppointmentsTypes;
+        appointment: any;
+      }>,
     ) => {
-      state.appointments.initial = action.payload;
+      const { type, appointment } = action.payload;
+      if (Array.isArray(state.appointments[type])) {
+        (state.appointments[type] as any[]).push(appointment);
+      }
     },
-    setNeurologistAppointment: (
+    setCurrentAppointment: (
       state,
-      action: PayloadAction<GetNeuroligstAppointmentTypes[]>,
+      action: PayloadAction<{ key: string; appointment: any }>,
     ) => {
-      state.appointments.neurologist = action.payload;
+      state.appointments.current_appointment = action.payload.appointment;
     },
-
-    setCardiologistAppointment: (
-      state,
-      action: PayloadAction<GetCardiologistAppointmentTypes[]>,
-    ) => {
-      state.appointments.cardiologist = action.payload;
-    },
-
-    setOnDutyDoctorAppointment: (
-      state,
-      action: PayloadAction<GetDoctorOnDutyAppointmentTypes[]>,
-    ) => {
-      state.appointments.on_duty_doctor = action.payload;
-    },
-
-    setOnDutyDoctorOnArrivalAppointment: (
-      state,
-      action: PayloadAction<GetExaminatorAppointment[]>,
-    ) => {
-      state.appointments.on_duty_doctor_on_arrival = action.payload;
-    },
-
-    setRepeatedAppointment: (
-      state,
-      action: PayloadAction<GetRepeatedAppointment[]>,
-    ) => {
-      state.appointments.repeated_appointment = action.payload;
-    },
-
-    setEkgAppointment: (
-      state,
-      action: PayloadAction<GetEkgAppointmentTypes[]>,
-    ) => {
-      state.appointments.ekg_appointment = action.payload;
-    },
-
-    setFinalAppointment: (
-      state,
-      action: PayloadAction<GetFinalAppointmentPostData[]>,
-    ) => {
-      state.appointments.final_appointment = action.payload;
+    clearCurrentAppointment: (state) => {
+      state.appointments.current_appointment = {};
     },
   },
 });
 
 export const {
   setAppointments,
-  setInitAppointment,
-  setNeurologistAppointment,
-  setCardiologistAppointment,
-  setOnDutyDoctorAppointment,
-  setOnDutyDoctorOnArrivalAppointment,
-  setRepeatedAppointment,
-  setEkgAppointment,
-  setFinalAppointment,
+  addAppointment,
+  setCurrentAppointment,
+  clearCurrentAppointment,
 } = appointmentsSlice.actions;
 
 export default appointmentsSlice.reducer;
