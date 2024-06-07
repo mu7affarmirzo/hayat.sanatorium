@@ -1,1 +1,1 @@
-export const BASE_URL = "https://back-telelon.uz/api/v1";
+export const BASE_URL = "https://dev-hayat.uz/api/v1";

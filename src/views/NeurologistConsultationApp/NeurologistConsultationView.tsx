@@ -18,14 +18,14 @@ const Main = () => {
     <Box>
       <form
         onSubmit={methods.handleSubmit(onSubmit)}
-        className="border border-[rgba(0, 0, 0, 0.23)] h-[calc(100vh-220px)]  p-[10px] overflow-hidden ">
+        className="border border-[rgba(0, 0, 0, 0.23)] max-h-[calc(100vh-220px)] h-full  p-[10px] pt-0 overflow-auto relative">
         <AppointmentHeader
           doctor="Консультация невролога
           первичная, Admin"
           appointmentStatus={appointmentStatus}
           setAppointmentStatus={handleChangeStatus}
         />
-        <Box className="bg-[#fff] w-full p-[8px] pb-10 overflow-scroll max-h-[calc(100vh-300px)] h-[calc(100vh-300px)]">
+        <Box className="bg-[#fff] w-full p-[8px] pb-10 overflow-scroll max-h-max h-full">
           <DiagnostikaItem title="Жалобы" />
           <GetCategoryTextareField title="Жалобы" isActions={true} />
           <DiagnostikaItem title="Анамнез заболевания" />

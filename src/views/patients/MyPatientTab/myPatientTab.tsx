@@ -16,7 +16,7 @@ const MyPatientTab = () => {
 
   return (
     <Grid container>
-      <Grid
+      {/* <Grid
         className="flex justify-between items-center  my-[10px] "
         item
         xs={12}
@@ -29,7 +29,7 @@ const MyPatientTab = () => {
           classStyle="bg-[#2d373f] h-[40px] text-[#fff] text-sm capitalize mr-[10px]"
           icon={<VuesaxLinear />}
         />
-      </Grid>
+      </Grid> */}
       <Grid item xs={12} md={12} className=" bg-[#F5F5F5]">
         <TableComponent
           columnDefs={BookedPatiant}

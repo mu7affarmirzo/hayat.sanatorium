@@ -17,7 +17,7 @@ const MyPatientsDocView = () => {
   return (
     <Grid container>
       <Grid
-        className="flex justify-between items-center  my-[10px] "
+        className="flex justify-between items-center gap-[10px] my-[10px] "
         item
         xs={12}
         md={12}>

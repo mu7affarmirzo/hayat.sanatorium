@@ -26,7 +26,7 @@ export const SearchActionsSection = ({
           <SearchInput placeholder="Искать в таблице" onChange={handleSearch} />
         </Box>
       </Grid>
-      <Grid item xs={12} md={4} className="flex justify-between">
+      <Grid item xs={12} md={4} className="flex gap-[10px] justify-between">
         <DefaultButton title="Выбор колонок" />
         <DefaultButton title="Ехсеl" icon={<VuesaxLinear />} />
         <DefaultButton
