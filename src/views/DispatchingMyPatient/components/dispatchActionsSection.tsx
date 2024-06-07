@@ -9,7 +9,7 @@ import SearchInput from 'components/SearchField/searchInput';
 
 export const DispatchActionsSection = () => {
   return (
-    <Grid item xs={12} className="flex justify-between my-[10px]">
+    <Grid item xs={12} className="flex justify-between gap-[10px] my-[10px]">
       <Grid item xs={12} md={7}>
         <SearchInput />
       </Grid>

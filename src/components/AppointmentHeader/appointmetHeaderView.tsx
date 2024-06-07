@@ -31,8 +31,8 @@ const AppointmentHeaderView: FC<AppointmentHeaderViewProps> = ({
   setAppointmentStatus,
 }) => {
   return (
-    <Box className=" flex h-[100px] flex-col justify-around">
-      <Box className="flex items-center justify-between h-[35%] my-3">
+    <Box className=" flex flex-col justify-around sticky top-0 bg-[#F5F5F5] z-10 pt-[10px]">
+      <Box className="flex items-center flex-wrap justify-between h-[35%] my-3">
         <Box className="">
           <Typography className={'text-[#000] '}>{doctor}</Typography>
         </Box>

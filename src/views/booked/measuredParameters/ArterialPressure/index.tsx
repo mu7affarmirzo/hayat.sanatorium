@@ -16,8 +16,8 @@ const ArterialPressure = () => {
     control
   } = useArterialPressure()
   return (
-    <Box className="w-[100%] border border-t-0 p-[5px] bg-[#fff] flex justify-between h-[calc(100vh-340px)] max-h-[calc(100vh-340px)]">
-      <Box className="w-[40%]  h-[100%] ">
+    <Box className="max-xl:flex-col w-[100%] border border-t-0 p-[5px] bg-[#fff] flex justify-between h-[calc(100vh-340px)] max-h-[calc(100vh-340px)]">
+      <Box className="max-xl:w-full w-[40%]  h-[100%] ">
         <Box>
           <DefaultButton
             title="Добавить"
@@ -67,7 +67,7 @@ const ArterialPressure = () => {
           </Box>
         </Box>
       </Box>
-      <Box className="w-[calc(60%-10px)] h-[100%] border flex justify-center items-center ">
+      <Box className="max-xl:w-full w-[calc(60%-10px)] h-[100%] border flex justify-center items-center ">
         <DefaultText>Данные по измерениям не введены</DefaultText>
       </Box>
     </Box>

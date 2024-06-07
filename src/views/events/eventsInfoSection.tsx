@@ -14,7 +14,8 @@ const EventsInfoSection = () => {
         <SearchInput placeholder="Искать в таблице" />
       </Box>
       <DefaultButton
-        classStyle=" bg-[#f5f5f5] text-[#a1a1a1]"
+        classStyle="bg-[#f5f5f5]"
+        color="#a1a1a1"
         title="Отметить как прочитанные"
       />
       <Box className=" flex gap-3">

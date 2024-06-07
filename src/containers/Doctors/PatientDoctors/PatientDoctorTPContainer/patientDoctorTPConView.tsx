@@ -115,8 +115,8 @@ const Main = () => {
               className="bg-white m-[5px] border min-h-[calc(100vh-280px)] h-[calc(100vh-320px)] overflow-scroll p-[5px]"
               ref={scrollRef}
               style={{ whiteSpace: 'nowrap' }}>
-              <Box className="flex justify-between">
-                <div className="w-[35%]">
+              <Box className="flex max-larger:flex-col justify-between">
+                <div className="w-[35%] max-larger:w-full">
                   <PatientInfoSection
                     register={register}
                     pollData={polData}
@@ -131,7 +131,7 @@ const Main = () => {
                     register={register}
                   />
                 </div>
-                <Box className="w-[64%] bg-red-400">
+                <Box className="w-[64%] max-larger:w-full bg-red-400">
                   <TravelPackageForm
                     avtoCaplektData={top100FilmsChack}
                     register={register}
