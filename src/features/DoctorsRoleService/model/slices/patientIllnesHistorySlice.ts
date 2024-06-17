@@ -13,16 +13,19 @@ const patientIllnesHistorySlice = createSlice({
     addActivePatient: (state, action) => {
       state.activePatient = { ...state.activePatient, ...action.payload };
     },
-    setLoading: (state, action) => {
+    setActivePatientLoading: (state, action) => {
       state.loading = action.payload;
     },
-    setError: (state, action) => {
+    setActivePatientError: (state, action) => {
       state.error = action.payload;
     },
   },
 });
 
-export const { addActivePatient, setLoading, setError } =
-  patientIllnesHistorySlice.actions;
+export const {
+  addActivePatient,
+  setActivePatientLoading,
+  setActivePatientError,
+} = patientIllnesHistorySlice.actions;
 
 export default patientIllnesHistorySlice.reducer;

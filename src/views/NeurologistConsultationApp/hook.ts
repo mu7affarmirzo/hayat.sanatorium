@@ -1,24 +1,22 @@
 import {
-  usePostNeurologistAppointmentMutation,
   useGetNeurologistAppointmentQuery,
   usePatchNeurologistAppointmentMutation,
+  usePostNeurologistAppointmentMutation,
 } from 'features/Appointments/NeuroligstAppointment/service';
 import {
   LabResearchForNeuroligst,
   MedicalServiceForNeuroligst,
-  PilForNeuroligst,
   NeuroligstAppointment,
+  PilForNeuroligst,
   ProcedureForNeuroligst,
 } from 'features/Appointments/NeuroligstAppointment/types';
 
-import { AppointmentStatus } from 'features/slices/initAppoinmentStatusSlice';
 import { useReduxSelector } from 'hooks/useReduxHook';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 
 export const useNeurologistAppoinmnetHook = () => {
-  const [appointmentStatus, setAppointmentStatus] =
-    useState<AppointmentStatus['status']>('notCompleted');
+
 
   const { procedures } = useReduxSelector((state) => state.procedures);
   const { medications } = useReduxSelector((state) => state.medication);
@@ -65,12 +63,7 @@ export const useNeurologistAppoinmnetHook = () => {
       }));
     }, [selectedConsultingItems]);
 
-  const handleChangeStatus = useCallback(
-    (status: AppointmentStatus['status']) => {
-      setAppointmentStatus(status);
-    },
-    [setAppointmentStatus],
-  );
+
 
   const { appointments } = useReduxSelector((state) => state.appointments);
 
@@ -80,6 +73,12 @@ export const useNeurologistAppoinmnetHook = () => {
   } = useGetNeurologistAppointmentQuery(
     appointments.neurologist[0].id as never,
   );
+
+
+  const appointentID = useMemo(() => {
+    return appointments.neurologist[0]?.id;
+  }
+  , [appointments.neurologist]);
 
   useEffect(() => {
     if (neurologistAppointment) {
@@ -116,8 +115,7 @@ export const useNeurologistAppoinmnetHook = () => {
   };
 
   return {
-    handleChangeStatus,
-    appointmentStatus,
+    appointmentID: appointentID,
     methods,
     onSubmit,
   };

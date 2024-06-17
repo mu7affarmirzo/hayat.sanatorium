@@ -1,10 +1,10 @@
-import { FC, useCallback, useState } from 'react';
 import { Box } from '@mui/material';
+import { FC, useCallback, useState } from 'react';
 
-import DoctorsTabBtn from './doctorstopTabsBtn';
-import { useReduxDispatch, useReduxSelector } from 'hooks/useReduxHook';
 import { selectPatient } from 'features/DoctorsRoleService/model/slices/selectedPatientsSlice';
 import { removePatient } from 'features/booked/bookedSlice';
+import { useReduxDispatch, useReduxSelector } from 'hooks/useReduxHook';
+import DoctorsTabBtn from './doctorstopTabsBtn';
 
 export type TopTabsItemType = {
   title: string;
@@ -22,7 +22,7 @@ const DoctorsViewTabs: FC<TabsProps> = ({ content }) => {
   const [activeTab, setActiveTab] = useState<number>(0);
   const dispatch = useReduxDispatch();
 
-  const { data } = useReduxSelector((state) => state.dynamicTopTabs);
+  const { data } = useReduxSelector((state) => state.selectedPatients);
 
   const handleActiveTab = useCallback(
     (index: number, tabName: string) => {

@@ -1,6 +1,8 @@
-import { RowClickedEvent } from 'ag-grid-community';
+import { addPatient } from 'features/DoctorsRoleService/model/slices/selectedPatientsSlice';
 import { useGetAllDocPatientsQuery } from 'features/DoctorsRoleService/service/doctorService';
+import { GetMyPatients } from 'features/DoctorsRoleService/types';
 import useDebounce from 'hooks/useDebounceHook';
+import { useReduxDispatch } from 'hooks/useReduxHook';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
@@ -18,6 +20,8 @@ export const useSearchDocPatientHook = () => {
     word: '',
   });
   const { register, handleSubmit, reset } = useForm<Partial<IFormInput>>();
+
+  const dispatch = useReduxDispatch();
 
   const { data: SearchPatientData, refetch } = useGetAllDocPatientsQuery({
     full_name: searchoptions.full_name,
@@ -51,9 +55,15 @@ export const useSearchDocPatientHook = () => {
     return filteredMyPatientData?.length;
   }, [filteredMyPatientData?.length]);
 
-  const handleClickedRowTable = useCallback((event: RowClickedEvent) => {
-    console.log(event.data);
-  }, []);
+  const handleClickedRowTable = useCallback(
+    (event: GetMyPatients) => {
+      console.log(event, ' patient data ');
+      if (event) {
+        dispatch(addPatient(event as never));
+      }
+    },
+    [dispatch],
+  );
 
   return {
     SearchPatientData: filteredMyPatientData,

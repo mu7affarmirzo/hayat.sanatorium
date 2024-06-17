@@ -1,9 +1,11 @@
 /* eslint-disable react/style-prop-object */
 import { Box, Typography } from '@mui/material';
+import { CencelStatedAppointmentModal } from 'components/Modals/ReuseableModal/cencelStatedAppointmentModal/cencelAppointmentView';
 import AutocompleteInput from 'components/autocompleteInput';
 import SelectButton from 'components/buttons/SelectButton';
 import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
 import DefaultButton from 'components/deafultButton/DefaultButton';
+import { useAppointmentStateHandler } from 'helper/appointmentStateHandler';
 import { FC } from 'react';
 
 const top100Films = [
@@ -18,18 +20,15 @@ const top100Films = [
 
 type AppointmentHeaderViewProps = {
   doctor: string;
-  onClick?: () => void;
-  appointmentStatus: 'notCompleted' | 'completed' | 'cancelled';
-  setAppointmentStatus: (
-    status: 'notCompleted' | 'completed' | 'cancelled',
-  ) => void;
+  appointmentID: number;
 };
 
 const AppointmentHeaderView: FC<AppointmentHeaderViewProps> = ({
   doctor,
-  appointmentStatus,
-  setAppointmentStatus,
+  appointmentID,
 }) => {
+  const { appointmentStatus, handleChangeStatus } =
+    useAppointmentStateHandler(appointmentID);
   return (
     <Box className=" flex flex-col justify-around sticky top-0 bg-[#F5F5F5] z-10 pt-[10px]">
       <Box className="flex items-center flex-wrap justify-between h-[35%] my-3">
@@ -50,11 +49,7 @@ const AppointmentHeaderView: FC<AppointmentHeaderViewProps> = ({
             title="Разблокировать"
             classStyle="h-[38px] bg-[#2196F3] text-[#fff] mr-[8px]"
           />
-          <DefaultButton
-            title="Отменить начатый приём"
-            classStyle="h-[38px] bg-[#2196F3] text-[#fff] mr-[8px]"
-            disabled={true}
-          />
+          <CencelStatedAppointmentModal />
           <SelectButton
             data={[]}
             style="h-[38px] bg-[#2196F3]"
@@ -72,7 +67,7 @@ const AppointmentHeaderView: FC<AppointmentHeaderViewProps> = ({
         </Box>
       </Box>
       <hr />
-      {appointmentStatus === 'notCompleted' && (
+      {appointmentStatus === 'Не завершено' && (
         <Box className={`px-3 flex flex-row justify-between items-center`}>
           <Typography className="text-red-500 text-sm font-bold ">
             Не завершено
@@ -81,12 +76,12 @@ const AppointmentHeaderView: FC<AppointmentHeaderViewProps> = ({
             <DefaultCheckbox
               label="Приём завершён"
               inputType="appointment_completed"
-              setValue={() => setAppointmentStatus('completed')}
+              setValue={handleChangeStatus('Приём завершён')}
             />
             <DefaultCheckbox
               label="Пациент на прием не явился"
               inputType="appointment_cancelled"
-              setValue={() => setAppointmentStatus('cancelled')}
+              setValue={handleChangeStatus('Пациент на прием не явился')}
             />
           </Box>
         </Box>

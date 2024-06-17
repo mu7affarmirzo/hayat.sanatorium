@@ -1,18 +1,18 @@
 import { Box } from '@mui/material';
-import AppointmentHeader from 'components/AppointmentHeader';
 import AppointmentsSections from 'components/AppointmentActionSection';
+import AppointmentHeader from 'components/AppointmentHeader';
 import DiagnostikaItem from 'components/DiagnostikaItem';
-import { DiagnosisView } from 'features/Diagnosis';
 import { GetCategoryTextareField } from 'components/GetCategoryTextareField/CategoryTextareFieldView';
+import { DiagnosisView } from 'features/Diagnosis';
+import { NeurologistConsultationSection } from './components/neurologistConculsionSection';
 import NeurologistStatusSection from './components/neurologistStateusSection';
 import {
   NeurologistAppointmentProvider,
   useNeurologistAppoinmnetContext,
 } from './module';
-import { NeurologistConsultationSection } from './components/neurologistConculsionSection';
 
 const Main = () => {
-  const { appointmentStatus, handleChangeStatus, onSubmit, methods } =
+  const { onSubmit, methods, appointmentID } =
     useNeurologistAppoinmnetContext();
   return (
     <Box>
@@ -22,8 +22,7 @@ const Main = () => {
         <AppointmentHeader
           doctor="Консультация невролога
           первичная, Admin"
-          appointmentStatus={appointmentStatus}
-          setAppointmentStatus={handleChangeStatus}
+          appointmentID={appointmentID}
         />
         <Box className="bg-[#fff] w-full p-[8px] pb-10 overflow-scroll max-h-max h-full">
           <DiagnostikaItem title="Жалобы" />

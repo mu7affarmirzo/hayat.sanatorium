@@ -1,18 +1,17 @@
 import { Box, Grid } from '@mui/material';
 import TagAutoCompleateBox from 'components/TagAutoCompleateBox/tagAutoCompleateBox';
 import FrontFooter from 'components/frontFooter/FrontFooter';
-import TitlePageBottomCheckbooks from 'views/BookedTitlePage/Components/bottomChechBoxs';
 import Comment from 'views/BookedTitlePage/Components/commetsSection';
 import DiagnostHandler from 'views/BookedTitlePage/Components/diagnostHandler';
 import HarmFactors from 'views/BookedTitlePage/Components/harmFactors';
 import ModeHandler from 'views/BookedTitlePage/Components/modalHandler';
 import PatientInfoSection from 'views/BookedTitlePage/Components/patientInfoSection';
 import RiskFactorsAndTags from 'views/BookedTitlePage/Components/tagsFactors';
+import { TitlePageContainer } from 'views/BookedTitlePage/Components/titlePageContainer';
 import DocumentationForm from 'views/BookedTitlePageTab/components/DocumentationForm';
 import HospitalStayForm from 'views/BookedTitlePageTab/components/HospitalStayForm';
 import TravelPackageForm from 'views/BookedTitlePageTab/components/TravelPackageForm';
 import { PatientDocTPProvider, usePatientDocTPContext } from './module';
-import { TitlePageContainer } from 'views/BookedTitlePage/Components/titlePageContainer';
 
 const top100FilmsChack = [
   { title: 'The Shawshank Redemption', year: 1994 },
@@ -89,12 +88,35 @@ const Main = () => {
   const {
     scrollRef,
     onSubmit,
-    defaultValues,
     getAgePatient,
     methods: { register, handleSubmit, setValue, watch },
     copyArray,
     isLoading,
+    activePatient,
+    activePatientError,
   } = usePatientDocTPContext();
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-full">Loading...</div>
+    );
+  }
+
+  if (activePatientError) {
+    return (
+      <div className="flex justify-center items-center h-full">
+        Error loading patient data
+      </div>
+    );
+  }
+
+  if (!activePatient || Object.keys(activePatient).length === 0) {
+    return (
+      <div className="flex justify-center items-center h-full">
+        No active patient data available
+      </div>
+    );
+  }
 
   return (
     <div
@@ -103,62 +125,58 @@ const Main = () => {
         height: '100%',
         whiteSpace: 'nowrap',
       }}>
-      {isLoading ? (
-        <div>Loading...</div>
-      ) : (
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <TitlePageContainer>
-            <Grid
-              item
-              xs={12}
-              md={12}
-              className="bg-white m-[5px] border min-h-[calc(100vh-280px)] h-[calc(100vh-320px)] overflow-scroll p-[5px]"
-              ref={scrollRef}
-              style={{ whiteSpace: 'nowrap' }}>
-              <Box className="flex max-larger:flex-col justify-between">
-                <div className="w-[35%] max-larger:w-full">
-                  <PatientInfoSection
-                    register={register}
-                    pollData={polData}
-                    setValue={setValue}
-                    patientDob={getAgePatient}
-                    mockData={top100FilmsChack}
-                    defaultValues={defaultValues}
-                    patient_phones={copyArray as never}
-                  />
-                  <DocumentationForm
-                    avtoCaplektData={top100FilmsChack}
-                    register={register}
-                  />
-                </div>
-                <Box className="w-[64%] max-larger:w-ful">
-                  <TravelPackageForm
-                    avtoCaplektData={top100FilmsChack}
-                    register={register}
-                    rowData={rowData}
-                    watch={watch}
-                  />
-                  <HospitalStayForm
-                    avtoCaplektData={top100FilmsChack}
-                    register={register}
-                  />
-                  <Comment />
-                  <HarmFactors dropdownData={top100FilmsChack} />
-                  <TagAutoCompleateBox data={top100FilmsChack} label="Метки" />
-                </Box>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <TitlePageContainer ibNumber={activePatient.id}>
+          <Grid
+            item
+            xs={12}
+            md={12}
+            className="bg-white m-[5px] border min-h-[calc(100vh-280px)] h-[calc(100vh-320px)] overflow-scroll p-[5px]"
+            ref={scrollRef}
+            style={{ whiteSpace: 'nowrap' }}>
+            <Box className="flex max-larger:flex-col justify-between">
+              <div className="w-[35%] max-larger:w-full">
+                <PatientInfoSection
+                  register={register}
+                  pollData={polData}
+                  setValue={setValue}
+                  patientDob={getAgePatient}
+                  mockData={top100FilmsChack}
+                  // defaultValues={defaultValues}
+                  patient_phones={copyArray as never}
+                />
+                <DocumentationForm
+                  avtoCaplektData={top100FilmsChack}
+                  register={register}
+                />
+              </div>
+              <Box className="w-[64%] max-larger:w-ful">
+                <TravelPackageForm
+                  avtoCaplektData={top100FilmsChack}
+                  register={register}
+                  rowData={rowData}
+                  watch={watch}
+                />
+                <HospitalStayForm
+                  avtoCaplektData={top100FilmsChack}
+                  register={register}
+                />
+                <Comment />
+                <HarmFactors dropdownData={top100FilmsChack} />
+                <TagAutoCompleateBox data={top100FilmsChack} label="Метки" />
               </Box>
-              <FrontFooter />
-              <ModeHandler radioFormData={radioForm} />
-              <DiagnostHandler />
-              <RiskFactorsAndTags mockData={top100FilmsChack} />
-              <TitlePageBottomCheckbooks
+            </Box>
+            <FrontFooter />
+            <ModeHandler radioFormData={radioForm} />
+            <DiagnostHandler />
+            <RiskFactorsAndTags mockData={top100FilmsChack} />
+            {/* <TitlePageBottomCheckbooks
                 setValue={setValue}
                 defaultValues={defaultValues}
-              />
-            </Grid>
-          </TitlePageContainer>
-        </form>
-      )}
+              /> */}
+          </Grid>
+        </TitlePageContainer>
+      </form>
     </div>
   );
 };

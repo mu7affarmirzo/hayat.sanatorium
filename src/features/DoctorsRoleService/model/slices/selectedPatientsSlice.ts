@@ -5,17 +5,17 @@ export interface DynamicTopPatientTab {
   data: GetMyPatients[];
   loading: boolean;
   error: string | null;
-  selectedPatient: GetMyPatients | null; // Changed to store the selected patient
+  currentPatient: GetMyPatients | null;
 }
 
 const initialState: DynamicTopPatientTab = {
   data: [],
   loading: false,
   error: null,
-  selectedPatient: null, // Initialized with null
+  currentPatient: null,
 };
 
-const dynamicTopTabsSlice = createSlice({
+const selectedPatientsSlice = createSlice({
   name: 'dynamicTopTabs',
   initialState,
   reducers: {
@@ -25,31 +25,22 @@ const dynamicTopTabsSlice = createSlice({
         (patient) => patient.id === newPatient.id,
       );
       if (existingPatientIndex !== -1) {
-        state.data.splice(existingPatientIndex, 1);
+        state.data[existingPatientIndex] = newPatient;
+      } else {
+        state.data.push(newPatient);
       }
-      state.data.push(newPatient);
-      state.selectedPatient = newPatient; // Automatically select the newly added patient
+      state.currentPatient = newPatient; // Automatically select the newly added patient
     },
     removePatient: (state, action: PayloadAction<number>) => {
       const patientId = action.payload;
-      const updatedData = state.data.filter(
-        (patient) => patient.id !== patientId,
-      );
-
-      state.data = updatedData;
-
-      if (updatedData.length !== state.data.length) {
-        state.data = updatedData;
-        if (state.selectedPatient?.id === patientId) {
-          state.selectedPatient = state.data[0] || null; // Deselect if the removed patient was selected
-        }
-      } else {
-        console.log(`Patient with ID ${patientId} not found.`);
+      state.data = state.data.filter((patient) => patient.id !== patientId);
+      if (state.currentPatient?.id === patientId) {
+        state.currentPatient = state.data.length > 0 ? state.data[0] : null; // Deselect if the removed patient was selected
       }
     },
-    clearAllSelectedPatients: (state) => {
+    clearAllPatients: (state) => {
       state.data = [];
-      state.selectedPatient = null;
+      state.currentPatient = null;
     },
     setLoading: (state, action: PayloadAction<boolean>) => {
       state.loading = action.payload;
@@ -59,9 +50,8 @@ const dynamicTopTabsSlice = createSlice({
     },
     selectPatient: (state, action: PayloadAction<number>) => {
       const patientId = action.payload;
-      const selectedPatient =
+      state.currentPatient =
         state.data.find((patient) => patient.id === patientId) || null;
-      state.selectedPatient = selectedPatient;
     },
   },
 });
@@ -69,10 +59,15 @@ const dynamicTopTabsSlice = createSlice({
 export const {
   addPatient,
   removePatient,
-  clearAllSelectedPatients,
+  clearAllPatients,
   setLoading,
   setError,
-  selectPatient, // Export the new reducer
-} = dynamicTopTabsSlice.actions;
+  selectPatient,
+} = selectedPatientsSlice.actions;
 
-export default dynamicTopTabsSlice.reducer;
+export default selectedPatientsSlice.reducer;
+
+// Selector to get the current patient
+export const selectCurrentPatient = (state: {
+  dynamicTopTabs: DynamicTopPatientTab;
+}) => state.dynamicTopTabs.currentPatient;

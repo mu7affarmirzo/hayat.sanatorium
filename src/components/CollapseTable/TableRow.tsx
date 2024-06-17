@@ -1,6 +1,6 @@
+// TableRow.tsx
 import { styled } from '@stitches/react';
-
-import { IColumnType } from './CollapseTable';
+import { IColumnType } from 'components/CollapseTable/CollapseTable';
 import { TableRowCell } from './TableRowCell';
 
 interface Props<T> {
@@ -8,21 +8,29 @@ interface Props<T> {
   columns: IColumnType<T>[];
   expandedRows?: Record<number, boolean>;
   toggleRow?: (id: number) => void;
+  handleRowClicked?: (item: T) => void;
 }
 
 const TableRowItem = styled('tr', {
-  cursor: 'auto',
+  cursor: 'pointer', // Changed to pointer to indicate clickable rows
+  height: '30px',
   backgroundColor: '#ffffff',
   '&:hover': {
-    backgroundColor: '#F8ED8D',
+    backgroundColor: '#dcdcdc',
   },
 });
 
-export function TableRow<T>({ data, columns }: Props<T>): JSX.Element {
+export function TableRow<T>({
+  data,
+  columns,
+  handleRowClicked,
+}: Props<T>): JSX.Element {
   return (
     <>
       {data.map((item, itemIndex) => (
-        <TableRowItem key={`table-body-${itemIndex}`}>
+        <TableRowItem
+          key={`table-body-${itemIndex}`}
+          onClick={() => handleRowClicked && handleRowClicked(item)}>
           {columns.map((column, columnIndex) => (
             <TableRowCell
               key={`table-row-cell-${columnIndex}`}

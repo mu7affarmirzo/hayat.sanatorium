@@ -1,7 +1,7 @@
 import {
-  usePostRepeatedAppointmentMutation,
   useGetRepeatedAppointmentQuery,
-  usePatchRepeatedAppointmentMutation
+  usePatchRepeatedAppointmentMutation,
+  usePostRepeatedAppointmentMutation,
 } from 'features/Appointments/RepeatedAppointmnet/service';
 import {
   LabResearchForRepApp,
@@ -10,15 +10,11 @@ import {
   ProcedureForRepApp,
   RepeatedAppointment,
 } from 'features/Appointments/RepeatedAppointmnet/types';
-import { AppointmentStatus } from 'features/slices/initAppoinmentStatusSlice';
 import { useReduxSelector } from 'hooks/useReduxHook';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 
 export const useRepeatedAppointmentHook = () => {
-  const [appointmentStatus, setAppointmentStatus] =
-    useState<AppointmentStatus['status']>('notCompleted');
-
   const methods = useForm<RepeatedAppointment>();
 
   const { procedures } = useReduxSelector((state) => state.procedures);
@@ -26,22 +22,22 @@ export const useRepeatedAppointmentHook = () => {
   const { selectedConsultingItems, selectedReSearchItems } = useReduxSelector(
     (state) => state.consultingAndResearch,
   );
-  const { appointments } = useReduxSelector((state) => state.appointments) 
+  const { appointments } = useReduxSelector((state) => state.appointments);
 
-  const CheckRepeatedApp = appointments.repeated_appointment ? appointments.repeated_appointment[0] : null
+  const CheckRepeatedApp = appointments.repeated_appointment
+    ? appointments.repeated_appointment[0]
+    : null;
 
-  const {
-    data: repeatedData,
-    refetch: refetchRepeatedAppointment
-  } = useGetRepeatedAppointmentQuery(CheckRepeatedApp as never)
+  const { data: repeatedData, refetch: refetchRepeatedAppointment } =
+    useGetRepeatedAppointmentQuery(CheckRepeatedApp as never);
 
   useEffect(() => {
     if (repeatedData) {
-      const {id, ...restData} = repeatedData
-      methods.reset(restData)
+      const { id, ...restData } = repeatedData;
+      methods.reset(restData);
     }
-  }, [repeatedData])
-  
+  }, [repeatedData]);
+
   const [fetchRepeatedPatch] = usePatchRepeatedAppointmentMutation();
   const [fetchRequest] = usePostRepeatedAppointmentMutation();
 
@@ -86,13 +82,6 @@ export const useRepeatedAppointmentHook = () => {
     }));
   }, [selectedReSearchItems]);
 
-  const handleChangeStatus = useCallback(
-    (status: AppointmentStatus['status']) => {
-      setAppointmentStatus(status);
-    },
-    [setAppointmentStatus],
-  );
-
   const onSubmit = (data: RepeatedAppointment) => {
     const postData: RepeatedAppointment = {
       ...data,
@@ -105,21 +94,19 @@ export const useRepeatedAppointmentHook = () => {
     if (repeatedData) {
       fetchRepeatedPatch({
         id: repeatedData.id,
-        data: postData
+        data: postData,
       }).then(() => {
-        refetchRepeatedAppointment()
-      })
-    }
-    else {
+        refetchRepeatedAppointment();
+      });
+    } else {
       fetchRequest(postData).then(() => {
-        refetchRepeatedAppointment()
+        refetchRepeatedAppointment();
       });
     }
   };
 
   return {
-    handleChangeStatus,
-    appointmentStatus,
+    appointmentID: 3,
     methods,
     onSubmit,
   };

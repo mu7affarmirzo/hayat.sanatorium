@@ -1,6 +1,6 @@
-import { RowClickedEvent } from 'ag-grid-community';
 import { addPatient } from 'features/DoctorsRoleService/model/slices/selectedPatientsSlice';
 import { useGetAllDocPatientsQuery } from 'features/DoctorsRoleService/service/doctorService';
+import { GetMyPatients } from 'features/DoctorsRoleService/types';
 import useDebounce from 'hooks/useDebounceHook';
 import { useReduxDispatch } from 'hooks/useReduxHook';
 import { useCallback, useMemo, useState } from 'react';
@@ -28,11 +28,10 @@ export const useMyPatientsDocHook = () => {
   }, [DocPatientsData?.length]);
 
   const handleClickedRowTable = useCallback(
-    (event: RowClickedEvent) => {
-      console.log(event.data);
-
-      if (event.data) {
-        dispatch(addPatient(event.data as never));
+    (event: GetMyPatients) => {
+      console.log(event, ' patient data ');
+      if (event) {
+        dispatch(addPatient(event as never));
       }
     },
     [dispatch],

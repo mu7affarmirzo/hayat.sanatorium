@@ -1,19 +1,19 @@
+import { Box } from '@mui/material';
 import AppointmentsSections from 'components/AppointmentActionSection/appointmentsSection';
 import AppointmentHeader from 'components/AppointmentHeader';
 import { GetCategoryTextareField } from 'components/GetCategoryTextareField/CategoryTextareFieldView';
 import { DiagnosisView } from 'features/Diagnosis';
-import { Box } from '@mui/material';
+import { CardiologistConclusionSection } from './components/CardiologistConclusionSection';
+import { CardiovascularSection } from './components/CardiovascularSection';
+import { ObjectiveResearchSection } from './components/ObjectiveResearchSection.';
+import { RespiratorySection } from './components/RespiratorySection';
 import {
   CardiologistAppointmentProvider,
   useCardiologistAppoinmnetContext,
 } from './module';
-import { ObjectiveResearchSection } from './components/ObjectiveResearchSection.';
-import { CardiovascularSection } from './components/CardiovascularSection';
-import { RespiratorySection } from './components/RespiratorySection';
-import { CardiologistConclusionSection } from './components/CardiologistConclusionSection';
 
 const Main = () => {
-  const { appointmentStatus, handleChangeStatus, methods, onSubmit } =
+  const { methods, onSubmit, appointmentID } =
     useCardiologistAppoinmnetContext();
 
   return (
@@ -23,8 +23,7 @@ const Main = () => {
         className="border border-[rgba(0, 0, 0, 0.23)] h-[calc(100vh-220px)]  p-[10px] overflow-hidden ">
         <AppointmentHeader
           doctor="Консультация кардиолога первичная, Admin"
-          appointmentStatus={appointmentStatus}
-          setAppointmentStatus={handleChangeStatus}
+          appointmentID={appointmentID as never}
         />
 
         <Box className="bg-[#fff] w-full p-[8px] pb-10 overflow-scroll max-h-[calc(100vh-300px)] h-[calc(100vh-300px)]">

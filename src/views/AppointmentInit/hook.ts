@@ -10,18 +10,15 @@ import {
   PillForInitAppointment,
   ProcedureForInitAppointment,
 } from 'features/Appointments/InitAppointment/types';
-import { AppointmentStatus } from 'features/slices/initAppoinmentStatusSlice';
-import { useReduxDispatch, useReduxSelector } from 'hooks/useReduxHook';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useReduxSelector } from 'hooks/useReduxHook';
+import { useEffect, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 
 const useInitialAppointmentForm = () => {
-  const [appointmentStatus, setAppointmentStatus] =
-    useState<AppointmentStatus['status']>('notCompleted');
   const { procedures } = useReduxSelector((state) => state.procedures);
   const { medications } = useReduxSelector((state) => state.medication);
   // const { initialAppointment } = useReduxSelector((state) => state.appointments);
-  const dispatch = useReduxDispatch();
+  // const dispatch = useReduxDispatch();
 
   const { selectedConsultingItems, selectedReSearchItems } = useReduxSelector(
     (state) => state.consultingAndResearch,
@@ -39,6 +36,13 @@ const useInitialAppointmentForm = () => {
     ? appointments.initial[0]
     : null;
 
+  const appointmentID = useMemo(() => {
+    if (ChechInitialAppointment) {
+      return ChechInitialAppointment.id;
+    }
+    return null;
+  }, [ChechInitialAppointment]);
+
   const { data: initialAppointment, refetch: refetchInitialAppointment } =
     useGetInitAppointmentQuery(ChechInitialAppointment);
 
@@ -51,13 +55,6 @@ const useInitialAppointmentForm = () => {
 
   const [fetchInitialAppointmentPatch] = usePatchInitAppointmentMutation();
   const [fetchRequest] = usePostInitAppointmentMutation();
-
-  const handleChangeStatus = useCallback(
-    (status: AppointmentStatus['status']) => {
-      setAppointmentStatus(status);
-    },
-    [setAppointmentStatus],
-  );
 
   const convertToMedicalServices =
     useMemo((): MedicalServiceForInitAppointment[] => {
@@ -130,8 +127,7 @@ const useInitialAppointmentForm = () => {
   return {
     methods,
     onSubmit,
-    handleChangeStatus,
-    appointmentStatus,
+    appointmentID,
   };
 };
 

@@ -1,23 +1,25 @@
 import {
-  usePostFinalAppointmentMutation,
   useGetFinalAppointmentQuery,
   usePatchFinalAppointmentMutation,
+  usePostFinalAppointmentMutation,
 } from 'features/Appointments/FinalAppointment/service';
 import { FinalAppointment } from 'features/Appointments/FinalAppointment/types';
-import { AppointmentStatus } from 'features/slices/initAppoinmentStatusSlice';
 import { useReduxSelector } from 'hooks/useReduxHook';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 
 export const useFinalAppointmentHook = () => {
-  const [appointmentStatus, setAppointmentStatus] =
-    useState<AppointmentStatus['status']>('notCompleted');
-
   const { appointments } = useReduxSelector((state) => state.appointments);
 
   const CheckFinalAppointment = appointments.final_appointment
     ? appointments.final_appointment[0]
     : null;
+
+  const appointmentID = useMemo(() => {
+    if (CheckFinalAppointment) {
+      return CheckFinalAppointment.id;
+    }
+  }, [CheckFinalAppointment]);
 
   const { data: finalData, refetch: refetchFinalAppointment } =
     useGetFinalAppointmentQuery(CheckFinalAppointment as never);
@@ -33,9 +35,6 @@ export const useFinalAppointmentHook = () => {
 
   const [fetchFinalPatch] = usePatchFinalAppointmentMutation();
   const [fetchFinal] = usePostFinalAppointmentMutation();
-  const handleChangeStatus = (status: AppointmentStatus['status']) => {
-    setAppointmentStatus(status);
-  };
 
   const onSubmit = (data: FinalAppointment) => {
     console.log(data);
@@ -60,8 +59,7 @@ export const useFinalAppointmentHook = () => {
   };
 
   return {
-    appointmentStatus,
-    handleChangeStatus,
+    appointmentID,
     fetchFinal,
     methods,
     onSubmit,

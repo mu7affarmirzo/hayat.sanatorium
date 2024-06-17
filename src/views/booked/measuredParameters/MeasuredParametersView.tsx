@@ -1,17 +1,16 @@
-import { Box, duration, Stack } from '@mui/material';
-import DefaultText from 'components/defaultText/DefaultText';
-import { ArterialPressure } from './ArterialPressure';
+import { Box, Stack } from '@mui/material';
+import { ArrowDropDownIcon } from '@mui/x-date-pickers';
+import { CloseIcon } from 'assets/icons/icons';
+import Dropdown from 'components/NestedDropdownMenu/ReuseableDropdown';
 import BookingScreenTabs, {
   TabsItem,
 } from 'components/Tabs/BookedPageTabs/bookedTabs';
-import { CloseIcon } from 'assets/icons/icons';
+import DefaultText from 'components/defaultText/DefaultText';
+import { ArterialPressure } from './ArterialPressure';
 import { BloodGlucose } from './BloodGlucose';
 import { Pulse } from './Pulse';
 import { Saturation } from './Saturation';
 import { Temperature } from './Temperature';
-import { useState } from 'react';
-import Dropdown from 'components/NestedDropdownMenu/ReuseableDropdown';
-import { ArrowDropDownIcon } from '@mui/x-date-pickers';
 
 const MeasuredParametersView = () => {
   const content: TabsItem[] = [
@@ -42,25 +41,31 @@ const MeasuredParametersView = () => {
     },
   ];
 
-
   return (
     <Box className=" h-[calc(100vh-225px)]  p-[10px] overflow-hidden ">
-      <Stack direction={'row'} alignItems={'center'} minHeight={'40px'} justifyContent={'space-between'} mb={'4px'}>
+      <Stack
+        direction={'row'}
+        alignItems={'center'}
+        minHeight={'40px'}
+        justifyContent={'space-between'}
+        mb={'4px'}>
         <DefaultText style={'text-[#000] text-[14px] max-h-[14px]'}>
           Измеряемые параметры
         </DefaultText>
         <Dropdown
-          handleClicked={() => { }}
+          handleClicked={() => {}}
           endIcon={<ArrowDropDownIcon sx={{ fill: '#fff' }} />}
           title="Добавить параметр"
-          data={[{
-            id: 1,
-            title: 'Консультацию',
-          },
-          {
-            id: 2,
-            title: 'Исследование',
-          }]}
+          data={[
+            {
+              id: 1,
+              title: 'Консультацию',
+            },
+            {
+              id: 2,
+              title: 'Исследование',
+            },
+          ]}
           styles="bg-[#2196F3] text-[#fff] h-[30px]"
           anchorOrigin={{
             vertical: 'top',

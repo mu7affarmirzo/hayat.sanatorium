@@ -1,10 +1,9 @@
-import { Grid, Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 import { VuesaxLinear } from 'assets/icons/icons';
-import TableComponent from 'components/CustomTable/table';
 import SearchInput from 'components/SearchField/searchInput';
 import DefaultButton from 'components/deafultButton/DefaultButton';
+import { DocMyPatientsTableContainer } from 'containers/Doctors/PatientDoctors/Tabs/MyPatientsDoc/_components/docMyPatientsTable';
 import { useMyPatientsDocHook } from './hook';
-import { GetDocPatientsColDef } from './_components/column';
 
 const MyPatientsDocView = () => {
   const {
@@ -25,23 +24,17 @@ const MyPatientsDocView = () => {
           <SearchInput placeholder="Искать в таблице" onChange={handleSearch} />
         </Grid>
         <DefaultButton
-          title=" Экспорт в Excel"
+          title="Экспорт в Excel"
           classStyle="bg-[#2d373f] h-[40px] text-[#fff] text-sm capitalize mr-[10px]"
           icon={<VuesaxLinear />}
         />
       </Grid>
       <Grid item xs={12} md={12} className=" bg-[#F5F5F5]">
-        <TableComponent
-          columnDefs={GetDocPatientsColDef}
-          data={DocPatientsData as never}
-          tableHeight="h-[810px]"
-          handleClickedTableRow={handleClickedRowTable}
+        <DocMyPatientsTableContainer
+          rowData={DocPatientsData as never}
+          numberOfPatient={NumberOfPatient as never}
+          handleClickedRowTable={handleClickedRowTable}
         />
-      </Grid>
-      <Grid>
-        <Typography>
-          Лечащий врач, количество пациентов: {NumberOfPatient}
-        </Typography>
       </Grid>
     </Grid>
   );

@@ -1,9 +1,8 @@
 import { Grid } from '@mui/material';
-import { useSearchDocPatientHook } from './hook';
-import { SearchOptionsAccordion } from 'views/patients/SearchPatientTab/components/searchOptionAccordion';
+import { DocMyPatientsTableContainer } from 'containers/Doctors/PatientDoctors/Tabs/MyPatientsDoc/_components/docMyPatientsTable';
 import { SearchActionsSection } from 'views/patients/SearchPatientTab/components/searchActionsSection';
-import TableComponent from 'components/CustomTable/table';
-import { SearchDocPatientColDef } from './_components/column';
+import { SearchOptionsAccordion } from 'views/patients/SearchPatientTab/components/searchOptionAccordion';
+import { useSearchDocPatientHook } from './hook';
 
 const SearchDocPatientView = () => {
   const {
@@ -31,11 +30,10 @@ const SearchDocPatientView = () => {
         md={12}
         className="bg-[#F5F5F5]"
         sx={{ marginBottom: '20px' }}>
-        <TableComponent
-          columnDefs={SearchDocPatientColDef}
-          data={SearchPatientData as never}
-          tableHeight="h-[70vh]"
-          handleClickedTableRow={handleClickedRowTable}
+        <DocMyPatientsTableContainer
+          rowData={SearchPatientData as never}
+          numberOfPatient={numberOfPatient as never}
+          handleClickedRowTable={handleClickedRowTable}
         />
       </Grid>
     </Grid>

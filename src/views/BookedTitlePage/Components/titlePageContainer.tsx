@@ -4,9 +4,10 @@ import { FC } from 'react';
 
 interface Props {
   children: any;
+  ibNumber: number;
 }
 
-export const TitlePageContainer: FC<Props> = ({ children }) => {
+export const TitlePageContainer: FC<Props> = ({ children, ibNumber }) => {
   return (
     <Grid container className="flex">
       <Box className="flex flex-row justify-between items-center w-full my-1">
@@ -18,7 +19,8 @@ export const TitlePageContainer: FC<Props> = ({ children }) => {
           <Box className=" w-[60px] ml-[10px] ">
             <input
               className=" bg-[#fff] w-full h-full border-none outline-none pl-[5px] py-1"
-              //   {...register('id')}
+              value={ibNumber}
+              disabled
             />
           </Box>
         </Box>

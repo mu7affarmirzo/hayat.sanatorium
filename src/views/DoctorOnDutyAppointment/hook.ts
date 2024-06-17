@@ -1,7 +1,7 @@
 import {
-  usePostDoctorsOnDutyMutation,
   useGetDoctorsOnDutyQuery,
   usePatchDoctorsOnDutyMutation,
+  usePostDoctorsOnDutyMutation,
 } from 'features/Appointments/DoctorOnDutyAppointment/service';
 import {
   DoctorOnDutyAppointmentTypes,
@@ -10,15 +10,11 @@ import {
   PillForDoctorOnDuty,
   ProcedureForDoctorOnDuty,
 } from 'features/Appointments/DoctorOnDutyAppointment/types';
-import { AppointmentStatus } from 'features/slices/initAppoinmentStatusSlice';
 import { useReduxSelector } from 'hooks/useReduxHook';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 
 export const useDoctorOnDutyAppointmentHook = () => {
-  const [appointmentStatus, setAppointmentStatus] =
-    useState<AppointmentStatus['status']>('notCompleted');
-
   const methods = useForm<DoctorOnDutyAppointmentTypes>();
 
   const { appointments } = useReduxSelector((state) => state.appointments);
@@ -26,6 +22,13 @@ export const useDoctorOnDutyAppointmentHook = () => {
   const CheckDocOnDutyApp = appointments.on_duty_doctor_on_arrival
     ? appointments.on_duty_doctor_on_arrival[0]
     : null;
+
+  const appointmentID = useMemo(() => {
+    if (CheckDocOnDutyApp) {
+      return CheckDocOnDutyApp.id;
+    }
+    return null;
+  }, [CheckDocOnDutyApp]);
 
   const { data: doctorOnDutyData, refetch: refetchDoctorOnDutyAppointment } =
     useGetDoctorsOnDutyQuery(CheckDocOnDutyApp as never);
@@ -88,13 +91,6 @@ export const useDoctorOnDutyAppointmentHook = () => {
     }));
   }, [selectedReSearchItems]);
 
-  const handleChangeStatus = useCallback(
-    (status: AppointmentStatus['status']) => {
-      setAppointmentStatus(status);
-    },
-    [setAppointmentStatus],
-  );
-
   const onSubmit = (data: DoctorOnDutyAppointmentTypes) => {
     const postData: DoctorOnDutyAppointmentTypes = {
       ...data,
@@ -119,8 +115,7 @@ export const useDoctorOnDutyAppointmentHook = () => {
   };
 
   return {
-    handleChangeStatus,
-    appointmentStatus,
+    appointmentID,
     methods,
     onSubmit,
   };

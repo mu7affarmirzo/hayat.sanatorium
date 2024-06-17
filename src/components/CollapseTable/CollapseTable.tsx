@@ -1,9 +1,9 @@
+// Table.tsx
 import { styled } from '@stitches/react';
-
-import { TableHeader } from './TableHeader';
-import { TableRow } from './TableRow';
 import { useState } from 'react';
 import { CollapseTitle } from './CollapseTitle';
+import { TableHeader } from './TableHeader';
+import { TableRow } from './TableRow';
 
 export interface IColumnType<T> {
   key: string;
@@ -20,12 +20,12 @@ interface Props<T> {
   isCollapsible?: boolean;
   cito?: any;
   collapseTitle?: string;
+  handleRowClicked?: (item: T) => void; // New prop for handling row clicks
 }
 
 const TableWrapper = styled('table', {
   borderCollapse: 'collapse',
   border: 'none',
-  fontFamily: 'Anek Telugu',
   backgroundColor: '#F5F5F5',
 });
 
@@ -35,11 +35,12 @@ export function Table<T>({
   isCollapsible,
   cito,
   collapseTitle,
+  handleRowClicked, // Destructure the new prop
 }: Props<T>): JSX.Element {
   const [expandedRows, setExpandedRows] = useState<Record<number, boolean>>({});
 
   return (
-    <TableWrapper width={'100%'}>
+    <TableWrapper width={'100%'} className="font-roboto">
       <thead>
         <TableHeader columns={columns} />
         <tr>
@@ -58,7 +59,11 @@ export function Table<T>({
 
       {expandedRows[cito] && (
         <tbody>
-          <TableRow data={data} columns={columns} />
+          <TableRow
+            data={data}
+            columns={columns}
+            handleRowClicked={handleRowClicked}
+          />
         </tbody>
       )}
     </TableWrapper>

@@ -1,24 +1,20 @@
 import {
-  usePostElectrocardiogrammaMutation,
   useGetElectrocardiogrammaQuery,
   usePatchElectrocardiogrammaMutation,
+  usePostElectrocardiogrammaMutation,
 } from 'features/Appointments/Electrocardiogramma/service';
 import {
+  EkgAppointmentTypes,
   LabResearchForEkg,
   MedicalServiceForEKG,
   PillForEkg,
-  EkgAppointmentTypes,
   ProcedureForEKG,
 } from 'features/Appointments/Electrocardiogramma/types';
-import { AppointmentStatus } from 'features/slices/initAppoinmentStatusSlice';
 import { useReduxSelector } from 'hooks/useReduxHook';
-import { useState, useCallback, useMemo, useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 
 export const useElectrocardiogramAppointmentHook = () => {
-  const [appointmentStatus, setAppointmentStatus] =
-    useState<AppointmentStatus['status']>('notCompleted');
-
   const methods = useForm<EkgAppointmentTypes>();
 
   const { procedures } = useReduxSelector((state) => state.procedures);
@@ -34,6 +30,13 @@ export const useElectrocardiogramAppointmentHook = () => {
   const CheckElectrogrammaApp = appointments.ekg_appointment
     ? appointments.ekg_appointment[0]
     : null;
+
+  const appointmentID = useMemo(() => {
+    if (CheckElectrogrammaApp) {
+      return CheckElectrogrammaApp.id;
+    }
+    return null;
+  }, [CheckElectrogrammaApp]);
 
   const { data: ekgData, refetch: refetchEkgAppointment } =
     useGetElectrocardiogrammaQuery(appointments.ekg_appointment[0].id);
@@ -86,13 +89,6 @@ export const useElectrocardiogramAppointmentHook = () => {
     }));
   }, [selectedReSearchItems]);
 
-  const handleChangeStatus = useCallback(
-    (status: AppointmentStatus['status']) => {
-      setAppointmentStatus(status);
-    },
-    [setAppointmentStatus],
-  );
-
   const onSubmit = (data: EkgAppointmentTypes) => {
     const newData: EkgAppointmentTypes = {
       ...data,
@@ -118,8 +114,7 @@ export const useElectrocardiogramAppointmentHook = () => {
   };
 
   return {
-    handleChangeStatus,
-    appointmentStatus,
+    appointmentID,
     methods,
     onSubmit,
   };
