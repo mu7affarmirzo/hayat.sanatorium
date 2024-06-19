@@ -1,30 +1,39 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { LabResearch, MedServiceSpecialty } from 'types/appointmentTypes';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import {
+  LabResearchesTypes,
+  MedServiceCategoryTypes,
+} from 'features/ConsultingAndResearch/model/types';
 
 interface ConsultingAndResearchState {
-  selectedReSearchItems: LabResearch[];
-  selectedConsultingItems: MedServiceSpecialty[];
+  selectedResearchItems: LabResearchesTypes;
+  selectedConsultingItems: MedServiceCategoryTypes;
 }
 
 const initialState: ConsultingAndResearchState = {
-  selectedReSearchItems: [],
+  selectedResearchItems: [],
   selectedConsultingItems: [],
 };
 
-export const consultingAndResearchSlice = createSlice({
+const consultingAndResearchSlice = createSlice({
   name: 'consultingAndResearch',
   initialState,
   reducers: {
-    setSelectedReSearchItems: (state, action) => {
-      state.selectedReSearchItems = action.payload;
+    setSelectedResearchItems: (
+      state,
+      action: PayloadAction<LabResearchesTypes>,
+    ) => {
+      state.selectedResearchItems = action.payload;
     },
-    setSelectedConsultingItems: (state, action) => {
+    setSelectedConsultingItems: (
+      state,
+      action: PayloadAction<MedServiceCategoryTypes>,
+    ) => {
       state.selectedConsultingItems = action.payload;
     },
   },
 });
 
-export const consultingAndResearchActions = consultingAndResearchSlice.actions;
+export const { setSelectedResearchItems, setSelectedConsultingItems } =
+  consultingAndResearchSlice.actions;
 
-export const { setSelectedReSearchItems, setSelectedConsultingItems } =
-  consultingAndResearchActions;
+export default consultingAndResearchSlice.reducer;

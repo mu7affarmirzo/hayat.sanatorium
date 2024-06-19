@@ -1,27 +1,28 @@
-import { setSelectedReSearchItems } from 'features/ConsultingAndResearch/model/slice/consultingAndResearchSlice';
+import { useConsultingResearchSelector } from 'features/ConsultingAndResearch/model/selectors/consultingReserchSelector';
+import {
+  LabResearchesType,
+  LabResearchesTypes,
+} from 'features/ConsultingAndResearch/model/types';
 import { useGetLabsGroupByCategoryQuery } from 'features/ConsultingAndResearch/service/consultingAndReseachService';
-import { useReduxDispatch } from 'hooks/useReduxHook';
 import { useCallback, useState } from 'react';
-import { LabResearch } from 'types/appointmentTypes';
 
 export const useReSearchHook = () => {
-  const dispatch = useReduxDispatch();
-  const [selectedItems, setSelectedItems] = useState<LabResearch[]>([]);
+  const [selectedItems, setSelectedItems] = useState<LabResearchesTypes>([]);
   const { data: researchData } = useGetLabsGroupByCategoryQuery({});
+  const { dispatchResearchItems } = useConsultingResearchSelector();
 
   const handleLabResearchCheckboxChange = useCallback(
-    (item: LabResearch) => {
+    (item: LabResearchesType) => {
       const updatedSelectedLabResearch = selectedItems.includes(item)
         ? selectedItems.filter(
             (selectedLabResearchItem) => selectedLabResearchItem.id !== item.id,
           )
         : [...selectedItems, item];
 
+      dispatchResearchItems(updatedSelectedLabResearch);
       setSelectedItems(updatedSelectedLabResearch);
-
-      dispatch(setSelectedReSearchItems(updatedSelectedLabResearch));
     },
-    [dispatch, selectedItems],
+    [dispatchResearchItems, selectedItems],
   );
   return { researchData, handleLabResearchCheckboxChange, selectedItems };
 };

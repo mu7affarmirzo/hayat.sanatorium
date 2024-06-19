@@ -10,7 +10,6 @@ export const usePatientDocTPHook = () => {
     memoizedPatientHistory: currentPatientIB,
     isLoading,
     error,
-    memoizedAppointmentsList,
   } = useCurrentPatientIB();
 
   const methods = useForm<GetPatientIbTypes>({

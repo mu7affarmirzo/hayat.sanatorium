@@ -1,8 +1,6 @@
+import { MedServiceCategoryTypes } from 'features/ConsultingAndResearch/model/types';
 import { ApiSlice } from 'features/api/apiSlice';
-import {
-  AppointmentMedServiceTypes,
-  LabResearchesType,
-} from 'types/appointmentTypes';
+import { LabResearchesType } from 'types/appointmentTypes';
 
 export const consultingAndResearchService = ApiSlice.injectEndpoints({
   endpoints: (builder) => ({
@@ -13,7 +11,7 @@ export const consultingAndResearchService = ApiSlice.injectEndpoints({
       }),
     }),
 
-    getMedServiceGroup: builder.query<AppointmentMedServiceTypes[], any>({
+    getMedServiceGroup: builder.query<MedServiceCategoryTypes[], any>({
       query: () => ({
         url: '/sanatorium/get_med_services_group_by_category/',
         method: 'GET',

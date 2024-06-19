@@ -1,6 +1,6 @@
 import { combineReducers } from '@reduxjs/toolkit';
 import appointmentsSlice from 'features/Appointments/slice/appointmentsSlice';
-import { consultingAndResearchSlice } from 'features/ConsultingAndResearch/model/slice/consultingAndResearchSlice';
+import consultingAndResearchReducer from 'features/ConsultingAndResearch/model/slice/consultingAndResearchSlice';
 import dispatchingSlice from 'features/Dispatching/dispatchingSlice';
 import patientIllnesHistorySlice from 'features/DoctorsRoleService/model/slices/patientIllnesHistorySlice';
 import selectedPatientsSlice from 'features/DoctorsRoleService/model/slices/selectedPatientsSlice';
@@ -25,7 +25,7 @@ export const reducers = combineReducers({
   dispatching: dispatchingSlice,
   patients: getIbWithPatientIdSlice.reducer,
   appointmentStatus: appointmentStatus,
-  consultingAndResearch: consultingAndResearchSlice.reducer,
+  consultingAndResearch: consultingAndResearchReducer,
   procedures: proceduresSlice.reducer,
   medication: medicationSlice.reducer,
   nutrition: nutritionSlice.reducer,

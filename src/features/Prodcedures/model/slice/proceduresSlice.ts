@@ -1,10 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { ProcedureTypes } from 'features/Prodcedures/model/types';
 
-interface Procedure {
-  procedures: any[];
+interface ProcedureSliceTypes {
+  procedures: ProcedureTypes;
 }
 
-const initialState: Procedure = {
+const initialState: ProcedureSliceTypes = {
   procedures: [],
 };
 

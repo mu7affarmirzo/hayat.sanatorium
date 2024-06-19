@@ -1,31 +1,38 @@
 import { useGetMedServiceGroupQuery } from 'features/ConsultingAndResearch/service/consultingAndReseachService';
-import { setProcedures } from 'features/Prodcedures/model/slice/proceduresSlice';
-// import { useGetProceduresQuery } from 'features/Prodcedures/service/procedureService';
-import { useReduxDispatch } from 'hooks/useReduxHook';
+import { useProceduresSelector } from 'features/Prodcedures/model/selectors/useProceduresSelector';
+import {
+  ProcedureType,
+  ProcedureTypes,
+} from 'features/Prodcedures/model/types';
 import { useCallback, useState } from 'react';
-import { MedServiceSpecialty } from 'types/appointmentTypes';
 
 export const useProceduresModalHook = () => {
-  const dispatch = useReduxDispatch();
-  //   const { data: proceduresData } = useGetProceduresQuery({});
-  const [selectedItems, setSelectedItems] = useState<MedServiceSpecialty[]>([]);
-  const { data: proceduresData } = useGetMedServiceGroupQuery({});
+  const { data: proceduresData } = useGetMedServiceGroupQuery({}); // getProceduresQuery is renamed to getMedServiceGroupQuery
+  const [selectedItems, setSelectedItems] = useState<ProcedureTypes>([]);
+  const { dispatchProcedureItems } = useProceduresSelector();
 
-  const handleMedServiceChechboxChange = useCallback(
-    (item: MedServiceSpecialty) => {
-      const updatedSelectedItems = selectedItems.includes(item)
-        ? selectedItems.filter((selectedItem) => selectedItem.id !== item.id)
-        : [...selectedItems, item];
+  const handleProceduresSelectItems = useCallback(
+    (item: ProcedureType) => {
+      setSelectedItems((prevSelectedItems) => {
+        const isSelected = prevSelectedItems.some(
+          (selectedItem) => selectedItem.id === item.id,
+        );
 
-      setSelectedItems(updatedSelectedItems);
-      dispatch(setProcedures(updatedSelectedItems));
+        const updatedSelectedItems = isSelected
+          ? prevSelectedItems.filter(
+              (selectedItem) => selectedItem.id !== item.id,
+            )
+          : [...prevSelectedItems, item];
+        dispatchProcedureItems(updatedSelectedItems);
+        return updatedSelectedItems;
+      });
     },
-    [dispatch, selectedItems],
+    [dispatchProcedureItems],
   );
 
   return {
     proceduresData,
-    handleMedServiceChechboxChange,
+    handleProceduresSelectItems,
     selectedItems,
   };
 };

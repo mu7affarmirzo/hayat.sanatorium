@@ -10,7 +10,7 @@ import { useMemo } from 'react';
 export const useTransformationsCardiologistHook = () => {
   const { procedures } = useReduxSelector((state) => state.procedures);
   const { medications } = useReduxSelector((state) => state.medication);
-  const { selectedConsultingItems, selectedReSearchItems } = useReduxSelector(
+  const { selectedConsultingItems, selectedResearchItems } = useReduxSelector(
     (state) => state.consultingAndResearch,
   );
 
@@ -24,11 +24,11 @@ export const useTransformationsCardiologistHook = () => {
   }, [procedures]);
 
   const convertToLabResearch = useMemo((): LabResearchForCardiologist[] => {
-    return selectedReSearchItems.map((procedure) => ({
+    return selectedResearchItems.map((procedure) => ({
       lab: procedure.id,
       comments: 'no comments',
     }));
-  }, [selectedReSearchItems]);
+  }, [selectedResearchItems]);
 
   const convertToPills = useMemo((): PillForCardiologist[] => {
     return medications.map((medication) => ({

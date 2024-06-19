@@ -4,7 +4,7 @@ import SearchInput from 'components/SearchField/searchInput';
 import { useProceduresModalHook } from './hook';
 
 export const ProceduresModalView = () => {
-  const { proceduresData, handleMedServiceChechboxChange, selectedItems } =
+  const { proceduresData, handleProceduresSelectItems, selectedItems } =
     useProceduresModalHook();
   return (
     <Box
@@ -48,7 +48,7 @@ export const ProceduresModalView = () => {
           }}>
           <NestedCollapseDropdownCheckbox
             options={proceduresData}
-            handleSelect={handleMedServiceChechboxChange}
+            handleSelect={handleProceduresSelectItems}
             selectedItems={selectedItems}
           />
         </Box>

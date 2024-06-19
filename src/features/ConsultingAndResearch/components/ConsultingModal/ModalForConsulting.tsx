@@ -1,11 +1,12 @@
 import { Box, Grid, Typography } from '@mui/material';
+import NestedCollapseDropdownCheckbox from 'components/NestedCollapseDropdownCheckbox/CollapseDropdownCheckbox';
 import SearchInput from 'components/SearchField/searchInput';
 import { useConsultingHook } from './hook';
-import NestedCollapseDropdownCheckbox from 'components/NestedCollapseDropdownCheckbox/CollapseDropdownCheckbox';
 
 export const ConsultingModalView = () => {
-  const { handleMedServiceChechboxChange, researchData, selectedItems } =
+  const { handleMedServiceCheckboxChange, researchData, selectedItems } =
     useConsultingHook();
+
   return (
     <Box
       className="w-[100%]  bg-[#F5F5F5] border border-[rgba(0, 0, 0, 0.23)] overflow-hidden"
@@ -49,7 +50,7 @@ export const ConsultingModalView = () => {
           <NestedCollapseDropdownCheckbox
             options={researchData}
             selectedItems={selectedItems}
-            handleSelect={handleMedServiceChechboxChange}
+            handleSelect={handleMedServiceCheckboxChange}
           />
         </Box>
       </Grid>
