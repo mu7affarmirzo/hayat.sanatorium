@@ -14,6 +14,9 @@ function MyRoomType(params: any) {
 function chackBoxHandler(params: any) {
   return <DefaulCheckbox />;
 }
+function chackBoxHandlerDisabled(params: any) {
+  return <DefaulCheckbox disabled />;
+}
 export const PhonePushColDefs: ColDef[] = [
   {
     headerName: '',
@@ -31,7 +34,7 @@ export const PhonePushColDefs: ColDef[] = [
   {
     headerName: 'Название',
     field: 'name',
-    width: 120,
+    width: 220,
     editable: true,
     cellStyle: {
       border: '.5px solid #e0e0e0',
@@ -74,6 +77,75 @@ export const PhonePushColDefs: ColDef[] = [
     field: '',
     width: 120,
     editable: true,
+    cellStyle: {
+      border: '.5px solid #e0e0e0',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'start ',
+      padding: '0px',
+      paddingLeft: '10px',
+    },
+  },
+];
+
+export const PhonePushColDefsDisabled: ColDef[] = [
+  {
+    headerName: '',
+    field: '',
+    cellRenderer: MyRoomType,
+    width: 40,
+    cellStyle: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: ' start ',
+      border: '.5px solid #e0e0e0',
+      padding: '0px',
+    },
+  },
+  {
+    headerName: 'Название',
+    field: 'name',
+    width: 220,
+    cellStyle: {
+      border: '.5px solid #e0e0e0',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'start ',
+      padding: '0px',
+      paddingLeft: '10px',
+    },
+  },
+  {
+    headerName: 'Телефоны',
+    field: 'phone_number',
+    width: 120,
+    cellStyle: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      border: '.5px solid #e0e0e0',
+      padding: '0px',
+      paddingLeft: '15px',
+    },
+  },
+  {
+    headerName: 'Основной',
+    field: 'basic',
+    width: 120,
+    cellRenderer: chackBoxHandlerDisabled,
+    cellStyle: {
+      display: 'flex',
+      alignItems: 'center',
+
+      border: '.5px solid #e0e0e0',
+      padding: '0px',
+      paddingLeft: '15px',
+    },
+  },
+  {
+    headerName: '',
+    field: '',
+    width: 120,
     cellStyle: {
       border: '.5px solid #e0e0e0',
       display: 'flex',

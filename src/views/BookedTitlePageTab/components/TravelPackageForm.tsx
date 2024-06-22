@@ -2,18 +2,21 @@ import { Box, Grid, Typography } from '@mui/material';
 import DefaultText from 'components/defaultText/DefaultText';
 import SectionTitle from 'components/SectionTitle/sectionTitle';
 import AutocompleteInput from 'components/autocompleteInput';
-import { columnDefs } from 'components/columnDefs/expectedCol';
+import { columnDefs, columnDefsDisabled } from 'components/columnDefs/expectedCol';
 import DefaultButton from 'components/deafultButton/DefaultButton';
 import ReceptionTable from 'components/receptionTable';
 
 import { FC } from 'react';
+import { Living } from 'types/booked';
+import { AnyARecord } from 'dns';
 
 type propsType = {
   avtoCaplektData: any;
   register: any;
-  rowData?: any;
+  rowData?: Living[] | any;
   watch?: any;
   isDisabetBtns?: boolean;
+  disabled?: boolean
 };
 
 interface InfoBoxTypes {
@@ -41,7 +44,7 @@ const InfoContainer: FC<InfoBoxTypes> = ({ children, label, buttonChild }) => {
 };
 
 const TravelPackageForm = (props: propsType) => {
-  let { avtoCaplektData, rowData, watch, isDisabetBtns } = props;
+  let { avtoCaplektData, rowData, watch, isDisabetBtns, disabled } = props;
 
   return (
     <Box className="flex flex-col border p-[5px]">
@@ -53,7 +56,8 @@ const TravelPackageForm = (props: propsType) => {
       <InfoContainer
         label="Программа:"
         children={
-          <AutocompleteInput data={avtoCaplektData} inputStyle="w-[100%]" />
+          <AutocompleteInput
+            disabled={disabled} data={avtoCaplektData} inputStyle="w-[100%]" />
         }
       />
 
@@ -63,12 +67,12 @@ const TravelPackageForm = (props: propsType) => {
           <DefaultButton
             title="Добавить"
             classStyle="bg-[#4CAF50]  w-[95%] mt-[10px]"
-            disabled={isDisabetBtns}
+            disabled={isDisabetBtns || disabled}
           />
         }
         children={
           <ReceptionTable
-            columnDefs={columnDefs}
+            columnDefs={!disabled ? columnDefs : columnDefsDisabled}
             height="h-[100px]"
             rowData={rowData}
           />
@@ -80,12 +84,14 @@ const TravelPackageForm = (props: propsType) => {
         children={
           <Box className="flex flex-row items-center gap-2">
             <AutocompleteInput
+              disabled={disabled}
               data={avtoCaplektData}
               containerStyle={'w-[20%]  flex-row items-center  justify-between'}
               inputStyle="w-[100%]"
               multiple={true}
             />
             <AutocompleteInput
+              disabled={disabled}
               label="-"
               data={avtoCaplektData}
               containerStyle={'w-[20%] flex-row items-center'}
@@ -100,6 +106,7 @@ const TravelPackageForm = (props: propsType) => {
         label="Прибыл:"
         children={
           <AutocompleteInput
+            disabled={disabled}
             data={avtoCaplektData}
             containerStyle={'w-[20%] flex-row items-center  justify-between '}
             inputStyle="w-[100%]"
@@ -112,6 +119,7 @@ const TravelPackageForm = (props: propsType) => {
         children={
           <Box className="flex flex-row items-center gap-2">
             <AutocompleteInput
+              disabled={disabled}
               data={avtoCaplektData}
               containerStyle={
                 'w-[20%]  flex-row items-center  justify-between '
@@ -119,6 +127,7 @@ const TravelPackageForm = (props: propsType) => {
               inputStyle="w-[100%]"
             />
             <AutocompleteInput
+              disabled={disabled}
               label="время:"
               data={avtoCaplektData}
               containerStyle={
@@ -134,6 +143,7 @@ const TravelPackageForm = (props: propsType) => {
         label="Выбыл:"
         children={
           <AutocompleteInput
+            disabled={disabled}
             data={avtoCaplektData}
             containerStyle={'w-[20%] flex-row items-center  justify-between '}
             inputStyle="w-[100%]"
@@ -154,6 +164,7 @@ const TravelPackageForm = (props: propsType) => {
         label="Лечащий врач:"
         children={
           <AutocompleteInput
+            disabled={disabled}
             multiple={false}
             data={[watch('doctor')] || []}
             inputStyle="w-[100%]"
@@ -166,6 +177,7 @@ const TravelPackageForm = (props: propsType) => {
         label="Медсестра:"
         children={
           <AutocompleteInput
+            disabled={disabled}
             multiple={true}
             data={watch('nurse') || []}
             inputStyle="w-[100%]"
@@ -179,6 +191,7 @@ const TravelPackageForm = (props: propsType) => {
         children={
           <Box className="flex flex-row items-center gap-2">
             <AutocompleteInput
+              disabled={disabled}
               data={avtoCaplektData}
               containerStyle={'w-[25%] flex-row items-center  justify-between '}
               inputStyle="w-[100%]"
@@ -191,7 +204,8 @@ const TravelPackageForm = (props: propsType) => {
       <InfoContainer
         label="Отделение:"
         children={
-          <AutocompleteInput data={avtoCaplektData} inputStyle="w-[100%]" />
+          <AutocompleteInput
+            disabled={disabled} data={avtoCaplektData} inputStyle="w-[100%]" />
         }
       />
     </Box>

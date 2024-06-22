@@ -14,17 +14,17 @@ type propsType = {
   containerStyle?: string;
   inputStyle?: string;
   labelStyle?: string;
+  disabled?: boolean
 };
 const AutocompleteInputCheck = (props: propsType) => {
-  let { data, label, containerStyle, inputStyle, labelStyle } = props;
+  let { data, label, containerStyle, inputStyle, labelStyle, disabled } = props;
   const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
   const checkedIcon = <CheckBoxIcon fontSize="small" />;
   const [input, setInput] = useState('');
   return (
     <Box
-      className={`${
-        containerStyle ? containerStyle : 'flex-row w-[100%]'
-      } flex  gap-1 z-[100]  `}>
+      className={`${containerStyle ? containerStyle : 'flex-row w-[100%]'
+        } flex  gap-1 z-[100]  `}>
       {label ? (
         <Box className={` ${labelStyle} text-[#8d8c8c]`}>
           <Typography className="text-[14px] font-normal  mr-[5px]">
@@ -34,6 +34,7 @@ const AutocompleteInputCheck = (props: propsType) => {
       ) : null}
       <Autocomplete
         multiple
+        disabled={disabled}
         id="checkboxes-tags-demo"
         options={data}
         disableCloseOnSelect

@@ -2,14 +2,19 @@ import { Box, Typography } from '@mui/material';
 import CustomizedAccordions from 'components/CustomizedAccordions';
 import DefaultInput from 'components/defaultInput/DefaultInput';
 import AutocompleteInput from 'components/autocompleteInput';
+import { usePatientDocTPContext } from 'containers/Doctors/PatientDoctors/PatientDoctorTPContainer/module';
 
 type propsType = {
   avtoCaplektData: any;
   register: any;
+  disabled?: boolean
 };
 
 const DocumentationForm = (props: propsType) => {
-  let { avtoCaplektData, register } = props;
+  let { avtoCaplektData, disabled } = props;
+
+  const { methods: { register },
+  } = usePatientDocTPContext();
 
   return (
     <CustomizedAccordions
@@ -21,12 +26,14 @@ const DocumentationForm = (props: propsType) => {
       <Box className="flex flex-col  ">
         <Box className="w-full flex items-center justify-between mt-[10px] ">
           <AutocompleteInput
+            disabled={disabled}
             label="Страна"
             data={avtoCaplektData}
             containerStyle={'w-[49%] flex flex-col   justify-between '}
             inputStyle="w-[100%]"
           />
           <AutocompleteInput
+            disabled={disabled}
             label="Тип документа"
             data={avtoCaplektData}
             containerStyle={'w-[49%] flex flex-col   justify-between '}
@@ -35,6 +42,7 @@ const DocumentationForm = (props: propsType) => {
         </Box>
         <Box className="w-full flex flex-row items-center  gap-1 mt-[10px]">
           <DefaultInput
+            disabled={disabled}
             label="Серия"
             register={register}
             inputType={'series'}
@@ -42,6 +50,7 @@ const DocumentationForm = (props: propsType) => {
             inputStyle="w-[100%]"
           />
           <DefaultInput
+            disabled={disabled}
             label="Номер"
             register={register}
             inputType={'number'}
@@ -49,12 +58,14 @@ const DocumentationForm = (props: propsType) => {
             inputStyle="w-[100%]"
           />
           <AutocompleteInput
+            disabled={disabled}
             label="Дата выдачи"
             data={avtoCaplektData}
             containerStyle={'w-[24%] flex flex-col'}
             inputStyle="w-[100%]"
           />
           <DefaultInput
+            disabled={disabled}
             label="Код подразделения"
             register={register}
             inputType={'number'}
@@ -63,6 +74,7 @@ const DocumentationForm = (props: propsType) => {
           />
         </Box>
         <DefaultInput
+          disabled={disabled}
           label="Кем выдан"
           register={register}
           inputType={'appeal'}
@@ -70,6 +82,7 @@ const DocumentationForm = (props: propsType) => {
           inputStyle="w-[80%]"
         />
         <DefaultInput
+          disabled={disabled}
           label="СНИЛС"
           register={register}
           inputType={'appeal'}
@@ -83,6 +96,7 @@ const DocumentationForm = (props: propsType) => {
           </Typography>
           <Box className="w-full flex items-center justify-between mt-[10px] ">
             <AutocompleteInput
+              disabled={disabled}
               label="Тип полиса"
               data={avtoCaplektData}
               containerStyle={'w-[33%]  flex-col'}
@@ -90,6 +104,7 @@ const DocumentationForm = (props: propsType) => {
             />
 
             <DefaultInput
+              disabled={disabled}
               label="Серия"
               register={register}
               inputType={'number'}
@@ -97,6 +112,7 @@ const DocumentationForm = (props: propsType) => {
               inputStyle="w-[100%]"
             />
             <DefaultInput
+              disabled={disabled}
               label="Номер"
               register={register}
               inputType={'number'}
@@ -105,6 +121,7 @@ const DocumentationForm = (props: propsType) => {
             />
           </Box>
           <DefaultInput
+            disabled={disabled}
             label="Наименование СМО"
             register={register}
             inputType={'number'}

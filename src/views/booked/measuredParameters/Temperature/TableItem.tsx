@@ -14,7 +14,7 @@ interface ItemProps {
   index: number
   handleEdit: (id: number) => void
   register: UseFormRegister<TemperatureFormFields>
-  control: Control<TemperatureFormFields, any, TemperatureFormFields>
+  control: Control<TemperatureFormFields, TemperatureFormFields>
 }
 
 export const TableItem = (props: ItemProps) => {

@@ -41,9 +41,16 @@ export const useSearchDocPatientHook = () => {
     setSearchValue(value);
   }, []);
 
+  const handleClearValues = () => {
+    setSearchOptions({
+      full_name: '',
+      ib: '',
+      word: '',
+    })
+  }
   const filteredMyPatientData = useMemo(() => {
     return SearchPatientData?.filter((patient) =>
-      patient.no.toLowerCase().includes(debouncedSearchValue.toLowerCase()),
+      patient.no.toLowerCase().includes(debouncedSearchValue.toLowerCase()) || patient.name.toLowerCase().includes(debouncedSearchValue.toLowerCase()),
     );
   }, [SearchPatientData, debouncedSearchValue]);
 
@@ -73,5 +80,6 @@ export const useSearchDocPatientHook = () => {
     register,
     OnSubmit,
     handleClickedRowTable,
+    handleClearValues
   };
 };

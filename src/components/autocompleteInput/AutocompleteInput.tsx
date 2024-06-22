@@ -16,6 +16,7 @@ type propsType = {
   placeholder?: string;
   multiple?: boolean;
   optionsData?: [];
+  disabled?: boolean
 };
 
 function sleep(duration: number): Promise<void> {
@@ -26,7 +27,7 @@ function sleep(duration: number): Promise<void> {
   });
 }
 const AutocompleteInput = (props: propsType) => {
-  let { label, containerStyle, inputStyle, labelStyle, multiple, optionsData } =
+  let { label, containerStyle, inputStyle, labelStyle, multiple, optionsData, disabled } =
     props;
 
   const [open, setOpen] = React.useState(false);
@@ -61,9 +62,8 @@ const AutocompleteInput = (props: propsType) => {
 
   return (
     <Box
-      className={`${
-        containerStyle ? containerStyle : 'flex-row w-[100%]'
-      } flex  gap-1 z-[100]  `}>
+      className={`${containerStyle ? containerStyle : 'flex-row w-[100%]'
+        } flex  gap-1 z-[100]  `}>
       {label ? (
         <Box className={` ${labelStyle} text-[#8d8c8c]`}>
           <Typography className="text-[14px] font-normal  mr-[5px]">
@@ -83,6 +83,7 @@ const AutocompleteInput = (props: propsType) => {
           onClose={() => {
             setOpen(false);
           }}
+          disabled={disabled}
           loading={loading}
           options={options || []}
           isOptionEqualToValue={(option, value) =>
@@ -110,6 +111,7 @@ const AutocompleteInput = (props: propsType) => {
         />
       ) : (
         <Autocomplete
+          disabled={disabled}
           size="small"
           id="free-solo-2-demo"
           disableClearable

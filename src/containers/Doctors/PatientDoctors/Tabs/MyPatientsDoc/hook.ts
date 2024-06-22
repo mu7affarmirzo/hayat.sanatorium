@@ -19,13 +19,15 @@ export const useMyPatientsDocHook = () => {
 
   const filteredMyPatientData = useMemo(() => {
     return DocPatientsData?.filter((patient) =>
-      patient.no.toLowerCase().includes(debouncedSearchValue.toLowerCase()),
+      patient.name.toLowerCase().includes(debouncedSearchValue.toLowerCase()) || patient.no.toLowerCase().includes(debouncedSearchValue.toLowerCase()),
     );
   }, [DocPatientsData, debouncedSearchValue]);
 
+  console.log({filteredMyPatientData, debouncedSearchValue})
+
   const NumberOfPatient = useMemo(() => {
-    return DocPatientsData?.length;
-  }, [DocPatientsData?.length]);
+    return filteredMyPatientData?.length;
+  }, [filteredMyPatientData?.length]);
 
   const handleClickedRowTable = useCallback(
     (event: GetMyPatients) => {

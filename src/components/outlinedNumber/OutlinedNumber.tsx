@@ -7,39 +7,40 @@ type propsType = {
   text?: string;
   inputBoxStyle?: string;
   customvariant?: 'outlined-sm';
+  disabled?: boolean
 };
 
 const CustomField = styled(TextField)<propsType>((props) => ({
   '& .MuiInputBase-root':
     props.customvariant === 'outlined-sm'
       ? {
-          height: 24,
-          backgroundColor: 'white',
-          border: '1px solid #0000003B',
-          borderRadius: '4px',
-          textAlign: 'right',
-          '& .MuiOutlinedInput-notchedOutline': {
-            border: 'none',
-          },
-          '& .Mui-active': {
-            border: 'none',
-          },
-          '& .MuiInputBase-input': {
-            padding: '0 8px 0 4px',
-            fontSize: '12px',
-            color: '#00000061',
-            letterSpacing: '0.4px',
-            fontFamily: `Roboto, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"`,
-          },
-          '& input[type=number]::-webkit-outer-spin-button': {
-            opacity: 1,
-          },
-        }
+        height: 24,
+        backgroundColor: 'white',
+        border: '1px solid #0000003B',
+        borderRadius: '4px',
+        textAlign: 'right',
+        '& .MuiOutlinedInput-notchedOutline': {
+          border: 'none',
+        },
+        '& .Mui-active': {
+          border: 'none',
+        },
+        '& .MuiInputBase-input': {
+          padding: '0 8px 0 4px',
+          fontSize: '12px',
+          color: '#00000061',
+          letterSpacing: '0.4px',
+          fontFamily: `Roboto, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"`,
+        },
+        '& input[type=number]::-webkit-outer-spin-button': {
+          opacity: 1,
+        },
+      }
       : {},
 }));
 
 const OutlinedNumber = (props: propsType) => {
-  let { containerStyle, inputStyle, label, text, inputBoxStyle } = props;
+  let { containerStyle, inputStyle, label, text, inputBoxStyle, disabled } = props;
   return (
     <Box className={`${containerStyle} flex gap-1`}>
       {label ? (
@@ -61,6 +62,7 @@ const OutlinedNumber = (props: propsType) => {
               color: 'rgba(0, 0, 0, 0.54)',
             },
           }}
+          disabled={disabled}
         />
         {text ? (
           <Typography className="text-[14px] font-normal text-[#000] mx-[5px]">

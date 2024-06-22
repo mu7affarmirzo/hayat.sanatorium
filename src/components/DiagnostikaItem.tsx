@@ -18,6 +18,7 @@ type propsType = {
   titleStyle?: string;
   btnStyle?: string;
   disabled?: boolean;
+  disabledAll?: boolean;
   messageIconStyle?: any;
   classNameStyle?: string;
 };
@@ -35,31 +36,30 @@ const DiagnostikaItem = (props: propsType) => {
           <DefaultText style={'text-[#0057B2]'}>{props.message}</DefaultText>
         </Box>
         <Box
-          className={` ${
-            props.messageIconStyle
-              ? props.messageIconStyle
-              : 'flex  flex-col  ml-[10px]'
-          } `}>
+          className={` ${props.messageIconStyle
+            ? props.messageIconStyle
+            : 'flex  flex-col  ml-[10px]'
+            } `}>
           <IconButton
             color="primary"
+            disabled={props.disabledAll}
             aria-label="add to shopping cart"
             className=" bg-[#64B6F7] rounded-none  mx-[3px]">
             <FileAltIcon stroke="white" />
           </IconButton>
           <IconButton
             color="primary"
+            disabled={props.disabledAll}
             aria-label="add to shopping cart"
-            className={`bg-[#64B6F7] rounded-none  mx-[3px] ${
-              props.messageIconStyle ? 'mt-[0]' : ' mt-[5px]'
-            }`}>
+            className={`bg-[#64B6F7] rounded-none  mx-[3px] ${props.messageIconStyle ? 'mt-[0]' : ' mt-[5px]'
+              }`}>
             <FilePlusAltIcon />
           </IconButton>
         </Box>
       </Box>
       <Box
-        className={`flex items-center  w-[100%] ${
-          props.outline ? 'mt-[10px] ' : 'mt-[0px]'
-        }  `}>
+        className={`flex items-center  w-[100%] ${props.outline ? 'mt-[10px] ' : 'mt-[0px]'
+          }  `}>
         {props.text ? (
           <DefaultText style={'text-[#000] text-[14px]'}>
             {props.text}
@@ -71,29 +71,33 @@ const DiagnostikaItem = (props: propsType) => {
             onClick={props.onClick}
             title={props.btnTitle}
             classStyle={` ${props.btnStyle} bg-[#4CAF50]  ml-[10px] text-[#fff]`}
-            disabled={props.disabled}
+            disabled={props.disabled || props.disabledAll}
           />
         ) : null}
         {props.outline ? (
           <Box className="flex w-[70%]  ">
             <OutlinedNumber
+              disabled={props.disabledAll}
               containerStyle="flex-col w-[100px] ml-[10px] "
               inputStyle="w-[100%]"
               inputBoxStyle="flex-row-reverse"
             />
             <OutlinedNumber
+              disabled={props.disabledAll}
               containerStyle="flex w-[100px]  "
               inputStyle="w-[90%]"
               text="/"
               inputBoxStyle="flex-row-reverse"
             />
             <OutlinedNumber
+              disabled={props.disabledAll}
               containerStyle="flex-col w-[230px]  "
               inputStyle="w-[50%]"
               text="ЧСС (уд./мин):"
               inputBoxStyle="flex-row-reverse"
             />
             <OutlinedNumber
+              disabled={props.disabledAll}
               containerStyle="flex-col w-[250px]  "
               inputStyle="w-[45%]"
               text="температура тела:"

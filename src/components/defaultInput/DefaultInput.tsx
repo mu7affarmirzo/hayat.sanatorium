@@ -34,6 +34,7 @@ const DefaultInput = (props: propsType) => {
     iconBg,
     onClick,
     labelPosition = 'above', // Default position is 'above'
+    ...restProps
   } = props;
 
   return (
@@ -46,9 +47,9 @@ const DefaultInput = (props: propsType) => {
 
       <Box className={`flex gap-1 w-full `}>
         <OutlinedInput
-          className={`${
-            inputStyle ? inputStyle : 'w-[100%]'
-          } bg-[#fff] h-[40px]`}
+          className={`${inputStyle ? inputStyle : 'w-[100%]'
+            } bg-[#fff] h-[40px]`}
+          {...restProps}
           {...register(`${inputType}`, { required: true })}
           placeholder={placeholder}
         />
@@ -58,9 +59,8 @@ const DefaultInput = (props: propsType) => {
             onClick={onClick}
             color="primary"
             aria-label="add to shopping cart"
-            className={`${
-              iconBg ? iconBg : 'bg-[#64B6F7]'
-            } rounded-none mx-[3px]`}>
+            className={`${iconBg ? iconBg : 'bg-[#64B6F7]'
+              } rounded-none mx-[3px]`}>
             {icon}
           </IconButton>
         )}

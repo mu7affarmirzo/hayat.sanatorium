@@ -22,6 +22,7 @@ export const useCurrentPatientIB = () => {
     data: patientHistory,
     isLoading: isLoadingHistory,
     error: errorHistory,
+    refetch: refetchPatientHistory
   } = useGetPatientByIdQuery(currentPatient?.id!, {
     skip: !currentPatient?.id,
   });
@@ -77,6 +78,7 @@ export const useCurrentPatientIB = () => {
   return {
     memoizedPatientHistory,
     memoizedAppointmentsList,
+    refetchPatientHistory,
     isLoading: isLoadingHistory || isLoadingAppointments,
     error: errorHistory || errorAppointments,
   };

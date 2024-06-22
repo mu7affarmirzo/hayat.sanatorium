@@ -14,7 +14,7 @@ interface ItemProps {
   index: number
   handleEdit: (id: number) => void
   register: UseFormRegister<PulseFormFields>
-  control: Control<PulseFormFields, any, PulseFormFields>
+  control: Control<PulseFormFields, PulseFormFields>
 }
 
 export const TableItem = (props: ItemProps) => {

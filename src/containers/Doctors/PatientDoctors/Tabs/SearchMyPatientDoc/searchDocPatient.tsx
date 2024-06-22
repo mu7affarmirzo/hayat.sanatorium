@@ -13,6 +13,7 @@ const SearchDocPatientView = () => {
     numberOfPatient,
     handleClickedRowTable,
     SearchPatientData,
+    handleClearValues
   } = useSearchDocPatientHook();
 
   return (
@@ -20,6 +21,7 @@ const SearchDocPatientView = () => {
       <form onSubmit={handleSubmit(OnSubmit)} className="w-full">
         <SearchOptionsAccordion register={register} />
         <SearchActionsSection
+          handleClearValues={handleClearValues}
           handleSearch={handleSearch}
           numberOfPatient={numberOfPatient as never}
         />

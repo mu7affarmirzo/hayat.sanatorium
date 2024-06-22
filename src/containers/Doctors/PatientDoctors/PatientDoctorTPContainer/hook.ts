@@ -10,10 +10,17 @@ export const usePatientDocTPHook = () => {
     memoizedPatientHistory: currentPatientIB,
     isLoading,
     error,
+    refetchPatientHistory
   } = useCurrentPatientIB();
 
+  const defaultValues = async () => {
+    const data = await refetchPatientHistory()
+
+    return data?.data!
+  }
+
   const methods = useForm<GetPatientIbTypes>({
-    defaultValues: currentPatientIB,
+    defaultValues,
   });
 
   const scrollRef = useRef<any>(null);
@@ -42,13 +49,22 @@ export const usePatientDocTPHook = () => {
     return currentYear - birthYear;
   }, [currentPatientIB?.patient?.date_of_birth]);
 
-  const exampleObj = {
-    name: 'home',
-    phone_number: 999616427,
-    basic: true,
-  };
+  const rowData = useMemo(() => {
+    return currentPatientIB?.booking.living ?? []
+  }, [JSON.stringify(currentPatientIB?.booking.living)])
 
-  const copyArray = useMemo(() => [exampleObj, exampleObj], []);
+  const copyArray = useMemo(() => [
+    {
+      name: 'Домашний телефон',
+      phone_number: currentPatientIB?.patient.home_phone_number,
+      basic: true,
+    },
+    {
+      name: 'Номер мобильного телефона',
+      phone_number: currentPatientIB?.patient.mobile_phone_number,
+      basic: true,
+    },
+  ], [currentPatientIB?.patient.home_phone_number, currentPatientIB?.patient.mobile_phone_number ]);
 
   const onSubmit: SubmitHandler<GetPatientIbTypes> = (data) => {
     console.log(data);
@@ -66,5 +82,6 @@ export const usePatientDocTPHook = () => {
     isLoading: isLoading,
     activePatient: currentPatientIB,
     activePatientError: error,
+    rowData
   };
 };

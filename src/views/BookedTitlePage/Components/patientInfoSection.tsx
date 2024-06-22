@@ -4,7 +4,7 @@ import PatientForm from 'views/BookedTitlePage/Components/PatientForm';
 import PhonePushForm from 'views/BookedTitlePageTab/components/PhonePushForm';
 import { UseFormRegister } from 'react-hook-form';
 import { Patient } from 'types/booked';
-import { PhonePushColDefs } from 'components/columnDefs/phonePush';
+import { PhonePushColDefs, PhonePushColDefsDisabled } from 'components/columnDefs/phonePush';
 
 interface PatientInfoType {
   register: UseFormRegister<Patient> | any;
@@ -14,6 +14,7 @@ interface PatientInfoType {
   defaultValues?: any;
   patientDob?: number;
   patient_phones?: [];
+  disabled?: boolean
 }
 
 const PatientInfoSection = ({
@@ -24,6 +25,7 @@ const PatientInfoSection = ({
   defaultValues,
   patientDob,
   patient_phones,
+  disabled
 }: PatientInfoType) => {
   return (
     <Box className="border p-[5px] ">
@@ -34,10 +36,12 @@ const PatientInfoSection = ({
         setValue={setValue}
         defaultValues={defaultValues}
         patientDob={patientDob as never}
+        disabled={disabled}
       />
-      <HomeAddressForm avtoCaplektData={mockData} register={register} />
+      <HomeAddressForm disabled={disabled} avtoCaplektData={mockData} register={register} />
       <PhonePushForm
-        phonePush={PhonePushColDefs}
+        disabled={disabled}
+        phonePush={disabled ? PhonePushColDefsDisabled : PhonePushColDefs}
         avtoCaplektData={mockData}
         register={register}
         rowData={patient_phones}

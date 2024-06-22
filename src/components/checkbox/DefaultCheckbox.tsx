@@ -9,10 +9,11 @@ type propsType = {
   setValue: any;
   defaultChecked: boolean;
   inputType: string;
+  disabled?: boolean
 };
 
 const DefaultCheckbox = (props: Partial<propsType>) => {
-  let { style, label, leftLabel, defaultChecked, setValue, inputType } = props;
+  let { style, label, leftLabel, defaultChecked, setValue, inputType, disabled } = props;
 
   return (
     <Box className={`${style} flex items-center justify-between `}>
@@ -22,9 +23,11 @@ const DefaultCheckbox = (props: Partial<propsType>) => {
         </DefaultText>
       ) : null}
       <FormControlLabel
+        disabled={disabled}
         sx={{ padding: 0 }}
         control={
           <Checkbox
+            disabled={disabled}
             sx={props.checkboxStyle}
             defaultChecked={defaultChecked}
             size="small"

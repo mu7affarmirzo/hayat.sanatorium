@@ -2,6 +2,7 @@ import { Box, Button, Typography } from '@mui/material';
 import { ActiveDotIcon, NoActiveDotIcon } from 'assets/icons/icons';
 import SectionTitle from 'components/SectionTitle/sectionTitle';
 import DefaultInput from 'components/defaultInput/DefaultInput';
+import { usePatientDocTPContext } from 'containers/Doctors/PatientDoctors/PatientDoctorTPContainer/module';
 import { SetStateAction, memo, useEffect, useState } from 'react';
 import { UseFormRegister } from 'react-hook-form';
 import { Patient } from 'types/booked';
@@ -13,9 +14,13 @@ type propsType = {
   setValue?: any;
   defaultValues?: any;
   patientDob?: number;
+  disabled?: boolean
 };
 const PatientForm = (props: propsType) => {
-  let { polData, register, setValue, defaultValues, patientDob } = props;
+  let { polData, defaultValues, patientDob, disabled } = props;
+
+  const { methods: { register, setValue },
+  } = usePatientDocTPContext();
 
   const [activeBtn, setActiveBtn] = useState(0);
   const [isMale, setIsMale] = useState(defaultValues?.patient.gender);
@@ -31,6 +36,7 @@ const PatientForm = (props: propsType) => {
   useEffect(() => {
     const genderValue = isMale ? '[М] Мужской' : '[Ж] Женский';
 
+    // @ts-expect-error
     setValue('patient.gender', genderValue);
   }, [isMale, polData, setValue]);
 
@@ -42,6 +48,7 @@ const PatientForm = (props: propsType) => {
       />
       <Box className="w-full flex items-center justify-between ">
         <DefaultInput
+          disabled={disabled}
           register={register}
           inputType={'patient.l_name'}
           label="Фамилия"
@@ -50,6 +57,7 @@ const PatientForm = (props: propsType) => {
         />
 
         <DefaultInput
+          disabled={disabled}
           register={register}
           inputType={'patient.f_name'}
           label="Имя"
@@ -57,6 +65,7 @@ const PatientForm = (props: propsType) => {
         />
 
         <DefaultInput
+          disabled={disabled}
           register={register}
           inputType={'patient.mid_name'}
           label="Отчество"
@@ -65,6 +74,7 @@ const PatientForm = (props: propsType) => {
       </Box>
 
       <DefaultInput
+        disabled={disabled}
         label="Обращение:"
         register={register}
         inputType={'patient.appeal'}
@@ -81,18 +91,18 @@ const PatientForm = (props: propsType) => {
             onClick={() => activeButtin(index, item.id)}
             key={item?.id}
             variant="contained"
+            disabled={disabled}
             startIcon={
               item.id === activeBtn ? <ActiveDotIcon /> : <NoActiveDotIcon />
             }
-            className={` ${
-              index === 0
-                ? isMale
-                  ? 'bg-[#4CAF50] text-[#fff] border border-solid border-[#4CAF50]'
-                  : 'bg-[#fff] text-[#000] border border-solid border-[#c4c2c2]'
-                : !isMale
-                  ? 'bg-[#4CAF50] text-[#fff] border border-solid border-[#4CAF50]'
-                  : 'bg-[#fff] text-[#000] border border-solid border-[#c4c2c2]'
-            }  h-[40px]  text-[14px]  capitalize mr-[5px] px-[8px] py-[5px]  `}>
+            className={` ${index === 0
+              ? isMale
+                ? 'bg-[#4CAF50] text-[#fff] border border-solid border-[#4CAF50]'
+                : 'bg-[#fff] text-[#000] border border-solid border-[#c4c2c2]'
+              : !isMale
+                ? 'bg-[#4CAF50] text-[#fff] border border-solid border-[#4CAF50]'
+                : 'bg-[#fff] text-[#000] border border-solid border-[#c4c2c2]'
+              }  h-[40px]  text-[14px]  capitalize mr-[5px] px-[8px] py-[5px]  `}>
             {item?.name}
           </Button>
         ))}
@@ -100,6 +110,7 @@ const PatientForm = (props: propsType) => {
 
       <Box className="flex flex-row items-center ">
         <DefaultInput
+          disabled={disabled}
           label="Дата рождения"
           register={register}
           inputType={'patient.date_of_birth'}
@@ -113,6 +124,7 @@ const PatientForm = (props: propsType) => {
       </Box>
 
       <DefaultInput
+        disabled={disabled}
         label="Место работы:"
         register={register}
         inputType={'patient.work_place'}
@@ -120,6 +132,7 @@ const PatientForm = (props: propsType) => {
         inputStyle="w-[98%]"
       />
       <DefaultInput
+        disabled={disabled}
         label="Занимаемая должность:"
         register={register}
         inputType={'patient.work_position'}

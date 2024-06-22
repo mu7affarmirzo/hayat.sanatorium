@@ -27,28 +27,28 @@ const top100FilmsChack = [
   },
 ];
 
-export const rowData = [
-  {
-    number: '137',
-    name: 'Ferd Banbrook Connolly',
-    group: [],
-    arrivalData: '2023-12-06',
-    departureDate: '2023-12-15',
-    roomType: 'Lyuks A',
-    room: '51-929-6443',
-    numberOfGuest: 2,
-    level: 3,
-    howManyTimesUsed: 4,
-    capacity: 1,
-    occupied: false,
-    tariff: 5,
-    duration: 9,
-    balance: 0,
-    paid: 0,
-    discount: 0,
-    statusRoom: 'clean',
-  },
-];
+// export const rowData = [
+//   {
+//     number: '137',
+//     name: 'Ferd Banbrook Connolly',
+//     group: [],
+//     arrivalData: '2023-12-06',
+//     departureDate: '2023-12-15',
+//     roomType: 'Lyuks A',
+//     room: '51-929-6443',
+//     numberOfGuest: 2,
+//     level: 3,
+//     howManyTimesUsed: 4,
+//     capacity: 1,
+//     occupied: false,
+//     tariff: 5,
+//     duration: 9,
+//     balance: 0,
+//     paid: 0,
+//     discount: 0,
+//     statusRoom: 'clean',
+//   },
+// ];
 
 const radioForm = [
   {
@@ -89,11 +89,12 @@ const Main = () => {
     scrollRef,
     onSubmit,
     getAgePatient,
-    methods: { register, handleSubmit, setValue, watch },
     copyArray,
     isLoading,
     activePatient,
     activePatientError,
+    rowData,
+    methods: { register, handleSubmit, setValue, watch },
   } = usePatientDocTPContext();
 
   if (isLoading) {
@@ -137,6 +138,7 @@ const Main = () => {
             <Box className="flex max-larger:flex-col justify-between">
               <div className="w-[35%] max-larger:w-full">
                 <PatientInfoSection
+                  disabled={true}
                   register={register}
                   pollData={polData}
                   setValue={setValue}
@@ -148,6 +150,7 @@ const Main = () => {
                 <DocumentationForm
                   avtoCaplektData={top100FilmsChack}
                   register={register}
+                  disabled={true}
                 />
               </div>
               <Box className="w-[64%] max-larger:w-ful">
@@ -156,20 +159,22 @@ const Main = () => {
                   register={register}
                   rowData={rowData}
                   watch={watch}
+                  disabled={true}
                 />
                 <HospitalStayForm
                   avtoCaplektData={top100FilmsChack}
                   register={register}
+                  disabled={true}
                 />
-                <Comment />
-                <HarmFactors dropdownData={top100FilmsChack} />
-                <TagAutoCompleateBox data={top100FilmsChack} label="Метки" />
+                <Comment disabled={true} />
+                <HarmFactors disabled={true} dropdownData={top100FilmsChack} />
+                <TagAutoCompleateBox disabled={true} data={top100FilmsChack} label="Метки" />
               </Box>
             </Box>
-            <FrontFooter />
-            <ModeHandler radioFormData={radioForm} />
-            <DiagnostHandler />
-            <RiskFactorsAndTags mockData={top100FilmsChack} />
+            <FrontFooter rowData={rowData} disabled={true} />
+            <ModeHandler disabled={true} radioFormData={radioForm} />
+            <DiagnostHandler disabled={true} />
+            <RiskFactorsAndTags disabled={true} mockData={top100FilmsChack} />
             {/* <TitlePageBottomCheckbooks
                 setValue={setValue}
                 defaultValues={defaultValues}

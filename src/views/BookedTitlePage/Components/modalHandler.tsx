@@ -7,9 +7,10 @@ import RadioForm from 'components/RadioForm';
 
 type Props = {
   radioFormData: any;
+  disabled?: boolean
 };
 
-const ModeHandler = ({ radioFormData }: Props) => {
+const ModeHandler = ({ radioFormData, disabled }: Props) => {
   const appModals = useAppModals();
 
   return (
@@ -18,10 +19,11 @@ const ModeHandler = ({ radioFormData }: Props) => {
         <DefaultText style={'text-[14px] text-[#000]'}>Режим</DefaultText>
         <Box className="flex">
           <Box className="w-[60%] ">
-            <RadioForm data={radioFormData} />
+            <RadioForm disabled={disabled} data={radioFormData} />
           </Box>
           <Box className=" mt-[5px]">
             <DefaultButton
+              disabled={disabled}
               onClick={() => appModals?.show('add_reason')}
               title="Добавить причину"
               classStyle=" bg-[#4CAF50] "
@@ -33,10 +35,11 @@ const ModeHandler = ({ radioFormData }: Props) => {
         <DefaultText style={'text-[14px] text-[#000]'}>Режим</DefaultText>
         <Box className="flex  justify-between">
           <Box className="w-[60%] ">
-            <RadioForm data={radioFormData} />
+            <RadioForm disabled={disabled} data={radioFormData} />
           </Box>
           <Box className=" mt-[5px]">
             <DefaultButton
+              disabled={disabled}
               onClick={() => appModals?.show('add_reason')}
               title="Добавить причину"
               classStyle=" bg-[#4CAF50] "
@@ -45,6 +48,7 @@ const ModeHandler = ({ radioFormData }: Props) => {
         </Box>
         <Box className="mt-[10px]">
           <TextField
+            disabled={disabled}
             id="filled-multiline-static"
             multiline
             rows={1}

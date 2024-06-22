@@ -2,7 +2,11 @@ import { Box, TextField } from '@mui/material';
 import { ArrowDropSownIcon } from 'assets/icons/icons';
 import DefaultText from 'components/defaultText/DefaultText';
 
-const Comment = () => {
+type CommentProps = {
+  disabled?: boolean
+}
+
+const Comment = ({ disabled }: CommentProps) => {
   return (
     <Box className="w-fill  bg-[#F5F5F5] py-[8px] px-[10px] mt-[10px]">
       <Box className="flex items-center mb-[10px]">
@@ -10,6 +14,7 @@ const Comment = () => {
         <DefaultText style={'ml-[10px] text-[#000]'}>Комментарий</DefaultText>
       </Box>
       <TextField
+        disabled={disabled}
         id="filled-multiline-static"
         multiline
         rows={1}

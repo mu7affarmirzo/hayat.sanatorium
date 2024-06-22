@@ -6,11 +6,13 @@ import DefaultButton from 'components/deafultButton/DefaultButton';
 type Props = {
   numberOfPatient: number;
   handleSearch: ((value: string) => void) | undefined;
+  handleClearValues?: (() => void);
 };
 
 export const SearchActionsSection = ({
   handleSearch,
   numberOfPatient,
+  handleClearValues
 }: Props) => {
   return (
     <Grid
@@ -38,6 +40,7 @@ export const SearchActionsSection = ({
           title="Очистить фильтр"
           icon={<CloseIcon stroke="white" />}
           submitType="reset"
+          onClick={handleClearValues}
         />
       </Grid>
     </Grid>

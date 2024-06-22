@@ -14,7 +14,7 @@ interface ItemProps {
   index: number
   handleEdit: (id: number) => void
   register: UseFormRegister<SaturationFormFields>
-  control: Control<SaturationFormFields, any, SaturationFormFields>
+  control: Control<SaturationFormFields, SaturationFormFields>
 }
 
 export const TableItem = (props: ItemProps) => {

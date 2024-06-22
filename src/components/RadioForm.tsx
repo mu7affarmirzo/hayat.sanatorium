@@ -2,6 +2,7 @@ import { Box, FormControlLabel, Radio, RadioGroup } from '@mui/material';
 type propsType = {
   data?: any;
   style?: string;
+  disabled?: boolean
 };
 const RadioForm = (props: propsType) => {
   return (
@@ -13,15 +14,15 @@ const RadioForm = (props: propsType) => {
         row>
         {props.data !== undefined
           ? props.data.map((item: any, index: number) => {
-              return (
-                <FormControlLabel
-                  key={index}
-                  value={item.value}
-                  control={<Radio />}
-                  label={item.label}
-                />
-              );
-            })
+            return (
+              <FormControlLabel
+                key={index}
+                value={item.value}
+                control={<Radio disabled={props.disabled} />}
+                label={item.label}
+              />
+            );
+          })
           : null}
       </RadioGroup>
     </Box>

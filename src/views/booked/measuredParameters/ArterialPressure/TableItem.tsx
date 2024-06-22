@@ -14,7 +14,7 @@ interface ItemProps {
   index: number
   handleEdit: (id: number) => void
   register: UseFormRegister<ArterialFormFields>
-  control: Control<ArterialFormFields, any, ArterialFormFields>
+  control: Control<ArterialFormFields, ArterialFormFields>
 }
 
 export const TableItem = (props: ItemProps) => {

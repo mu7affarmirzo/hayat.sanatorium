@@ -3,16 +3,17 @@ import TagAutoCompleateBox from 'components/TagAutoCompleateBox/tagAutoCompleate
 
 type Props = {
   mockData: any;
+  disabled?: boolean
 };
 
-const RiskFactorsAndTags = ({ mockData }: Props) => {
+const RiskFactorsAndTags = ({ mockData, disabled }: Props) => {
   return (
     <Box className="flex justify-between">
       <Box className="w-[35%]">
-        <TagAutoCompleateBox data={mockData} label="Факторы риска" />
+        <TagAutoCompleateBox disabled={disabled} data={mockData} label="Факторы риска" />
       </Box>
       <Box className="w-[64.5%]">
-        <TagAutoCompleateBox data={mockData} label="Метки" />
+        <TagAutoCompleateBox disabled={disabled} data={mockData} label="Метки" />
       </Box>
     </Box>
   );

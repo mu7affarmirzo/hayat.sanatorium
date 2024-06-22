@@ -14,7 +14,7 @@ interface ItemProps {
   index: number
   handleEdit: (id: number) => void
   register: UseFormRegister<GlucometerFormFields>
-  control: Control<GlucometerFormFields, any, GlucometerFormFields>
+  control: Control<GlucometerFormFields, GlucometerFormFields>
 }
 
 export const TableItem = (props: ItemProps) => {
