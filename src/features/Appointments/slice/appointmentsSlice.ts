@@ -1,12 +1,12 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { GetInitAppointmentTypes } from '../InitAppointment/types';
-import { GetNeuroligstAppointmentTypes } from '../NeuroligstAppointment/types';
 import { GetCardiologistAppointmentTypes } from '../CardiologistAppoinemnt/types';
+import { GetDoctorOnDutyAppointmentTypes } from '../DoctorOnDutyAppointment/types';
+import { GetEkgAppointmentTypes } from '../Electrocardiogramma/types';
 import { GetExaminatorAppointment } from '../ExaminationDoctor/types';
 import { GetFinalAppointmentPostData } from '../FinalAppointment/types';
+import { GetInitAppointmentTypes } from '../InitAppointment/types';
+import { GetNeuroligstAppointmentTypes } from '../NeuroligstAppointment/types';
 import { GetRepeatedAppointment } from '../RepeatedAppointmnet/types';
-import { GetEkgAppointmentTypes } from '../Electrocardiogramma/types';
-import { GetDoctorOnDutyAppointmentTypes } from '../DoctorOnDutyAppointment/types';
 
 export interface AppointmentsTypes {
   initial: GetInitAppointmentTypes[];
@@ -17,7 +17,10 @@ export interface AppointmentsTypes {
   repeated_appointment: GetRepeatedAppointment[];
   ekg_appointment: GetEkgAppointmentTypes[];
   final_appointment: GetFinalAppointmentPostData[];
-  current_appointment: {};
+  current_appointment: {
+    key: keyof AppointmentsTypes | null;
+    appointmentID: number | null;
+  };
 }
 
 const initialState = {
@@ -43,14 +46,31 @@ const appointmentsSlice = createSlice({
         (state.appointments[type] as any[]).push(appointment);
       }
     },
-    setCurrentAppointment: (
-      state,
-      action: PayloadAction<{ key: string; appointment: any }>,
-    ) => {
-      state.appointments.current_appointment = action.payload.appointment;
-    },
     clearCurrentAppointment: (state) => {
-      state.appointments.current_appointment = {};
+      state.appointments.current_appointment = {
+        key: null,
+        appointmentID: null ,
+      };
+    },
+    setCurrentAppointmentById: (
+      state,
+      action: PayloadAction<{ type: keyof AppointmentsTypes; id: number }>,
+    ) => {
+      const { type, id } = action.payload;
+      const appointment = (state.appointments[type] as any[]).find(
+        (appt) => appt.id === id,
+      );
+      if (appointment) {
+        state.appointments.current_appointment = {
+          key: type,
+          appointmentID: id,
+        };
+      } else {
+        state.appointments.current_appointment = {
+          key: null,
+          appointmentID: null,
+        };
+      }
     },
   },
 });
@@ -58,8 +78,12 @@ const appointmentsSlice = createSlice({
 export const {
   setAppointments,
   addAppointment,
-  setCurrentAppointment,
   clearCurrentAppointment,
+  setCurrentAppointmentById,
 } = appointmentsSlice.actions;
 
 export default appointmentsSlice.reducer;
+
+// Selector to get the current appointment based on the key
+export const selectCurrentAppointment = (state: any) =>
+  state.appointments.current_appointment;

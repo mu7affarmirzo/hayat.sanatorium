@@ -5,34 +5,24 @@ import {
 } from 'features/Appointments/Electrocardiogramma/service';
 import { EkgAppointmentTypes } from 'features/Appointments/Electrocardiogramma/types';
 import { useReduxSelector } from 'hooks/useReduxHook';
-import { useEffect, useMemo } from 'react';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
 export const useElectrocardiogramAppointmentHook = () => {
   const methods = useForm<EkgAppointmentTypes>();
-
   const { appointments } = useReduxSelector((state) => state.appointments);
 
-  const CheckElectrogrammaApp = appointments.ekg_appointment
-    ? appointments.ekg_appointment[0]
-    : null;
-
-  const appointmentID = useMemo(() => {
-    if (CheckElectrogrammaApp) {
-      return CheckElectrogrammaApp.id;
-    }
-    return null;
-  }, [CheckElectrogrammaApp]);
+  const appointmentID = appointments.ekg_appointment?.[0]?.id ?? null;
 
   const { data: ekgData, refetch: refetchEkgAppointment } =
-    useGetElectrocardiogrammaQuery(appointments.ekg_appointment[0].id);
+    useGetElectrocardiogrammaQuery(appointmentID);
 
   useEffect(() => {
     if (ekgData) {
       const { id, ...restData } = ekgData;
       methods.reset(restData);
     }
-  }, [ekgData]);
+  }, [ekgData, methods]);
 
   const [fetchEkgPatch] = usePatchElectrocardiogrammaMutation();
   const [fetchEkgApp] = usePostElectrocardiogrammaMutation();
@@ -47,18 +37,16 @@ export const useElectrocardiogramAppointmentHook = () => {
       pills: [],
       state: 'Не завершено',
     };
-    if (ekgData) {
-      fetchEkgPatch({
-        id: ekgData.id,
-        body: newData,
-      }).then(() => {
-        refetchEkgAppointment();
-      });
-    } else {
-      fetchEkgApp(newData).then(() => {
-        refetchEkgAppointment();
-      });
-    }
+    const mutation = ekgData
+      ? fetchEkgPatch({
+          id: ekgData.id,
+          body: newData,
+        })
+      : fetchEkgApp(newData);
+
+    mutation.then(() => {
+      refetchEkgAppointment();
+    });
   };
 
   return {

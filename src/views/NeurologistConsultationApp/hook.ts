@@ -4,62 +4,77 @@ import {
   usePostNeurologistAppointmentMutation,
 } from 'features/Appointments/NeuroligstAppointment/service';
 import { NeuroligstAppointment } from 'features/Appointments/NeuroligstAppointment/types';
-
-import { useReduxSelector } from 'hooks/useReduxHook';
-import { useEffect, useMemo } from 'react';
+import {
+  AppointmentKeyTypes,
+  useCurrentAppointmentID,
+  useFetchAndTransformData,
+} from 'features/Appointments/slice/useAppoitnmentsSelectors';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
-export const useNeurologistAppoinmnetHook = () => {
-  const { appointments } = useReduxSelector((state) => state.appointments);
+export const useNeurologistAppointmentHook = () => {
+  const appointmentID = useCurrentAppointmentID(
+    AppointmentKeyTypes.Neurologist,
+  );
+  const {
+    currentIb,
+    convertToProcedures,
+    convertToLabResearch,
+    convertToPills,
+    convertToMedicalServices,
+  } = useFetchAndTransformData();
 
   const {
     data: neurologistAppointment,
     refetch: refetchNeurologistAppointment,
-  } = useGetNeurologistAppointmentQuery(
-    appointments.neurologist[0].id as never,
-  );
+  } = useGetNeurologistAppointmentQuery(appointmentID as never, {
+    skip: !appointmentID,
+  });
 
-  const appointentID = useMemo(() => {
-    return appointments.neurologist[0]?.id;
-  }, [appointments.neurologist]);
+  useEffect(() => {
+    if (appointmentID) {
+      refetchNeurologistAppointment();
+    }
+  }, [appointmentID, refetchNeurologistAppointment]);
+
+  const methods = useForm<NeuroligstAppointment>();
 
   useEffect(() => {
     if (neurologistAppointment) {
       const { id, ...restData } = neurologistAppointment;
       methods.reset(restData);
     }
-  }, [neurologistAppointment]);
+  }, [neurologistAppointment, methods]);
 
-  const [fetchNeurologistPatch] = usePatchNeurologistAppointmentMutation();
-  const [fetchNeuroligstApi] = usePostNeurologistAppointmentMutation();
-  const methods = useForm<NeuroligstAppointment>();
+  const [patchNeurologistAppointment] =
+    usePatchNeurologistAppointmentMutation();
+  const [postNeurologistAppointment] = usePostNeurologistAppointmentMutation();
 
-  const onSubmit = (data: NeuroligstAppointment) => {
-    const newData: NeuroligstAppointment = {
+  const handleFormSubmit = (data: NeuroligstAppointment) => {
+    const newData = {
       ...data,
-      illness_history: 1,
-      procedures: [],
-      lab_research: [],
-      medical_services: [],
-      pills: [],
+      illness_history: currentIb?.id as number,
+      pills: convertToPills,
+      procedures: convertToProcedures,
+      lab_research: convertToLabResearch,
+      medical_services: convertToMedicalServices,
     };
-    if (neurologistAppointment) {
-      fetchNeurologistPatch({
-        id: neurologistAppointment.id,
-        body: newData,
-      }).then(() => {
-        refetchNeurologistAppointment();
-      });
-    } else {
-      fetchNeuroligstApi(newData).then(() => {
-        refetchNeurologistAppointment();
-      });
-    }
+
+    const mutation = neurologistAppointment
+      ? patchNeurologistAppointment({
+          id: neurologistAppointment.id,
+          body: newData,
+        })
+      : postNeurologistAppointment(newData);
+
+    mutation.then(() => {
+      refetchNeurologistAppointment();
+    });
   };
 
   return {
-    appointmentID: appointentID,
+    appointmentID,
     methods,
-    onSubmit,
+    onSubmit: handleFormSubmit,
   };
 };

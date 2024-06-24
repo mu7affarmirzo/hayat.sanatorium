@@ -1,8 +1,8 @@
 import { PropsWithChildren, createContext, useContext } from 'react';
-import { useNeurologistAppoinmnetHook } from './hook';
+import { useNeurologistAppointmentHook } from './hook';
 
 type NeurologistAppointmentContectType = ReturnType<
-  typeof useNeurologistAppoinmnetHook
+  typeof useNeurologistAppointmentHook
 >;
 
 export const NeurologistAppointmentContext =
@@ -14,7 +14,7 @@ const useNeurologistAppoinmnetContext = () =>
   useContext(NeurologistAppointmentContext);
 
 const NeurologistAppointmentProvider = ({ children }: PropsWithChildren) => {
-  const value = useNeurologistAppoinmnetHook();
+  const value = useNeurologistAppointmentHook();
   return (
     <NeurologistAppointmentContext.Provider value={value}>
       {children}
@@ -22,4 +22,4 @@ const NeurologistAppointmentProvider = ({ children }: PropsWithChildren) => {
   );
 };
 
-export { useNeurologistAppoinmnetContext, NeurologistAppointmentProvider };
+export { NeurologistAppointmentProvider, useNeurologistAppoinmnetContext };

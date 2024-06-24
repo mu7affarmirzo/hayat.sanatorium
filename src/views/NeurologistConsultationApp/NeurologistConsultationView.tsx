@@ -22,7 +22,7 @@ const Main = () => {
         <AppointmentHeader
           doctor="Консультация невролога
           первичная, Admin"
-          appointmentID={appointmentID}
+          appointmentID={appointmentID as never}
         />
         <Box className="bg-[#fff] w-full p-[8px] pb-10 overflow-scroll max-h-max h-full">
           <DiagnostikaItem title="Жалобы" />

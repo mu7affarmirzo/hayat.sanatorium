@@ -4,35 +4,40 @@ import {
   usePostDoctorsOnDutyMutation,
 } from 'features/Appointments/DoctorOnDutyAppointment/service';
 import { DoctorOnDutyAppointmentTypes } from 'features/Appointments/DoctorOnDutyAppointment/types';
-import { useReduxSelector } from 'hooks/useReduxHook';
-import { useEffect, useMemo } from 'react';
+import {
+  AppointmentKeyTypes,
+  useCurrentAppointmentID,
+  useFetchAndTransformData,
+} from 'features/Appointments/slice/useAppoitnmentsSelectors';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
 export const useDoctorOnDutyAppointmentHook = () => {
+  const appointmentID = useCurrentAppointmentID(
+    AppointmentKeyTypes.OnDutyDoctor,
+  );
+
+  const {
+    currentIb,
+    convertToProcedures,
+    convertToLabResearch,
+    convertToPills,
+    convertToMedicalServices,
+  } = useFetchAndTransformData();
+
   const methods = useForm<DoctorOnDutyAppointmentTypes>();
 
-  const { appointments } = useReduxSelector((state) => state.appointments);
-
-  const CheckDocOnDutyApp = appointments.on_duty_doctor_on_arrival
-    ? appointments.on_duty_doctor_on_arrival[0]
-    : null;
-
-  const appointmentID = useMemo(() => {
-    if (CheckDocOnDutyApp) {
-      return CheckDocOnDutyApp.id;
-    }
-    return null;
-  }, [CheckDocOnDutyApp]);
-
   const { data: doctorOnDutyData, refetch: refetchDoctorOnDutyAppointment } =
-    useGetDoctorsOnDutyQuery(CheckDocOnDutyApp as never);
+    useGetDoctorsOnDutyQuery(appointmentID as never, {
+      skip: !appointmentID,
+    });
 
   useEffect(() => {
     if (doctorOnDutyData) {
       const { id, ...restData } = doctorOnDutyData;
       methods.reset(restData);
     }
-  }, [doctorOnDutyData]);
+  }, [doctorOnDutyData, methods]);
 
   const [fetchDoctorOnDutyPatch] = usePatchDoctorsOnDutyMutation();
   const [fetchRequest] = usePostDoctorsOnDutyMutation();
@@ -40,24 +45,23 @@ export const useDoctorOnDutyAppointmentHook = () => {
   const onSubmit = (data: DoctorOnDutyAppointmentTypes) => {
     const postData: DoctorOnDutyAppointmentTypes = {
       ...data,
-      medical_services: [],
-      lab_research: [],
-      procedures: [],
-      pills: [],
-      illness_history: 1,
+      medical_services: convertToMedicalServices,
+      lab_research: convertToLabResearch,
+      procedures: convertToProcedures,
+      pills: convertToPills,
+      illness_history: currentIb?.id ?? 1, // Assuming currentIb is an object with an id property
     };
-    if (doctorOnDutyData) {
-      fetchDoctorOnDutyPatch({
-        id: doctorOnDutyData.id,
-        body: postData,
-      }).then(() => {
-        refetchDoctorOnDutyAppointment();
-      });
-    } else {
-      fetchRequest(postData).then(() => {
-        refetchDoctorOnDutyAppointment();
-      });
-    }
+
+    const mutation = doctorOnDutyData
+      ? fetchDoctorOnDutyPatch({
+          id: doctorOnDutyData.id,
+          body: postData,
+        })
+      : fetchRequest(postData);
+
+    mutation.then(() => {
+      refetchDoctorOnDutyAppointment();
+    });
   };
 
   return {

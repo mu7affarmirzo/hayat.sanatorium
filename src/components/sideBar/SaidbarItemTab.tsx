@@ -1,4 +1,5 @@
 import { Box, Button, Typography } from '@mui/material';
+import { useAppointmentsSelectors } from 'features/Appointments/slice/useAppoitnmentsSelectors';
 import { FC, useCallback, useState } from 'react';
 
 interface Props {
@@ -13,6 +14,17 @@ interface Props {
   handleChangedChildItem?: (index: number) => void;
 }
 
+const appointmentTypesKeys = [
+  'initial',
+  'neurologist',
+  'cardiologist',
+  'on_duty_doctor_on_arrival',
+  'on_duty_doctor',
+  'repeated_appointment',
+  'ekg_appointment',
+  'final_appointment',
+];
+
 export const SidebarItemTab: FC<Props> = ({
   activeTab,
   index,
@@ -22,13 +34,17 @@ export const SidebarItemTab: FC<Props> = ({
   childItems: chiled,
 }) => {
   const [activeChildTab, setActiveChildTab] = useState<number>(0);
-
+  const { currentAppoiintmetDispatch } = useAppointmentsSelectors();
+  console.log(activeChildTab, 'activeChildTab');
   const handleChilcTab = useCallback(
     (index: number, item: any) => {
       setActiveChildTab(index);
-      console.log(item, ' child items ');
+      console.log(item, 'item');
+      if (appointmentTypesKeys.includes(item.key)) {
+        currentAppoiintmetDispatch(item.key as never, item.id);
+      }
     },
-    [setActiveChildTab],
+    [currentAppoiintmetDispatch],
   );
 
   return (

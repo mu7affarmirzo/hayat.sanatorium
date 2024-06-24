@@ -1,67 +1,78 @@
 import {
-  usePostExaminationMutation,
   useGetExaminationQuery,
-  usePatchExamationMutation
+  usePatchExamationMutation,
+  usePostExaminationMutation,
 } from 'features/Appointments/ExaminationDoctor/service';
 import { ExaminationAppointment } from 'features/Appointments/ExaminationDoctor/types';
-import { AppointmentStatus } from 'features/slices/initAppoinmentStatusSlice';
-import { useReduxSelector } from 'hooks/useReduxHook';
-import { useCallback, useEffect, useState } from 'react';
+import {
+  AppointmentKeyTypes,
+  useCurrentAppointmentID,
+  useFetchAndTransformData,
+} from 'features/Appointments/slice/useAppoitnmentsSelectors';
+import { useCallback, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
 export const useExaminationByDoctorHook = () => {
-  const [appointmentStatus, setAppointmentStatus] =
-    useState<AppointmentStatus['status']>('notCompleted');
-
-  const handleChangeStatus = useCallback(
-    (status: AppointmentStatus['status']) => {
-      setAppointmentStatus(status);
-    },
-    [setAppointmentStatus],
+  const appointmentID = useCurrentAppointmentID(
+    AppointmentKeyTypes.OnDutyDoctorOnArrival,
   );
+  const { currentIb } = useFetchAndTransformData();
 
   const methods = useForm<ExaminationAppointment>();
-  const { appointments } = useReduxSelector((state) => state.appointments) 
-  
-  const {
-  data: examinationData,
-  refetch: refetchExaminationAppointment
-  } = useGetExaminationQuery(appointments.on_duty_doctor_on_arrival[0].id)
+
+  const { data: examinationData, refetch: refetchExaminationAppointment } =
+    useGetExaminationQuery(appointmentID as never, {
+      skip: !appointmentID,
+    });
 
   useEffect(() => {
     if (examinationData) {
-      const {id, ...restData} = examinationData
-      methods.reset(restData)
+      const { id, ...restData } = examinationData;
+      methods.reset(restData);
     }
-  }, [examinationData])
+  }, [examinationData, methods]);
 
-  const [fetchExaminationPatch] = usePatchExamationMutation();
-  const [fetchRequest] = usePostExaminationMutation();
-
-  const onSubmit = (data: ExaminationAppointment) => {
-    const newData: ExaminationAppointment = {
-      ...data,
-      illness_history: 1,
-    };
-    if (examinationData) {
-      fetchExaminationPatch({
-        id: examinationData.id,
-        data: newData
-      }).then(() => {
-        refetchExaminationAppointment()
-      })
+  useEffect(() => {
+    if (appointmentID) {
+      refetchExaminationAppointment();
     }
-    else {
-      fetchRequest(newData).then(() => {
-        refetchExaminationAppointment()
+  }, [appointmentID, refetchExaminationAppointment]);
+
+  const [patchExamination] = usePatchExamationMutation();
+  const [postExamination] = usePostExaminationMutation();
+
+  const onSubmit = useCallback(
+    (data: ExaminationAppointment) => {
+      const newData: ExaminationAppointment = {
+        ...data,
+        illness_history: currentIb?.id as number,
+      };
+
+      const mutation = examinationData
+        ? patchExamination({
+            id: examinationData.id,
+            data: newData,
+          })
+        : postExamination(newData);
+
+      mutation.then(() => {
+        refetchExaminationAppointment();
       });
-    }
-  };
+    },
+    [
+      currentIb?.id,
+      examinationData,
+      patchExamination,
+      postExamination,
+      refetchExaminationAppointment,
+    ],
+  );
 
   return {
-    appointmentStatus,
-    handleChangeStatus,
+    appointmentID,
     methods,
     onSubmit,
   };
 };
+
+export default useExaminationByDoctorHook;

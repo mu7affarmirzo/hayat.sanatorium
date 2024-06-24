@@ -4,65 +4,65 @@ import {
   usePostFinalAppointmentMutation,
 } from 'features/Appointments/FinalAppointment/service';
 import { FinalAppointment } from 'features/Appointments/FinalAppointment/types';
-import { useReduxSelector } from 'hooks/useReduxHook';
-import { useEffect, useMemo } from 'react';
+import {
+  AppointmentKeyTypes,
+  useCurrentAppointmentID,
+  useFetchAndTransformData,
+} from 'features/Appointments/slice/useAppoitnmentsSelectors';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
 export const useFinalAppointmentHook = () => {
-  const { appointments } = useReduxSelector((state) => state.appointments);
+  const appointmentID = useCurrentAppointmentID(
+    AppointmentKeyTypes.FinalAppointment,
+  );
+  const { currentIb } = useFetchAndTransformData();
 
-  const CheckFinalAppointment = appointments.final_appointment
-    ? appointments.final_appointment[0]
-    : null;
+  const { data: finalAppointment, refetch: refetchFinalAppointment } =
+    useGetFinalAppointmentQuery(appointmentID as never, {
+      skip: !appointmentID,
+    });
 
-  const appointmentID = useMemo(() => {
-    if (CheckFinalAppointment) {
-      return CheckFinalAppointment.id;
+  useEffect(() => {
+    if (appointmentID) {
+      refetchFinalAppointment();
     }
-  }, [CheckFinalAppointment]);
-
-  const { data: finalData, refetch: refetchFinalAppointment } =
-    useGetFinalAppointmentQuery(CheckFinalAppointment as never);
+  }, [appointmentID, refetchFinalAppointment]);
 
   const methods = useForm<FinalAppointment>();
 
   useEffect(() => {
-    if (finalData) {
-      const { id, ...restData } = finalData;
+    if (finalAppointment) {
+      const { id, ...restData } = finalAppointment;
       methods.reset(restData);
     }
-  }, [finalData]);
+  }, [finalAppointment, methods]);
 
-  const [fetchFinalPatch] = usePatchFinalAppointmentMutation();
-  const [fetchFinal] = usePostFinalAppointmentMutation();
+  const [patchFinalAppointment] = usePatchFinalAppointmentMutation();
+  const [postFinalAppointment] = usePostFinalAppointmentMutation();
 
-  const onSubmit = (data: FinalAppointment) => {
-    console.log(data);
-    const newData: FinalAppointment = {
+  const handleFormSubmit = (data: FinalAppointment) => {
+    const newData = {
       ...data,
-      illness_history: 1,
+      illness_history: currentIb?.id as number,
       diagnosis: [1, 2],
     };
 
-    if (finalData) {
-      fetchFinalPatch({
-        id: finalData.id,
-        data: newData,
-      }).then(() => {
-        refetchFinalAppointment();
-      });
-    } else {
-      fetchFinal(newData).then(() => {
-        refetchFinalAppointment();
-      });
-    }
+    const mutation = finalAppointment
+      ? patchFinalAppointment({
+          id: finalAppointment.id,
+          data: newData,
+        })
+      : postFinalAppointment(newData);
+
+    mutation.then(() => {
+      refetchFinalAppointment();
+    });
   };
 
   return {
     appointmentID,
-    fetchFinal,
     methods,
-    onSubmit,
-    finalData,
+    onSubmit: handleFormSubmit,
   };
 };

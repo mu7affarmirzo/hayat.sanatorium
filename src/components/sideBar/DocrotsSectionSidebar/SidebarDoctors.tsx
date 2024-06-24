@@ -1,7 +1,8 @@
 import { Box } from '@mui/material';
 import { FC, useCallback, useState } from 'react';
-import { SidebarDoctorsTabBtn } from './SidebarDoctorsTabBtn';
+import { DynamicSidebarTabsDataType } from 'utils/sitebarTabsDataForDoctors';
 import { SidebarDoctorsChildTabBtn } from './SidebarDoctorsChildItemTabBtn';
+import { SidebarDoctorsTabBtn } from './SidebarDoctorsTabBtn';
 
 interface ChildItemProps {
   id: number;
@@ -17,11 +18,11 @@ export type SidebarDoctorProps = {
 };
 
 interface SidebarDoctorsTypes {
-  content: SidebarDoctorProps[];
+  content: DynamicSidebarTabsDataType[];
 }
 
 export type SidebarDoctorsBtnProps = {
-  content: SidebarDoctorProps;
+  content: DynamicSidebarTabsDataType;
   activeTab: number;
   index: number;
   onClick: () => void;
@@ -38,7 +39,7 @@ export const SidebarDoctors: FC<SidebarDoctorsTypes> = (props) => {
     <Box className="flex flex-row min-h-[calc(100vh-76px)] border w-[100vw] h-full overflow-scroll">
       <Box className="flex h-[calc(100vh-230px)] flex-col gap-1 w-[280px] p-[5px] border overflow-scroll">
         {props.content.map((item, index) => {
-          if (item.chiled) {
+          if (item.child) {
             return (
               <Box key={index}>
                 <SidebarDoctorsChildTabBtn

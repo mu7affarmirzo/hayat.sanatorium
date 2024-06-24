@@ -1,7 +1,7 @@
-import { FC } from 'react';
-import { SidebarDoctorsBtnProps } from './SidebarDoctors';
-import { SidebarItemTab } from '../SaidbarItemTab';
 import { Box } from '@mui/material';
+import { FC } from 'react';
+import { SidebarItemTab } from '../SaidbarItemTab';
+import { SidebarDoctorsBtnProps } from './SidebarDoctors';
 
 export const SidebarDoctorsChildTabBtn: FC<SidebarDoctorsBtnProps> = (
   props,
@@ -14,7 +14,7 @@ export const SidebarDoctorsChildTabBtn: FC<SidebarDoctorsBtnProps> = (
         title={props.content.title}
         hanleClicked={props.onClick}
         isAccordion
-        childItems={props.content.chiled}
+        childItems={props.content.child}
       />
     </Box>
   );

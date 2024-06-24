@@ -21,7 +21,7 @@ const Main = () => {
         className="border border-[rgba(0, 0, 0, 0.23)] h-[calc(100vh-220px)]  p-[10px] overflow-hidden ">
         <AppointmentHeader
           doctor="Повторный приём лечащего врача, Admin"
-          appointmentID={appointmentID}
+          appointmentID={appointmentID as number}
         />
         <Box className="bg-[#fff] w-full p-[8px] pb-10 overflow-scroll max-h-[calc(100vh-300px)] h-[calc(100vh-300px)]">
           <Box className="border p-[10px] flex flex-col mb-[10px]">

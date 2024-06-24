@@ -1,97 +1,110 @@
-import { TabsItem } from 'components/sideBar/SideBar';
 import PatientDoctorTPContainer from 'containers/Doctors/PatientDoctors/PatientDoctorTPContainer';
+import { AppointmentsTypes } from 'features/Appointments/slice/appointmentsSlice';
+import { compact, map } from 'lodash';
+import mainAssignmentSheet from 'views/MainAssigmentSheet';
 import TreatmentSchedule from 'views/TreatmentSchedule';
 import changelog from 'views/booked/changelog';
 import invoicesDocuments from 'views/booked/invoicesDocuments';
-import mainAssignmentSheet from 'views/MainAssigmentSheet';
 import measuredParameters from 'views/booked/measuredParameters';
 import nutrition from 'views/booked/nutrition';
 import researchSummaryTable from 'views/booked/researchSummaryTable';
 import { anotherPopopData } from './doctors/dynamicSitebarItems';
-import { AppointmentsTypes } from 'features/Appointments/slice/appointmentsSlice';
-import { map } from 'lodash';
 
-export const GenerateSidebarTabsData = (
+interface ChildItemPropsForSidebarDoctors {
+  id: number;
+  title: string;
+  link?: string;
+  key?: string;
+}
+
+export interface DynamicSidebarTabsDataType {
+  title: string;
+  component: React.ComponentType<any>;
+  child?: ChildItemPropsForSidebarDoctors[];
+  activBtnType?: string;
+}
+
+const separateAppointmentsData = (
   appointmentsList: AppointmentsTypes,
-) => {
-  const separateAppointmentsData = () => {
-    const list: TabsItem[] = map(appointmentsList ?? {}, (values, key: any) => {
-      if (!Array.isArray(values) || values.length === 0) {
+): DynamicSidebarTabsDataType[] => {
+  return compact(
+    map(appointmentsList, (appointments, key) => {
+      if (!Array.isArray(appointments) || appointments.length === 0)
         return null;
-      }
-      const items = map(values ?? [], (appointment, index) => ({
-        title: anotherPopopData[key]?.title,
-        component: anotherPopopData[key]?.component,
+
+      const items = appointments.map((appointment) => ({
+        id: appointment.id,
+        title: anotherPopopData[key]?.title ?? '',
+        link: anotherPopopData[key]?.link,
         key,
       }));
 
       return {
-        title: anotherPopopData[key]?.title,
+        title: anotherPopopData[key]?.title ?? '',
         component: anotherPopopData[key]?.component,
-        chiled: items,
+        child: items,
       };
-    }).filter((item) => item !== null) as TabsItem[];
-    return list;
-  };
+    }),
+  );
+};
 
-  const staticSidebarItemTabs: TabsItem[] = [
-    {
-      title: 'Титульная страница',
-      component: PatientDoctorTPContainer,
-      chiled: [
-        { id: 0, title: 'Диагнозы', link: '/#frontPage' },
-        { id: 2, title: 'Особые отметки', link: '/#frontPage' },
-      ],
-      activBtnType: 'panel1',
-    },
+const staticSidebarItemTabs: DynamicSidebarTabsDataType[] = [
+  {
+    title: 'Титульная страница',
+    component: PatientDoctorTPContainer,
+    child: [
+      { id: 0, title: 'Диагнозы', link: '/#frontPage' },
+      { id: 2, title: 'Особые отметки', link: '/#frontPage' },
+    ],
+    activBtnType: 'panel1',
+  },
+  {
+    title: 'Документы',
+    component: invoicesDocuments,
+  },
+  {
+    title: 'Питание',
+    component: nutrition,
+  },
+  {
+    title: 'Основной лист назначений',
+    component: mainAssignmentSheet,
+    activBtnType: 'panel1',
+    child: [
+      { id: 0, title: 'Консультации и исследования' },
+      { id: 1, title: 'Лечебные процедуры' },
+    ],
+  },
+  {
+    title: 'Сводная таблица исследований',
+    component: researchSummaryTable,
+  },
+  {
+    title: 'Измеряемые параметры',
+    component: measuredParameters,
+    activBtnType: 'panel1',
+    child: [
+      { id: 0, title: 'Артериальное давление' },
+      { id: 1, title: 'Глюкоза крови (глюкометр)' },
+      { id: 3, title: 'Пульс' },
+      { id: 4, title: 'Сатурация' },
+      { id: 5, title: 'Температура' },
+    ],
+  },
+  {
+    title: 'Расписание лечения',
+    component: TreatmentSchedule,
+  },
+  {
+    title: 'Журнал изменений',
+    component: changelog,
+  },
+];
 
-    {
-      title: 'Документы',
-      component: invoicesDocuments,
-    },
+export const GenerateSidebarTabsData = (
+  appointmentsList: AppointmentsTypes,
+): DynamicSidebarTabsDataType[] => {
+  const dynamicSidebarItemTabs = separateAppointmentsData(appointmentsList);
 
-    {
-      title: 'Питание',
-      component: nutrition,
-    },
-    {
-      title: 'Основной лист назначений',
-      component: mainAssignmentSheet,
-      activBtnType: 'panel1',
-      chiled: [
-        { id: 0, title: 'Консультации и исследования' },
-        { id: 1, title: 'Лечебные процедуры' },
-      ],
-    },
-    {
-      title: 'Сводная таблица исследований',
-      component: researchSummaryTable,
-    },
-    {
-      title: 'Измеряемые параметры',
-      component: measuredParameters,
-      activBtnType: 'panel1',
-      chiled: [
-        { id: 0, title: 'Артериальное давление' },
-        { id: 1, title: 'Глюкоза крови (глюкометр)' },
-        { id: 3, title: 'Пульс' },
-        { id: 4, title: 'Сатурация' },
-        { id: 5, title: 'Температура' },
-      ],
-    },
-    {
-      title: 'Расписание лечения',
-      component: TreatmentSchedule,
-    },
-    {
-      title: 'Журнал изменений',
-      component: changelog,
-    },
-  ];
-  const sidebarItemTabs = [
-    ...staticSidebarItemTabs,
-    ...separateAppointmentsData(),
-  ];
-
-  return sidebarItemTabs;
+  return [...staticSidebarItemTabs, ...dynamicSidebarItemTabs];
 };

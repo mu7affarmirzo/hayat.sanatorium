@@ -4,39 +4,38 @@ import {
   usePostInitAppointmentMutation,
 } from 'features/Appointments/InitAppointment/service';
 import { InitAppointment } from 'features/Appointments/InitAppointment/types';
-import { useReduxSelector } from 'hooks/useReduxHook';
-import { useEffect, useMemo } from 'react';
+import {
+  AppointmentKeyTypes,
+  useCurrentAppointmentID,
+  useFetchAndTransformData,
+} from 'features/Appointments/slice/useAppoitnmentsSelectors';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
 const useInitialAppointmentForm = () => {
-  const { activePatient } = useReduxSelector(
-    (state) => state.patientIllnesHistory,
-  );
+  const appointmentID = useCurrentAppointmentID(AppointmentKeyTypes.Initial);
+
+  const { currentIb, convertToProcedures } = useFetchAndTransformData();
 
   const methods = useForm<InitAppointment>();
 
-  const { appointments } = useReduxSelector((state) => state.appointments);
-
-  const ChechInitialAppointment = appointments.initial
-    ? appointments.initial[0]
-    : null;
-
-  const appointmentID = useMemo(() => {
-    if (ChechInitialAppointment) {
-      return ChechInitialAppointment.id;
-    }
-    return null;
-  }, [ChechInitialAppointment]);
-
   const { data: initialAppointment, refetch: refetchInitialAppointment } =
-    useGetInitAppointmentQuery(ChechInitialAppointment);
+    useGetInitAppointmentQuery(appointmentID as never, {
+      skip: !appointmentID,
+    });
+
+  useEffect(() => {
+    if (appointmentID) {
+      refetchInitialAppointment();
+    }
+  }, [appointmentID, refetchInitialAppointment]);
 
   useEffect(() => {
     if (initialAppointment) {
       const { id, ...restData } = initialAppointment;
       methods.reset(restData);
     }
-  }, [initialAppointment]);
+  }, [initialAppointment, methods]);
 
   const [fetchInitialAppointmentPatch] = usePatchInitAppointmentMutation();
   const [fetchRequest] = usePostInitAppointmentMutation();
@@ -47,21 +46,19 @@ const useInitialAppointmentForm = () => {
       medical_services: [],
       lab_research: [],
       pills: [],
-      procedures: [],
-      illness_history: activePatient.id,
+      procedures: convertToProcedures,
+      illness_history: currentIb?.id as number,
     };
-    if (initialAppointment) {
-      fetchInitialAppointmentPatch({
-        id: initialAppointment.id,
-        body: newData,
-      }).then(() => {
-        refetchInitialAppointment();
-      });
-    } else {
-      fetchRequest(newData).then(() => {
-        refetchInitialAppointment();
-      });
-    }
+    const mutation = initialAppointment
+      ? fetchInitialAppointmentPatch({
+          id: initialAppointment.id,
+          data: newData,
+        })
+      : fetchRequest(newData);
+
+    mutation.then(() => {
+      refetchInitialAppointment();
+    });
   };
 
   return {

@@ -5,10 +5,7 @@ import { TreatmentResultsSectiont } from './components/TreatmentResultsSection';
 import { FinalAppointmentProvider, useFinalAppointmentContext } from './module';
 
 const Main = () => {
-  const { appointmentID, methods, onSubmit, finalData } =
-    useFinalAppointmentContext();
-
-  console.log('FinalAppointmentView', finalData);
+  const { appointmentID, methods, onSubmit } = useFinalAppointmentContext();
 
   return (
     <Box>

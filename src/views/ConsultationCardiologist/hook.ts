@@ -1,58 +1,57 @@
-import { useTransformationsCardiologistHook } from 'features/Appointments/CardiologistAppoinemnt/model/Selectors/useTransformationsCardiologistApp';
 import {
   useGetCardiologistAppoinmnetQuery,
   usePatchCardiologistAppoinmnetMutation,
   usePostCardiologistAppoinmnetMutation,
 } from 'features/Appointments/CardiologistAppoinemnt/service';
 import { CardiologistAppointment } from 'features/Appointments/CardiologistAppoinemnt/types';
-import { useCurrentIBSelector } from 'features/DoctorsRoleService/model/selectors/useCurrentIB';
-import { useReduxSelector } from 'hooks/useReduxHook';
-import { useMemo } from 'react';
+import {
+  AppointmentKeyTypes,
+  useCurrentAppointmentID,
+  useFetchAndTransformData,
+} from 'features/Appointments/slice/useAppoitnmentsSelectors';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
 export const useCardiologistAppoinmnetHook = () => {
-  const { currentIb } = useCurrentIBSelector();
-
+  const appointmentID = useCurrentAppointmentID(
+    AppointmentKeyTypes.Cardiologist,
+  );
   const {
+    currentIb,
     convertToProcedures,
     convertToLabResearch,
     convertToPills,
     convertToMedicalServices,
-  } = useTransformationsCardiologistHook();
-
-  const methods = useForm<CardiologistAppointment>();
-
-  const { appointments } = useReduxSelector((state) => state.appointments);
-
-  const CheckCardiologistApp = appointments.cardiologist
-    ? appointments.cardiologist[0]
-    : null;
-
-  const appointmentID = useMemo(() => {
-    if (CheckCardiologistApp) {
-      return CheckCardiologistApp.id;
-    }
-    return null;
-  }, [CheckCardiologistApp]);
+  } = useFetchAndTransformData();
 
   const {
     data: cardiologistAppointment,
     refetch: refetchCardiologistAppointment,
-  } = useGetCardiologistAppoinmnetQuery(CheckCardiologistApp as never);
+  } = useGetCardiologistAppoinmnetQuery(appointmentID as never, {
+    skip: !appointmentID,
+  });
 
-  // useEffect(() => {
-  //   if (cardiologistAppointment) {
-  //     const { id, ...restData } = cardiologistAppointment;
-  //     methods.reset(restData);
-  //   }
-  // }, [cardiologistAppointment]);
+  useEffect(() => {
+    if (appointmentID) {
+      refetchCardiologistAppointment();
+    }
+  }, [appointmentID, refetchCardiologistAppointment]);
 
-  const [fetchCardiologistAppointmentPatch] =
+  const methods = useForm<CardiologistAppointment>();
+
+  useEffect(() => {
+    if (cardiologistAppointment) {
+      const { id, ...restData } = cardiologistAppointment;
+      methods.reset(restData);
+    }
+  }, [cardiologistAppointment, methods]);
+
+  const [patchCardiologistAppointment] =
     usePatchCardiologistAppoinmnetMutation();
-  const [fetchRequest] = usePostCardiologistAppoinmnetMutation();
+  const [postCardiologistAppointment] = usePostCardiologistAppoinmnetMutation();
 
-  const onSubmit = (data: CardiologistAppointment) => {
-    const newData: CardiologistAppointment = {
+  const handleFormSubmit = (data: CardiologistAppointment) => {
+    const newData = {
       ...data,
       illness_history: currentIb?.id as number,
       pills: convertToPills,
@@ -60,25 +59,22 @@ export const useCardiologistAppoinmnetHook = () => {
       lab_research: convertToLabResearch,
       medical_services: convertToMedicalServices,
     };
-    console.log(newData, 'newData in cardiologist hook');
 
-    if (cardiologistAppointment) {
-      fetchCardiologistAppointmentPatch({
-        id: cardiologistAppointment.id,
-        data: newData,
-      }).then(() => {
-        refetchCardiologistAppointment();
-      });
-    } else {
-      fetchRequest(newData).then(() => {
-        refetchCardiologistAppointment();
-      });
-    }
+    const mutation = cardiologistAppointment
+      ? patchCardiologistAppointment({
+          id: cardiologistAppointment.id,
+          data: newData,
+        })
+      : postCardiologistAppointment(newData);
+
+    mutation.then(() => {
+      refetchCardiologistAppointment();
+    });
   };
 
   return {
     appointmentID,
     methods,
-    onSubmit,
+    onSubmit: handleFormSubmit,
   };
 };
