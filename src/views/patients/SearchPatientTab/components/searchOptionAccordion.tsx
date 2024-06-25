@@ -43,6 +43,7 @@ export const SearchOptionsAccordion: FC<Props> = ({ register }) => {
           placeholder="ФИО пациента"
         />
         <DefaultInput
+          required={false}
           register={register}
           inputType={'ib'}
           containerStile="w-[33%]  "

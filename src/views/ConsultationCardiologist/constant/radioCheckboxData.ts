@@ -62,6 +62,10 @@ export const sclera_visible_mucosaOptions = [
     label: 'гиперемированные',
     value: 'hyperemic',
   },
+  {
+    label: 'высыпания',
+    value: 'rashes',
+  },
 ];
 
 export const thyroidsOptions = [
@@ -283,7 +287,7 @@ export const chestSheepOptions = [
     value: 'incorrect',
   },
   {
-    label: 'бочкообразная',
+    label: '«бочкообразная»',
     value: 'barrel_shaped',
   },
 ];

@@ -11,9 +11,10 @@ import {
   CardiologistAppointmentProvider,
   useCardiologistAppoinmnetContext,
 } from './module';
+import { AppointmentStatus } from 'features/Appointments/types';
 
 const Main = () => {
-  const { methods, onSubmit, appointmentID } =
+  const { methods, onSubmit, appointmentID, appointmentState } =
     useCardiologistAppoinmnetContext();
 
   return (
@@ -22,6 +23,8 @@ const Main = () => {
         onSubmit={methods.handleSubmit(onSubmit)}
         className="border border-[rgba(0, 0, 0, 0.23)] h-[calc(100vh-220px)]  p-[10px] overflow-hidden ">
         <AppointmentHeader
+          methods={methods}
+          appointmentState={appointmentState}
           doctor="Консультация кардиолога первичная, Admin"
           appointmentID={appointmentID as never}
         />

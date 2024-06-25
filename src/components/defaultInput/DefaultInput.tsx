@@ -34,6 +34,7 @@ const DefaultInput = (props: propsType) => {
     iconBg,
     onClick,
     labelPosition = 'above', // Default position is 'above'
+    required = true,
     ...restProps
   } = props;
 
@@ -50,8 +51,9 @@ const DefaultInput = (props: propsType) => {
           className={`${inputStyle ? inputStyle : 'w-[100%]'
             } bg-[#fff] h-[40px]`}
           {...restProps}
-          {...register(`${inputType}`, { required: true })}
+          {...register(`${inputType}`, { required: required })}
           placeholder={placeholder}
+          required={required}
         />
 
         {icon && (

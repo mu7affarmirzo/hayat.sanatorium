@@ -7,6 +7,7 @@ interface Props<T extends {}> {
   medhods: UseFormReturn<any, any, any>;
   name: Path<T>;
   required?: boolean;
+  type?: string
 }
 
 export const OutlineField = <T extends {}>({
@@ -14,6 +15,7 @@ export const OutlineField = <T extends {}>({
   name,
   required = false,
   inputWidth = '70px',
+  type
 }: Props<T>) => {
   return (
     <Box>
@@ -28,6 +30,7 @@ export const OutlineField = <T extends {}>({
         className="mx-2"
         size="small"
         {...medhods.register(name, { required })}
+        type={type}
       />
     </Box>
   );

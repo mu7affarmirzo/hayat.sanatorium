@@ -6,7 +6,7 @@ type propsType = {
   label: string;
   leftLabel: string;
   checkboxStyle: any;
-  setValue: any;
+  setValue?: (inputType?: any, value?: boolean) => void;
   defaultChecked: boolean;
   inputType: string;
   disabled?: boolean
@@ -31,7 +31,7 @@ const DefaultCheckbox = (props: Partial<propsType>) => {
             sx={props.checkboxStyle}
             defaultChecked={defaultChecked}
             size="small"
-            onChange={(e) => setValue(inputType, e.target.checked)}
+            onChange={(e) => setValue && setValue(inputType, e.target.checked)}
           />
         }
         label={label}

@@ -22,28 +22,28 @@ export const ObjectiveResearchSection = () => {
     <AppointmentSectionContainer boxTitle="Данные объективного исследования">
       <Box className="flex flex-row items-center p-1">
         <AppoinmentItemTitle title="Рост" />
-        <OutlineField medhods={methods} name="height" required={true} />
+        <OutlineField type={'number'} medhods={methods} name="height" required={true} />
         <AppoinmentItemTitle title="см," />
 
         <AppoinmentItemTitle title="вес" />
-        <OutlineField medhods={methods} name="weight" required={true} />
+        <OutlineField type={'number'} medhods={methods} name="weight" required={true} />
 
         <AppoinmentItemTitle title="кг, пульс" />
-        <OutlineField medhods={methods} name="pulse_general" required={true} />
+        <OutlineField type={'number'} medhods={methods} name="pulse_general" required={true} />
 
         <AppoinmentItemTitle title="уд/м, давление" />
-        <OutlineField medhods={methods} name="arterial_high" required={false} />
+        <OutlineField type={'number'} medhods={methods} name="arterial_high" required={false} />
 
         <AppoinmentItemTitle title="/" />
 
-        <OutlineField medhods={methods} name="arterial_low" required={false} />
+        <OutlineField type={'number'} medhods={methods} name="arterial_low" required={false} />
         <AppoinmentItemTitle title="мм рт.ст., ИМТ" />
 
-        <OutlineField medhods={methods} name="imt" required={true} />
+        <OutlineField type={'number'} medhods={methods} name="imt" required={true} />
         <AppoinmentItemTitle title="кг/м2" />
 
         <AppoinmentItemTitle title="Интерпретация показателя ИМТ" />
-        <OutlineField
+        <OutlineField type={'number'}
           medhods={methods}
           name="imt_interpretation"
           required={true}
@@ -93,6 +93,7 @@ export const ObjectiveResearchSection = () => {
         children={
           <Box>
             <RadioButtonGroup
+              required
               name="sclera_visible_mucosa"
               options={sclera_visible_mucosaOptions}
               methods={methods}
@@ -110,6 +111,7 @@ export const ObjectiveResearchSection = () => {
         children={
           <Box>
             <RadioButtonGroup
+              required
               name="thyroids"
               options={thyroidsOptions}
               methods={methods}
@@ -128,6 +130,7 @@ export const ObjectiveResearchSection = () => {
           children={
             <Box>
               <RadioButtonGroup
+                required
                 name="cervical"
                 options={cervicalOptions}
                 methods={methods}
@@ -145,6 +148,7 @@ export const ObjectiveResearchSection = () => {
           children={
             <Box>
               <RadioButtonGroup
+                required
                 name="axillary"
                 options={axillaryOptions}
                 methods={methods}
@@ -162,6 +166,7 @@ export const ObjectiveResearchSection = () => {
           children={
             <Box>
               <RadioButtonGroup
+                required
                 name="inguinal"
                 options={inguinalOptions}
                 methods={methods}

@@ -5,8 +5,10 @@ import AutocompleteInput from 'components/autocompleteInput';
 import SelectButton from 'components/buttons/SelectButton';
 import DefaultCheckbox from 'components/checkbox/DefaultCheckbox';
 import DefaultButton from 'components/deafultButton/DefaultButton';
+import { AppointmentStatus } from 'features/Appointments/types';
 import { useAppointmentStateHandler } from 'helper/appointmentStateHandler';
 import { FC } from 'react';
+import { UseFormReturn } from 'react-hook-form';
 
 const top100Films = [
   { label: 'The Shawshank Redemption', year: 1994 },
@@ -21,14 +23,23 @@ const top100Films = [
 type AppointmentHeaderViewProps = {
   doctor: string;
   appointmentID: number;
+  methods?: UseFormReturn<any>
+  appointmentState?: AppointmentStatus
 };
 
 const AppointmentHeaderView: FC<AppointmentHeaderViewProps> = ({
   doctor,
   appointmentID,
+  methods,
+  appointmentState
 }) => {
   const { appointmentStatus, handleChangeStatus } =
-    useAppointmentStateHandler(appointmentID);
+    useAppointmentStateHandler({
+      id: appointmentID,
+      methods,
+      appointmentState
+    });
+
   return (
     <Box className=" flex flex-col justify-around sticky top-0 bg-[#F5F5F5] z-10 pt-[10px]">
       <Box className="flex items-center flex-wrap justify-between h-[35%] my-3">
@@ -67,7 +78,7 @@ const AppointmentHeaderView: FC<AppointmentHeaderViewProps> = ({
         </Box>
       </Box>
       <hr />
-      {appointmentStatus === 'Не завершено' && (
+      {appointmentID && appointmentStatus === 'Не завершено' && (
         <Box className={`px-3 flex flex-row justify-between items-center`}>
           <Typography className="text-red-500 text-sm font-bold ">
             Не завершено
@@ -76,12 +87,12 @@ const AppointmentHeaderView: FC<AppointmentHeaderViewProps> = ({
             <DefaultCheckbox
               label="Приём завершён"
               inputType="appointment_completed"
-              setValue={handleChangeStatus('Приём завершён')}
+              setValue={handleChangeStatus}
             />
             <DefaultCheckbox
               label="Пациент на прием не явился"
               inputType="appointment_cancelled"
-              setValue={handleChangeStatus('Пациент на прием не явился')}
+              setValue={handleChangeStatus}
             />
           </Box>
         </Box>

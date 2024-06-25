@@ -20,7 +20,7 @@ export const RespiratorySection = () => {
     <AppointmentSectionContainer boxTitle="Органы дыхания">
       <Box className="flex flex-row items-center gap-1">
         <AppoinmentItemTitle title="ЧДД:" />
-        <OutlineField medhods={methods} name={'chdd_per_minute'} />
+        <OutlineField type={'number'} medhods={methods} name={'chdd_per_minute'} />
         <AppoinmentItemTitle title="в 1 минуту" />
       </Box>
 
@@ -34,6 +34,7 @@ export const RespiratorySection = () => {
         children={
           <Box>
             <RadioButtonGroup
+              required
               name="chest_shape"
               options={chestSheepOptions}
               methods={methods}
@@ -52,6 +53,7 @@ export const RespiratorySection = () => {
         children={
           <Box>
             <RadioButtonGroup
+              required
               name="pulmonary_fields"
               options={pulmonaryFieldsOptions}
               methods={methods}
@@ -70,6 +72,7 @@ export const RespiratorySection = () => {
         children={
           <Box>
             <RadioButtonGroup
+              required
               name="auscultation_breathing"
               options={auscultationBreathingoptions}
               methods={methods}
@@ -86,6 +89,7 @@ export const RespiratorySection = () => {
           <Box className="flex flex-row items-center gap-1 w-[97%]">
             <Box>
               <RadioButtonGroup
+                required
                 name="wheezing"
                 options={wheezingOptions}
                 methods={methods}

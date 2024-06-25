@@ -19,6 +19,7 @@ export const StartOfReceptionButton = ({ data }: Props) => {
     },
     [dispatch],
   );
+
   return (
     <Box>
       <Dropdown

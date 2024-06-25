@@ -35,26 +35,32 @@ export const SidebarItemTab: FC<Props> = ({
 }) => {
   const [activeChildTab, setActiveChildTab] = useState<number>(0);
   const { currentAppoiintmetDispatch } = useAppointmentsSelectors();
-  console.log(activeChildTab, 'activeChildTab');
+  // console.log(activeChildTab, 'activeChildTab');
   const handleChilcTab = useCallback(
     (index: number, item: any) => {
       setActiveChildTab(index);
-      console.log(item, 'item');
-      if (appointmentTypesKeys.includes(item.key)) {
+      // console.log(item, 'item');
+      if (item && appointmentTypesKeys.includes(item.key)) {
         currentAppoiintmetDispatch(item.key as never, item.id);
       }
     },
     [currentAppoiintmetDispatch],
   );
 
+  const handleClickTab = () => {
+    hanleClicked(index)
+    if (activeTab !== index && chiled?.[0]) {
+      handleChilcTab(0, chiled?.[0])
+    }
+  }
+
   return (
     <Box
-      onClick={() => hanleClicked(index)}
-      className={`flex flex-col  min-h-[30px] w-full py-[10px]  pl-[24px] cursor-pointer ${
-        activeTab === index
-          ? 'bg-[#64B6F7] text-gray-100'
-          : 'bg-[#ffffff]  text-gray-700'
-      }`}>
+      onClick={() => handleClickTab()}
+      className={`flex flex-col  min-h-[30px] w-full py-[10px]  pl-[24px] cursor-pointer ${activeTab === index
+        ? 'bg-[#64B6F7] text-gray-100'
+        : 'bg-[#ffffff]  text-gray-700'
+        }`}>
       <Typography className="text-xs font-roboto font-normal text-black flex text-start">
         {title}
       </Typography>
@@ -68,9 +74,8 @@ export const SidebarItemTab: FC<Props> = ({
                 <Button
                   onClick={() => handleChilcTab(index as never, item)}
                   size="small"
-                  className={`${
-                    activeChildTab === index ? 'bg-[#4ba2ff]' : 'bg-[#a7cef8 ]'
-                  } cursor-pointer w-[100%] text-left normal-case items-start justify-start `}>
+                  className={`${activeChildTab === index ? 'bg-[#4ba2ff]' : 'bg-[#a7cef8 ]'
+                    } cursor-pointer w-[100%] text-left normal-case items-start justify-start `}>
                   <Typography
                     className={` ${activeChildTab === index ? 'text-white' : 'text-black'} text-xs font-roboto `}>
                     {item.title}

@@ -30,6 +30,7 @@ export const CardiovascularSection = () => {
           <Box className="flex flex-row items-center gap-1">
             <Box className="flex flex-row items-center gap-1">
               <OutlineField
+                type={'number'}
                 medhods={methods}
                 name="pulse_per_min"
                 required={true}
@@ -37,6 +38,7 @@ export const CardiovascularSection = () => {
               <AppoinmentItemTitle title="уд. в 1'," />
             </Box>
             <RadioButtonGroup
+              required
               name="pulse"
               options={pulseOptions}
               methods={methods}
@@ -51,7 +53,7 @@ export const CardiovascularSection = () => {
         isGetAction
         categoryName={'fault_of_pulse'}
         fieldStyle="w-[80%]"
-        defaultCheckbox
+      // defaultCheckbox
       />
       <AutoComplateCategoryBoxView
         formMethods={methods}
@@ -60,12 +62,14 @@ export const CardiovascularSection = () => {
         children={
           <Box className="flex flex-row items-center ">
             <OutlineField
+              type={'number'}
               medhods={methods}
               name="heart_arterial_high"
               required
             />
             <AppoinmentItemTitle title="/" />
             <OutlineField
+              type={'number'}
               medhods={methods}
               name="heart_arterial_low"
               required
@@ -129,6 +133,7 @@ export const CardiovascularSection = () => {
           children={
             <Box>
               <RadioButtonGroup
+                required
                 name="heart_tone"
                 options={heartToneOptions}
                 methods={methods}
@@ -146,6 +151,7 @@ export const CardiovascularSection = () => {
           children={
             <Box>
               <RadioButtonGroup
+                required
                 name="i_tone"
                 options={iToneOptions}
                 methods={methods}
@@ -163,6 +169,7 @@ export const CardiovascularSection = () => {
           children={
             <Box>
               <RadioButtonGroup
+                required
                 name="ii_tone"
                 options={iiToneOptions}
                 methods={methods}
@@ -181,6 +188,7 @@ export const CardiovascularSection = () => {
         children={
           <Box>
             <RadioButtonGroup
+              required
               name="noise"
               options={iiToneOptions}
               methods={methods}
@@ -198,6 +206,7 @@ export const CardiovascularSection = () => {
         children={
           <Box>
             <RadioButtonGroup
+              required
               name="arterial_pulse_stop"
               options={arterialPulseStopOptions}
               methods={methods}
@@ -215,6 +224,7 @@ export const CardiovascularSection = () => {
         children={
           <Box>
             <RadioButtonGroup
+              required
               name="varicose_veins_of_superficial_veins"
               options={varicoseVeinsOfSuperficialVeinsOptions}
               methods={methods}
@@ -228,7 +238,7 @@ export const CardiovascularSection = () => {
         categoryName={'trophic_skin_changes'}
         isSearchAction
         isGetAction
-        defaultCheckbox
+        // defaultCheckbox
         fieldStyle="w-[70%]"
       />
       <TextareActionBoxView isActions isDisabled={false} />
