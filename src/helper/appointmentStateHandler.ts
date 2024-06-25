@@ -26,7 +26,7 @@ export const useAppointmentStateHandler = (props: UseStateHandlerProps) => {
   const [appointmentStatuses, setAppointmentStatuses] =
     useState<AppointmentStatuses>(defaultState);
 
-  console.log({ appointmentStatuses, defaultState, id });
+  // console.log({ appointmentStatuses, defaultState, id });
   const statuses: StatusesToCheckbox = {
     'appointment_completed': 'Приём завершён' as AppointmentStatus,
     'appointment_cancelled': 'Пациент на прием не явился' as AppointmentStatus,
