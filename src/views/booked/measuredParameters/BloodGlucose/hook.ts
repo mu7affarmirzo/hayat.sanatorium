@@ -4,6 +4,7 @@ import {
     useGlucometerEditMutation,
     useGlucometerDeleteMutation
 } from "features/MeasuredParams/service"
+import { useReduxSelector } from "hooks/useReduxHook";
 import { useFieldArray, useForm } from "react-hook-form"
 
 export interface GlucometerFormFields {
@@ -17,8 +18,11 @@ export interface GlucometerFormFields {
 };
 
 export const useGlucometer = () => {
+    const { activePatient } = useReduxSelector(
+        (currentPatientData) => currentPatientData.patientIllnesHistory,
+    );
     const [createGlucometerRequest] = useMeasuredParamsGlucometerMutation()
-    const { refetch } = useGlucometerListQuery(1)
+    const { refetch } = useGlucometerListQuery(activePatient.id)
     const [editGlucometerRequest] = useGlucometerEditMutation()
     const [deleteGlucometerRequest] = useGlucometerDeleteMutation()
 
@@ -58,7 +62,7 @@ export const useGlucometer = () => {
     }
 
     const handleAddItem = () => {
-        const illness_history = 1
+        const illness_history = activePatient.id
         const defaultValues = { blood_glucose: 0, illness_history, created_by: 1 }
 
         createGlucometerRequest(defaultValues).then(res => {

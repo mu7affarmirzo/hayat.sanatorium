@@ -62,7 +62,7 @@ const Dropdown: React.FC<Props> = ({
         anchorOrigin={anchorOrigin}
         className=""
         transformOrigin={transformOrigin}>
-        {data.map((item: DropdownMenuItem, index: any) => {
+        {data.length > 0 ? data.map((item: DropdownMenuItem, index: any) => {
           if (item.subMenu) {
             return (
               <PositionedMenu
@@ -87,7 +87,20 @@ const Dropdown: React.FC<Props> = ({
               {item.title}
             </MenuItem>
           );
-        })}
+        }) : (
+          <MenuItem
+            sx={{
+              width: '300px',
+              maxWidth: '400px',
+            }}
+            className="bg-red-300"
+            onClick={() => {
+              handleClose();
+            }}
+          >
+            Нет данных
+          </MenuItem>
+        )}
       </Menu>
     </div>
   );

@@ -4,6 +4,7 @@ import {
     useTemperatureEditMutation,
     useTemperatureDeleteMutation
 } from "features/MeasuredParams/service"
+import { useReduxSelector } from "hooks/useReduxHook";
 import { useFieldArray, useForm } from "react-hook-form"
 
 export interface TemperatureFormFields {
@@ -17,8 +18,11 @@ export interface TemperatureFormFields {
 };
 
 export const useTemperature = () => {
+    const { activePatient } = useReduxSelector(
+        (currentPatientData) => currentPatientData.patientIllnesHistory,
+    );
     const [createTemperatureRequest] = useMeasuredParamsTemperatureMutation()
-    const { refetch } = useTemperatureListQuery(1)
+    const { refetch } = useTemperatureListQuery(activePatient.id)
     const [editTemperatureRequest] = useTemperatureEditMutation()
     const [deleteTemperatureRequest] = useTemperatureDeleteMutation()
 
@@ -58,7 +62,7 @@ export const useTemperature = () => {
     }
 
     const handleAddItem = () => {
-        const illness_history = 1
+        const illness_history = activePatient.id
         const defaultValues = { temperature: 0, illness_history, created_by: 1 }
 
         createTemperatureRequest(defaultValues).then(res => {

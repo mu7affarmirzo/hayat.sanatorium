@@ -11,35 +11,62 @@ import { BloodGlucose } from './BloodGlucose';
 import { Pulse } from './Pulse';
 import { Saturation } from './Saturation';
 import { Temperature } from './Temperature';
+import { useReduxDispatch, useReduxSelector } from 'hooks/useReduxHook';
+import { addTab, removeTab, setActiveTab } from 'features/MeasuredParams/slice/measuredParamsSlice';
+import { useMemo } from 'react';
+import { MeasuredParamsTab } from 'features/MeasuredParams/types/measuredParamsTypes';
 
 const MeasuredParametersView = () => {
-  const content: TabsItem[] = [
-    {
-      title: 'Артериальное давление',
-      component: ArterialPressure,
-      icon: CloseIcon,
-    },
-    {
-      title: 'Глюкоза крови (глюкометр)',
-      component: BloodGlucose,
-      icon: CloseIcon,
-    },
-    {
-      title: 'Пульс',
-      component: Pulse,
-      icon: CloseIcon,
-    },
-    {
-      title: 'Сатурация',
-      component: Saturation,
-      icon: CloseIcon,
-    },
-    {
-      title: 'Температура',
-      component: Temperature,
-      icon: CloseIcon,
-    },
-  ];
+  const { currentTabId: activeTabId, tabsList, removedTabs } = useReduxSelector((s) => s.measuredParametersSlice)
+
+  const content: TabsItem[] = useMemo(() => {
+    return [
+      {
+        title: 'Артериальное давление',
+        id: 0,
+        component: ArterialPressure,
+        icon: CloseIcon,
+      },
+      {
+        title: 'Глюкоза крови (глюкометр)',
+        id: 1,
+        component: BloodGlucose,
+        icon: CloseIcon,
+      },
+      {
+        title: 'Пульс',
+        id: 3,
+        component: Pulse,
+        icon: CloseIcon,
+      },
+      {
+        title: 'Сатурация',
+        id: 4,
+        component: Saturation,
+        icon: CloseIcon,
+      },
+      {
+        title: 'Температура',
+        id: 5,
+        component: Temperature,
+        icon: CloseIcon,
+      },
+    ].filter((curTab) => !!tabsList.find(tab => tab.id === curTab.id))
+  }, [tabsList]);
+  console.log({ tabsList, content, activeTabId })
+  const dispatch = useReduxDispatch()
+  const handleClickActive = (id?: number, title?: string) => {
+    if (typeof id === 'number' && !!title) {
+      dispatch(setActiveTab({ id, title }))
+    }
+  }
+  const handleRemove = (id: number, title: string) => {
+    dispatch(removeTab({ id, title }))
+  }
+
+  const handleAddTab = (tab: MeasuredParamsTab) => {
+    dispatch(addTab(tab))
+  }
 
   return (
     <Box className=" h-[calc(100vh-225px)]  p-[10px] overflow-hidden ">
@@ -53,19 +80,10 @@ const MeasuredParametersView = () => {
           Измеряемые параметры
         </DefaultText>
         <Dropdown
-          handleClicked={() => {}}
+          handleClicked={handleAddTab}
           endIcon={<ArrowDropDownIcon sx={{ fill: '#fff' }} />}
           title="Добавить параметр"
-          data={[
-            {
-              id: 1,
-              title: 'Консультацию',
-            },
-            {
-              id: 2,
-              title: 'Исследование',
-            },
-          ]}
+          data={removedTabs}
           styles="bg-[#2196F3] text-[#fff] h-[30px]"
           anchorOrigin={{
             vertical: 'top',
@@ -78,7 +96,7 @@ const MeasuredParametersView = () => {
         />
       </Stack>
       <Box className="h-[calc(100vh-280px)] max-h-[calc(100vh-280px)] bg-[#fff] pt-[5px]">
-        <BookingScreenTabs content={content} />
+        <BookingScreenTabs isContentDynamic activeTabId={activeTabId} handleClickActive={handleClickActive} handleRemove={handleRemove} content={content} />
       </Box>
     </Box>
   );

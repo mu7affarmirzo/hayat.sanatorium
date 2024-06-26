@@ -39,9 +39,12 @@ export const SidebarItemTab: FC<Props> = ({
   const handleChilcTab = useCallback(
     (index: number, item: any) => {
       setActiveChildTab(index);
-      // console.log(item, 'item');
+      console.log(item, 'item');
       if (item && appointmentTypesKeys.includes(item.key)) {
         currentAppoiintmetDispatch(item.key as never, item.id);
+      }
+      if (item?.onClick && item?.title) {
+        item?.onClick(item)
       }
     },
     [currentAppoiintmetDispatch],

@@ -4,6 +4,7 @@ import consultingAndResearchReducer from 'features/ConsultingAndResearch/model/s
 import dispatchingSlice from 'features/Dispatching/dispatchingSlice';
 import patientIllnesHistorySlice from 'features/DoctorsRoleService/model/slices/patientIllnesHistorySlice';
 import selectedPatientsSlice from 'features/DoctorsRoleService/model/slices/selectedPatientsSlice';
+import { measuredParametersSlice } from 'features/MeasuredParams/slice/measuredParamsSlice';
 import { medicationSlice } from 'features/Medicals/model/slice/medicationSlice';
 import { nutritionSlice } from 'features/Nutrition/model/slice/nutritionSlice';
 import { proceduresSlice } from 'features/Prodcedures/model/slice/proceduresSlice';
@@ -32,6 +33,7 @@ export const reducers = combineReducers({
   repeatedAppointment: repeatedAppointmentSlice.reducer,
   doctorOnDutyAppointment: doctorOnDutyAppointmentSlice.reducer,
   dynamicSidebarItems: doctorsPatientSidebarSlice.reducer,
+  measuredParametersSlice: measuredParametersSlice.reducer,
   //doctors service slice here
   selectedPatients: selectedPatientsSlice,
   patientIllnesHistory: patientIllnesHistorySlice,

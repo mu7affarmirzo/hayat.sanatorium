@@ -5,6 +5,7 @@ import { SvgProps } from "types/types";
 
 interface BookingProps {
     index: number;
+    id?: number;
     title: string;
     Icon?: (props: SvgProps) => JSX.Element;
     color?: string;
@@ -12,16 +13,19 @@ interface BookingProps {
     subTitle?: string;
     activeTab: number;
     onClick?: () => void;
-    handleCloseBtn?: (title?: string) => void;
+    handleCloseBtn?: (title?: string, index?: number) => void;
 }
 
 const RenderCloseBtn: FC<BookingProps> = (props) => {
-    const { title, activeTab, index, handleCloseBtn } =
+    const { title, activeTab, index, handleCloseBtn, id } =
         props;
 
     return (
         <IconButton
-            onClick={() => { handleCloseBtn && handleCloseBtn(title) }}
+            onClick={(e) => {
+                e.stopPropagation()
+                handleCloseBtn && handleCloseBtn(title, id ?? index)
+            }}
             className="bg-[#F79E98] z-[1000] w-[24px] h-[24px] rounded-full flex justify-center items-center ml-[0px] p-0"
         >
             <CloseIcon

@@ -4,6 +4,7 @@ import {
     usePulseEditMutation,
     usePulseDeleteMutation
 } from "features/MeasuredParams/service"
+import { useReduxSelector } from "hooks/useReduxHook";
 import { useFieldArray, useForm } from "react-hook-form"
 
 export interface PulseFormFields {
@@ -17,8 +18,11 @@ export interface PulseFormFields {
 };
 
 export const usePulse = () => {
+    const { activePatient } = useReduxSelector(
+        (currentPatientData) => currentPatientData.patientIllnesHistory,
+    );
     const [createPulseRequest] = useMeasuredParamsPulseMutation()
-    const { refetch } = usePulseListQuery(1)
+    const { refetch } = usePulseListQuery(activePatient.id)
     const [editPulseRequest] = usePulseEditMutation()
     const [deletePulseRequest] = usePulseDeleteMutation()
 
@@ -58,7 +62,7 @@ export const usePulse = () => {
     }
 
     const handleAddItem = () => {
-        const illness_history = 1
+        const illness_history = activePatient.id
         const defaultValues = { pulse: 0, illness_history, created_by: 1 }
 
         createPulseRequest(defaultValues).then(res => {

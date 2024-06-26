@@ -9,12 +9,15 @@ import measuredParameters from 'views/booked/measuredParameters';
 import nutrition from 'views/booked/nutrition';
 import researchSummaryTable from 'views/booked/researchSummaryTable';
 import { anotherPopopData } from './doctors/dynamicSitebarItems';
+import { store } from 'store';
+import { setActiveTab } from 'features/MeasuredParams/slice/measuredParamsSlice';
 
 interface ChildItemPropsForSidebarDoctors {
   id: number;
   title: string;
   link?: string;
   key?: string;
+  onClick?: (item?: any) => void
 }
 
 export interface DynamicSidebarTabsDataType {
@@ -22,6 +25,15 @@ export interface DynamicSidebarTabsDataType {
   component: React.ComponentType<any>;
   child?: ChildItemPropsForSidebarDoctors[];
   activBtnType?: string;
+}
+
+const onClick = (item?: ChildItemPropsForSidebarDoctors) => {
+  console.log({ item })
+  if (item && (typeof item.id === 'number')) {
+    console.log('worked')
+    store.dispatch(setActiveTab({ id: item.id, title: item.title }))
+    // console.log({ item }, store.getState().measuredParametersSlice)
+  }
 }
 
 const separateAppointmentsData = (
@@ -84,11 +96,11 @@ const staticSidebarItemTabs: DynamicSidebarTabsDataType[] = [
     component: measuredParameters,
     activBtnType: 'panel1',
     child: [
-      { id: 0, title: 'Артериальное давление' },
-      { id: 1, title: 'Глюкоза крови (глюкометр)' },
-      { id: 3, title: 'Пульс' },
-      { id: 4, title: 'Сатурация' },
-      { id: 5, title: 'Температура' },
+      { id: 0, title: 'Артериальное давление', onClick },
+      { id: 1, title: 'Глюкоза крови (глюкометр)', onClick },
+      { id: 3, title: 'Пульс', onClick },
+      { id: 4, title: 'Сатурация', onClick },
+      { id: 5, title: 'Температура', onClick },
     ],
   },
   {

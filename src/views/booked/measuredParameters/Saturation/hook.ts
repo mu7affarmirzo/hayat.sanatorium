@@ -4,6 +4,7 @@ import {
     useSaturationEditMutation,
     useSaturationDeleteMutation
 } from "features/MeasuredParams/service"
+import { useReduxSelector } from "hooks/useReduxHook";
 import { useFieldArray, useForm } from "react-hook-form"
 
 export interface SaturationFormFields {
@@ -17,8 +18,11 @@ export interface SaturationFormFields {
 };
 
 export const useSaturation = () => {
+    const { activePatient } = useReduxSelector(
+        (currentPatientData) => currentPatientData.patientIllnesHistory,
+    );
     const [createSaturationRequest] = useMeasuredParamsSaturationMutation()
-    const { refetch } = useSaturationListQuery(1)
+    const { refetch } = useSaturationListQuery(activePatient.id)
     const [editSaturationRequest] = useSaturationEditMutation()
     const [deleteSaturationRequest] = useSaturationDeleteMutation()
 
@@ -58,7 +62,7 @@ export const useSaturation = () => {
     }
 
     const handleAddItem = () => {
-        const illness_history = 1
+        const illness_history = activePatient.id
         const defaultValues = { saturation: 0, illness_history, created_by: 1 }
 
         createSaturationRequest(defaultValues).then(res => {

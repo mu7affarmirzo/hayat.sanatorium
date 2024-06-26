@@ -49,7 +49,7 @@ const appointmentsSlice = createSlice({
     clearCurrentAppointment: (state) => {
       state.appointments.current_appointment = {
         key: null,
-        appointmentID: null ,
+        appointmentID: null,
       };
     },
     setCurrentAppointmentById: (
