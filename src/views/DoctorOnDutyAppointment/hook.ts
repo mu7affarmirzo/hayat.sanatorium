@@ -9,6 +9,7 @@ import {
   useCurrentAppointmentID,
   useFetchAndTransformData,
 } from 'features/Appointments/slice/useAppoitnmentsSelectors';
+import { AppointmentStatus } from 'features/Appointments/types';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
@@ -54,9 +55,9 @@ export const useDoctorOnDutyAppointmentHook = () => {
 
     const mutation = doctorOnDutyData
       ? fetchDoctorOnDutyPatch({
-          id: doctorOnDutyData.id,
-          body: postData,
-        })
+        id: doctorOnDutyData.id,
+        body: postData,
+      })
       : fetchRequest(postData);
 
     mutation.then(() => {
@@ -68,5 +69,6 @@ export const useDoctorOnDutyAppointmentHook = () => {
     appointmentID,
     methods,
     onSubmit,
+    appointmentState: doctorOnDutyData?.state as AppointmentStatus
   };
 };

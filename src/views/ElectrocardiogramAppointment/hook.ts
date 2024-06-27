@@ -4,6 +4,7 @@ import {
   usePostElectrocardiogrammaMutation,
 } from 'features/Appointments/Electrocardiogramma/service';
 import { EkgAppointmentTypes } from 'features/Appointments/Electrocardiogramma/types';
+import { AppointmentStatus } from 'features/Appointments/types';
 import { useReduxSelector } from 'hooks/useReduxHook';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
@@ -39,9 +40,9 @@ export const useElectrocardiogramAppointmentHook = () => {
     };
     const mutation = ekgData
       ? fetchEkgPatch({
-          id: ekgData.id,
-          body: newData,
-        })
+        id: ekgData.id,
+        body: newData,
+      })
       : fetchEkgApp(newData);
 
     mutation.then(() => {
@@ -53,5 +54,6 @@ export const useElectrocardiogramAppointmentHook = () => {
     appointmentID,
     methods,
     onSubmit,
+    appointmentState: ekgData?.state as AppointmentStatus
   };
 };

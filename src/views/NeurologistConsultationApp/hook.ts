@@ -9,6 +9,7 @@ import {
   useCurrentAppointmentID,
   useFetchAndTransformData,
 } from 'features/Appointments/slice/useAppoitnmentsSelectors';
+import { AppointmentStatus } from 'features/Appointments/types';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
@@ -62,9 +63,9 @@ export const useNeurologistAppointmentHook = () => {
 
     const mutation = neurologistAppointment
       ? patchNeurologistAppointment({
-          id: neurologistAppointment.id,
-          body: newData,
-        })
+        id: neurologistAppointment.id,
+        body: newData,
+      })
       : postNeurologistAppointment(newData);
 
     mutation.then(() => {
@@ -76,5 +77,6 @@ export const useNeurologistAppointmentHook = () => {
     appointmentID,
     methods,
     onSubmit: handleFormSubmit,
+    appointmentState: neurologistAppointment?.state as AppointmentStatus
   };
 };

@@ -5,7 +5,7 @@ import { TreatmentResultsSectiont } from './components/TreatmentResultsSection';
 import { FinalAppointmentProvider, useFinalAppointmentContext } from './module';
 
 const Main = () => {
-  const { appointmentID, methods, onSubmit } = useFinalAppointmentContext();
+  const { appointmentID, methods, onSubmit, appointmentState } = useFinalAppointmentContext();
 
   return (
     <Box>
@@ -13,6 +13,8 @@ const Main = () => {
         onSubmit={methods.handleSubmit(onSubmit)}
         className="border border-[rgba(0, 0, 0, 0.23)] h-[calc(100vh-220px)]  p-[10px] overflow-hidden ">
         <AppointmentHeader
+          methods={methods}
+          appointmentState={appointmentState}
           doctor="Заключительный прием лечащего врача, Admin"
           appointmentID={appointmentID as never}
         />

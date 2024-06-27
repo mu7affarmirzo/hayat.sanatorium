@@ -11,7 +11,7 @@ import {
 } from './module';
 
 const Main = () => {
-  const { methods, onSubmit, appointmentID } =
+  const { methods, onSubmit, appointmentID, appointmentState } =
     useDoctorOnDutyAppointmentContext();
 
   return (
@@ -20,6 +20,8 @@ const Main = () => {
         onSubmit={methods.handleSubmit(onSubmit)}
         className="border border-[rgba(0, 0, 0, 0.23)] h-[calc(100vh-220px)]  p-[10px] overflow-hidden ">
         <AppointmentHeader
+          appointmentState={appointmentState}
+          methods={methods}
           doctor="Прием дежурного врача, Admin"
           appointmentID={appointmentID as never}
         />

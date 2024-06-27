@@ -10,7 +10,7 @@ import {
 } from './module';
 
 const Main = () => {
-  const { methods, onSubmit, appointmentID } =
+  const { methods, onSubmit, appointmentID, appointmentState } =
     useElectrocardiogramAppointmentContext();
   return (
     <Box>
@@ -18,6 +18,8 @@ const Main = () => {
         onSubmit={methods.handleSubmit(onSubmit)}
         className="border border-[rgba(0, 0, 0, 0.23)] h-[calc(100vh-220px)]  p-[10px] overflow-hidden ">
         <AppointmentHeader
+          methods={methods}
+          appointmentState={appointmentState}
           doctor="ECG (Electrocardiogram), Admin"
           appointmentID={appointmentID as never}
         />

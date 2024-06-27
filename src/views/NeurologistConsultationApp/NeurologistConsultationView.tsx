@@ -12,7 +12,7 @@ import {
 } from './module';
 
 const Main = () => {
-  const { onSubmit, methods, appointmentID } =
+  const { onSubmit, methods, appointmentID, appointmentState } =
     useNeurologistAppoinmnetContext();
   return (
     <Box>
@@ -20,6 +20,8 @@ const Main = () => {
         onSubmit={methods.handleSubmit(onSubmit)}
         className="border border-[rgba(0, 0, 0, 0.23)] max-h-[calc(100vh-220px)] h-full  p-[10px] pt-0 overflow-auto relative">
         <AppointmentHeader
+          methods={methods}
+          appointmentState={appointmentState}
           doctor="Консультация невролога
           первичная, Admin"
           appointmentID={appointmentID as never}

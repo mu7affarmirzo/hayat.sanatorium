@@ -9,6 +9,7 @@ import {
   useCurrentAppointmentID,
   useFetchAndTransformData,
 } from 'features/Appointments/slice/useAppoitnmentsSelectors';
+import { AppointmentStatus } from 'features/Appointments/types';
 import { useCallback, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
@@ -50,9 +51,9 @@ export const useExaminationByDoctorHook = () => {
 
       const mutation = examinationData
         ? patchExamination({
-            id: examinationData.id,
-            data: newData,
-          })
+          id: examinationData.id,
+          data: newData,
+        })
         : postExamination(newData);
 
       mutation.then(() => {
@@ -72,6 +73,7 @@ export const useExaminationByDoctorHook = () => {
     appointmentID,
     methods,
     onSubmit,
+    appointmentState: examinationData?.state as AppointmentStatus
   };
 };
 

@@ -9,6 +9,7 @@ import {
   useCurrentAppointmentID,
   useFetchAndTransformData,
 } from 'features/Appointments/slice/useAppoitnmentsSelectors';
+import { AppointmentStatus } from 'features/Appointments/types';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
@@ -51,9 +52,9 @@ const useInitialAppointmentForm = () => {
     };
     const mutation = initialAppointment
       ? fetchInitialAppointmentPatch({
-          id: initialAppointment.id,
-          data: newData,
-        })
+        id: initialAppointment.id,
+        data: newData,
+      })
       : fetchRequest(newData);
 
     mutation.then(() => {
@@ -65,6 +66,7 @@ const useInitialAppointmentForm = () => {
     methods,
     onSubmit,
     appointmentID,
+    appointmentState: initialAppointment?.state as AppointmentStatus
   };
 };
 

@@ -9,6 +9,7 @@ import {
   useCurrentAppointmentID,
   useFetchAndTransformData,
 } from 'features/Appointments/slice/useAppoitnmentsSelectors';
+import { AppointmentStatus } from 'features/Appointments/types';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
@@ -50,9 +51,9 @@ export const useFinalAppointmentHook = () => {
 
     const mutation = finalAppointment
       ? patchFinalAppointment({
-          id: finalAppointment.id,
-          data: newData,
-        })
+        id: finalAppointment.id,
+        data: newData,
+      })
       : postFinalAppointment(newData);
 
     mutation.then(() => {
@@ -64,5 +65,6 @@ export const useFinalAppointmentHook = () => {
     appointmentID,
     methods,
     onSubmit: handleFormSubmit,
+    appointmentState: finalAppointment?.state as AppointmentStatus
   };
 };
