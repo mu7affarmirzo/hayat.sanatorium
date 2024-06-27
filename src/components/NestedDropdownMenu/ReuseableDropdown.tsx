@@ -75,8 +75,8 @@ const Dropdown: React.FC<Props> = ({
           return (
             <MenuItem
               sx={{
-                width: '300px',
-                maxWidth: '400px',
+                width: 'auto',
+                maxWidth: '600px',
               }}
               className="bg-red-300"
               onClick={() => {

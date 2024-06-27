@@ -4,6 +4,7 @@ import DefaultButton from 'components/deafultButton/DefaultButton';
 import { useCallback } from 'react';
 
 import {
+  appointmentObject,
   StartOfReceptionData,
   StartOfReceptionDataType,
 } from './diseaseHistoryTabs.constants';
@@ -12,6 +13,7 @@ import { useReduxSelector } from 'hooks/useReduxHook';
 
 import { useRemoveIllnessHistoryMutation } from 'features/DoctorsRoleService/service/doctorService';
 import { StartOfReceptionButton } from './components/startOfRecaptionAction';
+import { AppointmentsTypes } from 'features/Appointments/slice/appointmentsSlice';
 
 export const mockSelectData = [
   {
@@ -33,6 +35,29 @@ export type DropdownMenuItem = {
     title: string;
   }[];
 };
+
+export type AppointmentMenuItem = {
+  id?: number;
+  title: keyof typeof appointmentObject;
+  subMenu?: AppointmentMenuItem[];
+  child?: {
+    id: number;
+    title: string;
+  }[];
+};
+
+export type DropdownAppointmentMenuItem = {
+  id?: number;
+  title: string;
+  subMenu?: AppointmentMenuItem[];
+  child?: {
+    id: number;
+    title: string;
+  }[];
+};
+
+
+
 
 const DiseaseHistoryTopTabs = () => {
   const { activePatient } = useReduxSelector(
@@ -59,6 +84,8 @@ const DiseaseHistoryTopTabs = () => {
     },
     [fetchClose],
   );
+
+
 
   return (
     <Grid

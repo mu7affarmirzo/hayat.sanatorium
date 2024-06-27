@@ -57,7 +57,7 @@ const useInitialAppointmentForm = () => {
       : fetchRequest(newData);
 
     mutation.then(() => {
-      refetchInitialAppointment();
+      appointmentID && refetchInitialAppointment();
     });
   };
 
