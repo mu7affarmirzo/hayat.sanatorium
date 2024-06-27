@@ -2,7 +2,7 @@ import LogoutTwoToneIcon from '@mui/icons-material/LogoutTwoTone';
 import { Button, Menu, MenuItem, Typography } from '@mui/material';
 import { ArrowDropDownIcon } from '@mui/x-date-pickers';
 import React, { FC, useCallback, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { LogoSanatarumIcon } from '../../assets/icons/icons';
 import { NavBarDropdowns } from '../../constants/main';
@@ -100,9 +100,9 @@ const Headers: FC<HeaderProps> = ({ activeTab, setChangeTopTab }) => {
     <div className="">
       <HeaderContainer className="h-[76px] border-b border-gray-300">
         <LeftSection>
-          <div className=" mr-10 ">
+          <Link to='/doctors/patients' className=" mr-10 ">
             <LogoSanatarumIcon />
-          </div>
+          </Link>
           <nav className="h-[100%]">
             {NavBarDropdowns[role].map((item, i) => {
               return (
@@ -113,11 +113,10 @@ const Headers: FC<HeaderProps> = ({ activeTab, setChangeTopTab }) => {
                     aria-haspopup="true"
                     aria-expanded={anchorEl === i ? 'true' : undefined}
                     onClick={() => handleClick(i, item)}
-                    className={`rounded-none  px-[20px] h-[100%] text-sm   font-semibold  align-middle   cursor-pointer  normal-case ${
-                      activeTab === i
-                        ? 'bg-blue-400 text-gray-100'
-                        : 'bg-white  text-gray-400'
-                    } `}>
+                    className={`rounded-none  px-[20px] h-[100%] text-sm   font-semibold  align-middle   cursor-pointer  normal-case ${activeTab === i
+                      ? 'bg-blue-400 text-gray-100'
+                      : 'bg-white  text-gray-400'
+                      } `}>
                     <Typography className="text-sm  font-medium  normal-case ">
                       {item.title}
                     </Typography>

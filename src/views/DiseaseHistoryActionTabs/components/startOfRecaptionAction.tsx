@@ -32,7 +32,7 @@ export const StartOfReceptionButton = ({ data }: Props) => {
     data.forEach((menu) => {
       menu.subMenu?.forEach((subMenu) => {
         // @ts-expect-error
-        if (appointment[appointmentObject?.[subMenu.title]].length > 0) {
+        if (appointment[appointmentObject?.[subMenu.title]]?.length > 0) {
           newArr.push(subMenu)
         } else {
           newArr[0].subMenu?.push(subMenu)

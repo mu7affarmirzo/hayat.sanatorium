@@ -35,16 +35,16 @@ const useLoginHook = () => {
             storageService.save("token", data.access);
             storageService.save("refresh", data.refresh);
             console.log(parseJwt(data.access).user_role, "decode accses");
-            dispatch(loginSuccess(data.access));
+            dispatch(loginSuccess({ access: data.access, refresh: data.refresh }));
             console.log(data.access, "accses token ");
         }
     }, [data, dispatch, navigate]);
 
     const handleChange =
         (prop: keyof ILoginState) =>
-        (event: React.ChangeEvent<HTMLInputElement>) => {
-            setValues({ ...values, [prop]: event.target.value });
-        };
+            (event: React.ChangeEvent<HTMLInputElement>) => {
+                setValues({ ...values, [prop]: event.target.value });
+            };
 
     const checkInput = (
         event: React.ChangeEvent<HTMLInputElement>,
