@@ -4,6 +4,7 @@ import DefaultButton from 'components/deafultButton/DefaultButton';
 import { useCallback } from 'react';
 
 import {
+  appointmentObject,
   StartOfReceptionData,
   StartOfReceptionDataType,
 } from './diseaseHistoryTabs.constants';
@@ -37,7 +38,7 @@ export type DropdownMenuItem = {
 
 export type AppointmentMenuItem = {
   id?: number;
-  title: keyof Omit<AppointmentsTypes, 'current_appointment'>;
+  title: keyof typeof appointmentObject;
   subMenu?: AppointmentMenuItem[];
   child?: {
     id: number;
@@ -84,7 +85,7 @@ const DiseaseHistoryTopTabs = () => {
     [fetchClose],
   );
 
-  
+
 
   return (
     <Grid

@@ -6,6 +6,7 @@ import { addAppointment } from 'features/Appointments/slice/appointmentsSlice';
 import { useReduxDispatch, useReduxSelector } from 'hooks/useReduxHook';
 import { useCallback, useMemo } from 'react';
 import { DropdownAppointmentMenuItem } from '../diseaseHistoryTabs';
+import { appointmentObject, StartOfReceptionDataType, StartOfReceptionNameType } from '../diseaseHistoryTabs.constants';
 
 interface Props {
   data: DropdownAppointmentMenuItem[];
@@ -14,7 +15,7 @@ interface Props {
 export const StartOfReceptionButton = ({ data }: Props) => {
   const dispatch = useReduxDispatch();
   const appointment = useReduxSelector((s) => s.appointments.appointments)
-  // console.log({appointment});
+
   const {
     cardiologist,
     ekg_appointment,
@@ -25,12 +26,13 @@ export const StartOfReceptionButton = ({ data }: Props) => {
     on_duty_doctor_on_arrival,
     repeated_appointment
   } = appointment
-  
+
   const menuData = useMemo(() => {
     let newArr: DropdownAppointmentMenuItem[] = [{ title: data[0].title, subMenu: [] }]
     data.forEach((menu) => {
       menu.subMenu?.forEach((subMenu) => {
-        if (appointment[subMenu.title].length > 0) {
+        // @ts-expect-error
+        if (appointment[appointmentObject?.[subMenu.title]].length > 0) {
           newArr.push(subMenu)
         } else {
           newArr[0].subMenu?.push(subMenu)
@@ -50,12 +52,11 @@ export const StartOfReceptionButton = ({ data }: Props) => {
     JSON.stringify(data[0].subMenu)
   ])
 
-  // console.log({menuData});
-
   const handleClicked = useCallback(
     (item: any) => {
       console.log({ item }, 'clicked')
-      dispatch(addAppointment({ type: item.title, appointment: {} }));
+      // @ts-expect-error
+      dispatch(addAppointment({ type: appointmentObject?.[item.title], appointment: {} }));
     },
     [dispatch],
   );
