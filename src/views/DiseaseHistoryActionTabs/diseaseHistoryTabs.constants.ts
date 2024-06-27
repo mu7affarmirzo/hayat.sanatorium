@@ -1,4 +1,4 @@
-import { DropdownMenuItem } from './diseaseHistoryTabs';
+import { DropdownAppointmentMenuItem, DropdownMenuItem } from './diseaseHistoryTabs';
 
 export enum StartOfReceptionDataType {
   on_duty_doctor = 'on_duty_doctor',
@@ -11,7 +11,7 @@ export enum StartOfReceptionDataType {
   on_duty_doctor_on_arrival = 'on_duty_doctor_on_arrival',
 }
 
-export const StartOfReceptionData: DropdownMenuItem[] = [
+export const StartOfReceptionData: DropdownAppointmentMenuItem[] = [
   {
     title: 'Без назначения',
     subMenu: [

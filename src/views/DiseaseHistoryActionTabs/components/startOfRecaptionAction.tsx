@@ -3,18 +3,58 @@ import { ArrowDropDownIcon } from '@mui/x-date-pickers';
 import { VuesaxLinearPrinterIcon } from 'assets/icons/icons';
 import Dropdown from 'components/NestedDropdownMenu/ReuseableDropdown';
 import { addAppointment } from 'features/Appointments/slice/appointmentsSlice';
-import { useReduxDispatch } from 'hooks/useReduxHook';
-import { useCallback } from 'react';
+import { useReduxDispatch, useReduxSelector } from 'hooks/useReduxHook';
+import { useCallback, useMemo } from 'react';
+import { DropdownAppointmentMenuItem } from '../diseaseHistoryTabs';
 
 interface Props {
-  data: any;
+  data: DropdownAppointmentMenuItem[];
 }
 
 export const StartOfReceptionButton = ({ data }: Props) => {
   const dispatch = useReduxDispatch();
+  const appointment = useReduxSelector((s) => s.appointments.appointments)
+  // console.log({appointment});
+  const {
+    cardiologist,
+    ekg_appointment,
+    final_appointment,
+    initial,
+    neurologist,
+    on_duty_doctor,
+    on_duty_doctor_on_arrival,
+    repeated_appointment
+  } = appointment
+  
+  const menuData = useMemo(() => {
+    let newArr: DropdownAppointmentMenuItem[] = [{ title: data[0].title, subMenu: [] }]
+    data.forEach((menu) => {
+      menu.subMenu?.forEach((subMenu) => {
+        if (appointment[subMenu.title].length > 0) {
+          newArr.push(subMenu)
+        } else {
+          newArr[0].subMenu?.push(subMenu)
+        }
+      })
+    })
+    return newArr
+  }, [
+    cardiologist?.length,
+    ekg_appointment?.length,
+    final_appointment?.length,
+    initial?.length,
+    neurologist?.length,
+    on_duty_doctor?.length,
+    on_duty_doctor_on_arrival?.length,
+    repeated_appointment?.length,
+    JSON.stringify(data[0].subMenu)
+  ])
+
+  // console.log({menuData});
 
   const handleClicked = useCallback(
     (item: any) => {
+      console.log({ item }, 'clicked')
       dispatch(addAppointment({ type: item.title, appointment: {} }));
     },
     [dispatch],
@@ -25,7 +65,7 @@ export const StartOfReceptionButton = ({ data }: Props) => {
       <Dropdown
         title="Начало приёма"
         handleClicked={(item) => handleClicked(item)}
-        data={data}
+        data={menuData}
         styles="bg-[#2196F3] max-h-[46px] mx-1 h-[46px] w-[200px] min-w-[120px]"
         startIcon={<VuesaxLinearPrinterIcon />}
         endIcon={<ArrowDropDownIcon fill="white" />}
