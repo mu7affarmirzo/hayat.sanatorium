@@ -1,4 +1,5 @@
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Button, Stack, Typography } from '@mui/material';
+import { CaretRightDownIcon, CaretRightIcon, EditIcon } from 'assets/icons/icons';
 import { useAppointmentsSelectors } from 'features/Appointments/slice/useAppoitnmentsSelectors';
 import { FC, useCallback, useState } from 'react';
 
@@ -60,13 +61,23 @@ export const SidebarItemTab: FC<Props> = ({
   return (
     <Box
       onClick={() => handleClickTab()}
-      className={`flex flex-col  min-h-[30px] w-full py-[10px]  pl-[24px] cursor-pointer ${activeTab === index
+      className={`flex flex-col  min-h-[30px] w-full py-[10px]  pl-[8px] cursor-pointer ${activeTab === index
         ? 'bg-[#64B6F7] text-gray-100'
         : 'bg-[#ffffff]  text-gray-700'
         }`}>
-      <Typography className="text-xs font-roboto font-normal text-black flex text-start">
-        {title}
-      </Typography>
+      {!!chiled ?
+        <Stack direction={'row'} spacing={'4px'} alignItems={'center'}>
+          {activeTab === index ? <CaretRightDownIcon /> : <CaretRightIcon />}
+          {activeTab === index && <EditIcon width={'18px'} height={18} />}
+          <Typography className="text-xs font-roboto font-normal text-black flex text-start">
+            {title}
+          </Typography>
+        </Stack>
+        :
+        <Typography className="text-xs font-roboto font-normal text-black flex text-start">
+          {title}
+        </Typography>
+      }
       {isAccordion && (
         <ul className="items-start">
           {activeTab === index &&
